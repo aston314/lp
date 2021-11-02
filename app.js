@@ -7423,7 +7423,7 @@
             movie: SERVER.movie
           }
         };
-        ref = cordova.InAppBrowser.open(SERVER.object.MagnetUri || SERVER.object.Link, '_system');
+        var ref = cordova.InAppBrowser.open(SERVER.object.MagnetUri || SERVER.object.Link, '_blank');
         ref.addEventListener("loadstop", function(e) { 
             ref.executeScript({ code: "            var stringifiedMessageObj = JSON.stringify(intentExtra);            webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);"
             });
