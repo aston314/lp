@@ -7220,7 +7220,7 @@
       var data = JSON.stringify({
         action: 'add',
         link: object.link,
-        title: '[LAMPA] ' + object.title.replace('??', '?'),
+        title: '[LAMPA] ' + (object.title + '').replace('??', '?'),
         poster: object.poster,
         data: object.data ? JSON.stringify(object.data) : '',
         save_to_db: true
@@ -7233,7 +7233,7 @@
       var data = JSON.stringify({
         action: 'add',
         link: object.link,
-        title: '[LAMPA] ' + object.title.replace('??', '?'),
+        title: '[LAMPA] ' + (object.title + '').replace('??', '?'),
         poster: object.poster,
         data: object.data ? JSON.stringify(object.data) : '',
         save_to_db: Storage.get('torrserver_savedb', 'false')
@@ -7396,7 +7396,7 @@
     function openTorrent(SERVER) {
       if (Storage.field('platform') == 'android') {
         var intentExtra = {
-          title: "[LAMPA]" + SERVER.object.title,
+          title: "[LAMPA]" + SERVER.title,
           poster: SERVER.object.poster,
           data: {
             lampa: true,
