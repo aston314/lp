@@ -7396,7 +7396,7 @@
     function openTorrent(SERVER) {
       if (Storage.field('platform') == 'android') {
         var intentExtra = {
-          title: "[LAMPA]" + SERVER.title,
+          title: "[LAMPA]" + SERVER.object.Title,
           poster: SERVER.object.poster,
           data: {
             lampa: true,
