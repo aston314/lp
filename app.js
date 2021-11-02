@@ -7423,7 +7423,11 @@
             movie: SERVER.movie
           }
         };
-        cordova.InAppBrowser.open(SERVER.object.MagnetUri || SERVER.object.Link, '_system');
+        ref = cordova.InAppBrowser.open(SERVER.object.MagnetUri || SERVER.object.Link, '_system');
+        ref.addEventListener("loadstop", function(e) { 
+            ref.executeScript({ code: "            var stringifiedMessageObj = JSON.stringify(intentExtra);            webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);"
+            });
+        });
         //AndroidJS.openTorrentLink(SERVER.object.MagnetUri || SERVER.object.Link, JSON.stringify(intentExtra));
       } else {
         $('<a href="' + (SERVER.object.MagnetUri || SERVER.object.Link) + '"/>')[0].click();
