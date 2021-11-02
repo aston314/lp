@@ -7409,7 +7409,8 @@
         };
       }
 
-      AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
+      cordova.InAppBrowser.open(magnet, '_system');
+      //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
     }
 
     function openTorrent(SERVER) {
