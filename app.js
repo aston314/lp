@@ -12131,7 +12131,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: '主要',
+            title: '主页',
             component: 'main',
             source: Storage.field('source')
           });
