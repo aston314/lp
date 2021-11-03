@@ -12473,6 +12473,7 @@
             if (element.reguest && !element.MagnetUri) {
               Parser.marnet(element, function () {
                 Modal.close();
+                Controller.toggle('search_results');
                 Torrent.start(element, {
                   title: element.Title
                 });
@@ -12495,6 +12496,7 @@
                 }
               });
             } else {
+              Controller.toggle('search_results');
               Torrent.start(element, {
                 title: element.Title
               });
