@@ -3207,7 +3207,7 @@
             number_of_seasons: 0
           }
         }, function (json) {
-          json.title = '解析器';
+          json.title = '种子';
           json.results = json.Results.slice(0, 20);
           json.Results = null;
           json.results.forEach(function (element) {
