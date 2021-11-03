@@ -588,7 +588,7 @@
 
     var html$w = "<div class=\"notice selector\">\n    <div class=\"notice__head\">\n        <div class=\"notice__title\">{title}</div>\n        <div class=\"notice__time\">{time}</div>\n    </div>\n    \n    <div class=\"notice__descr\">{descr}</div>\n</div>";
 
-    var html$v = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">比率: <span>{bitrate} Mb/s</span></div>\n        <div class=\"torrent-item__seeds\">分发: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">下载: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
+    var html$v = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">比率: <span>{bitrate} Mb/s</span></div>\n        <div class=\"torrent-item__seeds\">种子: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">用户: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
 
     var html$u = "<div class=\"torrent-file selector\">\n    <div class=\"torrent-file__title\">{title}</div>\n    <div class=\"torrent-file__size\">{size}</div>\n</div>";
 
@@ -9635,7 +9635,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: '种子数',
+          title: '按种子数',
           sort: 'Seeders'
         }, {
           title: '按大小',
