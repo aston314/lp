@@ -1831,7 +1831,7 @@
       };
       get$4('discover/' + params.url, nparams, function (json) {
         json.filter = nparams.filter;
-        append('新', 'new', json);
+        append('新的', 'new', json);
       }, status$1.error.bind(status$1));
       get$4(params.url + '/airing_today', params, function (json) {
         append('今天播出', 'tv_today', json);
@@ -2343,7 +2343,7 @@
           type: 'COLLECTION',
           page: 1
         }, function (json) {
-          append('新', 'new', 'Novelty', json);
+          append('新的', 'new', 'Novelty', json);
         }, status$1.error.bind(status$1));
         list$3({
           url: 'topfilms',
@@ -2893,7 +2893,7 @@
       collections$1({
         id: '4655'
       }, function (json) {
-        append('推荐大家观看', '1', '4655', {
+        append('推荐大家看', '1', '4655', {
           results: json
         });
       });
@@ -3512,11 +3512,11 @@
             where: 'book'
           }, {
             title: status.like ? '从收藏夹中移除' : '喜欢',
-            subtitle: '在（赞）菜单中查找',
+            subtitle: '在（喜欢）菜单中查找',
             where: 'like'
           }, {
             title: status.wath ? '从预期中删除' : '稍后观看',
-            subtitle: '在菜单中查找（稍后）',
+            subtitle: '在（稍后）菜单中查找',
             where: 'wath'
           }],
           onBack: function onBack() {
@@ -5704,22 +5704,22 @@
       if (!(Platform.is('tizen') && Storage.field('player') == 'tizen')) {
         items = items.concat([{
           title: '填充',
-          subtitle: '视频适合全屏',
+          subtitle: '让视频全屏',
           value: 'fill',
           selected: select == 'fill'
         }, {
-          title: '缩放 115%',
-          subtitle: '缩放视频 115%',
+          title: '缩放115%',
+          subtitle: '缩放视频115%',
           value: 's115',
           selected: select == 's115'
         }, {
-          title: '缩放 130%',
-          subtitle: '缩放视频 130%',
+          title: '缩放130%',
+          subtitle: '缩放视频130%',
           value: 's130',
           selected: select == 's130'
         }, {
-          title: '垂直 115%',
-          subtitle: '放大视频 115 %',
+          title: '垂直115%',
+          subtitle: '放大视频 115%',
           value: 'v115',
           selected: select == 'v115'
         }, {
@@ -6763,7 +6763,7 @@
 
 
     function destroy$4() {
-      elems.size.text('加载...');
+      elems.size.text('正在加载...');
       elems.stat.text('- / - • - 种子');
       elems.speed.text('-');
       elems.error.addClass('hide');
@@ -7891,17 +7891,17 @@
           var menu = [];
           menu.push({
             title: status.book ? '从书签中删除' : '书签',
-            subtitle: '查看（书签）菜单',
+            subtitle: '在菜单中查找（书签）',
             where: 'book'
           });
           menu.push({
             title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '查看（赞）菜单',
+            subtitle: '在菜单中查找（喜欢）',
             where: 'like'
           });
           menu.push({
             title: status.wath ? '从预期中删除' : '稍后观看',
-            subtitle: '查看（稍后）菜单',
+            subtitle: '在菜单中查找（稍后）',
             where: 'wath'
           });
           Select.show({
@@ -10739,7 +10739,7 @@
       }, {
         time: '2021-10-25 15:00',
         title: '更新 1.3.2',
-        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls by 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
+        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
         title: '更新 1.3.1',
@@ -10791,7 +10791,7 @@
       }, {
         time: '2021-09-28 16:00',
         title: '修复',
-        descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
+        descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only if you wish. \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely\''
       }, {
         time: '2021-09-27 15:00',
         title: '解析器修复',
