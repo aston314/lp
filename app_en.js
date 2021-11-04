@@ -1928,8 +1928,8 @@
 
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
-        if (movie.length > 0) knownFor["".concat(actorGender, " - \u0424\u0438\u043B\u044C\u043C\u044B")] = movie;
-        if (tv.length > 0) knownFor["".concat(actorGender, " - \u0421\u0435\u0440\u0438\u0430\u043B\u044B")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+        if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
+        if (tv.length > 0) knownFor["".concat(actorGender, " - Serials")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
