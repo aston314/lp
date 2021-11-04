@@ -7389,7 +7389,15 @@
         };
       }
 
-      cordova.InAppBrowser.open(magnet, '_system');
+      window.plugins.intentShim.startActivity(
+      {
+          action: window.plugins.intentShim.ACTION_VIEW,
+          url: magnet,
+          extras: intentExtra
+      },
+      function() {},
+      function() {console.log('Failed to open magnet URL via Android Intent')}
+      );
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
     }
 
@@ -7403,7 +7411,15 @@
             movie: SERVER.movie
           }
         };
-        cordova.InAppBrowser.open(SERVER.object.MagnetUri || SERVER.object.Link, '_system');
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: SERVER.object.MagnetUri || SERVER.object.Link,
+            extras: intentExtra
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
         //AndroidJS.openTorrentLink(SERVER.object.MagnetUri || SERVER.object.Link, JSON.stringify(intentExtra));
       } else {
         $('<a href="' + (SERVER.object.MagnetUri || SERVER.object.Link) + '"/>')[0].click();
