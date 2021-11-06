@@ -9324,6 +9324,7 @@
 
     function open$1(hash, movie) {
       SERVER.hash = hash;
+      SERVER.movie = "";
       if (movie) SERVER.movie = movie;
 
       if (!Storage.field('internal_torrclient')) {
