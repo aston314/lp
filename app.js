@@ -1831,7 +1831,7 @@
       };
       get$4('discover/' + params.url, nparams, function (json) {
         json.filter = nparams.filter;
-        append('新', 'new', json);
+        append('新的', 'new', json);
       }, status$1.error.bind(status$1));
       get$4(params.url + '/airing_today', params, function (json) {
         append('今天播出', 'tv_today', json);
@@ -2343,7 +2343,7 @@
           type: 'COLLECTION',
           page: 1
         }, function (json) {
-          append('新', 'new', 'Novelty', json);
+          append('新的', 'new', 'Novelty', json);
         }, status$1.error.bind(status$1));
         list$3({
           url: 'topfilms',
@@ -7409,15 +7409,27 @@
         };
       }
 
-      window.plugins.intentShim.startActivity(
-      {
-          action: window.plugins.intentShim.ACTION_VIEW,
-          url: magnet,
-          extras: intentExtra
-      },
-      function() {},
-      function() {console.log('Failed to open magnet URL via Android Intent')}
-      );
+      if (SERVER.movie) {
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: magnet,
+            extras: intentExtra
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
+      }
+      else {
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: magnet
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
+      }
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
     }
 
@@ -10740,7 +10752,7 @@
       }, {
         time: '2021-10-25 15:00',
         title: '更新 1.3.2',
-        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
+        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls by 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
         title: '更新 1.3.1',

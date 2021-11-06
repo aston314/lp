@@ -7389,15 +7389,27 @@
         };
       }
 
-      window.plugins.intentShim.startActivity(
-      {
-          action: window.plugins.intentShim.ACTION_VIEW,
-          url: magnet,
-          extras: intentExtra
-      },
-      function() {},
-      function() {console.log('Failed to open magnet URL via Android Intent')}
-      );
+      if (SERVER.movie) {
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: magnet,
+            extras: intentExtra
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
+      }
+      else {
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: magnet
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
+      }
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
     }
 
