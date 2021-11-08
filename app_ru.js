@@ -7439,7 +7439,8 @@
       if (Storage.field('platform') == 'android') {
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
-          url : link
+          url : link,
+          type : "video/*"
         }, function() {
         }, function() {
           console.log("Failed to open magnet URL via Android Intent");
