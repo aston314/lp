@@ -534,7 +534,7 @@
 
     var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>附加</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置TorrServe JS客户端,否则系统客户端开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent 将被添加到 TorrServer 数据库中</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待 TorrServer 预加载缓冲区填满后再播放</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>登录</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$W = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次观看继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放比例</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用背景</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
+    var html$W = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次观看继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放比例</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用背景</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
     var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以什么语言显示来自TMDB的数据</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以您离开时的状态存储页面</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动画面</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护程序类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移动时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -1831,7 +1831,7 @@
       };
       get$4('discover/' + params.url, nparams, function (json) {
         json.filter = nparams.filter;
-        append('新的', 'new', json);
+        append('新', 'new', json);
       }, status$1.error.bind(status$1));
       get$4(params.url + '/airing_today', params, function (json) {
         append('今天播出', 'tv_today', json);
@@ -2343,7 +2343,7 @@
           type: 'COLLECTION',
           page: 1
         }, function (json) {
-          append('新的', 'new', 'Novelty', json);
+          append('新', 'new', 'Novelty', json);
         }, status$1.error.bind(status$1));
         list$3({
           url: 'topfilms',
@@ -7456,7 +7456,17 @@
     }
 
     function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') cordova.InAppBrowser.open(link, '_system');else $('<a href="' + link + '"><a/>')[0].click();
+      if (Storage.field('platform') == 'android') {
+        window.plugins.intentShim.startActivity({
+          action : window.plugins.intentShim.ACTION_VIEW,
+          url : link
+        }, function() {
+        }, function() {
+          console.log("Failed to open magnet URL via Android Intent");
+        });
+      } else {
+        $('<a href="' + link + '"><a/>')[0].click();
+      };
     }
 
     var Android = {
@@ -10749,7 +10759,7 @@
       }, {
         time: '2021-10-25 15:00',
         title: '更新 1.3.2',
-        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls by 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
+        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
         title: '更新 1.3.1',
@@ -10793,7 +10803,7 @@
       }, {
         time: '2021-09-30 18:00',
         title: '更新1.0.8',
-        descr: '1. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed output for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
+        descr: '1. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed exit for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
       }, {
         time: '2021-09-29 17:00',
         title: '更新1.0.7',
@@ -10801,7 +10811,7 @@
       }, {
         time: '2021-09-28 16:00',
         title: '修正',
-        descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only if you wish. \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely\''
+        descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
       }, {
         time: '2021-09-27 15:00',
         title: '固定解析器',

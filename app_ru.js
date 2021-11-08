@@ -7436,7 +7436,17 @@
     }
 
     function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') cordova.InAppBrowser.open(link, '_system');else $('<a href="' + link + '"><a/>')[0].click();
+      if (Storage.field('platform') == 'android') {
+        window.plugins.intentShim.startActivity({
+          action : window.plugins.intentShim.ACTION_VIEW,
+          url : link
+        }, function() {
+        }, function() {
+          console.log("Failed to open magnet URL via Android Intent");
+        });
+      } else {
+        $('<a href="' + link + '"><a/>')[0].click();
+      };
     }
 
     var Android = {
