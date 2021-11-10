@@ -2018,6 +2018,9 @@
         page: Math.round(Math.random() * 30)
       }, function (json) {
         oncomplite(json.results.filter(function (entry) {
+          if(entry.adult) {
+            return;
+          };
           return entry.backdrop_path;
         }));
       }, onerror);

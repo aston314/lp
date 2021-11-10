@@ -530,7 +530,7 @@
 
     var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡入淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片从下方和上方平滑淡入淡出</div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">通过这样做，你同意对使用公共链接查看种子和在线内容承担全部责任</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook 站点解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到站点解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在站点scraperapi.com上注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>B {q} 网站将发送 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用哪种语言搜索？</div>\n    </div>\n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">通过这样做，你同意对使用公共链接查看种子和在线内容承担全部责任</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">指向站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在站点scraperapi.com上注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>B {q} 站将发送 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用哪种语言搜索？</div>\n    </div>\n</div>";
 
     var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>附加</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置TorrServe JS客户端,否则系统客户端开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent 将被添加到 TorrServer 数据库中</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待 TorrServer 预加载缓冲区填满后再播放</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>登录</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -594,7 +594,7 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看电影、新产品、热门电影等信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.3\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看电影、新片、热门电影等信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.3\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
@@ -2018,6 +2018,9 @@
         page: Math.round(Math.random() * 30)
       }, function (json) {
         oncomplite(json.results.filter(function (entry) {
+          if(entry.adult) {
+            return;
+          };
           return entry.backdrop_path;
         }));
       }, onerror);
@@ -7848,7 +7851,7 @@
           if (Storage.field('parse_lang') == 'ru' || !/\w{3}/.test(query)) query = data.movie.title;
           Activity$1.push({
             url: '',
-            title: 'Torrents',
+            title: '种子',
             component: 'torrents',
             search: query,
             search_one: data.movie.title,
@@ -10515,7 +10518,7 @@
             Activity$1.push({
               url: card_data.url,
               id: card_data.id,
-              title: '收藏 -' + card_data.title,
+              title: '合集 -' + card_data.title,
               component: 'collections_view',
               source: object.source,
               page: 1
@@ -10820,7 +10823,7 @@
       }, {
         time: '2021-09-26 17:00',
         title: '欢迎！',
-        descr: 'This is your first launch of the app, we hope you enjoy it very much. Enjoy your viewing. \''
+        descr: 'This is your first launch of the application, we hope you enjoy it very much. Enjoy your viewing. \''
       }];
       Arrays.extend(data, {
         time: 0
@@ -11604,7 +11607,7 @@
           url: 'jac.red'
         }, {
           title: 'j.govno .co.uk',
-          subtitle: '对于种子, Api key - 1',
+          subtitle: '对于种子, Api 密钥 - 1',
           url: 'j.govno.co.uk'
         }, {
           title: '127.0.0.1 8090',
@@ -12221,17 +12224,17 @@
           Select.show({
             title: '合集',
             items: [{
-              title: 'ivi 收藏',
+              title: 'ivi 上的合集',
               source: 'ivi'
             }, {
-              title: 'okko 收藏',
+              title: 'okko 上的合集',
               source: 'okko'
             }],
             onSelect: function onSelect(a) {
               Activity$1.push({
                 url: '',
                 source: a.source,
-                title: '收藏 -' + a.title,
+                title: '合集 -' + a.title,
                 component: 'collections',
                 page: 1
               });
