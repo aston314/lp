@@ -33,6 +33,7 @@
           translations:[]
         }]
       };
+      var websitelink = "https://www.7xiady.cc";
 
       this.create = function () {
         var _this = this;
@@ -79,10 +80,12 @@
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
         var searchresult = searchresult[1].search("stui-vodlist__item");
+        //console.log(str.includes('To be'));
 
         //console.log(searchresult);
         //console.log("searchresult");
         //console.log(75 = -1);
+
         if(searchresult < 0){
 /*          listlink = {
             Results: []
@@ -95,10 +98,13 @@
           Results: []
         };
         $.each(math, function (i, a) {
+          if(i == 1){
+            return false;
+          };
           var element = $(a),
               item = {};
           item.Title = $('.stui-vodlist__thumb', element).attr('title');
-          item.Link = "https://www.7xiady.cc"+$('.stui-vodlist__thumb', element).attr('href');
+          item.Link = websitelink+$('.stui-vodlist__thumb', element).attr('href');
           var searchtitle = item.Title;
           console.log(item.Link);
                   //取得具体页面的详情地址
@@ -147,7 +153,7 @@
                           var mytranslation = {};
 
                           data.Results.push({
-                            translation_id : "https://www.7xiady.cc"+matches[0],
+                            translation_id : websitelink+matches[0],
                             max_quality : matches[1],
                             title : searchtitle,
                             iframe_src : matches[0],
@@ -237,7 +243,8 @@
                   //listlink = JSON.stringify(listlink);
                   //console.log(jsonarray);
                 }, function (a, c) {
-                  onerror(network.errorDecode(a, c));
+                  //onerror(network.errorDecode(a, c));
+                  _this.empty('哦，' + network.errorDecode(a, c) + ' ');
                 }, false, {
                   dataType: 'text'
                 });
@@ -250,7 +257,8 @@
           //console.log(data);
 
         }, function (a, c) {
-          onerror(network.errorDecode(a, c));
+          //onerror(network.errorDecode(a, c));
+          _this.empty('哦，' + network.errorDecode(a, c) + ' ');
         }, false, {
           dataType: 'text'
         });
@@ -579,7 +587,7 @@
               Results: []
             };
             $.each(math, function (i, a) {
-              a = a.replace('url\":\"','');
+              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','');
               var element = $(a),
                   item = {};
               //item.Title = $('li>a', element).text();
