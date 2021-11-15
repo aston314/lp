@@ -33,7 +33,7 @@
           translations:[]
         }]
       };
-      var websitelink = "https://www.7xiady.cc";
+      var websitelink = "https://www.zxzj.fun";
 
       this.create = function () {
         var _this = this;
@@ -47,7 +47,7 @@
         //console.log(url);
         //搜索关键字
 
-        var url1="https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
+        var url1="https://www.zxzj.fun/vodsearch/"+ encodeURIComponent(object.search_one)+"----------1---.html";
         console.log(url1);
 
         
@@ -79,7 +79,7 @@
         //console.log(searchresult);
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
-        var searchresult = searchresult[1].search("stui-vodlist__item");
+        var searchresult = searchresult[1].search("stui-vodlist__thumb");
         //console.log(str.includes('To be'));
 
         //console.log(searchresult);
@@ -93,7 +93,7 @@
           _this.empty('哦，我们没有找到 (' + object.search_one + ') 静待资源上线');
         }
         else{
-        var math = str.replace(/\n|\r/g, '').match(new RegExp('<li class="stui-vodlist__item">(.*?)<\/li>', ''));
+        var math = str.replace(/\n|\r/g, '').match(new RegExp('<div class="stui-vodlist__box">(.*?)<\/div>', ''));
         var data = {
           Results: []
         };
@@ -109,7 +109,14 @@
           console.log(item.Link);
                   //取得具体页面的详情地址
                   network["native"](item.Link, function (str) {
-                  var math = str.replace(/\n|\r/g, '').match(new RegExp('<div class="stui-pannel_bd col-pd clearfix">(.*?)<\/div>', 'g'));
+/*                  var math_ = str.replace(/\n|\r/g, '').match(new RegExp('<div class="stui-vodlist__head">(.+?)盘<\/h3>', 'g'));
+                  var play_lit = $(math_[0]);
+                  var first_div = $('ul', play_lit).html();
+
+                  console.log(play_lit);
+                  console.log(first_div);*/
+                  //<div class="stui-vodlist__head"><span class="pull-right"><\/span><h3>CK播放<\/h3><\/div>(.+?)<\/li><\/ul>
+                  var math = str.replace(/\n|\r/g, '').match(new RegExp('<div class="stui-vodlist__head">(.+?)盘<\/h3>', 'g'));
                   var data = {
                     Results: []
                   };
@@ -156,7 +163,7 @@
                             translation_id : websitelink+matches[0],
                             max_quality : matches[1],
                             title : searchtitle,
-                            //iframe_src : matches[0],
+                            //iframe_src : websitelink+matches[0],
                             //translation : mytranslation
                         });
 
@@ -582,6 +589,7 @@
           //console.log(getRemote(translat));
            var str = getRemote(translat);
            //return network["native"](translat, function (str) {
+            //replace(/\\\//g, '/').
             var math = str.replace(/\n|\r/g, '').match(new RegExp('url\":\"(http[^\"]+)', 'g'));
             var data = {
               Results: []
@@ -589,7 +597,7 @@
             $.each(math, function (i, a) {
               a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','');
               //var element = $(a),
-                var  item = {};
+                  var item = {};
               //item.Title = $('li>a', element).text();
               item.file = a
               //console.log(item.Link);
@@ -749,18 +757,18 @@
     }
 
     function startPlugin() {
-      window.plugin_online_ready = true;
-      Lampa.Component.add('online1', component);
-      Lampa.Template.add('button_online1', "<div class=\"full-start__button selector view--online\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>在线观看</span>\n    </div>");
+      window.plugin_online2_ready = true;
+      Lampa.Component.add('online2', component);
+      Lampa.Template.add('button_online2', "<div class=\"full-start__button selector view--online\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>在线观看1</span>\n    </div>");
       Lampa.Template.add('online', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div class=\"online__title\">{title}</div>\n            <div class=\"online__quality\">{quality}</div>\n        </div>\n    </div>");
       Lampa.Listener.follow('full', function (e) {
         if (e.type == 'complite') {
-          var btn = Lampa.Template.get('button_online1');
+          var btn = Lampa.Template.get('button_online2');
           btn.on('hover:enter', function () {
             Lampa.Activity.push({
               url: '',
               title: '在线观看',
-              component: 'online1',
+              component: 'online2',
               search: e.data.movie.title,
               search_one: e.data.movie.title,
               search_two: e.data.movie.original_title,
@@ -773,6 +781,6 @@
       });
     }
 
-    if (!window.plugin_online1_ready) startPlugin();
+    if (!window.plugin_online2_ready) startPlugin();
 
 })();
