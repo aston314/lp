@@ -65,7 +65,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // Свойство length метода from равно 1.
+        }; // Сinойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -244,7 +244,7 @@
       };
     }
 
-    function start$3() {
+    function start$4() {
       return new subscribe();
     }
 
@@ -512,33 +512,35 @@
       removeNoIncludes: removeNoIncludes
     };
 
-    var html$16 = "<div class=\"head\">\n    <div class=\"head__body\">\n        <div class=\"head__logo-icon\">\n            <img src=\"./img/logo-icon.svg\" />\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__logo\">\n            <img src=\"./img/logo.svg\" />\n        </div>\n\n        <div class=\"head__title\">\n            \n        </div>\n        <div class=\"head__actions\">\n            <div class=\"head__action head__settings selector open--search\">\n                <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                    viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                            S326.847,409.323,225.474,409.323z\"/>\n                        <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--settings\">\n                <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                viewBox=\"0 0 368 368\" style=\"enable-background:new 0 0 368 368;\" xml:space=\"preserve\">\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M344,144h-29.952c-2.512-8.2-5.8-16.12-9.792-23.664l21.16-21.16c4.528-4.528,7.024-10.56,7.024-16.984\n                            c0-6.416-2.496-12.448-7.024-16.976l-22.64-22.64c-9.048-9.048-24.888-9.072-33.952,0l-21.16,21.16\n                            c-7.536-3.992-15.464-7.272-23.664-9.792V24c0-13.232-10.768-24-24-24h-32c-13.232,0-24,10.768-24,24v29.952\n                            c-8.2,2.52-16.12,5.8-23.664,9.792l-21.168-21.16c-9.36-9.36-24.592-9.36-33.952,0l-22.648,22.64\n                            c-9.352,9.36-9.352,24.592,0,33.952l21.16,21.168c-3.992,7.536-7.272,15.464-9.792,23.664H24c-13.232,0-24,10.768-24,24v32\n                            C0,213.232,10.768,224,24,224h29.952c2.52,8.2,5.8,16.12,9.792,23.664l-21.16,21.168c-9.36,9.36-9.36,24.592,0,33.952\n                            l22.64,22.648c9.36,9.352,24.592,9.352,33.952,0l21.168-21.16c7.536,3.992,15.464,7.272,23.664,9.792V344\n                            c0,13.232,10.768,24,24,24h32c13.232,0,24-10.768,24-24v-29.952c8.2-2.52,16.128-5.8,23.664-9.792l21.16,21.168\n                            c9.072,9.064,24.912,9.048,33.952,0l22.64-22.64c4.528-4.528,7.024-10.56,7.024-16.976c0-6.424-2.496-12.448-7.024-16.976\n                            l-21.16-21.168c3.992-7.536,7.272-15.464,9.792-23.664H344c13.232,0,24-10.768,24-24v-32C368,154.768,357.232,144,344,144z\n                                M352,200c0,4.408-3.584,8-8,8h-36c-3.648,0-6.832,2.472-7.744,6c-2.832,10.92-7.144,21.344-12.832,30.976\n                            c-1.848,3.144-1.344,7.144,1.232,9.72l25.44,25.448c1.504,1.504,2.336,3.512,2.336,5.664c0,2.152-0.832,4.16-2.336,5.664\n                            l-22.64,22.64c-3.008,3.008-8.312,3.008-11.328,0l-25.44-25.44c-2.576-2.584-6.576-3.08-9.728-1.232\n                            c-9.616,5.68-20.04,10-30.968,12.824c-3.52,0.904-5.992,4.088-5.992,7.736v36c0,4.408-3.584,8-8,8h-32c-4.408,0-8-3.592-8-8v-36\n                            c0-3.648-2.472-6.832-6-7.744c-10.92-2.824-21.344-7.136-30.976-12.824c-1.264-0.752-2.664-1.112-4.064-1.112\n                            c-2.072,0-4.12,0.8-5.664,2.344l-25.44,25.44c-3.128,3.12-8.2,3.12-11.328,0l-22.64-22.64c-3.128-3.128-3.128-8.208,0-11.328\n                            l25.44-25.44c2.584-2.584,3.088-6.584,1.232-9.72c-5.68-9.632-10-20.048-12.824-30.976c-0.904-3.528-4.088-6-7.736-6H24\n                            c-4.408,0-8-3.592-8-8v-32c0-4.408,3.592-8,8-8h36c3.648,0,6.832-2.472,7.744-6c2.824-10.92,7.136-21.344,12.824-30.976\n                            c1.856-3.144,1.352-7.144-1.232-9.72l-25.44-25.44c-3.12-3.12-3.12-8.2,0-11.328l22.64-22.64c3.128-3.128,8.2-3.12,11.328,0\n                            l25.44,25.44c2.584,2.584,6.576,3.096,9.72,1.232c9.632-5.68,20.048-10,30.976-12.824c3.528-0.912,6-4.096,6-7.744V24\n                            c0-4.408,3.592-8,8-8h32c4.416,0,8,3.592,8,8v36c0,3.648,2.472,6.832,6,7.744c10.928,2.824,21.352,7.144,30.968,12.824\n                            c3.152,1.856,7.152,1.36,9.728-1.232l25.44-25.44c3.016-3.024,8.32-3.016,11.328,0l22.64,22.64\n                            c1.504,1.504,2.336,3.52,2.336,5.664s-0.832,4.16-2.336,5.664l-25.44,25.44c-2.576,2.584-3.088,6.584-1.232,9.72\n                            c5.688,9.632,10,20.048,12.832,30.976c0.904,3.528,4.088,6,7.736,6h36c4.416,0,8,3.592,8,8V200z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M184,112c-39.696,0-72,32.304-72,72s32.304,72,72,72c39.704,0,72-32.304,72-72S223.704,112,184,112z M184,240\n                            c-30.88,0-56-25.12-56-56s25.12-56,56-56c30.872,0,56,25.12,56,56S214.872,240,184,240z\"/>\n                    </g>\n                </g>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--notice notice--icon\">\n                <svg enable-background=\"new 0 0 512 512\" height=\"512\" viewBox=\"0 0 512 512\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><g><path fill=\"currentColor\" d=\"m411 262.862v-47.862c0-69.822-46.411-129.001-110-148.33v-21.67c0-24.813-20.187-45-45-45s-45 20.187-45 45v21.67c-63.59 19.329-110 78.507-110 148.33v47.862c0 61.332-23.378 119.488-65.827 163.756-4.16 4.338-5.329 10.739-2.971 16.267s7.788 9.115 13.798 9.115h136.509c6.968 34.192 37.272 60 73.491 60 36.22 0 66.522-25.808 73.491-60h136.509c6.01 0 11.439-3.587 13.797-9.115s1.189-11.929-2.97-16.267c-42.449-44.268-65.827-102.425-65.827-163.756zm-170-217.862c0-8.271 6.729-15 15-15s15 6.729 15 15v15.728c-4.937-.476-9.94-.728-15-.728s-10.063.252-15 .728zm15 437c-19.555 0-36.228-12.541-42.42-30h84.84c-6.192 17.459-22.865 30-42.42 30zm-177.67-60c34.161-45.792 52.67-101.208 52.67-159.138v-47.862c0-68.925 56.075-125 125-125s125 56.075 125 125v47.862c0 57.93 18.509 113.346 52.671 159.138z\"/><path fill=\"currentColor\" d=\"m451 215c0 8.284 6.716 15 15 15s15-6.716 15-15c0-60.1-23.404-116.603-65.901-159.1-5.857-5.857-15.355-5.858-21.213 0s-5.858 15.355 0 21.213c36.831 36.831 57.114 85.8 57.114 137.887z\"/><path fill=\"currentColor\" d=\"m46 230c8.284 0 15-6.716 15-15 0-52.086 20.284-101.055 57.114-137.886 5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0-42.497 42.497-65.901 98.999-65.901 159.099 0 8.284 6.716 15 15 15z\"/></g></svg>\n            </div>\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__time\">\n            <div class=\"head__time-now time--clock\"></div>\n            <div>\n                <div class=\"head__time-date time--full\"></div>\n                <div class=\"head__time-week time--week\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
+    var html$17 = "<div class=\"head\">\n    <div class=\"head__body\">\n        <div class=\"head__logo-icon\">\n            <img src=\"./img/logo-icon.svg\" />\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__logo\">\n            <img src=\"./img/logo.svg\" />\n        </div>\n\n        <div class=\"head__title\">\n            \n        </div>\n        <div class=\"head__actions\">\n            <div class=\"head__action head__settings selector open--search\">\n                <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                    viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                            S326.847,409.323,225.474,409.323z\"/>\n                        <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--settings\">\n                <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                viewBox=\"0 0 368 368\" style=\"enable-background:new 0 0 368 368;\" xml:space=\"preserve\">\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M344,144h-29.952c-2.512-8.2-5.8-16.12-9.792-23.664l21.16-21.16c4.528-4.528,7.024-10.56,7.024-16.984\n                            c0-6.416-2.496-12.448-7.024-16.976l-22.64-22.64c-9.048-9.048-24.888-9.072-33.952,0l-21.16,21.16\n                            c-7.536-3.992-15.464-7.272-23.664-9.792V24c0-13.232-10.768-24-24-24h-32c-13.232,0-24,10.768-24,24v29.952\n                            c-8.2,2.52-16.12,5.8-23.664,9.792l-21.168-21.16c-9.36-9.36-24.592-9.36-33.952,0l-22.648,22.64\n                            c-9.352,9.36-9.352,24.592,0,33.952l21.16,21.168c-3.992,7.536-7.272,15.464-9.792,23.664H24c-13.232,0-24,10.768-24,24v32\n                            C0,213.232,10.768,224,24,224h29.952c2.52,8.2,5.8,16.12,9.792,23.664l-21.16,21.168c-9.36,9.36-9.36,24.592,0,33.952\n                            l22.64,22.648c9.36,9.352,24.592,9.352,33.952,0l21.168-21.16c7.536,3.992,15.464,7.272,23.664,9.792V344\n                            c0,13.232,10.768,24,24,24h32c13.232,0,24-10.768,24-24v-29.952c8.2-2.52,16.128-5.8,23.664-9.792l21.16,21.168\n                            c9.072,9.064,24.912,9.048,33.952,0l22.64-22.64c4.528-4.528,7.024-10.56,7.024-16.976c0-6.424-2.496-12.448-7.024-16.976\n                            l-21.16-21.168c3.992-7.536,7.272-15.464,9.792-23.664H344c13.232,0,24-10.768,24-24v-32C368,154.768,357.232,144,344,144z\n                                M352,200c0,4.408-3.584,8-8,8h-36c-3.648,0-6.832,2.472-7.744,6c-2.832,10.92-7.144,21.344-12.832,30.976\n                            c-1.848,3.144-1.344,7.144,1.232,9.72l25.44,25.448c1.504,1.504,2.336,3.512,2.336,5.664c0,2.152-0.832,4.16-2.336,5.664\n                            l-22.64,22.64c-3.008,3.008-8.312,3.008-11.328,0l-25.44-25.44c-2.576-2.584-6.576-3.08-9.728-1.232\n                            c-9.616,5.68-20.04,10-30.968,12.824c-3.52,0.904-5.992,4.088-5.992,7.736v36c0,4.408-3.584,8-8,8h-32c-4.408,0-8-3.592-8-8v-36\n                            c0-3.648-2.472-6.832-6-7.744c-10.92-2.824-21.344-7.136-30.976-12.824c-1.264-0.752-2.664-1.112-4.064-1.112\n                            c-2.072,0-4.12,0.8-5.664,2.344l-25.44,25.44c-3.128,3.12-8.2,3.12-11.328,0l-22.64-22.64c-3.128-3.128-3.128-8.208,0-11.328\n                            l25.44-25.44c2.584-2.584,3.088-6.584,1.232-9.72c-5.68-9.632-10-20.048-12.824-30.976c-0.904-3.528-4.088-6-7.736-6H24\n                            c-4.408,0-8-3.592-8-8v-32c0-4.408,3.592-8,8-8h36c3.648,0,6.832-2.472,7.744-6c2.824-10.92,7.136-21.344,12.824-30.976\n                            c1.856-3.144,1.352-7.144-1.232-9.72l-25.44-25.44c-3.12-3.12-3.12-8.2,0-11.328l22.64-22.64c3.128-3.128,8.2-3.12,11.328,0\n                            l25.44,25.44c2.584,2.584,6.576,3.096,9.72,1.232c9.632-5.68,20.048-10,30.976-12.824c3.528-0.912,6-4.096,6-7.744V24\n                            c0-4.408,3.592-8,8-8h32c4.416,0,8,3.592,8,8v36c0,3.648,2.472,6.832,6,7.744c10.928,2.824,21.352,7.144,30.968,12.824\n                            c3.152,1.856,7.152,1.36,9.728-1.232l25.44-25.44c3.016-3.024,8.32-3.016,11.328,0l22.64,22.64\n                            c1.504,1.504,2.336,3.52,2.336,5.664s-0.832,4.16-2.336,5.664l-25.44,25.44c-2.576,2.584-3.088,6.584-1.232,9.72\n                            c5.688,9.632,10,20.048,12.832,30.976c0.904,3.528,4.088,6,7.736,6h36c4.416,0,8,3.592,8,8V200z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M184,112c-39.696,0-72,32.304-72,72s32.304,72,72,72c39.704,0,72-32.304,72-72S223.704,112,184,112z M184,240\n                            c-30.88,0-56-25.12-56-56s25.12-56,56-56c30.872,0,56,25.12,56,56S214.872,240,184,240z\"/>\n                    </g>\n                </g>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--notice notice--icon\">\n                <svg enable-background=\"new 0 0 512 512\" height=\"512\" viewBox=\"0 0 512 512\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><g><path fill=\"currentColor\" d=\"m411 262.862v-47.862c0-69.822-46.411-129.001-110-148.33v-21.67c0-24.813-20.187-45-45-45s-45 20.187-45 45v21.67c-63.59 19.329-110 78.507-110 148.33v47.862c0 61.332-23.378 119.488-65.827 163.756-4.16 4.338-5.329 10.739-2.971 16.267s7.788 9.115 13.798 9.115h136.509c6.968 34.192 37.272 60 73.491 60 36.22 0 66.522-25.808 73.491-60h136.509c6.01 0 11.439-3.587 13.797-9.115s1.189-11.929-2.97-16.267c-42.449-44.268-65.827-102.425-65.827-163.756zm-170-217.862c0-8.271 6.729-15 15-15s15 6.729 15 15v15.728c-4.937-.476-9.94-.728-15-.728s-10.063.252-15 .728zm15 437c-19.555 0-36.228-12.541-42.42-30h84.84c-6.192 17.459-22.865 30-42.42 30zm-177.67-60c34.161-45.792 52.67-101.208 52.67-159.138v-47.862c0-68.925 56.075-125 125-125s125 56.075 125 125v47.862c0 57.93 18.509 113.346 52.671 159.138z\"/><path fill=\"currentColor\" d=\"m451 215c0 8.284 6.716 15 15 15s15-6.716 15-15c0-60.1-23.404-116.603-65.901-159.1-5.857-5.857-15.355-5.858-21.213 0s-5.858 15.355 0 21.213c36.831 36.831 57.114 85.8 57.114 137.887z\"/><path fill=\"currentColor\" d=\"m46 230c8.284 0 15-6.716 15-15 0-52.086 20.284-101.055 57.114-137.886 5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0-42.497 42.497-65.901 98.999-65.901 159.099 0 8.284 6.716 15 15 15z\"/></g></svg>\n            </div>\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__time\">\n            <div class=\"head__time-now time--clock\"></div>\n            <div>\n                <div class=\"head__time-date time--full\"></div>\n                <div class=\"head__time-week time--week\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-    var html$15 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
+    var html$16 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-    var html$14 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Collections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg width=\"38\" height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Collections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg width=\"38\" height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
-    var html$13 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
+    var html$14 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
-    var html$12 = "<div class=\"activity layer--width\">\n    <div class=\"activity__body\"></div>\n    <div class=\"activity__loader\"></div>\n</div>";
+    var html$13 = "<div class=\"activity layer--width\">\n    <div class=\"activity__body\"></div>\n    <div class=\"activity__loader\"></div>\n</div>";
 
-    var html$11 = "<div class=\"scroll\">\n    <div class=\"scroll__content\">\n        <div class=\"scroll__body\">\n            \n        </div>\n    </div>\n</div>";
+    var html$12 = "<div class=\"scroll\">\n    <div class=\"scroll__content\">\n        <div class=\"scroll__body\">\n            \n        </div>\n    </div>\n</div>";
 
-    var html$10 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">Settings</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
+    var html$11 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">Settings</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
 
-    var html$$ = "<div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Interface</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Player</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Parser</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg width=\"44\" height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Plugins</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Rest</div>\n    </div>\n    \n</div>";
+    var html$10 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Interface</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Player</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Parser</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg width=\"44\" height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Plugins</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg width=\"63\" height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Synchronization</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Rest</div>\n    </div>\n    \n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fade</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Smooth fading of cards from below and from above</div>\n    </div>\n</div>";
+    var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fading out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Smooth fading of cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for using public links for viewing torrents and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">The method of parsing the TorLook site</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>B {q} the site will be delivered w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In which language to search ?</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for using public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook site parsing method</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the main link to the TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the secondary link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Advanced</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use built-in JS client TorrServe, otherwise the system is launched</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Sub link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide sub link to TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use the built-in TorrServe JS client, otherwise the system starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use the preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on a translucent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Zoom method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use Background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on semi-transparent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">С which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In which language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Keeps the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Type screensavers</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove the plugin, hold down the OK button</div>\n    </div>\n</div>";
+
+    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronize</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization makes it possible to synchronize your bookmarks, browsing history , labels and time codes. Connection instructions https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$U = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -556,7 +558,7 @@
 
     var html$N = "<div class=\"player\">\n    \n</div>";
 
-    var html$M = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
+    var html$M = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__tstart button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14.75 10.2302C13.4167 11 13.4167 12.9245 14.75 13.6943L32 23.6536C33.3333 24.4234 35 23.4612 35 21.9216L35 2.00298C35 0.463381 33.3333 -0.498867 32 0.270933L14.75 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M1.75 10.2302C0.416665 11 0.416667 12.9245 1.75 13.6943L19 23.6536C20.3333 24.4234 22 23.4612 22 21.9216L22 2.00298C22 0.463381 20.3333 -0.498867 19 0.270933L1.75 10.2302Z\" fill=\"currentColor\"/>\n                    <rect width=\"6\" height=\"24\" rx=\"2\" transform=\"matrix(-1 0 0 1 6 0)\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__tend button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.2302C21.5833 11 21.5833 12.9245 20.25 13.6943L3 23.6536C1.66666 24.4234 -6.72981e-08 23.4612 0 21.9216L8.70669e-07 2.00298C9.37967e-07 0.463381 1.66667 -0.498867 3 0.270933L20.25 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.2302C34.5833 11 34.5833 12.9245 33.25 13.6943L16 23.6536C14.6667 24.4234 13 23.4612 13 21.9216L13 2.00298C13 0.463381 14.6667 -0.498867 16 0.270933L33.25 10.2302Z\" fill=\"currentColor\"/>\n                    <rect x=\"29\" width=\"6\" height=\"24\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
 
     var html$L = "<div class=\"player-video\">\n    <div class=\"player-video__display\"></div>\n    <div class=\"player-video__loader\"></div>\n    <div class=\"player-video__paused hide\">\n        <svg width=\"19\" height=\"25\" viewBox=\"0 0 19 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"13\" width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n        </svg>\n    </div>\n    <div class=\"player-video__subtitles hide\">\n        <div class=\"player-video__subtitles-text\"></div>\n    </div>\n</div>";
 
@@ -574,11 +576,11 @@
 
     var html$E = "<div class=\"search\">\n    <div class=\"search__left\">\n        <div class=\"search__title\">Search</div>\n        <div class=\"search__input\">Enter text ...</div>\n        <div class=\"search__keypad\"><div class=\"simple-keyboard\"></div></div>\n        <div class=\"search__history\"></div>\n    </div>\n    <div class=\"search__results\"></div>\n</div>";
 
-    var html$D = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">Select a link</div>\n    </div>\n</div>";
+    var html$D = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">Select link</div>\n    </div>\n</div>";
 
     var html$C = "<div class=\"modal\">\n    <div class=\"modal__content\">\n        <div class=\"modal__head\">\n            <div class=\"modal__title\">{title}</div>\n        </div>\n        <div class=\"modal__body\">\n            \n        </div>\n    </div>\n</div>";
 
-    var html$B = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">Headquarters: {headquarters}</div>\n    <div class=\"company__homepage\">Site: {homepage}</div>\n    <div class=\"company__country\">Country: {origin_country}</div>\n</div>";
+    var html$B = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">Headquarters: {headquarters}</div>\n    <div class=\"company__homepage\">Website: {homepage}</div>\n    <div class=\"company__country\">Country: {origin_country}</div>\n</div>";
 
     var html$A = "<div class=\"modal-loading\">\n    \n</div>";
 
@@ -596,15 +598,15 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>The application is completely free and uses public links to view information about movies, new releases, popular movies, etc. All available information is used solely for educational purposes, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.4\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donate</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>The application is completely free and uses public links to view information about films , news, popular films, etc. All available information is used solely for educational purposes, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donate</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser will not respond, check if TorrServe is running or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if it is running TorrServe, or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the response contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned an invalid format</li>\n            <li>Reply from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the answer contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What should I do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -616,25 +618,26 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">Empty</div>\n    <div class=\"empty__descr\">Nothing was found for your filter, specify the filter.</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">Empty</div>\n    <div class=\"empty__descr\">Nothing was found for your filter, please specify the filter.</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
     var templates = {
-      head: html$16,
-      wrap: html$15,
-      menu: html$14,
-      activitys: html$13,
-      activity: html$12,
-      settings: html$10,
-      settings_main: html$$,
-      settings_interface: html$_,
-      settings_parser: html$Z,
-      settings_server: html$Y,
-      settings_player: html$X,
-      settings_more: html$W,
-      settings_plugins: html$V,
-      scroll: html$11,
+      head: html$17,
+      wrap: html$16,
+      menu: html$15,
+      activitys: html$14,
+      activity: html$13,
+      settings: html$11,
+      settings_main: html$10,
+      settings_interface: html$$,
+      settings_parser: html$_,
+      settings_server: html$Z,
+      settings_player: html$Y,
+      settings_more: html$X,
+      settings_plugins: html$W,
+      settings_cloud: html$V,
+      scroll: html$12,
       items_line: html$U,
       card: html$T,
       card_parser: html$S,
@@ -818,7 +821,7 @@
     };
 
     var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
-        body$1 = html$g.find('.noty__text'),
+        body$2 = html$g.find('.noty__text'),
         time$1;
 
     function show$4(text) {
@@ -826,7 +829,7 @@
       time$1 = setTimeout(function () {
         html$g.removeClass('noty--visible');
       }, 3000);
-      body$1.html(text);
+      body$2.html(text);
       html$g.addClass('noty--visible');
     }
 
@@ -840,7 +843,7 @@
     };
 
     function create$q() {
-      var listener = start$3();
+      var listener = start$4();
       var _calls = [];
 
       var _last;
@@ -1077,7 +1080,7 @@
         } else if (jqXHR.status == 404) {
           msg = 'The requested page was not found. [404]';
         } else if (jqXHR.status == 401) {
-          msg = 'Login failed';
+          msg = 'Authorization failed';
         } else if (jqXHR.status == 500) {
           msg = 'Internal server error. [500]';
         } else if (exception === 'parsererror') {
@@ -1141,12 +1144,20 @@
             var use = Storage.field('torrserver_auth');
             var srv = Storage.get(Storage.field('torrserver_use_link') == 'two' ? 'torrserver_url_two' : 'torrserver_url');
             if (use && params.url.indexOf(srv) > -1) xhr.setRequestHeader("Authorization", "Basic " + Base64.encode(Storage.get('torrserver_login') + ':' + Storage.get('torrserver_password')));
+
+            if (params.beforeSend) {
+              xhr.setRequestHeader(params.beforeSend.name, params.beforeSend.value);
+            }
           }
         };
 
         if (params.post_data) {
           data.type = 'POST';
           data.data = params.post_data;
+        }
+
+        if (params.headers) {
+          data.headers = params.headers;
         }
 
         $.ajax(data);
@@ -1181,7 +1192,14 @@
             ofs_box = body.offset()[dir],
             center = ofs_box + (tocenter ? content[siz]() / 2 - elem[siz]() / 2 : 0),
             scrl = Math.min(0, center - ofs_elm);
-        body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
+        this.reset();
+
+        if (Storage.field('scroll_type') == 'css') {
+          body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
+        } else {
+          body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
+          body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
+        }
       };
 
       this.append = function (object) {
@@ -1208,6 +1226,7 @@
 
       this.reset = function () {
         body.css('transform', 'translate3d(0px, 0px, 0px)');
+        body.css('margin', '0px');
       };
 
       this.destroy = function () {
@@ -1220,7 +1239,7 @@
 
     var data$1 = {};
 
-    function save$1() {
+    function save$2() {
       Storage.set('favorite', data$1);
     }
     /**
@@ -1245,7 +1264,7 @@
           }
         }
 
-        save$1();
+        save$2();
       }
     }
     /**
@@ -1263,7 +1282,7 @@
         if (!check(element).any) Arrays.remove(data$1.card, element);
       }
 
-      save$1();
+      save$2();
     }
     /**
      * Найти
@@ -1355,7 +1374,7 @@
      */
 
 
-    function init$d() {
+    function init$e() {
       data$1 = Storage.get('favorite', '{}');
       Arrays.extend(data$1, {
         like: [],
@@ -1372,11 +1391,11 @@
       remove: remove$1,
       toggle: toggle$8,
       get: get$6,
-      init: init$d,
+      init: init$e,
       clear: clear$5
     };
 
-    function status(need) {
+    function status$1(need) {
       this.data = {};
       this.work = 0;
 
@@ -1440,7 +1459,7 @@
       var unitNames = ['Byte', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
       if (speed) {
-        unitNames = ['b', 'KB', 'Mb', 'GB', 'TB', 'PB'];
+        unitNames = ['b', 'KB', 'MB', 'GB', 'TB', 'PB'];
       }
 
       var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
@@ -1475,7 +1494,7 @@
         this.moth = function (m) {
           var n = months[m];
           var d = n.slice(-1);
-          if (d == 'b') return n.slice(0, n.length - 1) + 'i';else if (n == 'Ma') return n + 'I';else return n + '';
+          if (d == 'b') return n.slice(0, n.length - 1) + 'I';else if (n == 'Ma') return n + 'I';else return n + '';
         };
 
         this.tik = function () {
@@ -1705,7 +1724,7 @@
 
     var baseurl$2 = Utils.protocol() + 'api.themoviedb.org/3/';
     var baseimg = Utils.protocol() + 'image.tmdb.org/t/p/w300/';
-    var network$7 = new create$q();
+    var network$8 = new create$q();
     var key = '4ef0d7355d9ffb5151e987764708ce96';
     var menu_list$2 = [];
 
@@ -1760,80 +1779,80 @@
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var status$1 = new status(8);
+      var status = new status$1(8);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = [];
-        if (status$1.data.wath) fulldata.push(status$1.data.wath);
-        if (status$1.data.trend_day) fulldata.push(status$1.data.trend_day);
-        if (status$1.data.trend_week) fulldata.push(status$1.data.trend_week);
-        if (status$1.data.upcoming) fulldata.push(status$1.data.upcoming);
-        if (status$1.data.popular) fulldata.push(status$1.data.popular);
-        if (status$1.data.popular_tv) fulldata.push(status$1.data.popular_tv);
-        if (status$1.data.top) fulldata.push(status$1.data.top);
-        if (status$1.data.top_tv) fulldata.push(status$1.data.top_tv);
+        if (status.data.wath) fulldata.push(status.data.wath);
+        if (status.data.trend_day) fulldata.push(status.data.trend_day);
+        if (status.data.trend_week) fulldata.push(status.data.trend_week);
+        if (status.data.upcoming) fulldata.push(status.data.upcoming);
+        if (status.data.popular) fulldata.push(status.data.popular);
+        if (status.data.popular_tv) fulldata.push(status.data.popular_tv);
+        if (status.data.top) fulldata.push(status.data.top);
+        if (status.data.top_tv) fulldata.push(status.data.top_tv);
         if (fulldata.length) oncomplite(fulldata);else onerror();
       };
 
       var append = function append(title, name, json) {
         json.title = title;
-        status$1.append(name, json);
+        status.append(name, json);
       };
 
       get$5('movie/now_playing', params, function (json) {
         append('Now watching', 'wath', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('trending/moviews/day', params, function (json) {
         append('Trending today', 'trend_day', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('trending/moviews/week', params, function (json) {
         append('Trending this week', 'trend_week', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('movie/upcoming', params, function (json) {
         append('Watch in cinemas', 'upcoming', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('movie/popular', params, function (json) {
         append('Popular films', 'popular', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('tv/popular', params, function (json) {
         append('Popular TV series', 'popular_tv', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('movie/top_rated', params, function (json) {
         append('Top films', 'top', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5('tv/top_rated', params, function (json) {
         append('Top TV series', 'top_tv', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
     }
 
     function category$3() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var status$1 = new status(6);
+      var status = new status$1(6);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = [];
-        if (status$1.data.wath && status$1.data.wath.results.length) fulldata.push(status$1.data.wath);
-        if (status$1.data.popular && status$1.data.popular.results.length) fulldata.push(status$1.data.popular);
-        if (status$1.data["new"] && status$1.data["new"].results.length) fulldata.push(status$1.data["new"]);
-        if (status$1.data.tv_today && status$1.data.tv_today.results.length) fulldata.push(status$1.data.tv_today);
-        if (status$1.data.tv_air && status$1.data.tv_air.results.length) fulldata.push(status$1.data.tv_air);
-        if (status$1.data.top && status$1.data.top.results.length) fulldata.push(status$1.data.top);
+        if (status.data.wath && status.data.wath.results.length) fulldata.push(status.data.wath);
+        if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
+        if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+        if (status.data.tv_today && status.data.tv_today.results.length) fulldata.push(status.data.tv_today);
+        if (status.data.tv_air && status.data.tv_air.results.length) fulldata.push(status.data.tv_air);
+        if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
         if (fulldata.length) oncomplite(fulldata);else onerror();
       };
 
       var append = function append(title, name, json) {
         json.title = title;
-        status$1.append(name, json);
+        status.append(name, json);
       };
 
       get$5(params.url + '/now_playing', params, function (json) {
         append('Now watching', 'wath', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5(params.url + '/popular', params, function (json) {
         append('Popular', 'popular', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       var date = new Date();
       var nparams = Arrays.clone(params);
       nparams.filter = {
@@ -1845,39 +1864,39 @@
       get$5('discover/' + params.url, nparams, function (json) {
         json.filter = nparams.filter;
         append('New', 'new', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5(params.url + '/airing_today', params, function (json) {
         append('Today on air', 'tv_today', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5(params.url + '/on_the_air', params, function (json) {
         append('This week', 'tv_air', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
       get$5(params.url + '/top_rated', params, function (json) {
         append('Top', 'top', json);
-      }, status$1.error.bind(status$1));
+      }, status.error.bind(status));
     }
 
     function full$3() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-      var status$1 = new status(5);
-      status$1.onComplite = oncomplite;
+      var status = new status$1(5);
+      status.onComplite = oncomplite;
       get$5(params.method + '/' + params.id, params, function (json) {
         json.source = 'tmdb';
-        status$1.append('movie', json);
-      }, status$1.error.bind(status$1));
+        status.append('movie', json);
+      }, status.error.bind(status));
       get$5(params.method + '/' + params.id + '/credits', params, function (json) {
-        status$1.append('persons', json);
-      }, status$1.error.bind(status$1));
+        status.append('persons', json);
+      }, status.error.bind(status));
       get$5(params.method + '/' + params.id + '/recommendations', params, function (json) {
-        status$1.append('recomend', json);
-      }, status$1.error.bind(status$1));
+        status.append('recomend', json);
+      }, status.error.bind(status));
       get$5(params.method + '/' + params.id + '/similar', params, function (json) {
-        status$1.append('simular', json);
-      }, status$1.error.bind(status$1));
+        status.append('simular', json);
+      }, status.error.bind(status));
       get$5(params.method + '/' + params.id + '/videos', params, function (json) {
-        status$1.append('videos', json);
-      }, status$1.error.bind(status$1));
+        status.append('videos', json);
+      }, status.error.bind(status));
     }
 
     function list$4() {
@@ -1885,7 +1904,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       var u = url$4(params.url, params);
-      network$7.silent(u, oncomplite, onerror);
+      network$8.silent(u, oncomplite, onerror);
     }
 
     function get$5(method) {
@@ -1893,7 +1912,7 @@
       var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
       var onerror = arguments.length > 3 ? arguments[3] : undefined;
       var u = url$4(method, params);
-      network$7.silent(u, function (json) {
+      network$8.silent(u, function (json) {
         json.url = method;
         oncomplite(json);
       }, onerror);
@@ -1902,16 +1921,16 @@
     function search$2() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-      var status$1 = new status(2);
-      status$1.onComplite = oncomplite;
+      var status = new status$1(2);
+      status.onComplite = oncomplite;
       get$5('search/movie', params, function (json) {
         json.title = 'Movies';
-        status$1.append('movie', json);
-      }, status$1.error.bind(status$1));
+        status.append('movie', json);
+      }, status.error.bind(status));
       get$5('search/tv', params, function (json) {
         json.title = 'TV Shows';
-        status$1.append('tv', json);
-      }, status$1.error.bind(status$1));
+        status.append('tv', json);
+      }, status.error.bind(status));
     }
 
     function person$3() {
@@ -1974,21 +1993,21 @@
         };
       };
 
-      var status$1 = new status(2);
+      var status = new status$1(2);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = {};
-        if (status$1.data.person) fulldata.person = status$1.data.person;
-        if (status$1.data.credits) fulldata.credits = convert(status$1.data.credits, status$1.data.person);
+        if (status.data.person) fulldata.person = status.data.person;
+        if (status.data.credits) fulldata.credits = convert(status.data.credits, status.data.person);
         oncomplite(fulldata);
       };
 
       get$5('person/' + params.id, params, function (json) {
-        status$1.append('person', json);
-      }, status$1.error.bind(status$1));
+        status.append('person', json);
+      }, status.error.bind(status));
       get$5('person/' + params.id + '/combined_credits', params, function (json) {
-        status$1.append('credits', json);
-      }, status$1.error.bind(status$1));
+        status.append('credits', json);
+      }, status.error.bind(status));
     }
 
     function menu$3() {
@@ -1996,7 +2015,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       if (menu_list$2.length) oncomplite(menu_list$2);else {
         var u = url$4('genre/movie/list', params);
-        network$7.silent(u, function (j) {
+        network$8.silent(u, function (j) {
           j.genres.forEach(function (g) {
             menu_list$2.push({
               title: g.name,
@@ -2013,16 +2032,16 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       var u = url$4('company/' + params.id, params);
-      network$7.silent(u, oncomplite, onerror);
+      network$8.silent(u, oncomplite, onerror);
     }
 
     function seasons$3(tv, from, oncomplite) {
-      var status$1 = new status(from.length);
-      status$1.onComplite = oncomplite;
+      var status = new status$1(from.length);
+      status.onComplite = oncomplite;
       from.forEach(function (season) {
         get$5('tv/' + tv.id + '/season/' + season, {}, function (json) {
-          status$1.append('' + season, json);
-        }, status$1.error.bind(status$1));
+          status.append('' + season, json);
+        }, status.error.bind(status));
       });
     }
 
@@ -2031,16 +2050,13 @@
         page: Math.round(Math.random() * 30)
       }, function (json) {
         oncomplite(json.results.filter(function (entry) {
-          if(entry.adult) {
-            return;
-          };
-          return entry.backdrop_path;
+          return entry.backdrop_path && !entry.adult;
         }));
       }, onerror);
     }
 
     function clear$4() {
-      network$7.clear();
+      network$8.clear();
     }
 
     var TMDB = {
@@ -2060,7 +2076,7 @@
     };
 
     var baseurl$1 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
-    var network$6 = new create$q();
+    var network$7 = new create$q();
     var menu_list$1 = [];
 
     function img$2(element) {
@@ -2096,7 +2112,7 @@
     function collections$2(params, oncomplite, onerror) {
       var frm = 20 * (params.page - 1);
       var uri = baseurl$1 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
-      network$6["native"](uri, function (json) {
+      network$7["native"](uri, function (json) {
         var items = [];
 
         if (json.element) {
@@ -2210,8 +2226,8 @@
 
     function menu$2(params, oncomplite) {
       if (!menu_list$1.length) {
-        network$6.timeout(1000);
-        network$6["native"](baseurl$1 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+        network$7.timeout(1000);
+        network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
           if (json.uiScreenInfo && json.uiScreenInfo.webMain) {
             json.uiScreenInfo.webMain.forEach(function (element) {
               menu_list$1.push({
@@ -2249,7 +2265,7 @@
 
     function list$3(params, oncomplite, onerror) {
       var frm = 20 * (params.page - 1);
-      network$6["native"](baseurl$1 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+      network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
         var items = [];
 
         if (json.element && json.element.collectionItems) {
@@ -2267,7 +2283,7 @@
     }
 
     function person$2(params, oncomplite, onerror) {
-      network$6["native"](baseurl$1 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+      network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
         var data = {
           movie: {
             results: []
@@ -2293,14 +2309,14 @@
     }
 
     function main$3(params, oncomplite, onerror) {
-      network$6["native"](baseurl$1 + 'mainpage/web/1', function (json) {
+      network$7["native"](baseurl$1 + 'mainpage/web/1', function (json) {
         var element = json.element;
         var fulldata = [];
 
         if (element) {
           var blocks = json.element.collectionItems.items;
 
-          if (blocks[0]) {
+          if (blocks[0] && blocks[0].element.collectionItems.items) {
             var slides = {
               title: 'New',
               results: [],
@@ -2312,7 +2328,7 @@
             fulldata.push(slides);
           }
 
-          if (blocks[2]) {
+          if (blocks[2] && blocks[2].element.collectionItems.items) {
             blocks[2].element.collectionItems.items.forEach(function (block) {
               var line = {
                 title: block.element.name,
@@ -2333,24 +2349,24 @@
     }
 
     function category$2(params, oncomplite, onerror) {
-      var status$1 = new status(7);
+      var status = new status$1(7);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = [];
-        if (status$1.data["new"] && status$1.data["new"].results.length) fulldata.push(status$1.data["new"]);
-        if (status$1.data.top && status$1.data.top.results.length) fulldata.push(status$1.data.top);
-        if (status$1.data.three && status$1.data.three.results.length) fulldata.push(status$1.data.three);
-        if (status$1.data.four && status$1.data.four.results.length) fulldata.push(status$1.data.four);
-        if (status$1.data.five && status$1.data.five.results.length) fulldata.push(status$1.data.five);
-        if (status$1.data.six && status$1.data.six.results.length) fulldata.push(status$1.data.six);
-        if (status$1.data.seven && status$1.data.seven.results.length) fulldata.push(status$1.data.seven);
+        if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+        if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
+        if (status.data.three && status.data.three.results.length) fulldata.push(status.data.three);
+        if (status.data.four && status.data.four.results.length) fulldata.push(status.data.four);
+        if (status.data.five && status.data.five.results.length) fulldata.push(status.data.five);
+        if (status.data.six && status.data.six.results.length) fulldata.push(status.data.six);
+        if (status.data.seven && status.data.seven.results.length) fulldata.push(status.data.seven);
         if (fulldata.length) oncomplite(fulldata);else onerror();
       };
 
       var append = function append(title, name, id, json) {
         json.title = title;
         json.url = id;
-        status$1.append(name, json);
+        status.append(name, json);
       };
 
       if (params.url == 'movie') {
@@ -2360,49 +2376,49 @@
           page: 1
         }, function (json) {
           append('New', 'new', 'Novelty', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'topfilms',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Top new items', 'top', 'topfilms', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'comedy-plus-horror-movies',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Comedy horror films', 'three', 'comedy-plus-horror-movies', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'collection_maniacs',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Films about maniacs', 'four', 'collection_maniacs', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'witches',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Films about witches', 'five', 'witches', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'zombies',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Films about zombies', 'six', 'zombies', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'Russian-17490',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Russians', 'seven', 'Russian-17490', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
       } else {
         list$3({
           url: 'Serials',
@@ -2410,55 +2426,55 @@
           page: 1
         }, function (json) {
           append('New', 'new', 'Serials', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'horror-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Very scary', 'top', 'horror-serial-all-svod', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'series-about-serial-killers',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('About maniacs', 'three', 'series-about-serial-killers', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'black-humor-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('With black humor', 'four', 'black-humor-serial-all-svod', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'legkiye-serialy-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Light', 'five', 'legkiye-serialy-all-svod', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'comedy-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Comedy', 'six', 'comedy-serial-all-svod', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
         list$3({
           url: 'russian_tvseries',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Russian', 'seven', 'russian_tvseries', json);
-        }, status$1.error.bind(status$1));
+        }, status.error.bind(status));
       }
     }
 
     function full$2(params, oncomplite, onerror) {
       var data = {};
-      network$6["native"](baseurl$1 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
+      network$7["native"](baseurl$1 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
         var element = json.element;
 
         if (element) {
@@ -2502,11 +2518,11 @@
       person: person$2,
       menu: menu$2,
       category: category$2,
-      clear: network$6.clear
+      clear: network$7.clear
     };
 
     var baseurl = 'https://api.ivi.ru/mobileapi/';
-    var network$5 = new create$q();
+    var network$6 = new create$q();
     var menu_list = [];
 
     function tocard(element) {
@@ -2524,7 +2540,7 @@
     }
 
     function entities(url, oncomplite, onerror) {
-      network$5["native"]('https://www.ivi.ru/' + url, function (str) {
+      network$6["native"]('https://www.ivi.ru/' + url, function (str) {
         var parse = str.match(/window.__INITIAL_STATE__ = JSON.parse\('(.*?)'\);<\/script>/);
         var decod = (parse ? parse[1] : '').replace(/\\'|[\\]+"/g, '\'');
         var json = Arrays.decodeJson(decod, {});
@@ -2675,10 +2691,10 @@
     }
 
     function seasons$1(tv, from, oncomplite, onerror) {
-      var status$1 = new status(from.length);
-      status$1.onComplite = oncomplite;
+      var status = new status$1(from.length);
+      status.onComplite = oncomplite;
       from.forEach(function (season) {
-        network$5["native"](baseurl + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
+        network$6["native"](baseurl + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
           if (json.result) {
             var episodes = [];
             json.result.forEach(function (elem) {
@@ -2689,11 +2705,11 @@
                 episode_number: elem.episode
               });
             });
-            status$1.append('' + season, {
+            status.append('' + season, {
               episodes: episodes
             });
-          } else status$1.error();
-        }, status$1.error.bind(status$1));
+          } else status.error();
+        }, status.error.bind(status));
       });
     }
 
@@ -2713,7 +2729,7 @@
 
     function menu$1(params, oncomplite) {
       if (!menu_list.length) {
-        network$5.timeout(1000);
+        network$6.timeout(1000);
         entities('', function () {
           oncomplite(menu_list);
         });
@@ -2783,7 +2799,7 @@
           to = fr + 19;
       var url = baseurl + 'catalogue/v5/?genre=' + params.genres + '&from=' + fr + '&to=' + to + '&withpreorderable=true';
       if (!params.genres) url = baseurl + 'collection/catalog/v5/?id=' + params.url + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-      network$5["native"](url, function (json) {
+      network$6["native"](url, function (json) {
         var items = [];
 
         if (json.result) {
@@ -2800,22 +2816,22 @@
     }
 
     function category$1(params, oncomplite, onerror) {
-      var status$1 = new status(params.url == 'movie' ? 4 : 5);
+      var status = new status$1(params.url == 'movie' ? 4 : 5);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = [];
-        if (status$1.data["new"] && status$1.data["new"].results.length) fulldata.push(status$1.data["new"]);
-        if (status$1.data.best && status$1.data.best.results.length) fulldata.push(status$1.data.best);
-        if (status$1.data.rus && status$1.data.rus.results.length) fulldata.push(status$1.data.rus);
-        if (status$1.data.popular && status$1.data.popular.results.length) fulldata.push(status$1.data.popular);
-        if (status$1.data.ivi && status$1.data.ivi.results.length) fulldata.push(status$1.data.ivi);
+        if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+        if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
+        if (status.data.rus && status.data.rus.results.length) fulldata.push(status.data.rus);
+        if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
+        if (status.data.ivi && status.data.ivi.results.length) fulldata.push(status.data.ivi);
         if (fulldata.length) oncomplite(fulldata);else onerror();
       };
 
       var append = function append(title, name, id, json) {
         json.title = title;
         json.url = id;
-        status$1.append(name, json);
+        status.append(name, json);
       };
 
       if (params.url == 'movie') {
@@ -2887,14 +2903,14 @@
     }
 
     function main$2(params, oncomplite, onerror) {
-      var status$1 = new status(13);
+      var status = new status$1(13);
 
-      status$1.onComplite = function () {
+      status.onComplite = function () {
         var fulldata = [];
 
         for (var i = 1; i <= 13; i++) {
           var n = i + '';
-          if (status$1.data[n] && status$1.data[n].results.length) fulldata.push(status$1.data[n]);
+          if (status.data[n] && status.data[n].results.length) fulldata.push(status.data[n]);
         }
 
         if (fulldata.length) oncomplite(fulldata);else onerror();
@@ -2903,13 +2919,13 @@
       var append = function append(title, name, id, json) {
         json.title = title;
         json.url = id;
-        status$1.append(name, json);
+        status.append(name, json);
       };
 
       collections$1({
         id: '4655'
       }, function (json) {
-        append('We recommend you watch', '1', '4655', {
+        append('We recommend that you watch', '1', '4655', {
           results: json
         });
       });
@@ -2986,7 +3002,7 @@
       collections$1({
         id: '4495'
       }, function (json) {
-        append('Foreign series', '12', '4495', {
+        append('Foreign TV series', '12', '4495', {
           results: json
         });
       });
@@ -3004,7 +3020,7 @@
           to = fr + 19;
       var uri = baseurl + 'collections/v5/?app_version=870&from=' + fr + '&tags_exclude=goodmovies&to=' + to;
       if (params.id) uri = baseurl + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-      network$5["native"](uri, function (json) {
+      network$6["native"](uri, function (json) {
         var items = [];
 
         if (json.result) {
@@ -3033,11 +3049,11 @@
       category: category$1,
       menu: menu$1,
       seasons: seasons$1,
-      clear: network$5.clear
+      clear: network$6.clear
     };
 
     var url$3;
-    var network$4 = new create$q();
+    var network$5 = new create$q();
 
     function get$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -3072,10 +3088,10 @@
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      network$4.timeout(1000 * 60);
+      network$5.timeout(1000 * 60);
       var s = Utils.checkHttp(Storage.field('torlook_site')) + '/';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
-      network$4["native"](u, function (str) {
+      network$5["native"](u + '?forced=1', function (str) {
         var math = str.replace(/\n|\r/g, '').match(new RegExp('<div class="webResult item">(.*?)<\/div>', 'g'));
         var data = {
           Results: []
@@ -3100,7 +3116,7 @@
         });
         oncomplite(data);
       }, function (a, c) {
-        onerror(network$4.errorDecode(a, c));
+        onerror(network$5.errorDecode(a, c));
       }, false, {
         dataType: 'text'
       });
@@ -3110,7 +3126,7 @@
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      network$4.timeout(1000 * 15);
+      network$5.timeout(1000 * 15);
       var u = url$3 + '/api/v2.0/indexers/all/results?apikey=' + Storage.field('jackett_key') + '&Query=' + encodeURIComponent(params.search);
       var genres = params.movie.genres.map(function (a) {
         return a.name;
@@ -3125,7 +3141,7 @@
       u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date ? '2' : params.other ? '0' : '1'));
       u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
       u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000));
-      network$4["native"](u, function (json) {
+      network$5["native"](u, function (json) {
         json.Results.forEach(function (element) {
           element.PublisTime = Utils.strToTime(element.PublishDate);
           element.hash = Utils.hash(element.Title);
@@ -3134,15 +3150,15 @@
         });
         oncomplite(json);
       }, function (a, c) {
-        onerror(network$4.errorDecode(a, c));
+        onerror(network$5.errorDecode(a, c));
       });
     }
 
     function marnet(element, oncomplite, onerror) {
-      network$4.timeout(1000 * 15);
+      network$5.timeout(1000 * 15);
       var s = Utils.checkHttp(Storage.field('torlook_site')) + '/';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + element.reguest : url$3.replace('{q}', encodeURIComponent(s + element.reguest));
-      network$4.silent(u, function (html) {
+      network$5.silent(u, function (html) {
         var math = html.match(/magnet:(.*?)'/);
 
         if (math && math[1]) {
@@ -3152,14 +3168,14 @@
           onerror('Failed to get magnet link');
         }
       }, function (a, c) {
-        onerror(network$4.errorDecode(a, c));
+        onerror(network$5.errorDecode(a, c));
       }, false, {
         dataType: 'text'
       });
     }
 
     function clear$3() {
-      network$4.clear();
+      network$5.clear();
     }
 
     var Parser = {
@@ -3175,7 +3191,7 @@
       okko: OKKO,
       tmdb: TMDB
     };
-    var network$3 = new create$q();
+    var network$4 = new create$q();
 
     function source(params) {
       return params.source ? sources[params.source] : sources.tmdb;
@@ -3205,12 +3221,12 @@
     function search$1() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-      var status$1 = new status(Storage.field('parser_use') ? 3 : 2);
-      status$1.onComplite = oncomplite;
+      var status = new status$1(Storage.field('parser_use') ? 3 : 2);
+      status.onComplite = oncomplite;
       TMDB.search(params, function (json) {
-        if (json.movie) status$1.append('movie', json.movie);
-        if (json.tv) status$1.append('tv', json.tv);
-      }, status$1.error.bind(status$1));
+        if (json.movie) status.append('movie', json.movie);
+        if (json.tv) status.append('tv', json.tv);
+      }, status.error.bind(status));
 
       if (Storage.field('parser_use')) {
         Parser.get({
@@ -3229,8 +3245,8 @@
           json.results.forEach(function (element) {
             element.Title = Utils.shortText(element.Title, 110);
           });
-          status$1.append('parser', json);
-        }, status$1.error.bind(status$1));
+          status.append('parser', json);
+        }, status.error.bind(status));
       }
     }
 
@@ -3290,51 +3306,32 @@
     }
 
     function relise(oncomplite, onerror) {
-      if(Storage.field('tmdb_lang') == 'zh-CN'){
-            network$3["native"]('https://rentry.co/doubantop250/raw', function (json) {
-            var items = [];
+      network$4["native"]('https://kinotrend.neocities.org/data.json', function (json) {
+        var items = [];
 
-            if (json.subjects) {
-              json.subjects.forEach(function (element) {
-                items.push({
-                  id: element.id,
-                  title: element.title,
-                  original_title: element.title,
-                  release_date: "",
-                  poster: element.cover,
-                  vote_average: element.rate
-                });
-              });
-            }
-            oncomplite(items);
-          }, onerror);
-        }
-        else{
-          network$3["native"]('https://kinotrend.neocities.org/data.json', function (json) {
-          var items = [];
-
-          if (json.movies) {
-            json.movies.forEach(function (element) {
-              items.push({
-                id: element.filmID,
-                title: (Storage.field('tmdb_lang') == 'ru') ? element.nameRU : element.nameOriginal,
-                original_title: element.nameOriginal,
-                release_date: element.premierDate,
-                poster: element.posterURL,
-                vote_average: element.ratingFloat
-              });
+        if (json.movies) {
+          json.movies.forEach(function (element) {
+            items.push({
+              id: element.filmID,
+              title: element.nameRU,
+              original_title: element.nameOriginal,
+              release_date: element.premierDate,
+              poster: element.posterURL,
+              vote_average: element.ratingFloat,
+              tmdbID: element.tmdbID
             });
-          }
-          oncomplite(items);
-        }, onerror);
+          });
         }
+
+        oncomplite(items);
+      }, onerror);
     }
 
     function clear$2() {
       TMDB.clear();
       OKKO.clear();
       IVI.clear();
-      network$3.clear();
+      network$4.clear();
     }
 
     var Api = {
@@ -3363,7 +3360,8 @@
     });
     var active$4;
     html$f.find('.selectbox__body').append(scroll$3.render());
-    html$f.find('.selectbox__layer').on('click', function () {//window.history.back()
+    html$f.find('.selectbox__layer').on('click', function () {
+      window.history.back();
     });
     $('body').append(html$f);
 
@@ -3585,7 +3583,7 @@
       };
     }
 
-    function init$c() {
+    function init$d() {
       $(window).on('resize', update$5);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
@@ -3631,7 +3629,7 @@
 
     var Layer = {
       update: update$5,
-      init: init$c
+      init: init$d
     };
 
     /* eslint-disable no-bitwise -- used for calculations */
@@ -4629,7 +4627,7 @@
       return html$e;
     }
 
-    function init$b() {
+    function init$c() {
       Storage.listener.follow('change', function (event) {
         if (event.name == 'background' || event.name == 'background_type') resize();
       });
@@ -4655,7 +4653,7 @@
       render: render$b,
       change: change,
       update: resize,
-      init: init$b,
+      init: init$c,
       immediately: immediately
     };
 
@@ -5099,7 +5097,7 @@
       var stream_url, loaded;
       var object = $('<object class="player-video_video" type="application/avplayer"</object>');
       var video = object[0];
-      var listener = start$3();
+      var listener = start$4();
       var change_scale_later;
       object.width(window.innerWidth);
       object.height(window.innerHeight); // для тестов
@@ -5543,7 +5541,7 @@
     }
 
     var html$c = Template.get('player_panel');
-    var listener$8 = start$3();
+    var listener$a = start$4();
     var condition = {};
     var timer$3 = {};
     var tracks = [];
@@ -5605,23 +5603,31 @@
     html$c.find('.selector').on('hover:focus', function (e) {
     });
     html$c.find('.player-panel__playpause').on('hover:enter', function (e) {
-      listener$8.send('playpause', {});
+      listener$a.send('playpause', {});
     });
     html$c.find('.player-panel__next').on('hover:enter', function (e) {
-      listener$8.send('next', {});
+      listener$a.send('next', {});
     });
     html$c.find('.player-panel__prev').on('hover:enter', function (e) {
-      listener$8.send('prev', {});
+      listener$a.send('prev', {});
     });
     html$c.find('.player-panel__rprev').on('hover:enter', function (e) {
-      listener$8.send('rprev', {});
+      listener$a.send('rprev', {});
     });
     html$c.find('.player-panel__rnext').on('hover:enter', function (e) {
-      listener$8.send('rnext', {});
+      listener$a.send('rnext', {});
     });
     html$c.find('.player-panel__playlist').on('hover:enter', function (e) {
-      listener$8.send('playlist', {});
+      listener$a.send('playlist', {});
     });
+    html$c.find('.player-panel__tstart').on('hover:enter', function (e) {
+      listener$a.send('to_start', {});
+    });
+    html$c.find('.player-panel__tend').on('hover:enter', function (e) {
+      listener$a.send('to_end', {});
+    });
+    html$c.find('.player-panel__timeline').attr('data-controller', 'player_rewind');
+    html$c.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
     /**
      * Выбор аудиодорожки
      */
@@ -5688,7 +5694,7 @@
             });
             a.mode = 'showing';
             a.selected = true;
-            listener$8.send('subsview', {
+            listener$a.send('subsview', {
               status: a.index > -1
             });
             Controller.toggle(enabled.name);
@@ -5754,7 +5760,7 @@
         title: 'Video size',
         items: items,
         onSelect: function onSelect(a) {
-          listener$8.send('size', {
+          listener$a.send('size', {
             size: a.value
           });
           Controller.toggle('player_panel');
@@ -5813,7 +5819,7 @@
 
 
     function _visible(status) {
-      listener$8.send('visible', {
+      listener$a.send('visible', {
         status: status
       });
       html$c.toggleClass('panel--visible', status);
@@ -5838,6 +5844,20 @@
     }
 
     function toggleRewind() {
+      Controller.toggle('player_rewind');
+    }
+
+    function toggleButtons() {
+      Controller.toggle('player_panel');
+    }
+    /**
+     * Контроллер
+     */
+
+
+    function toggle$6() {
+      condition.visible = true;
+      state.start();
       Controller.add('player_rewind', {
         toggle: function toggle() {
           Controller.collectionSet(render$a());
@@ -5850,10 +5870,10 @@
           toggleButtons();
         },
         right: function right() {
-          listener$8.send('rnext', {});
+          listener$a.send('rnext', {});
         },
         left: function left() {
-          listener$8.send('rprev', {});
+          listener$a.send('rprev', {});
         },
         gone: function gone() {
           html$c.find('.selector').removeClass('focus');
@@ -5863,10 +5883,6 @@
           hide();
         }
       });
-      Controller.toggle('player_rewind');
-    }
-
-    function toggleButtons() {
       Controller.add('player_panel', {
         toggle: function toggle() {
           Controller.collectionSet(render$a());
@@ -5892,16 +5908,6 @@
           hide();
         }
       });
-      Controller.toggle('player_panel');
-    }
-    /**
-     * Контроллер
-     */
-
-
-    function toggle$6() {
-      condition.visible = true;
-      state.start();
       toggleRewind();
     }
     /**
@@ -5970,7 +5976,7 @@
     }
 
     var Panel = {
-      listener: listener$8,
+      listener: listener$a,
       render: render$a,
       toggle: toggle$6,
       show: show$2,
@@ -6212,13 +6218,14 @@
       };
     }
 
-    var listener$7 = start$3();
+    var listener$9 = start$4();
     var html$b = Template.get('player_video');
     var display = html$b.find('.player-video__display');
     var paused = html$b.find('.player-video__paused');
     var subtitles = html$b.find('.player-video__subtitles');
     var timer$2 = {};
     var rewind_position = 0;
+    var rewind_force = 0;
     var video;
     var wait;
     var neeed_sacle;
@@ -6238,7 +6245,7 @@
       }); // видео закончилось
 
       video.addEventListener('ended', function () {
-        listener$7.send('ended', {});
+        listener$9.send('ended', {});
       }); // что-то пошло не так
 
       video.addEventListener('error', function (e) {
@@ -6247,15 +6254,15 @@
 
         if (msg.indexOf('EMPTY SRC') == -1) {
           if (error.code == 3) {
-            listener$7.send('error', {
+            listener$9.send('error', {
               error: 'Video decode failed'
             });
           } else if (error.code == 4) {
-            listener$7.send('error', {
+            listener$9.send('error', {
               error: 'Video not found or corrupted'
             });
           } else if (typeof error.code !== 'undefined') {
-            listener$7.send('error', {
+            listener$9.send('error', {
               error: 'code [' + error.code + '] details [' + msg + ']'
             });
           }
@@ -6264,7 +6271,7 @@
 
       video.addEventListener('progress', function (e) {
         if (e.percent) {
-          listener$7.send('progress', {
+          listener$9.send('progress', {
             down: e.percent
           });
         } else {
@@ -6274,7 +6281,7 @@
             for (var i = 0; i < video.buffered.length; i++) {
               if (video.buffered.start(video.buffered.length - 1 - i) < video.currentTime) {
                 var down = Math.max(0, Math.min(100, video.buffered.end(video.buffered.length - 1 - i) / duration * 100)) + "%";
-                listener$7.send('progress', {
+                listener$9.send('progress', {
                   down: down
                 });
                 break;
@@ -6285,11 +6292,11 @@
       }); // можно ли уже проигрывать?
 
       video.addEventListener('canplay', function () {
-        listener$7.send('canplay', {});
+        listener$9.send('canplay', {});
       }); // сколько прошло
 
       video.addEventListener('timeupdate', function () {
-        listener$7.send('timeupdate', {
+        listener$9.send('timeupdate', {
           duration: video.duration,
           current: video.currentTime
         });
@@ -6314,7 +6321,7 @@
         subtitles.children().html(e.text);
       });
       video.addEventListener('loadedmetadata', function (e) {
-        listener$7.send('videosize', {
+        listener$9.send('videosize', {
           width: video.videoWidth,
           height: video.videoHeight
         });
@@ -6412,7 +6419,7 @@
           tracks = new_tracks;
         }
 
-        listener$7.send('tracks', {
+        listener$9.send('tracks', {
           tracks: tracks
         });
       }
@@ -6428,7 +6435,7 @@
           subs = new_subs;
         }
 
-        listener$7.send('subs', {
+        listener$9.send('subs', {
           subs: subs
         });
       }
@@ -6493,7 +6500,7 @@
           create$f();
           webos.repet();
           url$2(src);
-          listener$7.send('reset_continue', {});
+          listener$9.send('reset_continue', {});
         };
 
         webos.start();
@@ -6545,7 +6552,7 @@
       }
 
       paused.addClass('hide');
-      listener$7.send('play', {});
+      listener$9.send('play', {});
     }
     /**
      * Пауза
@@ -6568,7 +6575,7 @@
       }
 
       paused.removeClass('hide');
-      listener$7.send('pause', {});
+      listener$9.send('pause', {});
     }
     /**
      * Играем или пауза
@@ -6580,10 +6587,10 @@
 
       if (video.paused) {
         play$1();
-        listener$7.send('play', {});
+        listener$9.send('play', {});
       } else {
         pause();
-        listener$7.send('pause', {});
+        listener$9.send('pause', {});
       }
     }
     /**
@@ -6597,6 +6604,7 @@
       timer$2.rewind_call = setTimeout(function () {
         video.currentTime = rewind_position;
         rewind_position = 0;
+        rewind_force = 0;
         play$1();
         if (webos) webos.rewinded();
       }, immediately ? 0 : 500);
@@ -6614,11 +6622,11 @@
       pause();
       if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
       timer$2.rewind = Date.now();
-      listener$7.send('timeupdate', {
+      listener$9.send('timeupdate', {
         duration: video.duration,
         current: rewind_position
       });
-      listener$7.send('rewind', {});
+      listener$9.send('rewind', {});
       rewindEnd(immediately);
     }
     /**
@@ -6633,12 +6641,18 @@
         var time = Date.now(),
             step = video.duration / (30 * 60),
             mini = time - (timer$2.rewind || 0) > 50 ? 20 : 60;
-        if (rewind_position == 0) rewind_position = video.currentTime;
+
+        if (rewind_position == 0) {
+          rewind_force = Math.min(mini, custom_step || 30 * step);
+          rewind_position = video.currentTime;
+        }
+
+        rewind_force *= 1.03;
 
         if (forward) {
-          rewind_position += Math.min(mini, custom_step || 30 * step);
+          rewind_position += rewind_force;
         } else {
-          rewind_position -= Math.min(mini, custom_step || 30 * step);
+          rewind_position -= rewind_force;
         }
 
         rewindStart(rewind_position);
@@ -6663,7 +6677,7 @@
 
     function to(seconds) {
       pause();
-      video.currentTime = seconds;
+      if (seconds == -1) video.currentTime = video.duration;else video.currentTime = seconds;
       play$1();
     }
     /**
@@ -6694,7 +6708,7 @@
     }
 
     var Video = {
-      listener: listener$7,
+      listener: listener$9,
       url: url$2,
       render: render$9,
       destroy: destroy$5,
@@ -6708,8 +6722,8 @@
     };
 
     var html$a = Template.get('player_info');
-    var listener$6 = start$3();
-    var network$2 = new create$q();
+    var listener$8 = start$4();
+    var network$3 = new create$q();
     var elems = {
       name: $('.player-info__name', html$a),
       size: $('.value--size span', html$a),
@@ -6753,11 +6767,11 @@
           if (wait <= 5) return;else wait = 0;
         }
 
-        network$2.timeout(2000);
-        network$2.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
+        network$3.timeout(2000);
+        network$3.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
           elems.stat.text((data.active_peers || 0) + ' / ' + (data.total_peers || 0) + ' • ' + (data.connected_seeders || 0) + ' seeds');
           elems.speed.text(data.download_speed ? Utils.bytesToSize(data.download_speed * 8, true) + '/s' : '0.0');
-          listener$6.send('stat', {
+          listener$8.send('stat', {
             data: data
           });
         });
@@ -6787,7 +6801,7 @@
       elems.error.addClass('hide');
       clearTimeout(error);
       clearInterval(stat_timer);
-      network$2.clear();
+      network$3.clear();
     }
 
     function render$8() {
@@ -6795,14 +6809,14 @@
     }
 
     var Info = {
-      listener: listener$6,
+      listener: listener$8,
       render: render$8,
       set: set$2,
       toggle: toggle$5,
       destroy: destroy$4
     };
 
-    var listener$5 = start$3();
+    var listener$7 = start$4();
     var current = '';
     var playlist$1 = [];
     var position$1 = 0;
@@ -6818,7 +6832,7 @@
         items: playlist$1,
         onSelect: function onSelect(a) {
           Controller.toggle(enabled.name);
-          listener$5.send('select', {
+          listener$7.send('select', {
             item: a
           });
         },
@@ -6847,7 +6861,7 @@
       active$3();
 
       if (position$1 > 1) {
-        listener$5.send('select', {
+        listener$7.send('select', {
           item: playlist$1[position$1 - 1]
         });
       }
@@ -6861,7 +6875,7 @@
       active$3();
 
       if (position$1 < playlist$1.length - 1) {
-        listener$5.send('select', {
+        listener$7.send('select', {
           item: playlist$1[position$1 + 1]
         });
       }
@@ -6886,7 +6900,7 @@
     }
 
     var Playlist = {
-      listener: listener$5,
+      listener: listener$7,
       show: show$1,
       url: url$1,
       set: set$1,
@@ -6928,14 +6942,14 @@
     };
 
     var enabled$2 = false;
-    var listener$4 = start$3();
+    var listener$6 = start$4();
     var lastdown = 0;
     var timer$1;
     var longpress;
 
     function toggle$4(new_status) {
       enabled$2 = new_status;
-      listener$4.send('toggle', {
+      listener$6.send('toggle', {
         status: enabled$2
       });
     }
@@ -6964,7 +6978,7 @@
       return keycode;
     }
 
-    function init$a() {
+    function init$b() {
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
@@ -6972,7 +6986,7 @@
           timer$1 = setTimeout(function () {
             if (isEnter(lastdown)) {
               longpress = true;
-              listener$4.send('longdown', {});
+              listener$6.send('longdown', {});
               Controller["long"]();
             }
           }, 800);
@@ -6981,7 +6995,7 @@
       window.addEventListener("keyup", function (e) {
         clearTimeout(timer$1);
         timer$1 = null;
-        listener$4.send('keyup', {
+        listener$6.send('keyup', {
           code: keyCode(e),
           enabled: enabled$2,
           event: e
@@ -6993,7 +7007,7 @@
       });
       window.addEventListener("keydown", function (e) {
         var keycode = keyCode(e); //console.log('Keypdad', 'keydown: ', keycode, Date.now() - time)
-        listener$4.send('keydown', {
+        listener$6.send('keydown', {
           code: keycode,
           enabled: enabled$2,
           event: e
@@ -7095,15 +7109,16 @@
     }
 
     var Keypad = {
-      listener: listener$4,
-      init: init$a,
+      listener: listener$6,
+      init: init$b,
       enable: enable$2,
       disable: disable$1
     };
 
-    var listener$3 = start$3();
+    var listener$5 = start$4();
     var enabled$1 = false;
     var worked = false;
+    var chrome = false;
     var img;
     var html$9 = Template.get('screensaver');
     var movies = [];
@@ -7115,7 +7130,7 @@
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
       if (enabled$1) resetTimer();else clearTimeout(timer.wait);
-      listener$3.send('toggle', {
+      listener$5.send('toggle', {
         status: enabled$1
       });
     }
@@ -7133,7 +7148,7 @@
       clearTimeout(timer.wait);
       if (!Storage.field('screensaver')) return;
       timer.wait = setTimeout(function () {
-        if (Storage.field('screensaver_type') == 'nature') startSlideshow();else if (movies.length === 0) {
+        if (Storage.field('screensaver_type') == 'nature') startSlideshow();else if (Storage.field('screensaver_type') == 'chrome') startChrome();else if (movies.length === 0) {
           Api.screensavers(function (data) {
             movies = data;
             startSlideshow();
@@ -7142,6 +7157,12 @@
           startSlideshow();
         }
       }, 300 * 1000); //300 * 1000 = 5 минут
+    }
+
+    function startChrome() {
+      worked = true;
+      chrome = $('<div class="screensaver-chrome"><iframe src="https://clients3.google.com/cast/chromecast/home" class="screensaver-chrome__iframe"></iframe><div class="screensaver-chrome__overlay"></div></div>');
+      $('body').append(chrome);
     }
 
     function startSlideshow() {
@@ -7203,9 +7224,14 @@
       clearInterval(timer.work);
       clearTimeout(timer.start);
       movies = [];
+
+      if (chrome) {
+        chrome.remove();
+        chrome = false;
+      }
     }
 
-    function init$9() {
+    function init$a() {
       $('body').append(html$9);
       resetTimer();
       Keypad.listener.follow('keydown', function (e) {
@@ -7226,14 +7252,14 @@
     }
 
     var Screensaver = {
-      listener: listener$3,
-      init: init$9,
+      listener: listener$5,
+      init: init$a,
       enable: enable$1,
       render: render$6,
       disable: disable
     };
 
-    var network$1 = new create$q();
+    var network$2 = new create$q();
 
     function url() {
       var u = ip();
@@ -7249,7 +7275,7 @@
         action: 'list'
       });
       clear$1();
-      network$1.silent(url() + '/torrents', function (result) {
+      network$2.silent(url() + '/torrents', function (result) {
         if (result.length) success(result);else fail();
       }, fail, data);
     }
@@ -7264,7 +7290,7 @@
         save_to_db: true
       });
       clear$1();
-      network$1.silent(url() + '/torrents', success, fail, data);
+      network$2.silent(url() + '/torrents', success, fail, data);
     }
 
     function hash$1(object, success, fail) {
@@ -7277,8 +7303,8 @@
         save_to_db: Storage.get('torrserver_savedb', 'false')
       });
       clear$1();
-      network$1.silent(url() + '/torrents', success, function (a, c) {
-        fail(network$1.errorDecode(a, c));
+      network$2.silent(url() + '/torrents', success, function (a, c) {
+        fail(network$2.errorDecode(a, c));
       }, data);
     }
 
@@ -7288,8 +7314,8 @@
         hash: hash
       });
       clear$1();
-      network$1.timeout(2000);
-      network$1.silent(url() + '/torrents', function (json) {
+      network$2.timeout(2000);
+      network$2.silent(url() + '/torrents', function (json) {
         if (json.file_stats) {
           success(json);
         }
@@ -7298,15 +7324,15 @@
 
     function connected(success, fail) {
       clear$1();
-      network$1.timeout(5000);
-      network$1.silent(url() + '/settings', function (json) {
+      network$2.timeout(5000);
+      network$2.silent(url() + '/settings', function (json) {
         if (typeof json.CacheSize == 'undefined') {
           fail('Not managed to confirm the version of Matrix');
         } else {
           success(json);
         }
       }, function (a, c) {
-        fail(network$1.errorDecode(a, c));
+        fail(network$2.errorDecode(a, c));
       }, JSON.stringify({
         action: 'get'
       }));
@@ -7322,7 +7348,7 @@
         hash: hash
       });
       clear$1();
-      network$1.silent(url() + '/torrents', success, fail, data, {
+      network$2.silent(url() + '/torrents', success, fail, data, {
         dataType: 'text'
       });
     }
@@ -7333,12 +7359,12 @@
         hash: hash
       });
       clear$1();
-      network$1.silent(url() + '/torrents', success, fail, data, {
+      network$2.silent(url() + '/torrents', success, fail, data, {
         dataType: 'text'
       });
     }
 
-    function parse(file_path, movie) {
+    function parse(file_path, movie, is_file) {
       var path = file_path.toLowerCase();
       var data = {
         hash: '',
@@ -7355,7 +7381,9 @@
         if (math) math = [0, 0, math[1]];
       }
 
-      if (math && movie.number_of_seasons) {
+      if (is_file) {
+        data.hash = Utils.hash(file_path);
+      } else if (math && movie.number_of_seasons) {
         data.season = parseInt(math[1]);
         data.episode = parseInt(math[2]);
 
@@ -7390,7 +7418,7 @@
     }
 
     function clear$1() {
-      network$1.clear();
+      network$2.clear();
     }
 
     var Torserver = {
@@ -7488,11 +7516,16 @@
       };
     }
 
+    function openYoutube(link) {
+      AndroidJS.openYoutube(link);
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
       openPlayer: openPlayer,
-      playHash: playHash
+      playHash: playHash,
+      openYoutube: openYoutube
     };
 
     var html$8 = Template.get('player');
@@ -7501,7 +7534,7 @@
     html$8.append(Info.render());
     var callback$2;
     var work = false;
-    var network = new create$q();
+    var network$1 = new create$q();
     var preloader = {
       wait: false
     };
@@ -7588,6 +7621,12 @@
     });
     Panel.listener.follow('visible', function (e) {
       Info.toggle(e.status);
+    });
+    Panel.listener.follow('to_start', function (e) {
+      Video.to(0);
+    });
+    Panel.listener.follow('to_end', function (e) {
+      Video.to(-1);
     });
     Playlist.listener.follow('select', function (e) {
       destroy$3();
@@ -7743,8 +7782,8 @@
         $('body').append(html$8);
         Panel.show(true);
         togglePreload();
-        network.timeout(2000);
-        network.silent(data.url);
+        network$1.timeout(2000);
+        network$1.silent(data.url);
 
         preloader.call = function () {
           data.url = data.url.replace('&preload', '&play');
@@ -7901,9 +7940,13 @@
               title: 'Trailers',
               items: items,
               onSelect: function onSelect(a) {
+                _this.toggle();
+
                 if (a.player) {
                   Player.play(a);
                   Player.playlist([a]);
+                } else if (Platform.is('android')) {
+                  Android.openYoutube(a.id);
                 } else YouTube.play(a.id);
               },
               onBack: function onBack() {
@@ -8012,7 +8055,8 @@
       html$7 = Template.get('modal', {
         title: params.title
       });
-      html$7.on('click', function (e) {//if(!$(e.target).closest($('.modal__content',html)).length) window.history.back()
+      html$7.on('click', function (e) {
+        if (!$(e.target).closest($('.modal__content', html$7)).length) window.history.back();
       });
       title$1(params.title);
       html$7.toggleClass('modal--medium', params.size == 'medium' ? true : false);
@@ -9188,8 +9232,8 @@
       $('body').append(search);
       var keyboard = new create$4({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {enter}'],
-          //'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {enter}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
+          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -9363,8 +9407,9 @@
     var callback$1;
     var callback_back;
     var formats = ['asf', 'wmv', 'divx', 'avi', 'mp4', 'm4v', 'mov', '3gp', '3g2', 'mkv', 'trp', 'tp', 'mts', 'mpg', 'mpeg', 'dat', 'vob', 'rm', 'rmvb', 'm2ts', 'ts'];
+    var formats_individual = ['vob', 'm2ts'];
 
-    function start$2(element, movie) {
+    function start$3(element, movie) {
       SERVER.object = element;
       if (movie) SERVER.movie = movie;
 
@@ -9514,7 +9559,8 @@
       var html = $('<div class="torrent-files"></div>');
       var playlist = [];
       items.forEach(function (element) {
-        var info = Torserver.parse(element.path, params.movie);
+        var exe = element.path.split('.').pop().toLowerCase();
+        var info = Torserver.parse(element.path, params.movie, formats_individual.indexOf(exe) >= 0);
         var view = Timeline.view(info.hash);
         var item;
         Arrays.extend(element, {
@@ -9526,7 +9572,7 @@
           timeline: view,
           air_date: '--',
           img: './img/img_broken.svg',
-          exe: element.path.split('.').pop()
+          exe: exe
         });
 
         if (params.seasons) {
@@ -9602,7 +9648,7 @@
     }
 
     var Torrent = {
-      start: start$2,
+      start: start$3,
       open: open$1,
       opened: opened,
       back: back$3
@@ -9710,22 +9756,22 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: 'By Sending',
+          title: 'By distributor',
           sort: 'Seeders'
         }, {
-          title: 'By Size',
+          title: 'By size',
           sort: 'Size'
         }, {
-          title: 'By Name',
+          title: 'By name',
           sort: 'Title'
         }, {
-          title: 'By Source',
+          title: 'By source',
           sort: 'Tracker'
         }, {
-          title: 'By Date',
+          title: 'By date',
           sort: 'PublisTime'
         }, {
-          title: 'By Viewed',
+          title: 'By viewed',
           sort: 'viewed'
         }];
         select.forEach(function (element) {
@@ -10382,40 +10428,50 @@
           };
 
           card.onEnter = function (target, card_data) {
-            Modal.open({
-              title: '',
-              html: Template.get('modal_loading'),
-              size: 'small',
-              mask: true,
-              onBack: function onBack() {
+            if (card_data.tmdbID) {
+              Activity$1.push({
+                url: '',
+                component: 'full',
+                id: card_data.tmdbID,
+                method: 'movie',
+                card: card_data
+              });
+            } else {
+              Modal.open({
+                title: '',
+                html: Template.get('modal_loading'),
+                size: 'small',
+                mask: true,
+                onBack: function onBack() {
+                  Modal.close();
+                  Api.clear();
+                  Controller.toggle('content');
+                }
+              });
+              Api.search({
+                query: encodeURIComponent(card_data.original_title)
+              }, function (find) {
                 Modal.close();
-                Api.clear();
-                Controller.toggle('content');
-              }
-            });
-            Api.search({
-              query: encodeURIComponent(card_data.original_title)
-            }, function (find) {
-              Modal.close();
-              var finded = TMDB.find(find, card_data);
+                var finded = TMDB.find(find, card_data);
 
-              if (finded) {
-                Activity$1.push({
-                  url: '',
-                  component: 'full',
-                  id: finded.id,
-                  method: finded.name ? 'tv' : 'movie',
-                  card: finded
-                });
-              } else {
-                Noty.show('Movie could not be found.');
+                if (finded) {
+                  Activity$1.push({
+                    url: '',
+                    component: 'full',
+                    id: finded.id,
+                    method: finded.name ? 'tv' : 'movie',
+                    card: finded
+                  });
+                } else {
+                  Noty.show('Couldn\'t find movie.');
+                  Controller.toggle('content');
+                }
+              }, function () {
+                Modal.close();
+                Noty.show('Couldn\'t find movie.');
                 Controller.toggle('content');
-              }
-            }, function () {
-              Modal.close();
-              Noty.show('Movie could not be found.');
-              Controller.toggle('content');
-            });
+              });
+            }
           };
 
           card.onMenu = function () {};
@@ -10846,9 +10902,13 @@
     var data = {};
     var notices = [];
 
-    function init$8() {
+    function init$9() {
       data = Storage.get('notice', '{}');
       notices = [{
+        time: '2021-11-15 11:00',
+        title: 'Update 1.3.5',
+        descr: '1. Added screensaver from Google ChromeCast. \u003cbr\u003e 2. Releases start immediately without searching. \u003cbr\u003e 3. The enter button has been removed from the keyboard. \u003cbr\u003e 4. The player has improved rewind and added buttons (to the end / to the beginning). \u003cbr\u003e 5. Added synchronization via gist.github.com service.'
+      }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
         descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
@@ -10903,23 +10963,23 @@
       }, {
         time: '2021-09-30 18:00',
         title: 'Update 1.0.8',
-        descr: '1. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed exit for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
+        descr: '1. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed output for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
       }, {
         time: '2021-09-29 17:00',
         title: 'Update 1.0.7',
         descr: '1. Optimized home page and catalogs \u003cbr\u003e 2. Added authorization for TorServer \u003cbr\u003e 3. Added error hints in TorServer'
       }, {
         time: '2021-09-28 16:00',
-        title: 'Fixes',
+        title: 'Corrections',
         descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
       }, {
         time: '2021-09-27 15:00',
-        title: 'Fixed parser',
+        title: 'Parser fixed',
         descr: 'An error was detected in the parser due to which jac.red did not produce results'
       }, {
         time: '2021-09-26 17:00',
         title: 'Welcome !',
-        descr: 'This is your first launch of the application, we hope you enjoy it very much. Enjoy your viewing. \''
+        descr: 'This is your first launch of the app, we hope you enjoy it very much. Enjoy your viewing. \''
       }];
       Arrays.extend(data, {
         time: 0
@@ -10964,25 +11024,25 @@
       where.find('.notice--icon').toggleClass('active', any$1());
     }
 
-    function start$1(html) {
+    function start$2(html) {
       where = html;
       icon();
     }
 
     var Notice = {
       open: open,
-      start: start$1,
-      init: init$8
+      start: start$2,
+      init: init$9
     };
 
     var html$6;
     var last$2;
 
-    function init$7() {
+    function init$8() {
       html$6 = Template.get('head');
       Utils.time(html$6);
       Notice.start(html$6);
-      html$6.find('.selector').on('hover:focus', function (event) {
+      html$6.find('.selector').data('controller', 'head').on('hover:focus', function (event) {
         last$2 = event.target;
       });
       html$6.find('.open--settings').on('hover:enter', function () {
@@ -11025,10 +11085,10 @@
     var Head = {
       render: render$4,
       title: title,
-      init: init$7
+      init: init$8
     };
 
-    var listener$2 = start$3();
+    var listener$4 = start$4();
     var activites = [];
     var callback = false;
     var fullout = false;
@@ -11149,7 +11209,7 @@
       this.append();
     }
 
-    function init$6() {
+    function init$7() {
       content = Template.get('activitys');
       slides = content.find('.activitys__slides');
       maxsave = Storage.get('pages_save_total', 5);
@@ -11157,7 +11217,7 @@
       window.addEventListener('popstate', function () {
         if (fullout) return;
         empty();
-        listener$2.send('popstate', {
+        listener$4.send('popstate', {
           count: activites.length
         });
         if (callback) callback();else {
@@ -11199,7 +11259,7 @@
       limit();
       create$5(object);
       activites.push(object);
-      start(object);
+      start$1(object);
     }
     /**
      * Создать новую активность
@@ -11238,7 +11298,7 @@
 
     function backward() {
       callback = false;
-      listener$2.send('backward', {
+      listener$4.send('backward', {
         count: activites.length
       });
       if (activites.length == 1) return;
@@ -11265,14 +11325,14 @@
       previous_tree = activites.slice(-1)[0];
 
       if (previous_tree) {
-        if (previous_tree.activity) start(previous_tree);else {
+        if (previous_tree.activity) start$1(previous_tree);else {
           create$5(previous_tree);
-          start(previous_tree);
+          start$1(previous_tree);
         }
       }
     }
 
-    function save(object) {
+    function save$1(object) {
       var saved = {};
 
       for (var i in object) {
@@ -11292,8 +11352,8 @@
       return saved;
     }
 
-    function start(object) {
-      save(object);
+    function start$1(object) {
+      save$1(object);
       object.activity.start();
       slides.find('> div').removeClass('activity--active');
       object.activity.render().addClass('activity--active');
@@ -11360,8 +11420,8 @@
     }
 
     var Activity$1 = {
-      init: init$6,
-      listener: listener$2,
+      init: init$7,
+      listener: listener$4,
       push: push,
       back: back$2,
       render: render$3,
@@ -11373,7 +11433,7 @@
       active: active$1
     };
 
-    var listener$1 = start$3();
+    var listener$3 = start$4();
     var active;
     var active_name = '';
     var controlls = {};
@@ -11473,13 +11533,20 @@
         if(e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true])
         }).on('mouseover.hover', function(e){
             if($(this).hasClass('selector')){
-                selects.removeClass('focus enter').data('ismouse',false)
+                let cotr = $(this).data('controller')
+                  console.log(cotr)
+                
+                if(name !== cotr && cotr){
+                    console.log(name, cotr)
+                      toggle(cotr)
+                }
+                  selects.removeClass('focus enter').data('ismouse',false)
                   $(this).addClass('focus').data('ismouse',true).trigger('hover:focus', [true])
             }
         })
         */
 
-        listener$1.send('toggle', {
+        listener$3.send('toggle', {
           name: name
         });
       }
@@ -11524,7 +11591,8 @@
       }
 
       if (colection.length || active.invisible) {
-        clearSelects();
+        clearSelects(); //$(colection).data('controller', enabled().name)
+
         Navigator.setCollection(colection);
       }
     }
@@ -11546,7 +11614,7 @@
     }
 
     var Controller = {
-      listener: listener$1,
+      listener: listener$3,
       add: add$2,
       move: move,
       enter: enter,
@@ -11570,13 +11638,13 @@
 
       var last;
       var _default_layout = {
-        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} q w e r t y u i o p', 'a s d f g h j k l {enter}', '{shift} z x c v b n m , . : http://', '{space}'],
-        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L {enter}', '{shift} Z X C V B N M , . : http://', '{space}'],
-        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { } {enter}', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
-        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} q w e r t y u i o p', 'a s d f g h j k l {enter}', '{shift} z x c v b n m , . : http://', '{space}'],
-        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L {enter}', '{shift} Z X C V B N M , . : http://', '{space}']
+        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} q w e r t y u i o p', 'a s d f g h j k l', '{shift} z x c v b n m , . : http://', '{space}'],
+        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L', '{shift} Z X C V B N M , . : http://', '{space}'],
+        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
+        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
+        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F S V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
-      this.listener = start$3();
+      this.listener = start$4();
 
       this.create = function () {
         var _this = this;
@@ -11591,7 +11659,8 @@
             '{EN}': '&nbsp;',
             '{abc}': '&nbsp;',
             '{rus}': 'Russian',
-            '{eng}': 'english'
+            '{eng}': 'english',
+            '{search}': 'find'
           },
           layout: params.layout || _default_layout,
           onChange: function onChange(value) {
@@ -11600,7 +11669,7 @@
             });
           },
           onKeyPress: function onKeyPress(button) {
-            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{enter}') {
+            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{enter}' || button === '{search}') {
               _this.listener.send('enter');
             }
           }
@@ -11733,7 +11802,7 @@
           subtitle: 'For local TorrServ',
           url: '127.0.0.1:8090'
         }, {
-          title: Utils.shortText('api.scraperapi.com/?url= { q} api_key =', 35),
+          title: Utils.shortText('api. scraperapi.com/?url= {q }api_key=', 35),
           subtitle: 'scraperapi.com',
           url: 'api.scraperapi.com/?url={q}&api_key='
         }]);
@@ -11760,7 +11829,7 @@
           onLong: function onLong(a, elem) {
             if (a.member) {
               Arrays.remove(members, a.url);
-              Noty.show('Removed (' + a.url + ')');
+              Noty.show('Deleted (' + a.url + ')');
               Storage.set('setting_member', members);
               $(elem).css({
                 opacity: 0.4
@@ -11772,7 +11841,11 @@
           }
         });
       });
-      keyboard$1.listener.follow('back', back);
+      keyboard$1.listener.follow('back', function () {
+        var val = input$1.text();
+        back();
+        call(val);
+      });
       keyboard$1.create();
       keyboard$1.value(params.value);
       keyboard$1.toggle();
@@ -11797,21 +11870,22 @@
 
     var values = {};
     var defaults = {};
+    var listener$2 = start$4();
 
-    function init$5() {
+    function init$6() {
       if (Platform.is('tizen')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'tizen': 'Tizen'
         }, 'tizen');
       } else if (Platform.is('webos')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'webos': 'WebOS'
         }, 'inner');
       } else if (Platform.is('android')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'android': 'Android'
         }, 'android');
         trigger('internal_torrclient', false);
@@ -11878,6 +11952,12 @@
           }, function (new_value) {
             Storage.set(name, new_value);
             update(elem);
+          });
+        }
+
+        if (type == 'button') {
+          listener$2.send('button', {
+            name: name
           });
         }
 
@@ -12009,7 +12089,7 @@
       'complex': 'Complex',
       'simple': 'Simple',
       'poster': 'Picture'
-    }, 'complex');
+    }, 'simple');
     select('pages_save_total', {
       '1': '1',
       '2': '2',
@@ -12026,12 +12106,13 @@
     }, 'one');
     select('subtitles_size', {
       'small': 'Small',
-      'normal': 'Normal',
+      'normal': 'Regular',
       'large': 'Large'
     }, 'normal');
     select('screensaver_type', {
       'movie': 'Movies',
-      'nature': 'Nature'
+      'nature': 'Nature',
+      'chrome': 'ChromeCast'
     }, 'movie');
     select('tmdb_lang', {
       'zh-CN': '简体中文',
@@ -12049,7 +12130,7 @@
     }, 'en');
     select('player_timecode', {
       'again': 'Start over',
-      'continue': 'Continue'
+      'continue': 'Proceed'
     }, 'continue');
     select('player_scale_method', {
       'transform': 'Transform',
@@ -12064,6 +12145,10 @@
       'main': 'Home',
       'last': 'Last'
     }, 'last');
+    select('scroll_type', {
+      'css': 'CSS',
+      'js': 'Javascript'
+    }, 'css');
     select('time_offset', {
       'n-5': '-5',
       'n-4': '-4',
@@ -12086,6 +12171,7 @@
     trigger('torrserver_savedb', false);
     trigger('torrserver_preload', false);
     trigger('parser_use', false);
+    trigger('cloud_use', false);
     trigger('torrserver_auth', false);
     trigger('mask', true);
     trigger('playlist_next', true);
@@ -12105,14 +12191,16 @@
     select('torrserver_password', '', '');
     select('parser_website_url', '', '');
     select('torlook_site', '', 'w41.torlook.info');
+    select('cloud_token', '', '');
     var Params = {
-      init: init$5,
+      listener: listener$2,
+      init: init$6,
       bind: bind,
       update: update,
       field: field$1
     };
 
-    var listener = start$3();
+    var listener$1 = start$4();
 
     function get$1(name, empty) {
       var value = window.localStorage.getItem(name) || empty || '';
@@ -12138,7 +12226,7 @@
         window.localStorage.setItem(name, value);
       }
 
-      listener.send('change', {
+      listener$1.send('change', {
         name: name,
         value: value
       });
@@ -12174,7 +12262,7 @@
     }
 
     var Storage = {
-      listener: listener,
+      listener: listener$1,
       get: get$1,
       set: set,
       field: field,
@@ -12182,7 +12270,7 @@
       add: add$1
     };
 
-    function init$4() {
+    function init$5() {
       if (typeof webOS !== 'undefined' && webOS.platform.tv === true) {
         Storage.set('platform', 'webos');
       } else if (typeof webapis !== 'undefined' && typeof tizen !== 'undefined') {
@@ -12236,7 +12324,7 @@
     }
 
     var Platform = {
-      init: init$4,
+      init: init$5,
       get: get,
       any: any,
       is: is
@@ -12251,7 +12339,7 @@
         orsay_tap_back_count = 1,
         orsay_tap_back_timer;
 
-    function init$3() {
+    function init$4() {
       $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
       Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
         window.addEventListener("keydown", function (event) {
@@ -12321,14 +12409,14 @@
     }
 
     var Orsay = {
-      init: init$3
+      init: init$4
     };
 
     var html$4;
     var last;
     var scroll$1;
 
-    function init$2() {
+    function init$3() {
       html$4 = Template.get('menu');
       scroll$1 = new create$p({
         mask: true,
@@ -12351,7 +12439,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: 'Main',
+            title: 'Home',
             component: 'main',
             source: Storage.field('source')
           });
@@ -12362,7 +12450,7 @@
 
         if (action == 'about') {
           Modal.open({
-            title: 'About App',
+            title: 'About the app',
             html: Template.get('about'),
             size: 'medium',
             onBack: function onBack() {
@@ -12394,7 +12482,7 @@
         if (action == 'relise') {
           Activity$1.push({
             url: '',
-            title: 'Digital Releases',
+            title: 'Digital releases',
             component: 'relise',
             page: 1
           });
@@ -12459,7 +12547,7 @@
         source: Storage.field('source')
       }, function (menu) {
         Select.show({
-          title: 'Directory',
+          title: 'Catalog',
           items: menu,
           onSelect: function onSelect(a) {
             Activity$1.push({
@@ -12485,7 +12573,7 @@
 
     var Menu = {
       render: render$2,
-      init: init$2
+      init: init$3
     };
 
     function component(name) {
@@ -12580,23 +12668,29 @@
     }
 
     var html$3 = Template.get('settings');
-    var body = html$3.find('.settings__body');
-    html$3.find('.settings__layer').on('click', function () {//window.history.back()
+    var body$1 = html$3.find('.settings__body');
+    var listener = start$4();
+    html$3.find('.settings__layer').on('click', function () {
+      window.history.back();
     });
 
     function create$3(name) {
       var comp = new component(name);
-      body.empty().append(comp.render());
+      body$1.empty().append(comp.render());
+      listener.send('open', {
+        name: name,
+        body: comp.render()
+      });
       Controller.toggle('settings_component');
     }
 
-    function init$1() {
+    function init$2() {
       var main$1 = new main();
       main$1.onCreate = create$3;
       main$1.create();
       Controller.add('settings', {
         toggle: function toggle() {
-          body.empty().append(main$1.render());
+          body$1.empty().append(main$1.render());
           main$1.active();
           $('body').toggleClass('settings--open', true);
         },
@@ -12625,7 +12719,8 @@
     }
 
     var Settings = {
-      init: init$1,
+      listener: listener,
+      init: init$2,
       render: render$1
     };
 
@@ -12635,7 +12730,7 @@
           items = [],
           active = 0,
           query;
-      this.listener = start$3();
+      this.listener = start$4();
 
       this.create = function () {
         scroll = new create$p({
@@ -12649,18 +12744,23 @@
         clearTimeout(timer);
         query = value;
         Api.clear();
-        timer = setTimeout(function () {
-          Api.search({
-            query: encodeURIComponent(value)
-          }, function (data) {
-            _this.clear();
 
-            if (data.movie && data.movie.results.length) _this.build(data.movie, 'movie');
-            if (data.tv && data.tv.results.length) _this.build(data.tv, 'tv');
-            if (data.parser && data.parser.results.length) _this.build(data.parser, 'parser');
-            if (Controller.enabled().name == 'items_line') Controller.toggle('search_results');
-          });
-        }, 1000);
+        if (value.length >= 3) {
+          timer = setTimeout(function () {
+            Api.search({
+              query: encodeURIComponent(value)
+            }, function (data) {
+              _this.clear();
+
+              if (data.movie && data.movie.results.length) _this.build(data.movie, 'movie');
+              if (data.tv && data.tv.results.length) _this.build(data.tv, 'tv');
+              if (data.parser && data.parser.results.length) _this.build(data.parser, 'parser');
+              if (Controller.enabled().name == 'items_line') Controller.toggle('search_results');
+            });
+          }, 1000);
+        } else {
+          this.clear();
+        }
       };
 
       this.build = function (data, type) {
@@ -12736,7 +12836,7 @@
               Modal.open({
                 title: '',
                 html: Template.get('modal_pending', {
-                  text: 'Request magnet link'
+                  text: 'Requesting magnet link'
                 }),
                 onBack: function onBack() {
                   Modal.close();
@@ -12828,7 +12928,7 @@
       var scroll,
           last,
           keys = [];
-      this.listener = start$3();
+      this.listener = start$4();
 
       this.create = function () {
         var _this = this;
@@ -13037,7 +13137,7 @@
     var html$1;
     var scroll;
 
-    function init() {
+    function init$1() {
       Keypad.listener.follow('keydown', function (e) {
         if (e.code == 38 || e.code == 29460) {
           var enable = Controller.enabled();
@@ -13150,12 +13250,213 @@
     }
 
     var Console = {
+      init: init$1
+    };
+
+    var body;
+    var code = 0;
+    var network = new create$q();
+    var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+    /**
+     * Запуск
+     */
+
+    function init() {
+      if (Storage.field('cloud_use')) status(1);
+      Settings.listener.follow('open', function (e) {
+
+        if (e.name == 'cloud') {
+          body = e.body;
+          renderStatus();
+        }
+      });
+      Storage.listener.follow('change', function (e) {
+        if (e.name == 'cloud_token') {
+          login();
+        } else if (e.name == 'cloud_use') {
+          if (e.value == 'true') login();else status(0);
+        } else if (fields.indexOf(e.name) >= 0) {
+          save();
+        }
+      });
+      login(start);
+    }
+    /**
+     * Статус
+     * @param {Int} c - код
+     */
+
+
+    function status(c) {
+      code = c;
+      renderStatus();
+    }
+    /**
+     * Рендер статуса
+     */
+
+
+    function renderStatus() {
+      if (body) {
+        var item = body.find('.settings--cloud-status'),
+            name = item.find('.settings-param__name'),
+            desc = item.find('.settings-param__descr');
+
+        if (code == 0) {
+          name.text('Disabled');
+          desc.text('Turn on sync');
+        }
+
+        if (code == 1) {
+          name.text('Not logged in');
+          desc.text('You must log in');
+        }
+
+        if (code == 2) {
+          name.text('Login failed');
+          desc.text('Check the entered data and try again');
+        }
+
+        if (code == 3) {
+          name.text('Logged in');
+          desc.text('You are successfully logged in');
+        }
+
+        if (code == 4) {
+          var time = Utils.parseTime(Storage.get('cloud_time'));
+          name.text('Synchronized');
+          desc.text(time.full + 'to' + time.time);
+        }
+      }
+    }
+    /**
+     * Проверка авторизации
+     * @param {Function} good - успешно
+     * @param {Function} fail - провал
+     */
+
+
+    function login(good, fail) {
+      if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
+        network.silent('https://api.github.com/gists', function (data) {
+          status(3);
+          if (good) good();
+        }, function () {
+          status(2);
+          if (fail) fail();
+        }, JSON.stringify({
+          'files': {
+            'lampa-login.json': {
+              'content': '{"login":true}'
+            }
+          }
+        }), {
+          beforeSend: {
+            name: 'Authorization',
+            value: 'bearer ' + Storage.get('cloud_token')
+          },
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+      } else {
+        status(2);
+        if (fail) fail();
+      }
+    }
+    /**
+     * Считываем файл и обновляем данные с облака
+     * @param {Object} file
+     * @param {Object} item
+     */
+
+
+    function read(file, item) {
+      var time = Storage.get('cloud_time', '2021.01.01');
+
+      if (time !== item.updated_at) {
+        network.silent(file.raw_url, function (data) {
+          Storage.get('cloud_time', file.updated_at);
+
+          for (var i in data) {
+            Storage.set(i, data[i]);
+          }
+
+          status(4);
+        });
+      }
+    }
+    /**
+     * Получаем список файлов
+     */
+
+
+    function start() {
+      network.silent('https://api.github.com/gists', function (data) {
+        var file;
+        var item;
+        data.forEach(function (elem) {
+          for (var i in elem.files) {
+            if (elem.files[i].filename == 'lampa-data.json') {
+              item = elem;
+              file = elem.files[i];
+            }
+          }
+        });
+        if (file) read(file, item);else save();
+      }, function () {}, false, {
+        beforeSend: {
+          name: 'Authorization',
+          value: 'bearer ' + Storage.get('cloud_token')
+        },
+        headers: {
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+    }
+    /**
+     * Сохраняем закладки в облако
+     */
+
+
+    function save() {
+      if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
+        var conent = JSON.stringify({
+          torrents_view: Storage.get('torrents_view', '[]'),
+          plugins: Storage.get('plugins', '[]'),
+          favorite: Storage.get('favorite', '{}'),
+          file_view: Storage.get('file_view', '[]')
+        }, null, 4);
+        network.silent('https://api.github.com/gists', function (data) {
+          Storage.set('cloud_time', data.updated_at);
+          status(4);
+        }, function () {
+          status(5);
+        }, JSON.stringify({
+          'files': {
+            'lampa-data.json': {
+              'content': conent
+            }
+          }
+        }), {
+          beforeSend: {
+            name: 'Authorization',
+            value: 'bearer ' + Storage.get('cloud_token')
+          },
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+      }
+    }
+
+    var Cloud = {
       init: init
     };
 
     window.Lampa = {
-      Listener: start$3(),
-      Subscribe: start$3,
+      Listener: start$4(),
+      Subscribe: start$4,
       Storage: Storage,
       Platform: Platform,
       Utils: Utils,
@@ -13179,11 +13480,12 @@
       Arrays: Arrays,
       Noty: Noty,
       Player: Player,
-      Timeline: Timeline
+      Timeline: Timeline,
+      Cloud: Cloud
     };
-    window.appready = true; //пометка что уже загружено
 
     function startApp() {
+      if (window.appready) return;
       Keypad.init();
       Console.init();
       Settings.init();
@@ -13198,6 +13500,7 @@
       Orsay.init();
       Layer.init();
       Screensaver.init();
+      Cloud.init();
       Controller.listener.follow('toggle', function () {
         Layer.update();
       });
@@ -13205,9 +13508,9 @@
         if (event.count == 1) {
           var enabled = Controller.enabled();
           Select.show({
-            title: 'Exit',
+            title: 'Logout',
             items: [{
-              title: 'Yes exit',
+              title: 'Yes, log out',
               out: true
             }, {
               title: 'Continue'
@@ -13250,8 +13553,12 @@
           $('link[href="css/app.css"]').remove();
         });
       }
-    }
 
+      window.appready = true; //пометка что уже загружено
+    } // принудительно стартовать
+
+
+    setTimeout(startApp, 1000 * 5);
     var plugins = Storage.get('plugins', '[]');
     Utils.putScript(plugins, startApp);
 
