@@ -1156,6 +1156,8 @@
           data.data = params.post_data;
         }
 
+        if (params.type) data.type = params.type;
+
         if (params.headers) {
           data.headers = params.headers;
         }
@@ -1606,10 +1608,22 @@
       function next() {
         if (p >= items.length) return complite();
         var u = items[p];
+
+        if (!u) {
+          p++;
+          return next();
+        }
+
+        console.log('Script', 'create:', u);
         var s = document.createElement('script');
-        s.onload = next;
+
+        s.onload = function () {
+          console.log('Script', 'include:', u);
+          next();
+        };
 
         s.onerror = function () {
+          console.log('Script', 'error:', u);
           if (error) error(u);
           next();
         };
@@ -1619,7 +1633,7 @@
         p++;
       }
 
-      next(items[0]);
+      next();
     }
 
     function putStyle(items, complite, error) {
@@ -2318,7 +2332,7 @@
 
           if (blocks[0] && blocks[0].element.collectionItems.items) {
             var slides = {
-              title: 'New',
+              title: 'New items',
               results: [],
               wide: true
             };
@@ -3522,11 +3536,11 @@
           title: 'Action',
           items: [{
             title: status.book ? 'Remove from bookmarks' : 'Bookmark',
-            subtitle: 'Look in the (Bookmarks) menu',
+            subtitle: 'Look in the menu (Bookmarks)',
             where: 'book'
           }, {
             title: status.like ? 'Remove from favorites' : 'Like',
-            subtitle: 'Look in the (Like) menu',
+            subtitle: 'Look in the menu (Like)',
             where: 'like'
           }, {
             title: status.wath ? 'Remove from expected' : 'Watch later',
@@ -4511,7 +4525,7 @@
       item.canvas[0].width = window.innerWidth;
       item.canvas[0].height = window.innerHeight;
       var palette = data.palette;
-      var type = Storage.get('background_type', 'complex');
+      var type = Storage.field('background_type');
       blur(data, item, function () {
         if (type == 'complex' && bokeh.d) {
           var bright = Color.rgbToHsl(palette.average[0], palette.average[1], palette.average[2]);
@@ -7374,7 +7388,12 @@
       };
       var math = path.match(/s([0-9]+)\.?ep?([0-9]+)/);
       if (!math) math = path.match(/s([0-9]{2})([0-9]+)/);
-      if (!math) math = path.match(/([0-9]{1,2})x([0-9]+)/);
+      if (!math) math = path.match(/[ |\[|(]([0-9]{1,2})x([0-9]+)/);
+
+      if (!math) {
+        math = path.match(/[ |\[|(]([0-9]{1,3}) of ([0-9]+)/);
+        if (math) math = [0, 1, math[1]];
+      }
 
       if (!math) {
         math = path.match(/ep?([0-9]+)/);
@@ -10911,7 +10930,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
@@ -10919,11 +10938,11 @@
       }, {
         time: '2021-10-25 15:00',
         title: 'Update 1.3.2',
-        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Updated background work. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching the video. \u003cbr\u003e 7. Added comments in source ivi.'
+        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
         title: 'Update 1.3.1',
-        descr: '1. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        descr: '1. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: 'Screensaver',
@@ -10935,15 +10954,15 @@
       }, {
         time: '2021-10-12 19:10',
         title: 'Good to know',
-        descr: 'Did you know? That if you hold down the (OK) button on the card for a long time, you can bring up a menu to add to bookmarks. The same method works for torrents, a long tap allows you to add the distribution to the list (My torrents)'
+        descr: 'Did you know? That if you hold down the (OK) button on the card for a long time, you can bring up a menu for adding to bookmarks. The same method works on torrents, a long tap allows you to add the distribution to the list (My torrents)'
       }, {
         time: '2021-10-12 19:00',
         title: 'Update 1.2.4',
-        descr: '1. Added menu (My torrents). \u003cbr\u003e 2. Updated filter and sorting in torrents. \u003cbr\u003e 3. Added a ribbon (New) in movies and TV series. \u003cbr\u003e 4. Fixed links for Torserver. \u003cbr\u003e 5. Added watch mark for TV series. \u003cbr\u003e 6. Several bugs and bugs fixed.'
+        descr: '1. Added menu (My torrents). \u003cbr\u003e 2. Updated filter and sorting in torrents. \u003cbr\u003e 3. Added a ribbon (New) in movies and TV series. \u003cbr\u003e 4. Fixed links for Torserver. \u003cbr\u003e 5. Added watch mark for TV series. \u003cbr\u003e 6. Fixed several bugs and errors.'
       }, {
         time: '2021-10-10 18:00',
         title: 'Update 1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: 'Update 1.2.2',
@@ -10975,11 +10994,11 @@
       }, {
         time: '2021-09-27 15:00',
         title: 'Parser fixed',
-        descr: 'An error was detected in the parser due to which jac.red did not produce results'
+        descr: 'An error was detected in the parser due to which jac.red did not return results'
       }, {
         time: '2021-09-26 17:00',
         title: 'Welcome !',
-        descr: 'This is your first launch of the app, we hope you enjoy it very much. Enjoy your viewing. \''
+        descr: 'This is your first time launching the app, we hope you enjoy it very much. Enjoy your viewing. \''
       }];
       Arrays.extend(data, {
         time: 0
@@ -11965,7 +11984,7 @@
           Input.edit({
             value: ''
           }, function (new_value) {
-            if (Storage.add(name, new_value)) {
+            if (new_value && Storage.add(name, new_value)) {
               displayAddItem(elem, new_value);
 
               if (elem.data('notice')) {
@@ -12218,7 +12237,7 @@
       return value;
     }
 
-    function set(name, value) {
+    function set(name, value, nolisten) {
       if (Arrays.isObject(value) || Arrays.isArray(value)) {
         var str = JSON.stringify(value);
         window.localStorage.setItem(name, str);
@@ -12226,7 +12245,7 @@
         window.localStorage.setItem(name, value);
       }
 
-      listener$1.send('change', {
+      if (!nolisten) listener$1.send('change', {
         name: name,
         value: value
       });
@@ -13264,6 +13283,7 @@
     function init() {
       if (Storage.field('cloud_use')) status(1);
       Settings.listener.follow('open', function (e) {
+        body = null;
 
         if (e.name == 'cloud') {
           body = e.body;
@@ -13272,9 +13292,9 @@
       });
       Storage.listener.follow('change', function (e) {
         if (e.name == 'cloud_token') {
-          login();
+          login(start);
         } else if (e.name == 'cloud_use') {
-          if (e.value == 'true') login();else status(0);
+          if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
           save();
         }
@@ -13323,7 +13343,7 @@
         }
 
         if (code == 4) {
-          var time = Utils.parseTime(Storage.get('cloud_time'));
+          var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('Synchronized');
           desc.text(time.full + 'to' + time.time);
         }
@@ -13341,6 +13361,16 @@
         network.silent('https://api.github.com/gists', function (data) {
           status(3);
           if (good) good();
+          network.silent('https://api.github.com/gists/' + data.id, false, false, false, {
+            type: 'delete',
+            beforeSend: {
+              name: 'Authorization',
+              value: 'bearer ' + Storage.get('cloud_token')
+            },
+            headers: {
+              'Accept': 'application/vnd.github.v3+json'
+            }
+          });
         }, function () {
           status(2);
           if (fail) fail();
@@ -13360,7 +13390,7 @@
           }
         });
       } else {
-        status(2);
+        status(Storage.field('cloud_use') ? 1 : 0);
         if (fail) fail();
       }
     }
@@ -13376,10 +13406,10 @@
 
       if (time !== item.updated_at) {
         network.silent(file.raw_url, function (data) {
-          Storage.get('cloud_time', file.updated_at);
+          Storage.set('cloud_time', item.updated_at);
 
           for (var i in data) {
-            Storage.set(i, data[i]);
+            Storage.set(i, data[i], true);
           }
 
           status(4);
@@ -13392,27 +13422,33 @@
 
 
     function start() {
-      network.silent('https://api.github.com/gists', function (data) {
-        var file;
-        var item;
-        data.forEach(function (elem) {
-          for (var i in elem.files) {
-            if (elem.files[i].filename == 'lampa-data.json') {
-              item = elem;
-              file = elem.files[i];
+      if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
+        network.silent('https://api.github.com/gists', function (data) {
+          var file;
+          var item;
+          data.forEach(function (elem) {
+            for (var i in elem.files) {
+              if (elem.files[i].filename == 'lampa-data.json') {
+                item = elem;
+                file = elem.files[i];
+              }
             }
+          });
+
+          if (file) {
+            Storage.set('cloud_data_id', item.id);
+            read(file, item);
+          } else save();
+        }, function () {}, false, {
+          beforeSend: {
+            name: 'Authorization',
+            value: 'bearer ' + Storage.get('cloud_token')
+          },
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
           }
         });
-        if (file) read(file, item);else save();
-      }, function () {}, false, {
-        beforeSend: {
-          name: 'Authorization',
-          value: 'bearer ' + Storage.get('cloud_token')
-        },
-        headers: {
-          'Accept': 'application/vnd.github.v3+json'
-        }
-      });
+      }
     }
     /**
      * Сохраняем закладки в облако
@@ -13427,10 +13463,13 @@
           favorite: Storage.get('favorite', '{}'),
           file_view: Storage.get('file_view', '[]')
         }, null, 4);
-        network.silent('https://api.github.com/gists', function (data) {
+        var id = Storage.get('cloud_data_id', '');
+        network.silent('https://api.github.com/gists' + (id ? '/' + id : ''), function (data) {
           Storage.set('cloud_time', data.updated_at);
+          Storage.set('cloud_data_id', data.id);
           status(4);
         }, function () {
+          Storage.set('cloud_data_id', '');
           status(5);
         }, JSON.stringify({
           'files': {
@@ -13483,11 +13522,11 @@
       Timeline: Timeline,
       Cloud: Cloud
     };
+    Console.init();
 
     function startApp() {
       if (window.appready) return;
       Keypad.init();
-      Console.init();
       Settings.init();
       Platform.init();
       Params.init();
@@ -13559,6 +13598,7 @@
 
 
     setTimeout(startApp, 1000 * 5);
+    console.log('Plugins', 'list:', Storage.get('plugins', '[]'));
     var plugins = Storage.get('plugins', '[]');
     Utils.putScript(plugins, startApp);
 
