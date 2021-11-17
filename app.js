@@ -1793,7 +1793,7 @@
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var status = new status$1(8);
+      var status = new status$1(10);  
 
       status.onComplite = function () {
         var fulldata = [];
@@ -1802,8 +1802,9 @@
         if (status.data.trend_week) fulldata.push(status.data.trend_week);
         if (status.data.upcoming) fulldata.push(status.data.upcoming);
         if (status.data.popular) fulldata.push(status.data.popular);
-        if (status.data.popular_tv) fulldata.push(status.data.popular_tv);
-        if (status.data.top) fulldata.push(status.data.top);
+        if (status.data["popular_tv_kr"] && status.data["popular_tv_kr"].results.length) fulldata.push(status.data["popular_tv_kr"]);
+        if (status.data["popular_tv_cn"] && status.data["popular_tv_cn"].results.length) fulldata.push(status.data["popular_tv_cn"]);
+        if (status.data.popular_tv) fulldata.push(status.data.popular_tv);        if (status.data.top) fulldata.push(status.data.top);
         if (status.data.top_tv) fulldata.push(status.data.top_tv);
         if (fulldata.length) oncomplite(fulldata);else onerror();
       };
@@ -1812,6 +1813,37 @@
         json.title = title;
         status.append(name, json);
       };
+
+      var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$5('tv/popular', nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('热门国产剧', 'popular_tv_cn', json);
+      }, status.error.bind(status));
+
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
+        with_original_language: "ko",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$5('tv/popular', nparams5, function (json) {
+        json.filter = nparams5.filter;
+        append('热门韩剧', 'popular_tv_kr', json);
+      }, status.error.bind(status));
 
       get$5('movie/now_playing', params, function (json) {
         append('正在观看', 'wath', json);
@@ -1870,7 +1902,6 @@
       var date = new Date();
       var nparams4 = Arrays.clone(params);
       nparams4.filter = {
-        filter :"drama",
         with_original_language: "ko",
         sort_by: 'release_date.desc',
         year: date.getFullYear(),
@@ -1885,7 +1916,6 @@
       }, status.error.bind(status));
       var nparams7 = Arrays.clone(params);
       nparams7.filter = {
-        filter :"drama",
         with_original_language: "zh",
         sort_by: 'release_date.desc',
         year: date.getFullYear(),
@@ -1900,7 +1930,6 @@
       }, status.error.bind(status));
       var nparams8 = Arrays.clone(params);
       nparams8.filter = {
-        filter :"drama",
         with_original_language: "en",
         sort_by: 'release_date.desc',
         year: date.getFullYear(),
