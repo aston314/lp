@@ -530,11 +530,11 @@
 
     var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fading out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Smooth fading of cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for using public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook site parsing method</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for the use of public links for viewing torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">The method of parsing the TorLook site</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
     var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Sub link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide sub link to TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use the built-in TorrServe JS client, otherwise the system starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use the preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Zoom method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use Background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on semi-transparent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Zoom method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to perform calculations for video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on semi-transparent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
     var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -602,11 +602,11 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if it is running TorrServe, or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current answer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if it is running TorrServe, or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned an invalid format</li>\n            <li>Reply from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the answer contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned an invalid format</li>\n            <li>Reply from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to <code>{ip}/echo</code></li>\n            <li>Make sure the answer contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What should I do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What should I do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -4507,7 +4507,7 @@
       h: [],
       d: true
     };
-    var timer$5;
+    var timer$6;
 
     function bg() {
       html$e.find('canvas').removeClass('visible');
@@ -4623,8 +4623,8 @@
       if (url == src) return;
       bokeh.d = true;
       if (url) src = url;
-      clearTimeout(timer$5);
-      timer$5 = setTimeout(function () {
+      clearTimeout(timer$6);
+      timer$6 = setTimeout(function () {
         if (url) load();else draw(false, false, true);
       }, 1000);
     }
@@ -4632,7 +4632,7 @@
     function immediately() {
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       if (url) src = url;
-      clearTimeout(timer$5);
+      clearTimeout(timer$6);
       bokeh.d = false;
       if (url) load();else draw(false, false, true);
     }
@@ -5036,7 +5036,7 @@
 
     var player;
     var html$d;
-    var timer$4;
+    var timer$5;
 
     function create$j(id) {
       html$d = $('<div class="youtube-player"><div id="youtube-player"></div><div id="youtube-player__progress" class="youtube-player__progress"></div></div>');
@@ -5067,7 +5067,7 @@
     }
 
     function update$4() {
-      timer$4 = setTimeout(function () {
+      timer$5 = setTimeout(function () {
         var progress = player.getCurrentTime() / player.getDuration() * 100;
         $('#youtube-player__progress').css('width', progress + '%');
         update$4();
@@ -5097,7 +5097,7 @@
     }
 
     function destroy$7() {
-      clearTimeout(timer$4);
+      clearTimeout(timer$5);
       player.destroy();
       html$d.remove();
       html$d = null;
@@ -5557,7 +5557,7 @@
     var html$c = Template.get('player_panel');
     var listener$a = start$4();
     var condition = {};
-    var timer$3 = {};
+    var timer$4 = {};
     var tracks = [];
     var subs = [];
     var elems$1 = {
@@ -5579,8 +5579,8 @@
       state: 'start',
       transitions: {
         start: function start() {
-          clearTimeout(timer$3.hide);
-          clearTimeout(timer$3.rewind);
+          clearTimeout(timer$4.hide);
+          clearTimeout(timer$4.rewind);
           this.dispath('canplay');
         },
         canplay: function canplay() {
@@ -5592,12 +5592,12 @@
         rewind: function rewind() {
           var _this = this;
 
-          clearTimeout(timer$3.rewind);
+          clearTimeout(timer$4.rewind);
 
           if (condition.rewind) {
             _visible(true);
 
-            timer$3.rewind = setTimeout(function () {
+            timer$4.rewind = setTimeout(function () {
               condition.rewind = false;
 
               _this.dispath('hide');
@@ -5607,8 +5607,8 @@
           }
         },
         hide: function hide() {
-          clearTimeout(timer$3.hide);
-          timer$3.hide = setTimeout(function () {
+          clearTimeout(timer$4.hide);
+          timer$4.hide = setTimeout(function () {
             _visible(false);
           }, 1000);
         }
@@ -6237,7 +6237,7 @@
     var display = html$b.find('.player-video__display');
     var paused = html$b.find('.player-video__paused');
     var subtitles = html$b.find('.player-video__subtitles');
-    var timer$2 = {};
+    var timer$3 = {};
     var rewind_position = 0;
     var rewind_force = 0;
     var video;
@@ -6614,8 +6614,8 @@
 
 
     function rewindEnd(immediately) {
-      clearTimeout(timer$2.rewind_call);
-      timer$2.rewind_call = setTimeout(function () {
+      clearTimeout(timer$3.rewind_call);
+      timer$3.rewind_call = setTimeout(function () {
         video.currentTime = rewind_position;
         rewind_position = 0;
         rewind_force = 0;
@@ -6635,7 +6635,7 @@
       rewind_position = Math.max(0, Math.min(position_time, video.duration));
       pause();
       if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
-      timer$2.rewind = Date.now();
+      timer$3.rewind = Date.now();
       listener$9.send('timeupdate', {
         duration: video.duration,
         current: rewind_position
@@ -6654,7 +6654,7 @@
       if (video.duration) {
         var time = Date.now(),
             step = video.duration / (30 * 60),
-            mini = time - (timer$2.rewind || 0) > 50 ? 20 : 60;
+            mini = time - (timer$3.rewind || 0) > 50 ? 20 : 60;
 
         if (rewind_position == 0) {
           rewind_force = Math.min(mini, custom_step || 30 * step);
@@ -6958,7 +6958,7 @@
     var enabled$2 = false;
     var listener$6 = start$4();
     var lastdown = 0;
-    var timer$1;
+    var timer$2;
     var longpress;
 
     function toggle$4(new_status) {
@@ -6996,8 +6996,8 @@
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
-        if (!timer$1) {
-          timer$1 = setTimeout(function () {
+        if (!timer$2) {
+          timer$2 = setTimeout(function () {
             if (isEnter(lastdown)) {
               longpress = true;
               listener$6.send('longdown', {});
@@ -7007,8 +7007,8 @@
         }
       });
       window.addEventListener("keyup", function (e) {
-        clearTimeout(timer$1);
-        timer$1 = null;
+        clearTimeout(timer$2);
+        timer$2 = null;
         listener$6.send('keyup', {
           code: keyCode(e),
           enabled: enabled$2,
@@ -7136,14 +7136,14 @@
     var img;
     var html$9 = Template.get('screensaver');
     var movies = [];
-    var timer = {};
+    var timer$1 = {};
     var position = 0;
     var slides$1 = 'one';
     var direct = ['lt', 'rt', 'br', 'lb', 'ct'];
 
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
-      if (enabled$1) resetTimer();else clearTimeout(timer.wait);
+      if (enabled$1) resetTimer();else clearTimeout(timer$1.wait);
       listener$5.send('toggle', {
         status: enabled$1
       });
@@ -7159,9 +7159,9 @@
 
     function resetTimer() {
       if (!enabled$1) return;
-      clearTimeout(timer.wait);
+      clearTimeout(timer$1.wait);
       if (!Storage.field('screensaver')) return;
-      timer.wait = setTimeout(function () {
+      timer$1.wait = setTimeout(function () {
         if (Storage.field('screensaver_type') == 'nature') startSlideshow();else if (Storage.field('screensaver_type') == 'chrome') startChrome();else if (movies.length === 0) {
           Api.screensavers(function (data) {
             movies = data;
@@ -7185,10 +7185,10 @@
       html$9.fadeIn(300);
       Utils.time(html$9);
       nextSlide();
-      timer.work = setInterval(function () {
+      timer$1.work = setInterval(function () {
         nextSlide();
       }, 30000);
-      timer.start = setTimeout(function () {
+      timer$1.start = setTimeout(function () {
         html$9.addClass('visible');
       }, 5000);
     }
@@ -7235,8 +7235,8 @@
       html$9.fadeOut(300, function () {
         html$9.removeClass('visible');
       });
-      clearInterval(timer.work);
-      clearTimeout(timer.start);
+      clearInterval(timer$1.work);
+      clearTimeout(timer$1.start);
       movies = [];
 
       if (chrome) {
@@ -9775,7 +9775,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: 'By distributor',
+          title: 'By seeding',
           sort: 'Seeders'
         }, {
           title: 'By size',
@@ -10448,6 +10448,7 @@
 
           card.onEnter = function (target, card_data) {
             if (card_data.tmdbID) {
+              card_data.id = card_data.tmdbID;
               Activity$1.push({
                 url: '',
                 component: 'full',
@@ -11661,7 +11662,7 @@
         'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L', '{shift} Z X C V B N M , . : http://', '{space}'],
         'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
         'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F S V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F S V A P R O L D Z E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
       this.listener = start$4();
 
@@ -13276,6 +13277,7 @@
     var code = 0;
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+    var timer;
     /**
      * Запуск
      */
@@ -13296,7 +13298,8 @@
         } else if (e.name == 'cloud_use') {
           if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
-          save();
+          clearTimeout(timer);
+          timer = setTimeout(save, 500);
         }
       });
       login(start);
@@ -13339,7 +13342,7 @@
 
         if (code == 3) {
           name.text('Logged in');
-          desc.text('You are successfully logged in');
+          desc.text('You successfully logged in');
         }
 
         if (code == 4) {

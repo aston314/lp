@@ -530,7 +530,7 @@
 
     var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片从下方和上方平滑淡出</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">因此，您同意对使用公共链接查看 torrent 承担全部责任和在线内容</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook 站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com网站注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>В {q} 网站w41.torlook.info 将投递</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">因此，您同意对使用公共链接查看种子和在线承担全部责任内容</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook 站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com网站注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>В {q} 网站w41.torlook.info 将投递</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
 
     var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">主要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Sublink</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的子链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>可选</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则启动系统自带</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent会添加到TorrServer数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待TorrServer播放前要填充的预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定 \">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -602,11 +602,11 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>地址被使用: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么样正确吗？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用Matrix版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器进入地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有没有响应，检查它是否正在运行 TorrServe，或者重新启动它。</li>\n            <li>如果浏览器有响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>地址正在使用: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么样正确吗？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用Matrix版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器进入地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有没有响应，检查它是否正在运行 TorrServe，或者重新启动它。</li>\n            <li>如果浏览器有响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>要做什么？</div>\n        <ul>\n            <li>确保您拥有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到 <code>{ip}/echo</code></li>\n            <li>确保答案包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>要做什么？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能无法链接到该文件</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What我应该怎么做？</div>\n        <ul>\n            <li>写信给我们的电报群: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能的话，这个发行版的照片</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>要做什么？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能无法链接到该文件</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What我应该怎么做？</div>\n        <ul>\n            <li>写信给我们的电报群: @lampa_group</li>\n            <li>指出哪部电影，哪个发行版，如果可能的话，这个发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 - <b>{episode}</b> &nbsp;\u2022&nbsp; 季 - <b>{season}</b> &nbsp;\u2022&nbsp; 退出 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -1843,14 +1843,17 @@
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var status = new status$1(9);  
+      var status = new status$1(12);  
 
       status.onComplite = function () {
         var fulldata = [];
-        /*if (status.data["new_kr"] && status.data["new_kr"].results.length) fulldata.push(status.data["new_kr"]);*/
         if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
+        if (status.data["new_kr"] && status.data["new_kr"].results.length) fulldata.push(status.data["new_kr"]);
         if (status.data["tv_air_ch"] && status.data["tv_air_ch"].results.length) fulldata.push(status.data["tv_air_ch"]);
+        if (status.data["new_cn"] && status.data["new_cn"].results.length) fulldata.push(status.data["new_cn"]);
         if (status.data["tv_air_en"] && status.data["tv_air_en"].results.length) fulldata.push(status.data["tv_air_en"]);
+        if (status.data["new_en"] && status.data["new_en"].results.length) fulldata.push(status.data["new_en"]);
+        if (status.data.wath && status.data.wath.results.length) fulldata.push(status.data.wath);
         if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
         if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
         if (status.data.tv_today && status.data.tv_today.results.length) fulldata.push(status.data.tv_today);
@@ -1864,29 +1867,60 @@
         status.append(name, json);
       };
 
-      /*      var date = new Date();
-      var nparams = Arrays.clone(params);
-      nparams.filter = {
+      var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
         filter :"drama",
         with_original_language: "ko",
         sort_by: 'release_date.desc',
         year: date.getFullYear(),
         first_air_date_year: date.getFullYear(),
-        'vote_average.gte': 7
+        'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
       };
-      get$5('discover/' + params.url, nparams, function (json) {
-        json.filter = nparams.filter;
-        append('新韩剧', 'new_kr', json);
-      }, status.error.bind(status));*/
-
-      var nparams = Arrays.clone(params);
-      nparams.filter = {
+      get$5('discover/' + params.url, nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('今年韩剧', 'new_kr', json);
+      }, status.error.bind(status));
+      var nparams7 = Arrays.clone(params);
+      nparams7.filter = {
+        filter :"drama",
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : "18|10759|10751|35|9648"
+      };
+      get$5('discover/' + params.url, nparams7, function (json) {
+        json.filter = nparams7.filter;
+        append('今年国产剧', 'new_cn', json);
+      }, status.error.bind(status));
+      var nparams8 = Arrays.clone(params);
+      nparams8.filter = {
+        filter :"drama",
+        with_original_language: "en",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$5('discover/' + params.url, nparams8, function (json) {
+        json.filter = nparams8.filter;
+        append('今年英美剧', 'new_en', json);
+      }, status.error.bind(status));
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
         with_original_language: "ko",
         filter :"drama",
         with_genres : 18
       };
-      get$5(params.url + '/on_the_air', nparams, function (json) {
-        json.filter = nparams.filter;
+      get$5(params.url + '/on_the_air', nparams5, function (json) {
+        json.filter = nparams5.filter;
         append('本周韩剧', 'tv_air_kr', json);
       }, status.error.bind(status));
 
@@ -1900,7 +1934,6 @@
         json.filter = nparams1.filter;
         append('本周国产剧', 'tv_air_ch', json);
       }, status.error.bind(status));
-
       var nparams2 = Arrays.clone(params);
       nparams2.filter = {
         with_original_language: "en",
@@ -3046,7 +3079,7 @@
       collections$1({
         id: '1413'
       }, function (json) {
-        append('神奇的戏剧', '9', '1413', {
+        append('奇幻剧', '9', '1413', {
           results: json
         });
       });
@@ -3378,7 +3411,7 @@
           json.movies.forEach(function (element) {
             items.push({
               id: element.filmID,
-              title: element.nameRU,
+              title: (Storage.field('tmdb_lang') == 'ru') ? element.nameRU : element.nameOriginal,
               original_title: element.nameOriginal,
               release_date: element.premierDate,
               poster: element.posterURL,
@@ -4558,7 +4591,7 @@
       h: [],
       d: true
     };
-    var timer$5;
+    var timer$6;
 
     function bg() {
       html$e.find('canvas').removeClass('visible');
@@ -4674,8 +4707,8 @@
       if (url == src) return;
       bokeh.d = true;
       if (url) src = url;
-      clearTimeout(timer$5);
-      timer$5 = setTimeout(function () {
+      clearTimeout(timer$6);
+      timer$6 = setTimeout(function () {
         if (url) load();else draw(false, false, true);
       }, 1000);
     }
@@ -4683,7 +4716,7 @@
     function immediately() {
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       if (url) src = url;
-      clearTimeout(timer$5);
+      clearTimeout(timer$6);
       bokeh.d = false;
       if (url) load();else draw(false, false, true);
     }
@@ -5087,7 +5120,7 @@
 
     var player;
     var html$d;
-    var timer$4;
+    var timer$5;
 
     function create$j(id) {
       html$d = $('<div class="youtube-player"><div id="youtube-player"></div><div id="youtube-player__progress" class="youtube-player__progress"></div></div>');
@@ -5118,7 +5151,7 @@
     }
 
     function update$4() {
-      timer$4 = setTimeout(function () {
+      timer$5 = setTimeout(function () {
         var progress = player.getCurrentTime() / player.getDuration() * 100;
         $('#youtube-player__progress').css('width', progress + '%');
         update$4();
@@ -5148,7 +5181,7 @@
     }
 
     function destroy$7() {
-      clearTimeout(timer$4);
+      clearTimeout(timer$5);
       player.destroy();
       html$d.remove();
       html$d = null;
@@ -5608,7 +5641,7 @@
     var html$c = Template.get('player_panel');
     var listener$a = start$4();
     var condition = {};
-    var timer$3 = {};
+    var timer$4 = {};
     var tracks = [];
     var subs = [];
     var elems$1 = {
@@ -5630,8 +5663,8 @@
       state: 'start',
       transitions: {
         start: function start() {
-          clearTimeout(timer$3.hide);
-          clearTimeout(timer$3.rewind);
+          clearTimeout(timer$4.hide);
+          clearTimeout(timer$4.rewind);
           this.dispath('canplay');
         },
         canplay: function canplay() {
@@ -5643,12 +5676,12 @@
         rewind: function rewind() {
           var _this = this;
 
-          clearTimeout(timer$3.rewind);
+          clearTimeout(timer$4.rewind);
 
           if (condition.rewind) {
             _visible(true);
 
-            timer$3.rewind = setTimeout(function () {
+            timer$4.rewind = setTimeout(function () {
               condition.rewind = false;
 
               _this.dispath('hide');
@@ -5658,8 +5691,8 @@
           }
         },
         hide: function hide() {
-          clearTimeout(timer$3.hide);
-          timer$3.hide = setTimeout(function () {
+          clearTimeout(timer$4.hide);
+          timer$4.hide = setTimeout(function () {
             _visible(false);
           }, 1000);
         }
@@ -6288,7 +6321,7 @@
     var display = html$b.find('.player-video__display');
     var paused = html$b.find('.player-video__paused');
     var subtitles = html$b.find('.player-video__subtitles');
-    var timer$2 = {};
+    var timer$3 = {};
     var rewind_position = 0;
     var rewind_force = 0;
     var video;
@@ -6665,8 +6698,8 @@
 
 
     function rewindEnd(immediately) {
-      clearTimeout(timer$2.rewind_call);
-      timer$2.rewind_call = setTimeout(function () {
+      clearTimeout(timer$3.rewind_call);
+      timer$3.rewind_call = setTimeout(function () {
         video.currentTime = rewind_position;
         rewind_position = 0;
         rewind_force = 0;
@@ -6686,7 +6719,7 @@
       rewind_position = Math.max(0, Math.min(position_time, video.duration));
       pause();
       if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
-      timer$2.rewind = Date.now();
+      timer$3.rewind = Date.now();
       listener$9.send('timeupdate', {
         duration: video.duration,
         current: rewind_position
@@ -6705,7 +6738,7 @@
       if (video.duration) {
         var time = Date.now(),
             step = video.duration / (30 * 60),
-            mini = time - (timer$2.rewind || 0) > 50 ? 20 : 60;
+            mini = time - (timer$3.rewind || 0) > 50 ? 20 : 60;
 
         if (rewind_position == 0) {
           rewind_force = Math.min(mini, custom_step || 30 * step);
@@ -7009,7 +7042,7 @@
     var enabled$2 = false;
     var listener$6 = start$4();
     var lastdown = 0;
-    var timer$1;
+    var timer$2;
     var longpress;
 
     function toggle$4(new_status) {
@@ -7047,8 +7080,8 @@
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
-        if (!timer$1) {
-          timer$1 = setTimeout(function () {
+        if (!timer$2) {
+          timer$2 = setTimeout(function () {
             if (isEnter(lastdown)) {
               longpress = true;
               listener$6.send('longdown', {});
@@ -7058,8 +7091,8 @@
         }
       });
       window.addEventListener("keyup", function (e) {
-        clearTimeout(timer$1);
-        timer$1 = null;
+        clearTimeout(timer$2);
+        timer$2 = null;
         listener$6.send('keyup', {
           code: keyCode(e),
           enabled: enabled$2,
@@ -7187,14 +7220,14 @@
     var img;
     var html$9 = Template.get('screensaver');
     var movies = [];
-    var timer = {};
+    var timer$1 = {};
     var position = 0;
     var slides$1 = 'one';
     var direct = ['lt', 'rt', 'br', 'lb', 'ct'];
 
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
-      if (enabled$1) resetTimer();else clearTimeout(timer.wait);
+      if (enabled$1) resetTimer();else clearTimeout(timer$1.wait);
       listener$5.send('toggle', {
         status: enabled$1
       });
@@ -7210,9 +7243,9 @@
 
     function resetTimer() {
       if (!enabled$1) return;
-      clearTimeout(timer.wait);
+      clearTimeout(timer$1.wait);
       if (!Storage.field('screensaver')) return;
-      timer.wait = setTimeout(function () {
+      timer$1.wait = setTimeout(function () {
         if (Storage.field('screensaver_type') == 'nature') startSlideshow();else if (Storage.field('screensaver_type') == 'chrome') startChrome();else if (movies.length === 0) {
           Api.screensavers(function (data) {
             movies = data;
@@ -7236,10 +7269,10 @@
       html$9.fadeIn(300);
       Utils.time(html$9);
       nextSlide();
-      timer.work = setInterval(function () {
+      timer$1.work = setInterval(function () {
         nextSlide();
       }, 30000);
-      timer.start = setTimeout(function () {
+      timer$1.start = setTimeout(function () {
         html$9.addClass('visible');
       }, 5000);
     }
@@ -7286,8 +7319,8 @@
       html$9.fadeOut(300, function () {
         html$9.removeClass('visible');
       });
-      clearInterval(timer.work);
-      clearTimeout(timer.start);
+      clearInterval(timer$1.work);
+      clearTimeout(timer$1.start);
       movies = [];
 
       if (chrome) {
@@ -9826,7 +9859,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: '按种子数',
+          title: '按经销商',
           sort: 'Seeders'
         }, {
           title: '按大小',
@@ -10499,6 +10532,7 @@
 
           card.onEnter = function (target, card_data) {
             if (card_data.tmdbID) {
+              card_data.id = card_data.tmdbID;
               Activity$1.push({
                 url: '',
                 component: 'full',
@@ -13327,6 +13361,7 @@
     var code = 0;
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+    var timer;
     /**
      * Запуск
      */
@@ -13347,7 +13382,8 @@
         } else if (e.name == 'cloud_use') {
           if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
-          save();
+          clearTimeout(timer);
+          timer = setTimeout(save, 500);
         }
       });
       login(start);
