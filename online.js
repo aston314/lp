@@ -33,7 +33,76 @@
           translations:[]
         }]
       };
-      var websitelink = "https://www.7xiady.cc";
+      var extract_rule = {
+        "rule": [
+        {
+          websitelink : 'https://www.7xiady.cc',
+          search_url : 'https://www.7xiady.cc/index.php/search/'+ encodeURIComponent(object.search_one)+'----------1---/',
+          search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
+          search_list_have_string : 'stui-vodlist__item',
+          search_list_find_reg : '<li class="stui-vodlist__item">(.*?)<\/li>',
+          title_selector : '.stui-vodlist__thumb', 
+          title_selector_value : 'title',
+          link_selector : '.stui-vodlist__thumb',
+          detail_url_reg : '<div class="stui-pannel_bd col-pd clearfix">(.*?)<\/div>',
+          video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"(http[^\"]+)',
+          need_base64decode : false,
+          prefix_video : ''
+        },
+        {
+          websitelink : 'https://auete.com',
+          search_url : 'https://auete.com/search.php?searchword='+ encodeURIComponent(object.search_one),
+          search_list_reg : '<div class="card-body">([\\s\\S]*?)<\/div>',
+          search_list_have_string : 'media-body',
+          search_list_find_reg : '<div class="subject break-all">(.*?)<\/div>',
+          title_selector : '.text-danger', 
+          title_selector_value : 'text',
+          link_selector : 'a',
+          detail_url_reg : '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
+          video_link_reg : '<a class="btn btn-orange" title="[\\s\\S]*?" href="(.+?)" target="_self">(.+?)</a>',
+          get_link_reg : 'now=base64decode\\(\"([^\"]+)',
+          need_base64decode : true,
+          prefix_video : 'https://auete.com'
+        },
+        {
+          websitelink : 'https://www.zxzj.fun',
+          search_url : 'https://www.zxzj.fun/vodsearch/'+ encodeURIComponent(object.search_one)+'----------1---.html',
+          search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
+          search_list_have_string : 'stui-vodlist__thumb',
+          search_list_find_reg : '<div class="stui-vodlist__box">(.*?)<\/div>',
+          title_selector : '.stui-vodlist__thumb', 
+          title_selector_value : 'title',
+          link_selector : '.stui-vodlist__thumb',
+          detail_url_reg : '<div class="stui-vodlist__head">(.+?)盘<\/h3>',
+          video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"(http[^\"]+)',
+          need_base64decode : false,
+          prefix_video : ''
+        },
+        {
+          websitelink : 'https://olevod.com',
+          search_url : 'https://olevod.com/index.php/vod/search.html?wd='+ encodeURIComponent(object.search_one),
+          search_list_reg : '<ul class="vodlist clearfix">([\\s\\S]*?)<\/ul>',
+          search_list_have_string : 'vodlist_thumb',
+          search_list_find_reg : '<div class="searchlist_img">(.*?)<\/div>',
+          title_selector : '.vodlist_thumb', 
+          title_selector_value : 'title',
+          link_selector : '.vodlist_thumb',
+          detail_url_reg : '<ul class="content_playlist clearfix">(.+?)<\/ul>',
+          video_link_reg : '<a [\\s\\S]*? href="(.+?)" [\\s\\S]*?">(.+?)<\/a>',
+          get_link_reg : 'url\":\"(http[^\"]+)',
+          need_base64decode : false,
+          prefix_video : ''
+        }
+        ]
+      };
+
+      //console.log(extract_rule.rule[0].websitelink);
+      //var websitelink = "https://www.7xiady.cc";
+      var doreg = {};
+      
+      //console.log(doreg.search_url);
 
       this.create = function () {
         var _this = this;
@@ -46,8 +115,14 @@
         if (object.movie.release_date && object.movie.release_date !== '0000') url = Lampa.Utils.addUrlComponent(url, 'year=' + (object.movie.release_date + '').slice(0, 4));
         //console.log(url);
         //搜索关键字
-
-        var url1="https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
+        //console.log(object.movie.original_language);
+        if(object.movie.original_language=='zh'){
+          doreg = extract_rule.rule[3];
+        }else{
+          doreg = extract_rule.rule[0];
+        };
+        //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
+        var url1 = doreg.search_url;
         console.log(url1);
 
         
@@ -56,7 +131,7 @@
         //network.silent("https://rentry.co/testjson/raw", function (json) {
           //if (json.data && json.data.length) {
             //results = json.data;
-            //console.log(listlink);
+            //coWidget.jsnsole.log(listlink);
             //json.data[0].translations.push(listlink.Results);
             //json.data[0].media.push(listlink.Results);
             
@@ -74,12 +149,14 @@
           return str.length > 2 ? str[2] : undefined;
         };
 
-        var titleRegExp = /<ul class="stui-vodlist clearfix">([\s\S]*?)<\/ul>/g;
+        //var titleRegExp = /<ul class="stui-vodlist clearfix">([\s\S]*?)<\/ul>/g;
+        var titleRegExp = new RegExp(doreg.search_list_reg, 'g')
+
         var searchresult = titleRegExp.exec(str);
         //console.log(searchresult);
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
-        var searchresult = searchresult[1].search("stui-vodlist__item");
+        var searchresult = searchresult[1].search(doreg.search_list_have_string);
         //console.log(str.includes('To be'));
 
         //console.log(searchresult);
@@ -93,7 +170,7 @@
           _this.empty('哦，我们没有找到 (' + object.search_one + ') 静待资源上线');
         }
         else{
-        var math = str.replace(/\n|\r/g, '').match(new RegExp('<li class="stui-vodlist__item">(.*?)<\/li>', ''));
+        var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.search_list_find_reg, ''));
         var data = {
           Results: []
         };
@@ -103,13 +180,17 @@
           };
           var element = $(a),
               item = {};
-          item.Title = $('.stui-vodlist__thumb', element).attr('title');
-          item.Link = websitelink+$('.stui-vodlist__thumb', element).attr('href');
+          if(doreg.title_selector_value == 'text'){
+            item.Title = $(doreg.title_selector, element).text();
+          }else{
+            item.Title = $(doreg.title_selector, element).attr('title');
+          };
+          item.Link = doreg.websitelink+$(doreg.link_selector, element).attr('href');
           var searchtitle = item.Title;
           console.log(item.Link);
                   //取得具体页面的详情地址
                   network["native"](item.Link, function (str) {
-                  var math = str.replace(/\n|\r/g, '').match(new RegExp('<div class="stui-pannel_bd col-pd clearfix">(.*?)<\/div>', 'g'));
+                  var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.detail_url_reg, 'g'));
                   var data = {
                     Results: []
                   };
@@ -129,10 +210,10 @@
                       console.log(self.text());
                       console.log("fuck");
                     });*/
-                    var titleRegExp = /<a href="(.+?)">(.+?)<\/a>/g;
-
+                    //var titleRegExp = /<a href="(.+?)">(.+?)<\/a>/g;
+                    var titleRegExp = new RegExp(doreg.video_link_reg, 'g');
                     //let result = titleRegExp.exec(a);
-//console.log(titleRegExp.exec(a));
+                    //console.log(titleRegExp.exec(a));
                     
                     var matches = [];
                     //var rslt    = [];
@@ -153,7 +234,7 @@
                           //var mytranslation = {};
 
                           listlink.data[0].media.push({
-                            translation_id : websitelink+matches[0],
+                            translation_id : doreg.websitelink+matches[0],
                             max_quality : matches[1],
                             title : searchtitle,
                             //iframe_src : matches[0],
@@ -582,16 +663,20 @@
           //console.log(getRemote(translat));
            var str = getRemote(translat);
            //return network["native"](translat, function (str) {
-            var math = str.replace(/\n|\r/g, '').match(new RegExp('url\":\"(http[^\"]+)', 'g'));
+            var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.get_link_reg, 'g'));
             var data = {
               Results: []
             };
             $.each(math, function (i, a) {
-              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','');
+              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','');
               //var element = $(a),
                 var  item = {};
               //item.Title = $('li>a', element).text();
-              item.file = a
+              if(doreg.need_base64decode){
+              item.file = atob(a).slice(0,1)=='/'? doreg.prefix_video+atob(a) : a;
+            }else{
+              item.file = doreg.prefix_video+a;
+            };
               //console.log(item.Link);
               
               //element.remove();
@@ -676,7 +761,7 @@
               var first = {
                 url: file,
                 timeline: view,
-                title: element.season ? element.title : object.movie.title + ' / ' + element.title
+                title: element.season ? element.title : object.movie.title + ' / ' + element.title+ ' / ' + element.quality
               };
               Lampa.Player.play(first);
 
