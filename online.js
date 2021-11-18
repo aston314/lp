@@ -37,7 +37,12 @@
         "rule": [
         {
           websitelink : 'https://www.7xiady.cc',
+          listlink : true,
           search_url : 'https://www.7xiady.cc/index.php/search/'+ encodeURIComponent(object.search_one)+'----------1---/',
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
           search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
           search_list_have_string : 'stui-vodlist__item',
           search_list_find_reg : '<li class="stui-vodlist__item">(.*?)<\/li>',
@@ -52,7 +57,12 @@
         },
         {
           websitelink : 'https://auete.com',
+          listlink : true,
           search_url : 'https://auete.com/search.php?searchword='+ encodeURIComponent(object.search_one),
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
           search_list_reg : '<div class="card-body">([\\s\\S]*?)<\/div>',
           search_list_have_string : 'media-body',
           search_list_find_reg : '<div class="subject break-all">(.*?)<\/div>',
@@ -67,7 +77,12 @@
         },
         {
           websitelink : 'https://www.zxzj.fun',
+          listlink : true,
           search_url : 'https://www.zxzj.fun/vodsearch/'+ encodeURIComponent(object.search_one)+'----------1---.html',
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
           search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
           search_list_have_string : 'stui-vodlist__thumb',
           search_list_find_reg : '<div class="stui-vodlist__box">(.*?)<\/div>',
@@ -82,7 +97,12 @@
         },
         {
           websitelink : 'https://olevod.com',
+          listlink : true,
           search_url : 'https://olevod.com/index.php/vod/search.html?wd='+ encodeURIComponent(object.search_one),
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
           search_list_reg : '<ul class="vodlist clearfix">([\\s\\S]*?)<\/ul>',
           search_list_have_string : 'vodlist_thumb',
           search_list_find_reg : '<div class="searchlist_img">(.*?)<\/div>',
@@ -94,9 +114,70 @@
           get_link_reg : 'url\":\"(http[^\"]+)',
           need_base64decode : false,
           prefix_video : ''
+        },
+        {
+          websitelink : 'https://aidi.tv',
+          listlink : false,
+          search_url : 'https://aidi.tv/vsearch/-------------.html?wd='+ encodeURIComponent(object.search_one),
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
+          search_list_reg : '<ul class="vodlist clearfix">([\\s\\S]*?)<\/ul>',
+          search_list_have_string : 'vodlist_thumb',
+          search_list_find_reg : '<div class="searchlist_img">(.*?)<\/div>',
+          title_selector : '.vodlist_thumb', 
+          title_selector_value : 'title',
+          link_selector : '.vodlist_thumb',
+          detail_url_reg : '<div id="playlistbox" class="playlist_notfull">(.*?)<\/div>',
+          video_link_reg : '<a href="(.+?)" target="_blank">(.+?)<\/a>',
+          get_link_reg : 'url\":\"(http[^\"]+)',
+          need_base64decode : false,
+          prefix_video : ''
+        },
+        {
+          websitelink : 'https://www.o8tv.com',
+          listlink : true,
+          search_url : 'https://www.o8tv.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
+          search_json : true,
+          scVodNode : 'json:list',
+          scVodName : 'name',
+          scVodId : 'id',
+          search_list_reg : '"list":(.+?),"url":',
+          search_list_have_string : 'id',
+          search_list_find_reg : 'id:(.+?),en',
+          title_selector : '', 
+          title_selector_value : '',
+          link_selector : '',
+          detail_url_reg : '<div id="player1" class="tab-pane fade in active clearfix">(.*?)<\/div>',
+          video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">([\\s\\S]*?)<\/a>',
+          get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
+          need_base64decode : true,
+          prefix_video : ''
+        },
+        {
+          websitelink : 'https://www.9egood.com',
+          listlink : true,
+          search_url : 'https://www.9egood.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
+          search_json : true,
+          scVodNode : 'json:list',
+          scVodName : 'name',
+          scVodId : 'id',
+          search_list_reg : '"list":(.+?),"url":',
+          search_list_have_string : 'id',
+          search_list_find_reg : 'id:(.+?),en',
+          title_selector : '', 
+          title_selector_value : '',
+          link_selector : '',
+          detail_url_reg : '<div id="[\\s\\S]*?" class="tab-pane fade in active clearfix">(.*?)<\/div>',
+          video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
+          need_base64decode : false,
+          prefix_video : ''
         }
         ]
       };
+
 
       //console.log(extract_rule.rule[0].websitelink);
       //var websitelink = "https://www.7xiady.cc";
@@ -117,7 +198,7 @@
         //搜索关键字
         //console.log(object.movie.original_language);
         if(object.movie.original_language=='zh'){
-          doreg = extract_rule.rule[3];
+          doreg = extract_rule.rule[6];
         }else{
           doreg = extract_rule.rule[0];
         };
@@ -154,6 +235,7 @@
 
         var searchresult = titleRegExp.exec(str);
         //console.log(searchresult);
+
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
         var searchresult = searchresult[1].search(doreg.search_list_have_string);
@@ -170,6 +252,10 @@
           _this.empty('哦，我们没有找到 (' + object.search_one + ') 静待资源上线');
         }
         else{
+        if(doreg.search_json){
+          str=str.replace(/"/g, '');
+          //console.log(str);
+        };
         var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.search_list_find_reg, ''));
         var data = {
           Results: []
@@ -178,15 +264,23 @@
           if(i == 1){
             return false;
           };
-          var element = $(a),
+          var element = $('<span>'+a+'</span>'),
               item = {};
+          if(doreg.search_json){
+            var titleRegExp = new RegExp('id:(.+?),name:(.+?),', '');
+            var searchid = titleRegExp.exec(a);
+            item.Title  = searchid[2];
+            item.Link   = doreg.websitelink+'/vodplay/'+searchid[1]+'-3-1.html';
+          }else{
           if(doreg.title_selector_value == 'text'){
             item.Title = $(doreg.title_selector, element).text();
           }else{
             item.Title = $(doreg.title_selector, element).attr('title');
           };
           item.Link = doreg.websitelink+$(doreg.link_selector, element).attr('href');
+          };
           var searchtitle = item.Title;
+
           console.log(item.Link);
                   //取得具体页面的详情地址
                   network["native"](item.Link, function (str) {
@@ -234,7 +328,8 @@
                           //var mytranslation = {};
 
                           listlink.data[0].media.push({
-                            translation_id : doreg.websitelink+matches[0],
+                            id : matches[0],
+                            translation_id : doreg.listlink?doreg.websitelink+matches[0]:matches[0],
                             max_quality : matches[1],
                             title : searchtitle,
                             //iframe_src : matches[0],
@@ -668,12 +763,13 @@
               Results: []
             };
             $.each(math, function (i, a) {
-              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','');
+              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               //var element = $(a),
+              console.log(a);
                 var  item = {};
               //item.Title = $('li>a', element).text();
               if(doreg.need_base64decode){
-              item.file = atob(a).slice(0,1)=='/'? doreg.prefix_video+atob(a) : a;
+              item.file = unescape(atob(a)).slice(0,1)=='/'? doreg.prefix_video+unescape(atob(a)) : unescape(atob(a));
             }else{
               item.file = doreg.prefix_video+a;
             };
