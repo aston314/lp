@@ -532,9 +532,9 @@
 
     var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u0430\u0440\u0441\u0435\u0440</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0422\u0435\u043C \u0441\u0430\u043C\u044B\u043C, \u0432\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C \u043F\u0440\u0438\u043D\u044F\u0442\u044C \u0432\u0441\u044E \u043E\u0442\u0432\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C \u043D\u0430 \u0441\u0435\u0431\u044F \u0437\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0445 \u0441\u0441\u044B\u043B\u043E\u043A, \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0442\u043E\u0440\u0440\u0435\u043D\u0442 \u0438 \u043E\u043D\u043B\u0430\u0439\u043D \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u0430\u0440\u0441\u0435\u0440\u0430 \u0434\u043B\u044F \u0442\u043E\u0440\u0440\u0435\u043D\u0442\u043E\u0432</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u0421\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 Jackett</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api \u043A\u043B\u044E\u0447</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0432 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">\u0421\u0430\u0439\u0442</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0430\u0439\u0442 \u0441 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E \u043F\u0430\u0440\u0441\u0438\u0442\u044C</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">\u041C\u0435\u0442\u043E\u0434 \u043F\u0430\u0440\u0441\u0438\u043D\u0433\u0430 \u0441\u0430\u0439\u0442\u0430 TorLook</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: scraperapi.com\">\n        <div class=\"settings-param__name\">\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0430\u0440\u0441\u0435\u0440 \u0441\u0430\u0439\u0442\u043E\u0432</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044C \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 scraperapi.com, \u043F\u0440\u043E\u043F\u0438\u0441\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443 api.scraperapi.com?api_key=...&url={q}<br>\u0412 {q} \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0442\u0441\u044F \u0441\u0430\u0439\u0442 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0415\u0449\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">\u041F\u043E\u0438\u0441\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430 \u043A\u0430\u043A\u043E\u043C \u044F\u0437\u044B\u043A\u0435 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C \u043F\u043E\u0438\u0441\u043A?</div>\n    </div>\n</div>";
 
-    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0441\u044B\u043B\u043A\u0438</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">\u0412\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 \u043A\u043B\u0438\u0435\u043D\u0442</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0432\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 JS \u043A\u043B\u0438\u0435\u043D\u0442 TorrServe, \u0438\u043D\u0430\u0447\u0435 \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0441\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u0431\u0430\u0437\u0443</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442 \u0431\u0443\u0434\u0435\u0442 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u0432 \u0431\u0430\u0437\u0443 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0431\u0443\u0444\u0435\u0440 \u043F\u0440\u0435\u0434.\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0414\u043E\u0436\u0438\u0434\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0431\u0443\u0444\u0435\u0440\u0430 \u043F\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 TorrServer \u043F\u0435\u0440\u0435\u0434 \u043F\u0440\u043E\u0438\u0433\u0440\u044B\u0432\u0430\u043D\u0438\u0435\u043C</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">\u0412\u0445\u043E\u0434 \u043F\u043E \u043F\u0430\u0440\u043E\u043B\u044E</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041B\u043E\u0433\u0438\u043D</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041F\u0430\u0440\u043E\u043B\u044C</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0441\u044B\u043B\u043A\u0438</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">\u0412\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 \u043A\u043B\u0438\u0435\u043D\u0442</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0432\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 JS \u043A\u043B\u0438\u0435\u043D\u0442 TorrServe, \u0438\u043D\u0430\u0447\u0435 \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0441\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u0431\u0430\u0437\u0443</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442 \u0431\u0443\u0434\u0435\u0442 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u0432 \u0431\u0430\u0437\u0443 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0431\u0443\u0444\u0435\u0440 \u043F\u0440\u0435\u0434.\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0414\u043E\u0436\u0438\u0434\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0431\u0443\u0444\u0435\u0440\u0430 \u043F\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 TorrServer \u043F\u0435\u0440\u0435\u0434 \u043F\u0440\u043E\u0438\u0433\u0440\u044B\u0432\u0430\u043D\u0438\u0435\u043C</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">\u0412\u0445\u043E\u0434 \u043F\u043E \u043F\u0430\u0440\u043E\u043B\u044E</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041B\u043E\u0433\u0438\u043D</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041F\u0430\u0440\u043E\u043B\u044C</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u043B\u0435\u0435\u0440\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043F\u043B\u0435\u0435\u0440\u043E\u043C \u0432\u043E\u0441\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0430\u044F \u0441\u0435\u0440\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438 \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u044C \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0441\u0435\u0440\u0438\u044E \u043F\u0440\u0438 \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">\u0422\u0430\u0439\u043C\u043A\u043E\u0434</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u0441 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0433\u043E \u043C\u0435\u0441\u0442\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">\u041C\u0435\u0442\u043E\u0434 \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C \u0432\u044B\u0447\u0438\u0441\u043B\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F \u0432\u0438\u0434\u0435\u043E</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">\u0420\u0430\u0437\u043C\u0435\u0440</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043E\u043A\u0430\u043D\u0442\u043E\u0432\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0431\u0432\u0435\u0434\u0435\u043D\u044B \u0447\u0435\u0440\u043D\u044B\u043C \u0446\u0432\u0435\u0442\u043E\u043C \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u043F\u043E\u043B\u0443\u043F\u0440\u043E\u0437\u0440\u0430\u0447\u043D\u043E\u0439 \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0435 \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n    </div>  \n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u043B\u0435\u0435\u0440\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043F\u043B\u0435\u0435\u0440\u043E\u043C \u0432\u043E\u0441\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u043B\u0435\u0435\u0440 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442 \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u0439 Android \u043F\u043B\u0435\u0435\u0440 \u0432 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0430\u044F \u0441\u0435\u0440\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438 \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u044C \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0441\u0435\u0440\u0438\u044E \u043F\u0440\u0438 \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">\u0422\u0430\u0439\u043C\u043A\u043E\u0434</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u0441 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0433\u043E \u043C\u0435\u0441\u0442\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">\u041C\u0435\u0442\u043E\u0434 \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C \u0432\u044B\u0447\u0438\u0441\u043B\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F \u0432\u0438\u0434\u0435\u043E</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">\u0420\u0430\u0437\u043C\u0435\u0440</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043E\u043A\u0430\u043D\u0442\u043E\u0432\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0431\u0432\u0435\u0434\u0435\u043D\u044B \u0447\u0435\u0440\u043D\u044B\u043C \u0446\u0432\u0435\u0442\u043E\u043C \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u043F\u043E\u043B\u0443\u043F\u0440\u043E\u0437\u0440\u0430\u0447\u043D\u043E\u0439 \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0435 \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n    </div>  \n</div>";
 
     var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421 \u043A\u0430\u043A\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043D\u0430\u0447\u0438\u043D\u0430\u0442\u044C \u043F\u0440\u0438 \u0437\u0430\u043F\u0443\u0441\u043A\u0435</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041E\u0442\u043A\u0443\u0434\u0430 \u0431\u0440\u0430\u0442\u044C \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430 \u043A\u0430\u043A\u043E\u043C \u044F\u0437\u044B\u043A\u0435 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435 \u0441 TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0441\u0442\u0440\u0430\u043D\u0438\u0446 \u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u043F\u0430\u043C\u044F\u0442\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0425\u0440\u0430\u043D\u0438\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u0432 \u0442\u043E\u043C \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0435, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u0432\u044B \u0435\u0451 \u043F\u043E\u043A\u0438\u043D\u0443\u043B\u0438</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u043A\u0440\u0438\u043D\u0441\u0435\u0439\u0432\u0435\u0440</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0443 \u043F\u0440\u0438 \u0431\u0435\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0415\u0449\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">\u0421\u043C\u0435\u0441\u0442\u0438\u0442\u044C \u0432\u0440\u0435\u043C\u044F</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -1252,6 +1252,8 @@
 
 
     function add$6(where, card, limit) {
+      read$1();
+
       if (data$1[where].indexOf(card.id) < 0) {
         Arrays.insert(data$1[where], 0, card.id);
         if (!search$3(card.id)) data$1.card.push(card);
@@ -1277,6 +1279,7 @@
 
 
     function remove$1(where, card) {
+      read$1();
       Arrays.remove(data$1[where], card.id);
 
       for (var i = data$1.card.length - 1; i >= 0; i--) {
@@ -1315,6 +1318,7 @@
 
 
     function toggle$8(where, card) {
+      read$1();
       var find = check(card);
       if (find[where]) remove$1(where, card);else add$6(where, card);
       return find[where] ? false : true;
@@ -1345,6 +1349,7 @@
 
 
     function get$6(params) {
+      read$1();
       var result = [];
       var ids = data$1[params.type];
       ids.forEach(function (id) {
@@ -1363,6 +1368,7 @@
 
 
     function clear$5(where, card) {
+      read$1();
       if (card) remove$1(where, card);else {
         for (var i = data$1[where].length - 1; i >= 0; i--) {
           var _card = search$3(data$1[where][i]);
@@ -1372,11 +1378,11 @@
       }
     }
     /**
-     * Запуск
+     * Считать последние данные
      */
 
 
-    function init$e() {
+    function read$1() {
       data$1 = Storage.get('favorite', '{}');
       Arrays.extend(data$1, {
         like: [],
@@ -1385,6 +1391,14 @@
         card: [],
         history: []
       });
+    }
+    /**
+     * Запуск
+     */
+
+
+    function init$e() {
+      read$1();
     }
 
     var Favorite = {
@@ -2342,8 +2356,8 @@
             fulldata.push(slides);
           }
 
-          if (blocks[2] && blocks[2].element.collectionItems.items) {
-            blocks[2].element.collectionItems.items.forEach(function (block) {
+          if (blocks[1] && blocks[1].element.collectionItems.items) {
+            blocks[1].element.collectionItems.items.forEach(function (block) {
               var line = {
                 title: block.element.name,
                 url: block.element.alias,
@@ -3598,10 +3612,10 @@
     }
 
     function init$d() {
-      $(window).on('resize', update$5);
+      $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
-        if (event.name == 'interface_size') update$5();
+        if (event.name == 'interface_size') update$6();
         if (event.name == 'animation' || event.name == 'mask') toggleClasses();
       });
     }
@@ -3619,7 +3633,7 @@
       }).removeClass('size--small size--normal size--bigger').addClass('size--' + sl);
     }
 
-    function update$5() {
+    function update$6() {
       size$1();
       $('.layer--width').css('width', window.innerWidth);
       $('.layer--height').css('height', window.innerHeight);
@@ -3642,7 +3656,7 @@
     }
 
     var Layer = {
-      update: update$5,
+      update: update$6,
       init: init$d
     };
 
@@ -5055,7 +5069,7 @@
         events: {
           onReady: function onReady(event) {
             event.target.playVideo();
-            update$4();
+            update$5();
           },
           onStateChange: function onStateChange(state) {
             if (state.data == 0) {
@@ -5066,11 +5080,11 @@
       });
     }
 
-    function update$4() {
+    function update$5() {
       timer$5 = setTimeout(function () {
         var progress = player.getCurrentTime() / player.getDuration() * 100;
         $('#youtube-player__progress').css('width', progress + '%');
-        update$4();
+        update$5();
       }, 400);
     }
 
@@ -5790,7 +5804,7 @@
      * @param {*} value - значение
      */
 
-    function update$3(need, value) {
+    function update$4(need, value) {
       if (need == 'position') {
         elems$1.position.css({
           width: value
@@ -5997,7 +6011,7 @@
       destroy: destroy$6,
       hide: hide,
       canplay: canplay,
-      update: update$3,
+      update: update$4,
       rewind: rewind$1,
       setTracks: setTracks,
       setSubs: setSubs
@@ -6922,7 +6936,7 @@
       next: next
     };
 
-    function update$2(params) {
+    function update$3(params) {
       if (params.hash == 0) return;
       var viewed = Storage.cache('file_view', 10000, {});
       viewed[params.hash] = params.percent;
@@ -6951,7 +6965,7 @@
 
     var Timeline = {
       render: render$7,
-      update: update$2,
+      update: update$3,
       view: view
     };
 
@@ -7539,12 +7553,17 @@
       AndroidJS.openYoutube(link);
     }
 
+    function resetDefaultPlayer() {
+      AndroidJS.clearDefaultPlayer();
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
       openPlayer: openPlayer,
       playHash: playHash,
-      openYoutube: openYoutube
+      openYoutube: openYoutube,
+      resetDefaultPlayer: resetDefaultPlayer
     };
 
     var html$8 = Template.get('player');
@@ -7887,9 +7906,11 @@
       var html;
       var last;
 
-      var follow = function follow() {
-        var status = Storage.get('parser_use');
-        html.find('.view--torrent').toggleClass('selector', status).toggleClass('hide', !status);
+      var follow = function follow(e) {
+        if (e.name == 'parser_use') {
+          var status = Storage.get('parser_use');
+          html.find('.view--torrent').toggleClass('selector', status).toggleClass('hide', !status);
+        }
       };
 
       Arrays.extend(data.movie, {
@@ -7979,7 +8000,9 @@
 
         Background.immediately(Utils.cardImgBackground(data.movie));
         Storage.listener.follow('change', follow);
-        follow();
+        follow({
+          name: 'parser_use'
+        });
         this.menu();
         this.favorite();
       };
@@ -8040,7 +8063,7 @@
             var tb = html.find('.view--torrent'),
                 tr = html.find('.view--trailer');
             Controller.collectionSet(_this3.render());
-            Controller.collectionFocus(last || (!tb.hasClass('hide') ? tb[0] : !tr.hasClass('hide') ? tr[0] : false), _this3.render());
+            Controller.collectionFocus(last || (!tb.hasClass('hide') ? tb[0] : !tr.hasClass('hide') && tr.length ? tr[0] : false), _this3.render());
           },
           right: function right() {
             Navigator.move('right');
@@ -8137,7 +8160,7 @@
       Controller.toggle('modal');
     }
 
-    function update$1(new_html) {
+    function update$2(new_html) {
       last$3 = false;
       scroll$2.clear();
       scroll$2.append(new_html);
@@ -8163,7 +8186,7 @@
     var Modal = {
       open: open$2,
       close: close$1,
-      update: update$1,
+      update: update$2,
       title: title$1
     };
 
@@ -8489,6 +8512,11 @@
         item.onBack = this.back;
         item.create();
         items.push(item);
+        Lampa.Listener.send('full', {
+          type: 'build',
+          name: name,
+          body: item.render()
+        });
         scroll.append(item.render());
       };
 
@@ -11622,7 +11650,7 @@
       if (target) {
         Navigator.focus(target);
       } else {
-        var colection = html.find('.selector').toArray();
+        var colection = html.find('.selector').not('.hide').toArray();
         if (colection.length) Navigator.focus(colection[0]);
       }
     }
@@ -11962,7 +11990,7 @@
           position = Math.max(0, Math.min(keys.length - 1, position));
           value = keys[position];
           Storage.set(name, value);
-          update(elem);
+          update$1(elem);
         }
 
         if (type == 'input') {
@@ -11972,7 +12000,7 @@
             value: Storage.get(name, defaults[name]) + ''
           }, function (new_value) {
             Storage.set(name, new_value);
-            update(elem);
+            update$1(elem);
           });
         }
 
@@ -11987,22 +12015,25 @@
             value: ''
           }, function (new_value) {
             if (new_value && Storage.add(name, new_value)) {
-              displayAddItem(elem, new_value);
-
-              if (elem.data('notice')) {
-                Modal.open({
-                  title: '',
-                  html: $('<div class="about"><div class="selector">' + elem.data('notice') + '</div></div>'),
-                  onBack: function onBack() {
-                    Modal.close();
-                    Controller.toggle('settings_component');
-                  },
-                  onSelect: function onSelect() {
-                    Modal.close();
-                    Controller.toggle('settings_component');
+              displayAddItem(elem, new_value, {
+                is_new: true,
+                checked: function checked(error) {
+                  if (elem.data('notice')) {
+                    Modal.open({
+                      title: '',
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Не удалось проверить работоспособность плагина, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
+                      onBack: function onBack() {
+                        Modal.close();
+                        Controller.toggle('settings_component');
+                      },
+                      onSelect: function onSelect() {
+                        Modal.close();
+                        Controller.toggle('settings_component');
+                      }
+                    });
                   }
-                });
-              }
+                }
+              });
             }
           });
         }
@@ -12031,13 +12062,13 @@
             },
             onSelect: function onSelect(a) {
               Storage.set(name, a.value);
-              update(elem);
+              update$1(elem);
               Controller.toggle(enabled);
             }
           });
         }
       }).each(function () {
-        if (!$(this).data('static')) update($(this));
+        if (!$(this).data('static')) update$1($(this));
       });
 
       if (elems.eq(0).data('type') == 'add') {
@@ -12046,16 +12077,38 @@
     }
 
     function displayAddItem(elem, element) {
-      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div></div>');
+      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var name = elem.data('name');
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + (name == 'plugins' ? '<div class="settings-param__descr">Нажмите для проверки плагина</div><div class="settings-param__status"></div>' : '') + '</div>');
+
+      var check = function check() {
+        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
+        $.ajax({
+          dataType: 'text',
+          url: element,
+          timeout: 2000,
+          crossDomain: true,
+          success: function success(data) {
+            status.removeClass('wait').addClass('active');
+            if (params.checked) params.checked();
+          },
+          error: function error(jqXHR, exception) {
+            status.removeClass('wait').addClass('error');
+            if (params.checked) params.checked(true);
+          }
+        });
+      };
+
       item.on('hover:long', function () {
-        var name = elem.data('name'),
-            list = Storage.get(name, '[]');
+        var list = Storage.get(name, '[]');
         Arrays.remove(list, element);
         Storage.set(name, list);
         item.css({
           opacity: 0.5
         });
       });
+      item.on('hover:enter', check);
+      if (params.is_new && name == 'plugins') check();
       elem.after(item);
     }
 
@@ -12071,7 +12124,7 @@
      */
 
 
-    function update(elem) {
+    function update$1(elem) {
       var name = elem.data('name');
       var key = Storage.get(name, defaults[name] + '');
       var val = typeof values[name] == 'string' ? key : values[name][key] || values[name][defaults[name]];
@@ -12211,7 +12264,7 @@
       listener: listener$2,
       init: init$6,
       bind: bind,
-      update: update,
+      update: update$1,
       field: field$1
     };
 
@@ -12437,6 +12490,10 @@
         mask: true,
         over: true
       });
+      Lampa.Listener.send('menu', {
+        type: 'start',
+        body: html$4
+      });
       html$4.find('.selector').on('hover:enter', function (e) {
         var action = $(e.target).data('action');
         var type = $(e.target).data('type');
@@ -12533,6 +12590,9 @@
       });
       scroll$1.minus();
       scroll$1.append(html$4);
+      Lampa.Listener.send('menu', {
+        type: 'end'
+      });
       Controller.add('menu', {
         toggle: function toggle() {
           Controller.collectionSet(html$4);
@@ -12604,7 +12664,7 @@
       }
 
       if (!Platform.is('android')) {
-        comp.find('.is--torr_use').remove();
+        comp.find('.is--android').remove();
       }
 
       if (!Platform.any()) {
@@ -12705,6 +12765,10 @@
       main$1.create();
       Controller.add('settings', {
         toggle: function toggle() {
+          listener.send('open', {
+            name: 'main',
+            body: main$1.render()
+          });
           body$1.empty().append(main$1.render());
           main$1.active();
           $('body').toggleClass('settings--open', true);
@@ -13273,6 +13337,7 @@
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
     var timer;
+    var readed;
     /**
      * Запуск
      */
@@ -13294,7 +13359,7 @@
           if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
           clearTimeout(timer);
-          timer = setTimeout(save, 500);
+          timer = setTimeout(update, 500);
         }
       });
       login(start);
@@ -13394,32 +13459,45 @@
     }
     /**
      * Считываем файл и обновляем данные с облака
-     * @param {Object} file
-     * @param {Object} item
      */
 
 
-    function read(file, item) {
+    function read(call) {
       var time = Storage.get('cloud_time', '2021.01.01');
 
-      if (time !== item.updated_at) {
-        network.silent(file.raw_url, function (data) {
-          Storage.set('cloud_time', item.updated_at);
+      if (time !== readed.item.updated_at) {
+        network.silent(readed.file.raw_url, function (data) {
+          Storage.set('cloud_time', readed.item.updated_at);
 
           for (var i in data) {
             Storage.set(i, data[i], true);
           }
 
           status(4);
+          if (call) call();
         });
-      }
+      } else if (call) call();
+    }
+    /**
+     * Обновляем состояние
+     */
+
+
+    function update() {
+      if (readed) {
+        read(save);
+      } else start(function () {
+        read(function () {
+          if (readed) save();
+        });
+      });
     }
     /**
      * Получаем список файлов
      */
 
 
-    function start() {
+    function start(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         network.silent('https://api.github.com/gists', function (data) {
           var file;
@@ -13435,8 +13513,12 @@
 
           if (file) {
             Storage.set('cloud_data_id', item.id);
-            read(file, item);
-          } else save();
+            readed = {
+              file: file,
+              item: item
+            };
+            read(call);
+          } else save(call);
         }, function () {}, false, {
           beforeSend: {
             name: 'Authorization',
@@ -13453,7 +13535,7 @@
      */
 
 
-    function save() {
+    function save(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         var conent = JSON.stringify({
           torrents_view: Storage.get('torrents_view', '[]'),
@@ -13466,6 +13548,7 @@
           Storage.set('cloud_time', data.updated_at);
           Storage.set('cloud_data_id', data.id);
           status(4);
+          if (call) call();
         }, function () {
           Storage.set('cloud_data_id', '');
           status(5);
@@ -13518,12 +13601,17 @@
       Noty: Noty,
       Player: Player,
       Timeline: Timeline,
-      Cloud: Cloud
+      Modal: Modal,
+      Cloud: Cloud,
+      Settings: Settings
     };
     Console.init();
 
     function startApp() {
       if (window.appready) return;
+      Lampa.Listener.send('app', {
+        type: 'start'
+      });
       Keypad.init();
       Settings.init();
       Platform.init();
@@ -13573,6 +13661,7 @@
         Controller.focus(event.elem);
       });
       Render.app();
+      Layer.update();
       Activity$1.last();
       setTimeout(function () {
         Keypad.enable();
@@ -13591,6 +13680,17 @@
         });
       }
 
+      if (Platform.is('android')) {
+        Params.listener.follow('button', function (e) {
+          if (e.name === 'reset_player') {
+            Android.resetDefaultPlayer();
+          }
+        });
+      }
+
+      Lampa.Listener.send('app', {
+        type: 'ready'
+      });
       window.appready = true; //пометка что уже загружено
     } // принудительно стартовать
 

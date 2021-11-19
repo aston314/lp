@@ -516,7 +516,7 @@
 
     var html$16 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Collections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg width=\"38\" height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Selections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg width=\"38\" height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg width=\"28\" height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
     var html$14 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
@@ -530,17 +530,17 @@
 
     var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fading out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Smooth fading of cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for the use of public links for viewing torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">The method of parsing the TorLook site</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to take full responsibility for the use of public links for viewing torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">The method of parsing the TorLook site</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site will be delivered w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
-    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Sub link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide sub link to TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--torr_use\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use the built-in TorrServe JS client, otherwise the system starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use the preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Sub link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide sub link to TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use the built-in TorrServe JS client, otherwise the system starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use the preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Zoom method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to perform calculations for video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on semi-transparent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">Reset default player</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Resets the selected Android player in the application</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next series at the end of the current one</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use background</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will appear on a translucent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In which language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Keeps the page in the state you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove the plugin, hold down the OK button</div>\n    </div>\n</div>";
 
-    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronize</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization makes it possible to synchronize your bookmarks, browsing history , labels and time codes. Connection instructions https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronize</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">. Sync gives you the ability to sync your bookmarks, browsing history, tags and timecodes. Instructions for connecting https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$U = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -580,7 +580,7 @@
 
     var html$C = "<div class=\"modal\">\n    <div class=\"modal__content\">\n        <div class=\"modal__head\">\n            <div class=\"modal__title\">{title}</div>\n        </div>\n        <div class=\"modal__body\">\n            \n        </div>\n    </div>\n</div>";
 
-    var html$B = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">Headquarters: {headquarters}</div>\n    <div class=\"company__homepage\">Website: {homepage}</div>\n    <div class=\"company__country\">Country: {origin_country}</div>\n</div>";
+    var html$B = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">Headquarters: {headquarters}</div>\n    <div class=\"company__homepage\">Site: {homepage}</div>\n    <div class=\"company__country\">Country: {origin_country}</div>\n</div>";
 
     var html$A = "<div class=\"modal-loading\">\n    \n</div>";
 
@@ -598,15 +598,15 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>The application is completely free and uses public links to view information about films , news, popular films, etc. All available information is used solely for educational purposes, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donate</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>The app is completely free and uses public links to view information about movies, news, popular movies, etc. All available information is used solely for educational purposes, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donate</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current answer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if it is running TorrServe, or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Used address: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current answer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open a browser and go to <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned an invalid format</li>\n            <li>Reply from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to <code>{ip}/echo</code></li>\n            <li>Make sure the answer contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Reply from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure there is a code in the answer <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What should I do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Specify which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -618,7 +618,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">Empty</div>\n    <div class=\"empty__descr\">Nothing was found for your filter, please specify the filter.</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">Empty</div>\n    <div class=\"empty__descr\">Nothing was found in your filter, specify the filter.</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -1252,6 +1252,8 @@
 
 
     function add$6(where, card, limit) {
+      read$1();
+
       if (data$1[where].indexOf(card.id) < 0) {
         Arrays.insert(data$1[where], 0, card.id);
         if (!search$3(card.id)) data$1.card.push(card);
@@ -1277,6 +1279,7 @@
 
 
     function remove$1(where, card) {
+      read$1();
       Arrays.remove(data$1[where], card.id);
 
       for (var i = data$1.card.length - 1; i >= 0; i--) {
@@ -1315,6 +1318,7 @@
 
 
     function toggle$8(where, card) {
+      read$1();
       var find = check(card);
       if (find[where]) remove$1(where, card);else add$6(where, card);
       return find[where] ? false : true;
@@ -1345,6 +1349,7 @@
 
 
     function get$6(params) {
+      read$1();
       var result = [];
       var ids = data$1[params.type];
       ids.forEach(function (id) {
@@ -1363,6 +1368,7 @@
 
 
     function clear$5(where, card) {
+      read$1();
       if (card) remove$1(where, card);else {
         for (var i = data$1[where].length - 1; i >= 0; i--) {
           var _card = search$3(data$1[where][i]);
@@ -1372,11 +1378,11 @@
       }
     }
     /**
-     * Запуск
+     * Считать последние данные
      */
 
 
-    function init$e() {
+    function read$1() {
       data$1 = Storage.get('favorite', '{}');
       Arrays.extend(data$1, {
         like: [],
@@ -1385,6 +1391,14 @@
         card: [],
         history: []
       });
+    }
+    /**
+     * Запуск
+     */
+
+
+    function init$e() {
+      read$1();
     }
 
     var Favorite = {
@@ -1974,8 +1988,8 @@
 
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
-        if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
-        if (tv.length > 0) knownFor["".concat(actorGender, " - Series")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+        if (movie.length > 0) knownFor["".concat(actorGender, " - Movies")] = movie;
+        if (tv.length > 0) knownFor["".concat(actorGender, " - TV Shows")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
@@ -2332,7 +2346,7 @@
 
           if (blocks[0] && blocks[0].element.collectionItems.items) {
             var slides = {
-              title: 'New items',
+              title: 'New',
               results: [],
               wide: true
             };
@@ -2342,8 +2356,8 @@
             fulldata.push(slides);
           }
 
-          if (blocks[2] && blocks[2].element.collectionItems.items) {
-            blocks[2].element.collectionItems.items.forEach(function (block) {
+          if (blocks[1] && blocks[1].element.collectionItems.items) {
+            blocks[1].element.collectionItems.items.forEach(function (block) {
               var line = {
                 title: block.element.name,
                 url: block.element.alias,
@@ -3598,10 +3612,10 @@
     }
 
     function init$d() {
-      $(window).on('resize', update$5);
+      $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
-        if (event.name == 'interface_size') update$5();
+        if (event.name == 'interface_size') update$6();
         if (event.name == 'animation' || event.name == 'mask') toggleClasses();
       });
     }
@@ -3619,7 +3633,7 @@
       }).removeClass('size--small size--normal size--bigger').addClass('size--' + sl);
     }
 
-    function update$5() {
+    function update$6() {
       size$1();
       $('.layer--width').css('width', window.innerWidth);
       $('.layer--height').css('height', window.innerHeight);
@@ -3642,7 +3656,7 @@
     }
 
     var Layer = {
-      update: update$5,
+      update: update$6,
       init: init$d
     };
 
@@ -5055,7 +5069,7 @@
         events: {
           onReady: function onReady(event) {
             event.target.playVideo();
-            update$4();
+            update$5();
           },
           onStateChange: function onStateChange(state) {
             if (state.data == 0) {
@@ -5066,11 +5080,11 @@
       });
     }
 
-    function update$4() {
+    function update$5() {
       timer$5 = setTimeout(function () {
         var progress = player.getCurrentTime() / player.getDuration() * 100;
         $('#youtube-player__progress').css('width', progress + '%');
-        update$4();
+        update$5();
       }, 400);
     }
 
@@ -5744,13 +5758,13 @@
           value: 'fill',
           selected: select == 'fill'
         }, {
-          title: 'Zoom 115%',
-          subtitle: 'Zoom video 115%',
+          title: 'Enlarge 115%',
+          subtitle: 'Enlarge video 115%',
           value: 's115',
           selected: select == 's115'
         }, {
-          title: 'Zoom 130%',
-          subtitle: 'Zoom video 130%',
+          title: 'Enlarge 130%',
+          subtitle: 'Enlarge video 130%',
           value: 's130',
           selected: select == 's130'
         }, {
@@ -5760,7 +5774,7 @@
           selected: select == 'v115'
         }, {
           title: 'Vertical 130%',
-          subtitle: 'Enlarge video by 130%',
+          subtitle: 'Increase video by 130%',
           value: 'v130',
           selected: select == 'v130'
         }]);
@@ -5790,7 +5804,7 @@
      * @param {*} value - значение
      */
 
-    function update$3(need, value) {
+    function update$4(need, value) {
       if (need == 'position') {
         elems$1.position.css({
           width: value
@@ -5997,7 +6011,7 @@
       destroy: destroy$6,
       hide: hide,
       canplay: canplay,
-      update: update$3,
+      update: update$4,
       rewind: rewind$1,
       setTracks: setTracks,
       setSubs: setSubs
@@ -6922,7 +6936,7 @@
       next: next
     };
 
-    function update$2(params) {
+    function update$3(params) {
       if (params.hash == 0) return;
       var viewed = Storage.cache('file_view', 10000, {});
       viewed[params.hash] = params.percent;
@@ -6951,7 +6965,7 @@
 
     var Timeline = {
       render: render$7,
-      update: update$2,
+      update: update$3,
       view: view
     };
 
@@ -7539,12 +7553,17 @@
       AndroidJS.openYoutube(link);
     }
 
+    function resetDefaultPlayer() {
+      AndroidJS.clearDefaultPlayer();
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
       openPlayer: openPlayer,
       playHash: playHash,
-      openYoutube: openYoutube
+      openYoutube: openYoutube,
+      resetDefaultPlayer: resetDefaultPlayer
     };
 
     var html$8 = Template.get('player');
@@ -7887,9 +7906,11 @@
       var html;
       var last;
 
-      var follow = function follow() {
-        var status = Storage.get('parser_use');
-        html.find('.view--torrent').toggleClass('selector', status).toggleClass('hide', !status);
+      var follow = function follow(e) {
+        if (e.name == 'parser_use') {
+          var status = Storage.get('parser_use');
+          html.find('.view--torrent').toggleClass('selector', status).toggleClass('hide', !status);
+        }
       };
 
       Arrays.extend(data.movie, {
@@ -7979,7 +8000,9 @@
 
         Background.immediately(Utils.cardImgBackground(data.movie));
         Storage.listener.follow('change', follow);
-        follow();
+        follow({
+          name: 'parser_use'
+        });
         this.menu();
         this.favorite();
       };
@@ -8040,7 +8063,7 @@
             var tb = html.find('.view--torrent'),
                 tr = html.find('.view--trailer');
             Controller.collectionSet(_this3.render());
-            Controller.collectionFocus(last || (!tb.hasClass('hide') ? tb[0] : !tr.hasClass('hide') ? tr[0] : false), _this3.render());
+            Controller.collectionFocus(last || (!tb.hasClass('hide') ? tb[0] : !tr.hasClass('hide') && tr.length ? tr[0] : false), _this3.render());
           },
           right: function right() {
             Navigator.move('right');
@@ -8137,7 +8160,7 @@
       Controller.toggle('modal');
     }
 
-    function update$1(new_html) {
+    function update$2(new_html) {
       last$3 = false;
       scroll$2.clear();
       scroll$2.append(new_html);
@@ -8163,7 +8186,7 @@
     var Modal = {
       open: open$2,
       close: close$1,
-      update: update$1,
+      update: update$2,
       title: title$1
     };
 
@@ -8489,6 +8512,11 @@
         item.onBack = this.back;
         item.create();
         items.push(item);
+        Lampa.Listener.send('full', {
+          type: 'build',
+          name: name,
+          body: item.render()
+        });
         scroll.append(item.render());
       };
 
@@ -9775,7 +9803,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: 'By seeding',
+          title: 'By distributor',
           sort: 'Seeders'
         }, {
           title: 'By size',
@@ -10995,7 +11023,7 @@
       }, {
         time: '2021-09-27 15:00',
         title: 'Parser fixed',
-        descr: 'An error was detected in the parser due to which jac.red did not return results'
+        descr: 'An error was detected in the parser due to which jac.red did not produce results'
       }, {
         time: '2021-09-26 17:00',
         title: 'Welcome !',
@@ -11621,7 +11649,7 @@
       if (target) {
         Navigator.focus(target);
       } else {
-        var colection = html.find('.selector').toArray();
+        var colection = html.find('.selector').not('.hide').toArray();
         if (colection.length) Navigator.focus(colection[0]);
       }
     }
@@ -11961,7 +11989,7 @@
           position = Math.max(0, Math.min(keys.length - 1, position));
           value = keys[position];
           Storage.set(name, value);
-          update(elem);
+          update$1(elem);
         }
 
         if (type == 'input') {
@@ -11971,7 +11999,7 @@
             value: Storage.get(name, defaults[name]) + ''
           }, function (new_value) {
             Storage.set(name, new_value);
-            update(elem);
+            update$1(elem);
           });
         }
 
@@ -11986,22 +12014,25 @@
             value: ''
           }, function (new_value) {
             if (new_value && Storage.add(name, new_value)) {
-              displayAddItem(elem, new_value);
-
-              if (elem.data('notice')) {
-                Modal.open({
-                  title: '',
-                  html: $('<div class="about"><div class="selector">' + elem.data('notice') + '</div></div>'),
-                  onBack: function onBack() {
-                    Modal.close();
-                    Controller.toggle('settings_component');
-                  },
-                  onSelect: function onSelect() {
-                    Modal.close();
-                    Controller.toggle('settings_component');
+              displayAddItem(elem, new_value, {
+                is_new: true,
+                checked: function checked(error) {
+                  if (elem.data('notice')) {
+                    Modal.open({
+                      title: '',
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
+                      onBack: function onBack() {
+                        Modal.close();
+                        Controller.toggle('settings_component');
+                      },
+                      onSelect: function onSelect() {
+                        Modal.close();
+                        Controller.toggle('settings_component');
+                      }
+                    });
                   }
-                });
-              }
+                }
+              });
             }
           });
         }
@@ -12030,13 +12061,13 @@
             },
             onSelect: function onSelect(a) {
               Storage.set(name, a.value);
-              update(elem);
+              update$1(elem);
               Controller.toggle(enabled);
             }
           });
         }
       }).each(function () {
-        if (!$(this).data('static')) update($(this));
+        if (!$(this).data('static')) update$1($(this));
       });
 
       if (elems.eq(0).data('type') == 'add') {
@@ -12045,16 +12076,38 @@
     }
 
     function displayAddItem(elem, element) {
-      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div></div>');
+      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var name = elem.data('name');
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + (name == 'plugins' ? '<div class="settings-param__descr">Click to test the plugin</div><div class="settings-param__status"></div>' : '') + '</div>');
+
+      var check = function check() {
+        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
+        $.ajax({
+          dataType: 'text',
+          url: element,
+          timeout: 2000,
+          crossDomain: true,
+          success: function success(data) {
+            status.removeClass('wait').addClass('active');
+            if (params.checked) params.checked();
+          },
+          error: function error(jqXHR, exception) {
+            status.removeClass('wait').addClass('error');
+            if (params.checked) params.checked(true);
+          }
+        });
+      };
+
       item.on('hover:long', function () {
-        var name = elem.data('name'),
-            list = Storage.get(name, '[]');
+        var list = Storage.get(name, '[]');
         Arrays.remove(list, element);
         Storage.set(name, list);
         item.css({
           opacity: 0.5
         });
       });
+      item.on('hover:enter', check);
+      if (params.is_new && name == 'plugins') check();
       elem.after(item);
     }
 
@@ -12070,7 +12123,7 @@
      */
 
 
-    function update(elem) {
+    function update$1(elem) {
       var name = elem.data('name');
       var key = Storage.get(name, defaults[name] + '');
       var val = typeof values[name] == 'string' ? key : values[name][key] || values[name][defaults[name]];
@@ -12103,7 +12156,7 @@
     }, 'torlook');
     select('torlook_parse_type', {
       'native': 'Directly',
-      'site': 'Via Site API'
+      'site': 'Via site API'
     }, 'native');
     select('background_type', {
       'complex': 'Complex',
@@ -12216,7 +12269,7 @@
       listener: listener$2,
       init: init$6,
       bind: bind,
-      update: update,
+      update: update$1,
       field: field$1
     };
 
@@ -12442,6 +12495,10 @@
         mask: true,
         over: true
       });
+      Lampa.Listener.send('menu', {
+        type: 'start',
+        body: html$4
+      });
       html$4.find('.selector').on('hover:enter', function (e) {
         var action = $(e.target).data('action');
         var type = $(e.target).data('type');
@@ -12538,6 +12595,9 @@
       });
       scroll$1.minus();
       scroll$1.append(html$4);
+      Lampa.Listener.send('menu', {
+        type: 'end'
+      });
       Controller.add('menu', {
         toggle: function toggle() {
           Controller.collectionSet(html$4);
@@ -12609,7 +12669,7 @@
       }
 
       if (!Platform.is('android')) {
-        comp.find('.is--torr_use').remove();
+        comp.find('.is--android').remove();
       }
 
       if (!Platform.any()) {
@@ -12710,6 +12770,10 @@
       main$1.create();
       Controller.add('settings', {
         toggle: function toggle() {
+          listener.send('open', {
+            name: 'main',
+            body: main$1.render()
+          });
           body$1.empty().append(main$1.render());
           main$1.active();
           $('body').toggleClass('settings--open', true);
@@ -13278,6 +13342,7 @@
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
     var timer;
+    var readed;
     /**
      * Запуск
      */
@@ -13299,7 +13364,7 @@
           if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
           clearTimeout(timer);
-          timer = setTimeout(save, 500);
+          timer = setTimeout(update, 500);
         }
       });
       login(start);
@@ -13342,7 +13407,7 @@
 
         if (code == 3) {
           name.text('Logged in');
-          desc.text('You successfully logged in');
+          desc.text('You are successfully logged in');
         }
 
         if (code == 4) {
@@ -13399,32 +13464,45 @@
     }
     /**
      * Считываем файл и обновляем данные с облака
-     * @param {Object} file
-     * @param {Object} item
      */
 
 
-    function read(file, item) {
+    function read(call) {
       var time = Storage.get('cloud_time', '2021.01.01');
 
-      if (time !== item.updated_at) {
-        network.silent(file.raw_url, function (data) {
-          Storage.set('cloud_time', item.updated_at);
+      if (time !== readed.item.updated_at) {
+        network.silent(readed.file.raw_url, function (data) {
+          Storage.set('cloud_time', readed.item.updated_at);
 
           for (var i in data) {
             Storage.set(i, data[i], true);
           }
 
           status(4);
+          if (call) call();
         });
-      }
+      } else if (call) call();
+    }
+    /**
+     * Обновляем состояние
+     */
+
+
+    function update() {
+      if (readed) {
+        read(save);
+      } else start(function () {
+        read(function () {
+          if (readed) save();
+        });
+      });
     }
     /**
      * Получаем список файлов
      */
 
 
-    function start() {
+    function start(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         network.silent('https://api.github.com/gists', function (data) {
           var file;
@@ -13440,8 +13518,12 @@
 
           if (file) {
             Storage.set('cloud_data_id', item.id);
-            read(file, item);
-          } else save();
+            readed = {
+              file: file,
+              item: item
+            };
+            read(call);
+          } else save(call);
         }, function () {}, false, {
           beforeSend: {
             name: 'Authorization',
@@ -13458,7 +13540,7 @@
      */
 
 
-    function save() {
+    function save(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         var conent = JSON.stringify({
           torrents_view: Storage.get('torrents_view', '[]'),
@@ -13471,6 +13553,7 @@
           Storage.set('cloud_time', data.updated_at);
           Storage.set('cloud_data_id', data.id);
           status(4);
+          if (call) call();
         }, function () {
           Storage.set('cloud_data_id', '');
           status(5);
@@ -13523,12 +13606,17 @@
       Noty: Noty,
       Player: Player,
       Timeline: Timeline,
-      Cloud: Cloud
+      Modal: Modal,
+      Cloud: Cloud,
+      Settings: Settings
     };
     Console.init();
 
     function startApp() {
       if (window.appready) return;
+      Lampa.Listener.send('app', {
+        type: 'start'
+      });
       Keypad.init();
       Settings.init();
       Platform.init();
@@ -13578,6 +13666,7 @@
         Controller.focus(event.elem);
       });
       Render.app();
+      Layer.update();
       Activity$1.last();
       setTimeout(function () {
         Keypad.enable();
@@ -13596,6 +13685,17 @@
         });
       }
 
+      if (Platform.is('android')) {
+        Params.listener.follow('button', function (e) {
+          if (e.name === 'reset_player') {
+            Android.resetDefaultPlayer();
+          }
+        });
+      }
+
+      Lampa.Listener.send('app', {
+        type: 'ready'
+      });
       window.appready = true; //пометка что уже загружено
     } // принудительно стартовать
 

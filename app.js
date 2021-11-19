@@ -65,7 +65,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // Сatойство length метода from равно 1.
+        }; // С在ойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -530,13 +530,13 @@
 
     var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片从下方和上方平滑淡出</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">因此，您同意对使用公共链接查看 torrent 承担全部责任和在线内容</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook 站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com网站注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>В {q} 网站w41.torlook.info 将投递</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">因此，您同意对使用公共链接查看 torrent 承担全部责任和在线内容</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook 站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com网站注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>В {q} 网站w41.torlook.info 将投递</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索?</div>\n    </div>\n</div>";
 
     var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">主要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Sublink</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的子链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>可选</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则启动系统自带</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent会添加到TorrServer数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待TorrServer播放前要填充的预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定 \">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用程序中选定的Android 播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在当前的结尾自动切换到自动播放下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">继续上次观看</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用背景</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会出现在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB内容的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">多少页保留在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">将页面保持在您离开时的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift 时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB内容的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">多少页保留在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面处于您离开时的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift 时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"插件生效，需要重启应用。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，长按确定按钮</div>\n    </div>\n</div>";
 
@@ -598,13 +598,13 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>该应用程序是完全免费的，并使用公共链接来查看有关电影、新闻、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>该应用程序是完全免费的，并使用公共链接来查看有关电影、新上映、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
     var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>已用地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一设备上，打开浏览器并转到 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，请检查 TorrServe 是否正在运行，或重新启动它。</li>\n            <li>如果浏览器响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开一个浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案中有代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保您有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开一个浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案中有代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供链接文件</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报群: @lampa_group</li>\n            <li>指定哪部电影，哪个发行版，如果可能，指定该发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
@@ -618,7 +618,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">在您的过滤器中未找到任何内容, 指定过滤器。</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">在您的过滤器中找不到任何内容, 指定过滤器。</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -3742,10 +3742,10 @@
     }
 
     function init$d() {
-      $(window).on('resize', update$5);
+      $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
-        if (event.name == 'interface_size') update$5();
+        if (event.name == 'interface_size') update$6();
         if (event.name == 'animation' || event.name == 'mask') toggleClasses();
       });
     }
@@ -3763,7 +3763,7 @@
       }).removeClass('size--small size--normal size--bigger').addClass('size--' + sl);
     }
 
-    function update$5() {
+    function update$6() {
       size$1();
       $('.layer--width').css('width', window.innerWidth);
       $('.layer--height').css('height', window.innerHeight);
@@ -3786,7 +3786,7 @@
     }
 
     var Layer = {
-      update: update$5,
+      update: update$6,
       init: init$d
     };
 
@@ -5199,7 +5199,7 @@
         events: {
           onReady: function onReady(event) {
             event.target.playVideo();
-            update$4();
+            update$5();
           },
           onStateChange: function onStateChange(state) {
             if (state.data == 0) {
@@ -5210,11 +5210,11 @@
       });
     }
 
-    function update$4() {
+    function update$5() {
       timer$5 = setTimeout(function () {
         var progress = player.getCurrentTime() / player.getDuration() * 100;
         $('#youtube-player__progress').css('width', progress + '%');
-        update$4();
+        update$5();
       }, 400);
     }
 
@@ -5934,7 +5934,7 @@
      * @param {*} value - значение
      */
 
-    function update$3(need, value) {
+    function update$4(need, value) {
       if (need == 'position') {
         elems$1.position.css({
           width: value
@@ -6141,7 +6141,7 @@
       destroy: destroy$6,
       hide: hide,
       canplay: canplay,
-      update: update$3,
+      update: update$4,
       rewind: rewind$1,
       setTracks: setTracks,
       setSubs: setSubs
@@ -7066,7 +7066,7 @@
       next: next
     };
 
-    function update$2(params) {
+    function update$3(params) {
       if (params.hash == 0) return;
       var viewed = Storage.cache('file_view', 10000, {});
       viewed[params.hash] = params.percent;
@@ -7095,7 +7095,7 @@
 
     var Timeline = {
       render: render$7,
-      update: update$2,
+      update: update$3,
       view: view
     };
 
@@ -7684,7 +7684,7 @@
     }
 
     function resetDefaultPlayer() {
-      //AndroidJS.clearDefaultPlayer();
+      AndroidJS.clearDefaultPlayer();
     }
 
     var Android = {
@@ -8290,7 +8290,7 @@
       Controller.toggle('modal');
     }
 
-    function update$1(new_html) {
+    function update$2(new_html) {
       last$3 = false;
       scroll$2.clear();
       scroll$2.append(new_html);
@@ -8316,7 +8316,7 @@
     var Modal = {
       open: open$2,
       close: close$1,
-      update: update$1,
+      update: update$2,
       title: title$1
     };
 
@@ -11153,7 +11153,7 @@
       }, {
         time: '2021-09-27 15:00',
         title: '解析器固定',
-        descr: 'An error was detected in the parser due to which jac.red did not return results'
+        descr: 'An error was detected in the parser due to which jac.red did not produce results'
       }, {
         time: '2021-09-26 17:00',
         title: '欢迎！',
@@ -12119,7 +12119,7 @@
           position = Math.max(0, Math.min(keys.length - 1, position));
           value = keys[position];
           Storage.set(name, value);
-          update(elem);
+          update$1(elem);
         }
 
         if (type == 'input') {
@@ -12129,7 +12129,7 @@
             value: Storage.get(name, defaults[name]) + ''
           }, function (new_value) {
             Storage.set(name, new_value);
-            update(elem);
+            update$1(elem);
           });
         }
 
@@ -12150,7 +12150,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法测试插件功能, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -12191,13 +12191,13 @@
             },
             onSelect: function onSelect(a) {
               Storage.set(name, a.value);
-              update(elem);
+              update$1(elem);
               Controller.toggle(enabled);
             }
           });
         }
       }).each(function () {
-        if (!$(this).data('static')) update($(this));
+        if (!$(this).data('static')) update$1($(this));
       });
 
       if (elems.eq(0).data('type') == 'add') {
@@ -12253,7 +12253,7 @@
      */
 
 
-    function update(elem) {
+    function update$1(elem) {
       var name = elem.data('name');
       var key = Storage.get(name, defaults[name] + '');
       var val = typeof values[name] == 'string' ? key : values[name][key] || values[name][defaults[name]];
@@ -12399,7 +12399,7 @@
       listener: listener$2,
       init: init$6,
       bind: bind,
-      update: update,
+      update: update$1,
       field: field$1
     };
 
@@ -13472,6 +13472,7 @@
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
     var timer;
+    var readed;
     /**
      * Запуск
      */
@@ -13493,7 +13494,7 @@
           if (e.value == 'true') login(start);else status(0);
         } else if (fields.indexOf(e.name) >= 0) {
           clearTimeout(timer);
-          timer = setTimeout(save, 500);
+          timer = setTimeout(update, 500);
         }
       });
       login(start);
@@ -13593,32 +13594,45 @@
     }
     /**
      * Считываем файл и обновляем данные с облака
-     * @param {Object} file
-     * @param {Object} item
      */
 
 
-    function read(file, item) {
+    function read(call) {
       var time = Storage.get('cloud_time', '2021.01.01');
 
-      if (time !== item.updated_at) {
-        network.silent(file.raw_url, function (data) {
-          Storage.set('cloud_time', item.updated_at);
+      if (time !== readed.item.updated_at) {
+        network.silent(readed.file.raw_url, function (data) {
+          Storage.set('cloud_time', readed.item.updated_at);
 
           for (var i in data) {
             Storage.set(i, data[i], true);
           }
 
           status(4);
+          if (call) call();
         });
-      }
+      } else if (call) call();
+    }
+    /**
+     * Обновляем состояние
+     */
+
+
+    function update() {
+      if (readed) {
+        read(save);
+      } else start(function () {
+        read(function () {
+          if (readed) save();
+        });
+      });
     }
     /**
      * Получаем список файлов
      */
 
 
-    function start() {
+    function start(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         network.silent('https://api.github.com/gists', function (data) {
           var file;
@@ -13634,8 +13648,12 @@
 
           if (file) {
             Storage.set('cloud_data_id', item.id);
-            read(file, item);
-          } else save();
+            readed = {
+              file: file,
+              item: item
+            };
+            read(call);
+          } else save(call);
         }, function () {}, false, {
           beforeSend: {
             name: 'Authorization',
@@ -13652,7 +13670,7 @@
      */
 
 
-    function save() {
+    function save(call) {
       if (Storage.get('cloud_token') && Storage.field('cloud_use')) {
         var conent = JSON.stringify({
           torrents_view: Storage.get('torrents_view', '[]'),
@@ -13665,6 +13683,7 @@
           Storage.set('cloud_time', data.updated_at);
           Storage.set('cloud_data_id', data.id);
           status(4);
+          if (call) call();
         }, function () {
           Storage.set('cloud_data_id', '');
           status(5);
@@ -13813,9 +13832,7 @@
 
     setTimeout(startApp, 1000 * 5);
     console.log('Plugins', 'list:', Storage.get('plugins', '[]'));
-    var plugins = Storage.get('plugins', '[]'); // чистка для магазина
-
-    Arrays.insert(plugins, 0, './plugins/clear.js');
+    var plugins = Storage.get('plugins', '[]');
     Utils.putScript(plugins, startApp);
 
 })();
