@@ -38,7 +38,7 @@
         {
           websitelink : 'https://www.7xiady.cc',
           listlink : true,
-          search_url : 'https://www.7xiady.cc/index.php/search/'+ encodeURIComponent(object.search_one)+'----------1---/',
+          search_url : 'https://www.7xiady.cc/index.php/search/#msearchword----------1---/',
           search_json : false,
           scVodNode : '',
           scVodName : '',
@@ -58,7 +58,7 @@
         {
           websitelink : 'https://www.9egood.com',
           listlink : true,
-          search_url : 'https://www.9egood.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
+          search_url : 'https://www.9egood.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
           search_json : true,
           scVodNode : 'json:list',
           scVodName : 'name',
@@ -78,7 +78,7 @@
         {
           websitelink : 'https://auete.com',
           listlink : true,
-          search_url : 'https://auete.com/search.php?searchword='+ encodeURIComponent(object.search_one),
+          search_url : 'https://auete.com/search.php?searchword=#msearchword',
           search_json : false,
           scVodNode : '',
           scVodName : '',
@@ -98,7 +98,7 @@
         {
           websitelink : 'https://www.zxzj.fun',
           listlink : true,
-          search_url : 'https://www.zxzj.fun/vodsearch/'+ encodeURIComponent(object.search_one)+'----------1---.html',
+          search_url : 'https://www.zxzj.fun/vodsearch/#msearchword----------1---.html',
           search_json : false,
           scVodNode : '',
           scVodName : '',
@@ -118,7 +118,7 @@
         {
           websitelink : 'https://olevod.com',
           listlink : true,
-          search_url : 'https://olevod.com/index.php/vod/search.html?wd='+ encodeURIComponent(object.search_one),
+          search_url : 'https://olevod.com/index.php/vod/search.html?wd=#msearchword',
           search_json : false,
           scVodNode : '',
           scVodName : '',
@@ -138,7 +138,7 @@
         {
           websitelink : 'https://aidi.tv',
           listlink : false,
-          search_url : 'https://aidi.tv/vsearch/-------------.html?wd='+ encodeURIComponent(object.search_one),
+          search_url : 'https://aidi.tv/vsearch/-------------.html?wd=#msearchword',
           search_json : false,
           scVodNode : '',
           scVodName : '',
@@ -158,7 +158,7 @@
         {
           websitelink : 'https://www.o8tv.com',
           listlink : true,
-          search_url : 'https://www.o8tv.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
+          search_url : 'https://www.o8tv.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
           search_json : true,
           scVodNode : 'json:list',
           scVodName : 'name',
@@ -177,11 +177,10 @@
         }
         ]
       };
-
-
       //console.log(extract_rule.rule[0].websitelink);
       //var websitelink = "https://www.7xiady.cc";
       var doreg = {};
+      var doregjson = {};
       
       //console.log(doreg.search_url);
 
@@ -197,15 +196,79 @@
         //console.log(url);
         //搜索关键字
         //console.log(object.movie.original_language);
-        if(object.movie.original_language=='zh'){
-          doreg = extract_rule.rule[1];
-        }else{
-          doreg = extract_rule.rule[0];
+        
+/*        network.silent("https://rentry.co/lampa_rule/raw", function (json) {
+          if (json.rule && json.rule.length) {
+            doregjson = json;
+          } else _this.empty('哦，我们没有找到 (' + object.search + ') 静待资源上线 ');
+        }, function (a, c) {
+          _this.empty('哦: ' + network.errorDecode(a, c));
+        });*/
+/*        function getval(callback){
+            $.getJSON('https://rentry.co/lampa_rule/raw', function(json) {
+                if (json.rule && json.rule.length) {
+                callback(json);
+              } else _this.empty('哦，我们没有找到 (' + object.search + ') 静待资源上线 ');
+            });
+        };*/
+/*       var jqxhr = $.getJSON("https://rentry.co/lampa_rule/raw", function(json) {
+          if (json.rule && json.rule.length) {
+            doregjson = json;
+            callback(json);
+          } else _this.empty('哦，我们没有找到 (' + object.search + ') 静待资源上线 ');
+        });
+        var myjson;
+        $.getJSON("https://rentry.co/lampa_rule/raw", function(json){
+            myjson = json;
+        });
+
+        function getValue(){
+           var value= $.ajax({ 
+              url: 'https://rentry.co/lampa_rule/raw', 
+              async: false
+           }).responseText;
+           return JSON.parse(value);
         };
+
+         function load_val(callback){//定义一个回调函数
+             $.getJSON('https://rentry.co/lampa_rule/raw' , function(json){
+                 callback(json);//将返回结果当作参数返回
+             });
+         }
+         
+         load_val(function(data){
+             console.log(data);//这里可以得到值
+         });*/
+
+        function loadRoutes()
+        {
+            var result;
+                $.ajax({
+                  url: 'https://rentry.co/lampa_rule/raw',
+                  dataType:'json', 
+                  async: false,  
+                  success: function (data) {
+                    result = data;
+                  },
+                  error: function () {
+                    result = {};
+                  }
+                });
+            return result;
+        };
+
+        doregjson = loadRoutes();
+
+        if(object.movie.original_language=='zh'){
+          doreg = doregjson.rule[1];
+        }else{
+          doreg = doregjson.rule[0];
+        };
+
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
         var url1 = doreg.search_url;
+        url1 = url1.replace('#msearchword',encodeURIComponent(object.search_one));
         console.log(url1);
-
         //network.silent("https://rentry.co/testjson/raw", function (json) {
           //if (json.data && json.data.length) {
             //results = json.data;
