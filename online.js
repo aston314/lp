@@ -56,6 +56,26 @@
           prefix_video : ''
         },
         {
+          websitelink : 'https://www.9egood.com',
+          listlink : true,
+          search_url : 'https://www.9egood.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
+          search_json : true,
+          scVodNode : 'json:list',
+          scVodName : 'name',
+          scVodId : 'id',
+          search_list_reg : '"list":(.+?),"url":',
+          search_list_have_string : 'id',
+          search_list_find_reg : 'id:(.+?),en',
+          title_selector : '', 
+          title_selector_value : '',
+          link_selector : '',
+          detail_url_reg : '<div id="[\\s\\S]*?" class="tab-pane fade in active clearfix">(.*?)<\/div>',
+          video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
+          need_base64decode : false,
+          prefix_video : ''
+        },
+        {
           websitelink : 'https://auete.com',
           listlink : true,
           search_url : 'https://auete.com/search.php?searchword='+ encodeURIComponent(object.search_one),
@@ -154,26 +174,6 @@
           get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
           need_base64decode : true,
           prefix_video : ''
-        },
-        {
-          websitelink : 'https://www.9egood.com',
-          listlink : true,
-          search_url : 'https://www.9egood.com/index.php/ajax/suggest?mid=1&wd='+ encodeURIComponent(object.search_one)+'&limit=1',
-          search_json : true,
-          scVodNode : 'json:list',
-          scVodName : 'name',
-          scVodId : 'id',
-          search_list_reg : '"list":(.+?),"url":',
-          search_list_have_string : 'id',
-          search_list_find_reg : 'id:(.+?),en',
-          title_selector : '', 
-          title_selector_value : '',
-          link_selector : '',
-          detail_url_reg : '<div id="[\\s\\S]*?" class="tab-pane fade in active clearfix">(.*?)<\/div>',
-          video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">(.+?)<\/a>',
-          get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
-          need_base64decode : false,
-          prefix_video : ''
         }
         ]
       };
@@ -198,16 +198,13 @@
         //搜索关键字
         //console.log(object.movie.original_language);
         if(object.movie.original_language=='zh'){
-          doreg = extract_rule.rule[6];
+          doreg = extract_rule.rule[1];
         }else{
           doreg = extract_rule.rule[0];
         };
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
         var url1 = doreg.search_url;
         console.log(url1);
-
-        
-
 
         //network.silent("https://rentry.co/testjson/raw", function (json) {
           //if (json.data && json.data.length) {
@@ -762,15 +759,16 @@
               Results: []
             };
             $.each(math, function (i, a) {
-              a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
+              //a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
+              a = a.replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               //var element = $(a),
-              console.log(a);
+              //console.log(a);
                 var  item = {};
               //item.Title = $('li>a', element).text();
               if(doreg.need_base64decode){
               item.file = unescape(atob(a)).slice(0,1)=='/'? doreg.prefix_video+unescape(atob(a)) : unescape(atob(a));
             }else{
-              item.file = doreg.prefix_video+a;
+              item.file = doreg.prefix_video+unescape(a.replace(/\+/g,  " "));
             };
               //console.log(item.Link);
               
