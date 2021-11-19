@@ -270,14 +270,14 @@
             var titleRegExp = new RegExp('id:(.+?),name:(.+?),', '');
             var searchid = titleRegExp.exec(a);
             item.Title  = searchid[2];
-            item.Link   = doreg.websitelink+'/vodplay/'+searchid[1]+'-3-1.html';
+            item.Link   = doreg.websitelink+'/vodplay/'+searchid[1]+'-1-1.html';
           }else{
-          if(doreg.title_selector_value == 'text'){
-            item.Title = $(doreg.title_selector, element).text();
-          }else{
-            item.Title = $(doreg.title_selector, element).attr('title');
-          };
-          item.Link = doreg.websitelink+$(doreg.link_selector, element).attr('href');
+            if(doreg.title_selector_value == 'text'){
+              item.Title = $(doreg.title_selector, element).text();
+            }else{
+              item.Title = $(doreg.title_selector, element).attr('title');
+            };
+            item.Link = doreg.websitelink+$(doreg.link_selector, element).attr('href');
           };
           var searchtitle = item.Title;
 
@@ -328,7 +328,6 @@
                           //var mytranslation = {};
 
                           listlink.data[0].media.push({
-                            id : matches[0],
                             translation_id : doreg.listlink?doreg.websitelink+matches[0]:matches[0],
                             max_quality : matches[1],
                             title : searchtitle,
@@ -817,7 +816,7 @@
         var _this4 = this;
 
         items.forEach(function (element) {
-          var hash = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title].join('') : object.movie.original_title);
+          var hash = Lampa.Utils.hash(element.translation ? [element.translation, element.quality, object.movie.original_title].join('') : object.movie.original_title);
           var view = Lampa.Timeline.view(hash);
           var item = Lampa.Template.get('online1', element);
           item.append(Lampa.Timeline.render(view));
@@ -825,6 +824,7 @@
             last = e.target;
             scroll.update($(e.target), true);
           }).on('hover:enter', function () {
+            if(object.movie.id) Lampa.Favorite.add('history', object.movie, 100)
             console.log("这里");
             console.log(element);
             console.log("这里");
