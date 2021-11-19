@@ -238,7 +238,15 @@
          
          load_val(function(data){
              console.log(data);//这里可以得到值
-         });*/
+         });
+
+          var jqxhr = $.getJSON("https://rentry.co/lampa_rule/raw", function(json) {
+          if (json.rule && json.rule.length) {
+            doregjson = json;
+            //callback(json);
+          } else _this.empty('哦，我们没有找到 (' + object.search + ') 静待资源上线 ');
+        });
+          console.log(Object.values(jqxhr));*/
 
         function loadRoutes()
         {
