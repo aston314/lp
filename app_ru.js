@@ -7626,8 +7626,13 @@
     }
 
     function openYoutube(link) {
-      AndroidJS.openYoutube(link);
-    }
+      window.plugins.intentShim.startActivity({
+          action : window.plugins.intentShim.ACTION_VIEW,
+          url : "https://www.youtube.com/watch?v=" +link
+        }, function() {
+        }, function() {
+          console.log("Failed to open Youtube URL via Android Intent");
+        });    }
 
     function resetDefaultPlayer() {
       AndroidJS.clearDefaultPlayer();
