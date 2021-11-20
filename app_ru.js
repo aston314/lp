@@ -9538,6 +9538,8 @@
 
       if (!Storage.field('internal_torrclient')) {
         Android.openTorrent(SERVER);
+        if (movie && movie.id) Favorite.add('history', movie, 100);
+        if (callback$1) callback$1();
       } else if (Torserver.url()) {
         loading();
         connect();
@@ -9551,6 +9553,7 @@
 
       if (!Storage.field('internal_torrclient')) {
         Android.playHash(SERVER);
+        if (callback$1) callback$1();
       } else if (Torserver.url()) {
         loading();
         files();
@@ -10246,6 +10249,10 @@
             scroll.update($(e.target), true);
             if (pose > object.page * 20 - 4) _this4.next();
           }).on('hover:enter', function () {
+            Torrent.opened(function () {
+              _this4.mark(element, item, true);
+            });
+
             if (element.reguest && !element.MagnetUri) {
               _this4.loadMagnet(element);
             } else {
@@ -10255,10 +10262,6 @@
 
               Torrent.start(element, object.movie);
             }
-
-            Torrent.opened(function () {
-              _this4.mark(element, item, true);
-            });
           }).on('hover:long', function () {
             var enabled = Controller.enabled().name;
             Select.show({
