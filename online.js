@@ -349,7 +349,7 @@
           };
           var searchtitle = item.Title;
 
-          console.log(item.Link);
+          /*console.log(item.Link);*/
                   //取得具体页面的详情地址
                   network["native"](item.Link, function (str) {
                   var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.detail_url_reg, 'g'));
@@ -762,21 +762,21 @@
           });
         } else {*/
           
-          console.log(results.slice(0, 1));
-          console.log("results");
+          /*console.log(results.slice(0, 1));
+          console.log("results");*/
           results.slice(0, 1).forEach(function (movie) {
-              console.log(movie);
-              console.log("movie");
+              /*console.log(movie);
+              console.log("movie");*/
             movie.media.forEach(function (element) {
-              console.log(element);
-              console.log("element");
+              /*console.log(element);
+              console.log("element");*/
               filtred.push({
                 title: element.title,
                 quality: element.max_quality ,
                 translation: element.translation_id
               });
-              console.log(filtred);
-              console.log("filtred");
+              /*console.log(filtred);
+              console.log("filtred");*/
             });
           });
         //}
@@ -894,9 +894,9 @@
             scroll.update($(e.target), true);
           }).on('hover:enter', function () {
             if(object.movie.id) Lampa.Favorite.add('history', object.movie, 100)
-            console.log("这里");
+/*            console.log("这里");
             console.log(element);
-            console.log("这里");
+            console.log("这里");*/
             var file = _this4.getFile(element, true);
             console.log(file);
             //file="https://aidi.tv/m3u8/atHiRa0nccHiMw6aLnyg9ltuMoy5haWRpLnR2L20zdTgvc2hhcWl1L3NoYXFpdV8zX0hEMTA4MFAubTN1OAO0O0OO0O0O/4e5cf6197068636ed89d7384388f8d9d/1636696379.m3u8";
@@ -929,11 +929,13 @@
                 title: element.season ? element.title : object.movie.title + ' / ' + element.title+ ' / ' + element.quality
               };
               Lampa.Player.play(first);
-
+              //object.movie.number_of_seasons!== 'undefined' element.season
               if (element.season) {
                 items.forEach(function (elem) {
+                  console.log(elem)
+                  console.log("elem")
                   playlist.push({
-                    title: elem.title,
+                    title: elem.quality+ ' / ' +elem.title,
                     url: _this4.getFile(elem)
                   });
                 });
