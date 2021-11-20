@@ -9668,6 +9668,8 @@
 
       if (!Storage.field('internal_torrclient')) {
         Android.openTorrent(SERVER);
+        if (movie && movie.id) Favorite.add('history', movie, 100);
+        if (callback$1) callback$1();
       } else if (Torserver.url()) {
         loading();
         connect();
@@ -9681,6 +9683,7 @@
 
       if (!Storage.field('internal_torrclient')) {
         Android.playHash(SERVER);
+        if (callback$1) callback$1();
       } else if (Torserver.url()) {
         loading();
         files();
@@ -10009,7 +10012,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: '按经销商',
+          title: '按种子数',
           sort: 'Seeders'
         }, {
           title: '按大小',
@@ -10375,6 +10378,10 @@
             scroll.update($(e.target), true);
             if (pose > object.page * 20 - 4) _this4.next();
           }).on('hover:enter', function () {
+            Torrent.opened(function () {
+              _this4.mark(element, item, true);
+            });
+
             if (element.reguest && !element.MagnetUri) {
               _this4.loadMagnet(element);
             } else {
@@ -10384,10 +10391,6 @@
 
               Torrent.start(element, object.movie);
             }
-
-            Torrent.opened(function () {
-              _this4.mark(element, item, true);
-            });
           }).on('hover:long', function () {
             var enabled = Controller.enabled().name;
             Select.show({
@@ -11165,7 +11168,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: '更新 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: '更新 1.3.3',
@@ -11229,7 +11232,7 @@
       }, {
         time: '2021-09-27 15:00',
         title: '解析器固定',
-        descr: 'An error was detected in the parser due to which jac.red did not produce results'
+        descr: 'An error was detected in the parser due to which jac.red did not return results'
       }, {
         time: '2021-09-26 17:00',
         title: '欢迎！',
