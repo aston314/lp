@@ -267,10 +267,22 @@
 
         doregjson = loadRoutes();
 
-        if(object.movie.original_language=='zh'){
+        if(object.movie.original_language =='zh'){
           doreg = doregjson.rule[1];
         }else{
-          doreg = doregjson.rule[0];
+          if(typeof object.movie.number_of_seasons !== 'undefined'){
+            //console.log(object.movie.number_of_seasons);
+            //console.log("电视剧");
+            doreg = doregjson.rule[0];
+          }
+          else{
+            if(object.movie.original_language == 'ko'){
+              doreg = doregjson.rule[1];
+            }
+            else{
+              doreg = doregjson.rule[0];
+            }
+          }
         };
 
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
