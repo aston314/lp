@@ -7762,7 +7762,8 @@
         }, function() {
         }, function() {
           console.log("Failed to open Youtube URL via Android Intent");
-        });    }
+        });
+          }
 
     function resetDefaultPlayer() {
       AndroidJS.clearDefaultPlayer();
