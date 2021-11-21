@@ -21,8 +21,8 @@
         voice_info: []
       };
       var filter_translate = {
-        season: 'Сезон',
-        voice: 'Перевод'
+        season: '季',
+        voice: '翻译'
       };
       scroll.minus();
       scroll.body().addClass('torrent-list');
@@ -45,9 +45,9 @@
             _this.activity.loader(false);
 
             _this.activity.toggle();
-          } else _this.empty('Ой, мы не нашли (' + object.search + ')');
+          } else _this.empty('哦，我们没有找到 (' + object.search + ') 静待资源上线 ');
         }, function (a, c) {
-          _this.empty('Ответ: ' + network.errorDecode(a, c));
+          _this.empty('哦: ' + network.errorDecode(a, c));
         });
 
         filter.onSearch = function (value) {
@@ -113,7 +113,7 @@
             var s = movie.season_count;
 
             while (s--) {
-              filter_items.season.push('Сезон ' + (movie.season_count - s));
+              filter_items.season.push('季 ' + (movie.season_count - s));
             }
 
             choice.season = typeof select_season == 'undefined' ? filter_items.season.length - 1 : select_season;
@@ -145,13 +145,13 @@
         });
         Lampa.Storage.set('online_filter', object.movie.number_of_seasons ? choice : {});
         select.push({
-          title: 'Сбросить фильтр',
+          title: '重置过滤器',
           reset: true
         });
 
         if (object.movie.number_of_seasons) {
-          add('voice', 'Перевод');
-          add('season', 'Сезон');
+          add('voice', '翻译');
+          add('season', '季');
         }
 
         filter.set('filter', select);
@@ -293,7 +293,8 @@
                     filtred.push({
                       episode: parseInt(episode.num),
                       season: episode.season_num,
-                      title: episode.num + ' - ' + episode.ru_title,
+                      //title: episode.num + ' - ' + episode.ru_title,
+                      title: episode.num + ' - ' + episode.orig_title,
                       quality: media.max_quality + 'p',
                       translation: media.translation_id
                     });
