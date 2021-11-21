@@ -12105,7 +12105,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -13724,7 +13724,7 @@
           Select.show({
             title: 'Logout',
             items: [{
-              title: 'Yes, log out',
+              title: 'Yes, Exit',
               out: true
             }, {
               title: 'Continue'
