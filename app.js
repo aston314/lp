@@ -10017,7 +10017,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: '按经销商',
+          title: '按种子数',
           sort: 'Seeders'
         }, {
           title: '按大小',
