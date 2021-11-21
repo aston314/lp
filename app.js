@@ -71,7 +71,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // С在ойство length метода from равно 1.
+        }; // Сatойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -612,7 +612,7 @@
 
     var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用程序中选定的Android 播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在当前的结尾自动切换到自动播放下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">继续上次观看</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用背景</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会出现在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB内容的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">多少页保留在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面处于您离开时的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift 时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB内容的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">多少页保留在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面处于您离开时的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移动时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"插件生效，需要重启应用。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，长按确定按钮</div>\n    </div>\n</div>";
 
@@ -674,13 +674,13 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>该应用程序是完全免费的，并使用公共链接来查看有关电影、新上映、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>该应用程序是完全免费的，并使用公共链接来查看有关电影、新产品、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
     var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>已用地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一设备上，打开浏览器并转到 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，请检查 TorrServe 是否正在运行，或重新启动它。</li>\n            <li>如果浏览器响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保您有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开一个浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案中有代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开一个浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案中有代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供链接文件</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报群: @lampa_group</li>\n            <li>指定哪部电影，哪个发行版，如果可能，指定该发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
@@ -694,7 +694,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">在您的过滤器中未找到任何内容, 指定过滤器。</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">在您的过滤器中找不到任何内容, 指定过滤器。</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -1930,7 +1930,7 @@
         first_air_date_year: date.getFullYear(),
         //'vote_average.gte': 7,
         filter :"drama",
-        with_genres : 18
+        with_genres : "18|80|10759|9648|10751"
       };
       get$5('tv/popular', nparams5, function (json) {
         json.filter = nparams5.filter;
@@ -2014,8 +2014,7 @@
         year: date.getFullYear(),
         first_air_date_year: date.getFullYear(),
         'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
+        filter :"drama"
       };
       get$5('discover/' + params.url, nparams4, function (json) {
         json.filter = nparams4.filter;
@@ -9491,8 +9490,8 @@
       $('body').append(search);
       var keyboard = new create$4({
         layout: {
-          'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
-          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
+          'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -10018,7 +10017,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: '按种子数',
+          title: '按经销商',
           sort: 'Seeders'
         }, {
           title: '按大小',
@@ -11174,7 +11173,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: '更新 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: '更新 1.3.3',
@@ -11206,7 +11205,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: '更新1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: '更新1.2.2',
@@ -11901,11 +11900,11 @@
 
       var last;
       var _default_layout = {
-        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
-        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
+        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
+        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
         'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
-        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F S V A P R O L D Z E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
+        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F S V A P R O L D Z E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
       this.listener = start$4();
 
@@ -11921,8 +11920,8 @@
             '{RU}': '&nbsp;',
             '{EN}': '&nbsp;',
             '{abc}': '&nbsp;',
-            '{rus}': '俄语',
-            '{eng}': 'english',
+            '{eng}': '俄语',
+            '{rus}': 'english',
             '{search}': '查找'
           },
           layout: params.layout || _default_layout,
@@ -12235,7 +12234,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法测试插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -12371,7 +12370,7 @@
     }, 'torlook');
     select('torlook_parse_type', {
       'native': '直接',
-      'site': 'Via站点 API'
+      'site': '通过站点 API'
     }, 'native');
     select('background_type', {
       'complex': '复杂',
@@ -13366,7 +13365,7 @@
       keyboard = new create$4({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {bksp}'],
-          //'default': ['1 2 3 4 5 6 7 8 9 0', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {bksp}']
+          'en': ['1 2 3 4 5 6 7 8 9 0', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {bksp}']
         }
       });
       keyboard.create();
