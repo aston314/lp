@@ -368,7 +368,7 @@
 
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
-        var searchresult = searchresult[1].match(doreg.search_list_have_string);
+        var searchresult = searchresult[0].match(doreg.search_list_have_string);
         //console.log(str.includes('To be'));
 
         //console.log(searchresult);
