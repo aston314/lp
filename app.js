@@ -71,7 +71,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // Сatойство length метода from равно 1.
+        }; // С在ойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -608,13 +608,13 @@
 
     var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">因此，您同意对使用公共链接查看 torrent 承担全部责任和在线内容</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析的方法TorLook 站点</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">站点解析器的链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com网站注册，注册链接api.scraperapi.com?api_key = ...&url={q}<br>В {q} 网站w41.torlook.info 将投递</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
 
-    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">主要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Sublink</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的子链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>可选</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则启动系统自带</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent会添加到TorrServer数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待TorrServer播放前要填充的预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定 \">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x \">\n        <div class=\"settings-param__name\">主要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供TorrServer脚本的子链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>可选</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则启动系统自带</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent会添加到TorrServer数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">等待TorrServer播放前要填充的预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定 \">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用程序中选定的Android 播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在当前的结尾自动切换到自动播放下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">继续上次观看</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用背景</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会出现在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
     var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB内容的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">多少页保留在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面处于您离开时的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移动时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"插件生效，需要重启应用。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，长按确定按钮</div>\n    </div>\n</div>";
+    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"插件生效，需要重启应用。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">删除插件，长按确定按钮</div>\n    </div>\n</div>";
 
     var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使您能够同步书签、浏览历史、标签和时间码。连接https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -3539,7 +3539,27 @@
     }
 
     function relise(oncomplite, onerror) {
-      network$4["native"]('https://kinotrend.neocities.org/data.json', function (json) {
+      if(Storage.field('tmdb_lang') == 'zh-CN'){
+            network$4["native"]('https://rentry.co/doubantop250/raw', function (json) {
+            var items = [];
+
+            if (json.subjects) {
+              json.subjects.forEach(function (element) {
+                items.push({
+                  id: element.id,
+                  title: element.title,
+                  original_title: element.title,
+                  release_date: "",
+                  poster: element.cover,
+                  vote_average: element.rate
+                });
+              });
+            }
+            oncomplite(items);
+          }, onerror);
+        }
+        else{
+          network$4["native"]('https://kinotrend.neocities.org/data.json', function (json) {
         var items = [];
 
         if (json.movies) {
@@ -3558,6 +3578,7 @@
 
         oncomplite(items);
       }, onerror);
+        }
     }
 
     function clear$2() {
@@ -10399,7 +10420,7 @@
           }).on('hover:long', function () {
             var enabled = Controller.enabled().name;
             Select.show({
-              title: '动作',
+              title: '操作',
               items: [{
                 title: '添加到我的种子',
                 tomy: true
@@ -11173,7 +11194,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: '更新 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: '更新 1.3.3',
@@ -11205,7 +11226,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: '更新1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: '更新1.2.2',
@@ -12234,7 +12255,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法测试插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -12370,7 +12391,7 @@
     }, 'torlook');
     select('torlook_parse_type', {
       'native': '直接',
-      'site': '通过站点 API'
+      'site': 'Via站点 API'
     }, 'native');
     select('background_type', {
       'complex': '复杂',
@@ -12412,7 +12433,7 @@
       'zh-HK': '繁體中文 - 香港',
       'zh-TW': '繁體中文 - 臺灣',
       'en': 'English',
-      'df': '原创',
+      'df': '原语言',
       'ru': '俄语'
     }, 'en');
     select('player_timecode', {

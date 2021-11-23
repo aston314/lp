@@ -11044,7 +11044,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
@@ -11076,7 +11076,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: 'Update 1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: 'Update 1.2.2',
@@ -12105,7 +12105,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to test plugin functionality, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -13722,9 +13722,9 @@
         if (event.count == 1) {
           var enabled = Controller.enabled();
           Select.show({
-            title: 'Logout',
+            title: 'Exit',
             items: [{
-              title: 'Yes, Exit',
+              title: 'Yes, log out',
               out: true
             }, {
               title: 'Continue'
