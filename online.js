@@ -38,17 +38,18 @@
         {
           websitelink : 'https://www.7xiady.cc',
           listlink : true,
-          search_url : 'https://www.7xiady.cc/index.php/search/#msearchword----------1---/',
-          search_json : false,
+          search_url : 'https://www.7xiady.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+          search_json : true,
           scVodNode : '',
           scVodName : '',
           scVodId : '',
-          search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
-          search_list_have_string : 'stui-vodlist__item',
-          search_list_find_reg : '<li class="stui-vodlist__item">(.*?)<\/li>',
-          title_selector : '.stui-vodlist__thumb', 
-          title_selector_value : 'title',
-          link_selector : '.stui-vodlist__thumb',
+          search_list_reg : '"list":(.+?),"url":',
+          search_list_have_string : 'id',
+          search_list_find_reg : 'id:(.+?),en',
+          title_selector : '', 
+          title_selector_value : '',
+          link_selector : '',
+          link_folder : 'play',
           detail_url_reg : '<div class="stui-pannel_bd col-pd clearfix">(.*?)<\/div>',
           video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
           get_link_reg : 'url\":\"(http[^\"]+)',
@@ -69,6 +70,7 @@
           title_selector : '', 
           title_selector_value : '',
           link_selector : '',
+          link_folder : 'vodplay',
           detail_url_reg : '<div id="[\\s\\S]*?" class="tab-pane fade in active clearfix">(.*?)<\/div>',
           video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">(.+?)<\/a>',
           get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
@@ -89,6 +91,7 @@
           title_selector : '.text-danger', 
           title_selector_value : 'text',
           link_selector : 'a',
+          link_folder : '',
           detail_url_reg : '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
           video_link_reg : '<a class="btn btn-orange" title="[\\s\\S]*?" href="(.+?)" target="_self">(.+?)</a>',
           get_link_reg : 'now=base64decode\\(\"([^\"]+)',
@@ -109,6 +112,7 @@
           title_selector : '.stui-vodlist__thumb', 
           title_selector_value : 'title',
           link_selector : '.stui-vodlist__thumb',
+          link_folder : '',
           detail_url_reg : '<div class="stui-vodlist__head">(.+?)盘<\/h3>',
           video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
           get_link_reg : 'url\":\"(http[^\"]+)',
@@ -129,6 +133,7 @@
           title_selector : '.vodlist_thumb', 
           title_selector_value : 'title',
           link_selector : '.vodlist_thumb',
+          link_folder : '',
           detail_url_reg : '<ul class="content_playlist clearfix">(.+?)<\/ul>',
           video_link_reg : '<a [\\s\\S]*? href="(.+?)" [\\s\\S]*?">(.+?)<\/a>',
           get_link_reg : 'url\":\"(http[^\"]+)',
@@ -149,6 +154,7 @@
           title_selector : '.vodlist_thumb', 
           title_selector_value : 'title',
           link_selector : '.vodlist_thumb',
+          link_folder : '',
           detail_url_reg : '<div id="playlistbox" class="playlist_notfull">(.*?)<\/div>',
           video_link_reg : '<a href="(.+?)" target="_blank">(.+?)<\/a>',
           get_link_reg : 'url\":\"(http[^\"]+)',
@@ -169,10 +175,32 @@
           title_selector : '', 
           title_selector_value : '',
           link_selector : '',
+          link_folder : 'vodplay',
           detail_url_reg : '<div id="player1" class="tab-pane fade in active clearfix">(.*?)<\/div>',
           video_link_reg : '<a class="[\\s\\S]*?" href="(.+?)">([\\s\\S]*?)<\/a>',
           get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
           need_base64decode : true,
+          prefix_video : ''
+        },
+        {
+          websitelink : 'https://www.7xiady.cc',
+          listlink : true,
+          search_url : 'https://www.7xiady.cc/index.php/search/#msearchword----------1---/',
+          search_json : false,
+          scVodNode : '',
+          scVodName : '',
+          scVodId : '',
+          search_list_reg : '<ul class="stui-vodlist clearfix">([\\s\\S]*?)<\/ul>',
+          search_list_have_string : 'stui-vodlist__item',
+          search_list_find_reg : '<li class="stui-vodlist__item">(.*?)<\/li>',
+          title_selector : '.stui-vodlist__thumb', 
+          title_selector_value : 'title',
+          link_selector : '.stui-vodlist__thumb',
+          link_folder : '',
+          detail_url_reg : '<div class="stui-pannel_bd col-pd clearfix">(.*?)<\/div>',
+          video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"(http[^\"]+)',
+          need_base64decode : false,
           prefix_video : ''
         }
         ]
@@ -181,7 +209,7 @@
       //var websitelink = "https://www.7xiady.cc";
       var doreg = {};
       var doregjson = {};
-      var xhr = new XMLHttpRequest();
+      //var xhr = new XMLHttpRequest();
       var resp;
       var search_videos;
       var find_videos;
@@ -362,13 +390,13 @@
         //var titleRegExp = /<ul class="stui-vodlist clearfix">([\s\S]*?)<\/ul>/g;
         /*var titleRegExp = new RegExp(doreg.search_list_reg, 'g')
         var searchresult = titleRegExp.exec(str);*/
-
+        //console.log(str);
         var searchresult = str.match(doreg.search_list_reg);
         //console.log(searchresult);
 
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
-        var searchresult = searchresult[0].match(doreg.search_list_have_string);
+        searchresult = searchresult[1].match(doreg.search_list_have_string);
         //console.log(str.includes('To be'));
 
         //console.log(searchresult);
@@ -401,7 +429,7 @@
             var searchid = titleRegExp.exec(a);*/
             var searchid = a.match('id:(.+?),name:(.+?),');
             item.Title  = searchid[2];
-            item.Link   = doreg.websitelink+'/vodplay/'+searchid[1]+'-1-1.html';
+            item.Link   = doreg.websitelink+'/'+doreg.link_folder+'/'+searchid[1]+'-1-1.html';
           }else{
             if(doreg.title_selector_value == 'text'){
               item.Title = $(doreg.title_selector, element).text();
