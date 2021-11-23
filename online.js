@@ -181,6 +181,18 @@
       //var websitelink = "https://www.7xiady.cc";
       var doreg = {};
       var doregjson = {};
+      var xhr = new XMLHttpRequest();
+      var resp;
+      var search_videos;
+      var find_videos;
+      function getRemote(remote_url) {
+        //this.getRemote = function (remote_url) {
+         return $.ajax({
+            type: "GET",
+            url: remote_url,
+            async: false
+         }).responseText;
+      };
       
       //console.log(doreg.search_url);
 
@@ -248,7 +260,7 @@
         });
           console.log(Object.values(jqxhr));*/
 
-        function loadRoutes()
+/*        function loadRoutes()
         {
             var result;
                 $.ajax({
@@ -263,9 +275,10 @@
                   }
                 });
             return result;
-        };
+        };*/
 
-        doregjson = loadRoutes();
+        //doregjson = loadRoutes();
+        doregjson = $.parseJSON(getRemote('https://rentry.co/lampa_rule/raw'));
 
         if(object.movie.original_language =='zh'){
           doreg = doregjson.rule[1];
@@ -273,14 +286,50 @@
           if(typeof object.movie.number_of_seasons !== 'undefined'){
             //console.log(object.movie.number_of_seasons);
             //console.log("电视剧");
-            doreg = doregjson.rule[0];
+            //doreg = doregjson.rule[0];
+                /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
+                xhr.send();
+
+                if (xhr.status != 200) {
+                 resp = xhr.status; 
+                }    else {
+                 resp = xhr.responseText; 
+                }*/
+                resp = getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)));
+                
+                search_videos = resp.match(doregjson.rule[0].search_list_reg);
+                find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
+
+                if(find_videos !== null){
+                  doreg = doregjson.rule[0];
+                }else{
+                  doreg = doregjson.rule[3];
+                };
           }
           else{
             if(object.movie.original_language == 'ko'){
               doreg = doregjson.rule[1];
             }
             else{
-              doreg = doregjson.rule[0];
+              //doreg = doregjson.rule[0];
+                /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
+                xhr.send();
+
+                if (xhr.status != 200) {
+                 resp = xhr.status; 
+                }    else {
+                 resp = xhr.responseText; 
+                }*/
+                resp = getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)));
+                
+                search_videos = resp.match(doregjson.rule[0].search_list_reg);
+                find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
+
+                if(find_videos !== null){
+                  doreg = doregjson.rule[0];
+                }else{
+                  doreg = doregjson.rule[3];
+                };
             }
           }
         };
@@ -311,21 +360,22 @@
         };
 
         //var titleRegExp = /<ul class="stui-vodlist clearfix">([\s\S]*?)<\/ul>/g;
-        var titleRegExp = new RegExp(doreg.search_list_reg, 'g')
+        /*var titleRegExp = new RegExp(doreg.search_list_reg, 'g')
+        var searchresult = titleRegExp.exec(str);*/
 
-        var searchresult = titleRegExp.exec(str);
+        var searchresult = str.match(doreg.search_list_reg);
         //console.log(searchresult);
 
         
         //var searchresult = str.match(new RegExp('\.html\('(.+?)'\)', 'g'));
-        var searchresult = searchresult[1].search(doreg.search_list_have_string);
+        var searchresult = searchresult[1].match(doreg.search_list_have_string);
         //console.log(str.includes('To be'));
 
         //console.log(searchresult);
         //console.log("searchresult");
         //console.log(75 = -1);
 
-        if(searchresult < 0){
+        if(searchresult === null){
 /*          listlink = {
             Results: []
           };*/
@@ -347,8 +397,9 @@
           var element = $('<span>'+a+'</span>'),
               item = {};
           if(doreg.search_json){
-            var titleRegExp = new RegExp('id:(.+?),name:(.+?),', '');
-            var searchid = titleRegExp.exec(a);
+            /*var titleRegExp = new RegExp('id:(.+?),name:(.+?),', '');
+            var searchid = titleRegExp.exec(a);*/
+            var searchid = a.match('id:(.+?),name:(.+?),');
             item.Title  = searchid[2];
             item.Link   = doreg.websitelink+'/vodplay/'+searchid[1]+'-1-1.html';
           }else{
@@ -816,24 +867,24 @@
       };
 
       this.getFile = function (element, show_error) {
-        console.log(element.translation);
-        console.log("element.translation");
+        /*console.log(element.translation);
+        console.log("element.translation");*/
         //var translat = extract[element.translation];
         var translat = element.translation;
-        console.log(translat);
-        console.log("translat");
+        /*console.log(translat);
+        console.log("translat");*/
         var link;
         //console.log(item.Link);
         //取得播放地址
         if (translat) {
 
-          function getRemote(remote_url) {
+/*          function getRemote(remote_url) {
              return $.ajax({
                 type: "GET",
                 url: remote_url,
                 async: false
              }).responseText;
-          };
+          };*/
           //console.log(getRemote(translat));
            var str = getRemote(translat);
            //return network["native"](translat, function (str) {
@@ -842,6 +893,10 @@
               Results: []
             };
             $.each(math, function (i, a) {
+              if(i == 1){
+              return false;
+              };
+            
               //a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               a = a.replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               //var element = $(a),
@@ -861,7 +916,7 @@
             });
             link=data.Results[0].file;
             link=link.replace(/\\/g,"");
-            console.log(link);
+            /*console.log(link);*/
             return link;
             //console.log(data.Results[0].file);
 /*          }, function (a, c) {
@@ -910,9 +965,8 @@
             console.log(element);
             console.log("这里");*/
             var file = _this4.getFile(element, true);
-            console.log(file);
-            //file="https://aidi.tv/m3u8/atHiRa0nccHiMw6aLnyg9ltuMoy5haWRpLnR2L20zdTgvc2hhcWl1L3NoYXFpdV8zX0hEMTA4MFAubTN1OAO0O0OO0O0O/4e5cf6197068636ed89d7384388f8d9d/1636696379.m3u8";
-            console.log("取得播放地址");
+            /*console.log(file);
+            console.log("取得播放地址");*/
 
             /*if (file) {
               _this4.start();
