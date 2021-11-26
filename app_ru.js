@@ -265,6 +265,33 @@
       return resArray;
     };
 
+    if (!Function.prototype.bind) {
+      Function.prototype.bind = function (oThis) {
+        if (typeof this !== 'function') {
+          // ближайший аналог внутренней функции
+          // IsCallable в ECMAScript 5
+          throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+        }
+
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+            fToBind = this,
+            fNOP = function fNOP() {},
+            fBound = function fBound() {
+          return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+        fNOP.prototype = this.prototype;
+        fBound.prototype = new fNOP();
+        return fBound;
+      };
+    }
+
+    if (!Array.slice) {
+      Array.slice = function (array, start, end) {
+        return Array.prototype.slice.call(array, start, end);
+      };
+    }
+
     function subscribe() {
       this.follow = function (type, listener) {
         if (this._listeners === undefined) this._listeners = {};
@@ -592,7 +619,7 @@
 
     var html$16 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">\u0413\u043B\u0430\u0432\u043D\u0430\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">\u0424\u0438\u043B\u044C\u043C\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">\u0421\u0435\u0440\u0438\u0430\u043B\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041A\u0430\u0442\u0430\u043B\u043E\u0433</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0434\u0431\u043E\u0440\u043A\u0438</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0420\u0435\u043B\u0438\u0437\u044B</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">\u0417\u0430\u043A\u043B\u0430\u0434\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0440\u0430\u0432\u0438\u0442\u0441\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0437\u0436\u0435</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0418\u0441\u0442\u043E\u0440\u0438\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442\u044B</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">\u041E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">\u0413\u043B\u0430\u0432\u043D\u0430\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">\u0424\u0438\u043B\u044C\u043C\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">\u0421\u0435\u0440\u0438\u0430\u043B\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041A\u0430\u0442\u0430\u043B\u043E\u0433</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0434\u0431\u043E\u0440\u043A\u0438</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0420\u0435\u043B\u0438\u0437\u044B</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0410\u043D\u0438\u043C\u0435</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">\u0417\u0430\u043A\u043B\u0430\u0434\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0440\u0430\u0432\u0438\u0442\u0441\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0437\u0436\u0435</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0418\u0441\u0442\u043E\u0440\u0438\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442\u044B</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">\u041E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
     var html$14 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
@@ -674,7 +701,7 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0435 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445, \u043D\u043E\u0432\u0438\u043D\u043A\u0430\u0445, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u0444\u0438\u043B\u044C\u043C\u043E\u0432 \u0438 \u0442.\u0434. \u0412\u0441\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0432 \u043F\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0446\u0435\u043B\u044F\u0445, \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0441\u0432\u043E\u0438 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u041D\u0430\u0448 \u043A\u0430\u043D\u0430\u043B</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>\u0413\u0440\u0443\u043F\u043F\u0430</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>\u0412\u0435\u0440\u0441\u0438\u044F</small><br>\n            1.3.5\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u0414\u043E\u043D\u0430\u0442</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0435 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445, \u043D\u043E\u0432\u0438\u043D\u043A\u0430\u0445, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u0444\u0438\u043B\u044C\u043C\u043E\u0432 \u0438 \u0442.\u0434. \u0412\u0441\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0432 \u043F\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0446\u0435\u043B\u044F\u0445, \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0441\u0432\u043E\u0438 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u041D\u0430\u0448 \u043A\u0430\u043D\u0430\u043B</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>\u0413\u0440\u0443\u043F\u043F\u0430</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>\u0412\u0435\u0440\u0441\u0438\u044F</small><br>\n            1.3.6\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u0414\u043E\u043D\u0430\u0442</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
@@ -756,7 +783,7 @@
       screensaver: html$h
     };
 
-    function get$7(name) {
+    function get$8(name) {
       var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var tpl = templates[name];
@@ -772,7 +799,7 @@
       return like_static ? tpl : $(tpl);
     }
 
-    function add$7(name, html) {
+    function add$8(name, html) {
       templates[name] = html;
     }
 
@@ -781,8 +808,8 @@
     }
 
     var Template = {
-      get: get$7,
-      add: add$7,
+      get: get$8,
+      add: add$8,
       all: all
     };
 
@@ -916,6 +943,136 @@
     var Noty = {
       show: show$4,
       render: render$d
+    };
+
+    var reqCallback = {};
+
+    function exit() {
+      if (Storage.field('platform') == 'android') navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
+    }
+
+    function playHash(SERVER) {
+      var magnet = "magnet:?xt=urn:btih:" + SERVER.hash;
+      var intentExtra = "";
+
+      if (SERVER.movie) {
+        intentExtra = {
+          title: "[LAMPA] " + SERVER.movie.title,
+          poster: SERVER.movie.img,
+          action: "play",
+          data: {
+            lampa: true,
+            movie: SERVER.movie
+          }
+        };
+      }
+      else {
+        intentExtra = {
+          action: "play",
+          data: {
+            lampa: true
+          }
+        };
+      }
+
+      window.plugins.intentShim.startActivity(
+      {
+          action: window.plugins.intentShim.ACTION_VIEW,
+          url: magnet,
+          extras: intentExtra
+      },
+      function() {},
+      function() {console.log('Failed to open magnet URL via Android Intent')}
+      );
+      //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
+    }
+
+    function openTorrent(SERVER) {
+      if (Storage.field('platform') == 'android') {
+        var intentExtra = {
+          title: "[LAMPA]" + SERVER.object.Title,
+          poster: SERVER.object.poster,
+          data: {
+            lampa: true,
+            movie: SERVER.movie
+          }
+        };
+        window.plugins.intentShim.startActivity(
+        {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: SERVER.object.MagnetUri || SERVER.object.Link,
+            extras: intentExtra
+        },
+        function() {},
+        function() {console.log('Failed to open magnet URL via Android Intent')}
+        );
+        //AndroidJS.openTorrentLink(SERVER.object.MagnetUri || SERVER.object.Link, JSON.stringify(intentExtra));
+      } else {
+        $('<a href="' + (SERVER.object.MagnetUri || SERVER.object.Link) + '"/>')[0].click();
+      }
+    }
+
+    function openPlayer(link, data) {
+      if (Storage.field('platform') == 'android') {
+        window.plugins.intentShim.startActivity({
+          action : window.plugins.intentShim.ACTION_VIEW,
+          url : link,
+          type : "video/*"
+        }, function() {
+        }, function() {
+          console.log("Failed to open magnet URL via Android Intent");
+        });
+      } else {
+        $('<a href="' + link + '"><a/>')[0].click();
+      };
+    }
+
+    function openYoutube(link) {
+      window.plugins.intentShim.startActivity({
+          action : window.plugins.intentShim.ACTION_VIEW,
+          url : "https://www.youtube.com/watch?v=" +link
+        }, function() {
+        }, function() {
+          console.log("Failed to open Youtube URL via Android Intent");
+        });
+    }
+
+    function resetDefaultPlayer() {
+      //AndroidJS.clearDefaultPlayer();
+    }
+
+    function httpReq(data, call) {
+      var index = Math.floor(Math.random() * 5000);
+      reqCallback[index] = call;
+      AndroidJS.httpReq(JSON.stringify(data), index);
+    }
+
+    function httpCall(index, callback) {
+      var req = reqCallback[index];
+
+      if (req[callback]) {
+        var resp = AndroidJS.getResp(index);
+
+        try {
+          var json = JSON.parse(resp);
+          req[callback](json);
+        } catch (_unused) {
+          req[callback](resp);
+        } finally {
+          delete reqCallback[index];
+        }
+      }
+    }
+
+    var Android = {
+      exit: exit,
+      openTorrent: openTorrent,
+      openPlayer: openPlayer,
+      playHash: playHash,
+      openYoutube: openYoutube,
+      resetDefaultPlayer: resetDefaultPlayer,
+      httpReq: httpReq,
+      httpCall: httpCall
     };
 
     function create$q() {
@@ -1316,6 +1473,7 @@
     }
 
     var data$1 = {};
+    var listener$b = start$4();
 
     function save$2() {
       Storage.set('favorite', data$1);
@@ -1327,11 +1485,15 @@
      */
 
 
-    function add$6(where, card, limit) {
+    function add$7(where, card, limit) {
       read$1();
 
       if (data$1[where].indexOf(card.id) < 0) {
         Arrays.insert(data$1[where], 0, card.id);
+        listener$b.send('add', {
+          where: where,
+          card: card
+        });
         if (!search$3(card.id)) data$1.card.push(card);
 
         if (limit) {
@@ -1357,10 +1519,21 @@
     function remove$1(where, card) {
       read$1();
       Arrays.remove(data$1[where], card.id);
+      listener$b.send('remove', {
+        where: where,
+        card: card
+      });
 
       for (var i = data$1.card.length - 1; i >= 0; i--) {
         var element = data$1.card[i];
-        if (!check(element).any) Arrays.remove(data$1.card, element);
+
+        if (!check(element).any) {
+          Arrays.remove(data$1.card, element);
+          listener$b.send('remove', {
+            where: where,
+            card: element
+          });
+        }
       }
 
       save$2();
@@ -1396,7 +1569,7 @@
     function toggle$8(where, card) {
       read$1();
       var find = check(card);
-      if (find[where]) remove$1(where, card);else add$6(where, card);
+      if (find[where]) remove$1(where, card);else add$7(where, card);
       return find[where] ? false : true;
     }
     /**
@@ -1424,7 +1597,7 @@
      */
 
 
-    function get$6(params) {
+    function get$7(params) {
       read$1();
       var result = [];
       var ids = data$1[params.type];
@@ -1443,7 +1616,7 @@
      */
 
 
-    function clear$5(where, card) {
+    function clear$6(where, card) {
       read$1();
       if (card) remove$1(where, card);else {
         for (var i = data$1[where].length - 1; i >= 0; i--) {
@@ -1478,13 +1651,14 @@
     }
 
     var Favorite = {
+      listener: listener$b,
       check: check,
-      add: add$6,
+      add: add$7,
       remove: remove$1,
       toggle: toggle$8,
-      get: get$6,
+      get: get$7,
       init: init$e,
-      clear: clear$5
+      clear: clear$6
     };
 
     function status$1(need) {
@@ -1826,30 +2000,30 @@
       hash: hash$2
     };
 
-    var baseurl$2 = Utils.protocol() + 'api.themoviedb.org/3/';
+    var baseurl$3 = Utils.protocol() + 'api.themoviedb.org/3/';
     var baseimg = Utils.protocol() + 'image.tmdb.org/t/p/w300/';
-    var network$8 = new create$q();
+    var network$9 = new create$q();
     var key = '4ef0d7355d9ffb5151e987764708ce96';
     var menu_list$2 = [];
 
-    function url$4(u) {
+    function url$5(u) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      u = add$5(u, 'api_key=' + key);
-      u = add$5(u, 'language=' + Storage.field('tmdb_lang'));
-      if (params.genres) u = add$5(u, 'with_genres=' + params.genres);
-      if (params.page) u = add$5(u, 'page=' + params.page);
-      if (params.query) u = add$5(u, 'query=' + params.query);
+      u = add$6(u, 'api_key=' + key);
+      u = add$6(u, 'language=' + Storage.field('tmdb_lang'));
+      if (params.genres) u = add$6(u, 'with_genres=' + params.genres);
+      if (params.page) u = add$6(u, 'page=' + params.page);
+      if (params.query) u = add$6(u, 'query=' + params.query);
 
       if (params.filter) {
         for (var i in params.filter) {
-          u = add$5(u, i + '=' + params.filter[i]);
+          u = add$6(u, i + '=' + params.filter[i]);
         }
       }
 
-      return baseurl$2 + u;
+      return baseurl$3 + u;
     }
 
-    function add$5(u, params) {
+    function add$6(u, params) {
       return u + (/\?/.test(u) ? '&' : '?') + params;
     }
 
@@ -1879,7 +2053,7 @@
       return finded;
     }
 
-    function main$4() {
+    function main$5() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -1903,33 +2077,33 @@
         status.append(name, json);
       };
 
-      get$5('movie/now_playing', params, function (json) {
+      get$6('movie/now_playing', params, function (json) {
         append('Сейчас смотрят', 'wath', json);
       }, status.error.bind(status));
-      get$5('trending/moviews/day', params, function (json) {
+      get$6('trending/moviews/day', params, function (json) {
         append('Сегодня в тренде', 'trend_day', json);
       }, status.error.bind(status));
-      get$5('trending/moviews/week', params, function (json) {
+      get$6('trending/moviews/week', params, function (json) {
         append('В тренде за неделю', 'trend_week', json);
       }, status.error.bind(status));
-      get$5('movie/upcoming', params, function (json) {
+      get$6('movie/upcoming', params, function (json) {
         append('Смотрите в кинозалах', 'upcoming', json);
       }, status.error.bind(status));
-      get$5('movie/popular', params, function (json) {
+      get$6('movie/popular', params, function (json) {
         append('Популярные фильмы', 'popular', json);
       }, status.error.bind(status));
-      get$5('tv/popular', params, function (json) {
+      get$6('tv/popular', params, function (json) {
         append('Популярные сериалы', 'popular_tv', json);
       }, status.error.bind(status));
-      get$5('movie/top_rated', params, function (json) {
+      get$6('movie/top_rated', params, function (json) {
         append('Топ фильмы', 'top', json);
       }, status.error.bind(status));
-      get$5('tv/top_rated', params, function (json) {
+      get$6('tv/top_rated', params, function (json) {
         append('Топ сериалы', 'top_tv', json);
       }, status.error.bind(status));
     }
 
-    function category$3() {
+    function category$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -1951,10 +2125,10 @@
         status.append(name, json);
       };
 
-      get$5(params.url + '/now_playing', params, function (json) {
+      get$6(params.url + '/now_playing', params, function (json) {
         append('Сейчас смотрят', 'wath', json);
       }, status.error.bind(status));
-      get$5(params.url + '/popular', params, function (json) {
+      get$6(params.url + '/popular', params, function (json) {
         append('Популярное', 'popular', json);
       }, status.error.bind(status));
       var date = new Date();
@@ -1965,58 +2139,58 @@
         first_air_date_year: date.getFullYear(),
         'vote_average.gte': 7
       };
-      get$5('discover/' + params.url, nparams, function (json) {
+      get$6('discover/' + params.url, nparams, function (json) {
         json.filter = nparams.filter;
         append('Новинки', 'new', json);
       }, status.error.bind(status));
-      get$5(params.url + '/airing_today', params, function (json) {
+      get$6(params.url + '/airing_today', params, function (json) {
         append('Сегодня в эфире', 'tv_today', json);
       }, status.error.bind(status));
-      get$5(params.url + '/on_the_air', params, function (json) {
+      get$6(params.url + '/on_the_air', params, function (json) {
         append('На этой неделе', 'tv_air', json);
       }, status.error.bind(status));
-      get$5(params.url + '/top_rated', params, function (json) {
+      get$6(params.url + '/top_rated', params, function (json) {
         append('В топе', 'top', json);
       }, status.error.bind(status));
     }
 
-    function full$3() {
+    function full$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var status = new status$1(5);
       status.onComplite = oncomplite;
-      get$5(params.method + '/' + params.id, params, function (json) {
+      get$6(params.method + '/' + params.id, params, function (json) {
         json.source = 'tmdb';
         status.append('movie', json);
       }, status.error.bind(status));
-      get$5(params.method + '/' + params.id + '/credits', params, function (json) {
+      get$6(params.method + '/' + params.id + '/credits', params, function (json) {
         status.append('persons', json);
       }, status.error.bind(status));
-      get$5(params.method + '/' + params.id + '/recommendations', params, function (json) {
+      get$6(params.method + '/' + params.id + '/recommendations', params, function (json) {
         status.append('recomend', json);
       }, status.error.bind(status));
-      get$5(params.method + '/' + params.id + '/similar', params, function (json) {
+      get$6(params.method + '/' + params.id + '/similar', params, function (json) {
         status.append('simular', json);
       }, status.error.bind(status));
-      get$5(params.method + '/' + params.id + '/videos', params, function (json) {
+      get$6(params.method + '/' + params.id + '/videos', params, function (json) {
         status.append('videos', json);
       }, status.error.bind(status));
     }
 
-    function list$4() {
+    function list$5() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var u = url$4(params.url, params);
-      network$8.silent(u, oncomplite, onerror);
+      var u = url$5(params.url, params);
+      network$9.silent(u, oncomplite, onerror);
     }
 
-    function get$5(method) {
+    function get$6(method) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
       var onerror = arguments.length > 3 ? arguments[3] : undefined;
-      var u = url$4(method, params);
-      network$8.silent(u, function (json) {
+      var u = url$5(method, params);
+      network$9.silent(u, function (json) {
         json.url = method;
         oncomplite(json);
       }, onerror);
@@ -2027,17 +2201,17 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var status = new status$1(2);
       status.onComplite = oncomplite;
-      get$5('search/movie', params, function (json) {
+      get$6('search/movie', params, function (json) {
         json.title = 'Фильмы';
         status.append('movie', json);
       }, status.error.bind(status));
-      get$5('search/tv', params, function (json) {
+      get$6('search/tv', params, function (json) {
         json.title = 'Сериалы';
         status.append('tv', json);
       }, status.error.bind(status));
     }
 
-    function person$3() {
+    function person$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
 
@@ -2051,6 +2225,9 @@
       };
 
       var convert = function convert(credits, person) {
+        credits.crew.forEach(function (a) {
+          a.department = a.department == 'Production' ? 'Производство' : a.department == 'Directing' ? 'Режиссура' : a.department;
+        });
         var cast = sortCredits(credits.cast),
             crew = sortCredits(credits.crew),
             tv = sortCredits(cast.filter(function (media) {
@@ -2106,20 +2283,20 @@
         oncomplite(fulldata);
       };
 
-      get$5('person/' + params.id, params, function (json) {
+      get$6('person/' + params.id, params, function (json) {
         status.append('person', json);
       }, status.error.bind(status));
-      get$5('person/' + params.id + '/combined_credits', params, function (json) {
+      get$6('person/' + params.id + '/combined_credits', params, function (json) {
         status.append('credits', json);
       }, status.error.bind(status));
     }
 
-    function menu$3() {
+    function menu$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       if (menu_list$2.length) oncomplite(menu_list$2);else {
-        var u = url$4('genre/movie/list', params);
-        network$8.silent(u, function (j) {
+        var u = url$5('genre/movie/list', params);
+        network$9.silent(u, function (j) {
           j.genres.forEach(function (g) {
             menu_list$2.push({
               title: g.name,
@@ -2131,26 +2308,33 @@
       }
     }
 
+    function external_ids() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      get$6('tv/' + params.id + '/external_ids', oncomplite, onerror);
+    }
+
     function company$1() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
-      var u = url$4('company/' + params.id, params);
-      network$8.silent(u, oncomplite, onerror);
+      var u = url$5('company/' + params.id, params);
+      network$9.silent(u, oncomplite, onerror);
     }
 
-    function seasons$3(tv, from, oncomplite) {
+    function seasons$4(tv, from, oncomplite) {
       var status = new status$1(from.length);
       status.onComplite = oncomplite;
       from.forEach(function (season) {
-        get$5('tv/' + tv.id + '/season/' + season, {}, function (json) {
+        get$6('tv/' + tv.id + '/season/' + season, {}, function (json) {
           status.append('' + season, json);
         }, status.error.bind(status));
       });
     }
 
     function screensavers(oncomplite, onerror) {
-      get$5('trending/all/week', {
+      get$6('trending/all/week', {
         page: Math.round(Math.random() * 30)
       }, function (json) {
         oncomplite(json.results.filter(function (entry) {
@@ -2159,28 +2343,29 @@
       }, onerror);
     }
 
-    function clear$4() {
-      network$8.clear();
+    function clear$5() {
+      network$9.clear();
     }
 
     var TMDB = {
-      main: main$4,
-      menu: menu$3,
+      main: main$5,
+      menu: menu$4,
       img: img$3,
-      full: full$3,
-      list: list$4,
-      category: category$3,
+      full: full$4,
+      list: list$5,
+      category: category$4,
       search: search$2,
-      clear: clear$4,
+      clear: clear$5,
       company: company$1,
-      person: person$3,
-      seasons: seasons$3,
+      person: person$4,
+      seasons: seasons$4,
       find: find$1,
-      screensavers: screensavers
+      screensavers: screensavers,
+      external_ids: external_ids
     };
 
-    var baseurl$1 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
-    var network$7 = new create$q();
+    var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
+    var network$8 = new create$q();
     var menu_list$1 = [];
 
     function img$2(element) {
@@ -2215,8 +2400,8 @@
 
     function collections$2(params, oncomplite, onerror) {
       var frm = 20 * (params.page - 1);
-      var uri = baseurl$1 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
-      network$7["native"](uri, function (json) {
+      var uri = baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
+      network$8["native"](uri, function (json) {
         var items = [];
 
         if (json.element) {
@@ -2324,14 +2509,14 @@
       } : false;
     }
 
-    function seasons$2(tv, from, oncomplite, onerror) {
+    function seasons$3(tv, from, oncomplite, onerror) {
       oncomplite(tv.seasons || {});
     }
 
-    function menu$2(params, oncomplite) {
+    function menu$3(params, oncomplite) {
       if (!menu_list$1.length) {
-        network$7.timeout(1000);
-        network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+        network$8.timeout(1000);
+        network$8["native"](baseurl$2 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
           if (json.uiScreenInfo && json.uiScreenInfo.webMain) {
             json.uiScreenInfo.webMain.forEach(function (element) {
               menu_list$1.push({
@@ -2367,9 +2552,9 @@
       } : false;
     }
 
-    function list$3(params, oncomplite, onerror) {
+    function list$4(params, oncomplite, onerror) {
       var frm = 20 * (params.page - 1);
-      network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+      network$8["native"](baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
         var items = [];
 
         if (json.element && json.element.collectionItems) {
@@ -2386,8 +2571,8 @@
       }, onerror);
     }
 
-    function person$2(params, oncomplite, onerror) {
-      network$7["native"](baseurl$1 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+    function person$3(params, oncomplite, onerror) {
+      network$8["native"](baseurl$2 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
         var data = {
           movie: {
             results: []
@@ -2412,8 +2597,8 @@
       }, onerror);
     }
 
-    function main$3(params, oncomplite, onerror) {
-      network$7["native"](baseurl$1 + 'mainpage/web/1', function (json) {
+    function main$4(params, oncomplite, onerror) {
+      network$8["native"](baseurl$2 + 'mainpage/web/1', function (json) {
         var element = json.element;
         var fulldata = [];
 
@@ -2452,7 +2637,7 @@
       }, onerror);
     }
 
-    function category$2(params, oncomplite, onerror) {
+    function category$3(params, oncomplite, onerror) {
       var status = new status$1(7);
 
       status.onComplite = function () {
@@ -2474,49 +2659,49 @@
       };
 
       if (params.url == 'movie') {
-        list$3({
+        list$4({
           url: 'Novelty',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Новое', 'new', 'Novelty', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'topfilms',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Топ-новинки', 'top', 'topfilms', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'comedy-plus-horror-movies',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Комедийные фильмы ужасов', 'three', 'comedy-plus-horror-movies', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'collection_maniacs',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Фильмы про маньяков', 'four', 'collection_maniacs', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'witches',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Фильмы про ведьм', 'five', 'witches', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'zombies',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Фильмы про зомби', 'six', 'zombies', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'Russian-17490',
           type: 'COLLECTION',
           page: 1
@@ -2524,49 +2709,49 @@
           append('Русские', 'seven', 'Russian-17490', json);
         }, status.error.bind(status));
       } else {
-        list$3({
+        list$4({
           url: 'Serials',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Новое', 'new', 'Serials', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'horror-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Очень страшные', 'top', 'horror-serial-all-svod', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'series-about-serial-killers',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Про маньяков', 'three', 'series-about-serial-killers', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'black-humor-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('С чёрным юмором', 'four', 'black-humor-serial-all-svod', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'legkiye-serialy-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Лёгкие', 'five', 'legkiye-serialy-all-svod', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'comedy-serial-all-svod',
           type: 'COLLECTION',
           page: 1
         }, function (json) {
           append('Комедийные', 'six', 'comedy-serial-all-svod', json);
         }, status.error.bind(status));
-        list$3({
+        list$4({
           url: 'russian_tvseries',
           type: 'COLLECTION',
           page: 1
@@ -2576,9 +2761,9 @@
       }
     }
 
-    function full$2(params, oncomplite, onerror) {
+    function full$3(params, oncomplite, onerror) {
       var data = {};
-      network$7["native"](baseurl$1 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
+      network$8["native"](baseurl$2 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
         var element = json.element;
 
         if (element) {
@@ -2614,19 +2799,19 @@
     }
 
     var OKKO = {
-      main: main$3,
-      full: full$2,
+      main: main$4,
+      full: full$3,
       collections: collections$2,
-      seasons: seasons$2,
-      list: list$3,
-      person: person$2,
-      menu: menu$2,
-      category: category$2,
-      clear: network$7.clear
+      seasons: seasons$3,
+      list: list$4,
+      person: person$3,
+      menu: menu$3,
+      category: category$3,
+      clear: network$8.clear
     };
 
-    var baseurl = 'https://api.ivi.ru/mobileapi/';
-    var network$6 = new create$q();
+    var baseurl$1 = 'https://api.ivi.ru/mobileapi/';
+    var network$7 = new create$q();
     var menu_list = [];
 
     function tocard(element) {
@@ -2644,7 +2829,7 @@
     }
 
     function entities(url, oncomplite, onerror) {
-      network$6["native"]('https://www.ivi.ru/' + url, function (str) {
+      network$7["native"]('https://www.ivi.ru/' + url, function (str) {
         var parse = str.match(/window.__INITIAL_STATE__ = JSON.parse\('(.*?)'\);<\/script>/);
         var decod = (parse ? parse[1] : '').replace(/\\'|[\\]+"/g, '\'');
         var json = Arrays.decodeJson(decod, {});
@@ -2794,11 +2979,11 @@
       return data;
     }
 
-    function seasons$1(tv, from, oncomplite, onerror) {
+    function seasons$2(tv, from, oncomplite, onerror) {
       var status = new status$1(from.length);
       status.onComplite = oncomplite;
       from.forEach(function (season) {
-        network$6["native"](baseurl + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
+        network$7["native"](baseurl$1 + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
           if (json.result) {
             var episodes = [];
             json.result.forEach(function (elem) {
@@ -2831,16 +3016,16 @@
       return data.length ? data : false;
     }
 
-    function menu$1(params, oncomplite) {
+    function menu$2(params, oncomplite) {
       if (!menu_list.length) {
-        network$6.timeout(1000);
+        network$7.timeout(1000);
         entities('', function () {
           oncomplite(menu_list);
         });
       } else oncomplite(menu_list);
     }
 
-    function full$1(params, oncomplite, onerror) {
+    function full$2(params, oncomplite, onerror) {
       entities('watch/' + (params.url || params.id), function (json, all) {
         var data = {};
         var element = find(json, params.id);
@@ -2877,7 +3062,7 @@
       }, onerror);
     }
 
-    function person$1(params, oncomplite, onerror) {
+    function person$2(params, oncomplite, onerror) {
       entities('person/' + (params.url || params.id), function (json, all) {
         var data = {};
 
@@ -2898,12 +3083,12 @@
       }, onerror);
     }
 
-    function list$2(params, oncomplite, onerror) {
+    function list$3(params, oncomplite, onerror) {
       var fr = 20 * (params.page - 1),
           to = fr + 19;
-      var url = baseurl + 'catalogue/v5/?genre=' + params.genres + '&from=' + fr + '&to=' + to + '&withpreorderable=true';
-      if (!params.genres) url = baseurl + 'collection/catalog/v5/?id=' + params.url + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-      network$6["native"](url, function (json) {
+      var url = baseurl$1 + 'catalogue/v5/?genre=' + params.genres + '&from=' + fr + '&to=' + to + '&withpreorderable=true';
+      if (!params.genres) url = baseurl$1 + 'collection/catalog/v5/?id=' + params.url + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
+      network$7["native"](url, function (json) {
         var items = [];
 
         if (json.result) {
@@ -2919,7 +3104,7 @@
       }, onerror);
     }
 
-    function category$1(params, oncomplite, onerror) {
+    function category$2(params, oncomplite, onerror) {
       var status = new status$1(params.url == 'movie' ? 4 : 5);
 
       status.onComplite = function () {
@@ -3006,7 +3191,7 @@
       }
     }
 
-    function main$2(params, oncomplite, onerror) {
+    function main$3(params, oncomplite, onerror) {
       var status = new status$1(13);
 
       status.onComplite = function () {
@@ -3122,9 +3307,9 @@
     function collections$1(params, oncomplite, onerror) {
       var fr = 20 * (params.page - 1),
           to = fr + 19;
-      var uri = baseurl + 'collections/v5/?app_version=870&from=' + fr + '&tags_exclude=goodmovies&to=' + to;
-      if (params.id) uri = baseurl + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-      network$6["native"](uri, function (json) {
+      var uri = baseurl$1 + 'collections/v5/?app_version=870&from=' + fr + '&tags_exclude=goodmovies&to=' + to;
+      if (params.id) uri = baseurl$1 + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
+      network$7["native"](uri, function (json) {
         var items = [];
 
         if (json.result) {
@@ -3146,14 +3331,193 @@
 
     var IVI = {
       collections: collections$1,
-      full: full$1,
+      full: full$2,
+      main: main$3,
+      person: person$2,
+      list: list$3,
+      category: category$2,
+      menu: menu$2,
+      seasons: seasons$2,
+      clear: network$7.clear
+    };
+
+    var baseurl = Utils.protocol() + 'tmdb.cub.watch/';
+    var network$6 = new create$q();
+
+    function url$4(u) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      if (params.genres) u = add$5(u, 'genre=' + params.genres);
+      if (params.page) u = add$5(u, 'page=' + params.page);
+      if (params.query) u = add$5(u, 'query=' + params.query);
+
+      if (params.filter) {
+        for (var i in params.filter) {
+          u = add$5(u, i + '=' + params.filter[i]);
+        }
+      }
+
+      return baseurl + u;
+    }
+
+    function add$5(u, params) {
+      return u + (/\?/.test(u) ? '&' : '?') + params;
+    }
+
+    function get$5(method) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+      var onerror = arguments.length > 3 ? arguments[3] : undefined;
+      var u = url$4(method, params);
+      network$6.silent(u, function (json) {
+        json.url = method;
+        oncomplite(json);
+      }, onerror);
+    }
+
+    function list$2() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      var u = url$4(params.url, params);
+      network$6.silent(u, oncomplite, onerror);
+    }
+
+    function main$2() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      var status = new status$1(11);
+
+      status.onComplite = function () {
+        var fulldata = [];
+        var data = status.data;
+
+        for (var i = 1; i <= 11; i++) {
+          var ipx = 's' + i;
+          if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+        }
+
+        if (fulldata.length) oncomplite(fulldata);else onerror();
+      };
+
+      var append = function append(title, name, json) {
+        json.title = title;
+        status.append(name, json);
+      };
+
+      get$5('?sort=now_playing ', params, function (json) {
+        append('Сейчас смотрят', 's1', json);
+      }, status.error.bind(status));
+      get$5('?sort=latest', params, function (json) {
+        append('Последнее добавление', 's2', json);
+      }, status.error.bind(status));
+      get$5('movie/now', params, function (json) {
+        append('Фильмы', 's3', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=16', params, function (json) {
+        append('Мультфильмы', 's4', json);
+      }, status.error.bind(status));
+      get$5('tv/now', params, function (json) {
+        append('Сериалы', 's5', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=12', params, function (json) {
+        append('Приключения', 's6', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=35', params, function (json) {
+        append('Комедии', 's7', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=10751', params, function (json) {
+        append('Семейное', 's8', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=27', params, function (json) {
+        append('Ужасы', 's9', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=878', params, function (json) {
+        append('Фантастика', 's10', json);
+      }, status.error.bind(status));
+      get$5('?sort=now&genre=53', params, function (json) {
+        append('Триллер', 's11', json);
+      }, status.error.bind(status));
+    }
+
+    function category$1() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      var total = 6;
+      if (params.url !== 'tv') total--;
+      var status = new status$1(total);
+
+      status.onComplite = function () {
+        var fulldata = [];
+        var data = status.data;
+
+        for (var i = 1; i <= total + 1; i++) {
+          var ipx = 's' + i;
+          if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+        }
+
+        if (fulldata.length) oncomplite(fulldata);else onerror();
+      };
+
+      var append = function append(title, name, json) {
+        json.title = title;
+        status.append(name, json);
+      };
+
+      get$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
+        append('Сейчас смотрят', 's1', json);
+      }, status.error.bind(status));
+
+      if (params.url == 'tv') {
+        get$5('?cat=' + params.url + '&sort=update', params, function (json) {
+          append('Новые серии', 's2', json);
+        }, status.error.bind(status));
+      }
+
+      get$5('?cat=' + params.url + '&sort=top', params, function (json) {
+        append('Популярное', 's3', json);
+      }, status.error.bind(status));
+      get$5('?cat=' + params.url + '&sort=latest', params, function (json) {
+        append('Последнее добавление', 's4', json);
+      }, status.error.bind(status));
+      get$5('?cat=' + params.url + '&sort=now', params, function (json) {
+        append('Новинки этого года', 's5', json);
+      }, status.error.bind(status));
+      get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
+        append('С высоким рейтингом', 's6', json);
+      }, status.error.bind(status));
+    }
+
+    function full$1(params, oncomplite, onerror) {
+      TMDB.full(params, oncomplite, onerror);
+    }
+
+    function person$1(params, oncomplite, onerror) {
+      TMDB.person(params, oncomplite, onerror);
+    }
+
+    function menu$1(params, oncomplite) {
+      TMDB.menu(params, oncomplite);
+    }
+
+    function seasons$1(tv, from, oncomplite) {
+      TMDB.seasons(tv, from, oncomplite);
+    }
+
+    function clear$4() {
+      network$6.clear();
+    }
+
+    var CUB = {
       main: main$2,
-      person: person$1,
+      menu: menu$1,
+      full: full$1,
       list: list$2,
       category: category$1,
-      menu: menu$1,
-      seasons: seasons$1,
-      clear: network$6.clear
+      clear: clear$4,
+      person: person$1,
+      seasons: seasons$1
     };
 
     var url$3;
@@ -3262,7 +3626,7 @@
       network$5.timeout(1000 * 15);
       var s = Utils.checkHttp(Storage.field('torlook_site')) + '/';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + element.reguest : url$3.replace('{q}', encodeURIComponent(s + element.reguest));
-      network$5.silent(u, function (html) {
+      network$5["native"](u, function (html) {
         var math = html.match(/magnet:(.*?)'/);
 
         if (math && math[1]) {
@@ -3293,7 +3657,8 @@
     var sources = {
       ivi: IVI,
       okko: OKKO,
-      tmdb: TMDB
+      tmdb: TMDB,
+      cub: CUB
     };
     var network$4 = new create$q();
 
@@ -3410,24 +3775,11 @@
     }
 
     function relise(oncomplite, onerror) {
-      network$4["native"]('https://kinotrend.neocities.org/data.json', function (json) {
-        var items = [];
-
-        if (json.movies) {
-          json.movies.forEach(function (element) {
-            items.push({
-              id: element.filmID,
-              title: element.nameRU,
-              original_title: element.nameOriginal,
-              release_date: element.premierDate,
-              poster: element.posterURL,
-              vote_average: element.ratingFloat,
-              tmdbID: element.tmdbID
-            });
-          });
-        }
-
-        oncomplite(items);
+      network$4.silent(Utils.protocol() + 'tmdb.cub.watch?sort=releases&results=200', function (json) {
+        json.results.forEach(function (item) {
+          item.tmdbID = item.id;
+        });
+        oncomplite(json.results);
       }, onerror);
     }
 
@@ -3567,6 +3919,12 @@
       data.release_year = ((data.release_date || '0000') + '').slice(0, 4);
       var card = Template.get(params.isparser ? 'card_parser' : 'card', data);
       var img = card.find('img')[0] || {};
+
+      if (data.first_air_date) {
+        card.append('<div class="card__type"></div>');
+        card.find('.card__type').text(data.first_air_date ? 'TV' : 'MOV');
+        card.addClass(data.first_air_date ? 'card--tv' : 'card--movie');
+      }
 
       if (params.card_small) {
         card.addClass('card--small');
@@ -7012,39 +7370,6 @@
       next: next
     };
 
-    function update$3(params) {
-      if (params.hash == 0) return;
-      var viewed = Storage.cache('file_view', 10000, {});
-      viewed[params.hash] = params.percent;
-      params.continued = false;
-      Storage.set('file_view', viewed);
-      var line = $('.time-line[data-hash="' + params.hash + '"]').toggleClass('hide', params.percent ? false : true);
-      $('> div', line).css({
-        width: params.percent + '%'
-      });
-    }
-
-    function view(hash) {
-      var viewed = Storage.cache('file_view', 10000, {}),
-          curent = typeof viewed[hash] !== 'undefined' ? viewed[hash] : 0;
-      return {
-        hash: hash,
-        percent: curent || 0
-      };
-    }
-
-    function render$7(params) {
-      var line = Template.get('timeline', params);
-      line.toggleClass('hide', params.percent ? false : true);
-      return line;
-    }
-
-    var Timeline = {
-      render: render$7,
-      update: update$3,
-      view: view
-    };
-
     var enabled$2 = false;
     var listener$6 = start$4();
     var lastdown = 0;
@@ -7351,7 +7676,7 @@
       });
     }
 
-    function render$6() {
+    function render$7() {
       return html$9;
     }
 
@@ -7359,7 +7684,7 @@
       listener: listener$5,
       init: init$a,
       enable: enable$1,
-      render: render$6,
+      render: render$7,
       disable: disable
     };
 
@@ -7543,109 +7868,6 @@
       remove: remove,
       connected: connected,
       parse: parse
-    };
-
-    function exit() {
-      if (Storage.field('platform') == 'android') navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
-    }
-
-    function playHash(SERVER) {
-      var magnet = "magnet:?xt=urn:btih:" + SERVER.hash;
-      var intentExtra = "";
-
-      if (SERVER.movie) {
-        intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
-          poster: SERVER.movie.img,
-          action: "play",
-          data: {
-            lampa: true,
-            movie: SERVER.movie
-          }
-        };
-      }
-      else {
-        intentExtra = {
-          action: "play",
-          data: {
-            lampa: true
-          }
-        };
-      }
-
-      window.plugins.intentShim.startActivity(
-      {
-          action: window.plugins.intentShim.ACTION_VIEW,
-          url: magnet,
-          extras: intentExtra
-      },
-      function() {},
-      function() {console.log('Failed to open magnet URL via Android Intent')}
-      );
-      //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
-    }
-
-    function openTorrent(SERVER) {
-      if (Storage.field('platform') == 'android') {
-        var intentExtra = {
-          title: "[LAMPA]" + SERVER.object.Title,
-          poster: SERVER.object.poster,
-          data: {
-            lampa: true,
-            movie: SERVER.movie
-          }
-        };
-        window.plugins.intentShim.startActivity(
-        {
-            action: window.plugins.intentShim.ACTION_VIEW,
-            url: SERVER.object.MagnetUri || SERVER.object.Link,
-            extras: intentExtra
-        },
-        function() {},
-        function() {console.log('Failed to open magnet URL via Android Intent')}
-        );
-        //AndroidJS.openTorrentLink(SERVER.object.MagnetUri || SERVER.object.Link, JSON.stringify(intentExtra));
-      } else {
-        $('<a href="' + (SERVER.object.MagnetUri || SERVER.object.Link) + '"/>')[0].click();
-      }
-    }
-
-    function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') {
-        window.plugins.intentShim.startActivity({
-          action : window.plugins.intentShim.ACTION_VIEW,
-          url : link,
-          type : "video/*"
-        }, function() {
-        }, function() {
-          console.log("Failed to open magnet URL via Android Intent");
-        });
-      } else {
-        $('<a href="' + link + '"><a/>')[0].click();
-      };
-    }
-
-    function openYoutube(link) {
-      window.plugins.intentShim.startActivity({
-          action : window.plugins.intentShim.ACTION_VIEW,
-          url : "https://www.youtube.com/watch?v=" +link
-        }, function() {
-        }, function() {
-          console.log("Failed to open Youtube URL via Android Intent");
-        });
-    }
-
-    function resetDefaultPlayer() {
-      //AndroidJS.clearDefaultPlayer();
-    }
-
-    var Android = {
-      exit: exit,
-      openTorrent: openTorrent,
-      openPlayer: openPlayer,
-      playHash: playHash,
-      openYoutube: openYoutube,
-      resetDefaultPlayer: resetDefaultPlayer
     };
 
     var html$8 = Template.get('player');
@@ -7840,7 +8062,7 @@
 
 
     function destroy$3() {
-      if (work.timeline) Timeline.update(work.timeline);
+      if (work.timeline) work.timeline.handler(work.timeline.percent);
       work = false;
       preloader.wait = false;
       preloader.call = null;
@@ -7933,6 +8155,7 @@
       } else {
         preload(data, function () {
           work = data;
+          if (work.timeline) work.timeline.continued = false;
           Playlist.url(data.url);
           Video.url(data.url);
           Video.size(Storage.get('player_size', 'default'));
@@ -7971,14 +8194,14 @@
       callback$2 = back;
     }
 
-    function render$5() {
+    function render$6() {
       return html$8;
     }
 
     var Player = {
       play: play,
       playlist: playlist,
-      render: render$5,
+      render: render$6,
       stat: stat,
       callback: onBack
     };
@@ -8011,7 +8234,7 @@
         html = Template.get('full_start', {
           title: data.movie.title,
           original_title: data.movie.original_title,
-          descr: Utils.substr(data.movie.overview, 420),
+          descr: Utils.substr(data.movie.overview || 'Без описания.', 420),
           img: data.movie.img,
           time: Utils.secondsToTime(data.movie.runtime * 60, true),
           genres: genres,
@@ -8242,7 +8465,7 @@
       Controller.toggle('modal');
     }
 
-    function update$2(new_html) {
+    function update$3(new_html) {
       last$3 = false;
       scroll$2.clear();
       scroll$2.append(new_html);
@@ -8268,7 +8491,7 @@
     var Modal = {
       open: open$2,
       close: close$1,
-      update: update$2,
+      update: update$3,
       title: title$1
     };
 
@@ -8290,7 +8513,7 @@
           return a.name;
         }).join(', ');
         body = Template.get('full_descr', {
-          text: data.movie.overview + '<br><br>',
+          text: (data.movie.overview || 'Без описания.') + '<br><br>',
           genres: genres,
           companies: companies,
           relise: data.movie.release_date || data.movie.first_air_date,
@@ -8303,9 +8526,10 @@
           var item = $(e.target);
 
           if (item.data('genre')) {
+            var tmdb = params.object.source == 'tmdb' || params.object.source == 'cub';
             Activity$1.push({
-              url: params.object.source == 'tmdb' ? 'movie' : item.data('url'),
-              component: params.object.source == 'tmdb' ? 'category' : 'category_full',
+              url: tmdb ? 'movie' : item.data('url'),
+              component: tmdb ? 'category' : 'category_full',
               genres: item.data('genre'),
               source: params.object.source,
               page: 1
@@ -9531,6 +9755,44 @@
       };
     }
 
+    function update$2(params) {
+      if (params.hash == 0) return;
+      var viewed = Storage.cache('file_view', 10000, {});
+      viewed[params.hash] = params.percent;
+      Storage.set('file_view', viewed);
+      var line = $('.time-line[data-hash="' + params.hash + '"]').toggleClass('hide', params.percent ? false : true);
+      $('> div', line).css({
+        width: params.percent + '%'
+      });
+    }
+
+    function view(hash) {
+      var viewed = Storage.cache('file_view', 10000, {}),
+          curent = typeof viewed[hash] !== 'undefined' ? viewed[hash] : 0;
+      return {
+        hash: hash,
+        percent: curent || 0,
+        handler: function handler(percent) {
+          return update$2({
+            hash: hash,
+            percent: percent
+          });
+        }
+      };
+    }
+
+    function render$5(params) {
+      var line = Template.get('timeline', params);
+      line.toggleClass('hide', params.percent ? false : true);
+      return line;
+    }
+
+    var Timeline = {
+      render: render$5,
+      update: update$2,
+      view: view
+    };
+
     var SERVER = {};
     var timers = {};
     var callback$1;
@@ -10547,7 +10809,8 @@
 
         data.forEach(function (element) {
           var card = new create$o(element, {
-            card_category: true
+            card_category: true,
+            card_type: true
           });
           card.create();
 
@@ -10567,7 +10830,7 @@
                 url: '',
                 component: 'full',
                 id: card_data.tmdbID,
-                method: 'movie',
+                method: card_data.name ? 'tv' : 'movie',
                 card: card_data
               });
             } else {
@@ -11039,6 +11302,10 @@
     function init$9() {
       data = Storage.get('notice', '{}');
       notices = [{
+        time: '2021-11-25 13:00',
+        title: 'Обновление 1.3.6',
+        descr: '1. Добавлен новый каталог CUB.<br>2. Изменен источник релизов, теперь работает даже в MSX.<br>3. Добавлена категория аниме ;)'
+      }, {
         time: '2021-11-15 11:00',
         title: 'Обновление 1.3.5',
         descr: '1. Добавлен скринсейвер от Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
@@ -12292,7 +12559,8 @@
     select('source', {
       'tmdb': 'TMDB',
       'ivi': 'IVI',
-      'okko': 'OKKO'
+      'okko': 'OKKO',
+      'cub': 'CUB'
     }, 'tmdb');
     select('start_page', {
       'main': 'Главная',
@@ -12391,6 +12659,10 @@
       if (list.indexOf(new_value) == -1) {
         list.push(new_value);
         set(name, list);
+        listener$1.send('add', {
+          name: name,
+          value: new_value
+        });
         return true;
       }
     }
@@ -12584,12 +12856,12 @@
         var type = $(e.target).data('type');
         if (action == 'catalog') catalog();
 
-        if (action == 'movie' || action == 'tv') {
+        if (action == 'movie' || action == 'tv' || action == 'anime') {
           Activity$1.push({
             url: action,
-            title: action == 'movie' ? 'Фильмы' : 'Сериалы',
+            title: action == 'movie' ? 'Фильмы' : action == 'anime' ? 'Аниме' : 'Сериалы',
             component: 'category',
-            source: Storage.field('source')
+            source: action == 'anime' ? 'cub' : Storage.field('source')
           });
         }
 
@@ -12710,13 +12982,15 @@
           title: 'Каталог',
           items: menu,
           onSelect: function onSelect(a) {
+            var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
             Activity$1.push({
               url: Storage.field('source') == 'tmdb' ? 'movie' : '',
               title: a.title,
-              component: Storage.field('source') == 'tmdb' ? 'category' : 'category_full',
+              component: tmdb ? 'category' : 'category_full',
               genres: a.id,
               id: a.id,
               source: Storage.field('source'),
+              card_type: true,
               page: 1
             });
           },
@@ -13682,8 +13956,10 @@
       Player: Player,
       Timeline: Timeline,
       Modal: Modal,
+      Api: Api,
       Cloud: Cloud,
-      Settings: Settings
+      Settings: Settings,
+      Android: Android
     };
     Console.init();
 
@@ -13772,6 +14048,11 @@
         });
       }
 
+      Favorite.listener.follow('add', function (e) {
+        if (e.where == 'history' && e.card.id) {
+          $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id);
+        }
+      });
       Lampa.Listener.send('app', {
         type: 'ready'
       });
