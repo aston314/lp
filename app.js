@@ -3930,10 +3930,8 @@
         keyword: ""
     };
       network$4.silent(Utils.protocol() + 'cmn.yyds.fans/api/posts', function (json) {
-        var mytitle;
         json.data.forEach(function (item) {
-          //console.log((item.category_id === 3));
-          mytitle = item.title.replace('/',' ');
+          var mytitle = item.title.replace('/',' ');
           if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
           if(item.category_id !== 3) item.name = mytitle;
           //item.tmdbID = item.imdb_id;
@@ -3941,7 +3939,7 @@
           item.title = mytitle;
           item.release_date = item.release_time;
           item.vote_average = item.imdb_score;
-          item.poster_path = item.cover.replace('l_ratio_poster','m_ratio_poster');
+          item.poster_path = item.cover.replace('l_ratio_poster','s_ratio_poster');
         });
         oncomplite(json.data);
       }, onerror,postdata);
