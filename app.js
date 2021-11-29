@@ -10985,7 +10985,7 @@
             last = target;
             scroll.update(card.render(), true);
             info.update(card_data);
-            Background.change(Utils.cardImgBackground(card_data));
+            //Background.change(Utils.cardImgBackground(card_data));
             var maxrow = Math.ceil(items.length / 7) - 1;
             if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this2.next();
           };
