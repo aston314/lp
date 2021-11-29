@@ -639,11 +639,11 @@
 
     var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">Reset player to default</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Resets the selected Android player in the application</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode at the end of the current one</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use a matte</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on a translucent matte to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to store in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to store in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores pages in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold down the OK button</div>\n    </div>\n</div>";
+    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To uninstall a plugin, hold down OK</div>\n    </div>\n</div>";
 
-    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Sync</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Sync gives you the ability to sync your bookmarks, browsing history, tags and time codes. Instructions for connecting https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Sync</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Sync gives you the ability to sync your bookmarks, browsing history, tags and timecodes. Instructions for connecting https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$U = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -653,7 +653,7 @@
 
     var html$R = "<div class=\"full-start\">\n\n    <div class=\"full-start__body\">\n        <div class=\"full-start__right\">\n            <div class=\"full-start__poster\">\n                <img src=\"{img}\" class=\"full-start__img\" />\n            </div>\n        </div>\n\n        <div class=\"full-start__left\">\n            <div class=\"full-start__tags\">\n                <div class=\"full-start__tag\">\n                    <img src=\"./img/icons/pulse.svg\" /> <div>{genres}</div>\n                </div>\n                <div class=\"full-start__tag\">\n                    <img src=\"./img/icons/time.svg\" /> <div>{time}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/catalog.svg\" /> <div>{seasons}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/movie.svg\" /> <div>{episodes}</div>\n                </div>\n            </div>\n\n            <div class=\"full-start__title\">{title}</div>\n            <div class=\"full-start__title-original\">{original_title}</div>\n\n            <div class=\"full-start__descr\">{descr}</div>\n        </div>\n\n        \n    </div>\n\n    <div class=\"full-start__buttons\">\n        <div class=\"full-start__button view--torrent hide\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n            <g xmlns=\"http://www.w3.org/2000/svg\">\n                <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n                <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n            </g></svg>\n\n            <span>Torrents</span>\n        </div>\n\n        <div class=\"full-start__button selector view--trailer\">\n            <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n            <g>\n                <g>\n                    <path fill=\"currentColor\" d=\"M482.909,67.2H29.091C13.05,67.2,0,80.25,0,96.291v319.418C0,431.75,13.05,444.8,29.091,444.8h453.818\n                        c16.041,0,29.091-13.05,29.091-29.091V96.291C512,80.25,498.95,67.2,482.909,67.2z M477.091,409.891H34.909V102.109h442.182\n                        V409.891z\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"126.836\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"350.255\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"367.709\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"17.455\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"367.709\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                </g>\n            </g>\n            <g>\n                <g>\n                    <rect fill=\"currentColor\" x=\"17.455\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                </g>\n            </g>\n            \n            </svg>\n\n            <span>Trailers</span>\n        </div>\n\n        \n\n        <div class=\"full-start__button selector open--menu\">\n            <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M436.742,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.755,75.258,75.258,75.258\n                            C478.239,331.258,512,297.503,512,256C512,214.503,478.239,180.742,436.742,180.742z M436.742,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246s38.246,17.155,38.246,38.246\n                            S457.833,294.246,436.742,294.246z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M256,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.761,75.258,75.258,75.258c41.503,0,75.258-33.755,75.258-75.258\n                            C331.258,214.503,297.503,180.742,256,180.742z M256,294.246c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246\n                            s38.246,17.155,38.246,38.246S277.091,294.246,256,294.246z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M75.258,180.742C33.761,180.742,0,214.503,0,256c0,41.503,33.761,75.258,75.258,75.258\n                            c41.497,0,75.258-33.755,75.258-75.258C150.516,214.503,116.755,180.742,75.258,180.742z M75.258,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246c21.091,0,38.246,17.155,38.246,38.246\n                            S96.342,294.246,75.258,294.246z\"/>\n                    </g>\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"full-start__icons\">\n            <div class=\"info__icon icon--book selector\" data-type=\"book\"></div>\n            <div class=\"info__icon icon--like selector\" data-type=\"like\"></div>\n            <div class=\"info__icon icon--wath selector\" data-type=\"wath\"></div>\n        </div>\n\n        <div class=\"info__rate\"><span>{r_themovie}</span></div>\n    </div>\n</div>";
 
-    var html$Q = "<div class=\"full-descr\">\n    <div class=\"full-descr__left\">\n        <div class=\"full-descr__text\">{text}</div>\n\n        <div class=\"full-descr__line full--genres\">\n            <div class=\"full-descr__line-name\">Genre</div>\n            <div class=\"full-descr__line-body\">{genres}</div>\n        </div>\n\n        <div class=\"full-descr__line full--companies\">\n            <div class=\"full-descr__line-name\">Production</div>\n            <div class=\"full-descr__line-body\">{companies}</div>\n        </div>\n    </div>\n\n    <div class=\"full-descr__right\">\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Release Date</div>\n            <div class=\"full-descr__info-body\">{relise}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Budget</div>\n            <div class=\"full-descr__info-body\">{budget}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Countries</div>\n            <div class=\"full-descr__info-body\">{countries}</div>\n        </div>\n    </div>\n</div>";
+    var html$Q = "<div class=\"full-descr\">\n    <div class=\"full-descr__left\">\n        <div class=\"full-descr__text\">{text}</div>\n\n        <div class=\"full-descr__line full--genres\">\n            <div class=\"full-descr__line-name\">Genre</div>\n            <div class=\"full-descr__line-body\">{genres}</div>\n        </div>\n\n        <div class=\"full-descr__line full--companies\">\n            <div class=\"full-descr__line-name\">Production</div>\n            <div class=\"full-descr__line-body\">{companies}</div>\n        </div>\n    </div>\n\n    <div class=\"full-descr__right\">\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Release date</div>\n            <div class=\"full-descr__info-body\">{relise}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Budget</div>\n            <div class=\"full-descr__info-body\">{budget}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">Countries</div>\n            <div class=\"full-descr__info-body\">{countries}</div>\n        </div>\n    </div>\n</div>";
 
     var html$P = "<div class=\"full-person selector\">\n    <img src=\"{img}\" class=\"full-person__photo\" />\n\n    <div class=\"full-person__body\">\n        <div class=\"full-person__name\">{name}</div>\n        <div class=\"full-person__role\">{role}</div>\n    </div>\n</div>";
 
@@ -705,11 +705,11 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>The address used: <code>{ip}</code></li>\n            <li class=\"nocorect\">The current address <code>{ip}</code> is invalid !</li>\n            <li>The current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure that the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure in response has a line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the response contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure there is a code in the response <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, what distribution and, if possible, a photo this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -1410,6 +1410,8 @@
     }
 
     function create$p() {
+      var _this = this;
+
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var html = Template.get('scroll');
       var body = html.find('.scroll__body');
@@ -1418,9 +1420,41 @@
       html.toggleClass('scroll--mask', params.mask ? true : false);
       html.toggleClass('scroll--over', params.over ? true : false);
       html.toggleClass('scroll--nopadding', params.nopadding ? true : false);
+      body.data('scroll', 0);
+      var scroll_time = 0,
+          scroll_step = params.step || 150;
+      html.on('mousewheel', function (e) {
+        if (Date.now() - scroll_time > 200 && html.find('.scroll').length == 0) {
+          scroll_time = Date.now();
+
+          if (e.originalEvent.wheelDelta / 120 > 0) {
+            _this.wheel(-scroll_step);
+          } else {
+            _this.wheel(scroll_step);
+          }
+        }
+      });
+
+      this.wheel = function (size) {
+        html.toggleClass('scroll--wheel', true);
+        var scrl = body.data('scroll');
+        scrl -= size;
+        scrl = Math.min(0, scrl);
+        this.reset();
+
+        if (Storage.field('scroll_type') == 'css') {
+          body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
+        } else {
+          body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
+          body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
+        }
+
+        body.data('scroll', scrl);
+      };
 
       this.update = function (elem, tocenter) {
         if (elem.data('ismouse')) return;
+        html.toggleClass('scroll--wheel', false);
         var dir = params.horizontal ? 'left' : 'top',
             siz = params.horizontal ? 'width' : 'height';
         var ofs_elm = elem.offset()[dir],
@@ -1435,6 +1469,8 @@
           body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
           body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
         }
+
+        body.data('scroll', scrl);
       };
 
       this.append = function (object) {
@@ -2241,7 +2277,7 @@
 
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
-        if (movie.length > 0) knownFor["".concat(actorGender, " - Movies")] = movie;
+        if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
         if (tv.length > 0) knownFor["".concat(actorGender, " - TV Shows")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
@@ -3171,7 +3207,7 @@
         collections$1({
           id: '935'
         }, function (json) {
-          append('Foreign', 'rus', '935', {
+          append('Russians', 'rus', '935', {
             results: json
           });
         });
@@ -3236,7 +3272,7 @@
       collections$1({
         id: '1327'
       }, function (json) {
-        append('Adventure comedies', '4', '1327', {
+        append('Adventure comedy', '4', '1327', {
           results: json
         });
       });
@@ -5172,7 +5208,8 @@
       });
       var body = content.find('.items-line__body');
       var scroll = new create$p({
-        horizontal: true
+        horizontal: true,
+        step: 300
       });
       var viewall = Storage.field('card_views_type') == 'view';
       var items = [];
@@ -8903,7 +8940,8 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
-        over: true
+        over: true,
+        step: 250
       });
       var items = [];
       var html = $('<div></div>');
@@ -9342,7 +9380,8 @@
 
       var network = new create$q();
       var scroll = new create$p({
-        mask: true
+        mask: true,
+        step: 250
       });
       var items = [];
       var html = $('<div></div>');
@@ -10790,7 +10829,8 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
-        over: true
+        over: true,
+        step: 250
       });
       var items = [];
       var html = $('<div></div>');
@@ -11476,6 +11516,9 @@
       html$6.find('.open--search').on('hover:enter', function () {
         Controller.toggle('search');
       });
+      html$6.find('.head__logo-icon').on('click', function () {
+        Controller.toggle('menu');
+      });
       Controller.add('head', {
         toggle: function toggle() {
           Controller.collectionSet(html$6);
@@ -11949,24 +11992,22 @@
         });
         if (active.toggle) active.toggle();
         selects = $('.selector');
-        /*
-        selects.on('click.hover', function(e){
-        selects.removeClass('focus enter')
-        if(e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true])
-        }).on('mouseover.hover', function(e){
-            if($(this).hasClass('selector')){
-                let cotr = $(this).data('controller')
-                  console.log(cotr)
-                
-                if(name !== cotr && cotr){
-                    console.log(name, cotr)
-                      toggle(cotr)
-                }
-                  selects.removeClass('focus enter').data('ismouse',false)
-                  $(this).addClass('focus').data('ismouse',true).trigger('hover:focus', [true])
+
+        if (Storage.get('navigation_type') == 'mouse') {
+          selects.on('click.hover', function (e) {
+            selects.removeClass('focus enter');
+            if (e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true]);
+          }).on('mouseover.hover', function (e) {
+            if ($(this).hasClass('selector')) {
+              selects.removeClass('focus enter').data('ismouse', false);
+              $(this).addClass('focus').data('ismouse', true).trigger('hover:focus', [true]);
+              var silent = Navigator.silent;
+              Navigator.silent = true;
+              Navigator.focus($(this)[0]);
+              Navigator.silent = silent;
             }
-        })
-        */
+          });
+        }
 
         listener$3.send('toggle', {
           name: name
@@ -12601,6 +12642,10 @@
       'preload': 'Upload',
       'view': 'Show all'
     }, 'preload');
+    select('navigation_type', {
+      'controll': 'Remote',
+      'mouse': 'Remote with mouse'
+    }, 'controll');
     select('time_offset', {
       'n-5': '-5',
       'n-4': '-4',
@@ -12881,6 +12926,12 @@
       Lampa.Listener.send('menu', {
         type: 'start',
         body: html$4
+      });
+      $('body').on('mousedown', function () {
+        if ($('body').hasClass('menu--open')) {
+          $('body').toggleClass('menu--open', false);
+          Controller.toggle('content');
+        }
       });
       html$4.find('.selector').on('hover:enter', function (e) {
         var action = $(e.target).data('action');
@@ -13798,7 +13849,7 @@
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('Synchronized');
-          desc.text(time.full + 'to' + time.time);
+          desc.text(time.full + 'in' + time.time);
         }
       }
     }

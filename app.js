@@ -12791,8 +12791,8 @@
       'view': '显示全部'
     }, 'preload');
     select('navigation_type', {
-      'controll': '远程',
-      'mouse': '用鼠标远程'
+      'controll': '遥控器',
+      'mouse': '鼠标'
     }, 'controll');
     select('time_offset', {
       'n-5': '-5',
