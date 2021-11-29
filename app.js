@@ -3930,6 +3930,10 @@
         keyword: ""
     };
       network$4.silent(Utils.protocol() + 'cmn.yyds.fans/api/posts', function (json) {
+        if(json.status_code === 405){
+          Noty.show('未能刷新数据，请从菜单重新进入。');
+          return false;
+        };
         json.data.forEach(function (item) {
           var mytitle = item.title.replace('/',' ');
           if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
