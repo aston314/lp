@@ -3941,7 +3941,7 @@
           item.title = mytitle;
           item.release_date = item.release_time;
           item.vote_average = item.imdb_score;
-          item.poster_path = item.cover;
+          item.poster_path = item.cover.replace('l_ratio_poster','m_ratio_poster');
         });
         oncomplite(json.data);
       }, onerror,postdata);
@@ -10985,7 +10985,7 @@
             last = target;
             scroll.update(card.render(), true);
             info.update(card_data);
-            //Background.change(Utils.cardImgBackground(card_data));
+            Background.change(Utils.cardImgBackground(card_data));
             var maxrow = Math.ceil(items.length / 7) - 1;
             if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this2.next();
           };
