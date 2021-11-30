@@ -208,10 +208,12 @@
         var linkFilter = [];
         jsonresult.data.links.forEach(function(item) {
            var getFilterField = item[key];
-           var keyArray = item[key].split(',');
-           if (keyArray[0].indexOf(value) != -1) {
-            linkFilter.push(item.link);
-           }
+           if(getFilterField){
+              var keyArray = item[key].split(',');
+              if (keyArray[0].indexOf(value) != -1) {
+                linkFilter.push(item.link);
+              };
+          };
         });
         return linkFilter;
       };
