@@ -3741,7 +3741,7 @@
       var u = yydsurl$4(my_method[0], params);
       network$6.silent(u, function (json) {
         json.url = my_method[0];
-        var parsed = JSON.parse(JSON.stringify(json).replace('data','results').replace(/cover/g,'poster').replace(/l_ratio_poster/g,'s_ratio_poster').replace(/score/g,'vote_average').replace(/release_time/g,'release_date')); 
+        var parsed = JSON.parse(JSON.stringify(json).replace('data','results').replace(/cover/g,'poster').replace(/l_ratio_poster/g,'s_ratio_poster').replace(/score/g,'vote_average').replace(/release_time/g,'release_date').replace(/subtitle/g,'original_name')); 
         //console.log(parsed);
         oncomplite(parsed);
       }, onerror, my_method[1]);
