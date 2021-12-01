@@ -3194,9 +3194,12 @@
 
     function full$2(params, oncomplite, onerror) {
       entities('watch/' + (params.url || params.id), function (json, all) {
+        console.log(element);
+        console.log(json);
+
         var data = {};
         var element = find(json, params.id);
-
+        //console.log(element);
         if (element) {
           data.persons = persons(json);
           data.simular = similar(element, json);
@@ -3224,7 +3227,7 @@
             first_air_date: element.seasons ? element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || '0000' : ''
           };
         }
-
+        console.log(data.movie);
         oncomplite(data);
       }, onerror);
     }
@@ -3704,6 +3707,252 @@
       seasons: seasons$1
     };
 
+    //yyds
+    var baseurlyyds = 'https://cmn.yyds.fans/';
+    var network$6 = new create$q();
+
+    function yydsurl$4(u) {
+      //console.log(u);
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      //console.log(params);
+      if (params.genres) u = yydsadd$5(u, 'genre=' + params.genres);
+      if (params.page) u = yydsadd$5(u, 'page=' + params.page);
+      if (params.query) u = yydsadd$5(u, 'query=' + params.query);
+
+      if (params.filter) {
+        for (var i in params.filter) {
+          u = yydsadd$5(u, i + '=' + params.filter[i]);
+        }
+      }
+
+      return baseurlyyds + u;
+    }
+
+    function yydsadd$5(u, params) {
+      return u + (/\?/.test(u) ? '&' : '?') + params;
+    }
+
+    function yydsget$5(method) {
+      var my_method = method.split('|');
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+      var onerror = arguments.length > 3 ? arguments[3] : undefined;
+      //console.log(params);
+      var u = yydsurl$4(my_method[0], params);
+      network$6.silent(u, function (json) {
+        json.url = my_method[0];
+        var parsed = JSON.parse(JSON.stringify(json).replace('data','results').replace(/cover/g,'poster').replace(/l_ratio_poster/g,'s_ratio_poster').replace(/score/g,'vote_average').replace(/release_time/g,'release_date')); 
+        //console.log(parsed);
+        oncomplite(parsed);
+      }, onerror, my_method[1]);
+      
+    }
+
+    function yydslist$2() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      var fr = 30 * (params.page - 1);
+      var u = yydsurl$4('api/posts');
+      console.log(u);
+      network$6.silent(u, function (json) {
+        var parsed = JSON.parse(JSON.stringify(json).replace('data','results').replace(/cover/g,'poster').replace(/l_ratio_poster/g,'s_ratio_poster').replace(/score/g,'vote_average').replace(/release_time/g,'release_date')); 
+        oncomplite(parsed);
+      }, onerror, params.url.replace('api/posts?','')+'&skip='+fr);
+      //network$6.silent(u, oncomplite, onerror,params.url.replace('api/posts?',''));
+    }
+
+    function yydsmain$2() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      var status = new status$1(12);
+
+      status.onComplite = function () {
+        var fulldata = [];
+        var data = status.data;
+
+        for (var i = 1; i <= 12; i++) {
+          var ipx = 's' + i;
+          if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+        }
+
+        if (fulldata.length) oncomplite(fulldata);else onerror();
+      };
+
+      var append = function append(title, name, json) {
+        json.title = title;
+        status.append(name, json);
+      };
+
+      yydsget$5('api/posts?category_id=-1&limit=100&keyword=|category_id=-1&skip=0&limit=20&keyword=', params, function (json) {
+        append('最新更新', 's1', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=0&skip=0&limit=100&keyword=|category_id=0&skip=0&limit=20&keyword=', params, function (json) {
+        append('热门精选', 's2', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=3&skip=0&limit=100&keyword=|category_id=3&skip=0&limit=20&keyword=', params, function (json) {
+        append('电影', 's3', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=12&skip=0&limit=100&keyword=|category_id=12&skip=0&limit=20&keyword=', params, function (json) {
+        append('剧集', 's4', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=4&skip=0&limit=100&keyword=|category_id=4&skip=0&limit=20&keyword=', params, function (json) {
+        append('动画', 's5', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=10&skip=0&limit=100&keyword=|category_id=10&skip=0&limit=20&keyword=', params, function (json) {
+        append('综艺', 's6', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=1&skip=0&limit=100&keyword=|category_id=1&skip=0&limit=20&keyword=', params, function (json) {
+        append('纪录片', 's7', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=13&skip=0&limit=100&keyword=|category_id=13&skip=0&limit=20&keyword=', params, function (json) {
+        append('日韩剧', 's8', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=5&skip=0&limit=100&keyword=|category_id=5&skip=0&limit=20&keyword=', params, function (json) {
+        append('英美剧', 's9', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?category_id=7&skip=0&limit=100&keyword=|category_id=7&skip=0&limit=10&keyword=', params, function (json) {
+        append('恐怖', 's10', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?ategory_id=8&skip=0&limit=100&keyword=|category_id=8&skip=0&limit=10&keyword=', params, function (json) {
+        append('威漫', 's11', json);
+      }, status.error.bind(status));
+      yydsget$5('api/posts?ategory_id=9&skip=0&limit=100&keyword=|category_id=9&skip=0&limit=10&keyword=', params, function (json) {
+        append('DC', 's12', json);
+      }, status.error.bind(status));
+    }
+
+    function yydscategory$1() {
+      
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+
+      var total = 6;
+      if (params.url !== 'tv') total--;
+      var status = new status$1(total);
+
+      status.onComplite = function () {
+        var fulldata = [];
+        var data = status.data;
+
+        for (var i = 1; i <= total + 1; i++) {
+          var ipx = 's' + i;
+          if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+        }
+
+        if (fulldata.length) oncomplite(fulldata);else onerror();
+      };
+
+      var append = function append(title, name, json) {
+        json.title = title;
+        status.append(name, json);
+      };
+
+      yydsget$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
+        append('正在观看', 's1', json);
+      }, status.error.bind(status));
+
+      if (params.url == 'tv') {
+        yydsget$5('api/posts?category_id=12&skip=0&limit=100&keyword=|category_id=12&skip=0&limit=20&keyword=', params, function (json) {
+          append('新电视剧', 's2', json);
+        }, status.error.bind(status));
+      }
+
+      //if (params.url == 'movie') {
+        yydsget$5('api/posts?category_id=3&skip=0&limit=100&keyword=|category_id=3&skip=0&limit=20&keyword=', params, function (json) {
+          append('新电影', 's3', json);
+        }, status.error.bind(status));
+      //}
+
+      /* yydsget$5('?cat=' + params.url + '&sort=top', params, function (json) {
+        append('流行', 's3', json);
+      }, status.error.bind(status)); */
+      yydsget$5('?cat=' + params.url + '&sort=latest', params, function (json) {
+        append('最新添加', 's4', json);
+      }, status.error.bind(status));
+      yydsget$5('?cat=' + params.url + '&sort=now', params, function (json) {
+        append('今年新的', 's5', json);
+      }, status.error.bind(status));
+      yydsget$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
+        append('最受好评', 's6', json);
+      }, status.error.bind(status));
+    }
+
+    function yydsfull1$(params, oncomplite, onerror) {
+        yydsget$5('api/post-info|id='+params.id+'', params, function (json) {
+        if (json) {
+          console.log(json.results);
+          data.movie = {
+            id: json.results.id,
+            url: '',
+            source: 'yyds',
+            title: json.results.title,
+            original_title: json.results.also_called,
+            name: json.results.season ? json.results.title : '',
+            original_name: json.results.season ? json.results.title : '',
+            overview: json.results.desc,
+            img: json.results.poster.replace('l_ratio_poster','s_ratio_poster'),
+            runtime: json.results.duration_minutes,
+            genres: yydsgenres$1(json.results.tags),
+            vote_average: json.results.vote_average ? parseFloat(json.results.vote_average) : 0,
+            production_companies: [],
+            production_countries: [{name : json.results.region}],
+            budget: 0,
+            release_date: json.results.created_at,
+            number_of_seasons: json.results.season ? json.results.season : 1,
+            number_of_episodes: json.results.episode ? json.results.episode : 1,
+            first_air_date: json.results.created_at
+          };
+        }
+        //console.log(data.movie)
+        oncomplite(data);
+      }, onerror);
+    }
+
+    function yydsgenres$1(json) {
+      var data = [];
+      json.forEach(function (d) {
+        var genre = d.id;
+        if (genre) {
+          data.push({
+            id: d.id,
+            name: d.title
+          });
+        }
+      });
+      return data;
+    }
+
+    function yydsperson$1(params, oncomplite, onerror) {
+      TMDB.person(params, oncomplite, onerror);
+    }
+
+    function yydsmenu$1(params, oncomplite) {
+      //TMDB.menu(params, oncomplite);
+    }
+
+    function yydsseasons$1(tv, from, oncomplite) {
+      TMDB.seasons(tv, from, oncomplite);
+    }
+
+    function yydsclear$4() {
+      network$6.clear();
+    }
+
+    var YYDS = {
+      main: yydsmain$2,
+      menu: yydsmenu$1,
+      full: yydsfull1$,
+      list: yydslist$2,
+      category: yydscategory$1,
+      clear: yydsclear$4,
+      person: yydsperson$1,
+      seasons: yydsseasons$1
+    };
+    //yyds
+
     var url$3;
     var network$5 = new create$q();
 
@@ -3842,6 +4091,7 @@
       ivi: IVI,
       okko: OKKO,
       tmdb: TMDB,
+      yyds: YYDS,
       cub: CUB
     };
     var network$4 = new create$q();
@@ -9135,7 +9385,7 @@
 
       this.append = function (data) {
         var _this3 = this;
-
+console.log(data);
         data.results.forEach(function (element) {
           var card = new create$o(element, {
             card_category: true,
@@ -12775,6 +13025,7 @@
     }, 'transform');
     select('source', {
       'tmdb': 'TMDB',
+      'yyds': 'YYDS',
       'ivi': 'IVI',
       'okko': 'OKKO',
       'cub': 'CUB'
