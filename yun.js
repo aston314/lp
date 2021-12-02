@@ -12,7 +12,7 @@
       var results = [];
       var filtred = [];
       var extract = {};
-      var token = 'c08fb46b25084bcf8acfd3e9dfb4ff2f';
+      var token = '';
       var last;
       var last_filter;
       var filter_items = {
@@ -45,6 +45,9 @@
         //url = Lampa.Utils.addUrlComponent(url, 'query=' + encodeURIComponent(object.search));
         //if (object.movie.release_date && object.movie.release_date !== '0000') url = Lampa.Utils.addUrlComponent(url, 'year=' + (object.movie.release_date + '').slice(0, 4));
         
+        var jsonresult = $.parseJSON(_this.getRemote("https://rentry.co/qptpt/raw","GET","json","",""));
+        token = jsonresult.data[0].t;
+
         var jsonsearch = {
             category_id: "-1",
             skip: "0",
@@ -52,7 +55,7 @@
             keyword: object.search_one
         };
         
-        var jsonresult = $.parseJSON(_this.getRemote("https://cmn.yyds.fans/api/posts","POST","json",jsonsearch,""));
+        jsonresult = $.parseJSON(_this.getRemote("https://cmn.yyds.fans/api/posts","POST","json",jsonsearch,""));
         
         if (!jsonresult.data.length){
          _this.empty('哦，未搜索到该资源');
@@ -541,7 +544,7 @@
         if (translat) {
             return translat;
         }
-        if (show_error) Lampa.Noty.show('无法检索链接');
+        if (show_error) Lampa.Noty.show('无法检索链接，阿里云盘token失效。');
       };
 
       this.append = function (items) {
