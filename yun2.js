@@ -168,7 +168,7 @@
                                             //console.log(get_file_get);
                                             
                                             setTimeout(function() {
-                                                _this.getShareLinkDownloadUrl_(get_file_get.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
+                                                _this.getvideopreviewplayinfo(get_file_get.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
                                                     get_file_get.download_url = download_url;
                                                     if (get_file_get.category == "video"){
                                                         listlink.data[0].media.push({
@@ -208,7 +208,7 @@
 
                                                 get_file_list.items.forEach(function (item, index) {
                                                     setTimeout(function() {
-                                                    _this.getShareLinkDownloadUrl_(item.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
+                                                    _this.getvideopreviewplayinfo(item.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
                                                         item.download_url = download_url;
                                                         itemsProcessed++;
                                                         if (item.category == "video"){
@@ -318,7 +318,7 @@
         }).responseText;
       };
 
-      this.getvideopreviewplayinfo = function (file_id, share_id, shareToken, accesstoken) {
+      this.getvideopreviewplayinfo = function (file_id, share_id, shareToken, accesstoken, callback) {
         return $.ajax({
           type: "post",
           url: "https://api.aliyundrive.com/v2/file/get_share_link_video_preview_play_info",
@@ -333,9 +333,22 @@
             "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
             "content-type": "application/json;charset=utf-8",
             "x-share-token": shareToken
-          },
-          async: false
-        }).responseText;;
+        },
+        async: true,
+        success: function (response) {
+            if (response.video_preview_play_info.live_transcoding_task_list.slice(-1)[0].url) {
+                callback && callback(response.video_preview_play_info.live_transcoding_task_list.slice(-1)[0].url);
+            }
+            else {
+                console.error("getvideopreviewplayinfo 失败", response);
+                callback && callback("");
+            }
+        },
+        error: function (error) {
+            console.error("getvideopreviewplayinfo 错误", error);
+            callback && callback("");
+        }
+        });
       };
   
       this.getShareLinkDownloadUrl = function (file_id, share_id, shareToken, accesstoken) {
