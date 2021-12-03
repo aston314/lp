@@ -2278,7 +2278,7 @@
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
         if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
-        if (tv.length > 0) knownFor["".concat(actorGender, " - TV Shows")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+        if (tv.length > 0) knownFor["".concat(actorGender, " - Series")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
@@ -3171,7 +3171,7 @@
         collections$1({
           id: '942'
         }, function (json) {
-          append('Best movies', 'best', '942', {
+          append('Best films', 'best', '942', {
             results: json
           });
         });
@@ -9671,6 +9671,7 @@
         sort: [],
         filter: []
       };
+      var similars = [];
 
       function selectSearch() {
         var _this = this;
@@ -9678,20 +9679,29 @@
         var selected = params.search_one == params.search ? 0 : params.search_two == params.search ? 1 : -1;
         var search = [];
 
-        if (params.search_one) {
-          search.push({
-            title: params.search_one,
-            query: params.search_one,
-            selected: selected == 0
+        if (similars.length) {
+          similars.forEach(function (sim) {
+            search.push({
+              title: sim,
+              query: sim
+            });
           });
-        }
+        } else {
+          if (params.search_one) {
+            search.push({
+              title: params.search_one,
+              query: params.search_one,
+              selected: selected == 0
+            });
+          }
 
-        if (params.search_two) {
-          search.push({
-            title: params.search_two,
-            query: params.search_two,
-            selected: selected == 1
-          });
+          if (params.search_two) {
+            search.push({
+              title: params.search_two,
+              query: params.search_two,
+              selected: selected == 1
+            });
+          }
         }
 
         search.push({
@@ -9793,6 +9803,11 @@
 
       this.get = function (type) {
         return data[type];
+      };
+
+      this.similar = function (sim) {
+        similars = sim;
+        return empty;
       };
 
       this.sort = function (items, by) {
@@ -11373,7 +11388,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
@@ -11437,7 +11452,7 @@
       }, {
         time: '2021-09-27 15:00',
         title: 'Fixed parser',
-        descr: 'An error was detected in the parser due to which jac.red did not produce results'
+        descr: 'An error was detected in the parser due to which jac.red did not return results'
       }, {
         time: '2021-09-26 17:00',
         title: 'Welcome !',
@@ -14132,7 +14147,7 @@
 
       Favorite.listener.follow('add', function (e) {
         if (e.where == 'history' && e.card.id) {
-          $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id);
+          $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
         }
       });
       Lampa.Listener.send('app', {

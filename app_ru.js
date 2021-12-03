@@ -9671,6 +9671,7 @@
         sort: [],
         filter: []
       };
+      var similars = [];
 
       function selectSearch() {
         var _this = this;
@@ -9678,20 +9679,29 @@
         var selected = params.search_one == params.search ? 0 : params.search_two == params.search ? 1 : -1;
         var search = [];
 
-        if (params.search_one) {
-          search.push({
-            title: params.search_one,
-            query: params.search_one,
-            selected: selected == 0
+        if (similars.length) {
+          similars.forEach(function (sim) {
+            search.push({
+              title: sim,
+              query: sim
+            });
           });
-        }
+        } else {
+          if (params.search_one) {
+            search.push({
+              title: params.search_one,
+              query: params.search_one,
+              selected: selected == 0
+            });
+          }
 
-        if (params.search_two) {
-          search.push({
-            title: params.search_two,
-            query: params.search_two,
-            selected: selected == 1
-          });
+          if (params.search_two) {
+            search.push({
+              title: params.search_two,
+              query: params.search_two,
+              selected: selected == 1
+            });
+          }
         }
 
         search.push({
@@ -9793,6 +9803,11 @@
 
       this.get = function (type) {
         return data[type];
+      };
+
+      this.similar = function (sim) {
+        similars = sim;
+        return empty;
       };
 
       this.sort = function (items, by) {
@@ -14127,7 +14142,7 @@
 
       Favorite.listener.follow('add', function (e) {
         if (e.where == 'history' && e.card.id) {
-          $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id);
+          $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
         }
       });
       Lampa.Listener.send('app', {
