@@ -309,59 +309,65 @@
         //doregjson = loadRoutes();
         doregjson = $.parseJSON(this.getRemote('https://rentry.co/lampa_rule/raw'));
 
-        if(object.movie.original_language =='zh'){
+        if(object.movie.source == 'yyds'){
           doreg = doregjson.rule[1];
-        }else{
-          if(typeof object.movie.number_of_seasons !== 'undefined'){
-            //console.log(object.movie.number_of_seasons);
-            //console.log("电视剧");
-            //doreg = doregjson.rule[0];
-                /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
-                xhr.send();
-
-                if (xhr.status != 200) {
-                 resp = xhr.status; 
-                }    else {
-                 resp = xhr.responseText; 
-                }*/
-                resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
-                
-                search_videos = resp.match(doregjson.rule[0].search_list_reg);
-                find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
-
-                if(find_videos !== null){
-                  doreg = doregjson.rule[0];
-                }else{
-                  doreg = doregjson.rule[3];
-                };
-          }
-          else{
-            if(object.movie.original_language == 'ko'){
-              doreg = doregjson.rule[1];
+        }
+        else{
+          if(object.movie.original_language =='zh'){
+            doreg = doregjson.rule[1];
+          }else{
+            if(typeof object.movie.number_of_seasons !== 'undefined'){
+              //console.log(object.movie.number_of_seasons);
+              //console.log("电视剧");
+              //doreg = doregjson.rule[0];
+                  /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
+                  xhr.send();
+  
+                  if (xhr.status != 200) {
+                   resp = xhr.status; 
+                  }    else {
+                   resp = xhr.responseText; 
+                  }*/
+                  resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
+                  
+                  search_videos = resp.match(doregjson.rule[0].search_list_reg);
+                  find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
+  
+                  if(find_videos !== null){
+                    doreg = doregjson.rule[0];
+                  }else{
+                    doreg = doregjson.rule[3];
+                  };
             }
             else{
-              //doreg = doregjson.rule[0];
-                /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
-                xhr.send();
-
-                if (xhr.status != 200) {
-                 resp = xhr.status; 
-                }    else {
-                 resp = xhr.responseText; 
-                }*/
-                resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
-                
-                search_videos = resp.match(doregjson.rule[0].search_list_reg);
-                find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
-
-                if(find_videos !== null){
-                  doreg = doregjson.rule[0];
-                }else{
-                  doreg = doregjson.rule[3];
-                };
+              if(object.movie.original_language == 'ko'){
+                doreg = doregjson.rule[1];
+              }
+              else{
+                //doreg = doregjson.rule[0];
+                  /*xhr.open('GET', doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)), false);
+                  xhr.send();
+  
+                  if (xhr.status != 200) {
+                   resp = xhr.status; 
+                  }    else {
+                   resp = xhr.responseText; 
+                  }*/
+                  resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
+                  
+                  search_videos = resp.match(doregjson.rule[0].search_list_reg);
+                  find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
+  
+                  if(find_videos !== null){
+                    doreg = doregjson.rule[0];
+                  }else{
+                    doreg = doregjson.rule[3];
+                  };
+              }
             }
-          }
-        };
+          };
+        }
+        
 
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
         var url1 = doreg.search_url;
