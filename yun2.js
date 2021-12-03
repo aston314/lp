@@ -204,13 +204,13 @@
         
                                             var get_file_list  = $.parseJSON(_this.getRemote(url,"POST","json",jsonsearch,get_share_token.share_token));
                                                 //console.log(obj.file_page.access_token);
-                                                var response = [];
+                                                var itemsProcessed = 0;
 
                                                 get_file_list.items.forEach(function (item, index) {
                                                     setTimeout(function() {
                                                     _this.getShareLinkDownloadUrl_(item.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
                                                         item.download_url = download_url;
-                                                        response.push(item.download_url);
+                                                        itemsProcessed++;
                                                         if (item.category == "video"){
                                                             listlink.data[0].media.push({
                                                                 translation_id : item.download_url,
@@ -220,7 +220,7 @@
                                                                 //translation : mytranslation
                                                                 });
                                                         };
-                                                        if(response.length  === get_file_list.items.length) {
+                                                        if(itemsProcessed  === get_file_list.items.length) {
                                                                 //foreach work done
                                                                 results = listlink.data;
                                                                 //console.log(results);
