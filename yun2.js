@@ -51,17 +51,34 @@
           if (json.data && json.data.length) {
             token = json.data[0].t;
             //console.log(token);
-            url = 'https://cmn.yyds.fans/api/posts';
-            var jsonsearch = {
-                category_id: "-1",
-                skip: "0",
-                limit: "1",
-                keyword: object.search_one
+            if(object.movie.source == 'yyds'){
+                var getid = object.movie.id;
+                //console.log(getid);
+                url = 'https://cmn.yyds.fans/api/post-info';
+                var jsonsearch = {
+                    id: getid
+                };
+            }
+            else{
+                url = 'https://cmn.yyds.fans/api/posts';
+                var jsonsearch = {
+                    category_id: "-1",
+                    skip: "0",
+                    limit: "1",
+                    keyword: object.search_one
+                };
             };
+
             network.silent(url, function (json)
             {
-              if (json.data && json.data.length) {
-                var getid = json.data[0].id;
+              if (json.data.length !==0) {
+                if(object.movie.source == 'yyds'){
+                    var getid = object.movie.id;
+                }
+                else{
+                    var getid = json.data[0].id;
+                };
+                
                 //console.log(getid);
                 url = 'https://cmn.yyds.fans/api/post-info';
                 var jsonsearch = {

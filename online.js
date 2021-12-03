@@ -213,14 +213,7 @@
       var resp;
       var search_videos;
       var find_videos;
-      function getRemote(remote_url) {
-        //this.getRemote = function (remote_url) {
-         return $.ajax({
-            type: "GET",
-            url: remote_url,
-            async: false
-         }).responseText;
-      };
+      
       
       //console.log(doreg.search_url);
 
@@ -233,6 +226,14 @@
         url = Lampa.Utils.addUrlComponent(url, 'api_token=' + token);
         url = Lampa.Utils.addUrlComponent(url, 'query=' + encodeURIComponent(object.search));
         if (object.movie.release_date && object.movie.release_date !== '0000') url = Lampa.Utils.addUrlComponent(url, 'year=' + (object.movie.release_date + '').slice(0, 4));
+        var mytitle;
+        if(object.movie.source == 'yyds'){
+          mytitle = object.search_one.replace('/',' ');
+          if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
+        }
+        else{
+          mytitle = object.search_one;
+        };
         //console.log(url);
         //搜索关键字
         //console.log(object.movie.original_language);
@@ -306,7 +307,7 @@
         };*/
 
         //doregjson = loadRoutes();
-        doregjson = $.parseJSON(getRemote('https://rentry.co/lampa_rule/raw'));
+        doregjson = $.parseJSON(this.getRemote('https://rentry.co/lampa_rule/raw'));
 
         if(object.movie.original_language =='zh'){
           doreg = doregjson.rule[1];
@@ -323,7 +324,7 @@
                 }    else {
                  resp = xhr.responseText; 
                 }*/
-                resp = getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)));
+                resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
                 
                 search_videos = resp.match(doregjson.rule[0].search_list_reg);
                 find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
@@ -348,7 +349,7 @@
                 }    else {
                  resp = xhr.responseText; 
                 }*/
-                resp = getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(object.search_one)));
+                resp = this.getRemote(doregjson.rule[0].search_url.replace('#msearchword',encodeURIComponent(mytitle)));
                 
                 search_videos = resp.match(doregjson.rule[0].search_list_reg);
                 find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
@@ -364,7 +365,7 @@
 
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
         var url1 = doreg.search_url;
-        url1 = url1.replace('#msearchword',encodeURIComponent(object.search_one));
+        url1 = url1.replace('#msearchword',encodeURIComponent(mytitle));
         console.log(url1);
         //network.silent("https://rentry.co/testjson/raw", function (json) {
           //if (json.data && json.data.length) {
@@ -798,6 +799,14 @@
       };
       //console.log(extract);
 
+      this.getRemote = function (remote_url) {
+         return $.ajax({
+            type: "GET",
+            url: remote_url,
+            async: false
+         }).responseText;
+      };
+
       this.build = function () {
         var _this3 = this;
 
@@ -914,7 +923,7 @@
              }).responseText;
           };*/
           //console.log(getRemote(translat));
-           var str = getRemote(translat);
+           var str = this.getRemote(translat);
            //return network["native"](translat, function (str) {
             var math = str.replace(/\n|\r/g, '').match(new RegExp(doreg.get_link_reg, 'g'));
             var data = {
