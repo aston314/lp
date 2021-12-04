@@ -310,7 +310,12 @@
         doregjson = $.parseJSON(this.getRemote('https://rentry.co/lampa_rule/raw'));
 
         if(object.movie.source == 'yyds'){
-          doreg = doregjson.rule[1];
+          if(object.region.indexOf('中国') != -1){
+            doreg = doregjson.rule[1];
+          }
+          else{
+            doreg = doregjson.rule[0];
+          }; 
         }
         else{
           if(object.movie.original_language =='zh'){
@@ -368,7 +373,6 @@
           };
         }
         
-
         //var url1 = "https://www.7xiady.cc/index.php/search/"+ encodeURIComponent(object.search_one)+"----------1---/";
         var url1 = doreg.search_url;
         url1 = url1.replace('#msearchword',encodeURIComponent(mytitle));
@@ -1126,6 +1130,7 @@
               search_one: e.data.movie.title,
               search_two: e.data.movie.original_title,
               movie: e.data.movie,
+              region: e.object.card.region,
               page: 1
             });
           });
