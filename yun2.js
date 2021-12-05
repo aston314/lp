@@ -167,7 +167,7 @@
                                             var get_file_get  = $.parseJSON(_this.getRemote(url,"POST","json",jsonsearch,get_share_token.share_token));
                                             //console.log(get_file_get);
                                             
-                                            setTimeout(function() {
+                                            //setTimeout(function() {
                                                 _this.getvideopreviewplayinfo(get_file_get.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
                                                     get_file_get.download_url = download_url;
                                                     if (get_file_get.category == "video"){
@@ -188,7 +188,7 @@
                                                     _this.activity.toggle(); 
 
                                                 });
-                                            }, 66);
+                                            //}, 66);
                                         }else{
                                             url = "https://api.aliyundrive.com/adrive/v3/file/list";
                                             jsonsearch = {
@@ -207,7 +207,7 @@
                                                 var itemsProcessed = 0;
 
                                                 get_file_list.items.forEach(function (item, index) {
-                                                    setTimeout(function() {
+                                                    //setTimeout(function() {
                                                     _this.getvideopreviewplayinfo(item.file_id, getShareId, get_share_token.share_token, token_refresh.access_token, function (download_url) {
                                                         item.download_url = download_url;
                                                         itemsProcessed++;
@@ -231,7 +231,7 @@
                                                                 _this.activity.toggle(); 
                                                         }
                                                     });
-                                                }, 66 * index);
+                                                //}, 66 * index);
                                                         
                                                 });
                                                 };
