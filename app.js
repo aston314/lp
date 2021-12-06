@@ -729,7 +729,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有找到适合您的过滤器的内容，请指定过滤器。</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有找到您的过滤器，请指定过滤器。</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -2787,7 +2787,7 @@
 
           if (blocks[0] && blocks[0].element.collectionItems.items) {
             var slides = {
-              title: '新项目',
+              title: 'New',
               results: [],
               wide: true
             };
@@ -4445,17 +4445,17 @@
         var enabled = Controller.enabled().name;
         var status = Favorite.check(data);
         Select.show({
-          title: '动作',
+          title: 'Action',
           items: [{
-            title: status.book ? '从书签中删除' : '书签',
+            title: status.book ? '从书签中移除' : '书签',
             subtitle: '在菜单中查找（书签）',
             where: 'book'
           }, {
-            title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '在菜单中查找（喜欢）',
+            title: status.like ? '从收藏夹中移除' : '喜欢',
+            subtitle: '在菜单中查找（Like）',
             where: 'like'
           }, {
-            title: status.wath ? '从预期中删除' : '稍后观看',
+            title: status.wath ? '从预期中移除' : '稍后观看',
             subtitle: '在菜单中查找（稍后）',
             where: 'wath'
           }],
@@ -5798,7 +5798,7 @@
     function create$k() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       Arrays.extend(params, {
-        title: '此处为空',
+        title: '这里是空的',
         descr: '该列表目前为空'
       });
       var html = Template.get('empty', params);
@@ -5961,7 +5961,6 @@
         height: window.innerHeight,
         width: window.innerWidth,
         playerVars: {
-          'referrer': 'https://www.aliyundrive.com/',
           'controls': 0,
           'showinfo': 0,
           'autohide': 1,
@@ -11800,7 +11799,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: '更新 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: '更新 1.3.3',
@@ -11812,7 +11811,7 @@
       }, {
         time: '2021-10-20 16:20',
         title: '更新 1.3.1',
-        descr: '1. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        descr: '1. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: '屏幕保护程序',
@@ -11832,7 +11831,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: '更新 1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: '更新 1.2.2',
@@ -12268,7 +12267,7 @@
       } else {
         push({
           url: '',
-          title: '主页',
+          title: '主页 -' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -12689,7 +12688,7 @@
           url: 'j.govno.co.uk'
         }, {
           title: '127.0.0.1 8090',
-          subtitle: '对于本地TorrServ',
+          subtitle: '对于本地 TorrServ',
           url: '127.0.0.1:8090'
         }, {
           title: Utils.shortText('api.scraperapi.com/?url=^^^^api_key=', 35),
@@ -12793,7 +12792,7 @@
     function trigger(name, _default) {
       values[name] = {
         'true': '是',
-        'false': '否'
+        'false': '不'
       };
       defaults[name] = _default;
     }
@@ -12989,8 +12988,8 @@
 
 
     select('interface_size', {
-      'small': 'Less',
-      'normal': '普通'
+      'small': '更少',
+      'normal': '正常'
     }, 'normal');
     select('parser_torrent_type', {
       'jackett': 'Jackett',
@@ -13040,7 +13039,7 @@
       'zh-HK': '繁體中文 - 香港',
       'zh-TW': '繁體中文 - 臺灣',
       'en': 'English',
-      'df': '原始',
+      'df': '原版',
       'ru': '俄语'
     }, 'en');
     select('player_timecode', {
@@ -13068,7 +13067,7 @@
     }, 'css');
     select('card_views_type', {
       'preload': '预加载',
-      'view': '显示全部'
+      'view': '全部显示'
     }, 'preload');
     select('navigation_type', {
       'controll': '遥控器',
@@ -13369,7 +13368,7 @@
         if (action == 'movie' || action == 'tv' || action == 'anime') {
           Activity$1.push({
             url: action,
-            title: action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视剧',
+            title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视剧') + ' - ' + Storage.field('source').toUpperCase(),
             component: 'category',
             source: action == 'anime' ? 'cub' : Storage.field('source')
           });
@@ -13378,7 +13377,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: '主页',
+            title: '首页-' + Storage.field('source').toUpperCase(),
             component: 'main',
             source: Storage.field('source')
           });
@@ -13431,17 +13430,17 @@
           Select.show({
             title: '合集',
             items: [{
-              title: 'ivi 合集',
+              title: 'ivi 上的合集',
               source: 'ivi'
             }, {
-              title: 'okko 合集',
+              title: 'okko 上的合集',
               source: 'okko'
             }],
             onSelect: function onSelect(a) {
               Activity$1.push({
                 url: '',
                 source: a.source,
-                title: '合集 -' + a.title,
+                title: a.title,
                 component: 'collections',
                 page: 1
               });
@@ -13495,7 +13494,7 @@
             var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
             Activity$1.push({
               url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-              title: a.title,
+              title: '目录 -' + a.title + ' - ' + Storage.field('source').toUpperCase(),
               component: tmdb ? 'category' : 'category_full',
               genres: a.id,
               id: a.id,
@@ -14271,13 +14270,13 @@
 
         if (code == 3) {
           name.text('登录');
-          desc.text('您成功登录');
+          desc.text('您登录成功');
         }
 
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('同步');
-          desc.text(time.full + '在' + time.time);
+          desc.text(time.full + '到' + time.time);
         }
       }
     }
