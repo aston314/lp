@@ -293,7 +293,7 @@
     }
 
     function subscribe() {
-      this.follow = function (type, listener) {
+      this.add = function (type, listener) {
         if (this._listeners === undefined) this._listeners = {};
         var listeners = this._listeners;
 
@@ -304,6 +304,14 @@
         if (listeners[type].indexOf(listener) === -1) {
           listeners[type].push(listener);
         }
+      };
+
+      this.follow = function (type, listener) {
+        var _this = this;
+
+        type.split(',').forEach(function (name) {
+          _this.add(name, listener);
+        });
       };
 
       this.has = function (type, listener) {
@@ -633,7 +641,7 @@
 
     var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fade out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Fade out cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">Card view type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">As the feed scrolls, the cards will be loaded gradually or all will be loaded</div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thereby, you agree to take full responsibility for using public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site with which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">Method of parsing the site TorLook</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>B {q} the site will be delivered w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thereby, you agree to take full responsibility for the use of public links for viewing torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site with which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">Method of parsing the site TorLook</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>B {q} the site will be delivered w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
     var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify an additional link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use built-in TorrServe JS client, otherwise the system client starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorize</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Login by password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
@@ -705,7 +713,7 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure in response has a line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure in response has line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure there is a code in the response <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
@@ -948,34 +956,27 @@
     var reqCallback = {};
 
     function exit() {
-      if (Storage.field('platform') == 'android') navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
+      if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
     }
 
     function playHash(SERVER) {
       var magnet = "magnet:?xt=urn:btih:" + SERVER.hash;
-      var intentExtra = "";
 
-      if (SERVER.movie) {
-        intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
-          poster: SERVER.movie.img,
-          action: "play",
-          data: {
-            lampa: true,
-            movie: SERVER.movie
-          }
-        };
-      }
-      else {
-        intentExtra = {
-          action: "play",
-          data: {
-            lampa: true
-          }
-        };
-      }
+      if (checkVersion(10)) {
+        var intentExtra = "";
 
-      window.plugins.intentShim.startActivity(
+        if (SERVER.movie) {
+          intentExtra = {
+            title: "[LAMPA] " + SERVER.movie.title,
+            poster: SERVER.movie.img,
+            data: {
+              lampa: true,
+              movie: SERVER.movie
+            }
+          };
+        }
+
+        window.plugins.intentShim.startActivity(
       {
           action: window.plugins.intentShim.ACTION_VIEW,
           url: magnet,
@@ -985,10 +986,13 @@
       function() {console.log('Failed to open magnet URL via Android Intent')}
       );
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
+      } else {
+        $('<a href="' + magnet + '"/>')[0].click();
+      }
     }
 
     function openTorrent(SERVER) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         var intentExtra = {
           title: "[LAMPA]" + SERVER.object.Title,
           poster: SERVER.object.poster,
@@ -1013,7 +1017,7 @@
     }
 
     function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : link,
@@ -1028,23 +1032,23 @@
     }
 
     function openYoutube(link) {
-      window.plugins.intentShim.startActivity({
+      if (checkVersion(15)) window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : "https://www.youtube.com/watch?v=" +link
         }, function() {
         }, function() {
           console.log("Failed to open Youtube URL via Android Intent");
-        });
+        });else $('<a href="' + link + '"><a/>')[0].click();
     }
 
     function resetDefaultPlayer() {
-      //AndroidJS.clearDefaultPlayer();
+      //if (checkVersion(15)) AndroidJS.clearDefaultPlayer();
     }
 
     function httpReq(data, call) {
       var index = Math.floor(Math.random() * 5000);
       reqCallback[index] = call;
-      AndroidJS.httpReq(JSON.stringify(data), index);
+      if (checkVersion(16)) AndroidJS.httpReq(JSON.stringify(data), index);
     }
 
     function httpCall(index, callback) {
@@ -1064,6 +1068,23 @@
       }
     }
 
+    function voiceStart() {
+      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Only works on Android TV");
+    }
+
+    function checkVersion(needVersion) {
+      if (Storage.field('platform') == 'android') {
+        var versionCode = 16;
+
+        if (parseInt(versionCode, 10) >= needVersion) {
+          return true;
+        } else {
+          Lampa.Noty.show("Please update the app. <br> Version required: " + needVersion + "<br>Current version: " + versionCode);
+          return false;
+        }
+      } else return false;
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
@@ -1072,7 +1093,8 @@
       openYoutube: openYoutube,
       resetDefaultPlayer: resetDefaultPlayer,
       httpReq: httpReq,
-      httpCall: httpCall
+      httpCall: httpCall,
+      voiceStart: voiceStart
     };
 
     function create$q() {
@@ -1543,6 +1565,11 @@
         }
 
         save$2();
+      } else {
+        listener$b.send('added', {
+          where: where,
+          card: card
+        });
       }
     }
     /**
@@ -2278,7 +2305,7 @@
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
         if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
-        if (tv.length > 0) knownFor["".concat(actorGender, " - Series")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+        if (tv.length > 0) knownFor["".concat(actorGender, " - TV Shows")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
@@ -2642,30 +2669,32 @@
         if (element) {
           var blocks = json.element.collectionItems.items;
 
-          if (blocks[0] && blocks[0].element.collectionItems.items) {
-            var slides = {
-              title: 'New items',
-              results: [],
-              wide: true
-            };
-            blocks[0].element.collectionItems.items.forEach(function (elem) {
-              slides.results.push(tocard$1(elem.element));
-            });
-            fulldata.push(slides);
-          }
-
-          if (blocks[1] && blocks[1].element.collectionItems.items) {
-            blocks[1].element.collectionItems.items.forEach(function (block) {
-              var line = {
-                title: block.element.name,
-                url: block.element.alias,
-                results: [],
-                more: true
-              };
-              block.element.collectionItems.items.forEach(function (elem) {
-                line.results.push(tocard$1(elem.element));
-              });
-              fulldata.push(line);
+          if (blocks) {
+            blocks.forEach(function (el) {
+              if (el.element && el.element.alias === "web_featured") {
+                var slides = {
+                  title: 'New items',
+                  results: [],
+                  wide: true
+                };
+                el.element.collectionItems.items.forEach(function (elem) {
+                  slides.results.push(tocard$1(elem.element));
+                });
+                fulldata.push(slides);
+              } else if (el.element && el.element.alias === "short_web_categories") {
+                el.element.collectionItems.items.forEach(function (block) {
+                  var line = {
+                    title: block.element.name,
+                    url: block.element.alias,
+                    results: [],
+                    more: true
+                  };
+                  block.element.collectionItems.items.forEach(function (elem) {
+                    line.results.push(tocard$1(elem.element));
+                  });
+                  fulldata.push(line);
+                });
+              }
             });
           }
         }
@@ -3272,7 +3301,7 @@
       collections$1({
         id: '1327'
       }, function (json) {
-        append('Adventure comedy', '4', '1327', {
+        append('Adventure comedies', '4', '1327', {
           results: json
         });
       });
@@ -9381,6 +9410,7 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
+        over: true,
         step: 250
       });
       var items = [];
@@ -11856,7 +11886,7 @@
       } else {
         push({
           url: '',
-          title: 'Home',
+          title: 'Home -' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -12604,7 +12634,7 @@
       'inner': 'Built-in'
     }, 'inner');
     select('torrserver_use_link', {
-      'one': 'Main',
+      'one': 'Primary',
       'two': 'Secondary'
     }, 'one');
     select('subtitles_size', {
@@ -12956,7 +12986,7 @@
         if (action == 'movie' || action == 'tv' || action == 'anime') {
           Activity$1.push({
             url: action,
-            title: action == 'movie' ? 'Movies' : action == 'anime' ? 'Anime' : 'Series',
+            title: (action == 'movie' ? 'Movies' : action == 'anime' ? 'Anime' : 'Series') + ' - ' + Storage.field('source').toUpperCase(),
             component: 'category',
             source: action == 'anime' ? 'cub' : Storage.field('source')
           });
@@ -12965,7 +12995,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: 'Main',
+            title: 'Home -' + Storage.field('source').toUpperCase(),
             component: 'main',
             source: Storage.field('source')
           });
@@ -13028,7 +13058,7 @@
               Activity$1.push({
                 url: '',
                 source: a.source,
-                title: 'Collections -' + a.title,
+                title: a.title,
                 component: 'collections',
                 page: 1
               });
@@ -13082,7 +13112,7 @@
             var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
             Activity$1.push({
               url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-              title: a.title,
+              title: 'Catalog -' + a.title + ' - ' + Storage.field('source').toUpperCase(),
               component: tmdb ? 'category' : 'category_full',
               genres: a.id,
               id: a.id,
@@ -13864,7 +13894,7 @@
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('Synchronized');
-          desc.text(time.full + 'in' + time.time);
+          desc.text(time.full + 'to' + time.time);
         }
       }
     }
@@ -14145,7 +14175,7 @@
         });
       }
 
-      Favorite.listener.follow('add', function (e) {
+      Favorite.listener.follow('add,added', function (e) {
         if (e.where == 'history' && e.card.id) {
           $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
         }

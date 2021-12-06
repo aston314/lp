@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
 
@@ -1070,19 +1069,17 @@
     }
 
     function voiceStart() {
-      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("只适用于 Android TV");
     }
 
     function checkVersion(needVersion) {
       if (Storage.field('platform') == 'android') {
-        //var current = AndroidJS.appVersion().split('-');
-        //var versionCode = current.pop();
         var versionCode = 16;
 
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;
         } else {
-          Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
+          Lampa.Noty.show("请更新应用程序。<br>需要Android版本: " + needVersion + "<br>当前版本: " + versionCode);
           return false;
         }
       } else return false;

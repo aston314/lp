@@ -293,7 +293,7 @@
     }
 
     function subscribe() {
-      this.follow = function (type, listener) {
+      this.add = function (type, listener) {
         if (this._listeners === undefined) this._listeners = {};
         var listeners = this._listeners;
 
@@ -304,6 +304,14 @@
         if (listeners[type].indexOf(listener) === -1) {
           listeners[type].push(listener);
         }
+      };
+
+      this.follow = function (type, listener) {
+        var _this = this;
+
+        type.split(',').forEach(function (name) {
+          _this.add(name, listener);
+        });
       };
 
       this.has = function (type, listener) {
@@ -948,34 +956,27 @@
     var reqCallback = {};
 
     function exit() {
-      if (Storage.field('platform') == 'android') navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
+      if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
     }
 
     function playHash(SERVER) {
       var magnet = "magnet:?xt=urn:btih:" + SERVER.hash;
-      var intentExtra = "";
 
-      if (SERVER.movie) {
-        intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
-          poster: SERVER.movie.img,
-          action: "play",
-          data: {
-            lampa: true,
-            movie: SERVER.movie
-          }
-        };
-      }
-      else {
-        intentExtra = {
-          action: "play",
-          data: {
-            lampa: true
-          }
-        };
-      }
+      if (checkVersion(10)) {
+        var intentExtra = "";
 
-      window.plugins.intentShim.startActivity(
+        if (SERVER.movie) {
+          intentExtra = {
+            title: "[LAMPA] " + SERVER.movie.title,
+            poster: SERVER.movie.img,
+            data: {
+              lampa: true,
+              movie: SERVER.movie
+            }
+          };
+        }
+
+        window.plugins.intentShim.startActivity(
       {
           action: window.plugins.intentShim.ACTION_VIEW,
           url: magnet,
@@ -985,10 +986,13 @@
       function() {console.log('Failed to open magnet URL via Android Intent')}
       );
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
+      } else {
+        $('<a href="' + magnet + '"/>')[0].click();
+      }
     }
 
     function openTorrent(SERVER) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         var intentExtra = {
           title: "[LAMPA]" + SERVER.object.Title,
           poster: SERVER.object.poster,
@@ -1013,7 +1017,7 @@
     }
 
     function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : link,
@@ -1028,23 +1032,23 @@
     }
 
     function openYoutube(link) {
-      window.plugins.intentShim.startActivity({
+      if (checkVersion(15)) window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : "https://www.youtube.com/watch?v=" +link
         }, function() {
         }, function() {
           console.log("Failed to open Youtube URL via Android Intent");
-        });
+        });else $('<a href="' + link + '"><a/>')[0].click();
     }
 
     function resetDefaultPlayer() {
-      //AndroidJS.clearDefaultPlayer();
+      if (checkVersion(15)) //AndroidJS.clearDefaultPlayer();
     }
 
     function httpReq(data, call) {
       var index = Math.floor(Math.random() * 5000);
       reqCallback[index] = call;
-      AndroidJS.httpReq(JSON.stringify(data), index);
+      if (checkVersion(16)) AndroidJS.httpReq(JSON.stringify(data), index);
     }
 
     function httpCall(index, callback) {
@@ -1064,6 +1068,24 @@
       }
     }
 
+    function voiceStart() {
+      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+    }
+
+    function checkVersion(needVersion) {
+      if (Storage.field('platform') == 'android') {
+        var current = AndroidJS.appVersion().split('-');
+        var versionCode = current.pop();
+
+        if (parseInt(versionCode, 10) >= needVersion) {
+          return true;
+        } else {
+          Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
+          return false;
+        }
+      } else return false;
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
@@ -1072,7 +1094,8 @@
       openYoutube: openYoutube,
       resetDefaultPlayer: resetDefaultPlayer,
       httpReq: httpReq,
-      httpCall: httpCall
+      httpCall: httpCall,
+      voiceStart: voiceStart
     };
 
     function create$q() {
@@ -1543,6 +1566,11 @@
         }
 
         save$2();
+      } else {
+        listener$b.send('added', {
+          where: where,
+          card: card
+        });
       }
     }
     /**
@@ -2642,30 +2670,32 @@
         if (element) {
           var blocks = json.element.collectionItems.items;
 
-          if (blocks[0] && blocks[0].element.collectionItems.items) {
-            var slides = {
-              title: 'Новинки',
-              results: [],
-              wide: true
-            };
-            blocks[0].element.collectionItems.items.forEach(function (elem) {
-              slides.results.push(tocard$1(elem.element));
-            });
-            fulldata.push(slides);
-          }
-
-          if (blocks[1] && blocks[1].element.collectionItems.items) {
-            blocks[1].element.collectionItems.items.forEach(function (block) {
-              var line = {
-                title: block.element.name,
-                url: block.element.alias,
-                results: [],
-                more: true
-              };
-              block.element.collectionItems.items.forEach(function (elem) {
-                line.results.push(tocard$1(elem.element));
-              });
-              fulldata.push(line);
+          if (blocks) {
+            blocks.forEach(function (el) {
+              if (el.element && el.element.alias === "web_featured") {
+                var slides = {
+                  title: 'Новинки',
+                  results: [],
+                  wide: true
+                };
+                el.element.collectionItems.items.forEach(function (elem) {
+                  slides.results.push(tocard$1(elem.element));
+                });
+                fulldata.push(slides);
+              } else if (el.element && el.element.alias === "short_web_categories") {
+                el.element.collectionItems.items.forEach(function (block) {
+                  var line = {
+                    title: block.element.name,
+                    url: block.element.alias,
+                    results: [],
+                    more: true
+                  };
+                  block.element.collectionItems.items.forEach(function (elem) {
+                    line.results.push(tocard$1(elem.element));
+                  });
+                  fulldata.push(line);
+                });
+              }
             });
           }
         }
@@ -9381,6 +9411,7 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
+        over: true,
         step: 250
       });
       var items = [];
@@ -11857,7 +11888,7 @@
       } else {
         push({
           url: '',
-          title: 'Главная',
+          title: 'Главная - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -12951,7 +12982,7 @@
         if (action == 'movie' || action == 'tv' || action == 'anime') {
           Activity$1.push({
             url: action,
-            title: action == 'movie' ? 'Фильмы' : action == 'anime' ? 'Аниме' : 'Сериалы',
+            title: (action == 'movie' ? 'Фильмы' : action == 'anime' ? 'Аниме' : 'Сериалы') + ' - ' + Storage.field('source').toUpperCase(),
             component: 'category',
             source: action == 'anime' ? 'cub' : Storage.field('source')
           });
@@ -12960,7 +12991,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: 'Главная',
+            title: 'Главная - ' + Storage.field('source').toUpperCase(),
             component: 'main',
             source: Storage.field('source')
           });
@@ -13023,7 +13054,7 @@
               Activity$1.push({
                 url: '',
                 source: a.source,
-                title: 'Подборки - ' + a.title,
+                title: a.title,
                 component: 'collections',
                 page: 1
               });
@@ -13077,7 +13108,7 @@
             var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
             Activity$1.push({
               url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-              title: a.title,
+              title: 'Каталог - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
               component: tmdb ? 'category' : 'category_full',
               genres: a.id,
               id: a.id,
@@ -14140,7 +14171,7 @@
         });
       }
 
-      Favorite.listener.follow('add', function (e) {
+      Favorite.listener.follow('add,added', function (e) {
         if (e.where == 'history' && e.card.id) {
           $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
         }
