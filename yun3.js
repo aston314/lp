@@ -53,7 +53,7 @@
             token = json.data[0].t;
             //console.log(token);
             if(object.movie.source == 'yyds'){
-                var getid = object.movie.id;
+                var getid = object.movie.yydsid;
                 //console.log(getid);
                 url = 'https://cmn.yyds.fans/api/post-info';
                 var jsonsearch = {
@@ -74,7 +74,7 @@
             {
               if (json.data.length !==0) {
                 if(object.movie.source == 'yyds'){
-                    var getid = object.movie.id;
+                    var getid = object.movie.yydsid;
                 }
                 else{
                     var getid = json.data[0].id;
