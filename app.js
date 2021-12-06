@@ -956,34 +956,27 @@
     var reqCallback = {};
 
     function exit() {
-      if (Storage.field('platform') == 'android') navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
+      if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
     }
 
     function playHash(SERVER) {
       var magnet = "magnet:?xt=urn:btih:" + SERVER.hash;
-      var intentExtra = "";
 
-      if (SERVER.movie) {
-        intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
-          poster: SERVER.movie.img,
-          action: "play",
-          data: {
-            lampa: true,
-            movie: SERVER.movie
-          }
-        };
-      }
-      else {
-        intentExtra = {
-          action: "play",
-          data: {
-            lampa: true
-          }
-        };
-      }
+      if (checkVersion(10)) {
+        var intentExtra = "";
 
-      window.plugins.intentShim.startActivity(
+        if (SERVER.movie) {
+          intentExtra = {
+            title: "[LAMPA] " + SERVER.movie.title,
+            poster: SERVER.movie.img,
+            data: {
+              lampa: true,
+              movie: SERVER.movie
+            }
+          };
+        }
+
+        window.plugins.intentShim.startActivity(
       {
           action: window.plugins.intentShim.ACTION_VIEW,
           url: magnet,
@@ -993,10 +986,13 @@
       function() {console.log('Failed to open magnet URL via Android Intent')}
       );
       //AndroidJS.openTorrentLink(magnet, JSON.stringify(intentExtra));
+      } else {
+        $('<a href="' + magnet + '"/>')[0].click();
+      }
     }
 
     function openTorrent(SERVER) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         var intentExtra = {
           title: "[LAMPA]" + SERVER.object.Title,
           poster: SERVER.object.poster,
@@ -1021,7 +1017,7 @@
     }
 
     function openPlayer(link, data) {
-      if (Storage.field('platform') == 'android') {
+      if (checkVersion(10)) {
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : link,
@@ -1036,23 +1032,23 @@
     }
 
     function openYoutube(link) {
-      window.plugins.intentShim.startActivity({
+      if (checkVersion(15)) window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : "https://www.youtube.com/watch?v=" +link
         }, function() {
         }, function() {
           console.log("Failed to open Youtube URL via Android Intent");
-        });
+        });else $('<a href="' + link + '"><a/>')[0].click();
     }
 
     function resetDefaultPlayer() {
-      //AndroidJS.clearDefaultPlayer();
+      //if (checkVersion(15)) AndroidJS.clearDefaultPlayer();
     }
 
     function httpReq(data, call) {
       var index = Math.floor(Math.random() * 5000);
       reqCallback[index] = call;
-      AndroidJS.httpReq(JSON.stringify(data), index);
+      if (checkVersion(16)) AndroidJS.httpReq(JSON.stringify(data), index);
     }
 
     function httpCall(index, callback) {
@@ -1072,6 +1068,25 @@
       }
     }
 
+    function voiceStart() {
+      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+    }
+
+    function checkVersion(needVersion) {
+      if (Storage.field('platform') == 'android') {
+        //var current = AndroidJS.appVersion().split('-');
+        //var versionCode = current.pop();
+        var current = device.version;
+
+        if (parseInt(versionCode, 10) >= needVersion) {
+          return true;
+        } else {
+          Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
+          return false;
+        }
+      } else return false;
+    }
+
     var Android = {
       exit: exit,
       openTorrent: openTorrent,
@@ -1080,7 +1095,8 @@
       openYoutube: openYoutube,
       resetDefaultPlayer: resetDefaultPlayer,
       httpReq: httpReq,
-      httpCall: httpCall
+      httpCall: httpCall,
+      voiceStart: voiceStart
     };
 
     function create$q() {
@@ -2785,30 +2801,32 @@
         if (element) {
           var blocks = json.element.collectionItems.items;
 
-          if (blocks[0] && blocks[0].element.collectionItems.items) {
-            var slides = {
-              title: 'New',
-              results: [],
-              wide: true
-            };
-            blocks[0].element.collectionItems.items.forEach(function (elem) {
-              slides.results.push(tocard$1(elem.element));
-            });
-            fulldata.push(slides);
-          }
-
-          if (blocks[1] && blocks[1].element.collectionItems.items) {
-            blocks[1].element.collectionItems.items.forEach(function (block) {
-              var line = {
-                title: block.element.name,
-                url: block.element.alias,
-                results: [],
-                more: true
-              };
-              block.element.collectionItems.items.forEach(function (elem) {
-                line.results.push(tocard$1(elem.element));
-              });
-              fulldata.push(line);
+          if (blocks) {
+            blocks.forEach(function (el) {
+              if (el.element && el.element.alias === "web_featured") {
+                var slides = {
+                  title: 'New',
+                  results: [],
+                  wide: true
+                };
+                el.element.collectionItems.items.forEach(function (elem) {
+                  slides.results.push(tocard$1(elem.element));
+                });
+                fulldata.push(slides);
+              } else if (el.element && el.element.alias === "short_web_categories") {
+                el.element.collectionItems.items.forEach(function (block) {
+                  var line = {
+                    title: block.element.name,
+                    url: block.element.alias,
+                    results: [],
+                    more: true
+                  };
+                  block.element.collectionItems.items.forEach(function (elem) {
+                    line.results.push(tocard$1(elem.element));
+                  });
+                  fulldata.push(line);
+                });
+              }
             });
           }
         }
@@ -4447,15 +4465,15 @@
         Select.show({
           title: 'Action',
           items: [{
-            title: status.book ? '从书签中移除' : '书签',
+            title: status.book ? '从书签中删除' : '书签',
             subtitle: '在菜单中查找（书签）',
             where: 'book'
           }, {
-            title: status.like ? '从收藏夹中移除' : '喜欢',
+            title: status.like ? '从收藏夹中删除' : '喜欢',
             subtitle: '在菜单中查找（Like）',
             where: 'like'
           }, {
-            title: status.wath ? '从预期中移除' : '稍后观看',
+            title: status.wath ? '从预期中删除' : '稍后观看',
             subtitle: '在菜单中查找（稍后）',
             where: 'wath'
           }],
