@@ -1076,7 +1076,7 @@
       if (Storage.field('platform') == 'android') {
         //var current = AndroidJS.appVersion().split('-');
         //var versionCode = current.pop();
-        var current = device.version;
+        var versionCode = 16;
 
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;
