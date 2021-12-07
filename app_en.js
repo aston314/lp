@@ -966,15 +966,24 @@
         var intentExtra = "";
 
         if (SERVER.movie) {
-          intentExtra = {
-            title: "[LAMPA] " + SERVER.movie.title,
-            poster: SERVER.movie.img,
-            data: {
-              lampa: true,
-              movie: SERVER.movie
-            }
-          };
-        }
+        intentExtra = {
+          title: "[LAMPA] " + SERVER.movie.title,
+          poster: SERVER.movie.img,
+          action: "play",
+          data: {
+            lampa: true,
+            movie: SERVER.movie
+          }
+        };
+      }
+      else {
+        intentExtra = {
+          action: "play",
+          data: {
+            lampa: true
+          }
+        };
+      }
 
         window.plugins.intentShim.startActivity(
       {
@@ -3301,7 +3310,7 @@
       collections$1({
         id: '1327'
       }, function (json) {
-        append('Adventure comedies', '4', '1327', {
+        append('Adventure comedy', '4', '1327', {
           results: json
         });
       });

@@ -966,15 +966,24 @@
         var intentExtra = "";
 
         if (SERVER.movie) {
-          intentExtra = {
-            title: "[LAMPA] " + SERVER.movie.title,
-            poster: SERVER.movie.img,
-            data: {
-              lampa: true,
-              movie: SERVER.movie
-            }
-          };
-        }
+        intentExtra = {
+          title: "[LAMPA] " + SERVER.movie.title,
+          poster: SERVER.movie.img,
+          action: "play",
+          data: {
+            lampa: true,
+            movie: SERVER.movie
+          }
+        };
+      }
+      else {
+        intentExtra = {
+          action: "play",
+          data: {
+            lampa: true
+          }
+        };
+      }
 
         window.plugins.intentShim.startActivity(
       {
@@ -13004,7 +13013,7 @@
 
 
     select('interface_size', {
-      'small': '更少',
+      'small': '更小',
       'normal': '正常'
     }, 'normal');
     select('parser_torrent_type', {
