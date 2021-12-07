@@ -649,6 +649,7 @@
         this.start = empty.start;
         this.activity.loader(false);
         this.activity.toggle();
+        scroll.append(empty);
       };
 
       this.buildFilterd = function (select_season) {

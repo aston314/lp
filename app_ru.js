@@ -1042,7 +1042,7 @@
     }
 
     function resetDefaultPlayer() {
-      if (checkVersion(15)) //AndroidJS.clearDefaultPlayer();
+      //if (checkVersion(15)) AndroidJS.clearDefaultPlayer();
     }
 
     function httpReq(data, call) {
@@ -1074,8 +1074,7 @@
 
     function checkVersion(needVersion) {
       if (Storage.field('platform') == 'android') {
-        var current = AndroidJS.appVersion().split('-');
-        var versionCode = current.pop();
+        var versionCode = 16;
 
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;

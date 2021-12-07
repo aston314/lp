@@ -729,7 +729,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有找到您的过滤器，请指定过滤器。</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有找到适合您的过滤器的内容，请指定过滤器。</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -1339,11 +1339,11 @@
         } else if (jqXHR.status == 500) {
           msg = '内部服务器错误。 [500]';
         } else if (exception === 'parsererror') {
-          msg = '请求的JSON解析失败。';
+          msg = '请求的JSON解析失败';
         } else if (exception === 'timeout') {
-          msg = '请求超时。';
+          msg = '请求超时';
         } else if (exception === 'abort') {
-          msg = '请求被中止。';
+          msg = '请求被中止';
         } else if (exception === 'custom') {
           msg = jqXHR.responseText;
         } else {
@@ -2803,7 +2803,7 @@
             blocks.forEach(function (el) {
               if (el.element && el.element.alias === "web_featured") {
                 var slides = {
-                  title: 'New',
+                  title: '新项目',
                   results: [],
                   wide: true
                 };
@@ -3678,10 +3678,10 @@
         append('最新添加', 's4', json);
       }, status.error.bind(status));
       get$5('?cat=' + params.url + '&sort=now', params, function (json) {
-        append('今年新', 's5', json);
+        append('今年新的', 's5', json);
       }, status.error.bind(status));
       get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
-        append('评分最高', 's6', json);
+        append('最受好评', 's6', json);
       }, status.error.bind(status));
     }
 
@@ -4461,17 +4461,17 @@
         var enabled = Controller.enabled().name;
         var status = Favorite.check(data);
         Select.show({
-          title: 'Action',
+          title: '动作',
           items: [{
-            title: status.book ? '从书签中删除' : '书签',
+            title: status.book ? '从书签中移除' : '书签',
             subtitle: '在菜单中查找（书签）',
             where: 'book'
           }, {
-            title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '在菜单中查找（Like）',
+            title: status.like ? '从收藏夹中移除' : '喜欢',
+            subtitle: '在菜单中查找（喜欢）',
             where: 'like'
           }, {
-            title: status.wath ? '从预期中删除' : '稍后观看',
+            title: status.wath ? '从预期中移除' : '稍后观看',
             subtitle: '在菜单中查找（稍后）',
             where: 'wath'
           }],
@@ -5814,7 +5814,7 @@
     function create$k() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       Arrays.extend(params, {
-        title: '这里是空的',
+        title: '此处为空',
         descr: '该列表目前为空'
       });
       var html = Template.get('empty', params);
@@ -11847,7 +11847,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: '更新 1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: '更新 1.2.2',
@@ -12808,7 +12808,7 @@
     function trigger(name, _default) {
       values[name] = {
         'true': '是',
-        'false': '不'
+        'false': 否
       };
       defaults[name] = _default;
     }
