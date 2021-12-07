@@ -1030,6 +1030,10 @@
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : link,
+          headers : {
+          'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36', 
+          'referrer' : 'https://www.aliyundrive.com/'
+        },
           type : "video/*"
         }, function() {
         }, function() {
