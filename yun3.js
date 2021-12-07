@@ -408,7 +408,6 @@
         this.start = empty.start;
         this.activity.loader(false);
         this.activity.toggle();
-        scroll.append(empty);
       };
 
       this.buildFilterd = function (select_season) {
@@ -659,18 +658,10 @@
         files.append(scroll.render());
       };
 
-/*       this.reset1 = function () {
-        last = false;
-        filter.render().detach();
-        scroll.clear();
-      }; */
-
       this.reset = function () {
         last = false;
-        scroll.render().find('.empty').remove();
         filter.render().detach();
         scroll.clear();
-        scroll.append(filter.render());
       };
 
       this.getFile = function (element, show_error) {

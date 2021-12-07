@@ -12808,7 +12808,7 @@
     function trigger(name, _default) {
       values[name] = {
         'true': '是',
-        'false': 否
+        'false': '否'
       };
       defaults[name] = _default;
     }
