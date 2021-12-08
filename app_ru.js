@@ -8456,6 +8456,10 @@
         $('.icon--wath', html).toggleClass('active', status.wath);
       };
 
+      this.toggleBackground = function () {
+        Background.immediately(Utils.cardImgBackground(data.movie));
+      };
+
       this.toggle = function () {
         var _this3 = this;
 
@@ -8947,6 +8951,7 @@
       };
 
       this.start = function () {
+        if (items.length) items[0].toggleBackground();
         Controller.add('content', {
           toggle: function toggle() {
             if (items.length) {
@@ -13324,7 +13329,8 @@
               if (data.movie && data.movie.results.length) _this.build(data.movie, 'movie');
               if (data.tv && data.tv.results.length) _this.build(data.tv, 'tv');
               if (data.parser && data.parser.results.length) _this.build(data.parser, 'parser');
-              if (Controller.enabled().name == 'items_line') Controller.toggle('search_results');
+              var name = Controller.enabled().name;
+              if (name == 'items_line' || name == 'search_results') Controller.toggle('search_results');
             });
           }, 1000);
         } else {
@@ -13453,6 +13459,7 @@
 
       this.clear = function () {
         scroll.reset();
+        scroll.append('<div class="selector" style="opacity: 0"></div>');
         active = 0;
         Arrays.destroy(items);
         items = [];
@@ -13636,7 +13643,7 @@
       keyboard = new create$4({
         layout: {
           'en': ['1 2 3 4 5 6 7 8 9 0', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {bksp}'],
-          'default': ['1 2 3 4 5 6 7 8 9 0', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {bksp}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{EN} {space} {bksp}']
         }
       });
       keyboard.create();
