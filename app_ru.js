@@ -5309,6 +5309,12 @@
           });
         };
 
+        if (params.card_events) {
+          for (var i in params.card_events) {
+            card[i] = params.card_events[i];
+          }
+        }
+
         scroll.append(card.render());
         items.push(card);
       };
@@ -13342,13 +13348,21 @@
         var _this2 = this;
 
         data.noimage = true;
-        var item = new create$m(data, {
+        var params = {
           align_left: true,
           object: {
             source: 'tmdb'
           },
           isparser: type == 'parser'
-        });
+        };
+
+        if (type == 'parser') {
+          params.card_events = {
+            onMenu: function onMenu() {}
+          };
+        }
+
+        var item = new create$m(data, params);
         item.onDown = this.down;
         item.onUp = this.up;
         item.onBack = this.back.bind(this);
