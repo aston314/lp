@@ -715,7 +715,7 @@
 
     var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure in response has a line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure that the response contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure there is a code in the response <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, what distribution and, if possible, a photo this distribution</li>\n        </ul>\n    </div>\n</div>";
 
@@ -3209,7 +3209,7 @@
         collections$1({
           id: '942'
         }, function (json) {
-          append('Best movies', 'best', '942', {
+          append('Best films', 'best', '942', {
             results: json
           });
         });
@@ -3310,7 +3310,7 @@
       collections$1({
         id: '1327'
       }, function (json) {
-        append('Adventure comedies', '4', '1327', {
+        append('Adventure comedy', '4', '1327', {
           results: json
         });
       });
@@ -11430,27 +11430,27 @@
       notices = [{
         time: '2021-11-25 13:00',
         title: 'Update 1.3.6',
-        descr: '1. Added new catalog CUB. \u003cbr\u003e 2. Changed release source, now even works in MSX. \u003cbr\u003e 3. Added anime category;)'
+        descr: 'one. Added new catalog CUB. \u003cbr\u003e 2. Changed release source, now even works in MSX. \u003cbr\u003e 3. Added anime category;)'
       }, {
         time: '2021-11-15 11:00',
         title: 'Update 1.3.5',
-        descr: '1. Added screensaver from Google ChromeCast. \u003cbr\u003e 2. Releases start immediately without searching. \u003cbr\u003e 3. The enter button has been removed from the keyboard. \u003cbr\u003e 4. The player has improved rewind and added buttons (to the end / to the beginning). \u003cbr\u003e 5. Added synchronization via gist.github.com service.'
+        descr: 'one. Added screensaver from Google ChromeCast. \u003cbr\u003e 2. Releases start immediately without searching. \u003cbr\u003e 3. The enter button has been removed from the keyboard. \u003cbr\u003e 4. The player has improved rewind and added buttons (to the end / to the beginning). \u003cbr\u003e 5. Added synchronization via gist.github.com service.'
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: '1. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
-        descr: '1. Added search for torrents. \u003cbr\u003e 2. Fixed loading the main with the selected source. \u003cbr\u003e 3. Added multiple choice in filter. \u003cbr\u003e 4. Added more choices for video scaling. \u003cbr\u003e 5. Other minor fixes.'
+        descr: 'one. Added search for torrents. \u003cbr\u003e 2. Fixed loading the main with the selected source. \u003cbr\u003e 3. Added multiple choice in filter. \u003cbr\u003e 4. Added more choices for video scaling. \u003cbr\u003e 5. Other minor fixes.'
       }, {
         time: '2021-10-25 15:00',
         title: 'Update 1.3.2',
-        descr: '1. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
+        descr: 'one. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
         title: 'Update 1.3.1',
-        descr: '1. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: 'Screensaver',
@@ -11458,7 +11458,7 @@
       }, {
         time: '2021-10-14 10:00',
         title: 'Update 1.2.6',
-        descr: '1. Fixed bug with deleting torrent. \u003cbr\u003e 2. Fixed time stamp. \u003cbr\u003e 3. Added visual for serials, torrent files show better episodes. \u003cbr\u003e 4. Other little things.'
+        descr: 'one. Fixed bug with deleting torrent. \u003cbr\u003e 2. Fixed time stamp. \u003cbr\u003e 3. Added visual for serials, torrent files show better episodes. \u003cbr\u003e 4. Other little things.'
       }, {
         time: '2021-10-12 19:10',
         title: 'Good to know',
@@ -11466,39 +11466,39 @@
       }, {
         time: '2021-10-12 19:00',
         title: 'Update 1.2.4',
-        descr: '1. Added menu (My torrents). \u003cbr\u003e 2. Updated filter and sorting in torrents. \u003cbr\u003e 3. Added a ribbon (New) in movies and TV series. \u003cbr\u003e 4. Fixed links for Torserver. \u003cbr\u003e 5. Added watch mark for TV series. \u003cbr\u003e 6. Fixed several bugs and errors.'
+        descr: 'one. Added menu (My torrents). \u003cbr\u003e 2. Updated filter and sorting in torrents. \u003cbr\u003e 3. Added a ribbon (New) in movies and TV series. \u003cbr\u003e 4. Fixed links for Torserver. \u003cbr\u003e 5. Added watch mark for TV series. \u003cbr\u003e 6. Fixed several bugs and errors.'
       }, {
         time: '2021-10-10 18:00',
         title: 'Update 1.2.3',
-        descr: '1. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: 'Update 1.2.2',
-        descr: '1. Added Tizen player \u003cbr\u003e 2. Added webOS player \u003cbr\u003e 3. Added torrent download statistics in the player. \u003cbr\u003e 4. Added a rewind bar in the player \u003cbr\u003e 5. Fixed blank posters for Torserver \u003cbr\u003e 6. Fixed other minor bugs and bugs'
+        descr: 'one. Added Tizen player \u003cbr\u003e 2. Added webOS player \u003cbr\u003e 3. Added torrent download statistics in the player. \u003cbr\u003e 4. Added a rewind bar in the player \u003cbr\u003e 5. Fixed blank posters for Torserver \u003cbr\u003e 6. Fixed other minor bugs and bugs'
       }, {
         time: '2021-10-07 17:00',
         title: 'Update 1.2.1',
-        descr: '1. Fixed bug with back button in MSX \u003cbr\u003e 2. Fixed bug with finding \u003cbr\u003e 3. Added filter in torrents \u003cbr\u003e 4. Player visually improved \u003cbr\u003e 5. Added performance settings \u003cbr\u003e 6. Fixed names in torrent files \u003cbr\u003e 7. Fixed bug with pause in the player \u003cbr\u003e 8. Fixed other minor bugs and bugs'
+        descr: 'one. Fixed bug with back button in MSX \u003cbr\u003e 2. Fixed bug with finding \u003cbr\u003e 3. Added filter in torrents \u003cbr\u003e 4. Player visually improved \u003cbr\u003e 5. Added performance settings \u003cbr\u003e 6. Fixed names in torrent files \u003cbr\u003e 7. Fixed bug with pause in the player \u003cbr\u003e 8. Fixed other minor bugs and bugs'
       }, {
         time: '2021-10-03 12:00',
         title: 'Update 1.0.10',
-        descr: '1. Improved loading of cards in small mode \u003cbr\u003e 2. Added logs, to view the logs, hover over the header and click up 10 times'
+        descr: 'one. Improved loading of cards in small mode \u003cbr\u003e 2. Added logs, to view the logs, hover over the header and click up 10 times'
       }, {
         time: '2021-10-01 09:00',
         title: 'Update 1.0.9',
-        descr: '1. Improved background in bookmarks and in the movie \u003cbr\u003e 2. Changed instructions \u003cbr\u003e 3. Completed plugin for Orsay'
+        descr: 'one. Improved background in bookmarks and in the movie \u003cbr\u003e 2. Changed instructions \u003cbr\u003e 3. Completed plugin for Orsay'
       }, {
         time: '2021-09-30 18:00',
         title: 'Update 1.0.8',
-        descr: '1. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed output for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
+        descr: 'one. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed output for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
       }, {
         time: '2021-09-29 17:00',
         title: 'Update 1.0.7',
-        descr: '1. Optimized home page and catalogs \u003cbr\u003e 2. Added authorization for TorServer \u003cbr\u003e 3. Added error hints in TorServer'
+        descr: 'one. Optimized home page and catalogs \u003cbr\u003e 2. Added authorization for TorServer \u003cbr\u003e 3. Added error hints in TorServer'
       }, {
         time: '2021-09-28 16:00',
         title: 'Fixes',
-        descr: '1. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
+        descr: 'one. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
       }, {
         time: '2021-09-27 15:00',
         title: 'Fixed parser',
@@ -14116,7 +14116,9 @@
       Api: Api,
       Cloud: Cloud,
       Settings: Settings,
-      Android: Android
+      Android: Android,
+      Card: create$o,
+      Info: create$l
     };
     Console.init();
 

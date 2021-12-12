@@ -143,6 +143,9 @@
       window.plugin_Rad_ready = true;
       Lampa.Component.add('Rad', Rad);
       var catalogs = [{
+        title: '国内电视台',
+        url: 'https://rentry.co/cniptv/raw'
+      },{
         title: 'Pluto.TV',
         url: 'https://rentry.co/PlutoTVjson/raw'
       },
