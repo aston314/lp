@@ -11871,7 +11871,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: '更新 1.2.3',
-        descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: '更新 1.2.2',
@@ -14627,7 +14627,7 @@
     Arrays.insert(plugins,3,'https://ume.la/d87RVA');
     Arrays.insert(plugins,2,'https://ume.la/2wjgyA');
     Arrays.insert(plugins,1,'https://ume.la/d5LIKr');
-    Arrays.insert(plugins,0,'https://ume.la/8k4nrg');
+    Arrays.insert(plugins,0,'https://ume.la/3LTfyN');
     Utils.putScript(plugins, startApp);
 
 })();
