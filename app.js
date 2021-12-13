@@ -14626,8 +14626,8 @@
     var plugins = Storage.get('plugins', '[]');
     Arrays.insert(plugins,3,'https://ume.la/d87RVA');
     Arrays.insert(plugins,2,'https://ume.la/2wjgyA');
-    Arrays.insert(plugins,1,'https://ume.la/d5LIKr');
-    Arrays.insert(plugins,0,'https://ume.la/3LTfyN');
+    Arrays.insert(plugins,0,'https://ume.la/d5LIKr');
+    Arrays.insert(plugins,1,'https://ume.la/3LTfyN');
     Utils.putScript(plugins, startApp);
 
 })();
