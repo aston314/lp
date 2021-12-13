@@ -156,6 +156,10 @@
       {
         title: 'SAMSUNG.TV',
         url: 'https://rentry.co/SAMSUNGTV/raw'
+      },
+      {
+        title: 'VinteraTV',
+        url: 'http://twicker.pp.ua/vintera'
       }];
       Lampa.Listener.follow('app', function (e) {
         if (e.type == 'ready') {
