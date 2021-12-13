@@ -135,7 +135,7 @@
                       });
                     },
                     onBack: function onBack() {
-                      Lampa.Controller.toggle('menu_rr');
+                      Lampa.Controller.toggle('menu');
                     }
                   });
             })), $(".menu .menu__list").eq(0).append(e)
