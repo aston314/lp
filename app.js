@@ -1355,11 +1355,11 @@
         } else if (jqXHR.status == 500) {
           msg = '内部服务器错误。 [500]';
         } else if (exception === 'parsererror') {
-          msg = '请求的JSON解析失败。';
+          msg = '请求的JSON解析失败';
         } else if (exception === 'timeout') {
-          msg = '请求超时。';
+          msg = '请求超时';
         } else if (exception === 'abort') {
-          msg = '请求被中止。';
+          msg = '请求被中止';
         } else if (exception === 'custom') {
           msg = jqXHR.responseText;
         } else {
@@ -2159,16 +2159,36 @@
       var account = Storage.get('account', '{}');
 
       if (account.token && Storage.field('account_use')) {
+        var list = Storage.get('account_bookmarks', '[]');
+        var find = list.find(function (elem) {
+          return elem.card_id == card.id && elem.type == type;
+        });
         network$a.clear();
         network$a.silent(api + 'bookmarks/' + method, update$7, false, {
           type: type,
-          data: JSON.stringify(card)
+          data: JSON.stringify(card),
+          card_id: card.id,
+          id: find ? find.id : 0
         }, {
           headers: {
             token: account.token,
             profile: account.profile.id
           }
         });
+
+        if (method == 'remove') {
+          if (find) Arrays.remove(list, find);
+        } else {
+          list.push({
+            id: 0,
+            card_id: card.id,
+            type: type,
+            data: JSON.stringify(card),
+            profile: account.profile.id
+          });
+        }
+
+        Storage.set('account_bookmarks', list);
       }
     }
 
@@ -2419,7 +2439,7 @@
 
     function toggle$7(where, card) {
       read$1();
-      var find = check(card);
+      var find = cloud(card);
       if (find[where]) remove$1(where, card);else add$7(where, card);
       return find[where] ? false : true;
     }
