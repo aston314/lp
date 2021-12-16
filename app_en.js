@@ -719,7 +719,7 @@
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>The ping request returned an invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the response contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not display a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -11862,7 +11862,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
@@ -11926,7 +11926,7 @@
       }, {
         time: '2021-09-27 15:00',
         title: 'Parser fixed',
-        descr: 'An error was detected in the parser due to which jac.red did not return results'
+        descr: 'An error was detected in the parser due to which jac.red did not produce results'
       }, {
         time: '2021-09-26 17:00',
         title: 'Welcome !',
@@ -12924,7 +12924,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check if plugin works, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -13425,6 +13425,36 @@
           Controller.toggle('content');
         }
       });
+      scroll$1.minus();
+      scroll$1.append(html$3);
+      Lampa.Listener.send('menu', {
+        type: 'end'
+      });
+      Controller.add('menu', {
+        toggle: function toggle() {
+          Controller.collectionSet(html$3);
+          Controller.collectionFocus(last, html$3);
+          $('body').toggleClass('menu--open', true);
+        },
+        right: function right() {
+          Controller.toggle('content');
+        },
+        up: function up() {
+          if (Navigator.canmove('up')) Navigator.move('up');else Controller.toggle('head');
+        },
+        down: function down() {
+          Navigator.move('down');
+        },
+        gone: function gone() {
+          $('body').toggleClass('menu--open', false);
+        },
+        back: function back() {
+          Activity$1.backward();
+        }
+      });
+    }
+
+    function ready() {
       html$3.find('.selector').on('hover:enter', function (e) {
         var action = $(e.target).data('action');
         var type = $(e.target).data('type');
@@ -13519,33 +13549,6 @@
         last = e.target;
         scroll$1.update($(e.target), true);
       });
-      scroll$1.minus();
-      scroll$1.append(html$3);
-      Lampa.Listener.send('menu', {
-        type: 'end'
-      });
-      Controller.add('menu', {
-        toggle: function toggle() {
-          Controller.collectionSet(html$3);
-          Controller.collectionFocus(last, html$3);
-          $('body').toggleClass('menu--open', true);
-        },
-        right: function right() {
-          Controller.toggle('content');
-        },
-        up: function up() {
-          if (Navigator.canmove('up')) Navigator.move('up');else Controller.toggle('head');
-        },
-        down: function down() {
-          Navigator.move('down');
-        },
-        gone: function gone() {
-          $('body').toggleClass('menu--open', false);
-        },
-        back: function back() {
-          Activity$1.backward();
-        }
-      });
     }
 
     function catalog() {
@@ -13581,7 +13584,8 @@
 
     var Menu = {
       render: render$1,
-      init: init$2
+      init: init$2,
+      ready: ready
     };
 
     function create$2() {
@@ -14492,6 +14496,7 @@
       Lampa.Listener.send('app', {
         type: 'ready'
       });
+      Menu.ready();
       window.appready = true; //пометка что уже загружено
     } // принудительно стартовать
 
