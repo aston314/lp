@@ -623,35 +623,37 @@
       removeNoIncludes: removeNoIncludes
     };
 
-    var html$17 = "<div class=\"head\">\n    <div class=\"head__body\">\n        <div class=\"head__logo-icon\">\n            <img src=\"./img/logo-icon.svg\" />\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__logo\">\n            <img src=\"./img/logo.svg\" />\n        </div>\n\n        <div class=\"head__title\">\n            \n        </div>\n        <div class=\"head__actions\">\n            <div class=\"head__action head__settings selector open--search\">\n                <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                    viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                            S326.847,409.323,225.474,409.323z\"/>\n                        <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--settings\">\n                <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                viewBox=\"0 0 368 368\" style=\"enable-background:new 0 0 368 368;\" xml:space=\"preserve\">\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M344,144h-29.952c-2.512-8.2-5.8-16.12-9.792-23.664l21.16-21.16c4.528-4.528,7.024-10.56,7.024-16.984\n                            c0-6.416-2.496-12.448-7.024-16.976l-22.64-22.64c-9.048-9.048-24.888-9.072-33.952,0l-21.16,21.16\n                            c-7.536-3.992-15.464-7.272-23.664-9.792V24c0-13.232-10.768-24-24-24h-32c-13.232,0-24,10.768-24,24v29.952\n                            c-8.2,2.52-16.12,5.8-23.664,9.792l-21.168-21.16c-9.36-9.36-24.592-9.36-33.952,0l-22.648,22.64\n                            c-9.352,9.36-9.352,24.592,0,33.952l21.16,21.168c-3.992,7.536-7.272,15.464-9.792,23.664H24c-13.232,0-24,10.768-24,24v32\n                            C0,213.232,10.768,224,24,224h29.952c2.52,8.2,5.8,16.12,9.792,23.664l-21.16,21.168c-9.36,9.36-9.36,24.592,0,33.952\n                            l22.64,22.648c9.36,9.352,24.592,9.352,33.952,0l21.168-21.16c7.536,3.992,15.464,7.272,23.664,9.792V344\n                            c0,13.232,10.768,24,24,24h32c13.232,0,24-10.768,24-24v-29.952c8.2-2.52,16.128-5.8,23.664-9.792l21.16,21.168\n                            c9.072,9.064,24.912,9.048,33.952,0l22.64-22.64c4.528-4.528,7.024-10.56,7.024-16.976c0-6.424-2.496-12.448-7.024-16.976\n                            l-21.16-21.168c3.992-7.536,7.272-15.464,9.792-23.664H344c13.232,0,24-10.768,24-24v-32C368,154.768,357.232,144,344,144z\n                                M352,200c0,4.408-3.584,8-8,8h-36c-3.648,0-6.832,2.472-7.744,6c-2.832,10.92-7.144,21.344-12.832,30.976\n                            c-1.848,3.144-1.344,7.144,1.232,9.72l25.44,25.448c1.504,1.504,2.336,3.512,2.336,5.664c0,2.152-0.832,4.16-2.336,5.664\n                            l-22.64,22.64c-3.008,3.008-8.312,3.008-11.328,0l-25.44-25.44c-2.576-2.584-6.576-3.08-9.728-1.232\n                            c-9.616,5.68-20.04,10-30.968,12.824c-3.52,0.904-5.992,4.088-5.992,7.736v36c0,4.408-3.584,8-8,8h-32c-4.408,0-8-3.592-8-8v-36\n                            c0-3.648-2.472-6.832-6-7.744c-10.92-2.824-21.344-7.136-30.976-12.824c-1.264-0.752-2.664-1.112-4.064-1.112\n                            c-2.072,0-4.12,0.8-5.664,2.344l-25.44,25.44c-3.128,3.12-8.2,3.12-11.328,0l-22.64-22.64c-3.128-3.128-3.128-8.208,0-11.328\n                            l25.44-25.44c2.584-2.584,3.088-6.584,1.232-9.72c-5.68-9.632-10-20.048-12.824-30.976c-0.904-3.528-4.088-6-7.736-6H24\n                            c-4.408,0-8-3.592-8-8v-32c0-4.408,3.592-8,8-8h36c3.648,0,6.832-2.472,7.744-6c2.824-10.92,7.136-21.344,12.824-30.976\n                            c1.856-3.144,1.352-7.144-1.232-9.72l-25.44-25.44c-3.12-3.12-3.12-8.2,0-11.328l22.64-22.64c3.128-3.128,8.2-3.12,11.328,0\n                            l25.44,25.44c2.584,2.584,6.576,3.096,9.72,1.232c9.632-5.68,20.048-10,30.976-12.824c3.528-0.912,6-4.096,6-7.744V24\n                            c0-4.408,3.592-8,8-8h32c4.416,0,8,3.592,8,8v36c0,3.648,2.472,6.832,6,7.744c10.928,2.824,21.352,7.144,30.968,12.824\n                            c3.152,1.856,7.152,1.36,9.728-1.232l25.44-25.44c3.016-3.024,8.32-3.016,11.328,0l22.64,22.64\n                            c1.504,1.504,2.336,3.52,2.336,5.664s-0.832,4.16-2.336,5.664l-25.44,25.44c-2.576,2.584-3.088,6.584-1.232,9.72\n                            c5.688,9.632,10,20.048,12.832,30.976c0.904,3.528,4.088,6,7.736,6h36c4.416,0,8,3.592,8,8V200z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M184,112c-39.696,0-72,32.304-72,72s32.304,72,72,72c39.704,0,72-32.304,72-72S223.704,112,184,112z M184,240\n                            c-30.88,0-56-25.12-56-56s25.12-56,56-56c30.872,0,56,25.12,56,56S214.872,240,184,240z\"/>\n                    </g>\n                </g>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--notice notice--icon\">\n                <svg enable-background=\"new 0 0 512 512\" height=\"512\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><g><path fill=\"currentColor\" d=\"m411 262.862v-47.862c0-69.822-46.411-129.001-110-148.33v-21.67c0-24.813-20.187-45-45-45s-45 20.187-45 45v21.67c-63.59 19.329-110 78.507-110 148.33v47.862c0 61.332-23.378 119.488-65.827 163.756-4.16 4.338-5.329 10.739-2.971 16.267s7.788 9.115 13.798 9.115h136.509c6.968 34.192 37.272 60 73.491 60 36.22 0 66.522-25.808 73.491-60h136.509c6.01 0 11.439-3.587 13.797-9.115s1.189-11.929-2.97-16.267c-42.449-44.268-65.827-102.425-65.827-163.756zm-170-217.862c0-8.271 6.729-15 15-15s15 6.729 15 15v15.728c-4.937-.476-9.94-.728-15-.728s-10.063.252-15 .728zm15 437c-19.555 0-36.228-12.541-42.42-30h84.84c-6.192 17.459-22.865 30-42.42 30zm-177.67-60c34.161-45.792 52.67-101.208 52.67-159.138v-47.862c0-68.925 56.075-125 125-125s125 56.075 125 125v47.862c0 57.93 18.509 113.346 52.671 159.138z\"/><path fill=\"currentColor\" d=\"m451 215c0 8.284 6.716 15 15 15s15-6.716 15-15c0-60.1-23.404-116.603-65.901-159.1-5.857-5.857-15.355-5.858-21.213 0s-5.858 15.355 0 21.213c36.831 36.831 57.114 85.8 57.114 137.887z\"/><path fill=\"currentColor\" d=\"m46 230c8.284 0 15-6.716 15-15 0-52.086 20.284-101.055 57.114-137.886 5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0-42.497 42.497-65.901 98.999-65.901 159.099 0 8.284 6.716 15 15 15z\"/></g></svg>\n            </div>\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__time\">\n            <div class=\"head__time-now time--clock\"></div>\n            <div>\n                <div class=\"head__time-date time--full\"></div>\n                <div class=\"head__time-week time--week\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
+    var html$18 = "<div class=\"head\">\n    <div class=\"head__body\">\n        <div class=\"head__logo-icon\">\n            <img src=\"./img/logo-icon.svg\" />\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__logo\">\n            <img src=\"./img/logo.svg\" />\n        </div>\n\n        <div class=\"head__title\">\n            \n        </div>\n        <div class=\"head__actions\">\n            <div class=\"head__action head__settings selector open--search\">\n                <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                    viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                            S326.847,409.323,225.474,409.323z\"/>\n                        <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--settings\">\n                <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                viewBox=\"0 0 368 368\" style=\"enable-background:new 0 0 368 368;\" xml:space=\"preserve\">\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M344,144h-29.952c-2.512-8.2-5.8-16.12-9.792-23.664l21.16-21.16c4.528-4.528,7.024-10.56,7.024-16.984\n                            c0-6.416-2.496-12.448-7.024-16.976l-22.64-22.64c-9.048-9.048-24.888-9.072-33.952,0l-21.16,21.16\n                            c-7.536-3.992-15.464-7.272-23.664-9.792V24c0-13.232-10.768-24-24-24h-32c-13.232,0-24,10.768-24,24v29.952\n                            c-8.2,2.52-16.12,5.8-23.664,9.792l-21.168-21.16c-9.36-9.36-24.592-9.36-33.952,0l-22.648,22.64\n                            c-9.352,9.36-9.352,24.592,0,33.952l21.16,21.168c-3.992,7.536-7.272,15.464-9.792,23.664H24c-13.232,0-24,10.768-24,24v32\n                            C0,213.232,10.768,224,24,224h29.952c2.52,8.2,5.8,16.12,9.792,23.664l-21.16,21.168c-9.36,9.36-9.36,24.592,0,33.952\n                            l22.64,22.648c9.36,9.352,24.592,9.352,33.952,0l21.168-21.16c7.536,3.992,15.464,7.272,23.664,9.792V344\n                            c0,13.232,10.768,24,24,24h32c13.232,0,24-10.768,24-24v-29.952c8.2-2.52,16.128-5.8,23.664-9.792l21.16,21.168\n                            c9.072,9.064,24.912,9.048,33.952,0l22.64-22.64c4.528-4.528,7.024-10.56,7.024-16.976c0-6.424-2.496-12.448-7.024-16.976\n                            l-21.16-21.168c3.992-7.536,7.272-15.464,9.792-23.664H344c13.232,0,24-10.768,24-24v-32C368,154.768,357.232,144,344,144z\n                                M352,200c0,4.408-3.584,8-8,8h-36c-3.648,0-6.832,2.472-7.744,6c-2.832,10.92-7.144,21.344-12.832,30.976\n                            c-1.848,3.144-1.344,7.144,1.232,9.72l25.44,25.448c1.504,1.504,2.336,3.512,2.336,5.664c0,2.152-0.832,4.16-2.336,5.664\n                            l-22.64,22.64c-3.008,3.008-8.312,3.008-11.328,0l-25.44-25.44c-2.576-2.584-6.576-3.08-9.728-1.232\n                            c-9.616,5.68-20.04,10-30.968,12.824c-3.52,0.904-5.992,4.088-5.992,7.736v36c0,4.408-3.584,8-8,8h-32c-4.408,0-8-3.592-8-8v-36\n                            c0-3.648-2.472-6.832-6-7.744c-10.92-2.824-21.344-7.136-30.976-12.824c-1.264-0.752-2.664-1.112-4.064-1.112\n                            c-2.072,0-4.12,0.8-5.664,2.344l-25.44,25.44c-3.128,3.12-8.2,3.12-11.328,0l-22.64-22.64c-3.128-3.128-3.128-8.208,0-11.328\n                            l25.44-25.44c2.584-2.584,3.088-6.584,1.232-9.72c-5.68-9.632-10-20.048-12.824-30.976c-0.904-3.528-4.088-6-7.736-6H24\n                            c-4.408,0-8-3.592-8-8v-32c0-4.408,3.592-8,8-8h36c3.648,0,6.832-2.472,7.744-6c2.824-10.92,7.136-21.344,12.824-30.976\n                            c1.856-3.144,1.352-7.144-1.232-9.72l-25.44-25.44c-3.12-3.12-3.12-8.2,0-11.328l22.64-22.64c3.128-3.128,8.2-3.12,11.328,0\n                            l25.44,25.44c2.584,2.584,6.576,3.096,9.72,1.232c9.632-5.68,20.048-10,30.976-12.824c3.528-0.912,6-4.096,6-7.744V24\n                            c0-4.408,3.592-8,8-8h32c4.416,0,8,3.592,8,8v36c0,3.648,2.472,6.832,6,7.744c10.928,2.824,21.352,7.144,30.968,12.824\n                            c3.152,1.856,7.152,1.36,9.728-1.232l25.44-25.44c3.016-3.024,8.32-3.016,11.328,0l22.64,22.64\n                            c1.504,1.504,2.336,3.52,2.336,5.664s-0.832,4.16-2.336,5.664l-25.44,25.44c-2.576,2.584-3.088,6.584-1.232,9.72\n                            c5.688,9.632,10,20.048,12.832,30.976c0.904,3.528,4.088,6,7.736,6h36c4.416,0,8,3.592,8,8V200z\"/>\n                    </g>\n                </g>\n                <g>\n                    <g>\n                        <path fill=\"currentColor\" d=\"M184,112c-39.696,0-72,32.304-72,72s32.304,72,72,72c39.704,0,72-32.304,72-72S223.704,112,184,112z M184,240\n                            c-30.88,0-56-25.12-56-56s25.12-56,56-56c30.872,0,56,25.12,56,56S214.872,240,184,240z\"/>\n                    </g>\n                </g>\n                </svg>\n            </div>\n\n            <div class=\"head__action selector open--notice notice--icon\">\n                <svg enable-background=\"new 0 0 512 512\" height=\"512\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><g><path fill=\"currentColor\" d=\"m411 262.862v-47.862c0-69.822-46.411-129.001-110-148.33v-21.67c0-24.813-20.187-45-45-45s-45 20.187-45 45v21.67c-63.59 19.329-110 78.507-110 148.33v47.862c0 61.332-23.378 119.488-65.827 163.756-4.16 4.338-5.329 10.739-2.971 16.267s7.788 9.115 13.798 9.115h136.509c6.968 34.192 37.272 60 73.491 60 36.22 0 66.522-25.808 73.491-60h136.509c6.01 0 11.439-3.587 13.797-9.115s1.189-11.929-2.97-16.267c-42.449-44.268-65.827-102.425-65.827-163.756zm-170-217.862c0-8.271 6.729-15 15-15s15 6.729 15 15v15.728c-4.937-.476-9.94-.728-15-.728s-10.063.252-15 .728zm15 437c-19.555 0-36.228-12.541-42.42-30h84.84c-6.192 17.459-22.865 30-42.42 30zm-177.67-60c34.161-45.792 52.67-101.208 52.67-159.138v-47.862c0-68.925 56.075-125 125-125s125 56.075 125 125v47.862c0 57.93 18.509 113.346 52.671 159.138z\"/><path fill=\"currentColor\" d=\"m451 215c0 8.284 6.716 15 15 15s15-6.716 15-15c0-60.1-23.404-116.603-65.901-159.1-5.857-5.857-15.355-5.858-21.213 0s-5.858 15.355 0 21.213c36.831 36.831 57.114 85.8 57.114 137.887z\"/><path fill=\"currentColor\" d=\"m46 230c8.284 0 15-6.716 15-15 0-52.086 20.284-101.055 57.114-137.886 5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0-42.497 42.497-65.901 98.999-65.901 159.099 0 8.284 6.716 15 15 15z\"/></g></svg>\n            </div>\n        </div>\n\n        <div class=\"head__split\"></div>\n\n        <div class=\"head__time\">\n            <div class=\"head__time-now time--clock\"></div>\n            <div>\n                <div class=\"head__time-date time--full\"></div>\n                <div class=\"head__time-week time--week\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-    var html$16 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
+    var html$17 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-    var html$15 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Collections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Anime</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+    var html$16 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">Home</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">Movies</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">Series</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Catalog</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">Collections</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Releases</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Anime</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">Bookmarks</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">Like</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">Later</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">History</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">Torrents</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">Settings</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">About the application</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
-    var html$14 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
+    var html$15 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
-    var html$13 = "<div class=\"activity layer--width\">\n    <div class=\"activity__body\"></div>\n    <div class=\"activity__loader\"></div>\n</div>";
+    var html$14 = "<div class=\"activity layer--width\">\n    <div class=\"activity__body\"></div>\n    <div class=\"activity__loader\"></div>\n</div>";
 
-    var html$12 = "<div class=\"scroll\">\n    <div class=\"scroll__content\">\n        <div class=\"scroll__body\">\n            \n        </div>\n    </div>\n</div>";
+    var html$13 = "<div class=\"scroll\">\n    <div class=\"scroll__content\">\n        <div class=\"scroll__body\">\n            \n        </div>\n    </div>\n</div>";
 
-    var html$11 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">Settings</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
+    var html$12 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">Settings</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
 
-    var html$10 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Interface</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Player</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Parser</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Plugins</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Sync</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Rest</div>\n    </div>\n    \n</div>";
+    var html$11 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Account</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Interface</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Player</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Parser</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Plugins</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">Synchronization</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">Rest</div>\n    </div>\n    \n</div>";
 
-    var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fade out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Fade out cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">Card view type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">As the feed scrolls, the cards will be loaded gradually or all will be loaded</div>\n    </div>\n</div>";
+    var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fade out</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Fade out cards from below and from above</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Scrolling type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">Card view type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">As the feed scrolls, the cards will be loaded gradually or all will be loaded</div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thereby, you agree to take full responsibility for using public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site with which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">Method of parsing the site TorLook</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>B {q} the site will be delivered w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
+    var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thereby, you agree to accept all responsibility for the use of public links for viewing torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Link to Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The site from which to parse</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">The method of parsing the TorLook site</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
-    var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify main link to TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify an additional link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Optional</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use built-in TorrServe JS client, otherwise the system client starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorize</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Login by password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the main link to the TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify an additional link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Additionally</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use built-in JS TorrServe client, otherwise the system will start</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for TorrServer preload buffer to fill before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">Reset player to default</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Resets the selected Android player in the application</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current episode ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use Border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use a matte</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on a translucent matte to improve readability</div>\n        </div>\n    </div>  \n</div>";
+    var html$Z = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">Reset default player</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Resets the selected Android player in the application</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when finished current</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use a matte</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on a translucent matte to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to store in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores pages in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In which language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Type screensavers</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To uninstall a plugin, hold down OK</div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove the plugin, hold down the OK button</div>\n    </div>\n</div>";
 
-    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Sync</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Sync gives you the ability to sync your bookmarks, browsing history, tags and timecodes. Instructions for connecting https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+    var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronization</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization enables sync your bookmarks, browsing history, tags and time codes. Instructions for connecting https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+
+    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">Synchronization</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization with the CUB service, synchronization of your bookmarks, browsing history, tags and time codes. Site: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>Account</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">Logged in as</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">Profile</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">Log out of account</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$U = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -713,11 +715,11 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current reply: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If the browser does not respond, check if TorrServe is running, or restart it.</li>\n            <li>If the browser responded, make sure in response has a line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Address is being used: <code>{ip}</code></li>\n            <li class=\"nocorect\">Current address <code>{ip}</code> is invalid !</li>\n            <li>Current answer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How is it correct ?</div>\n        <ul>\n            <li>Use the address: <code>192.168.0.xxx:8090</code></li>\n            <li>Use the Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>On the same device, open the browser and go to the address <code>{ip}/echo</code></li>\n            <li>If browser won't respond, check if TorrServe is running or restart it.</li>\n            <li>If the browser responded, make sure the response contains the line <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>Ping request returned invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open a browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure there is a code in the response <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>The ping request returned an invalid format</li>\n            <li>Response from TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>What to do ?</div>\n        <ul>\n            <li>Make sure you have Matrix version</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>How to check ?</div>\n        <ul>\n            <li>Open your browser and go to the address <code>{ip}/echo</code></li>\n            <li>Make sure the response contains the code <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, what distribution and, if possible, a photo this distribution</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>Reasons</div>\n        <ul>\n            <li>TorServer could not download the torrent file</li>\n            <li>Reply from TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Check if you have configured Jackett correctly</li>\n            <li>Private sources may not provide a link to the file</li>\n            <li>Make sure Jackett can download the file too</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What to do ?</div>\n        <ul>\n            <li>Write to our telegram group: @lampa_group</li>\n            <li>Indicate which movie, which distribution and, if possible, a photo of this distribution</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series - <b>{episode}</b> &nbsp;\u2022&nbsp; Season - <b>{season}</b> &nbsp;\u2022&nbsp; Exit - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -734,21 +736,22 @@
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
     var templates = {
-      head: html$17,
-      wrap: html$16,
-      menu: html$15,
-      activitys: html$14,
-      activity: html$13,
-      settings: html$11,
-      settings_main: html$10,
-      settings_interface: html$$,
-      settings_parser: html$_,
-      settings_server: html$Z,
-      settings_player: html$Y,
-      settings_more: html$X,
-      settings_plugins: html$W,
-      settings_cloud: html$V,
-      scroll: html$12,
+      head: html$18,
+      wrap: html$17,
+      menu: html$16,
+      activitys: html$15,
+      activity: html$14,
+      settings: html$12,
+      settings_main: html$11,
+      settings_interface: html$10,
+      settings_parser: html$$,
+      settings_server: html$_,
+      settings_player: html$Z,
+      settings_more: html$Y,
+      settings_plugins: html$X,
+      settings_cloud: html$W,
+      settings_account: html$V,
+      scroll: html$13,
       items_line: html$U,
       card: html$T,
       card_parser: html$S,
@@ -791,7 +794,7 @@
       screensaver: html$h
     };
 
-    function get$8(name) {
+    function get$9(name) {
       var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var tpl = templates[name];
@@ -816,7 +819,7 @@
     }
 
     var Template = {
-      get: get$8,
+      get: get$9,
       add: add$8,
       all: all
     };
@@ -932,7 +935,7 @@
     };
 
     var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
-        body$2 = html$g.find('.noty__text'),
+        body$3 = html$g.find('.noty__text'),
         time$1;
 
     function show$4(text) {
@@ -940,7 +943,7 @@
       time$1 = setTimeout(function () {
         html$g.removeClass('noty--visible');
       }, 3000);
-      body$2.html(text);
+      body$3.html(text);
       html$g.addClass('noty--visible');
     }
 
@@ -1539,220 +1542,6 @@
       };
     }
 
-    var data$1 = {};
-    var listener$b = start$4();
-
-    function save$2() {
-      Storage.set('favorite', data$1);
-    }
-    /**
-     * Add
-     * @param {String} where 
-     * @param {Object} card 
-     */
-
-
-    function add$7(where, card, limit) {
-      read$1();
-
-      if (data$1[where].indexOf(card.id) < 0) {
-        Arrays.insert(data$1[where], 0, card.id);
-        listener$b.send('add', {
-          where: where,
-          card: card
-        });
-        if (!search$3(card.id)) data$1.card.push(card);
-
-        if (limit) {
-          var excess = data$1[where].slice(limit);
-
-          for (var i = excess.length - 1; i >= 0; i--) {
-            remove$1(where, {
-              id: excess[i]
-            });
-          }
-        }
-
-        save$2();
-      } else {
-        listener$b.send('added', {
-          where: where,
-          card: card
-        });
-      }
-    }
-    /**
-     * Delete
-     * @param {String} where 
-     * @param {Object} card 
-     */
-
-
-    function remove$1(where, card) {
-      read$1();
-      Arrays.remove(data$1[where], card.id);
-      listener$b.send('remove', {
-        where: where,
-        card: card
-      });
-
-      for (var i = data$1.card.length - 1; i >= 0; i--) {
-        var element = data$1.card[i];
-
-        if (!check(element).any) {
-          Arrays.remove(data$1.card, element);
-          listener$b.send('remove', {
-            where: where,
-            card: element
-          });
-        }
-      }
-
-      save$2();
-    }
-    /**
-     * Найти
-     * @param {Int} id 
-     * @returns Object
-     */
-
-
-    function search$3(id) {
-      var found;
-
-      for (var index = 0; index < data$1.card.length; index++) {
-        var element = data$1.card[index];
-
-        if (element.id == id) {
-          found = element;
-          break;
-        }
-      }
-
-      return found;
-    }
-    /**
-     * Переключить
-     * @param {String} where 
-     * @param {Object} card 
-     */
-
-
-    function toggle$8(where, card) {
-      read$1();
-      var find = check(card);
-      if (find[where]) remove$1(where, card);else add$7(where, card);
-      return find[where] ? false : true;
-    }
-    /**
-     * Проверить
-     * @param {Object} card 
-     * @returns Object
-     */
-
-
-    function check(card) {
-      var result = {
-        like: data$1.like.indexOf(card.id) > -1,
-        wath: data$1.wath.indexOf(card.id) > -1,
-        book: data$1.book.indexOf(card.id) > -1,
-        history: data$1.history.indexOf(card.id) > -1,
-        any: true
-      };
-      if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
-      return result;
-    }
-    /**
-     * Получить списаок по типу
-     * @param {String} params.type - тип 
-     * @returns Object
-     */
-
-
-    function get$7(params) {
-      read$1();
-      var result = [];
-      var ids = data$1[params.type];
-      ids.forEach(function (id) {
-        for (var i = 0; i < data$1.card.length; i++) {
-          var card = data$1.card[i];
-          if (card.id == id) result.push(card);
-        }
-      });
-      return result;
-    }
-    /**
-     * Очистить
-     * @param {String} where 
-     * @param {Object} card 
-     */
-
-
-    function clear$6(where, card) {
-      read$1();
-      if (card) remove$1(where, card);else {
-        for (var i = data$1[where].length - 1; i >= 0; i--) {
-          var _card = search$3(data$1[where][i]);
-
-          if (_card) remove$1(where, _card);
-        }
-      }
-    }
-    /**
-     * Считать последние данные
-     */
-
-
-    function read$1() {
-      data$1 = Storage.get('favorite', '{}');
-      Arrays.extend(data$1, {
-        like: [],
-        wath: [],
-        book: [],
-        card: [],
-        history: []
-      });
-    }
-    /**
-     * Запуск
-     */
-
-
-    function init$e() {
-      read$1();
-    }
-
-    var Favorite = {
-      listener: listener$b,
-      check: check,
-      add: add$7,
-      remove: remove$1,
-      toggle: toggle$8,
-      get: get$7,
-      init: init$e,
-      clear: clear$6
-    };
-
-    function status$1(need) {
-      this.data = {};
-      this.work = 0;
-
-      this.check = function () {
-        if (this.work >= need) this.onComplite(this.data);
-      };
-
-      this.append = function (name, json) {
-        this.work++;
-        this.data[name] = json;
-        this.check();
-      };
-
-      this.error = function () {
-        this.work++;
-        this.check();
-      };
-    }
-
     function secondsToTime(sec, _short) {
       var sec_num = parseInt(sec, 10);
       var hours = Math.floor(sec_num / 3600);
@@ -2072,6 +1861,741 @@
       hash: hash$2
     };
 
+    function component$d(name) {
+      var scrl = new create$p({
+        mask: true,
+        over: true
+      });
+      var comp = Template.get('settings_' + name);
+      var last;
+
+      if (Storage.get('native')) {
+        comp.find('.is--torllok').remove();
+      }
+
+      if (!Platform.is('android')) {
+        comp.find('.is--android').remove();
+      }
+
+      if (!Platform.any()) {
+        comp.find('.is--player').remove();
+      }
+
+      if (!Platform.is('tizen')) {
+        comp.find('.is--has_subs').remove();
+      }
+
+      scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
+      comp.find('.selector').on('hover:focus', function (e) {
+        last = e.target;
+        scrl.update($(e.target), true);
+      });
+      Params.bind(comp.find('.selector'));
+      Controller.add('settings_component', {
+        toggle: function toggle() {
+          Controller.collectionSet(comp);
+          Controller.collectionFocus(last, comp);
+        },
+        up: function up() {
+          Navigator.move('up');
+        },
+        down: function down() {
+          Navigator.move('down');
+        },
+        back: function back() {
+          scrl.destroy();
+          comp.remove();
+          Controller.toggle('settings');
+        }
+      });
+
+      this.destroy = function () {
+        scrl.destroy();
+        comp.remove();
+        comp = null;
+      };
+
+      this.render = function () {
+        return scrl.render(comp);
+      };
+    }
+
+    function main$5() {
+      var _this = this;
+
+      var comp;
+      var scrl = new create$p({
+        mask: true,
+        over: true
+      });
+      var last;
+
+      this.create = function () {
+        comp = Template.get('settings_main');
+        comp.find('.selector').on('hover:focus', function (event) {
+          last = event.target;
+          scrl.update($(event.target), true);
+        }).on('hover:enter', function (event) {
+          _this.render().detach();
+
+          _this.onCreate($(event.target).data('component'));
+        });
+      };
+
+      this.active = function () {
+        Controller.collectionSet(comp);
+        Controller.collectionFocus(last, comp);
+      };
+
+      this.render = function () {
+        return scrl.render(comp);
+      };
+    }
+
+    var html$f = Template.get('settings');
+    var body$2 = html$f.find('.settings__body');
+    var listener$b = start$4();
+    var last$4 = '';
+    html$f.find('.settings__layer').on('click', function () {
+      window.history.back();
+    });
+
+    function create$o(name) {
+      var comp = new component$d(name);
+      body$2.empty().append(comp.render());
+      listener$b.send('open', {
+        name: name,
+        body: comp.render()
+      });
+      last$4 = name;
+      Controller.toggle('settings_component');
+    }
+
+    function init$f() {
+      var main = new main$5();
+      main.onCreate = create$o;
+      main.create();
+      Controller.add('settings', {
+        toggle: function toggle() {
+          listener$b.send('open', {
+            name: 'main',
+            body: main.render()
+          });
+          body$2.empty().append(main.render());
+          main.active();
+          $('body').toggleClass('settings--open', true);
+        },
+        up: function up() {
+          Navigator.move('up');
+        },
+        down: function down() {
+          Navigator.move('down');
+        },
+        left: function left() {
+          main.render().detach();
+          Controller.toggle('content');
+        },
+        gone: function gone(to) {
+          if (to !== 'settings_component') $('body').toggleClass('settings--open', false);
+        },
+        back: function back() {
+          main.render().detach();
+          Controller.toggle('head');
+        }
+      });
+    }
+
+    function update$8() {
+      create$o(last$4);
+    }
+
+    function render$c() {
+      return html$f;
+    }
+
+    var Settings = {
+      listener: listener$b,
+      init: init$f,
+      render: render$c,
+      update: update$8
+    };
+
+    var html$e = Template.get('selectbox');
+    var scroll$3 = new create$p({
+      mask: true,
+      over: true
+    });
+    var active$4;
+    html$e.find('.selectbox__body').append(scroll$3.render());
+    html$e.find('.selectbox__layer').on('click', function () {
+      window.history.back();
+    });
+    $('body').append(html$e);
+
+    function bind$3() {
+      scroll$3.clear();
+      html$e.find('.selectbox__title').text(active$4.title);
+      active$4.items.forEach(function (element) {
+        if (element.hide) return;
+        element.title = Utils.capitalizeFirstLetter(element.title || '');
+        var item = Template.get(element.template || 'selectbox_item', element);
+        if (!element.subtitle) item.find('.selectbox-item__subtitle').remove();
+
+        if (element.checkbox) {
+          item.addClass('selectbox-item--checkbox');
+          item.append('<div class="selectbox-item__checkbox"></div>');
+          if (element.checked) item.addClass('selectbox-item--checked');
+        }
+
+        if (!element.noenter) {
+          var goclose = function goclose() {
+            if (!active$4.nohide) hide$1();
+            if (active$4.onSelect) active$4.onSelect(element);
+          };
+
+          item.on('hover:enter', function () {
+            if (element.checkbox) {
+              element.checked = !element.checked;
+              item.toggleClass('selectbox-item--checked', element.checked);
+              if (active$4.onCheck) active$4.onCheck(element);
+            } else if (active$4.onBeforeClose) {
+              if (active$4.onBeforeClose()) goclose();
+            } else goclose();
+          }).on('hover:focus', function (e) {
+            scroll$3.update($(e.target), true);
+            if (active$4.onFocus) active$4.onFocus(element, e.target);
+          }).on('hover:long', function (e) {
+            if (active$4.onLong) active$4.onLong(element, e.target);
+          });
+        }
+
+        if (element.selected) item.addClass('selected');
+        scroll$3.append(item);
+      });
+    }
+
+    function show$3(object) {
+      active$4 = object;
+      bind$3();
+      $('body').toggleClass('selectbox--open', true);
+      html$e.find('.selectbox__body').addClass('layer--wheight').data('mheight', html$e.find('.selectbox__head'));
+      toggle$8();
+    }
+
+    function toggle$8() {
+      Controller.add('select', {
+        toggle: function toggle() {
+          var selected = scroll$3.render().find('.selected');
+          Controller.collectionSet(html$e);
+          Controller.collectionFocus(selected.length ? selected[0] : false, html$e);
+        },
+        up: function up() {
+          Navigator.move('up');
+        },
+        down: function down() {
+          Navigator.move('down');
+        },
+        back: close$2
+      });
+      Controller.toggle('select');
+    }
+
+    function hide$1() {
+      $('body').toggleClass('selectbox--open', false);
+    }
+
+    function close$2() {
+      hide$1();
+      if (active$4.onBack) active$4.onBack();
+    }
+
+    function render$b() {
+      return html$e;
+    }
+
+    var Select = {
+      show: show$3,
+      hide: hide$1,
+      close: close$2,
+      render: render$b
+    };
+
+    var body$1;
+    var network$a = new create$q();
+    var api = Utils.protocol() + 'cub.watch/api/';
+    /**
+     * Запуск
+     */
+
+    function init$e() {
+      Settings.listener.follow('open', function (e) {
+        body$1 = null;
+
+        if (e.name == 'account') {
+          body$1 = e.body;
+          renderPanel();
+          check$1();
+        }
+      });
+      Storage.listener.follow('change', function (e) {
+        if (e.name == 'account_email' || e.name == 'account_password') {
+          signin();
+          if (e.name == 'account_password') Storage.set('account_password', '', true);
+        }
+      });
+      Favorite.listener.follow('add,added', function (e) {
+        save$3('add', e.where, e.card);
+      });
+      Favorite.listener.follow('remove', function (e) {
+        save$3('remove', e.where, e.card);
+      });
+      update$7();
+    }
+
+    function save$3(method, type, card) {
+      var account = Storage.get('account', '{}');
+
+      if (account.token && Storage.field('account_use')) {
+        var list = Storage.get('account_bookmarks', '[]');
+        var find = list.find(function (elem) {
+          return elem.card_id == card.id && elem.type == type;
+        });
+        network$a.clear();
+        network$a.silent(api + 'bookmarks/' + method, update$7, false, {
+          type: type,
+          data: JSON.stringify(card),
+          card_id: card.id,
+          id: find ? find.id : 0
+        }, {
+          headers: {
+            token: account.token,
+            profile: account.profile.id
+          }
+        });
+
+        if (method == 'remove') {
+          if (find) Arrays.remove(list, find);
+        } else {
+          list.push({
+            id: 0,
+            card_id: card.id,
+            type: type,
+            data: JSON.stringify(card),
+            profile: account.profile.id
+          });
+        }
+
+        Storage.set('account_bookmarks', list);
+      }
+    }
+
+    function update$7() {
+      var account = Storage.get('account', '{}');
+
+      if (account.token) {
+        network$a.silent(api + 'bookmarks/all?full=1', function (result) {
+          if (result.secuses) {
+            Storage.set('account_bookmarks', result.bookmarks);
+          }
+        }, false, false, {
+          headers: {
+            token: account.token,
+            profile: account.profile.id
+          }
+        });
+      } else {
+        Storage.set('account_bookmarks', []);
+      }
+    }
+    /**
+     * Статус
+     */
+
+
+    function renderStatus$1(name) {
+      var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+      if (body$1) {
+        body$1.find('.settings--account-status .settings-param__value').text(name);
+        body$1.find('.settings--account-status .settings-param__descr').text(value);
+      }
+    }
+
+    function renderPanel() {
+      if (body$1) {
+        var account = Storage.get('account', '{}');
+        var signed = account.token ? true : false;
+        body$1.find('.settings--account-signin').toggleClass('hide', signed);
+        body$1.find('.settings--account-user').toggleClass('hide', !signed);
+
+        if (account.token) {
+          body$1.find('.settings--account-user-info .settings-param__value').text(account.email);
+          body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+          body$1.find('.settings--account-user-out').on('hover:enter', function () {
+            Storage.set('account', {});
+            Settings.update();
+            update$7();
+          });
+          profile();
+        } else check$1();
+      }
+    }
+
+    function profile() {
+      var account = Storage.get('account', '{}');
+      body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+      body$1.find('.settings--account-user-profile').on('hover:enter', function () {
+        network$a.clear();
+        network$a.silent(api + 'profiles/all', function (result) {
+          if (result.secuses) {
+            Select.show({
+              title: 'Profiles',
+              items: result.profiles.map(function (elem) {
+                elem.title = elem.name;
+                return elem;
+              }),
+              onSelect: function onSelect(a) {
+                account.profile = a;
+                Storage.set('account', account);
+                body$1.find('.settings--account-user-profile .settings-param__value').text(a.name);
+                Controller.toggle('settings_component');
+                update$7();
+              },
+              onBack: function onBack() {
+                Controller.toggle('settings_component');
+              }
+            });
+          } else {
+            Noty.show(result.text);
+          }
+        }, function () {
+          Noty.show('Failed to get the list of profiles');
+        }, false, {
+          headers: {
+            token: account.token
+          }
+        });
+      });
+    }
+
+    function check$1() {
+      var account = Storage.get('account', '{}');
+
+      if (account.token) {
+        renderStatus$1('Authorized', 'You are logged in with your account' + account.email);
+      } else {
+        renderStatus$1('Logged in failed', 'Waiting to log in to your account');
+      }
+    }
+
+    function working() {
+      return Storage.get('account', '{}').token && Storage.field('account_use');
+    }
+
+    function get$8(params) {
+      var rows = Storage.get('account_bookmarks', '[]');
+      return rows.reverse().filter(function (elem) {
+        return elem.type == params.type;
+      }).map(function (elem) {
+        return JSON.parse(elem.data);
+      });
+    }
+    /**
+     * Проверка авторизации
+     */
+
+
+    function signin() {
+      var email = Storage.get('account_email', '');
+      var password = Storage.get('account_password', '');
+
+      if (email && password) {
+        network$a.clear();
+        network$a.silent(api + 'users/signin', function (result) {
+          if (result.secuses) {
+            Storage.set('account', {
+              email: email,
+              token: result.user.token,
+              id: result.user.id,
+              profile: {
+                name: 'General',
+                id: 0
+              }
+            });
+            Settings.update();
+            update$7();
+          } else {
+            renderStatus$1('Error', result.text);
+          }
+        }, function () {
+          renderStatus$1('Error', 'No network connection');
+        }, {
+          email: email,
+          password: password
+        });
+      }
+    }
+
+    var Account = {
+      init: init$e,
+      working: working,
+      get: get$8
+    };
+
+    var data$1 = {};
+    var listener$a = start$4();
+
+    function save$2() {
+      Storage.set('favorite', data$1);
+    }
+    /**
+     * Add
+     * @param {String} where 
+     * @param {Object} card 
+     */
+
+
+    function add$7(where, card, limit) {
+      read$1();
+
+      if (data$1[where].indexOf(card.id) < 0) {
+        Arrays.insert(data$1[where], 0, card.id);
+        listener$a.send('add', {
+          where: where,
+          card: card
+        });
+        if (!search$3(card.id)) data$1.card.push(card);
+
+        if (limit) {
+          var excess = data$1[where].slice(limit);
+
+          for (var i = excess.length - 1; i >= 0; i--) {
+            remove$1(where, {
+              id: excess[i]
+            });
+          }
+        }
+
+        save$2();
+      } else {
+        listener$a.send('added', {
+          where: where,
+          card: card
+        });
+      }
+    }
+    /**
+     * Delete
+     * @param {String} where 
+     * @param {Object} card 
+     */
+
+
+    function remove$1(where, card) {
+      read$1();
+      Arrays.remove(data$1[where], card.id);
+      listener$a.send('remove', {
+        where: where,
+        card: card
+      });
+
+      for (var i = data$1.card.length - 1; i >= 0; i--) {
+        var element = data$1.card[i];
+
+        if (!check(element).any) {
+          Arrays.remove(data$1.card, element);
+          listener$a.send('remove', {
+            where: where,
+            card: element
+          });
+        }
+      }
+
+      save$2();
+    }
+    /**
+     * Найти
+     * @param {Int} id 
+     * @returns Object
+     */
+
+
+    function search$3(id) {
+      var found;
+
+      for (var index = 0; index < data$1.card.length; index++) {
+        var element = data$1.card[index];
+
+        if (element.id == id) {
+          found = element;
+          break;
+        }
+      }
+
+      return found;
+    }
+    /**
+     * Переключить
+     * @param {String} where 
+     * @param {Object} card 
+     */
+
+
+    function toggle$7(where, card) {
+      read$1();
+      var find = cloud(card);
+      if (find[where]) remove$1(where, card);else add$7(where, card);
+      return find[where] ? false : true;
+    }
+    /**
+     * Проверить
+     * @param {Object} card 
+     * @returns Object
+     */
+
+
+    function check(card) {
+      var result = {
+        like: data$1.like.indexOf(card.id) > -1,
+        wath: data$1.wath.indexOf(card.id) > -1,
+        book: data$1.book.indexOf(card.id) > -1,
+        history: data$1.history.indexOf(card.id) > -1,
+        any: true
+      };
+      if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
+      return result;
+    }
+
+    function cloud(card) {
+      if (Account.working()) {
+        var list = {
+          like: Account.get({
+            type: 'like'
+          }),
+          wath: Account.get({
+            type: 'wath'
+          }),
+          book: Account.get({
+            type: 'book'
+          }),
+          history: Account.get({
+            type: 'history'
+          })
+        };
+        var result = {
+          like: list.like.find(function (elem) {
+            return elem.id == card.id;
+          }) ? true : false,
+          wath: list.wath.find(function (elem) {
+            return elem.id == card.id;
+          }) ? true : false,
+          book: list.book.find(function (elem) {
+            return elem.id == card.id;
+          }) ? true : false,
+          history: list.history.find(function (elem) {
+            return elem.id == card.id;
+          }) ? true : false,
+          any: true
+        };
+        if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
+        return result;
+      } else return check(card);
+    }
+    /**
+     * Получить списаок по типу
+     * @param {String} params.type - тип 
+     * @returns Object
+     */
+
+
+    function get$7(params) {
+      if (Account.working()) {
+        return Account.get(params);
+      } else {
+        read$1();
+        var result = [];
+        var ids = data$1[params.type];
+        ids.forEach(function (id) {
+          for (var i = 0; i < data$1.card.length; i++) {
+            var card = data$1.card[i];
+            if (card.id == id) result.push(card);
+          }
+        });
+        return result;
+      }
+    }
+    /**
+     * Очистить
+     * @param {String} where 
+     * @param {Object} card 
+     */
+
+
+    function clear$6(where, card) {
+      read$1();
+      if (card) remove$1(where, card);else {
+        for (var i = data$1[where].length - 1; i >= 0; i--) {
+          var _card = search$3(data$1[where][i]);
+
+          if (_card) remove$1(where, _card);
+        }
+      }
+    }
+    /**
+     * Считать последние данные
+     */
+
+
+    function read$1() {
+      data$1 = Storage.get('favorite', '{}');
+      Arrays.extend(data$1, {
+        like: [],
+        wath: [],
+        book: [],
+        card: [],
+        history: []
+      });
+    }
+    /**
+     * Запуск
+     */
+
+
+    function init$d() {
+      read$1();
+    }
+
+    var Favorite = {
+      listener: listener$a,
+      check: cloud,
+      add: add$7,
+      remove: remove$1,
+      toggle: toggle$7,
+      get: get$7,
+      init: init$d,
+      clear: clear$6
+    };
+
+    function status$1(need) {
+      this.data = {};
+      this.work = 0;
+
+      this.check = function () {
+        if (this.work >= need) this.onComplite(this.data);
+      };
+
+      this.append = function (name, json) {
+        this.work++;
+        this.data[name] = json;
+        this.check();
+      };
+
+      this.error = function () {
+        this.work++;
+        this.check();
+      };
+    }
+
     var baseurl$3 = Utils.protocol() + 'api.themoviedb.org/3/';
     var baseimg = Utils.protocol() + 'image.tmdb.org/t/p/w300/';
     var network$9 = new create$q();
@@ -2125,7 +2649,7 @@
       return finded;
     }
 
-    function main$5() {
+    function main$4() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -2314,7 +2838,7 @@
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? 'Actress' : 'Actor';
         if (movie.length > 0) knownFor["".concat(actorGender, " - Films")] = movie;
-        if (tv.length > 0) knownFor["".concat(actorGender, " - TV Shows")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+        if (tv.length > 0) knownFor["".concat(actorGender, " - Series")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
         knownFor = Object.entries(knownFor).map(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
@@ -2420,7 +2944,7 @@
     }
 
     var TMDB = {
-      main: main$5,
+      main: main$4,
       menu: menu$4,
       img: img$3,
       full: full$4,
@@ -2670,7 +3194,7 @@
       }, onerror);
     }
 
-    function main$4(params, oncomplite, onerror) {
+    function main$3(params, oncomplite, onerror) {
       network$8["native"](baseurl$2 + 'mainpage/web/1', function (json) {
         var element = json.element;
         var fulldata = [];
@@ -2682,7 +3206,7 @@
             blocks.forEach(function (el) {
               if (el.element && el.element.alias === "web_featured") {
                 var slides = {
-                  title: 'New items',
+                  title: 'New',
                   results: [],
                   wide: true
                 };
@@ -2874,7 +3398,7 @@
     }
 
     var OKKO = {
-      main: main$4,
+      main: main$3,
       full: full$3,
       collections: collections$2,
       seasons: seasons$3,
@@ -3209,7 +3733,7 @@
         collections$1({
           id: '942'
         }, function (json) {
-          append('Best films', 'best', '942', {
+          append('Best movies', 'best', '942', {
             results: json
           });
         });
@@ -3231,7 +3755,7 @@
         collections$1({
           id: '1984'
         }, function (json) {
-          append('New', 'new', '1984', {
+          append('New items', 'new', '1984', {
             results: json
           });
         });
@@ -3245,7 +3769,7 @@
         collections$1({
           id: '935'
         }, function (json) {
-          append('Russians', 'rus', '935', {
+          append('Russian', 'rus', '935', {
             results: json
           });
         });
@@ -3266,7 +3790,7 @@
       }
     }
 
-    function main$3(params, oncomplite, onerror) {
+    function main$2(params, oncomplite, onerror) {
       var status = new status$1(13);
 
       status.onComplite = function () {
@@ -3317,7 +3841,7 @@
       collections$1({
         id: '1246'
       }, function (json) {
-        append('Films of detectives', '5', '1246', {
+        append('Films of detective stories', '5', '1246', {
           results: json
         });
       });
@@ -3366,7 +3890,7 @@
       collections$1({
         id: '4495'
       }, function (json) {
-        append('Foreign TV series', '12', '4495', {
+        append('Foreign series', '12', '4495', {
           results: json
         });
       });
@@ -3407,7 +3931,7 @@
     var IVI = {
       collections: collections$1,
       full: full$2,
-      main: main$3,
+      main: main$2,
       person: person$2,
       list: list$3,
       category: category$2,
@@ -3457,7 +3981,7 @@
       network$6.silent(u, oncomplite, onerror);
     }
 
-    function main$2() {
+    function main$1() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -3541,7 +4065,7 @@
       };
 
       get$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
-        append('Now watching', 's1', json);
+        append('Watching now', 's1', json);
       }, status.error.bind(status));
 
       if (params.url == 'tv') {
@@ -3602,7 +4126,7 @@
     }
 
     var CUB = {
-      main: main$2,
+      main: main$1,
       menu: menu$1,
       full: full$1,
       list: list$2,
@@ -3725,7 +4249,7 @@
           element.MagnetUri = 'magnet:' + math[1];
           oncomplite();
         } else {
-          onerror('Failed to get a magnet link');
+          onerror('Failed to get magnet link');
         }
       }, function (a, c) {
         onerror(network$5.errorDecode(a, c));
@@ -3758,7 +4282,7 @@
       return params.source ? sources[params.source] : sources.tmdb;
     }
 
-    function main$1() {
+    function main() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -3883,7 +4407,7 @@
     }
 
     var Api = {
-      main: main$1,
+      main: main,
       img: TMDB.img,
       full: full,
       list: list$1,
@@ -3901,107 +4425,7 @@
       collections: collections
     };
 
-    var html$f = Template.get('selectbox');
-    var scroll$3 = new create$p({
-      mask: true,
-      over: true
-    });
-    var active$4;
-    html$f.find('.selectbox__body').append(scroll$3.render());
-    html$f.find('.selectbox__layer').on('click', function () {
-      window.history.back();
-    });
-    $('body').append(html$f);
-
-    function bind$3() {
-      scroll$3.clear();
-      html$f.find('.selectbox__title').text(active$4.title);
-      active$4.items.forEach(function (element) {
-        if (element.hide) return;
-        element.title = Utils.capitalizeFirstLetter(element.title || '');
-        var item = Template.get(element.template || 'selectbox_item', element);
-        if (!element.subtitle) item.find('.selectbox-item__subtitle').remove();
-
-        if (element.checkbox) {
-          item.addClass('selectbox-item--checkbox');
-          item.append('<div class="selectbox-item__checkbox"></div>');
-          if (element.checked) item.addClass('selectbox-item--checked');
-        }
-
-        if (!element.noenter) {
-          var goclose = function goclose() {
-            if (!active$4.nohide) hide$1();
-            if (active$4.onSelect) active$4.onSelect(element);
-          };
-
-          item.on('hover:enter', function () {
-            if (element.checkbox) {
-              element.checked = !element.checked;
-              item.toggleClass('selectbox-item--checked', element.checked);
-              if (active$4.onCheck) active$4.onCheck(element);
-            } else if (active$4.onBeforeClose) {
-              if (active$4.onBeforeClose()) goclose();
-            } else goclose();
-          }).on('hover:focus', function (e) {
-            scroll$3.update($(e.target), true);
-            if (active$4.onFocus) active$4.onFocus(element, e.target);
-          }).on('hover:long', function (e) {
-            if (active$4.onLong) active$4.onLong(element, e.target);
-          });
-        }
-
-        if (element.selected) item.addClass('selected');
-        scroll$3.append(item);
-      });
-    }
-
-    function show$3(object) {
-      active$4 = object;
-      bind$3();
-      $('body').toggleClass('selectbox--open', true);
-      html$f.find('.selectbox__body').addClass('layer--wheight').data('mheight', html$f.find('.selectbox__head'));
-      toggle$7();
-    }
-
-    function toggle$7() {
-      Controller.add('select', {
-        toggle: function toggle() {
-          var selected = scroll$3.render().find('.selected');
-          Controller.collectionSet(html$f);
-          Controller.collectionFocus(selected.length ? selected[0] : false, html$f);
-        },
-        up: function up() {
-          Navigator.move('up');
-        },
-        down: function down() {
-          Navigator.move('down');
-        },
-        back: close$2
-      });
-      Controller.toggle('select');
-    }
-
-    function hide$1() {
-      $('body').toggleClass('selectbox--open', false);
-    }
-
-    function close$2() {
-      hide$1();
-      if (active$4.onBack) active$4.onBack();
-    }
-
-    function render$c() {
-      return html$f;
-    }
-
-    var Select = {
-      show: show$3,
-      hide: hide$1,
-      close: close$2,
-      render: render$c
-    };
-
-    function create$o(data) {
+    function create$n(data) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       Arrays.extend(data, {
         title: data.name,
@@ -4076,15 +4500,15 @@
           title: 'Action',
           items: [{
             title: status.book ? 'Remove from bookmarks' : 'Bookmark',
-            subtitle: 'Look in the menu (Bookmarks)',
+            subtitle: 'Look in the (Bookmarks) menu',
             where: 'book'
           }, {
             title: status.like ? 'Remove from favorites' : 'Like',
-            subtitle: 'Look in the menu (Like)',
+            subtitle: 'Look in the (Like) menu',
             where: 'like'
           }, {
             title: status.wath ? 'Remove from expected' : 'Watch later',
-            subtitle: 'Look in the menu (Later)',
+            subtitle: 'Look in the (Later) menu',
             where: 'wath'
           }],
           onBack: function onBack() {
@@ -4137,7 +4561,7 @@
       };
     }
 
-    function init$d() {
+    function init$c() {
       $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
@@ -4183,7 +4607,7 @@
 
     var Layer = {
       update: update$6,
-      init: init$d
+      init: init$c
     };
 
     /* eslint-disable no-bitwise -- used for calculations */
@@ -5028,15 +5452,15 @@
       rgbToHsl: rgbToHsl
     };
 
-    var html$e = $("\n    <div class=\"background\">\n        <canvas class=\"background__one\"></canvas>\n        <canvas class=\"background__two\"></canvas>\n    </div>\n");
+    var html$d = $("\n    <div class=\"background\">\n        <canvas class=\"background__one\"></canvas>\n        <canvas class=\"background__two\"></canvas>\n    </div>\n");
     var background = {
       one: {
-        canvas: $('.background__one', html$e),
-        ctx: $('.background__one', html$e)[0].getContext('2d')
+        canvas: $('.background__one', html$d),
+        ctx: $('.background__one', html$d)[0].getContext('2d')
       },
       two: {
-        canvas: $('.background__two', html$e),
-        ctx: $('.background__two', html$e)[0].getContext('2d')
+        canvas: $('.background__two', html$d),
+        ctx: $('.background__two', html$d)[0].getContext('2d')
       }
     };
     var view$1 = 'one';
@@ -5050,7 +5474,7 @@
     var timer$6;
 
     function bg() {
-      html$e.find('canvas').removeClass('visible');
+      html$d.find('canvas').removeClass('visible');
       view$1 = view$1 == 'one' ? 'two' : 'one';
       return background[view$1];
     }
@@ -5177,11 +5601,11 @@
       if (url) load();else draw(false, false, true);
     }
 
-    function render$b() {
-      return html$e;
+    function render$a() {
+      return html$d;
     }
 
-    function init$c() {
+    function init$b() {
       Storage.listener.follow('change', function (event) {
         if (event.name == 'background' || event.name == 'background_type') resize();
       });
@@ -5204,14 +5628,14 @@
     }
 
     var Background = {
-      render: render$b,
+      render: render$a,
       change: change,
       update: resize,
-      init: init$c,
+      init: init$b,
       immediately: immediately
     };
 
-    function create$n() {
+    function create$m() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var card = Template.get('more');
 
@@ -5239,7 +5663,7 @@
       };
     }
 
-    function create$m(data) {
+    function create$l(data) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var content = Template.get('items_line', {
         title: data.title
@@ -5274,7 +5698,7 @@
 
         if (element.ready) return;
         element.ready = true;
-        var card = new create$o(element, params);
+        var card = new create$n(element, params);
         card.create();
 
         card.onFocus = function (target, card_data) {
@@ -5322,7 +5746,7 @@
       this.more = function () {
         var _this2 = this;
 
-        more = new create$n(params);
+        more = new create$m(params);
         more.create();
 
         more.onFocus = function (target) {
@@ -5398,7 +5822,7 @@
       };
     }
 
-    function create$l() {
+    function create$k() {
       var html;
 
       this.create = function () {
@@ -5429,7 +5853,7 @@
       };
     }
 
-    function create$k() {
+    function create$j() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       Arrays.extend(params, {
         title: 'Empty here',
@@ -5468,7 +5892,7 @@
       };
     }
 
-    function component$d(object) {
+    function component$c(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -5485,7 +5909,7 @@
 
         this.activity.loader(true);
         Api.main(object, this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -5498,7 +5922,7 @@
 
       this.build = function (data) {
         lezydata = data;
-        info = new create$l();
+        info = new create$k();
         info.create();
         scroll.minus(info.render());
         html.append(info.render());
@@ -5511,7 +5935,7 @@
       this.append = function (element) {
         if (element.ready) return;
         element.ready = true;
-        var item = new create$m(element, {
+        var item = new create$l(element, {
           url: element.url,
           card_small: true,
           genres: object.genres,
@@ -5585,12 +6009,12 @@
     }
 
     var player;
-    var html$d;
+    var html$c;
     var timer$5;
 
-    function create$j(id) {
-      html$d = $('<div class="youtube-player"><div id="youtube-player"></div><div id="youtube-player__progress" class="youtube-player__progress"></div></div>');
-      $('body').append(html$d);
+    function create$i(id) {
+      html$c = $('<div class="youtube-player"><div id="youtube-player"></div><div id="youtube-player__progress" class="youtube-player__progress"></div></div>');
+      $('body').append(html$c);
       player = new YT.Player('youtube-player', {
         height: window.innerHeight,
         width: window.innerWidth,
@@ -5625,7 +6049,7 @@
     }
 
     function play$2(id) {
-      create$j(id);
+      create$i(id);
       Controller.add('youtube', {
         invisible: true,
         toggle: function toggle() {},
@@ -5649,15 +6073,15 @@
     function destroy$7() {
       clearTimeout(timer$5);
       player.destroy();
-      html$d.remove();
-      html$d = null;
+      html$c.remove();
+      html$c = null;
     }
 
     var YouTube = {
       play: play$2
     };
 
-    function create$i(call_video) {
+    function create$h(call_video) {
       var stream_url, loaded;
       var object = $('<object class="player-video_video" type="application/avplayer"</object>');
       var video = object[0];
@@ -5832,7 +6256,7 @@
         }
       });
       /**
-       * Audio Tracks
+       * Audio tracks
        */
 
       Object.defineProperty(video, "audioTracks", {
@@ -6086,7 +6510,7 @@
       return object;
     }
 
-    function create$h(object) {
+    function create$g(object) {
       this.state = object.state;
 
       this.start = function () {
@@ -6104,28 +6528,28 @@
       };
     }
 
-    var html$c = Template.get('player_panel');
-    var listener$a = start$4();
+    var html$b = Template.get('player_panel');
+    var listener$9 = start$4();
     var condition = {};
     var timer$4 = {};
     var tracks = [];
     var subs = [];
     var elems$1 = {
-      peding: $('.player-panel__peding', html$c),
-      position: $('.player-panel__position', html$c),
-      time: $('.player-panel__time', html$c),
-      timenow: $('.player-panel__timenow', html$c),
-      timeend: $('.player-panel__timeend', html$c),
-      title: $('.player-panel__filename', html$c),
-      tracks: $('.player-panel__tracks', html$c),
-      subs: $('.player-panel__subs', html$c)
+      peding: $('.player-panel__peding', html$b),
+      position: $('.player-panel__position', html$b),
+      time: $('.player-panel__time', html$b),
+      timenow: $('.player-panel__timenow', html$b),
+      timeend: $('.player-panel__timeend', html$b),
+      title: $('.player-panel__filename', html$b),
+      tracks: $('.player-panel__tracks', html$b),
+      subs: $('.player-panel__subs', html$b)
     };
     /**
      * Отсеживаем состояние, 
      * когда надо показать панель, а когда нет
      */
 
-    var state = new create$h({
+    var state = new create$g({
       state: 'start',
       transitions: {
         start: function start() {
@@ -6164,34 +6588,34 @@
         }
       }
     });
-    html$c.find('.selector').on('hover:focus', function (e) {
+    html$b.find('.selector').on('hover:focus', function (e) {
     });
-    html$c.find('.player-panel__playpause').on('hover:enter', function (e) {
-      listener$a.send('playpause', {});
+    html$b.find('.player-panel__playpause').on('hover:enter', function (e) {
+      listener$9.send('playpause', {});
     });
-    html$c.find('.player-panel__next').on('hover:enter', function (e) {
-      listener$a.send('next', {});
+    html$b.find('.player-panel__next').on('hover:enter', function (e) {
+      listener$9.send('next', {});
     });
-    html$c.find('.player-panel__prev').on('hover:enter', function (e) {
-      listener$a.send('prev', {});
+    html$b.find('.player-panel__prev').on('hover:enter', function (e) {
+      listener$9.send('prev', {});
     });
-    html$c.find('.player-panel__rprev').on('hover:enter', function (e) {
-      listener$a.send('rprev', {});
+    html$b.find('.player-panel__rprev').on('hover:enter', function (e) {
+      listener$9.send('rprev', {});
     });
-    html$c.find('.player-panel__rnext').on('hover:enter', function (e) {
-      listener$a.send('rnext', {});
+    html$b.find('.player-panel__rnext').on('hover:enter', function (e) {
+      listener$9.send('rnext', {});
     });
-    html$c.find('.player-panel__playlist').on('hover:enter', function (e) {
-      listener$a.send('playlist', {});
+    html$b.find('.player-panel__playlist').on('hover:enter', function (e) {
+      listener$9.send('playlist', {});
     });
-    html$c.find('.player-panel__tstart').on('hover:enter', function (e) {
-      listener$a.send('to_start', {});
+    html$b.find('.player-panel__tstart').on('hover:enter', function (e) {
+      listener$9.send('to_start', {});
     });
-    html$c.find('.player-panel__tend').on('hover:enter', function (e) {
-      listener$a.send('to_end', {});
+    html$b.find('.player-panel__tend').on('hover:enter', function (e) {
+      listener$9.send('to_end', {});
     });
-    html$c.find('.player-panel__timeline').attr('data-controller', 'player_rewind');
-    html$c.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
+    html$b.find('.player-panel__timeline').attr('data-controller', 'player_rewind');
+    html$b.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
     /**
      * Выбор аудиодорожки
      */
@@ -6258,7 +6682,7 @@
             });
             a.mode = 'showing';
             a.selected = true;
-            listener$a.send('subsview', {
+            listener$9.send('subsview', {
               status: a.index > -1
             });
             Controller.toggle(enabled.name);
@@ -6273,7 +6697,7 @@
      * Выбор масштаба видео
      */
 
-    html$c.find('.player-panel__size').on('hover:enter', function (e) {
+    html$b.find('.player-panel__size').on('hover:enter', function (e) {
       var select = Storage.get('player_size', 'default');
       var items = [{
         title: 'Default',
@@ -6282,7 +6706,7 @@
         selected: select == 'default'
       }, {
         title: 'Expand',
-        subtitle: 'Expand video to full screen',
+        subtitle: 'Extend video to full screen',
         value: 'cover',
         selected: select == 'cover'
       }];
@@ -6300,17 +6724,17 @@
           selected: select == 's115'
         }, {
           title: 'Zoom 130%',
-          subtitle: 'Zoom video 130%',
+          subtitle: 'Zoom video to 130%',
           value: 's130',
           selected: select == 's130'
         }, {
-          title: 'Vertical 115 %',
-          subtitle: 'Increase video by 115%',
+          title: 'Vertical 115%',
+          subtitle: 'Increase video 115%',
           value: 'v115',
           selected: select == 'v115'
         }, {
           title: 'Vertical 130%',
-          subtitle: 'Enlarge video by 130%',
+          subtitle: 'Increase video 130%',
           value: 'v130',
           selected: select == 'v130'
         }]);
@@ -6324,7 +6748,7 @@
         title: 'Video size',
         items: items,
         onSelect: function onSelect(a) {
-          listener$a.send('size', {
+          listener$9.send('size', {
             size: a.value
           });
           Controller.toggle('player_panel');
@@ -6369,11 +6793,11 @@
       }
 
       if (need == 'play') {
-        html$c.toggleClass('panel--paused', false);
+        html$b.toggleClass('panel--paused', false);
       }
 
       if (need == 'pause') {
-        html$c.toggleClass('panel--paused', true);
+        html$b.toggleClass('panel--paused', true);
       }
     }
     /**
@@ -6383,10 +6807,10 @@
 
 
     function _visible(status) {
-      listener$a.send('visible', {
+      listener$9.send('visible', {
         status: status
       });
-      html$c.toggleClass('panel--visible', status);
+      html$b.toggleClass('panel--visible', status);
     }
     /**
      * Можем играть, далее отслеживаем статус
@@ -6424,8 +6848,8 @@
       state.start();
       Controller.add('player_rewind', {
         toggle: function toggle() {
-          Controller.collectionSet(render$a());
-          Controller.collectionFocus(false, render$a());
+          Controller.collectionSet(render$9());
+          Controller.collectionFocus(false, render$9());
         },
         up: function up() {
           Controller.toggle('player');
@@ -6434,13 +6858,13 @@
           toggleButtons();
         },
         right: function right() {
-          listener$a.send('rnext', {});
+          listener$9.send('rnext', {});
         },
         left: function left() {
-          listener$a.send('rprev', {});
+          listener$9.send('rprev', {});
         },
         gone: function gone() {
-          html$c.find('.selector').removeClass('focus');
+          html$b.find('.selector').removeClass('focus');
         },
         back: function back() {
           Controller.toggle('player');
@@ -6449,8 +6873,8 @@
       });
       Controller.add('player_panel', {
         toggle: function toggle() {
-          Controller.collectionSet(render$a());
-          Controller.collectionFocus($('.player-panel__playpause', html$c)[0], render$a());
+          Controller.collectionSet(render$9());
+          Controller.collectionFocus($('.player-panel__playpause', html$b)[0], render$9());
         },
         up: function up() {
           toggleRewind();
@@ -6465,7 +6889,7 @@
           Controller.toggle('player');
         },
         gone: function gone() {
-          html$c.find('.selector').removeClass('focus');
+          html$b.find('.selector').removeClass('focus');
         },
         back: function back() {
           Controller.toggle('player');
@@ -6532,16 +6956,16 @@
       elems$1.timeend.text('00 00');
       elems$1.subs.toggleClass('hide', true);
       elems$1.tracks.toggleClass('hide', true);
-      html$c.toggleClass('panel--paused', false);
+      html$b.toggleClass('panel--paused', false);
     }
 
-    function render$a() {
-      return html$c;
+    function render$9() {
+      return html$b;
     }
 
     var Panel = {
-      listener: listener$a,
-      render: render$a,
+      listener: listener$9,
+      render: render$9,
       toggle: toggle$6,
       show: show$2,
       destroy: destroy$6,
@@ -6564,7 +6988,7 @@
       webOS.service.request("luna://com.webos.media", params);
     }
 
-    function create$g() {
+    function create$f() {
       var media_id;
       var subtitle_visible = false;
       var timer;
@@ -6782,11 +7206,11 @@
       };
     }
 
-    var listener$9 = start$4();
-    var html$b = Template.get('player_video');
-    var display = html$b.find('.player-video__display');
-    var paused = html$b.find('.player-video__paused');
-    var subtitles = html$b.find('.player-video__subtitles');
+    var listener$8 = start$4();
+    var html$a = Template.get('player_video');
+    var display = html$a.find('.player-video__display');
+    var paused = html$a.find('.player-video__paused');
+    var subtitles = html$a.find('.player-video__subtitles');
     var timer$3 = {};
     var rewind_position = 0;
     var rewind_force = 0;
@@ -6809,7 +7233,7 @@
       }); // видео закончилось
 
       video.addEventListener('ended', function () {
-        listener$9.send('ended', {});
+        listener$8.send('ended', {});
       }); // что-то пошло не так
 
       video.addEventListener('error', function (e) {
@@ -6818,15 +7242,15 @@
 
         if (msg.indexOf('EMPTY SRC') == -1) {
           if (error.code == 3) {
-            listener$9.send('error', {
-              error: 'Failed decode video'
+            listener$8.send('error', {
+              error: 'Video decoding failed'
             });
           } else if (error.code == 4) {
-            listener$9.send('error', {
+            listener$8.send('error', {
               error: 'Video not found or corrupted'
             });
           } else if (typeof error.code !== 'undefined') {
-            listener$9.send('error', {
+            listener$8.send('error', {
               error: 'code [' + error.code + '] details [' + msg + ']'
             });
           }
@@ -6835,7 +7259,7 @@
 
       video.addEventListener('progress', function (e) {
         if (e.percent) {
-          listener$9.send('progress', {
+          listener$8.send('progress', {
             down: e.percent
           });
         } else {
@@ -6845,7 +7269,7 @@
             for (var i = 0; i < video.buffered.length; i++) {
               if (video.buffered.start(video.buffered.length - 1 - i) < video.currentTime) {
                 var down = Math.max(0, Math.min(100, video.buffered.end(video.buffered.length - 1 - i) / duration * 100)) + "%";
-                listener$9.send('progress', {
+                listener$8.send('progress', {
                   down: down
                 });
                 break;
@@ -6856,11 +7280,11 @@
       }); // можно ли уже проигрывать?
 
       video.addEventListener('canplay', function () {
-        listener$9.send('canplay', {});
+        listener$8.send('canplay', {});
       }); // сколько прошло
 
       video.addEventListener('timeupdate', function () {
-        listener$9.send('timeupdate', {
+        listener$8.send('timeupdate', {
           duration: video.duration,
           current: video.currentTime
         });
@@ -6885,7 +7309,7 @@
         subtitles.children().html(e.text);
       });
       video.addEventListener('loadedmetadata', function (e) {
-        listener$9.send('videosize', {
+        listener$8.send('videosize', {
           width: video.videoWidth,
           height: video.videoHeight
         });
@@ -6983,7 +7407,7 @@
           tracks = new_tracks;
         }
 
-        listener$9.send('tracks', {
+        listener$8.send('tracks', {
           tracks: tracks
         });
       }
@@ -6999,7 +7423,7 @@
           subs = new_subs;
         }
 
-        listener$9.send('subs', {
+        listener$8.send('subs', {
           subs: subs
         });
       }
@@ -7038,12 +7462,12 @@
      */
 
 
-    function create$f() {
+    function create$e() {
       var videobox;
 
       if (Platform.is('tizen') && Storage.field('player') == 'tizen') {
         //if(true){
-        videobox = create$i(function (object) {
+        videobox = create$h(function (object) {
           video = object;
         });
       } else {
@@ -7055,16 +7479,16 @@
       display.append(videobox);
 
       if (Platform.is('webos') && !webos) {
-        webos = new create$g();
+        webos = new create$f();
 
         webos.callback = function () {
           var src = video.src;
           console.log('WebOS', 'video loaded');
           video.remove();
-          create$f();
+          create$e();
           webos.repet();
           url$2(src);
-          listener$9.send('reset_continue', {});
+          listener$8.send('reset_continue', {});
         };
 
         webos.start();
@@ -7080,7 +7504,7 @@
 
     function loader(status) {
       wait = status;
-      html$b.toggleClass('video--load', status);
+      html$a.toggleClass('video--load', status);
     }
     /**
      * Устанавливаем ссылку на видео
@@ -7090,7 +7514,7 @@
 
     function url$2(src) {
       loader(true);
-      create$f();
+      create$e();
       video.src = src;
       video.load();
       play$1();
@@ -7116,7 +7540,7 @@
       }
 
       paused.addClass('hide');
-      listener$9.send('play', {});
+      listener$8.send('play', {});
     }
     /**
      * Пауза
@@ -7139,7 +7563,7 @@
       }
 
       paused.removeClass('hide');
-      listener$9.send('pause', {});
+      listener$8.send('pause', {});
     }
     /**
      * Играем или пауза
@@ -7151,10 +7575,10 @@
 
       if (video.paused) {
         play$1();
-        listener$9.send('play', {});
+        listener$8.send('play', {});
       } else {
         pause();
-        listener$9.send('pause', {});
+        listener$8.send('pause', {});
       }
     }
     /**
@@ -7186,11 +7610,11 @@
       pause();
       if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
       timer$3.rewind = Date.now();
-      listener$9.send('timeupdate', {
+      listener$8.send('timeupdate', {
         duration: video.duration,
         current: rewind_position
       });
-      listener$9.send('rewind', {});
+      listener$8.send('rewind', {});
       rewindEnd(immediately);
     }
     /**
@@ -7267,14 +7691,14 @@
       loader(false);
     }
 
-    function render$9() {
-      return html$b;
+    function render$8() {
+      return html$a;
     }
 
     var Video = {
-      listener: listener$9,
+      listener: listener$8,
       url: url$2,
-      render: render$9,
+      render: render$8,
       destroy: destroy$5,
       playpause: playpause,
       rewind: rewind,
@@ -7285,18 +7709,18 @@
       to: to
     };
 
-    var html$a = Template.get('player_info');
-    var listener$8 = start$4();
+    var html$9 = Template.get('player_info');
+    var listener$7 = start$4();
     var network$3 = new create$q();
     var elems = {
-      name: $('.player-info__name', html$a),
-      size: $('.value--size span', html$a),
-      stat: $('.value--stat span', html$a),
-      speed: $('.value--speed span', html$a),
-      error: $('.player-info__error', html$a)
+      name: $('.player-info__name', html$9),
+      size: $('.value--size span', html$9),
+      stat: $('.value--stat span', html$9),
+      speed: $('.value--speed span', html$9),
+      error: $('.player-info__error', html$9)
     };
     var error, stat_timer;
-    Utils.time(html$a);
+    Utils.time(html$9);
     /**
      * Установить значение
      * @param {String} need 
@@ -7326,7 +7750,7 @@
       var update = function update() {
         // если панель скрыта, то зачем каждую секунду чекать? хватит и 5 сек
         // проверено, если ставить на паузу, разадача удаляется, но если чекать постоянно, то все норм
-        if (!html$a.hasClass('info--visible')) {
+        if (!html$9.hasClass('info--visible')) {
           wait++;
           if (wait <= 5) return;else wait = 0;
         }
@@ -7335,7 +7759,7 @@
         network$3.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
           elems.stat.text((data.active_peers || 0) + ' / ' + (data.total_peers || 0) + ' • ' + (data.connected_seeders || 0) + ' seeds');
           elems.speed.text(data.download_speed ? Utils.bytesToSize(data.download_speed * 8, true) + '/s' : '0.0');
-          listener$8.send('stat', {
+          listener$7.send('stat', {
             data: data
           });
         });
@@ -7351,7 +7775,7 @@
 
 
     function toggle$5(status) {
-      html$a.toggleClass('info--visible', status);
+      html$9.toggleClass('info--visible', status);
     }
     /**
      * Уничтожить
@@ -7368,19 +7792,19 @@
       network$3.clear();
     }
 
-    function render$8() {
-      return html$a;
+    function render$7() {
+      return html$9;
     }
 
     var Info = {
-      listener: listener$8,
-      render: render$8,
+      listener: listener$7,
+      render: render$7,
       set: set$2,
       toggle: toggle$5,
       destroy: destroy$4
     };
 
-    var listener$7 = start$4();
+    var listener$6 = start$4();
     var current = '';
     var playlist$1 = [];
     var position$1 = 0;
@@ -7396,7 +7820,7 @@
         items: playlist$1,
         onSelect: function onSelect(a) {
           Controller.toggle(enabled.name);
-          listener$7.send('select', {
+          listener$6.send('select', {
             item: a
           });
         },
@@ -7425,7 +7849,7 @@
       active$3();
 
       if (position$1 > 1) {
-        listener$7.send('select', {
+        listener$6.send('select', {
           item: playlist$1[position$1 - 1]
         });
       }
@@ -7439,7 +7863,7 @@
       active$3();
 
       if (position$1 < playlist$1.length - 1) {
-        listener$7.send('select', {
+        listener$6.send('select', {
           item: playlist$1[position$1 + 1]
         });
       }
@@ -7464,7 +7888,7 @@
     }
 
     var Playlist = {
-      listener: listener$7,
+      listener: listener$6,
       show: show$1,
       url: url$1,
       set: set$1,
@@ -7473,14 +7897,14 @@
     };
 
     var enabled$2 = false;
-    var listener$6 = start$4();
+    var listener$5 = start$4();
     var lastdown = 0;
     var timer$2;
     var longpress;
 
     function toggle$4(new_status) {
       enabled$2 = new_status;
-      listener$6.send('toggle', {
+      listener$5.send('toggle', {
         status: enabled$2
       });
     }
@@ -7509,7 +7933,7 @@
       return keycode;
     }
 
-    function init$b() {
+    function init$a() {
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
@@ -7517,7 +7941,7 @@
           timer$2 = setTimeout(function () {
             if (isEnter(lastdown)) {
               longpress = true;
-              listener$6.send('longdown', {});
+              listener$5.send('longdown', {});
               Controller["long"]();
             }
           }, 800);
@@ -7526,7 +7950,7 @@
       window.addEventListener("keyup", function (e) {
         clearTimeout(timer$2);
         timer$2 = null;
-        listener$6.send('keyup', {
+        listener$5.send('keyup', {
           code: keyCode(e),
           enabled: enabled$2,
           event: e
@@ -7538,7 +7962,7 @@
       });
       window.addEventListener("keydown", function (e) {
         var keycode = keyCode(e); //console.log('Keypdad', 'keydown: ', keycode, Date.now() - time)
-        listener$6.send('keydown', {
+        listener$5.send('keydown', {
           code: keycode,
           enabled: enabled$2,
           event: e
@@ -7640,18 +8064,18 @@
     }
 
     var Keypad = {
-      listener: listener$6,
-      init: init$b,
+      listener: listener$5,
+      init: init$a,
       enable: enable$2,
       disable: disable$1
     };
 
-    var listener$5 = start$4();
+    var listener$4 = start$4();
     var enabled$1 = false;
     var worked = false;
     var chrome = false;
     var img;
-    var html$9 = Template.get('screensaver');
+    var html$8 = Template.get('screensaver');
     var movies = [];
     var timer$1 = {};
     var position = 0;
@@ -7661,7 +8085,7 @@
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
       if (enabled$1) resetTimer();else clearTimeout(timer$1.wait);
-      listener$5.send('toggle', {
+      listener$4.send('toggle', {
         status: enabled$1
       });
     }
@@ -7699,14 +8123,14 @@
     function startSlideshow() {
       if (!Storage.field('screensaver')) return;
       worked = true;
-      html$9.fadeIn(300);
-      Utils.time(html$9);
+      html$8.fadeIn(300);
+      Utils.time(html$8);
       nextSlide();
       timer$1.work = setInterval(function () {
         nextSlide();
       }, 30000);
       timer$1.start = setTimeout(function () {
-        html$9.addClass('visible');
+        html$8.addClass('visible');
       }, 5000);
     }
 
@@ -7718,20 +8142,20 @@
       img.src = image;
 
       img.onload = function () {
-        var to = $('.screensaver__slides-' + (slides$1 == 'one' ? 'two' : 'one'), html$9);
+        var to = $('.screensaver__slides-' + (slides$1 == 'one' ? 'two' : 'one'), html$8);
         to[0].src = img.src;
         to.removeClass(direct.join(' ') + ' animate').addClass(direct[Math.floor(Math.random() * direct.length)]);
         setTimeout(function () {
-          $('.screensaver__title', html$9).removeClass('visible');
-          $('.screensaver__slides-' + slides$1, html$9).removeClass('visible');
+          $('.screensaver__title', html$8).removeClass('visible');
+          $('.screensaver__slides-' + slides$1, html$8).removeClass('visible');
           slides$1 = slides$1 == 'one' ? 'two' : 'one';
           to.addClass('visible').addClass('animate');
 
           if (movie) {
             setTimeout(function () {
-              $('.screensaver__title-name', html$9).text(movie.title || movie.name);
-              $('.screensaver__title-tagline', html$9).text(movie.original_title || movie.original_name);
-              $('.screensaver__title', html$9).addClass('visible');
+              $('.screensaver__title-name', html$8).text(movie.title || movie.name);
+              $('.screensaver__title-tagline', html$8).text(movie.original_title || movie.original_name);
+              $('.screensaver__title', html$8).addClass('visible');
             }, 500);
           }
         }, 3000);
@@ -7749,8 +8173,8 @@
       setTimeout(function () {
         worked = false;
       }, 300);
-      html$9.fadeOut(300, function () {
-        html$9.removeClass('visible');
+      html$8.fadeOut(300, function () {
+        html$8.removeClass('visible');
       });
       clearInterval(timer$1.work);
       clearTimeout(timer$1.start);
@@ -7762,8 +8186,8 @@
       }
     }
 
-    function init$a() {
-      $('body').append(html$9);
+    function init$9() {
+      $('body').append(html$8);
       resetTimer();
       Keypad.listener.follow('keydown', function (e) {
         resetTimer();
@@ -7778,15 +8202,15 @@
       });
     }
 
-    function render$7() {
-      return html$9;
+    function render$6() {
+      return html$8;
     }
 
     var Screensaver = {
-      listener: listener$5,
-      init: init$a,
+      listener: listener$4,
+      init: init$9,
       enable: enable$1,
-      render: render$7,
+      render: render$6,
       disable: disable
     };
 
@@ -7828,7 +8252,7 @@
       var data = JSON.stringify({
         action: 'add',
         link: object.link,
-        title: '[LAMPA]' + (object.title + '').replace('??', '?'),
+        title: '[LAMPA ]' + (object.title + '').replace('??', '?'),
         poster: object.poster,
         data: object.data ? JSON.stringify(object.data) : '',
         save_to_db: Storage.get('torrserver_savedb', 'false')
@@ -7858,7 +8282,7 @@
       network$2.timeout(5000);
       network$2.silent(url() + '/settings', function (json) {
         if (typeof json.CacheSize == 'undefined') {
-          fail('Not managed to confirm the version of Matrix');
+          fail('Failed to confirm the version of Matrix');
         } else {
           success(json);
         }
@@ -7972,10 +8396,10 @@
       parse: parse
     };
 
-    var html$8 = Template.get('player');
-    html$8.append(Video.render());
-    html$8.append(Panel.render());
-    html$8.append(Info.render());
+    var html$7 = Template.get('player');
+    html$7.append(Video.render());
+    html$7.append(Panel.render());
+    html$7.append(Info.render());
     var callback$2;
     var work = false;
     var network$1 = new create$q();
@@ -8172,7 +8596,7 @@
       Video.destroy();
       Panel.destroy();
       Info.destroy();
-      html$8.detach();
+      html$7.detach();
     }
 
     function runWebOS(params) {
@@ -8223,7 +8647,7 @@
       if (data.url.indexOf(Torserver.ip()) > -1 && data.url.indexOf('&preload') > -1) {
         preloader.wait = true;
         Info.set('name', data.title);
-        $('body').append(html$8);
+        $('body').append(html$7);
         Panel.show(true);
         togglePreload();
         network$1.timeout(2000);
@@ -8262,7 +8686,7 @@
           Video.url(data.url);
           Video.size(Storage.get('player_size', 'default'));
           Info.set('name', data.title);
-          if (!preloader.call) $('body').append(html$8);
+          if (!preloader.call) $('body').append(html$7);
           toggle$2();
           Panel.show(true);
         });
@@ -8296,19 +8720,19 @@
       callback$2 = back;
     }
 
-    function render$6() {
-      return html$8;
+    function render$5() {
+      return html$7;
     }
 
     var Player = {
       play: play,
       playlist: playlist,
-      render: render$6,
+      render: render$5,
       stat: stat,
       callback: onBack
     };
 
-    function create$e(data) {
+    function create$d(data) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var html;
       var last;
@@ -8501,27 +8925,27 @@
       };
     }
 
-    var html$7, active$2, scroll$2, last$3;
+    var html$6, active$2, scroll$2, last$3;
 
     function open$2(params) {
       active$2 = params;
-      html$7 = Template.get('modal', {
+      html$6 = Template.get('modal', {
         title: params.title
       });
-      html$7.on('click', function (e) {
-        if (!$(e.target).closest($('.modal__content', html$7)).length) window.history.back();
+      html$6.on('click', function (e) {
+        if (!$(e.target).closest($('.modal__content', html$6)).length) window.history.back();
       });
       title$1(params.title);
-      html$7.toggleClass('modal--medium', params.size == 'medium' ? true : false);
-      html$7.toggleClass('modal--large', params.size == 'large' ? true : false);
+      html$6.toggleClass('modal--medium', params.size == 'medium' ? true : false);
+      html$6.toggleClass('modal--large', params.size == 'large' ? true : false);
       scroll$2 = new create$p({
         over: true,
         mask: params.mask
       });
-      html$7.find('.modal__body').append(scroll$2.render());
+      html$6.find('.modal__body').append(scroll$2.render());
       bind$1(params.html);
       scroll$2.append(params.html);
-      $('body').append(html$7);
+      $('body').append(html$6);
       toggle$1();
     }
 
@@ -8580,14 +9004,14 @@
     }
 
     function title$1(tit) {
-      html$7.find('.modal__title').text(tit);
-      html$7.toggleClass('modal--empty-title', tit ? false : true);
+      html$6.find('.modal__title').text(tit);
+      html$6.toggleClass('modal--empty-title', tit ? false : true);
     }
 
     function destroy$2() {
       last$3 = false;
       scroll$2.destroy();
-      html$7.remove();
+      html$6.remove();
     }
 
     function close$1() {
@@ -8601,7 +9025,7 @@
       title: title$1
     };
 
-    function create$d(data) {
+    function create$c(data) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var html, body, last;
 
@@ -8710,7 +9134,7 @@
       };
     }
 
-    function create$c(persons, params) {
+    function create$b(persons, params) {
       var html, scroll, last;
 
       this.create = function () {
@@ -8777,7 +9201,7 @@
       };
     }
 
-    function create$b(data) {
+    function create$a(data) {
       var html, scroll, last;
 
       this.create = function () {
@@ -8827,15 +9251,15 @@
     }
 
     var components$1 = {
-      start: create$e,
-      descr: create$d,
-      persons: create$c,
-      recomend: create$m,
-      simular: create$m,
-      comments: create$b
+      start: create$d,
+      descr: create$c,
+      persons: create$b,
+      recomend: create$l,
+      simular: create$l,
+      comments: create$a
     };
 
-    function component$c(object) {
+    function component$b(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -8907,7 +9331,7 @@
       };
 
       this.empty = function () {
-        var empty = new create$k();
+        var empty = new create$j();
         scroll.append(empty.render());
         this.start = empty.start;
         this.activity.loader(false);
@@ -8985,7 +9409,7 @@
       };
     }
 
-    function component$b(object) {
+    function component$a(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -9005,7 +9429,7 @@
 
         this.activity.loader(true);
         Api.list(object, this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -9037,7 +9461,7 @@
         var _this3 = this;
 
         data.results.forEach(function (element) {
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_category: true,
             object: object
           });
@@ -9071,7 +9495,7 @@
 
       this.build = function (data) {
         total_pages = data.total_pages;
-        info = new create$l();
+        info = new create$k();
         info.create();
         scroll.render().addClass('layer--wheight').data('mheight', info.render());
         html.append(info.render());
@@ -9130,7 +9554,7 @@
       };
     }
 
-    function component$a(object) {
+    function component$9(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -9148,7 +9572,7 @@
 
         this.activity.loader(true);
         Api.category(object, this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -9161,7 +9585,7 @@
 
       this.build = function (data) {
         lezydata = data;
-        info = new create$l();
+        info = new create$k();
         info.create();
         scroll.render().addClass('layer--wheight').data('mheight', info.render());
         html.append(info.render());
@@ -9174,7 +9598,7 @@
       this.append = function (element) {
         if (element.ready) return;
         element.ready = true;
-        var item = new create$m(element, {
+        var item = new create$l(element, {
           url: element.url,
           card_small: true,
           genres: object.genres,
@@ -9246,7 +9670,7 @@
       };
     }
 
-    function create$a(data) {
+    function create$9(data) {
       var html;
       var last;
 
@@ -9293,11 +9717,11 @@
     }
 
     var components = {
-      start: create$a,
-      line: create$m
+      start: create$9,
+      line: create$l
     };
 
-    function component$9(object) {
+    function component$8(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true
@@ -9352,7 +9776,7 @@
       };
 
       this.empty = function () {
-        var empty = new create$k();
+        var empty = new create$j();
         scroll.append(empty.render());
         this.start = empty.start;
         this.activity.loader(false);
@@ -9424,7 +9848,7 @@
       };
     }
 
-    function component$8(object) {
+    function component$7(object) {
       var _this = this;
 
       var network = new create$q();
@@ -9448,7 +9872,7 @@
       };
 
       this.empty = function () {
-        var empty = new create$k();
+        var empty = new create$j();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -9478,7 +9902,7 @@
         var _this3 = this;
 
         data.results.forEach(function (element) {
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_category: true
           });
           card.create();
@@ -9514,7 +9938,7 @@
                   one: true
                 }, {
                   title: 'Clear history',
-                  subtitle: 'Remove all cards from history',
+                  subtitle: 'Delete all cards from history',
                   all: true
                 }],
                 onBack: function onBack() {
@@ -9559,7 +9983,7 @@
 
       this.build = function (data) {
         total_pages = data.total_pages;
-        info = new create$l();
+        info = new create$k();
         info.create();
         scroll.render().addClass('layer--wheight').data('mheight', info.render());
         html.append(info.render());
@@ -9625,7 +10049,7 @@
       };
     }
 
-    function create$9() {
+    function create$8() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var html = Template.get('files', params.movie);
 
@@ -9662,7 +10086,7 @@
       };
     }
 
-    function create$8() {
+    function create$7() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var search = Template.get('search_box');
       var input = '';
@@ -9694,7 +10118,7 @@
       }
 
       $('body').append(search);
-      var keyboard = new create$4({
+      var keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
           'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
@@ -9711,7 +10135,7 @@
       keyboard.toggle();
     }
 
-    function create$7() {
+    function create$6() {
       var _this2 = this;
 
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -9765,7 +10189,7 @@
           onBack: this.onBack,
           onSelect: function onSelect(a) {
             if (!a.query) {
-              new create$8({
+              new create$7({
                 input: params.search,
                 onSearch: _this.onSearch,
                 onBack: _this.onBack
@@ -9907,14 +10331,14 @@
       };
     }
 
-    function render$5(params) {
+    function render$4(params) {
       var line = Template.get('timeline', params);
       line.toggleClass('hide', params.percent ? false : true);
       return line;
     }
 
     var Timeline = {
-      render: render$5,
+      render: render$4,
       update: update$2,
       view: view
     };
@@ -10174,14 +10598,14 @@
       back: back$3
     };
 
-    function component$7(object) {
+    function component$6(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
         over: true
       });
-      var files = new create$9(object);
-      var filter = new create$7(object);
+      var files = new create$8(object);
+      var filter = new create$6(object);
       var results = [];
       var filtred = [];
       var total_pages = 1;
@@ -10206,7 +10630,7 @@
       };
       var filter_multiple = ['quality', 'voice', 'tracker'];
       var sort_translate = {
-        Seeders: 'By uploading',
+        Seeders: 'By seeding',
         Size: 'By size',
         Title: 'By name',
         Tracker: 'By source',
@@ -10260,7 +10684,7 @@
       };
 
       this.empty = function (descr) {
-        var empty = new create$k({
+        var empty = new create$j({
           descr: descr
         });
         files.append(empty.render(filter.empty()));
@@ -10276,7 +10700,7 @@
       this.buildSorted = function () {
         var need = Storage.get('torrents_sort', 'Seeders');
         var select = [{
-          title: 'By seeding',
+          title: 'By distributor',
           sort: 'Seeders'
         }, {
           title: 'By size',
@@ -10577,7 +11001,7 @@
         Modal.open({
           title: '',
           html: Template.get('modal_pending', {
-            text: 'Request magnet link'
+            text: 'Requesting magnet link'
           }),
           onBack: function onBack() {
             Modal.close();
@@ -10743,7 +11167,7 @@
       };
     }
 
-    function component$6(object) {
+    function component$5(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -10761,7 +11185,7 @@
 
         this.activity.loader(true);
         Torserver.my(this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -10787,7 +11211,7 @@
         data.forEach(function (element) {
           element.title = element.title.replace('[LAMPA] ', '');
           var item_data = Arrays.decodeJson(element.data, {});
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_category: true
           });
           card.create();
@@ -10890,7 +11314,7 @@
       };
     }
 
-    function component$5(object) {
+    function component$4(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -10910,7 +11334,7 @@
 
         this.activity.loader(true);
         Api.relise(this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -10934,7 +11358,7 @@
         var _this2 = this;
 
         data.forEach(function (element) {
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_category: true,
             card_type: true
           });
@@ -10991,7 +11415,7 @@
                 }
               }, function () {
                 Modal.close();
-                Noty.show('Movie could not be found.');
+                Noty.show('Failed to find the movie.');
                 Controller.toggle('content');
               });
             }
@@ -11008,7 +11432,7 @@
       this.build = function (data) {
         relises = data;
         total_pages = Math.ceil(relises.length / 20);
-        info = new create$l();
+        info = new create$k();
         info.create();
         info.render().find('.info__right').addClass('hide');
         scroll.minus(info.render());
@@ -11068,7 +11492,7 @@
       };
     }
 
-    function component$4(object) {
+    function component$3(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -11086,7 +11510,7 @@
 
         this.activity.loader(true);
         Api.collections(object, this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -11118,7 +11542,7 @@
         var _this3 = this;
 
         data.forEach(function (element) {
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_collection: true,
             object: object
           });
@@ -11207,7 +11631,7 @@
       };
     }
 
-    function component$3(object) {
+    function component$2(object) {
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
@@ -11226,7 +11650,7 @@
 
         this.activity.loader(true);
         Api.collections(object, this.build.bind(this), function () {
-          var empty = new create$k();
+          var empty = new create$j();
           html.append(empty.render());
           _this.start = empty.start;
 
@@ -11258,7 +11682,7 @@
         var _this3 = this;
 
         data.forEach(function (element) {
-          var card = new create$o(element, {
+          var card = new create$n(element, {
             card_category: true,
             object: object
           });
@@ -11291,7 +11715,7 @@
 
       this.build = function (data) {
         collections = data;
-        info = new create$l();
+        info = new create$k();
         info.create();
         scroll.minus(info.render());
         html.append(info.render());
@@ -11350,9 +11774,9 @@
       };
     }
 
-    function component$2(object) {
+    function component$1(object) {
       var html = $('<div></div>');
-      var empty = new create$k();
+      var empty = new create$j();
 
       this.create = function () {
         html.append(empty.render());
@@ -11384,39 +11808,39 @@
       };
     }
 
-    var component$1 = {
-      main: component$d,
-      full: component$c,
-      category: component$a,
-      category_full: component$b,
-      actor: component$9,
-      favorite: component$8,
-      torrents: component$7,
-      mytorrents: component$6,
-      relise: component$5,
-      collections: component$4,
-      collections_view: component$3,
-      nocomponent: component$2
+    var component = {
+      main: component$c,
+      full: component$b,
+      category: component$9,
+      category_full: component$a,
+      actor: component$8,
+      favorite: component$7,
+      torrents: component$6,
+      mytorrents: component$5,
+      relise: component$4,
+      collections: component$3,
+      collections_view: component$2,
+      nocomponent: component$1
     };
 
-    function create$6(object) {
-      if (component$1[object.component]) {
-        return new component$1[object.component](object);
+    function create$5(object) {
+      if (component[object.component]) {
+        return new component[object.component](object);
       } else {
-        return new component$1.nocomponent(object);
+        return new component.nocomponent(object);
       }
     }
 
     function add$3(name, comp) {
-      component$1[name] = comp;
+      component[name] = comp;
     }
 
     function get$2(name) {
-      return component$1[name];
+      return component[name];
     }
 
     var Component = {
-      create: create$6,
+      create: create$5,
       add: add$3,
       get: get$2
     };
@@ -11425,7 +11849,7 @@
     var data = {};
     var notices = [];
 
-    function init$9() {
+    function init$8() {
       data = Storage.get('notice', '{}');
       notices = [{
         time: '2021-11-25 13:00',
@@ -11438,7 +11862,7 @@
       }, {
         time: '2021-11-10 10:00',
         title: 'Update 1.3.4',
-        descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
+        descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. Fixed black dies in the player on Samsung TVs. \u003cbr\u003e 3. Added plugins in settings.'
       }, {
         time: '2021-11-02 10:00',
         title: 'Update 1.3.3',
@@ -11450,7 +11874,7 @@
       }, {
         time: '2021-10-20 16:20',
         title: 'Update 1.3.1',
-        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: 'Screensaver',
@@ -11501,7 +11925,7 @@
         descr: 'one. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
       }, {
         time: '2021-09-27 15:00',
-        title: 'Fixed parser',
+        title: 'Parser fixed',
         descr: 'An error was detected in the parser due to which jac.red did not return results'
       }, {
         time: '2021-09-26 17:00',
@@ -11559,35 +11983,35 @@
     var Notice = {
       open: open,
       start: start$2,
-      init: init$9
+      init: init$8
     };
 
-    var html$6;
+    var html$5;
     var last$2;
 
-    function init$8() {
-      html$6 = Template.get('head');
-      Utils.time(html$6);
-      Notice.start(html$6);
-      html$6.find('.selector').data('controller', 'head').on('hover:focus', function (event) {
+    function init$7() {
+      html$5 = Template.get('head');
+      Utils.time(html$5);
+      Notice.start(html$5);
+      html$5.find('.selector').data('controller', 'head').on('hover:focus', function (event) {
         last$2 = event.target;
       });
-      html$6.find('.open--settings').on('hover:enter', function () {
+      html$5.find('.open--settings').on('hover:enter', function () {
         Controller.toggle('settings');
       });
-      html$6.find('.open--notice').on('hover:enter', function () {
+      html$5.find('.open--notice').on('hover:enter', function () {
         Notice.open();
       });
-      html$6.find('.open--search').on('hover:enter', function () {
+      html$5.find('.open--search').on('hover:enter', function () {
         Controller.toggle('search');
       });
-      html$6.find('.head__logo-icon').on('click', function () {
+      html$5.find('.head__logo-icon').on('click', function () {
         Controller.toggle('menu');
       });
       Controller.add('head', {
         toggle: function toggle() {
-          Controller.collectionSet(html$6);
-          Controller.collectionFocus(last$2, html$6);
+          Controller.collectionSet(html$5);
+          Controller.collectionFocus(last$2, html$5);
         },
         right: function right() {
           Navigator.move('right');
@@ -11605,20 +12029,20 @@
     }
 
     function title(title) {
-      html$6.find('.head__title').text(title ? '- ' + title : '');
+      html$5.find('.head__title').text(title ? '- ' + title : '');
     }
 
-    function render$4() {
-      return html$6;
+    function render$3() {
+      return html$5;
     }
 
     var Head = {
-      render: render$4,
+      render: render$3,
       title: title,
-      init: init$8
+      init: init$7
     };
 
-    var listener$4 = start$4();
+    var listener$3 = start$4();
     var activites = [];
     var callback = false;
     var fullout = false;
@@ -11739,7 +12163,7 @@
       this.append();
     }
 
-    function init$7() {
+    function init$6() {
       content = Template.get('activitys');
       slides = content.find('.activitys__slides');
       maxsave = Storage.get('pages_save_total', 5);
@@ -11747,7 +12171,7 @@
       window.addEventListener('popstate', function () {
         if (fullout) return;
         empty();
-        listener$4.send('popstate', {
+        listener$3.send('popstate', {
           count: activites.length
         });
         if (callback) callback();else {
@@ -11787,7 +12211,7 @@
 
     function push(object) {
       limit();
-      create$5(object);
+      create$4(object);
       activites.push(object);
       start$1(object);
     }
@@ -11797,7 +12221,7 @@
      */
 
 
-    function create$5(object) {
+    function create$4(object) {
       var comp = Component.create(object);
       object.activity = new Activity(comp);
       comp.activity = object.activity;
@@ -11828,7 +12252,7 @@
 
     function backward() {
       callback = false;
-      listener$4.send('backward', {
+      listener$3.send('backward', {
         count: activites.length
       });
       if (activites.length == 1) return;
@@ -11849,14 +12273,14 @@
       var previous_tree = activites.slice(-maxsave);
 
       if (previous_tree.length > maxsave - 1) {
-        create$5(previous_tree[0]);
+        create$4(previous_tree[0]);
       }
 
       previous_tree = activites.slice(-1)[0];
 
       if (previous_tree) {
         if (previous_tree.activity) start$1(previous_tree);else {
-          create$5(previous_tree);
+          create$4(previous_tree);
           start$1(previous_tree);
         }
       }
@@ -11914,7 +12338,7 @@
       }
     }
 
-    function render$3() {
+    function render$2() {
       return content;
     }
 
@@ -11950,11 +12374,11 @@
     }
 
     var Activity$1 = {
-      init: init$7,
-      listener: listener$4,
+      init: init$6,
+      listener: listener$3,
       push: push,
       back: back$2,
-      render: render$3,
+      render: render$2,
       backward: backward,
       call: call,
       last: last$1,
@@ -11963,7 +12387,7 @@
       active: active$1
     };
 
-    var listener$3 = start$4();
+    var listener$2 = start$4();
     var active;
     var active_name = '';
     var controlls = {};
@@ -12074,7 +12498,7 @@
           });
         }
 
-        listener$3.send('toggle', {
+        listener$2.send('toggle', {
           name: name
         });
       }
@@ -12142,7 +12566,7 @@
     }
 
     var Controller = {
-      listener: listener$3,
+      listener: listener$2,
       add: add$2,
       move: move,
       enter: enter,
@@ -12158,7 +12582,7 @@
       "long": _long
     };
 
-    function create$4() {
+    function create$3() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
       var _keyClass = window.SimpleKeyboard["default"],
@@ -12170,7 +12594,7 @@
         'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
         'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
         'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Ы IN A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
       this.listener = start$4();
 
@@ -12284,13 +12708,13 @@
       };
     }
 
-    var html$5, keyboard$1, input$1;
+    var html$4, keyboard$1, input$1;
 
     function edit(params, call) {
-      html$5 = Template.get('settings_input');
-      input$1 = html$5.find('.settings-input__input');
-      $('body').append(html$5);
-      keyboard$1 = new create$4();
+      html$4 = Template.get('settings_input');
+      input$1 = html$4.find('.settings-input__input');
+      $('body').append(html$4);
+      keyboard$1 = new create$3();
       keyboard$1.listener.follow('change', function (event) {
         input$1.text(event.value.trim());
       });
@@ -12299,13 +12723,13 @@
         back();
         call(val);
       });
-      $('.settings-input__links', html$5).toggleClass('hide', params.nosave ? true : false);
+      $('.settings-input__links', html$4).toggleClass('hide', params.nosave ? true : false);
       keyboard$1.listener.follow('down', function (event) {
         if (params.nosave) return;
         var members = Storage.get('setting_member', []);
         var links = [];
         links.push({
-          title: (members.indexOf(input$1.text()) == -1 ? 'Add' : 'Delete') + 'Current Value',
+          title: (members.indexOf(input$1.text()) == -1 ? 'Add' : 'Delete') + 'current value',
           subtitle: input$1.text(),
           add: true
         });
@@ -12330,7 +12754,7 @@
           subtitle: 'For local TorrServ',
           url: '127.0.0.1:8090'
         }, {
-          title: Utils.shortText('api.scraperapi.com/?url=^^^^api_key=', 35),
+          title: Utils.shortText('api.scraperapi.com/?url= {qq }api_key=', 35),
           subtitle: 'scraperapi.com',
           url: 'api.scraperapi.com/?url={q}&api_key='
         }]);
@@ -12386,8 +12810,8 @@
 
     function destroy$1() {
       keyboard$1.destroy();
-      html$5.remove();
-      html$5 = null;
+      html$4.remove();
+      html$4 = null;
       keyboard$1 = null;
       input$1 = null;
     }
@@ -12398,9 +12822,9 @@
 
     var values = {};
     var defaults = {};
-    var listener$2 = start$4();
+    var listener$1 = start$4();
 
-    function init$6() {
+    function init$5() {
       if (Platform.is('tizen')) {
         select('player', {
           'inner': 'Inline',
@@ -12413,7 +12837,7 @@
         }, 'inner');
       } else if (Platform.is('android')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'android': 'Android'
         }, 'android');
         trigger('internal_torrclient', false);
@@ -12476,7 +12900,7 @@
           Input.edit({
             elem: elem,
             name: name,
-            value: Storage.get(name, defaults[name]) + ''
+            value: elem.data('string') ? window.localStorage.getItem(name) || defaults[name] : Storage.get(name, defaults[name]) + ''
           }, function (new_value) {
             Storage.set(name, new_value);
             update$1(elem);
@@ -12484,7 +12908,7 @@
         }
 
         if (type == 'button') {
-          listener$2.send('button', {
+          listener$1.send('button', {
             name: name
           });
         }
@@ -12500,7 +12924,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check if plugin is working, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check if plugin works, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -12605,7 +13029,7 @@
 
     function update$1(elem) {
       var name = elem.data('name');
-      var key = Storage.get(name, defaults[name] + '');
+      var key = elem.data('string') ? window.localStorage.getItem(name) || defaults[name] : Storage.get(name, defaults[name] + '');
       var val = typeof values[name] == 'string' ? key : values[name][key] || values[name][defaults[name]];
       var plr = elem.attr('placeholder');
       if (!val && plr) val = plr;
@@ -12635,8 +13059,8 @@
       'torlook': 'Torlook'
     }, 'torlook');
     select('torlook_parse_type', {
-      'native': 'Direct',
-      'site': 'Via the site API'
+      'native': 'Directly',
+      'site': 'Via Site API'
     }, 'native');
     select('background_type', {
       'complex': 'Complex',
@@ -12654,7 +13078,7 @@
       'inner': 'Built-in'
     }, 'inner');
     select('torrserver_use_link', {
-      'one': 'Primary',
+      'one': 'Main',
       'two': 'Secondary'
     }, 'one');
     select('subtitles_size', {
@@ -12704,7 +13128,7 @@
       'js': 'Javascript'
     }, 'css');
     select('card_views_type', {
-      'preload': 'Upload',
+      'preload': 'Load',
       'view': 'Show all'
     }, 'preload');
     select('navigation_type', {
@@ -12734,6 +13158,7 @@
     trigger('torrserver_preload', false);
     trigger('parser_use', false);
     trigger('cloud_use', false);
+    trigger('account_use', false);
     trigger('torrserver_auth', false);
     trigger('mask', true);
     trigger('playlist_next', true);
@@ -12754,15 +13179,17 @@
     select('parser_website_url', '', '');
     select('torlook_site', '', 'w41.torlook.info');
     select('cloud_token', '', '');
+    select('account_email', '', '');
+    select('account_password', '', '');
     var Params = {
-      listener: listener$2,
-      init: init$6,
+      listener: listener$1,
+      init: init$5,
       bind: bind,
       update: update$1,
       field: field$1
     };
 
-    var listener$1 = start$4();
+    var listener = start$4();
 
     function get$1(name, empty) {
       var value = window.localStorage.getItem(name) || empty || '';
@@ -12788,7 +13215,7 @@
         window.localStorage.setItem(name, value);
       }
 
-      if (!nolisten) listener$1.send('change', {
+      if (!nolisten) listener.send('change', {
         name: name,
         value: value
       });
@@ -12800,7 +13227,7 @@
       if (list.indexOf(new_value) == -1) {
         list.push(new_value);
         set(name, list);
-        listener$1.send('add', {
+        listener.send('add', {
           name: name,
           value: new_value
         });
@@ -12828,7 +13255,7 @@
     }
 
     var Storage = {
-      listener: listener$1,
+      listener: listener,
       get: get$1,
       set: set,
       field: field,
@@ -12836,7 +13263,7 @@
       add: add$1
     };
 
-    function init$5() {
+    function init$4() {
       if (typeof webOS !== 'undefined' && webOS.platform.tv === true) {
         Storage.set('platform', 'webos');
       } else if (typeof webapis !== 'undefined' && typeof tizen !== 'undefined') {
@@ -12890,7 +13317,7 @@
     }
 
     var Platform = {
-      init: init$5,
+      init: init$4,
       get: get,
       any: any,
       is: is
@@ -12905,7 +13332,7 @@
         orsay_tap_back_count = 1,
         orsay_tap_back_timer;
 
-    function init$4() {
+    function init$3() {
       $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
       Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
         window.addEventListener("keydown", function (event) {
@@ -12975,22 +13402,22 @@
     }
 
     var Orsay = {
-      init: init$4
+      init: init$3
     };
 
-    var html$4;
+    var html$3;
     var last;
     var scroll$1;
 
-    function init$3() {
-      html$4 = Template.get('menu');
+    function init$2() {
+      html$3 = Template.get('menu');
       scroll$1 = new create$p({
         mask: true,
         over: true
       });
       Lampa.Listener.send('menu', {
         type: 'start',
-        body: html$4
+        body: html$3
       });
       $('body').on('mousedown', function () {
         if ($('body').hasClass('menu--open')) {
@@ -12998,7 +13425,7 @@
           Controller.toggle('content');
         }
       });
-      html$4.find('.selector').on('hover:enter', function (e) {
+      html$3.find('.selector').on('hover:enter', function (e) {
         var action = $(e.target).data('action');
         var type = $(e.target).data('type');
         if (action == 'catalog') catalog();
@@ -13026,7 +13453,7 @@
 
         if (action == 'about') {
           Modal.open({
-            title: 'About the application',
+            title: 'O application',
             html: Template.get('about'),
             size: 'medium',
             onBack: function onBack() {
@@ -13093,14 +13520,14 @@
         scroll$1.update($(e.target), true);
       });
       scroll$1.minus();
-      scroll$1.append(html$4);
+      scroll$1.append(html$3);
       Lampa.Listener.send('menu', {
         type: 'end'
       });
       Controller.add('menu', {
         toggle: function toggle() {
-          Controller.collectionSet(html$4);
-          Controller.collectionFocus(last, html$4);
+          Controller.collectionSet(html$3);
+          Controller.collectionFocus(last, html$3);
           $('body').toggleClass('menu--open', true);
         },
         right: function right() {
@@ -13148,165 +13575,13 @@
       });
     }
 
-    function render$2() {
+    function render$1() {
       return scroll$1.render();
     }
 
     var Menu = {
-      render: render$2,
-      init: init$3
-    };
-
-    function component(name) {
-      var scrl = new create$p({
-        mask: true,
-        over: true
-      });
-      var comp = Template.get('settings_' + name);
-      var last;
-
-      if (Storage.get('native')) {
-        comp.find('.is--torllok').remove();
-      }
-
-      if (!Platform.is('android')) {
-        comp.find('.is--android').remove();
-      }
-
-      if (!Platform.any()) {
-        comp.find('.is--player').remove();
-      }
-
-      if (!Platform.is('tizen')) {
-        comp.find('.is--has_subs').remove();
-      }
-
-      scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
-      comp.find('.selector').on('hover:focus', function (e) {
-        last = e.target;
-        scrl.update($(e.target), true);
-      });
-      Params.bind(comp.find('.selector'));
-      Controller.add('settings_component', {
-        toggle: function toggle() {
-          Controller.collectionSet(comp);
-          Controller.collectionFocus(last, comp);
-        },
-        up: function up() {
-          Navigator.move('up');
-        },
-        down: function down() {
-          Navigator.move('down');
-        },
-        back: function back() {
-          scrl.destroy();
-          comp.remove();
-          Controller.toggle('settings');
-        }
-      });
-
-      this.destroy = function () {
-        scrl.destroy();
-        comp.remove();
-        comp = null;
-      };
-
-      this.render = function () {
-        return scrl.render(comp);
-      };
-    }
-
-    function main() {
-      var _this = this;
-
-      var comp;
-      var scrl = new create$p({
-        mask: true,
-        over: true
-      });
-      var last;
-
-      this.create = function () {
-        comp = Template.get('settings_main');
-        comp.find('.selector').on('hover:focus', function (event) {
-          last = event.target;
-          scrl.update($(event.target), true);
-        }).on('hover:enter', function (event) {
-          _this.render().detach();
-
-          _this.onCreate($(event.target).data('component'));
-        });
-      };
-
-      this.active = function () {
-        Controller.collectionSet(comp);
-        Controller.collectionFocus(last, comp);
-      };
-
-      this.render = function () {
-        return scrl.render(comp);
-      };
-    }
-
-    var html$3 = Template.get('settings');
-    var body$1 = html$3.find('.settings__body');
-    var listener = start$4();
-    html$3.find('.settings__layer').on('click', function () {
-      window.history.back();
-    });
-
-    function create$3(name) {
-      var comp = new component(name);
-      body$1.empty().append(comp.render());
-      listener.send('open', {
-        name: name,
-        body: comp.render()
-      });
-      Controller.toggle('settings_component');
-    }
-
-    function init$2() {
-      var main$1 = new main();
-      main$1.onCreate = create$3;
-      main$1.create();
-      Controller.add('settings', {
-        toggle: function toggle() {
-          listener.send('open', {
-            name: 'main',
-            body: main$1.render()
-          });
-          body$1.empty().append(main$1.render());
-          main$1.active();
-          $('body').toggleClass('settings--open', true);
-        },
-        up: function up() {
-          Navigator.move('up');
-        },
-        down: function down() {
-          Navigator.move('down');
-        },
-        left: function left() {
-          main$1.render().detach();
-          Controller.toggle('content');
-        },
-        gone: function gone(to) {
-          if (to !== 'settings_component') $('body').toggleClass('settings--open', false);
-        },
-        back: function back() {
-          main$1.render().detach();
-          Controller.toggle('head');
-        }
-      });
-    }
-
-    function render$1() {
-      return html$3;
-    }
-
-    var Settings = {
-      listener: listener,
-      init: init$2,
-      render: render$1
+      render: render$1,
+      init: init$2
     };
 
     function create$2() {
@@ -13367,7 +13642,7 @@
           };
         }
 
-        var item = new create$m(data, params);
+        var item = new create$l(data, params);
         item.onDown = this.down;
         item.onUp = this.up;
         item.onBack = this.back.bind(this);
@@ -13659,10 +13934,10 @@
     }
 
     function createKeyboard() {
-      keyboard = new create$4({
+      keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {bksp}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '.', '{EN} {space} {bksp}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I am h c m and t b yu.', '{EN} {space} {bksp}']
         }
       });
       keyboard.create();
@@ -13903,12 +14178,12 @@
 
         if (code == 0) {
           name.text('Disabled');
-          desc.text('Turn on synchronization');
+          desc.text('Turn on sync');
         }
 
         if (code == 1) {
-          name.text('Not authorized');
-          desc.text('You must be authorized');
+          name.text('Not logged in');
+          desc.text('You must log in');
         }
 
         if (code == 2) {
@@ -13924,7 +14199,7 @@
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('Synchronized');
-          desc.text(time.full + 'to' + time.time);
+          desc.text(time.full + 'in' + time.time);
         }
       }
     }
@@ -14104,10 +14379,10 @@
       Template: Template,
       Component: Component,
       Reguest: create$q,
-      Filter: create$7,
-      Files: create$9,
+      Filter: create$6,
+      Files: create$8,
       Scroll: create$p,
-      Empty: create$k,
+      Empty: create$j,
       Arrays: Arrays,
       Noty: Noty,
       Player: Player,
@@ -14117,8 +14392,9 @@
       Cloud: Cloud,
       Settings: Settings,
       Android: Android,
-      Card: create$o,
-      Info: create$l
+      Card: create$n,
+      Info: create$k,
+      Account: Account
     };
     Console.init();
 
@@ -14145,6 +14421,7 @@
       Layer.init();
       Screensaver.init();
       Cloud.init();
+      Account.init();
       Controller.listener.follow('toggle', function () {
         Layer.update();
       });
@@ -14154,7 +14431,7 @@
           Select.show({
             title: 'Exit',
             items: [{
-              title: 'Yes exit',
+              title: 'Yes, exit',
               out: true
             }, {
               title: 'Continue'
