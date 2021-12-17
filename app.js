@@ -4445,7 +4445,7 @@
 
     function yydsfull1$(params, oncomplite, onerror) {
         yydsget$5('api/post-info|id='+params.id+'', params, function (json) {
-        if (json) {
+        if (json.status_code === 200) {
           //console.log(json.results);
           data.movie = {
             id: json.results.id,
@@ -4469,7 +4469,10 @@
             number_of_episodes: json.results.episode ? json.results.episode : 1,
             first_air_date: json.results.created_at
           };
-        }
+        }else{
+          onerror();
+          Noty.show('当前内容仅限YYDS会员访问');
+        };
         //console.log(data.movie)
         oncomplite(data);
       }, onerror);

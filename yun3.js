@@ -87,7 +87,7 @@
                 };
                 network.silent(url, function (json)
                 {
-                if (json.data) {
+                if (json.status_code === 200) {
                     //console.log(json.data);
                     var getlink = _this.getFilteredElement(json,"link","aliyundrive");
                     if (getlink.length>0){
