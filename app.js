@@ -719,7 +719,7 @@
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>ping 请求返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>要做什么？</div>\n        <ul>\n            <li>请确保你有矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保响应包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供文件链接</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能的话，还有这张发行版的照片</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供文件链接</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能，还有该发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 - <b>{episode}</b> &nbsp;\u2022&nbsp; 季 - <b>{season}</b> &nbsp;\u2022&nbsp; 退出 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -4215,10 +4215,10 @@
         append('最新添加', 's4', json);
       }, status.error.bind(status));
       get$5('?cat=' + params.url + '&sort=now', params, function (json) {
-        append('今年新', 's5', json);
+        append('今年新的', 's5', json);
       }, status.error.bind(status));
       get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
-        append('最高评价', 's6', json);
+        append('最受好评', 's6', json);
       }, status.error.bind(status));
     }
 
@@ -4908,7 +4908,7 @@
             where: 'book'
           }, {
             title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '在（喜欢）菜单中查找',
+            subtitle: '在（赞）菜单中查找',
             where: 'like'
           }, {
             title: status.wath ? '从预期中删除' : '稍后观看',
@@ -12278,7 +12278,7 @@
       }, {
         time: '2021-10-20 16:20',
         title: '更新 1.3.1',
-        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: '屏幕保护程序',
@@ -13328,7 +13328,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否有效, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
