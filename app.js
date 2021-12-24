@@ -71,7 +71,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // Сinойство length метода from равно 1.
+        }; // С在ойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -711,7 +711,7 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看有关电影、新上映、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.6\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看有关电影、新上映、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>群组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.7\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
@@ -719,7 +719,7 @@
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>ping 请求返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>要做什么？</div>\n        <ul>\n            <li>请确保你有矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保响应包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供文件链接</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能，还有该发行版的照片</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的回复: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能不提供文件链接</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能的话，还有这张发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 - <b>{episode}</b> &nbsp;\u2022&nbsp; 季 - <b>{season}</b> &nbsp;\u2022&nbsp; 退出 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -1355,11 +1355,11 @@
         } else if (jqXHR.status == 500) {
           msg = '内部服务器错误。 [500]';
         } else if (exception === 'parsererror') {
-          msg = '请求的JSON解析失败';
+          msg = '请求的JSON解析失败。';
         } else if (exception === 'timeout') {
-          msg = '请求超时';
+          msg = '请求超时。';
         } else if (exception === 'abort') {
-          msg = '请求被中止';
+          msg = '请求被中止。';
         } else if (exception === 'custom') {
           msg = jqXHR.responseText;
         } else {
@@ -2273,7 +2273,7 @@
             Noty.show(result.text);
           }
         }, function () {
-          Noty.show('无法获取配置文件列表');
+          Noty.show('获取配置文件列表失败');
         }, false, {
           headers: {
             token: account.token
@@ -2286,9 +2286,9 @@
       var account = Storage.get('account', '{}');
 
       if (account.token) {
-        renderStatus$1('已授权', '您已使用您的帐户登录' + account.email);
+        renderStatus$1('Logged in', '您用一个账号登录' + account.email);
       } else {
-        renderStatus$1('登录失败', '正在等待登录您的帐户');
+        renderStatus$1('登录失败', '等待登录到您的帐户');
       }
     }
 
@@ -3889,7 +3889,7 @@
         collections$1({
           id: '1984'
         }, function (json) {
-          append('新项目', 'new', '1984', {
+          append('新', 'new', '1984', {
             results: json
           });
         });
@@ -3903,7 +3903,7 @@
         collections$1({
           id: '935'
         }, function (json) {
-          append('俄语', 'rus', '935', {
+          append('俄罗斯人', 'rus', '935', {
             results: json
           });
         });
@@ -3954,7 +3954,7 @@
       collections$1({
         id: '2460'
       }, function (json) {
-        append('全家漫画', '2', '2460', {
+        append('全家卡通', '2', '2460', {
           results: json
         });
       });
@@ -3975,7 +3975,7 @@
       collections$1({
         id: '1246'
       }, function (json) {
-        append('侦探电影故事', '5', '1246', {
+        append('侦探电影', '5', '1246', {
           results: json
         });
       });
@@ -4907,11 +4907,11 @@
             subtitle: '在（书签）菜单中查找',
             where: 'book'
           }, {
-            title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '在（赞）菜单中查找',
+            title: status.like ? '从收藏夹中移除' : '喜欢',
+            subtitle: '在（喜欢）菜单中查找',
             where: 'like'
           }, {
-            title: status.wath ? '从预期中删除' : '稍后观看',
+            title: status.wath ? '从预期中移除' : '稍后观看',
             subtitle: '在（稍后）菜单中查找',
             where: 'wath'
           }],
@@ -6946,7 +6946,8 @@
       timeend: $('.player-panel__timeend', html$b),
       title: $('.player-panel__filename', html$b),
       tracks: $('.player-panel__tracks', html$b),
-      subs: $('.player-panel__subs', html$b)
+      subs: $('.player-panel__subs', html$b),
+      timeline: $('.player-panel__timeline', html$b)
     };
     /**
      * Отсеживаем состояние, 
@@ -6978,17 +6979,24 @@
             timer$4.rewind = setTimeout(function () {
               condition.rewind = false;
 
-              _this.dispath('hide');
+              _this.dispath('mousemove');
             }, 1000);
           } else {
-            this.dispath('hide');
+            this.dispath('mousemove');
           }
+        },
+        mousemove: function mousemove() {
+          if (condition.mousemove) {
+            _visible(true);
+          }
+
+          this.dispath('hide');
         },
         hide: function hide() {
           clearTimeout(timer$4.hide);
           timer$4.hide = setTimeout(function () {
             _visible(false);
-          }, 1000);
+          }, 3000);
         }
       }
     });
@@ -7018,7 +7026,22 @@
     html$b.find('.player-panel__tend').on('hover:enter', function (e) {
       listener$9.send('to_end', {});
     });
-    html$b.find('.player-panel__timeline').attr('data-controller', 'player_rewind');
+    elems$1.timeline.attr('data-controller', 'player_rewind');
+    elems$1.timeline.on('mousemove', function (e) {
+      listener$9.send('mouse_rewind', {
+        method: 'move',
+        time: elems$1.time,
+        percent: percent(e)
+      });
+    }).on('mouseout', function () {
+      elems$1.time.addClass('hide');
+    }).on('click', function (e) {
+      listener$9.send('mouse_rewind', {
+        method: 'click',
+        time: elems$1.time,
+        percent: percent(e)
+      });
+    });
     html$b.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
     /**
      * Выбор аудиодорожки
@@ -7162,19 +7185,23 @@
         }
       });
     });
+
+    function percent(e) {
+      var offset = elems$1.timeline.offset();
+      var width = elems$1.timeline.width();
+      return (e.clientX - offset.left) / width;
+    }
     /**
      * Обновляем состояние панели
      * @param {String} need - что нужно обновить
      * @param {*} value - значение
      */
 
+
     function update$4(need, value) {
       if (need == 'position') {
         elems$1.position.css({
           width: value
-        });
-        elems$1.time.css({
-          left: value
         });
       }
 
@@ -7182,10 +7209,6 @@
         elems$1.peding.css({
           width: value
         });
-      }
-
-      if (need == 'time') {
-        elems$1.time.text(value);
       }
 
       if (need == 'timeend') {
@@ -7310,6 +7333,11 @@
     function show$2() {
       state.start();
     }
+
+    function mousemove() {
+      condition.mousemove = true;
+      state.start();
+    }
     /**
      * Скрыть панель
      */
@@ -7378,7 +7406,8 @@
       update: update$4,
       rewind: rewind$1,
       setTracks: setTracks,
-      setSubs: setSubs
+      setSubs: setSubs,
+      mousemove: mousemove
     };
 
     function luna(params, call, fail) {
@@ -7618,30 +7647,38 @@
     var timer$3 = {};
     var rewind_position = 0;
     var rewind_force = 0;
-    var video;
+
+    var _video;
+
     var wait;
     var neeed_sacle;
     var webos;
+    html$a.on('click', function () {
+      if (Storage.get('navigation_type') == 'mouse') playpause();
+    });
     /**
      * Добовляем события к контейнеру
      */
 
     function bind$2() {
       // ждем загрузки
-      video.addEventListener("waiting", function () {
+      _video.addEventListener("waiting", function () {
         loader(true);
       }); // начали играть
 
-      video.addEventListener("playing", function () {
+
+      _video.addEventListener("playing", function () {
         loader(false);
       }); // видео закончилось
 
-      video.addEventListener('ended', function () {
+
+      _video.addEventListener('ended', function () {
         listener$8.send('ended', {});
       }); // что-то пошло не так
 
-      video.addEventListener('error', function (e) {
-        var error = video.error || {};
+
+      _video.addEventListener('error', function (e) {
+        var error = _video.error || {};
         var msg = (error.message || '').toUpperCase();
 
         if (msg.indexOf('EMPTY SRC') == -1) {
@@ -7661,18 +7698,19 @@
         }
       }); // прогресс буферизации
 
-      video.addEventListener('progress', function (e) {
+
+      _video.addEventListener('progress', function (e) {
         if (e.percent) {
           listener$8.send('progress', {
             down: e.percent
           });
         } else {
-          var duration = video.duration;
+          var duration = _video.duration;
 
           if (duration > 0) {
-            for (var i = 0; i < video.buffered.length; i++) {
-              if (video.buffered.start(video.buffered.length - 1 - i) < video.currentTime) {
-                var down = Math.max(0, Math.min(100, video.buffered.end(video.buffered.length - 1 - i) / duration * 100)) + "%";
+            for (var i = 0; i < _video.buffered.length; i++) {
+              if (_video.buffered.start(_video.buffered.length - 1 - i) < _video.currentTime) {
+                var down = Math.max(0, Math.min(100, _video.buffered.end(_video.buffered.length - 1 - i) / duration * 100)) + "%";
                 listener$8.send('progress', {
                   down: down
                 });
@@ -7683,19 +7721,22 @@
         }
       }); // можно ли уже проигрывать?
 
-      video.addEventListener('canplay', function () {
+
+      _video.addEventListener('canplay', function () {
         listener$8.send('canplay', {});
       }); // сколько прошло
 
-      video.addEventListener('timeupdate', function () {
+
+      _video.addEventListener('timeupdate', function () {
         listener$8.send('timeupdate', {
-          duration: video.duration,
-          current: video.currentTime
+          duration: _video.duration,
+          current: _video.currentTime
         });
         scale();
       }); // обновляем субтитры
 
-      video.addEventListener('subtitle', function (e) {
+
+      _video.addEventListener('subtitle', function (e) {
         //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
         //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
         //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
@@ -7712,17 +7753,19 @@
 
         subtitles.children().html(e.text);
       });
-      video.addEventListener('loadedmetadata', function (e) {
+
+      _video.addEventListener('loadedmetadata', function (e) {
         listener$8.send('videosize', {
-          width: video.videoWidth,
-          height: video.videoHeight
+          width: _video.videoWidth,
+          height: _video.videoHeight
         });
         scale();
         loaded();
       }); // для страховки
 
-      video.volume = 1;
-      video.muted = false;
+
+      _video.volume = 1;
+      _video.muted = false;
     }
     /**
      * Масштаб видео
@@ -7731,8 +7774,8 @@
 
     function scale() {
       if (!neeed_sacle) return;
-      var vw = video.videoWidth,
-          vh = video.videoHeight,
+      var vw = _video.videoWidth,
+          vh = _video.videoHeight,
           rt = 1,
           sx = 1.01,
           sy = 1.01;
@@ -7787,7 +7830,7 @@
         };
       }
 
-      $(video).css(sz);
+      $(_video).css(sz);
       neeed_sacle = false;
     }
     /**
@@ -7796,8 +7839,8 @@
 
 
     function loaded() {
-      var tracks = video.audioTracks;
-      var subs = video.textTracks;
+      var tracks = _video.audioTracks;
+      var subs = _video.textTracks;
       if (webos && webos.sourceInfo) tracks = [];
 
       if (tracks && tracks.length) {
@@ -7872,11 +7915,11 @@
       if (Platform.is('tizen') && Storage.field('player') == 'tizen') {
         //if(true){
         videobox = create$h(function (object) {
-          video = object;
+          _video = object;
         });
       } else {
         videobox = $('<video class="player-video__video" poster="./img/video_poster.png" crossorigin="anonymous"></video>');
-        video = videobox[0];
+        _video = videobox[0];
       }
 
       applySubsSettings();
@@ -7886,9 +7929,11 @@
         webos = new create$f();
 
         webos.callback = function () {
-          var src = video.src;
+          var src = _video.src;
           console.log('WebOS', 'video loaded');
-          video.remove();
+
+          _video.remove();
+
           create$e();
           webos.repet();
           url$2(src);
@@ -7919,8 +7964,10 @@
     function url$2(src) {
       loader(true);
       create$e();
-      video.src = src;
-      video.load();
+      _video.src = src;
+
+      _video.load();
+
       play$1();
     }
     /**
@@ -7932,7 +7979,7 @@
       var playPromise;
 
       try {
-        playPromise = video.play();
+        playPromise = _video.play();
       } catch (e) {}
 
       if (playPromise !== undefined) {
@@ -7955,7 +8002,7 @@
       var pausePromise;
 
       try {
-        pausePromise = video.pause();
+        pausePromise = _video.pause();
       } catch (e) {}
 
       if (pausePromise !== undefined) {
@@ -7977,7 +8024,7 @@
     function playpause() {
       if (wait || rewind_position) return;
 
-      if (video.paused) {
+      if (_video.paused) {
         play$1();
         listener$8.send('play', {});
       } else {
@@ -7994,7 +8041,7 @@
     function rewindEnd(immediately) {
       clearTimeout(timer$3.rewind_call);
       timer$3.rewind_call = setTimeout(function () {
-        video.currentTime = rewind_position;
+        _video.currentTime = rewind_position;
         rewind_position = 0;
         rewind_force = 0;
         play$1();
@@ -8009,13 +8056,13 @@
 
 
     function rewindStart(position_time, immediately) {
-      if (!video.duration) return;
-      rewind_position = Math.max(0, Math.min(position_time, video.duration));
+      if (!_video.duration) return;
+      rewind_position = Math.max(0, Math.min(position_time, _video.duration));
       pause();
-      if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
+      if (rewind_position == 0) _video.currentTime = 0;else if (rewind_position == _video.duration) _video.currentTime = _video.duration;
       timer$3.rewind = Date.now();
       listener$8.send('timeupdate', {
-        duration: video.duration,
+        duration: _video.duration,
         current: rewind_position
       });
       listener$8.send('rewind', {});
@@ -8029,14 +8076,14 @@
 
 
     function rewind(forward, custom_step) {
-      if (video.duration) {
+      if (_video.duration) {
         var time = Date.now(),
-            step = video.duration / (30 * 60),
+            step = _video.duration / (30 * 60),
             mini = time - (timer$3.rewind || 0) > 50 ? 20 : 60;
 
         if (rewind_position == 0) {
           rewind_force = Math.min(mini, custom_step || 30 * step);
-          rewind_position = video.currentTime;
+          rewind_position = _video.currentTime;
         }
 
         rewind_force *= 1.03;
@@ -8059,7 +8106,7 @@
     function size(type) {
       neeed_sacle = type;
       scale();
-      if (video.size) video.size(type);
+      if (_video.size) _video.size(type);
     }
     /**
      * Перемотка на позицию 
@@ -8069,7 +8116,7 @@
 
     function to(seconds) {
       pause();
-      if (seconds == -1) video.currentTime = video.duration;else video.currentTime = seconds;
+      if (seconds == -1) _video.currentTime = _video.duration;else _video.currentTime = seconds;
       play$1();
     }
     /**
@@ -8084,10 +8131,11 @@
       if (webos) webos.destroy();
       webos = null;
 
-      if (video) {
-        if (video.destroy) video.destroy();else {
-          video.src = "";
-          video.load();
+      if (_video) {
+        if (_video.destroy) _video.destroy();else {
+          _video.src = "";
+
+          _video.load();
         }
       }
 
@@ -8110,7 +8158,10 @@
       pause: pause,
       size: size,
       subsview: subsview,
-      to: to
+      to: to,
+      video: function video() {
+        return _video;
+      }
     };
 
     var html$9 = Template.get('player_info');
@@ -8810,6 +8861,9 @@
     var preloader = {
       wait: false
     };
+    html$7.on('mousemove', function () {
+      if (Storage.get('navigation_type') == 'mouse') Panel.mousemove();
+    });
     /**
      * Подписываемся на события
      */
@@ -8865,6 +8919,17 @@
     });
     Video.listener.follow('reset_continue', function (e) {
       if (work && work.timeline) work.timeline.continued = false;
+    });
+    Panel.listener.follow('mouse_rewind', function (e) {
+      var vid = Video.video();
+
+      if (vid && vid.duration) {
+        e.time.removeClass('hide').text(Utils.secondsToTime(vid.duration * e.percent)).css('left', e.percent * 100 + '%');
+
+        if (e.method == 'click') {
+          Video.to(vid.duration * e.percent);
+        }
+      }
     });
     Panel.listener.follow('playpause', function (e) {
       Video.playpause();
@@ -9205,7 +9270,7 @@
             data.videos.results.forEach(function (element) {
               items.push({
                 title: element.name,
-                subtitle: element.official ? '官方' : '官方',
+                subtitle: element.official ? '官方' : '非官方',
                 id: element.key,
                 player: element.player,
                 url: element.url
@@ -10524,8 +10589,8 @@
       $('body').append(search);
       var keyboard = new create$3({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 -{bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
+          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h cm 和 t b yu.', '{mic} {EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -11019,7 +11084,7 @@
       var filter_items = {
         quality: ['任何', '4k', '1080p', '720p'],
         hdr: ['未选择', '是', '否'],
-        sub: ['未选择', '是', '否'],
+        sub: ['未选择', '是的', '否'],
         voice: [],
         tracker: ['任何'],
         year: ['任何']
@@ -11029,7 +11094,7 @@
         hdr: 'HDR',
         sub: '字幕',
         voice: '翻译',
-        tracker: '追踪器',
+        tracker: '跟踪器',
         year: '年份'
       };
       var filter_multiple = ['quality', 'voice', 'tracker'];
@@ -11814,7 +11879,7 @@
                     card: finded
                   });
                 } else {
-                  Noty.show('电影不能找到了。');
+                  Noty.show('找不到电影。');
                   Controller.toggle('content');
                 }
               }, function () {
@@ -12256,6 +12321,10 @@
     function init$8() {
       data = Storage.get('notice', '{}');
       notices = [{
+        time: '2021-12-23 14:00',
+        title: '更新 1.3.7',
+        descr: 'one. Added voice search. \u003cbr\u003e 2. Bugs with the mouse fixed and added support for the mouse in the player. \u003cbr\u003e 3. Added account linking to CUB. \u003cbr\u003e 4. Any other not interesting little things.'
+      }, {
         time: '2021-11-25 13:00',
         title: '更新 1.3.6',
         descr: 'one. Added new catalog CUB. \u003cbr\u003e 2. Changed release source, now even works in MSX. \u003cbr\u003e 3. Added anime category;)'
@@ -12277,8 +12346,8 @@
         descr: 'one. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
-        title: '更新 1.3.1',
-        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        title: '更新1.3.1',
+        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: '屏幕保护程序',
@@ -12887,10 +12956,10 @@
         selects = $('.selector');
 
         if (Storage.get('navigation_type') == 'mouse') {
-          selects.on('click.hover', function (e) {
+          selects.unbind('click.hover').on('click.hover', function (e) {
             selects.removeClass('focus enter');
             if (e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true]);
-          }).on('mouseover.hover', function (e) {
+          }).unbind('mouseover.hover').on('mouseover.hover', function (e) {
             if ($(this).hasClass('selector')) {
               selects.removeClass('focus enter').data('ismouse', false);
               $(this).addClass('focus').data('ismouse', true).trigger('hover:focus', [true]);
@@ -12993,6 +13062,7 @@
           _keyBord;
 
       var last;
+      var recognition;
       var _default_layout = {
         'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
         'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
@@ -13016,7 +13086,8 @@
             '{abc}': '&nbsp;',
             '{eng}': '俄语',
             '{rus}': 'english',
-            '{search}': '查找'
+            '{search}': '查找',
+            '{mic}': "<svg style=\"width: 33px; height: 33px;\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>"
           },
           layout: params.layout || _default_layout,
           onChange: function onChange(value) {
@@ -13025,11 +13096,54 @@
             });
           },
           onKeyPress: function onKeyPress(button) {
-            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{enter}' || button === '{search}') {
+            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{mic}') {
+              if (recognition) {
+                if (recognition.record) recognition.stop();else recognition.start();
+              }
+            } else if (button === '{enter}' || button === '{search}') {
               _this.listener.send('enter');
             }
           }
         });
+        this.speechRecognition();
+      };
+
+      this.speechRecognition = function () {
+        var _this2 = this;
+
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        console.log('Speech', 'status:', SpeechRecognition ? true : false);
+
+        if (SpeechRecognition) {
+          recognition = new SpeechRecognition();
+          recognition.continuous = false;
+          recognition.addEventListener("start", function () {
+            $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
+            recognition.record = true;
+          });
+          recognition.addEventListener("end", function () {
+            $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'white');
+            recognition.record = false;
+          });
+          recognition.addEventListener("result", function (event) {
+            var current = event.resultIndex;
+            var transcript = event.results[current][0].transcript;
+
+            if (transcript.toLowerCase().trim() === "stop recording") {
+              recognition.stop();
+            } else {
+              if (transcript.toLowerCase().trim() === "reset input") {
+                _this2.value('');
+              } else {
+                _this2.value(transcript);
+              }
+            }
+          });
+          recognition.addEventListener("error", function (event) {
+            console.log('Speech', 'error:', event);
+            recognition.stop();
+          });
+        }
       };
 
       this.value = function (value) {
@@ -13070,34 +13184,34 @@
       };
 
       this.toggle = function () {
-        var _this2 = this;
+        var _this3 = this;
 
         Controller.add('keybord', {
           toggle: function toggle() {
-            _this2._layout();
+            _this3._layout();
           },
           up: function up() {
             if (!Navigator.canmove('up')) {
-              _this2.listener.send('up');
+              _this3.listener.send('up');
             } else Navigator.move('up');
           },
           down: function down() {
             if (!Navigator.canmove('down')) {
-              _this2.listener.send('down');
+              _this3.listener.send('down');
             } else Navigator.move('down');
           },
           left: function left() {
             if (!Navigator.canmove('left')) {
-              _this2.listener.send('left');
+              _this3.listener.send('left');
             } else Navigator.move('left');
           },
           right: function right() {
             if (!Navigator.canmove('right')) {
-              _this2.listener.send('right');
+              _this3.listener.send('right');
             } else Navigator.move('right');
           },
           back: function back() {
-            _this2.listener.send('back');
+            _this3.listener.send('back');
           }
         });
         Controller.toggle('keybord');
@@ -13147,14 +13261,14 @@
         });
         links = links.concat([{
           title: 'jac.red',
-          subtitle: '对于种子, Api 密钥 - 空',
+          subtitle: '对于种子，Api 密钥 - 空',
           url: 'jac.red'
         }, {
           title: 'j.govno.co.uk',
-          subtitle: '对于种子, Api 密钥 - 1',
+          subtitle: '对于种子，Api键 - 1',
           url: 'j.govno.co.uk'
         }, {
-          title: '127.0 .0.1 8090',
+          title: '127.0.0.1 8090',
           subtitle: '对于本地 TorrServ',
           url: '127.0.0.1:8090'
         }, {
@@ -13328,7 +13442,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件健康, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -13362,7 +13476,7 @@
 
           var enabled = Controller.enabled().name;
           Select.show({
-            title: 'Select',
+            title: '选择',
             items: items,
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -13455,8 +13569,8 @@
 
 
     select('interface_size', {
-      'small': '较少',
-      'normal': '正常'
+      'small': 'Less',
+      'normal': '普通'
     }, 'normal');
     select('parser_torrent_type', {
       'jackett': 'Jackett',
@@ -13533,12 +13647,12 @@
       'js': 'Javascript'
     }, 'css');
     select('card_views_type', {
-      'preload': '加载',
+      'preload': '预加载',
       'view': '显示全部'
     }, 'preload');
     select('navigation_type', {
       'controll': '遥控器',
-      'mouse': '鼠标'
+      'mouse': '远程鼠标'
     }, 'controll');
     select('time_offset', {
       'n-5': '-5',
@@ -13824,7 +13938,7 @@
         type: 'start',
         body: html$3
       });
-      $('body').on('mousedown', function () {
+      $('body').on('mouseup', function () {
         if ($('body').hasClass('menu--open')) {
           $('body').toggleClass('menu--open', false);
           Controller.toggle('content');
@@ -13877,7 +13991,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: 'Home -' + Storage.field('source').toUpperCase(),
+            title: '主页 -' + Storage.field('source').toUpperCase(),
             component: 'main',
             source: Storage.field('source')
           });
@@ -13888,7 +14002,7 @@
 
         if (action == 'about') {
           Modal.open({
-            title: 'O应用程序',
+            title: '关于应用程序',
             html: Template.get('about'),
             size: 'medium',
             onBack: function onBack() {
@@ -14345,8 +14459,8 @@
     function createKeyboard() {
       keyboard = new create$3({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {bksp}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '我是 h cm 和 t b yu.', '{EN} {space} {bksp}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {bksp}'],
+          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё I hcm and tb yu.', '{mic} {EN} {space} {bksp}']
         }
       });
       keyboard.create();
@@ -14607,7 +14721,7 @@
 
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
-          name.text('已同步');
+          name.text('同步');
           desc.text(time.full + '在' + time.time);
         }
       }
@@ -14840,7 +14954,7 @@
           Select.show({
             title: '退出',
             items: [{
-              title: '是的，退出',
+              title: '是，退出',
               out: true
             }, {
               title: '继续看'

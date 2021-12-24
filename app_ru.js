@@ -711,7 +711,7 @@
 
     var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-    var html$s = "<div class=\"about\">\n    <div>\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0435 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445, \u043D\u043E\u0432\u0438\u043D\u043A\u0430\u0445, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u0444\u0438\u043B\u044C\u043C\u043E\u0432 \u0438 \u0442.\u0434. \u0412\u0441\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0432 \u043F\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0446\u0435\u043B\u044F\u0445, \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0441\u0432\u043E\u0438 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u041D\u0430\u0448 \u043A\u0430\u043D\u0430\u043B</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>\u0413\u0440\u0443\u043F\u043F\u0430</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>\u0412\u0435\u0440\u0441\u0438\u044F</small><br>\n            1.3.6\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u0414\u043E\u043D\u0430\u0442</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+    var html$s = "<div class=\"about\">\n    <div>\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0435 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445, \u043D\u043E\u0432\u0438\u043D\u043A\u0430\u0445, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u0444\u0438\u043B\u044C\u043C\u043E\u0432 \u0438 \u0442.\u0434. \u0412\u0441\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0432 \u043F\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0446\u0435\u043B\u044F\u0445, \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0441\u0432\u043E\u0438 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u041D\u0430\u0448 \u043A\u0430\u043D\u0430\u043B</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>\u0413\u0440\u0443\u043F\u043F\u0430</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>\u0412\u0435\u0440\u0441\u0438\u044F</small><br>\n            1.3.7\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u0414\u043E\u043D\u0430\u0442</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
@@ -6542,7 +6542,8 @@
       timeend: $('.player-panel__timeend', html$b),
       title: $('.player-panel__filename', html$b),
       tracks: $('.player-panel__tracks', html$b),
-      subs: $('.player-panel__subs', html$b)
+      subs: $('.player-panel__subs', html$b),
+      timeline: $('.player-panel__timeline', html$b)
     };
     /**
      * Отсеживаем состояние, 
@@ -6574,17 +6575,24 @@
             timer$4.rewind = setTimeout(function () {
               condition.rewind = false;
 
-              _this.dispath('hide');
+              _this.dispath('mousemove');
             }, 1000);
           } else {
-            this.dispath('hide');
+            this.dispath('mousemove');
           }
+        },
+        mousemove: function mousemove() {
+          if (condition.mousemove) {
+            _visible(true);
+          }
+
+          this.dispath('hide');
         },
         hide: function hide() {
           clearTimeout(timer$4.hide);
           timer$4.hide = setTimeout(function () {
             _visible(false);
-          }, 1000);
+          }, 3000);
         }
       }
     });
@@ -6614,7 +6622,22 @@
     html$b.find('.player-panel__tend').on('hover:enter', function (e) {
       listener$9.send('to_end', {});
     });
-    html$b.find('.player-panel__timeline').attr('data-controller', 'player_rewind');
+    elems$1.timeline.attr('data-controller', 'player_rewind');
+    elems$1.timeline.on('mousemove', function (e) {
+      listener$9.send('mouse_rewind', {
+        method: 'move',
+        time: elems$1.time,
+        percent: percent(e)
+      });
+    }).on('mouseout', function () {
+      elems$1.time.addClass('hide');
+    }).on('click', function (e) {
+      listener$9.send('mouse_rewind', {
+        method: 'click',
+        time: elems$1.time,
+        percent: percent(e)
+      });
+    });
     html$b.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
     /**
      * Выбор аудиодорожки
@@ -6758,19 +6781,23 @@
         }
       });
     });
+
+    function percent(e) {
+      var offset = elems$1.timeline.offset();
+      var width = elems$1.timeline.width();
+      return (e.clientX - offset.left) / width;
+    }
     /**
      * Обновляем состояние панели
      * @param {String} need - что нужно обновить
      * @param {*} value - значение
      */
 
+
     function update$4(need, value) {
       if (need == 'position') {
         elems$1.position.css({
           width: value
-        });
-        elems$1.time.css({
-          left: value
         });
       }
 
@@ -6778,10 +6805,6 @@
         elems$1.peding.css({
           width: value
         });
-      }
-
-      if (need == 'time') {
-        elems$1.time.text(value);
       }
 
       if (need == 'timeend') {
@@ -6906,6 +6929,11 @@
     function show$2() {
       state.start();
     }
+
+    function mousemove() {
+      condition.mousemove = true;
+      state.start();
+    }
     /**
      * Скрыть панель
      */
@@ -6974,7 +7002,8 @@
       update: update$4,
       rewind: rewind$1,
       setTracks: setTracks,
-      setSubs: setSubs
+      setSubs: setSubs,
+      mousemove: mousemove
     };
 
     function luna(params, call, fail) {
@@ -7214,30 +7243,38 @@
     var timer$3 = {};
     var rewind_position = 0;
     var rewind_force = 0;
-    var video;
+
+    var _video;
+
     var wait;
     var neeed_sacle;
     var webos;
+    html$a.on('click', function () {
+      if (Storage.get('navigation_type') == 'mouse') playpause();
+    });
     /**
      * Добовляем события к контейнеру
      */
 
     function bind$2() {
       // ждем загрузки
-      video.addEventListener("waiting", function () {
+      _video.addEventListener("waiting", function () {
         loader(true);
       }); // начали играть
 
-      video.addEventListener("playing", function () {
+
+      _video.addEventListener("playing", function () {
         loader(false);
       }); // видео закончилось
 
-      video.addEventListener('ended', function () {
+
+      _video.addEventListener('ended', function () {
         listener$8.send('ended', {});
       }); // что-то пошло не так
 
-      video.addEventListener('error', function (e) {
-        var error = video.error || {};
+
+      _video.addEventListener('error', function (e) {
+        var error = _video.error || {};
         var msg = (error.message || '').toUpperCase();
 
         if (msg.indexOf('EMPTY SRC') == -1) {
@@ -7257,18 +7294,19 @@
         }
       }); // прогресс буферизации
 
-      video.addEventListener('progress', function (e) {
+
+      _video.addEventListener('progress', function (e) {
         if (e.percent) {
           listener$8.send('progress', {
             down: e.percent
           });
         } else {
-          var duration = video.duration;
+          var duration = _video.duration;
 
           if (duration > 0) {
-            for (var i = 0; i < video.buffered.length; i++) {
-              if (video.buffered.start(video.buffered.length - 1 - i) < video.currentTime) {
-                var down = Math.max(0, Math.min(100, video.buffered.end(video.buffered.length - 1 - i) / duration * 100)) + "%";
+            for (var i = 0; i < _video.buffered.length; i++) {
+              if (_video.buffered.start(_video.buffered.length - 1 - i) < _video.currentTime) {
+                var down = Math.max(0, Math.min(100, _video.buffered.end(_video.buffered.length - 1 - i) / duration * 100)) + "%";
                 listener$8.send('progress', {
                   down: down
                 });
@@ -7279,19 +7317,22 @@
         }
       }); // можно ли уже проигрывать?
 
-      video.addEventListener('canplay', function () {
+
+      _video.addEventListener('canplay', function () {
         listener$8.send('canplay', {});
       }); // сколько прошло
 
-      video.addEventListener('timeupdate', function () {
+
+      _video.addEventListener('timeupdate', function () {
         listener$8.send('timeupdate', {
-          duration: video.duration,
-          current: video.currentTime
+          duration: _video.duration,
+          current: _video.currentTime
         });
         scale();
       }); // обновляем субтитры
 
-      video.addEventListener('subtitle', function (e) {
+
+      _video.addEventListener('subtitle', function (e) {
         //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
         //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
         //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
@@ -7308,17 +7349,19 @@
 
         subtitles.children().html(e.text);
       });
-      video.addEventListener('loadedmetadata', function (e) {
+
+      _video.addEventListener('loadedmetadata', function (e) {
         listener$8.send('videosize', {
-          width: video.videoWidth,
-          height: video.videoHeight
+          width: _video.videoWidth,
+          height: _video.videoHeight
         });
         scale();
         loaded();
       }); // для страховки
 
-      video.volume = 1;
-      video.muted = false;
+
+      _video.volume = 1;
+      _video.muted = false;
     }
     /**
      * Масштаб видео
@@ -7327,8 +7370,8 @@
 
     function scale() {
       if (!neeed_sacle) return;
-      var vw = video.videoWidth,
-          vh = video.videoHeight,
+      var vw = _video.videoWidth,
+          vh = _video.videoHeight,
           rt = 1,
           sx = 1.01,
           sy = 1.01;
@@ -7383,7 +7426,7 @@
         };
       }
 
-      $(video).css(sz);
+      $(_video).css(sz);
       neeed_sacle = false;
     }
     /**
@@ -7392,8 +7435,8 @@
 
 
     function loaded() {
-      var tracks = video.audioTracks;
-      var subs = video.textTracks;
+      var tracks = _video.audioTracks;
+      var subs = _video.textTracks;
       if (webos && webos.sourceInfo) tracks = [];
 
       if (tracks && tracks.length) {
@@ -7468,11 +7511,11 @@
       if (Platform.is('tizen') && Storage.field('player') == 'tizen') {
         //if(true){
         videobox = create$h(function (object) {
-          video = object;
+          _video = object;
         });
       } else {
         videobox = $('<video class="player-video__video" poster="./img/video_poster.png" crossorigin="anonymous"></video>');
-        video = videobox[0];
+        _video = videobox[0];
       }
 
       applySubsSettings();
@@ -7482,9 +7525,11 @@
         webos = new create$f();
 
         webos.callback = function () {
-          var src = video.src;
+          var src = _video.src;
           console.log('WebOS', 'video loaded');
-          video.remove();
+
+          _video.remove();
+
           create$e();
           webos.repet();
           url$2(src);
@@ -7515,8 +7560,10 @@
     function url$2(src) {
       loader(true);
       create$e();
-      video.src = src;
-      video.load();
+      _video.src = src;
+
+      _video.load();
+
       play$1();
     }
     /**
@@ -7528,7 +7575,7 @@
       var playPromise;
 
       try {
-        playPromise = video.play();
+        playPromise = _video.play();
       } catch (e) {}
 
       if (playPromise !== undefined) {
@@ -7551,7 +7598,7 @@
       var pausePromise;
 
       try {
-        pausePromise = video.pause();
+        pausePromise = _video.pause();
       } catch (e) {}
 
       if (pausePromise !== undefined) {
@@ -7573,7 +7620,7 @@
     function playpause() {
       if (wait || rewind_position) return;
 
-      if (video.paused) {
+      if (_video.paused) {
         play$1();
         listener$8.send('play', {});
       } else {
@@ -7590,7 +7637,7 @@
     function rewindEnd(immediately) {
       clearTimeout(timer$3.rewind_call);
       timer$3.rewind_call = setTimeout(function () {
-        video.currentTime = rewind_position;
+        _video.currentTime = rewind_position;
         rewind_position = 0;
         rewind_force = 0;
         play$1();
@@ -7605,13 +7652,13 @@
 
 
     function rewindStart(position_time, immediately) {
-      if (!video.duration) return;
-      rewind_position = Math.max(0, Math.min(position_time, video.duration));
+      if (!_video.duration) return;
+      rewind_position = Math.max(0, Math.min(position_time, _video.duration));
       pause();
-      if (rewind_position == 0) video.currentTime = 0;else if (rewind_position == video.duration) video.currentTime = video.duration;
+      if (rewind_position == 0) _video.currentTime = 0;else if (rewind_position == _video.duration) _video.currentTime = _video.duration;
       timer$3.rewind = Date.now();
       listener$8.send('timeupdate', {
-        duration: video.duration,
+        duration: _video.duration,
         current: rewind_position
       });
       listener$8.send('rewind', {});
@@ -7625,14 +7672,14 @@
 
 
     function rewind(forward, custom_step) {
-      if (video.duration) {
+      if (_video.duration) {
         var time = Date.now(),
-            step = video.duration / (30 * 60),
+            step = _video.duration / (30 * 60),
             mini = time - (timer$3.rewind || 0) > 50 ? 20 : 60;
 
         if (rewind_position == 0) {
           rewind_force = Math.min(mini, custom_step || 30 * step);
-          rewind_position = video.currentTime;
+          rewind_position = _video.currentTime;
         }
 
         rewind_force *= 1.03;
@@ -7655,7 +7702,7 @@
     function size(type) {
       neeed_sacle = type;
       scale();
-      if (video.size) video.size(type);
+      if (_video.size) _video.size(type);
     }
     /**
      * Перемотка на позицию 
@@ -7665,7 +7712,7 @@
 
     function to(seconds) {
       pause();
-      if (seconds == -1) video.currentTime = video.duration;else video.currentTime = seconds;
+      if (seconds == -1) _video.currentTime = _video.duration;else _video.currentTime = seconds;
       play$1();
     }
     /**
@@ -7680,10 +7727,11 @@
       if (webos) webos.destroy();
       webos = null;
 
-      if (video) {
-        if (video.destroy) video.destroy();else {
-          video.src = "";
-          video.load();
+      if (_video) {
+        if (_video.destroy) _video.destroy();else {
+          _video.src = "";
+
+          _video.load();
         }
       }
 
@@ -7706,7 +7754,10 @@
       pause: pause,
       size: size,
       subsview: subsview,
-      to: to
+      to: to,
+      video: function video() {
+        return _video;
+      }
     };
 
     var html$9 = Template.get('player_info');
@@ -8406,6 +8457,9 @@
     var preloader = {
       wait: false
     };
+    html$7.on('mousemove', function () {
+      if (Storage.get('navigation_type') == 'mouse') Panel.mousemove();
+    });
     /**
      * Подписываемся на события
      */
@@ -8461,6 +8515,17 @@
     });
     Video.listener.follow('reset_continue', function (e) {
       if (work && work.timeline) work.timeline.continued = false;
+    });
+    Panel.listener.follow('mouse_rewind', function (e) {
+      var vid = Video.video();
+
+      if (vid && vid.duration) {
+        e.time.removeClass('hide').text(Utils.secondsToTime(vid.duration * e.percent)).css('left', e.percent * 100 + '%');
+
+        if (e.method == 'click') {
+          Video.to(vid.duration * e.percent);
+        }
+      }
     });
     Panel.listener.follow('playpause', function (e) {
       Video.playpause();
@@ -10120,8 +10185,8 @@
       $('body').append(search);
       var keyboard = new create$3({
         layout: {
-          'en': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {search}'],
-          'default': ['1 2 3 4 5 6 7 8 9 0 {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю', '{EN} {space} {search}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 -{bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
+          'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -11853,6 +11918,10 @@
     function init$8() {
       data = Storage.get('notice', '{}');
       notices = [{
+        time: '2021-12-23 14:00',
+        title: 'Обновление 1.3.7',
+        descr: '1. Добавлен голосовой поиск.<br>2. Устранены баги с мышкой и добавлена поддержка мыши в плеере.<br>3. Добавлена привязка аккаунта к CUB.<br>4. Всякие другие не интересные мелочи.'
+      }, {
         time: '2021-11-25 13:00',
         title: 'Обновление 1.3.6',
         descr: '1. Добавлен новый каталог CUB.<br>2. Изменен источник релизов, теперь работает даже в MSX.<br>3. Добавлена категория аниме ;)'
@@ -12484,10 +12553,10 @@
         selects = $('.selector');
 
         if (Storage.get('navigation_type') == 'mouse') {
-          selects.on('click.hover', function (e) {
+          selects.unbind('click.hover').on('click.hover', function (e) {
             selects.removeClass('focus enter');
             if (e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true]);
-          }).on('mouseover.hover', function (e) {
+          }).unbind('mouseover.hover').on('mouseover.hover', function (e) {
             if ($(this).hasClass('selector')) {
               selects.removeClass('focus enter').data('ismouse', false);
               $(this).addClass('focus').data('ismouse', true).trigger('hover:focus', [true]);
@@ -12590,6 +12659,7 @@
           _keyBord;
 
       var last;
+      var recognition;
       var _default_layout = {
         'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
         'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
@@ -12613,7 +12683,8 @@
             '{abc}': '&nbsp;',
             '{rus}': 'русский',
             '{eng}': 'english',
-            '{search}': 'найти'
+            '{search}': 'найти',
+            '{mic}': "<svg style=\"width: 33px; height: 33px;\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>"
           },
           layout: params.layout || _default_layout,
           onChange: function onChange(value) {
@@ -12622,11 +12693,54 @@
             });
           },
           onKeyPress: function onKeyPress(button) {
-            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{enter}' || button === '{search}') {
+            if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{mic}') {
+              if (recognition) {
+                if (recognition.record) recognition.stop();else recognition.start();
+              }
+            } else if (button === '{enter}' || button === '{search}') {
               _this.listener.send('enter');
             }
           }
         });
+        this.speechRecognition();
+      };
+
+      this.speechRecognition = function () {
+        var _this2 = this;
+
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        console.log('Speech', 'status:', SpeechRecognition ? true : false);
+
+        if (SpeechRecognition) {
+          recognition = new SpeechRecognition();
+          recognition.continuous = false;
+          recognition.addEventListener("start", function () {
+            $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
+            recognition.record = true;
+          });
+          recognition.addEventListener("end", function () {
+            $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'white');
+            recognition.record = false;
+          });
+          recognition.addEventListener("result", function (event) {
+            var current = event.resultIndex;
+            var transcript = event.results[current][0].transcript;
+
+            if (transcript.toLowerCase().trim() === "stop recording") {
+              recognition.stop();
+            } else {
+              if (transcript.toLowerCase().trim() === "reset input") {
+                _this2.value('');
+              } else {
+                _this2.value(transcript);
+              }
+            }
+          });
+          recognition.addEventListener("error", function (event) {
+            console.log('Speech', 'error:', event);
+            recognition.stop();
+          });
+        }
       };
 
       this.value = function (value) {
@@ -12667,34 +12781,34 @@
       };
 
       this.toggle = function () {
-        var _this2 = this;
+        var _this3 = this;
 
         Controller.add('keybord', {
           toggle: function toggle() {
-            _this2._layout();
+            _this3._layout();
           },
           up: function up() {
             if (!Navigator.canmove('up')) {
-              _this2.listener.send('up');
+              _this3.listener.send('up');
             } else Navigator.move('up');
           },
           down: function down() {
             if (!Navigator.canmove('down')) {
-              _this2.listener.send('down');
+              _this3.listener.send('down');
             } else Navigator.move('down');
           },
           left: function left() {
             if (!Navigator.canmove('left')) {
-              _this2.listener.send('left');
+              _this3.listener.send('left');
             } else Navigator.move('left');
           },
           right: function right() {
             if (!Navigator.canmove('right')) {
-              _this2.listener.send('right');
+              _this3.listener.send('right');
             } else Navigator.move('right');
           },
           back: function back() {
-            _this2.listener.send('back');
+            _this3.listener.send('back');
           }
         });
         Controller.toggle('keybord');
@@ -13414,7 +13528,7 @@
         type: 'start',
         body: html$3
       });
-      $('body').on('mousedown', function () {
+      $('body').on('mouseup', function () {
         if ($('body').hasClass('menu--open')) {
           $('body').toggleClass('menu--open', false);
           Controller.toggle('content');
@@ -13935,8 +14049,8 @@
     function createKeyboard() {
       keyboard = new create$3({
         layout: {
-          'en': ['1 2 3 4 5 6 7 8 9 0', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m', '{RU} {space} {bksp}'],
-          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{EN} {space} {bksp}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {bksp}'],
+          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{mic} {EN} {space} {bksp}']
         }
       });
       keyboard.create();
