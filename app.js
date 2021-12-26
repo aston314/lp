@@ -71,7 +71,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // С在ойство length метода from равно 1.
+        }; // Сinойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -1911,11 +1911,17 @@
       }
 
       scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
-      comp.find('.selector').on('hover:focus', function (e) {
-        last = e.target;
-        scrl.update($(e.target), true);
-      });
       Params.bind(comp.find('.selector'));
+
+      function updateScroll() {
+        comp.find('.selector').unbind('hover:focus').on('hover:focus', function (e) {
+          last = e.target;
+          scrl.update($(e.target), true);
+        });
+      }
+
+      Params.listener.follow('update_scroll', updateScroll);
+      updateScroll();
       Controller.add('settings_component', {
         toggle: function toggle() {
           Controller.collectionSet(comp);
@@ -1930,6 +1936,7 @@
         back: function back() {
           scrl.destroy();
           comp.remove();
+          Params.listener.remove('update_scroll', updateScroll);
           Controller.toggle('settings');
         }
       });
@@ -1938,6 +1945,7 @@
         scrl.destroy();
         comp.remove();
         comp = null;
+        Params.listener.remove('update_scroll', updateScroll);
       };
 
       this.render = function () {
@@ -4928,7 +4936,7 @@
             subtitle: '在（书签）菜单中查找',
             where: 'book'
           }, {
-            title: status.like ? '从收藏夹中移除' : '喜欢',
+            title: status.like ? '从喜欢中移除' : '喜欢',
             subtitle: '在（喜欢）菜单中查找',
             where: 'like'
           }, {
@@ -6177,6 +6185,7 @@
         more.onFocus = function (target) {
           last = target;
           scroll.update(more.render(), params.align_left ? false : true);
+          if (_this2.onFocusMore) _this2.onFocusMore();
         };
 
         more.onEnter = function () {
@@ -6255,6 +6264,7 @@
       };
 
       this.update = function (data) {
+        var nofavorite = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         var create = ((data.release_date || data.first_air_date || '0000') + '').slice(0, 4);
         html.find('.info__title').text(data.title);
         html.find('.info__title-original').text(data.original_title);
@@ -6262,14 +6272,27 @@
         html.find('.info__rate span').text(data.vote_average);
         html.find('.info__rate').toggleClass('hide', data.vote_average == 0);
         html.find('.info__icon').removeClass('active');
-        var status = Favorite.check(data);
-        $('.icon--book', html).toggleClass('active', status.book);
-        $('.icon--like', html).toggleClass('active', status.like);
-        $('.icon--wath', html).toggleClass('active', status.wath);
+
+        if (!nofavorite) {
+          var status = Favorite.check(data);
+          $('.icon--book', html).toggleClass('active', status.book);
+          $('.icon--like', html).toggleClass('active', status.like);
+          $('.icon--wath', html).toggleClass('active', status.wath);
+        }
+
+        html.find('.info__right').toggleClass('hide', nofavorite);
       };
 
       this.render = function () {
         return html;
+      };
+
+      this.empty = function () {
+        this.update({
+          title: '更多',
+          original_title: '显示更多结果',
+          vote_average: 0
+        }, true);
       };
 
       this.destroy = function () {
@@ -7166,23 +7189,23 @@
           value: 'fill',
           selected: select == 'fill'
         }, {
-          title: '缩放 115%',
-          subtitle: '缩放视频 115%',
+          title: '放大 115%',
+          subtitle: '将视频放大 115%',
           value: 's115',
           selected: select == 's115'
         }, {
-          title: '缩放 130%',
-          subtitle: '将视频缩放到 130 %',
+          title: '放大 130%',
+          subtitle: '放大视频 130%',
           value: 's130',
           selected: select == 's130'
         }, {
           title: '垂直 115%',
-          subtitle: '增加视频 115%',
+          subtitle: '放大视频 115%',
           value: 'v115',
           selected: select == 'v115'
         }, {
           title: '垂直 130%',
-          subtitle: '增加视频 130%',
+          subtitle: '放大视频 130%',
           value: 'v130',
           selected: select == 'v130'
         }]);
@@ -8557,6 +8580,9 @@
     var position = 0;
     var slides$1 = 'one';
     var direct = ['lt', 'rt', 'br', 'lb', 'ct'];
+    html$8.on('click', function () {
+      if (isWorked()) stopSlideshow();
+    });
 
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
@@ -8678,6 +8704,10 @@
       });
     }
 
+    function isWorked() {
+      return enabled$1 ? worked : enabled$1;
+    }
+
     function render$6() {
       return html$8;
     }
@@ -8687,7 +8717,8 @@
       init: init$9,
       enable: enable$1,
       render: render$6,
-      disable: disable
+      disable: disable,
+      isWorked: isWorked
     };
 
     var network$2 = new create$q();
@@ -8758,7 +8789,7 @@
       network$2.timeout(5000);
       network$2.silent(url() + '/settings', function (json) {
         if (typeof json.CacheSize == 'undefined') {
-          fail('Matrix 版本确认失败');
+          fail('无法确认矩阵版本');
         } else {
           success(json);
         }
@@ -9298,7 +9329,7 @@
               });
             });
             Select.show({
-              title: 'Trailers',
+              title: '预告片',
               items: items,
               onSelect: function onSelect(a) {
                 _this.toggle();
@@ -9337,17 +9368,17 @@
           var menu = [];
           menu.push({
             title: status.book ? '从书签中删除' : '书签',
-            subtitle: '看菜单(Bookmarks)',
+            subtitle: '在（书签）菜单中查找',
             where: 'book'
           });
           menu.push({
             title: status.like ? '从收藏夹中删除' : '喜欢',
-            subtitle: '看菜单(Like)',
+            subtitle: '看菜单（点赞）',
             where: 'like'
           });
           menu.push({
             title: status.wath ? '从预期中删除' : '稍后观看',
-            subtitle: '看菜单菜单（稍后）',
+            subtitle: '看菜单（稍后）',
             where: 'wath'
           });
           Select.show({
@@ -10103,6 +10134,7 @@
         item.onUp = this.up;
         item.onFocus = info.update;
         item.onBack = this.back;
+        item.onFocusMore = info.empty.bind(info);
         scroll.append(item.render());
         items.push(item);
       };
@@ -10218,7 +10250,8 @@
     function component$8(object) {
       var network = new create$q();
       var scroll = new create$p({
-        mask: true
+        mask: true,
+        over: true
       });
       var items = [];
       var active = 0;
@@ -10615,7 +10648,7 @@
       var keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0 -{bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h cm 和 t b yu.', '{mic} {EN} {space} {search}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h cm，等等 b你', '{mic} {EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -10673,12 +10706,12 @@
         }
 
         search.push({
-          title: '指定标题',
+          title: '指定名称',
           selected: selected == -1,
           query: ''
         });
         Select.show({
-          title: '优化搜索',
+          title: '指定',
           items: search,
           onBack: this.onBack,
           onSelect: function onSelect(a) {
@@ -10955,7 +10988,7 @@
 
     function install() {
       Modal.open({
-        title: '需要 TorrServer',
+        title: 'TorrServer 需要',
         html: $ ('<div class = "about"> <div> 要在线查看种子文件，您需要安装 TorrServer。您可以在网站上找到有关 TorrServer 是什么以及如何安装它的更多信息：https://github.com/YouROK/TorrServer </div> </div> '),        onBack: function onBack() {
           Modal.close();
           Controller.toggle('content');
@@ -11057,7 +11090,7 @@
       });
       if (items.length == 0) html = Template.get('error', {
         title: '空',
-        text: '无法检索匹配的文件'
+        text: '提取匹配文件失败'
       });else Modal.title('文件');
       Modal.update(html);
     }
@@ -11109,7 +11142,7 @@
       var filter_items = {
         quality: ['任何', '4k', '1080p', '720p'],
         hdr: ['未选择', '是', '否'],
-        sub: ['未选择', '是的', '否'],
+        sub: ['未选择', '是', '否'],
         voice: [],
         tracker: ['任何'],
         year: ['任何']
@@ -11124,12 +11157,12 @@
       };
       var filter_multiple = ['quality', 'voice', 'tracker'];
       var sort_translate = {
-        Seeders: '按种子',
+        Seeders: '按种子数',
         Size: '按大小',
         Title: '按名称',
         Tracker: '按来源',
         PublisTime: '按日期',
-        viewed: '通过查看'
+        viewed: '按查看'
       };
       var i = 20,
           y = new Date().getFullYear();
@@ -11241,7 +11274,7 @@
           });
           select.push({
             title: title,
-            subtitle: value ? multiple && value.length ? value.join(', ') : items[0] : items[0],
+            subtitle: multiple ? value.length ? value.join(', ') : items[0] : typeof value == 'undefined' ? items[0] : items[value],
             items: subitems,
             stype: type
           });
@@ -11317,6 +11350,8 @@
           } else {
             if (a.reset) {
               Storage.set('torrents_filter', '{}');
+
+              _this2.buildFilterd();
             } else {
               var filter_data = Storage.get('torrents_filter', '{}');
               filter_data[a.stype] = filter_multiple.indexOf(a.stype) >= 0 ? [] : b.index;
@@ -11531,7 +11566,7 @@
             movie: object.movie
           }
         }, function () {
-          Noty.show(object.movie.title + ' -添加到我的种子中');
+          Noty.show(object.movie.title + ' - 添加到我的种子');
         });
       };
 
@@ -11581,12 +11616,12 @@
                 title: '添加到我的种子',
                 tomy: true
               }, {
-                title: '标志',
-                subtitle: '带有标志的标志分布（查看）',
+                title: 'Flag',
+                subtitle: '带有标志的Flag分布（查看）',
                 mark: true
               }, {
                 title: '取消选中',
-                subtitle: '取消选中服务（已查看）'
+                subtitle: '取消选中分布（查看）'
               }],
               onBack: function onBack() {
                 Controller.toggle(enabled);
@@ -11727,10 +11762,10 @@
           card.onMenu = function (target, card_data) {
             var enabled = Controller.enabled().name;
             Select.show({
-              title: '操作',
+              title: 'Action',
               items: [{
-                title: '删除',
-                subtitle: '种子将从您的列表中删除'
+                title: 'Delete',
+                subtitle: 'torrent 将从您的列表中删除'
               }],
               onBack: function onBack() {
                 Controller.toggle(enabled);
@@ -12054,7 +12089,7 @@
             Activity$1.push({
               url: card_data.url,
               id: card_data.id,
-              title: '合集 -' + card_data.title,
+              title: '集合 -' + card_data.title,
               component: 'collections_view',
               source: object.source,
               page: 1
@@ -12371,8 +12406,8 @@
         descr: 'one. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
       }, {
         time: '2021-10-20 16:20',
-        title: '更新1.3.1',
-        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+        title: '更新 1.3.1',
+        descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added the ability to switch to nature in the screensaver. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
       }, {
         time: '2021-10-14 13:00',
         title: '屏幕保护程序',
@@ -12423,7 +12458,7 @@
         descr: 'one. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
       }, {
         time: '2021-09-27 15:00',
-        title: '解析器修复',
+        title: '固定解析器',
         descr: 'An error was detected in the parser due to which jac.red did not return results'
       }, {
         time: '2021-09-26 17:00',
@@ -13097,7 +13132,7 @@
         'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
         'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
         'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Ы V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
       this.listener = start$4();
 
@@ -13297,18 +13332,18 @@
         });
         links = links.concat([{
           title: 'jac.red',
-          subtitle: '对于种子，Api 密钥 - 空',
+          subtitle: '对于种子，API 密钥 - 空',
           url: 'jac.red'
         }, {
           title: 'j.govno.co.uk',
-          subtitle: '对于种子，Api键 - 1',
+          subtitle: '对于种子, Api 密钥 - 1',
           url: 'j.govno.co.uk'
         }, {
           title: '127.0.0.1 8090',
           subtitle: '对于本地 TorrServ',
           url: '127.0.0.1:8090'
         }, {
-          title: Utils.shortText('api.scraperapi.com/?url= {qq }api_key=', 35),
+          title: Utils.shortText('api.scraperapi.com/?url= {q} api_key =', 35),
           subtitle: 'scraperapi.com',
           url: 'api.scraperapi.com/?url={q}&api_key='
         }]);
@@ -13319,7 +13354,7 @@
             if (a.add) {
               if (members.indexOf(a.subtitle) == -1) {
                 Arrays.insert(members, 0, a.subtitle);
-                Noty.show('添加 (' + a.subtitle + ')');
+                Noty.show('已添加 (' + a.subtitle + ')');
               } else {
                 Arrays.remove(members, a.subtitle);
                 Noty.show('已删除 (' + a.subtitle + ')');
@@ -13414,7 +13449,7 @@
       defaults[name] = _default;
     }
     /**
-     * Select
+     * 选择
      * @param {String} name - название
      * @param {*} _select - значение
      * @param {String} _default - значение по дефолту
@@ -13478,7 +13513,7 @@
                   if (elem.data('notice')) {
                     Modal.open({
                       title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否正常工作, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否工作, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
                       onBack: function onBack() {
                         Modal.close();
                         Controller.toggle('settings_component');
@@ -13491,6 +13526,7 @@
                   }
                 }
               });
+              listener$1.send('update_scroll');
             }
           });
         }
@@ -13574,6 +13610,7 @@
       list.forEach(function (element) {
         displayAddItem(elem, element);
       });
+      listener$1.send('update_scroll');
     }
     /**
      * Обновляет значения на элементе
@@ -13605,8 +13642,8 @@
 
 
     select('interface_size', {
-      'small': 'Less',
-      'normal': '普通'
+      'small': '较少',
+      'normal': '正常'
     }, 'normal');
     select('parser_torrent_type', {
       'jackett': 'Jackett',
@@ -13637,7 +13674,7 @@
     }, 'one');
     select('subtitles_size', {
       'small': '小',
-      'normal': '正常',
+      'normal': '常规',
       'large': '大'
     }, 'normal');
     select('screensaver_type', {
@@ -13675,7 +13712,7 @@
       'cub': 'CUB'
     }, 'yyds');
     select('start_page', {
-      'main': '主页',
+      'main': '首页',
       'last': '最后'
     }, 'last');
     select('scroll_type', {
@@ -13683,12 +13720,12 @@
       'js': 'Javascript'
     }, 'css');
     select('card_views_type', {
-      'preload': '预加载',
+      'preload': '加载',
       'view': '显示全部'
     }, 'preload');
     select('navigation_type', {
       'controll': '遥控器',
-      'mouse': '远程鼠标'
+      'mouse': '鼠标'
     }, 'controll');
     select('time_offset', {
       'n-5': '-5',
@@ -14027,7 +14064,7 @@
         if (action == 'main') {
           Activity$1.push({
             url: '',
-            title: '主页 -' + Storage.field('source').toUpperCase(),
+            title: '主页-' + Storage.field('source').toUpperCase(),
             component: 'main',
             source: Storage.field('source')
           });
@@ -14083,7 +14120,7 @@
               title: 'ivi 上的合集',
               source: 'ivi'
             }, {
-              title: 'okko 上的合集',
+              title: 'okko 上的集合',
               source: 'okko'
             }],
             onSelect: function onSelect(a) {
@@ -14496,7 +14533,7 @@
       keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {bksp}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё I hcm and tb yu.', '{mic} {EN} {space} {bksp}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё I h cm and t b yu.', '{mic} {EN} {space} {bksp}']
         }
       });
       keyboard.create();
@@ -14507,7 +14544,7 @@
           search.find('.search__input').text(input);
           results.search(input);
         } else {
-          search.find('.search__input').text('输入文本...');
+          search.find('.search__input').text('输入文本 ...');
         }
       });
       keyboard.listener.follow('right', function () {
@@ -14737,17 +14774,17 @@
 
         if (code == 0) {
           name.text('禁用');
-          desc.text('打开同步');
+          desc.text('开启同步');
         }
 
         if (code == 1) {
           name.text('未登录');
-          desc.text('您必须登录');
+          desc.text('必须登录');
         }
 
         if (code == 2) {
           name.text('登录失败');
-          desc.text('检查输入的数据并重试');
+          desc.text('检查输入的数据再试一次');
         }
 
         if (code == 3) {
@@ -14758,7 +14795,7 @@
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('同步');
-          desc.text(time.full + '进入' + time.time);
+          desc.text(time.full + '在' + time.time);
         }
       }
     }
@@ -14981,6 +15018,8 @@
       Screensaver.init();
       Cloud.init();
       Account.init();
+      Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
+
       Controller.listener.follow('toggle', function () {
         Layer.update();
       });

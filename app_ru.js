@@ -1458,7 +1458,9 @@
       var scroll_time = 0,
           scroll_step = params.step || 150;
       html.on('mousewheel', function (e) {
-        if (Date.now() - scroll_time > 200 && html.find('.scroll').length == 0) {
+        var parent = $(e.target).parents('.scroll');
+
+        if (Storage.get('navigation_type') == 'mouse' && Date.now() - scroll_time > 100 && html.is(parent[0])) {
           scroll_time = Date.now();
 
           if (e.originalEvent.wheelDelta / 120 > 0) {
@@ -1471,9 +1473,28 @@
 
       this.wheel = function (size) {
         html.toggleClass('scroll--wheel', true);
-        var scrl = body.data('scroll');
+        var direct = params.horizontal ? 'left' : 'top';
+        var scrl = body.data('scroll'),
+            scrl_offset = html.offset()[direct],
+            scrl_padding = parseInt(content.css('padding-' + direct));
+
+        if (params.scroll_by_item) {
+          var pos = body.data('scroll-position');
+          pos = pos || 0;
+          var items = $('>*', body);
+          pos += size > 0 ? 1 : -1;
+          pos = Math.max(0, Math.min(items.length - 1, pos));
+          body.data('scroll-position', pos);
+          var item = items.eq(pos),
+              ofst = item.offset()[direct];
+          size = ofst - scrl_offset - scrl_padding;
+        }
+
+        var max = params.horizontal ? 10000 : body.height();
+        max -= params.horizontal ? html.width() : html.height();
+        max += scrl_padding * 2;
         scrl -= size;
-        scrl = Math.min(0, scrl);
+        scrl = Math.min(0, Math.max(-max, scrl));
         this.reset();
 
         if (Storage.field('scroll_type') == 'css') {
@@ -1886,11 +1907,17 @@
       }
 
       scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
-      comp.find('.selector').on('hover:focus', function (e) {
-        last = e.target;
-        scrl.update($(e.target), true);
-      });
       Params.bind(comp.find('.selector'));
+
+      function updateScroll() {
+        comp.find('.selector').unbind('hover:focus').on('hover:focus', function (e) {
+          last = e.target;
+          scrl.update($(e.target), true);
+        });
+      }
+
+      Params.listener.follow('update_scroll', updateScroll);
+      updateScroll();
       Controller.add('settings_component', {
         toggle: function toggle() {
           Controller.collectionSet(comp);
@@ -1905,6 +1932,7 @@
         back: function back() {
           scrl.destroy();
           comp.remove();
+          Params.listener.remove('update_scroll', updateScroll);
           Controller.toggle('settings');
         }
       });
@@ -1913,6 +1941,7 @@
         scrl.destroy();
         comp.remove();
         comp = null;
+        Params.listener.remove('update_scroll', updateScroll);
       };
 
       this.render = function () {
@@ -5673,7 +5702,7 @@
         horizontal: true,
         step: 300
       });
-      var viewall = Storage.field('card_views_type') == 'view';
+      var viewall = Storage.field('card_views_type') == 'view' || Storage.get('navigation_type') == 'mouse';
       var items = [];
       var active = 0;
       var more;
@@ -5752,6 +5781,7 @@
         more.onFocus = function (target) {
           last = target;
           scroll.update(more.render(), params.align_left ? false : true);
+          if (_this2.onFocusMore) _this2.onFocusMore();
         };
 
         more.onEnter = function () {
@@ -5830,6 +5860,7 @@
       };
 
       this.update = function (data) {
+        var nofavorite = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         var create = ((data.release_date || data.first_air_date || '0000') + '').slice(0, 4);
         html.find('.info__title').text(data.title);
         html.find('.info__title-original').text(data.original_title);
@@ -5837,14 +5868,27 @@
         html.find('.info__rate span').text(data.vote_average);
         html.find('.info__rate').toggleClass('hide', data.vote_average == 0);
         html.find('.info__icon').removeClass('active');
-        var status = Favorite.check(data);
-        $('.icon--book', html).toggleClass('active', status.book);
-        $('.icon--like', html).toggleClass('active', status.like);
-        $('.icon--wath', html).toggleClass('active', status.wath);
+
+        if (!nofavorite) {
+          var status = Favorite.check(data);
+          $('.icon--book', html).toggleClass('active', status.book);
+          $('.icon--like', html).toggleClass('active', status.like);
+          $('.icon--wath', html).toggleClass('active', status.wath);
+        }
+
+        html.find('.info__right').toggleClass('hide', nofavorite);
       };
 
       this.render = function () {
         return html;
+      };
+
+      this.empty = function () {
+        this.update({
+          title: 'Еще',
+          original_title: 'Показать больше резултатов',
+          vote_average: 0
+        }, true);
       };
 
       this.destroy = function () {
@@ -8132,6 +8176,9 @@
     var position = 0;
     var slides$1 = 'one';
     var direct = ['lt', 'rt', 'br', 'lb', 'ct'];
+    html$8.on('click', function () {
+      if (isWorked()) stopSlideshow();
+    });
 
     function toggle$3(is_enabled) {
       enabled$1 = is_enabled;
@@ -8253,6 +8300,10 @@
       });
     }
 
+    function isWorked() {
+      return enabled$1 ? worked : enabled$1;
+    }
+
     function render$6() {
       return html$8;
     }
@@ -8262,7 +8313,8 @@
       init: init$9,
       enable: enable$1,
       render: render$6,
-      disable: disable
+      disable: disable,
+      isWorked: isWorked
     };
 
     var network$2 = new create$q();
@@ -9207,7 +9259,8 @@
           title: params.title || 'Актеры'
         });
         scroll = new create$p({
-          horizontal: true
+          horizontal: true,
+          scroll_by_item: true
         });
         scroll.render().find('.scroll__body').addClass('full-persons');
         html.find('.items-line__body').append(scroll.render());
@@ -9328,7 +9381,9 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
-        over: true
+        over: true,
+        step: 400,
+        scroll_by_item: true
       });
       var items = [];
       var active = 0;
@@ -9623,11 +9678,12 @@
       var network = new create$q();
       var scroll = new create$p({
         mask: true,
-        over: true
+        over: true,
+        scroll_by_item: true
       });
       var items = [];
       var html = $('<div></div>');
-      var viewall = Storage.field('card_views_type') == 'view';
+      var viewall = Storage.field('card_views_type') == 'view' || Storage.get('navigation_type') == 'mouse';
       var active = 0;
       var info;
       var lezydata;
@@ -9674,6 +9730,7 @@
         item.onUp = this.up;
         item.onFocus = info.update;
         item.onBack = this.back;
+        item.onFocusMore = info.empty.bind(info);
         scroll.append(item.render());
         items.push(item);
       };
@@ -9789,7 +9846,8 @@
     function component$8(object) {
       var network = new create$q();
       var scroll = new create$p({
-        mask: true
+        mask: true,
+        over: true
       });
       var items = [];
       var active = 0;
@@ -10813,7 +10871,7 @@
           });
           select.push({
             title: title,
-            subtitle: value ? multiple && value.length ? value.join(', ') : items[0] : items[0],
+            subtitle: multiple ? value.length ? value.join(', ') : items[0] : typeof value == 'undefined' ? items[0] : items[value],
             items: subitems,
             stype: type
           });
@@ -10889,6 +10947,8 @@
           } else {
             if (a.reset) {
               Storage.set('torrents_filter', '{}');
+
+              _this2.buildFilterd();
             } else {
               var filter_data = Storage.get('torrents_filter', '{}');
               filter_data[a.stype] = filter_multiple.indexOf(a.stype) >= 0 ? [] : b.index;
@@ -12550,26 +12610,29 @@
           run('back');
         });
         if (active.toggle) active.toggle();
-        selects = $('.selector');
-
-        if (Storage.get('navigation_type') == 'mouse') {
-          selects.unbind('click.hover').on('click.hover', function (e) {
-            selects.removeClass('focus enter');
-            if (e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true]);
-          }).unbind('mouseover.hover').on('mouseover.hover', function (e) {
-            if ($(this).hasClass('selector')) {
-              selects.removeClass('focus enter').data('ismouse', false);
-              $(this).addClass('focus').data('ismouse', true).trigger('hover:focus', [true]);
-              var silent = Navigator.silent;
-              Navigator.silent = true;
-              Navigator.focus($(this)[0]);
-              Navigator.silent = silent;
-            }
-          });
-        }
-
+        updateSelects();
         listener$2.send('toggle', {
           name: name
+        });
+      }
+    }
+
+    function updateSelects() {
+      selects = $('.selector');
+
+      if (Storage.get('navigation_type') == 'mouse') {
+        selects.unbind('click.hover').on('click.hover', function (e) {
+          selects.removeClass('focus enter');
+          if (e.keyCode !== 13) $(this).addClass('focus').trigger('hover:enter', [true]);
+        }).unbind('mouseover.hover').on('mouseover.hover', function (e) {
+          if ($(this).hasClass('selector')) {
+            selects.removeClass('focus enter').data('ismouse', false);
+            $(this).addClass('focus').data('ismouse', true).trigger('hover:focus', [true]);
+            var silent = Navigator.silent;
+            Navigator.silent = true;
+            Navigator.focus($(this)[0]);
+            Navigator.silent = silent;
+          }
         });
       }
     }
@@ -12649,7 +12712,8 @@
       collectionFocus: collectionFocus,
       enable: enable,
       enabled: enabled,
-      "long": _long
+      "long": _long,
+      updateSelects: updateSelects
     };
 
     function create$3() {
@@ -12695,7 +12759,11 @@
           onKeyPress: function onKeyPress(button) {
             if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{mic}') {
               if (recognition) {
-                if (recognition.record) recognition.stop();else recognition.start();
+                try {
+                  if (recognition.record) recognition.stop();else recognition.start();
+                } catch (e) {
+                  recognition.stop();
+                }
               }
             } else if (button === '{enter}' || button === '{search}') {
               _this.listener.send('enter');
@@ -12717,6 +12785,7 @@
           recognition.addEventListener("start", function () {
             $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
             recognition.record = true;
+            Noty.show('Говорите, я слушаю..');
           });
           recognition.addEventListener("end", function () {
             $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'white');
@@ -12735,6 +12804,8 @@
                 _this2.value(transcript);
               }
             }
+
+            recognition.stop();
           });
           recognition.addEventListener("error", function (event) {
             console.log('Speech', 'error:', event);
@@ -13052,6 +13123,7 @@
                   }
                 }
               });
+              listener$1.send('update_scroll');
             }
           });
         }
@@ -13135,6 +13207,7 @@
       list.forEach(function (element) {
         displayAddItem(elem, element);
       });
+      listener$1.send('update_scroll');
     }
     /**
      * Обновляет значения на элементе
@@ -14535,6 +14608,8 @@
       Screensaver.init();
       Cloud.init();
       Account.init();
+      Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
+
       Controller.listener.follow('toggle', function () {
         Layer.update();
       });
@@ -14544,7 +14619,7 @@
           Select.show({
             title: 'Выход',
             items: [{
-              title: 'Да выйти',
+              title: 'Да, выйти',
               out: true
             }, {
               title: 'Продолжить'
