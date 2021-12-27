@@ -12770,12 +12770,14 @@
             }
           }
         });
+        console.log('Speech', 'create');
         this.speechRecognition();
       };
 
       this.speechRecognition = function () {
         var _this2 = this;
 
+        console.log('Speech', 'create confirm');
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         console.log('Speech', 'status:', SpeechRecognition ? true : false);
 
@@ -12783,17 +12785,21 @@
           recognition = new SpeechRecognition();
           recognition.continuous = false;
           recognition.addEventListener("start", function () {
+            console.log('Speech', 'start');
             $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
             recognition.record = true;
             Noty.show('Говорите, я слушаю..');
           });
           recognition.addEventListener("end", function () {
+            console.log('Speech', 'end');
             $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'white');
             recognition.record = false;
           });
           recognition.addEventListener("result", function (event) {
+            console.log('Speech', 'result:', event.resultIndex, event.results[event.resultIndex]);
             var current = event.resultIndex;
             var transcript = event.results[current][0].transcript;
+            console.log('Speech', 'transcript:', transcript);
 
             if (transcript.toLowerCase().trim() === "stop recording") {
               recognition.stop();
@@ -12804,8 +12810,6 @@
                 _this2.value(transcript);
               }
             }
-
-            recognition.stop();
           });
           recognition.addEventListener("error", function (event) {
             console.log('Speech', 'error:', event);
@@ -14682,6 +14686,8 @@
       });
       Menu.ready();
       window.appready = true; //пометка что уже загружено
+
+      console.log('App', 'load test:', 1.2355);
     } // принудительно стартовать
 
 
