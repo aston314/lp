@@ -71,7 +71,7 @@
         var toLength = function toLength(value) {
           var len = toInteger(value);
           return Math.min(Math.max(len, 0), maxSafeInteger);
-        }; // Сinойство length метода from равно 1.
+        }; // С在ойство length метода from равно 1.
 
 
         return function from(arrayLike
@@ -647,13 +647,13 @@
 
     var html$Z = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的Android播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前播放时自动切换到下一集一个结束</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次观看继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒出提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">哪个页面从启动开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以什么语言显示来自TMDB的数据</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">将页面存储在您所处的状态离开它</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动画面</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护程序类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift 时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">到哪个页面从启动开始</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以什么语言显示来自TMDB的数据</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">将页面存储在您所处的状态离开它</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动画面</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护程序类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift 时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要使插件工作，您需要重新启动应用程序。\">\n        <div class=\"settings-param__name\">加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，请按住确定按钮</div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要使插件工作，您需要重新启动应用程序。\">\n        <div class=\"settings-param__name\">加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，请按住确定按钮</div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步书签、浏览历史、标签和时间码。连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 服务同步，同步您的书签、浏览历史、标签和时间码。站点: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销账户</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+    var html$V = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与CUB 服务同步，同步您的书签、浏览历史、标签和时间码。站点: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销账户</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$U = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -715,11 +715,11 @@
 
     var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>地址正在被使用: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用Matrix版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器进入地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有没有响应，检查它是否正在运行 TorrServe，或者重新加载它。</li>\n            <li>如果浏览器响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>地址正在被使用: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器进入地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有没有响应，检查它是否正在运行 TorrServe，或者重新加载它。</li>\n            <li>如果浏览器响应，请确保响应包含行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>ping 请求返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>要做什么？</div>\n        <ul>\n            <li>请确保你有矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保响应包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载torrent文件</li>\n            <li>回复来自TorServer: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>要做什么？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能无法链接到该文件</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What我应该怎么做？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能，还有这张发行版的照片</li>\n        </ul>\n    </div>\n</div>";
+    var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载torrent文件</li>\n            <li>回复来自TorServer: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>要做什么？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能无法链接到该文件</li>\n            <li>确保 Jackett 也可以下载该文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>What我应该怎么做？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指明哪部电影，哪个发行版，如果可能的话，还有这张发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
     var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 - <b>{episode}</b> &nbsp;\u2022&nbsp; 季 - <b>{season}</b> &nbsp;\u2022&nbsp; 退出 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -731,7 +731,7 @@
 
     var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有找到适合您的过滤器的内容，请指定过滤器。</div>\n</div>";
+    var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空的</div>\n    <div class=\"empty__descr\">没有找到适合您的过滤器的内容，请指定过滤器。</div>\n</div>";
 
     var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -935,7 +935,7 @@
     };
 
     var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
-        body$3 = html$g.find('.noty__text'),
+        body$4 = html$g.find('.noty__text'),
         time$1;
 
     function show$4(text) {
@@ -943,7 +943,7 @@
       time$1 = setTimeout(function () {
         html$g.removeClass('noty--visible');
       }, 3000);
-      body$3.html(text);
+      body$4.html(text);
       html$g.addClass('noty--visible');
     }
 
@@ -1986,7 +1986,7 @@
     }
 
     var html$f = Template.get('settings');
-    var body$2 = html$f.find('.settings__body');
+    var body$3 = html$f.find('.settings__body');
     var listener$b = start$4();
     var last$4 = '';
     html$f.find('.settings__layer').on('click', function () {
@@ -1995,7 +1995,7 @@
 
     function create$o(name) {
       var comp = new component$d(name);
-      body$2.empty().append(comp.render());
+      body$3.empty().append(comp.render());
       listener$b.send('open', {
         name: name,
         body: comp.render()
@@ -2004,7 +2004,7 @@
       Controller.toggle('settings_component');
     }
 
-    function init$f() {
+    function init$g() {
       var main = new main$5();
       main.onCreate = create$o;
       main.create();
@@ -2014,7 +2014,7 @@
             name: 'main',
             body: main.render()
           });
-          body$2.empty().append(main.render());
+          body$3.empty().append(main.render());
           main.active();
           $('body').toggleClass('settings--open', true);
         },
@@ -2048,7 +2048,7 @@
 
     var Settings = {
       listener: listener$b,
-      init: init$f,
+      init: init$g,
       render: render$c,
       update: update$8
     };
@@ -2153,20 +2153,20 @@
       render: render$b
     };
 
-    var body$1;
+    var body$2;
     var network$a = new create$q();
     var api = Utils.protocol() + 'cub.watch/api/';
     /**
      * Запуск
      */
 
-    function init$e() {
+    function init$f() {
       Settings.listener.follow('open', function (e) {
-        body$1 = null;
+        body$2 = null;
 
         if (e.name == 'account') {
-          body$1 = e.body;
-          renderPanel();
+          body$2 = e.body;
+          renderPanel$1();
           check$1();
         }
       });
@@ -2240,6 +2240,29 @@
         Storage.set('account_bookmarks', []);
       }
     }
+
+    function plugins(call) {
+      var account = Storage.get('account', '{}');
+
+      if (account.token) {
+        network$a.silent(api + 'plugins/all', function (result) {
+          if (result.secuses) {
+            call(result.plugins);
+          } else {
+            call([]);
+          }
+        }, function () {
+          call([]);
+        }, false, {
+          headers: {
+            token: account.token,
+            profile: account.profile.id
+          }
+        });
+      } else {
+        call([]);
+      }
+    }
     /**
      * Статус
      */
@@ -2248,23 +2271,23 @@
     function renderStatus$1(name) {
       var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-      if (body$1) {
-        body$1.find('.settings--account-status .settings-param__value').text(name);
-        body$1.find('.settings--account-status .settings-param__descr').text(value);
+      if (body$2) {
+        body$2.find('.settings--account-status .settings-param__value').text(name);
+        body$2.find('.settings--account-status .settings-param__descr').text(value);
       }
     }
 
-    function renderPanel() {
-      if (body$1) {
+    function renderPanel$1() {
+      if (body$2) {
         var account = Storage.get('account', '{}');
         var signed = account.token ? true : false;
-        body$1.find('.settings--account-signin').toggleClass('hide', signed);
-        body$1.find('.settings--account-user').toggleClass('hide', !signed);
+        body$2.find('.settings--account-signin').toggleClass('hide', signed);
+        body$2.find('.settings--account-user').toggleClass('hide', !signed);
 
         if (account.token) {
-          body$1.find('.settings--account-user-info .settings-param__value').text(account.email);
-          body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-          body$1.find('.settings--account-user-out').on('hover:enter', function () {
+          body$2.find('.settings--account-user-info .settings-param__value').text(account.email);
+          body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+          body$2.find('.settings--account-user-out').on('hover:enter', function () {
             Storage.set('account', {});
             Settings.update();
             update$7();
@@ -2276,8 +2299,8 @@
 
     function profile() {
       var account = Storage.get('account', '{}');
-      body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-      body$1.find('.settings--account-user-profile').on('hover:enter', function () {
+      body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+      body$2.find('.settings--account-user-profile').on('hover:enter', function () {
         network$a.clear();
         network$a.silent(api + 'profiles/all', function (result) {
           if (result.secuses) {
@@ -2290,7 +2313,7 @@
               onSelect: function onSelect(a) {
                 account.profile = a;
                 Storage.set('account', account);
-                body$1.find('.settings--account-user-profile .settings-param__value').text(a.name);
+                body$2.find('.settings--account-user-profile .settings-param__value').text(a.name);
                 Controller.toggle('settings_component');
                 update$7();
               },
@@ -2370,9 +2393,10 @@
     }
 
     var Account = {
-      init: init$e,
+      init: init$f,
       working: working,
-      get: get$8
+      get: get$8,
+      plugins: plugins
     };
 
     var data$1 = {};
@@ -2594,7 +2618,7 @@
      */
 
 
-    function init$d() {
+    function init$e() {
       read$1();
     }
 
@@ -2605,7 +2629,7 @@
       remove: remove$1,
       toggle: toggle$7,
       get: get$7,
-      init: init$d,
+      init: init$e,
       clear: clear$6
     };
 
@@ -4635,7 +4659,7 @@
       }
 
       u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
-      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date ? '2' : params.other ? '0' : '1'));
+      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
       u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
       u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000));
       network$5["native"](u, function (json) {
@@ -4994,7 +5018,7 @@
       };
     }
 
-    function init$c() {
+    function init$d() {
       $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
@@ -5040,7 +5064,7 @@
 
     var Layer = {
       update: update$6,
-      init: init$c
+      init: init$d
     };
 
     /* eslint-disable no-bitwise -- used for calculations */
@@ -5983,7 +6007,7 @@
       }
     }
 
-    function load() {
+    function load$1() {
       if (loaded$1[src]) {
         draw(loaded$1[src], bg());
       } else if (src) {
@@ -6022,7 +6046,7 @@
       if (url) src = url;
       clearTimeout(timer$6);
       timer$6 = setTimeout(function () {
-        if (url) load();else draw(false, false, true);
+        if (url) load$1();else draw(false, false, true);
       }, 1000);
     }
 
@@ -6031,14 +6055,14 @@
       if (url) src = url;
       clearTimeout(timer$6);
       bokeh.d = false;
-      if (url) load();else draw(false, false, true);
+      if (url) load$1();else draw(false, false, true);
     }
 
     function render$a() {
       return html$d;
     }
 
-    function init$b() {
+    function init$c() {
       Storage.listener.follow('change', function (event) {
         if (event.name == 'background' || event.name == 'background_type') resize();
       });
@@ -6064,7 +6088,7 @@
       render: render$a,
       change: change,
       update: resize,
-      init: init$b,
+      init: init$c,
       immediately: immediately
     };
 
@@ -8432,7 +8456,7 @@
       return keycode;
     }
 
-    function init$a() {
+    function init$b() {
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
@@ -8564,7 +8588,7 @@
 
     var Keypad = {
       listener: listener$5,
-      init: init$a,
+      init: init$b,
       enable: enable$2,
       disable: disable$1
     };
@@ -8688,7 +8712,7 @@
       }
     }
 
-    function init$9() {
+    function init$a() {
       $('body').append(html$8);
       resetTimer();
       Keypad.listener.follow('keydown', function (e) {
@@ -8714,7 +8738,7 @@
 
     var Screensaver = {
       listener: listener$4,
-      init: init$9,
+      init: init$a,
       enable: enable$1,
       render: render$6,
       disable: disable,
@@ -10648,7 +10672,7 @@
       var keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0 -{bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h cm，等等 b你', '{mic} {EN} {space} {search}']
+          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h c m 等 b你', '{mic} {EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -11617,7 +11641,7 @@
                 tomy: true
               }, {
                 title: 'Flag',
-                subtitle: 'Flag distribution with flag (viewed)',
+                subtitle: '带有标志的Flag Distribution (查看)',
                 mark: true
               }, {
                 title: 'Uncheck',
@@ -12378,7 +12402,7 @@
     var data = {};
     var notices = [];
 
-    function init$8() {
+    function init$9() {
       data = Storage.get('notice', '{}');
       notices = [{
         time: '2021-12-23 14:00',
@@ -12516,13 +12540,13 @@
     var Notice = {
       open: open,
       start: start$2,
-      init: init$8
+      init: init$9
     };
 
     var html$5;
     var last$2;
 
-    function init$7() {
+    function init$8() {
       html$5 = Template.get('head');
       Utils.time(html$5);
       Notice.start(html$5);
@@ -12572,7 +12596,7 @@
     var Head = {
       render: render$3,
       title: title,
-      init: init$7
+      init: init$8
     };
 
     var listener$3 = start$4();
@@ -12696,7 +12720,7 @@
       this.append();
     }
 
-    function init$6() {
+    function init$7() {
       content = Template.get('activitys');
       slides = content.find('.activitys__slides');
       maxsave = Storage.get('pages_save_total', 5);
@@ -12907,7 +12931,7 @@
     }
 
     var Activity$1 = {
-      init: init$6,
+      init: init$7,
       listener: listener$3,
       push: push,
       back: back$2,
@@ -13173,14 +13197,12 @@
             }
           }
         });
-        console.log('Speech', 'create');
         this.speechRecognition();
       };
 
       this.speechRecognition = function () {
         var _this2 = this;
 
-        console.log('Speech', 'create confirm');
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         console.log('Speech', 'status:', SpeechRecognition ? true : false);
 
@@ -13191,7 +13213,7 @@
             console.log('Speech', 'start');
             $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
             recognition.record = true;
-            Noty.show('说话, я слушаю..');
+            Noty.show('发言, я слушаю..');
           });
           recognition.addEventListener("end", function () {
             console.log('Speech', 'end');
@@ -13216,8 +13238,15 @@
           });
           recognition.addEventListener("error", function (event) {
             console.log('Speech', 'error:', event);
+
+            if (event.error == 'not-allowed') {
+              Noty.show('麦克风访问被拒绝');
+            }
+
             recognition.stop();
           });
+        } else {
+          $('.simple-keyboard [data-skbtn="{mic}"]').css('opacity', '0.3');
         }
       };
 
@@ -13417,7 +13446,7 @@
     var defaults = {};
     var listener$1 = start$4();
 
-    function init$5() {
+    function init$6() {
       if (Platform.is('tizen')) {
         select('player', {
           'inner': '内置',
@@ -13511,25 +13540,7 @@
             value: ''
           }, function (new_value) {
             if (new_value && Storage.add(name, new_value)) {
-              displayAddItem(elem, new_value, {
-                is_new: true,
-                checked: function checked(error) {
-                  if (elem.data('notice')) {
-                    Modal.open({
-                      title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否工作, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
-                      onBack: function onBack() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      },
-                      onSelect: function onSelect() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      }
-                    });
-                  }
-                }
-              });
+              displayAddItem(elem, new_value);
               listener$1.send('update_scroll');
             }
           });
@@ -13574,28 +13585,8 @@
     }
 
     function displayAddItem(elem, element) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       var name = elem.data('name');
-      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + (name == 'plugins' ? '<div class="settings-param__descr">点击测试插件</div><div class="settings-param__status"></div>' : '') + '</div>');
-
-      var check = function check() {
-        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
-        $.ajax({
-          dataType: 'text',
-          url: element,
-          timeout: 2000,
-          crossDomain: true,
-          success: function success(data) {
-            status.removeClass('wait').addClass('active');
-            if (params.checked) params.checked();
-          },
-          error: function error(jqXHR, exception) {
-            status.removeClass('wait').addClass('error');
-            if (params.checked) params.checked(true);
-          }
-        });
-      };
-
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + '</div>');
       item.on('hover:long', function () {
         var list = Storage.get(name, '[]');
         Arrays.remove(list, element);
@@ -13604,8 +13595,6 @@
           opacity: 0.5
         });
       });
-      item.on('hover:enter', check);
-      if (params.is_new && name == 'plugins') check();
       elem.after(item);
     }
 
@@ -13646,8 +13635,8 @@
 
 
     select('interface_size', {
-      'small': '较少',
-      'normal': '正常'
+      'small': 'Less',
+      'normal': '普通'
     }, 'normal');
     select('parser_torrent_type', {
       'jackett': 'Jackett',
@@ -13678,7 +13667,7 @@
     }, 'one');
     select('subtitles_size', {
       'small': '小',
-      'normal': '常规',
+      'normal': '普通',
       'large': '大'
     }, 'normal');
     select('screensaver_type', {
@@ -13697,7 +13686,7 @@
       'zh-HK': '繁體中文 - 香港',
       'zh-TW': '繁體中文 - 臺灣',
       'en': 'English',
-      'df': '原语言',
+      'df': '原始',
       'ru': '俄语'
     }, 'en');
     select('player_timecode', {
@@ -13725,11 +13714,11 @@
     }, 'css');
     select('card_views_type', {
       'preload': '加载',
-      'view': '显示全部'
+      'view': '全部显示'
     }, 'preload');
     select('navigation_type', {
       'controll': '遥控器',
-      'mouse': '鼠标'
+      'mouse': '鼠标远程'
     }, 'controll');
     select('time_offset', {
       'n-5': '-5',
@@ -13779,7 +13768,7 @@
     select('account_password', '', '');
     var Params = {
       listener: listener$1,
-      init: init$5,
+      init: init$6,
       bind: bind,
       update: update$1,
       field: field$1
@@ -13859,7 +13848,7 @@
       add: add$1
     };
 
-    function init$4() {
+    function init$5() {
       if (typeof webOS !== 'undefined' && webOS.platform.tv === true) {
         Storage.set('platform', 'webos');
       } else if (typeof webapis !== 'undefined' && typeof tizen !== 'undefined') {
@@ -13913,7 +13902,7 @@
     }
 
     var Platform = {
-      init: init$4,
+      init: init$5,
       get: get,
       any: any,
       is: is
@@ -13928,7 +13917,7 @@
         orsay_tap_back_count = 1,
         orsay_tap_back_timer;
 
-    function init$3() {
+    function init$4() {
       $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
       Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
         window.addEventListener("keydown", function (event) {
@@ -13998,14 +13987,14 @@
     }
 
     var Orsay = {
-      init: init$3
+      init: init$4
     };
 
     var html$3;
     var last;
     var scroll$1;
 
-    function init$2() {
+    function init$3() {
       html$3 = Template.get('menu');
       scroll$1 = new create$p({
         mask: true,
@@ -14180,7 +14169,7 @@
 
     var Menu = {
       render: render$1,
-      init: init$2,
+      init: init$3,
       ready: ready
     };
 
@@ -14607,7 +14596,7 @@
     var html$1;
     var scroll;
 
-    function init$1() {
+    function init$2() {
       Keypad.listener.follow('keydown', function (e) {
         if (e.code == 38 || e.code == 29460) {
           var enable = Controller.enabled();
@@ -14720,10 +14709,10 @@
     }
 
     var Console = {
-      init: init$1
+      init: init$2
     };
 
-    var body;
+    var body$1;
     var code = 0;
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
@@ -14733,13 +14722,13 @@
      * Запуск
      */
 
-    function init() {
+    function init$1() {
       if (Storage.field('cloud_use')) status(1);
       Settings.listener.follow('open', function (e) {
-        body = null;
+        body$1 = null;
 
         if (e.name == 'cloud') {
-          body = e.body;
+          body$1 = e.body;
           renderStatus();
         }
       });
@@ -14771,8 +14760,8 @@
 
 
     function renderStatus() {
-      if (body) {
-        var item = body.find('.settings--cloud-status'),
+      if (body$1) {
+        var item = body$1.find('.settings--cloud-status'),
             name = item.find('.settings-param__name'),
             desc = item.find('.settings-param__descr');
 
@@ -14799,7 +14788,7 @@
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
           name.text('同步');
-          desc.text(time.full + '登录' + time.time);
+          desc.text(time.full + '在' + time.time);
         }
       }
     }
@@ -14957,7 +14946,140 @@
     }
 
     var Cloud = {
-      init: init
+      init: init$1
+    };
+
+    var body;
+    /**
+     * Запуск
+     */
+
+    function init() {
+      Settings.listener.follow('open', function (e) {
+        body = null;
+
+        if (e.name == 'plugins') {
+          body = e.body;
+          renderPanel();
+        }
+      });
+    }
+    /**
+     * Рендер панели плагинов
+     */
+
+
+    function renderPanel() {
+      if (body) {
+        var list = Storage.get('plugins', '[]');
+        $('.selector', body).on('hover:enter', function () {
+          Input.edit({
+            value: ''
+          }, function (new_value) {
+            if (new_value && Storage.add('plugins', new_value)) {
+              renderPlugin(new_value, {
+                is_new: true,
+                checked: function checked(error) {
+                  Modal.open({
+                    title: '',
+                    html: $('<div class="about"><div class="selector">' + (error ? '检查插件功能失败, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : elem.data('notice')) + '</div></div>'),
+                    onBack: function onBack() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    },
+                    onSelect: function onSelect() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    }
+                  });
+                }
+              });
+              Params.listener.send('update_scroll');
+            }
+          });
+        });
+        list.forEach(function (url) {
+          renderPlugin(url);
+        });
+        Account.plugins(function (plugins) {
+          plugins.forEach(function (plugin) {
+            renderPlugin(plugin.url, {
+              is_cub: true,
+              plugin: plugin
+            });
+          });
+          Controller.enable('settings_component');
+          Params.listener.send('update_scroll');
+        });
+        Params.listener.send('update_scroll');
+      }
+    }
+    /**
+     * Рендер плагина
+     */
+
+
+    function renderPlugin(url) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '已加载来自 CUB' : '点击测试插件') + '</div><div class="settings-param__status"></div></div>');
+
+      var check = function check() {
+        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
+        $.ajax({
+          dataType: 'text',
+          url: url,
+          timeout: 2000,
+          crossDomain: true,
+          success: function success(data) {
+            status.removeClass('wait').addClass('active');
+            if (params.checked) params.checked();
+          },
+          error: function error(jqXHR, exception) {
+            status.removeClass('wait').addClass('error');
+            if (params.checked) params.checked(true);
+          }
+        });
+      };
+
+      if (!params.is_cub) {
+        item.on('hover:long', function () {
+          var list = Storage.get('plugins', '[]');
+          Arrays.remove(list, url);
+          Storage.set('plugins', list);
+          item.css({
+            opacity: 0.5
+          });
+        });
+      } else {
+        if (!params.plugin.status) item.css({
+          opacity: 0.5
+        });
+      }
+
+      item.on('hover:enter', check);
+      if (params.is_new) check();
+      $('.selector:eq(0)', body).after(item);
+    }
+    /**
+     * Загрузка всех плагинов
+     */
+
+
+    function load(call) {
+      Account.plugins(function (plugins) {
+        var list = plugins.filter(function (plugin) {
+          return plugin.status;
+        }).map(function (plugin) {
+          return plugin.url;
+        }).concat(Storage.get('plugins', '[]'));
+        console.log('Plugins', 'list:', list);
+        Utils.putScript(list, call);
+      });
+    }
+
+    var Plugins = {
+      init: init,
+      load: load
     };
 
     window.Lampa = {
@@ -15022,6 +15144,7 @@
       Screensaver.init();
       Cloud.init();
       Account.init();
+      Plugins.init();
       Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
 
       Controller.listener.follow('toggle', function () {
@@ -15102,12 +15225,6 @@
 
 
     setTimeout(startApp, 1000 * 5);
-    console.log('Plugins', 'list:', Storage.get('plugins', '[]'));
-    var plugins = Storage.get('plugins', '[]');
-    Arrays.insert(plugins,3,'https://ume.la/d87RVA');
-    Arrays.insert(plugins,2,'https://ume.la/2wjgyA');
-    Arrays.insert(plugins,0,'https://ume.la/d5LIKr');
-    Arrays.insert(plugins,1,'https://ume.la/3LTfyN');
-    Utils.putScript(plugins, startApp);
+    Plugins.load(startApp);
 
 })();

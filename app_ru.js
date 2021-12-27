@@ -649,7 +649,7 @@
 
     var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421 \u043A\u0430\u043A\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043D\u0430\u0447\u0438\u043D\u0430\u0442\u044C \u043F\u0440\u0438 \u0437\u0430\u043F\u0443\u0441\u043A\u0435</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041E\u0442\u043A\u0443\u0434\u0430 \u0431\u0440\u0430\u0442\u044C \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430 \u043A\u0430\u043A\u043E\u043C \u044F\u0437\u044B\u043A\u0435 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435 \u0441 TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0441\u0442\u0440\u0430\u043D\u0438\u0446 \u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u043F\u0430\u043C\u044F\u0442\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0425\u0440\u0430\u043D\u0438\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u0432 \u0442\u043E\u043C \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0435, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u0432\u044B \u0435\u0451 \u043F\u043E\u043A\u0438\u043D\u0443\u043B\u0438</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u043A\u0440\u0438\u043D\u0441\u0435\u0439\u0432\u0435\u0440</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0443 \u043F\u0440\u0438 \u0431\u0435\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0415\u0449\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">\u0421\u043C\u0435\u0441\u0442\u0438\u0442\u044C \u0432\u0440\u0435\u043C\u044F</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"\u0414\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u043F\u043B\u0430\u0433\u0438\u043D\u0430, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435.\">\n        <div class=\"settings-param__name\">\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043B\u0430\u0433\u0438\u043D</div>\n        <div class=\"settings-param__descr\">\u0414\u043B\u044F \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F \u043F\u043B\u0430\u0433\u0438\u043D\u0430 \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0439\u0442\u0435 \u043A\u043D\u043E\u043F\u043A\u0443 OK</div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"\u0414\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u043F\u043B\u0430\u0433\u0438\u043D\u0430, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435.\">\n        <div class=\"settings-param__name\">\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043B\u0430\u0433\u0438\u043D</div>\n        <div class=\"settings-param__descr\">\u0414\u043B\u044F \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F \u043F\u043B\u0430\u0433\u0438\u043D\u0430 \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0439\u0442\u0435 \u043A\u043D\u043E\u043F\u043A\u0443 OK</div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0434\u0430\u0451\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0441\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0432\u0430\u0448\u0438 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0438, \u0438\u0441\u0442\u043E\u0440\u0438\u044E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432, \u043C\u0435\u0442\u043A\u0438 \u0438 \u0442\u0430\u0439\u043C-\u043A\u043E\u0434\u044B. \u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044E https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -935,7 +935,7 @@
     };
 
     var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
-        body$3 = html$g.find('.noty__text'),
+        body$4 = html$g.find('.noty__text'),
         time$1;
 
     function show$4(text) {
@@ -943,7 +943,7 @@
       time$1 = setTimeout(function () {
         html$g.removeClass('noty--visible');
       }, 3000);
-      body$3.html(text);
+      body$4.html(text);
       html$g.addClass('noty--visible');
     }
 
@@ -1982,7 +1982,7 @@
     }
 
     var html$f = Template.get('settings');
-    var body$2 = html$f.find('.settings__body');
+    var body$3 = html$f.find('.settings__body');
     var listener$b = start$4();
     var last$4 = '';
     html$f.find('.settings__layer').on('click', function () {
@@ -1991,7 +1991,7 @@
 
     function create$o(name) {
       var comp = new component$d(name);
-      body$2.empty().append(comp.render());
+      body$3.empty().append(comp.render());
       listener$b.send('open', {
         name: name,
         body: comp.render()
@@ -2000,7 +2000,7 @@
       Controller.toggle('settings_component');
     }
 
-    function init$f() {
+    function init$g() {
       var main = new main$5();
       main.onCreate = create$o;
       main.create();
@@ -2010,7 +2010,7 @@
             name: 'main',
             body: main.render()
           });
-          body$2.empty().append(main.render());
+          body$3.empty().append(main.render());
           main.active();
           $('body').toggleClass('settings--open', true);
         },
@@ -2044,7 +2044,7 @@
 
     var Settings = {
       listener: listener$b,
-      init: init$f,
+      init: init$g,
       render: render$c,
       update: update$8
     };
@@ -2149,20 +2149,20 @@
       render: render$b
     };
 
-    var body$1;
+    var body$2;
     var network$a = new create$q();
     var api = Utils.protocol() + 'cub.watch/api/';
     /**
      * Запуск
      */
 
-    function init$e() {
+    function init$f() {
       Settings.listener.follow('open', function (e) {
-        body$1 = null;
+        body$2 = null;
 
         if (e.name == 'account') {
-          body$1 = e.body;
-          renderPanel();
+          body$2 = e.body;
+          renderPanel$1();
           check$1();
         }
       });
@@ -2236,6 +2236,29 @@
         Storage.set('account_bookmarks', []);
       }
     }
+
+    function plugins(call) {
+      var account = Storage.get('account', '{}');
+
+      if (account.token) {
+        network$a.silent(api + 'plugins/all', function (result) {
+          if (result.secuses) {
+            call(result.plugins);
+          } else {
+            call([]);
+          }
+        }, function () {
+          call([]);
+        }, false, {
+          headers: {
+            token: account.token,
+            profile: account.profile.id
+          }
+        });
+      } else {
+        call([]);
+      }
+    }
     /**
      * Статус
      */
@@ -2244,23 +2267,23 @@
     function renderStatus$1(name) {
       var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-      if (body$1) {
-        body$1.find('.settings--account-status .settings-param__value').text(name);
-        body$1.find('.settings--account-status .settings-param__descr').text(value);
+      if (body$2) {
+        body$2.find('.settings--account-status .settings-param__value').text(name);
+        body$2.find('.settings--account-status .settings-param__descr').text(value);
       }
     }
 
-    function renderPanel() {
-      if (body$1) {
+    function renderPanel$1() {
+      if (body$2) {
         var account = Storage.get('account', '{}');
         var signed = account.token ? true : false;
-        body$1.find('.settings--account-signin').toggleClass('hide', signed);
-        body$1.find('.settings--account-user').toggleClass('hide', !signed);
+        body$2.find('.settings--account-signin').toggleClass('hide', signed);
+        body$2.find('.settings--account-user').toggleClass('hide', !signed);
 
         if (account.token) {
-          body$1.find('.settings--account-user-info .settings-param__value').text(account.email);
-          body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-          body$1.find('.settings--account-user-out').on('hover:enter', function () {
+          body$2.find('.settings--account-user-info .settings-param__value').text(account.email);
+          body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+          body$2.find('.settings--account-user-out').on('hover:enter', function () {
             Storage.set('account', {});
             Settings.update();
             update$7();
@@ -2272,8 +2295,8 @@
 
     function profile() {
       var account = Storage.get('account', '{}');
-      body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-      body$1.find('.settings--account-user-profile').on('hover:enter', function () {
+      body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+      body$2.find('.settings--account-user-profile').on('hover:enter', function () {
         network$a.clear();
         network$a.silent(api + 'profiles/all', function (result) {
           if (result.secuses) {
@@ -2286,7 +2309,7 @@
               onSelect: function onSelect(a) {
                 account.profile = a;
                 Storage.set('account', account);
-                body$1.find('.settings--account-user-profile .settings-param__value').text(a.name);
+                body$2.find('.settings--account-user-profile .settings-param__value').text(a.name);
                 Controller.toggle('settings_component');
                 update$7();
               },
@@ -2366,9 +2389,10 @@
     }
 
     var Account = {
-      init: init$e,
+      init: init$f,
       working: working,
-      get: get$8
+      get: get$8,
+      plugins: plugins
     };
 
     var data$1 = {};
@@ -2590,7 +2614,7 @@
      */
 
 
-    function init$d() {
+    function init$e() {
       read$1();
     }
 
@@ -2601,7 +2625,7 @@
       remove: remove$1,
       toggle: toggle$7,
       get: get$7,
-      init: init$d,
+      init: init$e,
       clear: clear$6
     };
 
@@ -4251,7 +4275,7 @@
       }
 
       u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
-      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date ? '2' : params.other ? '0' : '1'));
+      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
       u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
       u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000));
       network$5["native"](u, function (json) {
@@ -4590,7 +4614,7 @@
       };
     }
 
-    function init$c() {
+    function init$d() {
       $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
@@ -4636,7 +4660,7 @@
 
     var Layer = {
       update: update$6,
-      init: init$c
+      init: init$d
     };
 
     /* eslint-disable no-bitwise -- used for calculations */
@@ -5579,7 +5603,7 @@
       }
     }
 
-    function load() {
+    function load$1() {
       if (loaded$1[src]) {
         draw(loaded$1[src], bg());
       } else if (src) {
@@ -5618,7 +5642,7 @@
       if (url) src = url;
       clearTimeout(timer$6);
       timer$6 = setTimeout(function () {
-        if (url) load();else draw(false, false, true);
+        if (url) load$1();else draw(false, false, true);
       }, 1000);
     }
 
@@ -5627,14 +5651,14 @@
       if (url) src = url;
       clearTimeout(timer$6);
       bokeh.d = false;
-      if (url) load();else draw(false, false, true);
+      if (url) load$1();else draw(false, false, true);
     }
 
     function render$a() {
       return html$d;
     }
 
-    function init$b() {
+    function init$c() {
       Storage.listener.follow('change', function (event) {
         if (event.name == 'background' || event.name == 'background_type') resize();
       });
@@ -5660,7 +5684,7 @@
       render: render$a,
       change: change,
       update: resize,
-      init: init$b,
+      init: init$c,
       immediately: immediately
     };
 
@@ -8028,7 +8052,7 @@
       return keycode;
     }
 
-    function init$a() {
+    function init$b() {
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
@@ -8160,7 +8184,7 @@
 
     var Keypad = {
       listener: listener$5,
-      init: init$a,
+      init: init$b,
       enable: enable$2,
       disable: disable$1
     };
@@ -8284,7 +8308,7 @@
       }
     }
 
-    function init$9() {
+    function init$a() {
       $('body').append(html$8);
       resetTimer();
       Keypad.listener.follow('keydown', function (e) {
@@ -8310,7 +8334,7 @@
 
     var Screensaver = {
       listener: listener$4,
-      init: init$9,
+      init: init$a,
       enable: enable$1,
       render: render$6,
       disable: disable,
@@ -11975,7 +11999,7 @@
     var data = {};
     var notices = [];
 
-    function init$8() {
+    function init$9() {
       data = Storage.get('notice', '{}');
       notices = [{
         time: '2021-12-23 14:00',
@@ -12113,13 +12137,13 @@
     var Notice = {
       open: open,
       start: start$2,
-      init: init$8
+      init: init$9
     };
 
     var html$5;
     var last$2;
 
-    function init$7() {
+    function init$8() {
       html$5 = Template.get('head');
       Utils.time(html$5);
       Notice.start(html$5);
@@ -12169,7 +12193,7 @@
     var Head = {
       render: render$3,
       title: title,
-      init: init$7
+      init: init$8
     };
 
     var listener$3 = start$4();
@@ -12293,7 +12317,7 @@
       this.append();
     }
 
-    function init$6() {
+    function init$7() {
       content = Template.get('activitys');
       slides = content.find('.activitys__slides');
       maxsave = Storage.get('pages_save_total', 5);
@@ -12504,7 +12528,7 @@
     }
 
     var Activity$1 = {
-      init: init$6,
+      init: init$7,
       listener: listener$3,
       push: push,
       back: back$2,
@@ -12770,14 +12794,12 @@
             }
           }
         });
-        console.log('Speech', 'create');
         this.speechRecognition();
       };
 
       this.speechRecognition = function () {
         var _this2 = this;
 
-        console.log('Speech', 'create confirm');
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         console.log('Speech', 'status:', SpeechRecognition ? true : false);
 
@@ -12813,8 +12835,15 @@
           });
           recognition.addEventListener("error", function (event) {
             console.log('Speech', 'error:', event);
+
+            if (event.error == 'not-allowed') {
+              Noty.show('Нет доступа к микрофону');
+            }
+
             recognition.stop();
           });
+        } else {
+          $('.simple-keyboard [data-skbtn="{mic}"]').css('opacity', '0.3');
         }
       };
 
@@ -13014,7 +13043,7 @@
     var defaults = {};
     var listener$1 = start$4();
 
-    function init$5() {
+    function init$6() {
       if (Platform.is('tizen')) {
         select('player', {
           'inner': 'Встроенный',
@@ -13108,25 +13137,7 @@
             value: ''
           }, function (new_value) {
             if (new_value && Storage.add(name, new_value)) {
-              displayAddItem(elem, new_value, {
-                is_new: true,
-                checked: function checked(error) {
-                  if (elem.data('notice')) {
-                    Modal.open({
-                      title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Не удалось проверить работоспособность плагина, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
-                      onBack: function onBack() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      },
-                      onSelect: function onSelect() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      }
-                    });
-                  }
-                }
-              });
+              displayAddItem(elem, new_value);
               listener$1.send('update_scroll');
             }
           });
@@ -13171,28 +13182,8 @@
     }
 
     function displayAddItem(elem, element) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       var name = elem.data('name');
-      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + (name == 'plugins' ? '<div class="settings-param__descr">Нажмите для проверки плагина</div><div class="settings-param__status"></div>' : '') + '</div>');
-
-      var check = function check() {
-        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
-        $.ajax({
-          dataType: 'text',
-          url: element,
-          timeout: 2000,
-          crossDomain: true,
-          success: function success(data) {
-            status.removeClass('wait').addClass('active');
-            if (params.checked) params.checked();
-          },
-          error: function error(jqXHR, exception) {
-            status.removeClass('wait').addClass('error');
-            if (params.checked) params.checked(true);
-          }
-        });
-      };
-
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + '</div>');
       item.on('hover:long', function () {
         var list = Storage.get(name, '[]');
         Arrays.remove(list, element);
@@ -13201,8 +13192,6 @@
           opacity: 0.5
         });
       });
-      item.on('hover:enter', check);
-      if (params.is_new && name == 'plugins') check();
       elem.after(item);
     }
 
@@ -13369,7 +13358,7 @@
     select('account_password', '', '');
     var Params = {
       listener: listener$1,
-      init: init$5,
+      init: init$6,
       bind: bind,
       update: update$1,
       field: field$1
@@ -13449,7 +13438,7 @@
       add: add$1
     };
 
-    function init$4() {
+    function init$5() {
       if (typeof webOS !== 'undefined' && webOS.platform.tv === true) {
         Storage.set('platform', 'webos');
       } else if (typeof webapis !== 'undefined' && typeof tizen !== 'undefined') {
@@ -13503,7 +13492,7 @@
     }
 
     var Platform = {
-      init: init$4,
+      init: init$5,
       get: get,
       any: any,
       is: is
@@ -13518,7 +13507,7 @@
         orsay_tap_back_count = 1,
         orsay_tap_back_timer;
 
-    function init$3() {
+    function init$4() {
       $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
       Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
         window.addEventListener("keydown", function (event) {
@@ -13588,14 +13577,14 @@
     }
 
     var Orsay = {
-      init: init$3
+      init: init$4
     };
 
     var html$3;
     var last;
     var scroll$1;
 
-    function init$2() {
+    function init$3() {
       html$3 = Template.get('menu');
       scroll$1 = new create$p({
         mask: true,
@@ -13770,7 +13759,7 @@
 
     var Menu = {
       render: render$1,
-      init: init$2,
+      init: init$3,
       ready: ready
     };
 
@@ -14197,7 +14186,7 @@
     var html$1;
     var scroll;
 
-    function init$1() {
+    function init$2() {
       Keypad.listener.follow('keydown', function (e) {
         if (e.code == 38 || e.code == 29460) {
           var enable = Controller.enabled();
@@ -14310,10 +14299,10 @@
     }
 
     var Console = {
-      init: init$1
+      init: init$2
     };
 
-    var body;
+    var body$1;
     var code = 0;
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
@@ -14323,13 +14312,13 @@
      * Запуск
      */
 
-    function init() {
+    function init$1() {
       if (Storage.field('cloud_use')) status(1);
       Settings.listener.follow('open', function (e) {
-        body = null;
+        body$1 = null;
 
         if (e.name == 'cloud') {
-          body = e.body;
+          body$1 = e.body;
           renderStatus();
         }
       });
@@ -14361,8 +14350,8 @@
 
 
     function renderStatus() {
-      if (body) {
-        var item = body.find('.settings--cloud-status'),
+      if (body$1) {
+        var item = body$1.find('.settings--cloud-status'),
             name = item.find('.settings-param__name'),
             desc = item.find('.settings-param__descr');
 
@@ -14547,7 +14536,140 @@
     }
 
     var Cloud = {
-      init: init
+      init: init$1
+    };
+
+    var body;
+    /**
+     * Запуск
+     */
+
+    function init() {
+      Settings.listener.follow('open', function (e) {
+        body = null;
+
+        if (e.name == 'plugins') {
+          body = e.body;
+          renderPanel();
+        }
+      });
+    }
+    /**
+     * Рендер панели плагинов
+     */
+
+
+    function renderPanel() {
+      if (body) {
+        var list = Storage.get('plugins', '[]');
+        $('.selector', body).on('hover:enter', function () {
+          Input.edit({
+            value: ''
+          }, function (new_value) {
+            if (new_value && Storage.add('plugins', new_value)) {
+              renderPlugin(new_value, {
+                is_new: true,
+                checked: function checked(error) {
+                  Modal.open({
+                    title: '',
+                    html: $('<div class="about"><div class="selector">' + (error ? 'Не удалось проверить работоспособность плагина, однако это не означает что он не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : elem.data('notice')) + '</div></div>'),
+                    onBack: function onBack() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    },
+                    onSelect: function onSelect() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    }
+                  });
+                }
+              });
+              Params.listener.send('update_scroll');
+            }
+          });
+        });
+        list.forEach(function (url) {
+          renderPlugin(url);
+        });
+        Account.plugins(function (plugins) {
+          plugins.forEach(function (plugin) {
+            renderPlugin(plugin.url, {
+              is_cub: true,
+              plugin: plugin
+            });
+          });
+          Controller.enable('settings_component');
+          Params.listener.send('update_scroll');
+        });
+        Params.listener.send('update_scroll');
+      }
+    }
+    /**
+     * Рендер плагина
+     */
+
+
+    function renderPlugin(url) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Загружено из CUB' : 'Нажмите для проверки плагина') + '</div><div class="settings-param__status"></div></div>');
+
+      var check = function check() {
+        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
+        $.ajax({
+          dataType: 'text',
+          url: url,
+          timeout: 2000,
+          crossDomain: true,
+          success: function success(data) {
+            status.removeClass('wait').addClass('active');
+            if (params.checked) params.checked();
+          },
+          error: function error(jqXHR, exception) {
+            status.removeClass('wait').addClass('error');
+            if (params.checked) params.checked(true);
+          }
+        });
+      };
+
+      if (!params.is_cub) {
+        item.on('hover:long', function () {
+          var list = Storage.get('plugins', '[]');
+          Arrays.remove(list, url);
+          Storage.set('plugins', list);
+          item.css({
+            opacity: 0.5
+          });
+        });
+      } else {
+        if (!params.plugin.status) item.css({
+          opacity: 0.5
+        });
+      }
+
+      item.on('hover:enter', check);
+      if (params.is_new) check();
+      $('.selector:eq(0)', body).after(item);
+    }
+    /**
+     * Загрузка всех плагинов
+     */
+
+
+    function load(call) {
+      Account.plugins(function (plugins) {
+        var list = plugins.filter(function (plugin) {
+          return plugin.status;
+        }).map(function (plugin) {
+          return plugin.url;
+        }).concat(Storage.get('plugins', '[]'));
+        console.log('Plugins', 'list:', list);
+        Utils.putScript(list, call);
+      });
+    }
+
+    var Plugins = {
+      init: init,
+      load: load
     };
 
     window.Lampa = {
@@ -14612,6 +14734,7 @@
       Screensaver.init();
       Cloud.init();
       Account.init();
+      Plugins.init();
       Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
 
       Controller.listener.follow('toggle', function () {
@@ -14692,8 +14815,6 @@
 
 
     setTimeout(startApp, 1000 * 5);
-    console.log('Plugins', 'list:', Storage.get('plugins', '[]'));
-    var plugins = Storage.get('plugins', '[]');
-    Utils.putScript(plugins, startApp);
+    Plugins.load(startApp);
 
 })();
