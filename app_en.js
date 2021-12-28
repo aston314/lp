@@ -641,15 +641,15 @@
 
     var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">Interface size</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Background</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">Show background</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">Background type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Performance</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">Animation</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Animation of cards and content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">Fade</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Smooth fading of cards from bottom and top</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">Type of scrolling</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">Type of viewing cards</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">As the feed scrolls, the cards will be loaded gradually or all will be loaded</div>\n    </div>\n</div>";
 
-    var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to accept all responsibility for the use of public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api ey</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site to parse from</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook site parsing method</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
+    var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">Use a parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Thus, you agree to accept all responsibility for the use of public links to view torrent and online content</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Type of parser for torrents</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Provide a link to the Jackett script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"For example: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Located in Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">Site</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Site to parse from</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook site parsing method</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"For example: scraperapi.com\">\n        <div class=\"settings-param__name\">Link to the site parser</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Register on the site scraperapi.com, register the link api.scraperapi.com?api_key = ...&url={q}<br>В {q} the site w41.torlook.info will be delivered</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">Search</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search in ?</div>\n    </div>\n</div>";
 
-    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the main link to the TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the secondary link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Advanced</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use built-in JS client TorrServe, otherwise the system client starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the buffer to be filled in load TorrServer before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$_ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">Use link</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Main link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the main link to the TorrServer script</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For example: 192.168.x \">\n        <div class=\"settings-param__name\">Additional link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Specify the secondary link to the TorrServer script</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>Advanced</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">Built-in client</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Use the built-in JS client TorrServe, otherwise the system client starts</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">Save to database</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">The torrent will be added to the TorrServer database</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">Use the preload buffer</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Wait for the buffer to fill up load TorrServer before playing</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">Password entry</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Login</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Password</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
     var html$Z = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">Player type</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which player to play</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">Reset the default player</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Resets the selected Android player in the application</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">Next episode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Automatically switch to the next episode when the current one ends</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">Timecode</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Continue from last view</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">Scaling method</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">How to calculate video scaling</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>Subtitles</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">Size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">Use border</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be outlined in black to improve readability</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">Use watermark</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">Subtitles will be displayed on a translucent background to improve readability</div>\n        </div>\n    </div>  \n</div>";
 
-    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from on startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+    var html$Y = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start from at startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In what language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Stores the page in the state in which you left it</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>More</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-    var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"add\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold down the OK button</div>\n    </div>\n</div>";
+    var html$X = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application. \">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold down the OK button</div>\n    </div>\n</div>";
 
     var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronize</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization allows you to sync your bookmarks, browsing history, tags and timecodes. Connection instructions https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified \">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -689,7 +689,7 @@
 
     var html$E = "<div class=\"search\">\n    <div class=\"search__left\">\n        <div class=\"search__title\">Search</div>\n        <div class=\"search__input\">Enter text ...</div>\n        <div class=\"search__keypad\"><div class=\"simple-keyboard\"></div></div>\n        <div class=\"search__history\"></div>\n    </div>\n    <div class=\"search__results\"></div>\n</div>";
 
-    var html$D = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">Select link</div>\n    </div>\n</div>";
+    var html$D = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">Favorites</div>\n    </div>\n</div>";
 
     var html$C = "<div class=\"modal\">\n    <div class=\"modal__content\">\n        <div class=\"modal__head\">\n            <div class=\"modal__title\">{title}</div>\n        </div>\n        <div class=\"modal__body\">\n            \n        </div>\n    </div>\n</div>";
 
@@ -935,7 +935,7 @@
     };
 
     var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
-        body$3 = html$g.find('.noty__text'),
+        body$4 = html$g.find('.noty__text'),
         time$1;
 
     function show$4(text) {
@@ -943,7 +943,7 @@
       time$1 = setTimeout(function () {
         html$g.removeClass('noty--visible');
       }, 3000);
-      body$3.html(text);
+      body$4.html(text);
       html$g.addClass('noty--visible');
     }
 
@@ -1982,7 +1982,7 @@
     }
 
     var html$f = Template.get('settings');
-    var body$2 = html$f.find('.settings__body');
+    var body$3 = html$f.find('.settings__body');
     var listener$b = start$4();
     var last$4 = '';
     html$f.find('.settings__layer').on('click', function () {
@@ -1991,7 +1991,7 @@
 
     function create$o(name) {
       var comp = new component$d(name);
-      body$2.empty().append(comp.render());
+      body$3.empty().append(comp.render());
       listener$b.send('open', {
         name: name,
         body: comp.render()
@@ -2000,7 +2000,7 @@
       Controller.toggle('settings_component');
     }
 
-    function init$f() {
+    function init$g() {
       var main = new main$5();
       main.onCreate = create$o;
       main.create();
@@ -2010,7 +2010,7 @@
             name: 'main',
             body: main.render()
           });
-          body$2.empty().append(main.render());
+          body$3.empty().append(main.render());
           main.active();
           $('body').toggleClass('settings--open', true);
         },
@@ -2044,7 +2044,7 @@
 
     var Settings = {
       listener: listener$b,
-      init: init$f,
+      init: init$g,
       render: render$c,
       update: update$8
     };
@@ -2149,20 +2149,20 @@
       render: render$b
     };
 
-    var body$1;
+    var body$2;
     var network$a = new create$q();
     var api = Utils.protocol() + 'cub.watch/api/';
     /**
      * Запуск
      */
 
-    function init$e() {
+    function init$f() {
       Settings.listener.follow('open', function (e) {
-        body$1 = null;
+        body$2 = null;
 
         if (e.name == 'account') {
-          body$1 = e.body;
-          renderPanel();
+          body$2 = e.body;
+          renderPanel$1();
           check$1();
         }
       });
@@ -2236,6 +2236,29 @@
         Storage.set('account_bookmarks', []);
       }
     }
+
+    function plugins(call) {
+      var account = Storage.get('account', '{}');
+
+      if (account.token) {
+        network$a.silent(api + 'plugins/all', function (result) {
+          if (result.secuses) {
+            call(result.plugins);
+          } else {
+            call([]);
+          }
+        }, function () {
+          call([]);
+        }, false, {
+          headers: {
+            token: account.token,
+            profile: account.profile.id
+          }
+        });
+      } else {
+        call([]);
+      }
+    }
     /**
      * Статус
      */
@@ -2244,23 +2267,23 @@
     function renderStatus$1(name) {
       var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-      if (body$1) {
-        body$1.find('.settings--account-status .settings-param__value').text(name);
-        body$1.find('.settings--account-status .settings-param__descr').text(value);
+      if (body$2) {
+        body$2.find('.settings--account-status .settings-param__value').text(name);
+        body$2.find('.settings--account-status .settings-param__descr').text(value);
       }
     }
 
-    function renderPanel() {
-      if (body$1) {
+    function renderPanel$1() {
+      if (body$2) {
         var account = Storage.get('account', '{}');
         var signed = account.token ? true : false;
-        body$1.find('.settings--account-signin').toggleClass('hide', signed);
-        body$1.find('.settings--account-user').toggleClass('hide', !signed);
+        body$2.find('.settings--account-signin').toggleClass('hide', signed);
+        body$2.find('.settings--account-user').toggleClass('hide', !signed);
 
         if (account.token) {
-          body$1.find('.settings--account-user-info .settings-param__value').text(account.email);
-          body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-          body$1.find('.settings--account-user-out').on('hover:enter', function () {
+          body$2.find('.settings--account-user-info .settings-param__value').text(account.email);
+          body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+          body$2.find('.settings--account-user-out').on('hover:enter', function () {
             Storage.set('account', {});
             Settings.update();
             update$7();
@@ -2272,8 +2295,8 @@
 
     function profile() {
       var account = Storage.get('account', '{}');
-      body$1.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-      body$1.find('.settings--account-user-profile').on('hover:enter', function () {
+      body$2.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+      body$2.find('.settings--account-user-profile').on('hover:enter', function () {
         network$a.clear();
         network$a.silent(api + 'profiles/all', function (result) {
           if (result.secuses) {
@@ -2286,7 +2309,7 @@
               onSelect: function onSelect(a) {
                 account.profile = a;
                 Storage.set('account', account);
-                body$1.find('.settings--account-user-profile .settings-param__value').text(a.name);
+                body$2.find('.settings--account-user-profile .settings-param__value').text(a.name);
                 Controller.toggle('settings_component');
                 update$7();
               },
@@ -2366,9 +2389,10 @@
     }
 
     var Account = {
-      init: init$e,
+      init: init$f,
       working: working,
-      get: get$8
+      get: get$8,
+      plugins: plugins
     };
 
     var data$1 = {};
@@ -2590,7 +2614,7 @@
      */
 
 
-    function init$d() {
+    function init$e() {
       read$1();
     }
 
@@ -2601,7 +2625,7 @@
       remove: remove$1,
       toggle: toggle$7,
       get: get$7,
-      init: init$d,
+      init: init$e,
       clear: clear$6
     };
 
@@ -4251,7 +4275,7 @@
       }
 
       u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
-      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date ? '2' : params.other ? '0' : '1'));
+      u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
       u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
       u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000));
       network$5["native"](u, function (json) {
@@ -4532,7 +4556,7 @@
             subtitle: 'Look in the (Bookmarks) menu',
             where: 'book'
           }, {
-            title: status.like ? 'Remove from favorites' : 'Like',
+            title: status.like ? 'Remove from likes' : 'Like',
             subtitle: 'Look in the (Like) menu',
             where: 'like'
           }, {
@@ -4590,7 +4614,7 @@
       };
     }
 
-    function init$c() {
+    function init$d() {
       $(window).on('resize', update$6);
       toggleClasses();
       Storage.listener.follow('change', function (event) {
@@ -4636,7 +4660,7 @@
 
     var Layer = {
       update: update$6,
-      init: init$c
+      init: init$d
     };
 
     /* eslint-disable no-bitwise -- used for calculations */
@@ -5579,7 +5603,7 @@
       }
     }
 
-    function load() {
+    function load$1() {
       if (loaded$1[src]) {
         draw(loaded$1[src], bg());
       } else if (src) {
@@ -5618,7 +5642,7 @@
       if (url) src = url;
       clearTimeout(timer$6);
       timer$6 = setTimeout(function () {
-        if (url) load();else draw(false, false, true);
+        if (url) load$1();else draw(false, false, true);
       }, 1000);
     }
 
@@ -5627,14 +5651,14 @@
       if (url) src = url;
       clearTimeout(timer$6);
       bokeh.d = false;
-      if (url) load();else draw(false, false, true);
+      if (url) load$1();else draw(false, false, true);
     }
 
     function render$a() {
       return html$d;
     }
 
-    function init$b() {
+    function init$c() {
       Storage.listener.follow('change', function (event) {
         if (event.name == 'background' || event.name == 'background_type') resize();
       });
@@ -5660,7 +5684,7 @@
       render: render$a,
       change: change,
       update: resize,
-      init: init$b,
+      init: init$c,
       immediately: immediately
     };
 
@@ -8028,7 +8052,7 @@
       return keycode;
     }
 
-    function init$a() {
+    function init$b() {
       window.addEventListener("keydown", function (e) {
         lastdown = keyCode(e);
 
@@ -8160,7 +8184,7 @@
 
     var Keypad = {
       listener: listener$5,
-      init: init$a,
+      init: init$b,
       enable: enable$2,
       disable: disable$1
     };
@@ -8284,7 +8308,7 @@
       }
     }
 
-    function init$9() {
+    function init$a() {
       $('body').append(html$8);
       resetTimer();
       Keypad.listener.follow('keydown', function (e) {
@@ -8310,7 +8334,7 @@
 
     var Screensaver = {
       listener: listener$4,
-      init: init$9,
+      init: init$a,
       enable: enable$1,
       render: render$6,
       disable: disable,
@@ -11213,7 +11237,7 @@
                 tomy: true
               }, {
                 title: 'Flag',
-                subtitle: 'Flag distribution with flag (viewed)',
+                subtitle: 'Flag distribution with a flag (viewed)',
                 mark: true
               }, {
                 title: 'Uncheck',
@@ -11974,7 +11998,7 @@
     var data = {};
     var notices = [];
 
-    function init$8() {
+    function init$9() {
       data = Storage.get('notice', '{}');
       notices = [{
         time: '2021-12-23 14:00',
@@ -12023,7 +12047,7 @@
       }, {
         time: '2021-10-10 18:00',
         title: 'Update 1.2.3',
-        descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storage of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+        descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
       }, {
         time: '2021-10-09 15:00',
         title: 'Update 1.2.2',
@@ -12112,13 +12136,13 @@
     var Notice = {
       open: open,
       start: start$2,
-      init: init$8
+      init: init$9
     };
 
     var html$5;
     var last$2;
 
-    function init$7() {
+    function init$8() {
       html$5 = Template.get('head');
       Utils.time(html$5);
       Notice.start(html$5);
@@ -12168,7 +12192,7 @@
     var Head = {
       render: render$3,
       title: title,
-      init: init$7
+      init: init$8
     };
 
     var listener$3 = start$4();
@@ -12292,7 +12316,7 @@
       this.append();
     }
 
-    function init$6() {
+    function init$7() {
       content = Template.get('activitys');
       slides = content.find('.activitys__slides');
       maxsave = Storage.get('pages_save_total', 5);
@@ -12503,7 +12527,7 @@
     }
 
     var Activity$1 = {
-      init: init$6,
+      init: init$7,
       listener: listener$3,
       push: push,
       back: back$2,
@@ -12769,14 +12793,12 @@
             }
           }
         });
-        console.log('Speech', 'create');
         this.speechRecognition();
       };
 
       this.speechRecognition = function () {
         var _this2 = this;
 
-        console.log('Speech', 'create confirm');
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         console.log('Speech', 'status:', SpeechRecognition ? true : false);
 
@@ -12812,8 +12834,15 @@
           });
           recognition.addEventListener("error", function (event) {
             console.log('Speech', 'error:', event);
+
+            if (event.error == 'not-allowed') {
+              Noty.show('Microphone Access Denied');
+            }
+
             recognition.stop();
           });
+        } else {
+          $('.simple-keyboard [data-skbtn="{mic}"]').css('opacity', '0.3');
         }
       };
 
@@ -13013,15 +13042,15 @@
     var defaults = {};
     var listener$1 = start$4();
 
-    function init$5() {
+    function init$6() {
       if (Platform.is('tizen')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'tizen': 'Tizen'
         }, 'tizen');
       } else if (Platform.is('webos')) {
         select('player', {
-          'inner': 'Inline',
+          'inner': 'Built-in',
           'webos': 'WebOS'
         }, 'inner');
       } else if (Platform.is('android')) {
@@ -13107,25 +13136,7 @@
             value: ''
           }, function (new_value) {
             if (new_value && Storage.add(name, new_value)) {
-              displayAddItem(elem, new_value, {
-                is_new: true,
-                checked: function checked(error) {
-                  if (elem.data('notice')) {
-                    Modal.open({
-                      title: '',
-                      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check if plugin is working, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
-                      onBack: function onBack() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      },
-                      onSelect: function onSelect() {
-                        Modal.close();
-                        Controller.toggle('settings_component');
-                      }
-                    });
-                  }
-                }
-              });
+              displayAddItem(elem, new_value);
               listener$1.send('update_scroll');
             }
           });
@@ -13170,28 +13181,8 @@
     }
 
     function displayAddItem(elem, element) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       var name = elem.data('name');
-      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + (name == 'plugins' ? '<div class="settings-param__descr">Click to test the plugin</div><div class="settings-param__status"></div>' : '') + '</div>');
-
-      var check = function check() {
-        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
-        $.ajax({
-          dataType: 'text',
-          url: element,
-          timeout: 2000,
-          crossDomain: true,
-          success: function success(data) {
-            status.removeClass('wait').addClass('active');
-            if (params.checked) params.checked();
-          },
-          error: function error(jqXHR, exception) {
-            status.removeClass('wait').addClass('error');
-            if (params.checked) params.checked(true);
-          }
-        });
-      };
-
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + element + '</div>' + '</div>');
       item.on('hover:long', function () {
         var list = Storage.get(name, '[]');
         Arrays.remove(list, element);
@@ -13200,8 +13191,6 @@
           opacity: 0.5
         });
       });
-      item.on('hover:enter', check);
-      if (params.is_new && name == 'plugins') check();
       elem.after(item);
     }
 
@@ -13274,7 +13263,7 @@
     }, 'one');
     select('subtitles_size', {
       'small': 'Small',
-      'normal': 'Regular',
+      'normal': 'Normal',
       'large': 'Large'
     }, 'normal');
     select('screensaver_type', {
@@ -13374,7 +13363,7 @@
     select('account_password', '', '');
     var Params = {
       listener: listener$1,
-      init: init$5,
+      init: init$6,
       bind: bind,
       update: update$1,
       field: field$1
@@ -13454,7 +13443,7 @@
       add: add$1
     };
 
-    function init$4() {
+    function init$5() {
       if (typeof webOS !== 'undefined' && webOS.platform.tv === true) {
         Storage.set('platform', 'webos');
       } else if (typeof webapis !== 'undefined' && typeof tizen !== 'undefined') {
@@ -13508,7 +13497,7 @@
     }
 
     var Platform = {
-      init: init$4,
+      init: init$5,
       get: get,
       any: any,
       is: is
@@ -13523,7 +13512,7 @@
         orsay_tap_back_count = 1,
         orsay_tap_back_timer;
 
-    function init$3() {
+    function init$4() {
       $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
       Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
         window.addEventListener("keydown", function (event) {
@@ -13593,14 +13582,14 @@
     }
 
     var Orsay = {
-      init: init$3
+      init: init$4
     };
 
     var html$3;
     var last;
     var scroll$1;
 
-    function init$2() {
+    function init$3() {
       html$3 = Template.get('menu');
       scroll$1 = new create$p({
         mask: true,
@@ -13775,7 +13764,7 @@
 
     var Menu = {
       render: render$1,
-      init: init$2,
+      init: init$3,
       ready: ready
     };
 
@@ -14202,7 +14191,7 @@
     var html$1;
     var scroll;
 
-    function init$1() {
+    function init$2() {
       Keypad.listener.follow('keydown', function (e) {
         if (e.code == 38 || e.code == 29460) {
           var enable = Controller.enabled();
@@ -14315,10 +14304,10 @@
     }
 
     var Console = {
-      init: init$1
+      init: init$2
     };
 
-    var body;
+    var body$1;
     var code = 0;
     var network = new create$q();
     var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
@@ -14328,13 +14317,13 @@
      * Запуск
      */
 
-    function init() {
+    function init$1() {
       if (Storage.field('cloud_use')) status(1);
       Settings.listener.follow('open', function (e) {
-        body = null;
+        body$1 = null;
 
         if (e.name == 'cloud') {
-          body = e.body;
+          body$1 = e.body;
           renderStatus();
         }
       });
@@ -14366,14 +14355,14 @@
 
 
     function renderStatus() {
-      if (body) {
-        var item = body.find('.settings--cloud-status'),
+      if (body$1) {
+        var item = body$1.find('.settings--cloud-status'),
             name = item.find('.settings-param__name'),
             desc = item.find('.settings-param__descr');
 
         if (code == 0) {
           name.text('Disabled');
-          desc.text('Turn on sync');
+          desc.text('Turn on synchronization');
         }
 
         if (code == 1) {
@@ -14552,7 +14541,140 @@
     }
 
     var Cloud = {
-      init: init
+      init: init$1
+    };
+
+    var body;
+    /**
+     * Запуск
+     */
+
+    function init() {
+      Settings.listener.follow('open', function (e) {
+        body = null;
+
+        if (e.name == 'plugins') {
+          body = e.body;
+          renderPanel();
+        }
+      });
+    }
+    /**
+     * Рендер панели плагинов
+     */
+
+
+    function renderPanel() {
+      if (body) {
+        var list = Storage.get('plugins', '[]');
+        $('.selector', body).on('hover:enter', function () {
+          Input.edit({
+            value: ''
+          }, function (new_value) {
+            if (new_value && Storage.add('plugins', new_value)) {
+              renderPlugin(new_value, {
+                is_new: true,
+                checked: function checked(error) {
+                  Modal.open({
+                    title: '',
+                    html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check the plug-in functionality, however, this does not mean that it does not work. Reload the app to see if the plugin is loading.' : elem.data('notice')) + '</div></div>'),
+                    onBack: function onBack() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    },
+                    onSelect: function onSelect() {
+                      Modal.close();
+                      Controller.toggle('settings_component');
+                    }
+                  });
+                }
+              });
+              Params.listener.send('update_scroll');
+            }
+          });
+        });
+        list.forEach(function (url) {
+          renderPlugin(url);
+        });
+        Account.plugins(function (plugins) {
+          plugins.forEach(function (plugin) {
+            renderPlugin(plugin.url, {
+              is_cub: true,
+              plugin: plugin
+            });
+          });
+          Controller.enable('settings_component');
+          Params.listener.send('update_scroll');
+        });
+        Params.listener.send('update_scroll');
+      }
+    }
+    /**
+     * Рендер плагина
+     */
+
+
+    function renderPlugin(url) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var item = $('<div class="settings-param selector"><div class="settings-param__name">' + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from CUB' : 'Click to test the plugin') + '</div><div class="settings-param__status"></div></div>');
+
+      var check = function check() {
+        var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
+        $.ajax({
+          dataType: 'text',
+          url: url,
+          timeout: 2000,
+          crossDomain: true,
+          success: function success(data) {
+            status.removeClass('wait').addClass('active');
+            if (params.checked) params.checked();
+          },
+          error: function error(jqXHR, exception) {
+            status.removeClass('wait').addClass('error');
+            if (params.checked) params.checked(true);
+          }
+        });
+      };
+
+      if (!params.is_cub) {
+        item.on('hover:long', function () {
+          var list = Storage.get('plugins', '[]');
+          Arrays.remove(list, url);
+          Storage.set('plugins', list);
+          item.css({
+            opacity: 0.5
+          });
+        });
+      } else {
+        if (!params.plugin.status) item.css({
+          opacity: 0.5
+        });
+      }
+
+      item.on('hover:enter', check);
+      if (params.is_new) check();
+      $('.selector:eq(0)', body).after(item);
+    }
+    /**
+     * Загрузка всех плагинов
+     */
+
+
+    function load(call) {
+      Account.plugins(function (plugins) {
+        var list = plugins.filter(function (plugin) {
+          return plugin.status;
+        }).map(function (plugin) {
+          return plugin.url;
+        }).concat(Storage.get('plugins', '[]'));
+        console.log('Plugins', 'list:', list);
+        Utils.putScript(list, call);
+      });
+    }
+
+    var Plugins = {
+      init: init,
+      load: load
     };
 
     window.Lampa = {
@@ -14617,6 +14739,7 @@
       Screensaver.init();
       Cloud.init();
       Account.init();
+      Plugins.init();
       Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
 
       Controller.listener.follow('toggle', function () {
@@ -14697,8 +14820,6 @@
 
 
     setTimeout(startApp, 1000 * 5);
-    console.log('Plugins', 'list:', Storage.get('plugins', '[]'));
-    var plugins = Storage.get('plugins', '[]');
-    Utils.putScript(plugins, startApp);
+    Plugins.load(startApp);
 
 })();
