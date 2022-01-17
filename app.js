@@ -71,7 +71,7 @@
       var toLength = function toLength(value) {
         var len = toInteger(value);
         return Math.min(Math.max(len, 0), maxSafeInteger);
-      }; // Сinойство length метода from равно 1.
+      }; // С在ойство length метода from равно 1.
 
 
       return function from(arrayLike
@@ -681,7 +681,7 @@
 
   var html$18 = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-  var html$17 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">首页</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">电影</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">电视剧</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">目录</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">合集</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">发行</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">动漫</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">书签</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">喜欢</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">稍后</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">历史</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">种子</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">设置</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">关于</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+  var html$17 = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">首页</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">电影</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">电视节目</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">目录</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">合集</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">发布</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">动漫</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">书签</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">喜欢</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">稍后</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">历史</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">种子</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">设置</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">关于</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
   var html$16 = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
@@ -693,35 +693,35 @@
 
   var html$12 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">帐户</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">界面</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">播放器</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">种子搜索</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">插件</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">同步</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">其他</div>\n    </div>\n    \n</div>";
 
-  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">接口大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从下方和上方淡出卡片</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">作为信息流滚动，卡片将逐渐加载或下载所有内容</div>\n    </div>\n</div>";
+  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">接口大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡入淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上到下淡出卡片</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片将在信息流滚动时加载逐步或全部下载</div>\n    </div>\n</div>";
 
-  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">这样做，您同意对使用公共链接查看种子和在线内容承担全部责任</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子解析器的类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">链接地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定指向Jackett脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">定位在 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网站</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索种子的站点网址</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">解析TorLook站点的方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到站点解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">注册站点scraperapi.com，注册链接api。 scraperapi.com?api_key = ...&url={q}<br>B {q} 本站将投递 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
+  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意承担使用公共链接、查看种子和在线内容的所有责任</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">Torrent解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定Jackett脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Torlook</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torlook_site\" placeholder=\"...\">\n        <div class=\"settings-param__name\">网站</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要抓取的站点</div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook站点解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到站点解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">注册站点scraperapi.com，注册链接api.scraperapi.com？ api_key=...&url={q}<br>在 {q} w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
 
-  var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定到TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.X\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>附加</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置JS TorrServe客户端，否则系统会启动</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待 TorrServer 预加载缓冲区填满</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密输入密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+  var html$$ = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接地址</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定到 TorrServer 脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.X\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则启动系统自带</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待 TorrServer 预加载缓冲区填满</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-  var html$_ = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用哪种播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">将播放器重置为默认值</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的Android播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上一个视图继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何进行视频缩放计算</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会用黑色勾勒，提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会显示在半透明背景上，提高可读性</div>\n        </div>\n    </div>  \n</div>";
+  var html$_ = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用哪种播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的安卓播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次查看的位置恢复</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">缩放方式</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">视频缩放的计算方式</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">size</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将被黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明水印上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-  var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">到哪个页面start from on startup</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取有关电影的信息。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以哪种语言显示来自 TMDB 的数据</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面处于离开它的状态</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动屏幕</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护程序类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移动时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+  var html$Z = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">哪个启动时开始的页面</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取有关电影的信息。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">以哪种语言显示来自 TMDB 的数据</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保留页面，保留页面</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>屏幕保护程序</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动屏幕</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏幕保护程序类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移动时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: My Lamp\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-  var html$Y = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要使插件正常工作，需要重启应用程序。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，按住按下确定按钮</div>\n    </div>\n</div>";
+  var html$Y = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要使插件正常工作，您需要重新启动应用程序。\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除插件，请按住确定按钮</div>\n    </div>\n</div>";
 
-  var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步可以同步您的书签、浏览历史记录、标签和时间码。连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$X = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步可以同步您的书签、浏览历史、标签和时间码。 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>'连接说明状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与CUB服务同步，同步你的书签、浏览历史、标签和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定 \">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$W = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 服务同步、书签同步、浏览历史记录、标签和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$V = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
   var html$U = "<div class=\"card selector\">\n    <div class=\"card__view\">\n        <img src=\"./img/img_load.svg\" class=\"card__img\" />\n    </div>\n\n    <div class=\"card__icons\">\n        <div class=\"card__icons-inner\">\n            \n        </div>\n    </div>\n    \n    <div class=\"card__title\">{title}</div>\n    <div class=\"card__age\">{release_year}</div>\n\n    \n</div>";
 
-  var html$T = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>种子: <span>{Seeders}</span></div>\n            <div>用户: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
+  var html$T = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>分享: <span>{Seeders}</span></div>\n            <div>用户: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
 
   var html$S = "<div class=\"full-start\">\n\n    <div class=\"full-start__body\">\n        <div class=\"full-start__right\">\n            <div class=\"full-start__poster\">\n                <img src=\"{img}\" class=\"full-start__img\" />\n            </div>\n        </div>\n\n        <div class=\"full-start__left\">\n            <div class=\"full-start__tags\">\n                <div class=\"full-start__tag\">\n                    <img src=\"./img/icons/pulse.svg\" /> <div>{genres}</div>\n                </div>\n                <div class=\"full-start__tag\">\n                    <img src=\"./img/icons/time.svg\" /> <div>{time}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/catalog.svg\" /> <div>{seasons}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/movie.svg\" /> <div>{episodes}</div>\n                </div>\n            </div>\n\n            <div class=\"full-start__title\">{title}</div>\n            <div class=\"full-start__title-original\">{original_title}</div>\n\n            <div class=\"full-start__descr\">{descr}</div>\n        </div>\n\n        \n    </div>\n\n    <div class=\"full-start__buttons\">\n        <div class=\"full-start__button view--torrent hide\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n                <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n                <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n            </svg>\n\n            <span>种子</span>\n        </div>\n\n        <div class=\"full-start__button selector view--trailer\">\n            <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                <path fill=\"currentColor\" d=\"M482.909,67.2H29.091C13.05,67.2,0,80.25,0,96.291v319.418C0,431.75,13.05,444.8,29.091,444.8h453.818\n                    c16.041,0,29.091-13.05,29.091-29.091V96.291C512,80.25,498.95,67.2,482.909,67.2z M477.091,409.891H34.909V102.109h442.182\n                    V409.891z\"/>\n                <rect fill=\"currentColor\" x=\"126.836\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                <rect fill=\"currentColor\" x=\"350.255\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                <rect fill=\"currentColor\" x=\"367.709\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                <rect fill=\"currentColor\" x=\"17.455\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                <rect fill=\"currentColor\" x=\"367.709\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                <rect fill=\"currentColor\" x=\"17.455\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n            </svg>\n\n            <span>预告片</span>\n        </div>\n\n        \n\n        <div class=\"full-start__button selector open--menu\">\n            <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                <path fill=\"currentColor\" d=\"M436.742,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.755,75.258,75.258,75.258\n                    C478.239,331.258,512,297.503,512,256C512,214.503,478.239,180.742,436.742,180.742z M436.742,294.246\n                    c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246s38.246,17.155,38.246,38.246\n                    S457.833,294.246,436.742,294.246z\"/>\n            \n                <path fill=\"currentColor\" d=\"M256,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.761,75.258,75.258,75.258c41.503,0,75.258-33.755,75.258-75.258\n                    C331.258,214.503,297.503,180.742,256,180.742z M256,294.246c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246\n                    s38.246,17.155,38.246,38.246S277.091,294.246,256,294.246z\"/>\n            \n                <path fill=\"currentColor\" d=\"M75.258,180.742C33.761,180.742,0,214.503,0,256c0,41.503,33.761,75.258,75.258,75.258\n                    c41.497,0,75.258-33.755,75.258-75.258C150.516,214.503,116.755,180.742,75.258,180.742z M75.258,294.246\n                    c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246c21.091,0,38.246,17.155,38.246,38.246\n                    S96.342,294.246,75.258,294.246z\"/>\n            </svg>\n        </div>\n\n        <div class=\"full-start__icons\">\n            <div class=\"info__icon icon--book selector\" data-type=\"book\"></div>\n            <div class=\"info__icon icon--like selector\" data-type=\"like\"></div>\n            <div class=\"info__icon icon--wath selector\" data-type=\"wath\"></div>\n        </div>\n\n        <div class=\"info__rate\"><span>{r_themovie}</span></div>\n    </div>\n</div>";
 
   var html$R = "<div class=\"full-descr\">\n    <div class=\"full-descr__left\">\n        <div class=\"full-descr__text\">{text}</div>\n\n        <div class=\"full-descr__line full--genres\">\n            <div class=\"full-descr__line-name\">类型</div>\n            <div class=\"full-descr__line-body\">{genres}</div>\n        </div>\n\n        <div class=\"full-descr__line full--companies\">\n            <div class=\"full-descr__line-name\">出品公司</div>\n            <div class=\"full-descr__line-body\">{companies}</div>\n        </div>\n    </div>\n\n    <div class=\"full-descr__right\">\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">发布日期</div>\n            <div class=\"full-descr__info-body\">{relise}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">预算</div>\n            <div class=\"full-descr__info-body\">{budget}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">国家</div>\n            <div class=\"full-descr__info-body\">{countries}</div>\n        </div>\n    </div>\n</div>";
 
-  var html$Q = "<div class=\"full-person selector\">\n    <img src=\"{img}\" class=\"full-person__photo\" />\n\n    <div class=\"full-person__body\">\n        <div class=\"full-person__name\">{name}</div>\n        <div class=\"full-person__role\">{role}</div>\n    </div>\n</div>";
+  var html$Q = "<div class=\"full-person selector\">\n    <div style=\"background-image: url('{img}');\" class=\"full-person__photo\"></div>\n\n    <div class=\"full-person__body\">\n        <div class=\"full-person__name\">{name}</div>\n        <div class=\"full-person__role\">{role}</div>\n    </div>\n</div>";
 
-  var html$P = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">点赞: {like_count}</div>\n</div>";
+  var html$P = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">喜欢: {like_count}</div>\n</div>";
 
   var html$O = "<div class=\"player\">\n    \n</div>";
 
@@ -735,7 +735,7 @@
 
   var html$J = "<div class=\"selectbox-item selector\">\n    <div class=\"selectbox-item__title\">{title}</div>\n    <div class=\"selectbox-item__subtitle\">{subtitle}</div>\n</div>";
 
-  var html$I = "<div class=\"info layer--width\">\n    <div class=\"info__rate\"><span></span></div>\n    <div class=\"info__left\">\n        <div class=\"info__title\"></div>\n        <div class=\"info__title-original\"></div>\n        <div class=\"info__create\"></div>\n    </div>\n    <div class=\"info__right\">\n        <div class=\"info__icon icon--book\"></div>\n        <div class=\"info__icon icon--like\"></div>\n        <div class=\"info__icon icon--wath\"></div>\n    </div>\n</div>";
+  var html$I = "<div class=\"info layer--width\">\n    <div class=\"info__rate\"><span></span></div>\n    <div class=\"info__left\">\n        <div class=\"info__title\"></div>\n        <div class=\"info__title-original\"></div>\n    </div>\n    <div class=\"info__right\">\n        <div class=\"info__icon icon--book\"></div>\n        <div class=\"info__icon icon--like\"></div>\n        <div class=\"info__icon icon--wath\"></div>\n    </div>\n</div>";
 
   var html$H = "<div>\n    <div class=\"simple-button selector filter--search\">\n            <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n            viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n        <g>\n            <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                S326.847,409.323,225.474,409.323z\"/>\n        </g>\n        <g>\n            <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n        </g>\n\n        </svg>\n\n        <span>优化</span>\n    </div>\n    <div class=\"simple-button simple-button--filter selector filter--sort\">\n        <span>排序</span><div class=\"hide\"></div>\n    </div>\n\n    <div class=\"simple-button simple-button--filter selector filter--filter\">\n        <span>过滤器</span><div class=\"hide\"></div>\n    </div>\n</div>";
 
@@ -761,23 +761,23 @@
 
   var html$w = "<div class=\"notice notice--card selector\">\n    <div class=\"notice__left\">\n        <div class=\"notice__img\">\n            <img src=\"{img}\" />\n        </div>\n    </div>\n    <div class=\"notice__body\">\n        <div class=\"notice__head\">\n            <div class=\"notice__title\">{title}</div>\n            <div class=\"notice__time\">{time}</div>\n        </div>\n        \n        <div class=\"notice__descr\">{descr}</div>\n    </div>\n</div>";
 
-  var html$v = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">比率: <span>{bitrate} Mb /s</span></div>\n        <div class=\"torrent-item__seeds\">种子: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">载: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
+  var html$v = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">比率: <span>{bitrate} Mbps</span></div>\n        <div class=\"torrent-item__seeds\">分享: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">用户: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
 
   var html$u = "<div class=\"torrent-file selector\">\n    <div class=\"torrent-file__title\">{title}</div>\n    <div class=\"torrent-file__size\">{size}</div>\n</div>";
 
   var html$t = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__title\">{title}</div>\n        <div class=\"files__title-original\">{original_title}</div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-  var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看有关电影、新上映、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.7\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+  var html$s = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接查看有关电影、新版本、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.7\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>捐赠</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
   var html$r = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-  var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>使用的地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 不正确！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备，打开浏览器并转到地址，＃@，如果如果TorrServe正在运行，或者浏览器没有反应，检查重新启动它。，＃@“如果浏览器响应，请确保响应包含以下行 <code>{ip}/echo</code></li>\n            <li>原因</li>\n            <li>ping 请求返回无效格式 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$q = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>使用的地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 不正确！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>相同设备，打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，请检查 TorrServe 是否正在运行，或者重新启动它。</li>\n            <li>如果浏览器响应，请确保响应包含字符串 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>来自 TorServer 的响应</div>\n        <ul>\n            <li>做什么？</li>\n            <li>确保你有Matrix版本: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何查看？</div>\n        <ul>\n            <li>打开浏览器并转到地址</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>确保答案中有代码</div>\n        <ul>\n            <li>原因 <code>{ip}/echo</code></li>\n            <li>无法下载 torrent 文件 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$p = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 返回无效格式</li>\n            <li>TorServer 响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保您有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查?</div>\n        <ul>\n            <li>打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>来自 TorServer 的回复</div>\n        <ul>\n            <li>TorServer 链接</li>\n            <li>怎么办？: {echo}</li>\n            <li>检查您是否正确配置了 Jackett: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>私人来源可能不显示每个文件的链接</div>\n        <ul>\n            <li>确保 Jackett 也可以下载文件</li>\n            <li>怎么办？</li>\n            <li>写信给我们的电报组</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>指出哪部电影，哪个发行版，如果可能，请注明该发行版的照片</div>\n        <ul>\n            <li>电视剧-: @lampa_group</li>\n            <li>季-</li>\n        </ul>\n    </div>\n</div>";
+  var html$o = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的响应: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办？</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能无法提供文件的链接</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
-  var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">退出- <b>{episode}</b> &nbsp;\u2022&nbsp; 空 <b>{season}</b> &nbsp;\u2022&nbsp; 按您的过滤器未找到任何内容，请指定过滤器。 {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
+  var html$n = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧- <b>{episode}</b> &nbsp;\u2022&nbsp; 季- <b>{season}</b> &nbsp;\u2022&nbsp; 退出- {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
   var html$m = "<div class=\"search-box search\">\n    <div class=\"search-box__input search__input\"></div>\n    <div class=\"search-box__keypad search__keypad\"><div class=\"simple-keyboard\"></div></div>\n</div>";
 
@@ -787,7 +787,7 @@
 
   var html$j = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-  var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">电影</div>\n    <div class=\"empty__descr\">电视节目</div>\n</div>";
+  var html$i = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">未找到您的过滤器，请优化您的过滤器。</div>\n</div>";
 
   var html$h = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -993,11 +993,11 @@
 
   var html$g = $('<div class="noty"><div class="noty__body"><div class="noty__text"></div></div></div>'),
       body$4 = html$g.find('.noty__text'),
-      time$1;
+      time$2;
 
   function show$4(text) {
-    clearTimeout(time$1);
-    time$1 = setTimeout(function () {
+    clearTimeout(time$2);
+    time$2 = setTimeout(function () {
       html$g.removeClass('noty--visible');
     }, 3000);
     body$4.html(text);
@@ -1161,7 +1161,7 @@
     voiceStart: voiceStart
   };
 
-  function create$q() {
+  function create$r() {
     var listener = start$4();
     var _calls = [];
 
@@ -1397,9 +1397,9 @@
       if (jqXHR.status === 0 && exception !== 'timeout') {
         msg = '没有网络连接。';
       } else if (jqXHR.status == 404) {
-        msg = '未找到请求的页面。 [404]';
+        msg = '找不到请求的页面。 [404]';
       } else if (jqXHR.status == 401) {
-        msg = '授权失败';
+        msg = '登录失败';
       } else if (jqXHR.status == 500) {
         msg = '内部服务器错误。 [500]';
       } else if (exception === 'parsererror') {
@@ -1407,7 +1407,7 @@
       } else if (exception === 'timeout') {
         msg = '请求超时。';
       } else if (exception === 'abort') {
-        msg = '请求被中止。';
+        msg = '请求中止。';
       } else if (exception === 'custom') {
         msg = jqXHR.responseText;
       } else {
@@ -1495,7 +1495,7 @@
     }
   }
 
-  function create$p() {
+  function create$q() {
     var _this = this;
 
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -1659,7 +1659,7 @@
     var unitNames = ['字节', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
     if (speed) {
-      unitNames = ['b', 'KB', 'MB', 'GB', 'TB', 'PB'];
+      unitNames = ['b', 'KB', 'MB', 'GB', 'TB', '铅'];
     }
 
     var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
@@ -1686,7 +1686,7 @@
     return (bitSize / Math.pow(1024, 2) / sec).toFixed(2);
   }
 
-  function time(html) {
+  function time$1(html) {
     var create = function create() {
       var months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
       var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
@@ -1740,7 +1740,7 @@
     var mouth = function mouth(m) {
       var n = months[m];
       var d = n.slice(-1);
-      if (d == 'b') return n.slice(0, n.length - 1) + '我';else if (n == '五月') return n + '我';else return n + '';
+      if (d == 'ь') return n.slice(0, n.length - 1) + '我';else if (n == 'ma') return n + '我';else return n + '';
     };
 
     var date = new Date(str),
@@ -1927,7 +1927,7 @@
     capitalizeFirstLetter: capitalizeFirstLetter,
     substr: substr,
     numberWithSpaces: numberWithSpaces,
-    time: time,
+    time: time$1,
     bytesToSize: bytesToSize,
     calcBitrate: calcBitrate,
     parseTime: parseTime,
@@ -1948,7 +1948,7 @@
   };
 
   function component$d(name) {
-    var scrl = new create$p({
+    var scrl = new create$q({
       mask: true,
       over: true
     });
@@ -2018,7 +2018,7 @@
     var _this = this;
 
     var comp;
-    var scrl = new create$p({
+    var scrl = new create$q({
       mask: true,
       over: true
     });
@@ -2054,7 +2054,7 @@
     window.history.back();
   });
 
-  function create$o(name) {
+  function create$p(name) {
     var comp = new component$d(name);
     body$3.empty().append(comp.render());
     listener$b.send('open', {
@@ -2067,7 +2067,7 @@
 
   function init$g() {
     var main = new main$5();
-    main.onCreate = create$o;
+    main.onCreate = create$p;
     main.create();
     Controller.add('settings', {
       toggle: function toggle() {
@@ -2100,7 +2100,7 @@
   }
 
   function update$8() {
-    create$o(last$4);
+    create$p(last$4);
   }
 
   function render$c() {
@@ -2115,7 +2115,7 @@
   };
 
   var html$e = Template.get('selectbox');
-  var scroll$3 = new create$p({
+  var scroll$3 = new create$q({
     mask: true,
     over: true
   });
@@ -2215,12 +2215,13 @@
   };
 
   var body$2;
-  var network$a = new create$q();
+  var network$a = new create$r();
   var api = Utils.protocol() + 'cub.watch/api/';
   var notice_load = {
     time: 0,
     data: []
   };
+  var bookmarks = [];
   /**
    * Запуск
    */
@@ -2283,7 +2284,7 @@
         });
       }
 
-      Storage.set('account_bookmarks', list);
+      updateBookmarks(list);
     }
   }
 
@@ -2293,7 +2294,7 @@
     if (account.token) {
       network$a.silent(api + 'bookmarks/all?full=1', function (result) {
         if (result.secuses) {
-          Storage.set('account_bookmarks', result.bookmarks);
+          updateBookmarks(result.bookmarks);
         }
       }, false, false, {
         headers: {
@@ -2302,7 +2303,7 @@
         }
       });
     } else {
-      Storage.set('account_bookmarks', []);
+      updateBookmarks([]);
     }
   }
 
@@ -2390,7 +2391,7 @@
           Noty.show(result.text);
         }
       }, function () {
-        Noty.show('获取配置文件列表失败');
+        Noty.show('获取个人资料列表失败');
       }, false, {
         headers: {
           token: account.token
@@ -2403,9 +2404,9 @@
     var account = Storage.get('account', '{}');
 
     if (account.token) {
-      renderStatus$1('已登录', '您已使用帐号登录' + account.email);
+      renderStatus$1('已登录', '您登录为' + account.email);
     } else {
-      renderStatus$1('登录失败', '等待登录到您的帐户');
+      renderStatus$1('登录失败', '等待登录');
     }
   }
 
@@ -2414,11 +2415,18 @@
   }
 
   function get$8(params) {
-    var rows = Storage.get('account_bookmarks', '[]');
-    return rows.reverse().filter(function (elem) {
+    return bookmarks.filter(function (elem) {
       return elem.type == params.type;
     }).map(function (elem) {
-      return JSON.parse(elem.data);
+      return elem.data;
+    });
+  }
+
+  function updateBookmarks(rows) {
+    Storage.set('account_bookmarks', rows);
+    bookmarks = rows.reverse().map(function (elem) {
+      elem.data = JSON.parse(elem.data);
+      return elem;
     });
   }
   /**
@@ -2449,7 +2457,7 @@
           renderStatus$1('Error', result.text);
         }
       }, function () {
-        renderStatus$1('错误', '无网络连接');
+        renderStatus$1('Error', '无网络连接');
       }, {
         email: email,
         password: password
@@ -2743,8 +2751,8 @@
   }
 
   var baseurl$3 = Utils.protocol() + 'api.themoviedb.org/3/';
-  var baseimg = Utils.protocol() + 'image.tmdb.org/t/p/w300/';
-  var network$9 = new create$q();
+  var baseimg = Utils.protocol() + 'image.tmdb.org/t/p/w200/';
+  var network$9 = new create$r();
   var key = '4ef0d7355d9ffb5151e987764708ce96';
   var menu_list$2 = [];
 
@@ -2772,7 +2780,7 @@
   function img$3(src, size) {
     var path = baseimg;
       if (src.indexOf("http") != -1) path = '';
-    if (size) path = path.replace(/w300/g, size);
+    if (size) path = path.replace(/w200/g, size);
     return src ? path + src : '';
   }
 
@@ -2870,7 +2878,7 @@
       }, status.error.bind(status));
 
       get$6('movie/now_playing', params, function (json) {
-      append('正在观看', 'wath', json);
+      append('现在观看', 'wath', json);
     }, status.error.bind(status));
     get$6('trending/moviews/day', params, function (json) {
       append('今日热门', 'trend_day', json);
@@ -2885,13 +2893,13 @@
       append('热门电影', 'popular', json);
     }, status.error.bind(status));
     get$6('tv/popular', params, function (json) {
-      append('热门电视剧', 'popular_tv', json);
+      append('热门电视节目', 'popular_tv', json);
     }, status.error.bind(status));
     get$6('movie/top_rated', params, function (json) {
       append('热门电影', 'top', json);
     }, status.error.bind(status));
     get$6('tv/top_rated', params, function (json) {
-      append('热门电视剧', 'top_tv', json);
+      append('热门电视节目', 'top_tv', json);
     }, status.error.bind(status));
   }
 
@@ -3113,8 +3121,8 @@
 
       knownFor = Arrays.groupBy(crew, 'department');
       var actorGender = person.gender === 1 ? '女演员' : '演员';
-      if (movie.length > 0) knownFor["".concat(actorGender, " - \u0424\u0438\u043B\u044C\u043C\u044B")] = movie;
-      if (tv.length > 0) knownFor["".concat(actorGender, " - \u0421\u0435\u0440\u0438\u0430\u043B\u044B")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+      if (movie.length > 0) knownFor["".concat(actorGender, " - 电影")] = movie;
+      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视节目")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
       knownFor = Object.entries(knownFor).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
@@ -3238,7 +3246,7 @@
   };
 
   var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
-  var network$8 = new create$q();
+  var network$8 = new create$r();
   var menu_list$1 = [];
 
   function img$2(element) {
@@ -3550,42 +3558,42 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('热门新项目', 'top', 'topfilms', json);
+        append('热门新', 'top', 'topfilms', json);
       }, status.error.bind(status));
       list$4({
         url: 'comedy-plus-horror-movies',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('喜剧恐怖片', 'three', 'comedy-plus-horror-movies', json);
+        append('喜剧恐怖', 'three', 'comedy-plus-horror-movies', json);
       }, status.error.bind(status));
       list$4({
         url: 'collection_maniacs',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('关于疯子的电影', 'four', 'collection_maniacs', json);
+        append('疯子电影', 'four', 'collection_maniacs', json);
       }, status.error.bind(status));
       list$4({
         url: 'witches',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('关于女巫的电影', 'five', 'witches', json);
+        append('女巫电影', 'five', 'witches', json);
       }, status.error.bind(status));
       list$4({
         url: 'zombies',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('关于僵尸的电影', 'six', 'zombies', json);
+        append('僵尸电影', 'six', 'zombies', json);
       }, status.error.bind(status));
       list$4({
         url: 'Russian-17490',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('俄罗斯人', 'seven', 'Russian-17490', json);
+        append('俄语', 'seven', 'Russian-17490', json);
       }, status.error.bind(status));
     } else {
       list$4({
@@ -3621,7 +3629,7 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('轻', 'five', 'legkiye-serialy-all-svod', json);
+        append('浅色', 'five', 'legkiye-serialy-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'comedy-serial-all-svod',
@@ -3690,7 +3698,7 @@
   };
 
   var baseurl$1 = 'https://api.ivi.ru/mobileapi/';
-  var network$7 = new create$q();
+  var network$7 = new create$r();
   var menu_list = [];
 
   function tocard(element) {
@@ -4020,7 +4028,7 @@
       collections$1({
         id: '11512'
       }, function (json) {
-        append('现在流行', 'popular', '11512', {
+        append('Top now', 'popular', '11512', {
           results: json
         });
       });
@@ -4042,28 +4050,28 @@
       collections$1({
         id: '1712'
       }, function (json) {
-        append('外国', 'best', '1712', {
+        append('Foreign', 'best', '1712', {
           results: json
         });
       });
       collections$1({
         id: '935'
       }, function (json) {
-        append('俄罗斯人', 'rus', '935', {
+        append('俄语', 'rus', '935', {
           results: json
         });
       });
       collections$1({
         id: '12839'
       }, function (json) {
-        append('现在流行', 'popular', '12839', {
+        append('Hot now', 'popular', '12839', {
           results: json
         });
       });
       collections$1({
         id: '1057'
       }, function (json) {
-        append('精选 ivi', 'ivi', '1057', {
+        append('选择 ivi', 'ivi', '1057', {
           results: json
         });
       });
@@ -4093,21 +4101,21 @@
     collections$1({
       id: '4655'
     }, function (json) {
-      append('我们推荐你看', '1', '4655', {
+      append('我们建议你看', '1', '4655', {
         results: json
       });
     });
     collections$1({
       id: '2460'
     }, function (json) {
-      append('适合全家的动画片', '2', '2460', {
+      append('全家卡通', '2', '2460', {
         results: json
       });
     });
     collections$1({
       id: '917'
     }, function (json) {
-      append('恐怖惊悚', '3', '917', {
+      append('恐怖惊悚片', '3', '917', {
         results: json
       });
     });
@@ -4121,7 +4129,7 @@
     collections$1({
       id: '1246'
     }, function (json) {
-      append('侦探片', '5', '1246', {
+      append('侦探改编', '5', '1246', {
         results: json
       });
     });
@@ -4170,14 +4178,14 @@
     collections$1({
       id: '4495'
     }, function (json) {
-      append('外国剧', '12', '4495', {
+      append('外国电视剧', '12', '4495', {
         results: json
       });
     });
     collections$1({
       id: '217'
     }, function (json) {
-      append('历史剧', '13', '217', {
+      append('历史电视剧', '13', '217', {
         results: json
       });
     });
@@ -4221,7 +4229,7 @@
   };
 
   var baseurl = Utils.protocol() + 'tmdb.cub.watch/';
-  var network$6 = new create$q();
+  var network$6 = new create$r();
 
   function url$4(u) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -4294,7 +4302,7 @@
       append('电影', 's3', json);
     }, status.error.bind(status));
     get$5('?sort=now&genre=16', params, function (json) {
-      append('卡通', 's4', json);
+      append('动画', 's4', json);
     }, status.error.bind(status));
     get$5('tv/now', params, function (json) {
       append('电视节目', 's5', json);
@@ -4312,7 +4320,7 @@
       append('恐怖', 's9', json);
     }, status.error.bind(status));
     get$5('?sort=now&genre=878', params, function (json) {
-      append('科幻', 's10', json);
+      append('奇幻', 's10', json);
     }, status.error.bind(status));
     get$5('?sort=now&genre=53', params, function (json) {
       append('惊悚片', 's11', json);
@@ -4345,17 +4353,17 @@
     };
 
     get$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
-      append('正在观看', 's1', json);
+      append('现在看', 's1', json);
     }, status.error.bind(status));
 
     if (params.url == 'tv') {
       get$5('?cat=' + params.url + '&sort=update', params, function (json) {
-        append('新电视剧', 's2', json);
+        append('新剧集', 's2', json);
       }, status.error.bind(status));
     }
 
     get$5('?cat=' + params.url + '&sort=top', params, function (json) {
-      append('流行', 's3', json);
+      append('精选', 's3', json);
     }, status.error.bind(status));
     get$5('?cat=' + params.url + '&sort=latest', params, function (json) {
       append('最新添加', 's4', json);
@@ -4364,7 +4372,7 @@
       append('今年新', 's5', json);
     }, status.error.bind(status));
     get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
-      append('评分最高', 's6', json);
+      append('高度评价', 's6', json);
     }, status.error.bind(status));
   }
 
@@ -4418,7 +4426,7 @@
 
     //yyds
     var baseurlyyds = 'https://cmn.yyds.fans/';
-    var network$6 = new create$q();
+    var network$6 = new create$r();
 
     function yydsurl$4(u) {
       //console.log(u);
@@ -4667,7 +4675,7 @@
     //yyds
 
   var url$3;
-  var network$5 = new create$q();
+  var network$5 = new create$r();
 
   function get$4() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -4807,7 +4815,7 @@
       yyds: YYDS,
     cub: CUB
   };
-  var network$4 = new create$q();
+  var network$4 = new create$r();
 
   function source(params) {
     return params.source ? sources[params.source] : sources.tmdb;
@@ -4956,7 +4964,7 @@
     collections: collections
   };
 
-  function create$n(data) {
+  function create$o(data) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     Arrays.extend(data, {
       title: data.name,
@@ -5030,16 +5038,16 @@
       Select.show({
         title: '操作',
         items: [{
-          title: status.book ? '从书签中删除' : '书签',
-          subtitle: '查看（书签）菜单',
+          title: status.book ? '不喜欢' : '书签',
+          subtitle: '查看菜单（书签）',
           where: 'book'
         }, {
-          title: status.like ? '从喜欢中删除' : '喜欢',
-          subtitle: '查看（喜欢）菜单',
+          title: status.like ? '不喜欢' : '喜欢',
+          subtitle: '查看菜单（喜欢）',
           where: 'like'
         }, {
           title: status.wath ? '从预期中删除' : '稍后观看',
-          subtitle: '查看（稍后）菜单',
+          subtitle: '查看菜单（稍后）',
           where: 'wath'
         }],
         onBack: function onBack() {
@@ -6166,7 +6174,7 @@
     immediately: immediately
   };
 
-  function create$m() {
+  function create$n() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var card = Template.get('more');
 
@@ -6194,13 +6202,13 @@
     };
   }
 
-  function create$l(data) {
+  function create$m(data) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var content = Template.get('items_line', {
       title: data.title
     });
     var body = content.find('.items-line__body');
-    var scroll = new create$p({
+    var scroll = new create$q({
       horizontal: true,
       step: 300
     });
@@ -6229,7 +6237,7 @@
 
       if (element.ready) return;
       element.ready = true;
-      var card = new create$n(element, params);
+      var card = new create$o(element, params);
       card.create();
 
       card.onFocus = function (target, card_data) {
@@ -6277,7 +6285,7 @@
     this.more = function () {
       var _this2 = this;
 
-      more = new create$m(params);
+      more = new create$n(params);
       more.create();
 
       more.onFocus = function (target) {
@@ -6354,7 +6362,7 @@
     };
   }
 
-  function create$k() {
+  function create$l() {
     var html;
 
     this.create = function () {
@@ -6364,11 +6372,11 @@
     this.update = function (data) {
       var nofavorite = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       var create = ((data.release_date || data.first_air_date || '0000') + '').slice(0, 4);
+      var vote = parseFloat((data.vote_average || 0) + '').toFixed(1);
       html.find('.info__title').text(data.title);
-      html.find('.info__title-original').text(data.original_title);
-      html.find('.info__create').text(create).toggleClass('hide', create == '0000');
-      html.find('.info__rate span').text(data.vote_average);
-      html.find('.info__rate').toggleClass('hide', data.vote_average == 0);
+      html.find('.info__title-original').text((create == '0000' ? '' : create + ' - ') + data.original_title);
+      html.find('.info__rate span').text(vote);
+      html.find('.info__rate').toggleClass('hide', !(vote > 0));
       html.find('.info__icon').removeClass('active');
 
       if (!nofavorite) {
@@ -6399,7 +6407,7 @@
     };
   }
 
-  function create$j() {
+  function create$k() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     Arrays.extend(params, {
       title: '此处为空',
@@ -6439,8 +6447,8 @@
   }
 
   function component$c(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -6455,7 +6463,7 @@
 
       this.activity.loader(true);
       Api.main(object, this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -6468,7 +6476,7 @@
 
     this.build = function (data) {
       lezydata = data;
-      info = new create$k();
+      info = new create$l();
       info.create();
       scroll.minus(info.render());
       html.append(info.render());
@@ -6481,7 +6489,7 @@
     this.append = function (element) {
       if (element.ready) return;
       element.ready = true;
-      var item = new create$l(element, {
+      var item = new create$m(element, {
         url: element.url,
         card_small: true,
         genres: object.genres,
@@ -6558,7 +6566,7 @@
   var html$c;
   var timer$5;
 
-  function create$i(id) {
+  function create$j(id) {
     html$c = $('<div class="youtube-player"><div id="youtube-player"></div><div id="youtube-player__progress" class="youtube-player__progress"></div></div>');
     $('body').append(html$c);
     player = new YT.Player('youtube-player', {
@@ -6595,7 +6603,7 @@
   }
 
   function play$2(id) {
-    create$i(id);
+    create$j(id);
     Controller.add('youtube', {
       invisible: true,
       toggle: function toggle() {},
@@ -6627,7 +6635,7 @@
     play: play$2
   };
 
-  function create$h(call_video) {
+  function create$i(call_video) {
     var stream_url, loaded;
     var object = $('<object class="player-video_video" type="application/avplayer"</object>');
     var video = object[0];
@@ -7058,7 +7066,7 @@
     return object;
   }
 
-  function create$g(object) {
+  function create$h(object) {
     this.state = object.state;
 
     this.start = function () {
@@ -7098,7 +7106,7 @@
    * когда надо показать панель, а когда нет
    */
 
-  var state = new create$g({
+  var state = new create$h({
     state: 'start',
     transitions: {
       start: function start() {
@@ -7287,7 +7295,7 @@
     if (subs.length) {
       if (subs[0].index !== -1) {
         Arrays.insert(subs, 0, {
-          title: '禁用',
+          title: '已禁用',
           selected: true,
           index: -1
         });
@@ -7344,22 +7352,22 @@
         selected: select == 'fill'
       }, {
         title: '放大 115%',
-        subtitle: '放大视频 115%',
+        subtitle: '将视频放大 115%',
         value: 's115',
         selected: select == 's115'
       }, {
-        title: '放大 130%',
-        subtitle: '放大视频 130%',
+        title: '缩放 130%',
+        subtitle: '缩放视频 130%',
         value: 's130',
         selected: select == 's130'
       }, {
         title: '垂直 115%',
-        subtitle: '放大视频 115%',
+        subtitle: '缩放视频 115%',
         value: 'v115',
         selected: select == 'v115'
       }, {
         title: '垂直 130%',
-        subtitle: '放大视频 130%',
+        subtitle: '缩放视频 130%',
         value: 'v130',
         selected: select == 'v130'
       }]);
@@ -7573,7 +7581,7 @@
     webOS.service.request("luna://com.webos.media", params);
   }
 
-  function create$f(_video) {
+  function create$g(_video) {
     var video = _video;
     var media_id;
     var subtitle_visible = false;
@@ -7816,14 +7824,118 @@
     };
   }
 
+  function time(val) {
+    var regex = /(\d+):(\d{2}):(\d{2})/;
+    var parts = regex.exec(val);
+    if (parts === null) return 0;
+
+    for (var i = 1; i < 5; i++) {
+      parts[i] = parseInt(parts[i], 10);
+      if (isNaN(parts[i])) parts[i] = 0;
+    } //hours + minutes + seconds + ms
+
+
+    return parts[1] * 3600000 + parts[2] * 60000 + parts[3] * 1000;
+  }
+
+  function parseSRT(data, ms) {
+    var useMs = ms ? true : false;
+    data = data.replace(/\r/g, '');
+    var regex = /(\d+)\n(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})/g;
+    data = data.split(regex);
+    data.shift();
+    var items = [];
+
+    for (var i = 0; i < data.length; i += 4) {
+      items.push({
+        id: data[i].trim(),
+        startTime: useMs ? time(data[i + 1].trim()) : data[i + 1].trim(),
+        endTime: useMs ? time(data[i + 2].trim()) : data[i + 2].trim(),
+        text: data[i + 3].trim()
+      });
+    }
+
+    return items;
+  }
+
+  function parse$1(data, ms) {
+    if (/WEBVTT/gi.test(data)) return parseVTT(data, ms);else return parseSRT(data, ms);
+  }
+
+  function parseVTT(data, ms) {
+    var useMs = ms ? true : false;
+    data = data.replace(/WEBVTT/gi, '').trim();
+    data = data.replace(/\r/g, '');
+    data = data.replace(/(\d+):(\d+)\.(\d+) --> (\d+):(\d+)\.(\d+)/g, '00:$1:$2.$3 --> 00:$4:$5.$6');
+    var regex = /(\d{2}:\d{2}:\d{2}\.\d{3}) --> (\d{2}:\d{2}:\d{2}\.\d{3})/g;
+    data = data.split(regex);
+    data.shift();
+    var items = [];
+
+    for (var i = 0; i < data.length; i += 3) {
+      items.push({
+        id: data[i].trim(),
+        startTime: useMs ? time(data[i + 0].trim()) : data[i + 0].trim(),
+        endTime: useMs ? time(data[i + 1].trim()) : data[i + 1].trim(),
+        text: data[i + 2].trim()
+      });
+    }
+
+    return items;
+  }
+
+  function create$f() {
+    var parsed;
+    var network = new create$r();
+    this.listener = start$4();
+
+    this.load = function (url) {
+      network.silent(url, function (data) {
+        if (data) {
+          parsed = parse$1(data, true);
+        }
+      }, false, false, {
+        dataType: 'text'
+      });
+    };
+
+    this.update = function (time_sec) {
+      var time_ms = time_sec * 1000;
+
+      if (parsed) {
+        var text = '';
+
+        for (var i = 0; i < parsed.length; i++) {
+          var sub = parsed[i];
+
+          if (time_ms > sub.startTime && time_ms < sub.endTime) {
+            text = sub.text.replace("\n", '<br>');
+            break;
+          }
+        }
+
+        this.listener.send('subtitle', {
+          text: text.trim()
+        });
+      }
+    };
+
+    this.destroy = function () {
+      network.clear();
+      network = null;
+      this.listener = null;
+    };
+  }
+
   var listener$8 = start$4();
   var html$a = Template.get('player_video');
   var display = html$a.find('.player-video__display');
   var paused = html$a.find('.player-video__paused');
-  var subtitles = html$a.find('.player-video__subtitles');
+  var subtitles$1 = html$a.find('.player-video__subtitles');
   var timer$3 = {};
   var rewind_position = 0;
   var rewind_force = 0;
+  var customsubs;
 
   var _video;
 
@@ -7862,7 +7974,7 @@
       if (msg.indexOf('EMPTY SRC') == -1) {
         if (error.code == 3) {
           listener$8.send('error', {
-            error: '视频解码失败'
+            error: '解码视频失败'
           });
         } else if (error.code == 4) {
           listener$8.send('error', {
@@ -7911,6 +8023,7 @@
         current: _video.currentTime
       });
       scale();
+      if (customsubs) customsubs.update(_video.currentTime);
     }); // обновляем субтитры
 
 
@@ -7918,19 +8031,21 @@
       //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
       //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
-      subtitles.removeClass('on-top');
+      subtitles$1.removeClass('on-top');
       var posTag = e.text.match(/^{\\an(\d)}/);
 
       if (posTag) {
         e.text = e.text.replace(/^{\\an(\d)}/, '');
 
         if (posTag[1] && parseInt(posTag[1]) === 8) {
-          subtitles.addClass('on-top');
+          subtitles$1.addClass('on-top');
         }
       }
 
       e.text = e.text.trim();
-      $('> div', subtitles).html(e.text ? e.text : '&nbsp;');
+      $('> div', subtitles$1).html(e.text ? e.text : '&nbsp;').css({
+        display: e.text ? 'inline-block' : 'hide'
+      });
     });
 
     _video.addEventListener('loadedmetadata', function (e) {
@@ -8019,7 +8134,7 @@
 
   function loaded() {
     var tracks = _video.audioTracks;
-    var subs = _video.textTracks;
+    var subs = _video.customSubs || _video.textTracks;
     if (webos && webos.sourceInfo) tracks = [];
 
     if (tracks && tracks.length) {
@@ -8054,6 +8169,29 @@
       });
     }
   }
+
+  function customSubs(subs) {
+    _video.customSubs = subs;
+    customsubs = new create$f();
+    customsubs.listener.follow('subtitle', function (e) {
+      $('> div', subtitles$1).html(e.text ? e.text : '&nbsp;').css({
+        display: e.text ? 'inline-block' : 'hide'
+      });
+    });
+    subs.forEach(function (sub) {
+      if (!sub.ready) {
+        sub.ready = true;
+        Object.defineProperty(sub, "mode", {
+          set: function set(v) {
+            if (v == 'showing') {
+              customsubs.load(sub.url);
+            }
+          },
+          get: function get() {}
+        });
+      }
+    });
+  }
   /**
    * Включить или выключить субтитры
    * @param {Boolean} status 
@@ -8061,7 +8199,7 @@
 
 
   function subsview(status) {
-    subtitles.toggleClass('hide', !status);
+    subtitles$1.toggleClass('hide', !status);
   }
   /**
    * Применяет к блоку субтитров пользовательские настройки
@@ -8072,15 +8210,15 @@
     var hasStroke = Storage.field('subtitles_stroke'),
         hasBackdrop = Storage.field('subtitles_backdrop'),
         size = Storage.field('subtitles_size');
-    subtitles.removeClass('has--stroke has--backdrop size--normal size--large size--small');
-    subtitles.addClass('size--' + size);
+    subtitles$1.removeClass('has--stroke has--backdrop size--normal size--large size--small');
+    subtitles$1.addClass('size--' + size);
 
     if (hasStroke) {
-      subtitles.addClass('has--stroke');
+      subtitles$1.addClass('has--stroke');
     }
 
     if (hasBackdrop) {
-      subtitles.addClass('has--backdrop');
+      subtitles$1.addClass('has--backdrop');
     }
   }
   /**
@@ -8092,7 +8230,7 @@
     var videobox;
 
     if (Platform.is('tizen') && Storage.field('player') == 'tizen') {
-      videobox = create$h(function (object) {
+      videobox = create$i(function (object) {
         _video = object;
       });
     } else {
@@ -8104,7 +8242,7 @@
     display.append(videobox);
 
     if (Platform.is('webos') && !webos) {
-      webos = new create$f(_video);
+      webos = new create$g(_video);
 
       webos.callback = function () {
         var src = _video.src;
@@ -8344,6 +8482,11 @@
       hls = false;
     }
 
+    if (customsubs) {
+      customsubs.destroy();
+      customsubs = false;
+    }
+
     if (_video) {
       if (_video.destroy) _video.destroy();else {
         _video.src = "";
@@ -8371,6 +8514,7 @@
     pause: pause,
     size: size,
     subsview: subsview,
+    customSubs: customSubs,
     to: to,
     video: function video() {
       return _video;
@@ -8379,7 +8523,7 @@
 
   var html$9 = Template.get('player_info');
   var listener$7 = start$4();
-  var network$3 = new create$q();
+  var network$3 = new create$r();
   var elems = {
     name: $('.player-info__name', html$9),
     size: $('.value--size span', html$9),
@@ -8413,7 +8557,7 @@
   function stat$1(url) {
     var wait = 0;
     elems.stat.text('- / - • - 种子');
-    elems.speed.text('-');
+    elems.speed.text('--');
 
     var update = function update() {
       // если панель скрыта, то зачем каждую секунду чекать? хватит и 5 сек
@@ -8451,7 +8595,7 @@
 
 
   function destroy$4() {
-    elems.size.text('Loading ...');
+    elems.size.text('正在加载...');
     elems.stat.text('');
     elems.speed.text('');
     elems.error.addClass('hide');
@@ -8947,7 +9091,7 @@
     isWorked: isWorked
   };
 
-  var network$2 = new create$q();
+  var network$2 = new create$r();
 
   function url() {
     var u = ip();
@@ -9015,7 +9159,7 @@
     network$2.timeout(5000);
     network$2.silent(url() + '/settings', function (json) {
       if (typeof json.CacheSize == 'undefined') {
-        fail('Matrix 版本验证失败');
+        fail('无法验证 Matrix 版本');
       } else {
         success(json);
       }
@@ -9135,7 +9279,7 @@
   html$7.append(Info.render());
   var callback$2;
   var work = false;
-  var network$1 = new create$q();
+  var network$1 = new create$r();
   var preloader = {
     wait: false
   };
@@ -9458,6 +9602,17 @@
     if (work || preloader.wait) Playlist.set(playlist);
   }
   /**
+   * Установить субтитры
+   * @param {Array} subs 
+   */
+
+
+  function subtitles(subs) {
+    if (work || preloader.wait) {
+      Video.customSubs(subs);
+    }
+  }
+  /**
    * Обратный вызов
    * @param {Function} back 
    */
@@ -9476,6 +9631,7 @@
     playlist: playlist,
     render: render$5,
     stat: stat,
+    subtitles: subtitles,
     callback: onBack
   };
 
@@ -9496,7 +9652,7 @@
       title: data.movie.name,
       original_title: data.movie.original_name,
       runtime: 0,
-      img: data.movie.poster_path ? Api.img(data.movie.poster_path) : 'img/img_broken.svg'
+      img: data.movie.poster_path ? Api.img(data.movie.poster_path, 'w300') : 'img/img_broken.svg'
     });
 
     this.create = function () {
@@ -9512,7 +9668,7 @@
         img: data.movie.img,
         time: Utils.secondsToTime(data.movie.runtime * 60, true),
         genres: genres,
-        r_themovie: data.movie.vote_average,
+        r_themovie: parseFloat((data.movie.vote_average || 0) + '').toFixed(1),
         seasons: data.movie.number_of_seasons,
         episodes: data.movie.number_of_episodes
       });
@@ -9697,7 +9853,7 @@
     title$1(params.title);
     html$6.toggleClass('modal--medium', params.size == 'medium' ? true : false);
     html$6.toggleClass('modal--large', params.size == 'large' ? true : false);
-    scroll$2 = new create$p({
+    scroll$2 = new create$q({
       over: true,
       mask: params.mask
     });
@@ -9802,7 +9958,7 @@
         return a.name;
       }).join(', ');
       body = Template.get('full_descr', {
-        text: (data.movie.overview || '无描述') + '<br><br>',
+        text: (data.movie.overview || '无描述。') + '<br><br>',
         genres: genres,
         companies: companies,
         relise: data.movie.release_date || data.movie.first_air_date,
@@ -9900,7 +10056,7 @@
       html = Template.get('items_line', {
         title: params.title || '演员'
       });
-      scroll = new create$p({
+      scroll = new create$q({
         horizontal: true,
         scroll_by_item: true
       });
@@ -9968,7 +10124,7 @@
       html = Template.get('items_line', {
         title: '评论'
       });
-      scroll = new create$p({
+      scroll = new create$q({
         horizontal: true
       });
       scroll.render().find('.scroll__body').addClass('full-reviews');
@@ -10014,14 +10170,14 @@
     start: create$d,
     descr: create$c,
     persons: create$b,
-    recomend: create$l,
-    simular: create$l,
+    recomend: create$m,
+    simular: create$m,
     comments: create$a
   };
 
   function component$b(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true,
       step: 400,
@@ -10072,7 +10228,7 @@
           }
 
           if (data.simular && data.simular.results.length) {
-            data.simular.title = '类似';
+            data.simular.title = '相关';
             data.simular.noimage = true;
 
             _this.build('simular', data.simular);
@@ -10094,7 +10250,7 @@
     };
 
     this.empty = function () {
-      var empty = new create$j();
+      var empty = new create$k();
       scroll.append(empty.render());
       this.start = empty.start;
       this.activity.loader(false);
@@ -10173,8 +10329,8 @@
   }
 
   function component$a(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true,
       step: 250
@@ -10192,7 +10348,7 @@
 
       this.activity.loader(true);
       Api.list(object, this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -10224,7 +10380,7 @@
       var _this3 = this;
 
       data.results.forEach(function (element) {
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_category: true,
           object: object
         });
@@ -10258,7 +10414,7 @@
 
     this.build = function (data) {
       total_pages = data.total_pages;
-      info = new create$k();
+      info = new create$l();
       info.create();
       scroll.render().addClass('layer--wheight').data('mheight', info.render());
       html.append(info.render());
@@ -10318,8 +10474,8 @@
   }
 
   function component$9(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true,
       scroll_by_item: true
@@ -10336,7 +10492,7 @@
 
       this.activity.loader(true);
       Api.category(object, this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -10349,7 +10505,7 @@
 
     this.build = function (data) {
       lezydata = data;
-      info = new create$k();
+      info = new create$l();
       info.create();
       scroll.render().addClass('layer--wheight').data('mheight', info.render());
       html.append(info.render());
@@ -10362,7 +10518,7 @@
     this.append = function (element) {
       if (element.ready) return;
       element.ready = true;
-      var item = new create$l(element, {
+      var item = new create$m(element, {
         url: element.url,
         card_small: true,
         genres: object.genres,
@@ -10483,12 +10639,12 @@
 
   var components = {
     start: create$9,
-    line: create$l
+    line: create$m
   };
 
   function component$8(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -10526,7 +10682,7 @@
             }
 
             if (data.tv && data.tv.results.length) {
-              data.tv.title = '电视剧';
+              data.tv.title = '电视节目';
               data.tv.noimage = true;
 
               _this.build('line', data.tv);
@@ -10542,7 +10698,7 @@
     };
 
     this.empty = function () {
-      var empty = new create$j();
+      var empty = new create$k();
       scroll.append(empty.render());
       this.start = empty.start;
       this.activity.loader(false);
@@ -10617,8 +10773,8 @@
   function component$7(object) {
     var _this = this;
 
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true,
       step: 250
@@ -10638,7 +10794,7 @@
     };
 
     this.empty = function () {
-      var empty = new create$j();
+      var empty = new create$k();
       html.append(empty.render());
       _this.start = empty.start;
 
@@ -10668,7 +10824,7 @@
       var _this3 = this;
 
       data.results.forEach(function (element) {
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_category: true
         });
         card.create();
@@ -10749,7 +10905,7 @@
 
     this.build = function (data) {
       total_pages = data.total_pages;
-      info = new create$k();
+      info = new create$l();
       info.create();
       scroll.render().addClass('layer--wheight').data('mheight', info.render());
       html.append(info.render());
@@ -10887,7 +11043,7 @@
     var keyboard = new create$3({
       layout: {
         'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h cm and t by y.', '{mic} {EN} {space} {search}']
+        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'i hmitby .', '{mic} {EN} {space} {search}']
       }
     });
     keyboard.create();
@@ -11162,7 +11318,7 @@
     }, function (echo) {
       var ip = Torserver.ip();
       var tpl = Template.get('torrent_noconnect', {
-        title: '错误',
+        title: 'Error',
         text: '连接 TorrServer 失败',
         ip: ip,
         href: window.location.href,
@@ -11329,7 +11485,7 @@
     });
     if (items.length == 0) html = Template.get('error', {
       title: '空',
-      text: '检索匹配文件失败'
+      text: '获取匹配文件失败'
     });else Modal.title('文件');
     Modal.update(html);
   }
@@ -11365,8 +11521,8 @@
   };
 
   function component$6(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -11383,8 +11539,8 @@
       hdr: ['未选中', '是', '否'],
       sub: ['未选中', '是', '否'],
       voice: [],
-      tracker: ['任意'],
-      year: ['任意']
+      tracker: ['任何'],
+      year: ['任何']
     };
     var filter_translate = {
       quality: '质量',
@@ -11396,9 +11552,9 @@
     };
     var filter_multiple = ['quality', 'voice', 'tracker'];
     var sort_translate = {
-      Seeders: '按上传',
+      Seeders: '按共享者',
       Size: '按大小',
-      Title: '按名称',
+      Title: '按标题',
       Tracker: '按来源',
       PublisTime: '按日期',
       viewed: '按查看'
@@ -11450,7 +11606,7 @@
     };
 
     this.empty = function (descr) {
-      var empty = new create$j({
+      var empty = new create$k({
         descr: descr
       });
       files.append(empty.render(filter.empty()));
@@ -11466,7 +11622,7 @@
     this.buildSorted = function () {
       var need = Storage.get('torrents_sort', 'Seeders');
       var select = [{
-        title: '按作种数',
+        title: '按种子数',
         sort: 'Seeders'
       }, {
         title: '按大小',
@@ -11547,7 +11703,7 @@
       add('hdr', 'HDR');
       add('sub', '字幕');
       add('voice', '翻译');
-      add('tracker', 'Tracker');
+      add('tracker', '跟踪器');
       add('year', '年份');
       filter.set('filter', select);
       this.selectedFilter();
@@ -11805,7 +11961,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + ' - 添加到我的种子');
+        Noty.show(object.movie.title + ' -添加到我的种子');
       });
     };
 
@@ -11856,11 +12012,11 @@
               tomy: true
             }, {
               title: '标志',
-              subtitle: '带有标志的标志分发（已查看）',
+              subtitle: '带标志的标志上传（已查看）',
               mark: true
             }, {
-              title: '取消选中',
-              subtitle: '取消选中服务（已查看）'
+              title: '取消标志',
+              subtitle: '取消标记此共享（已查看）'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -11936,8 +12092,8 @@
   }
 
   function component$5(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -11953,7 +12109,7 @@
 
       this.activity.loader(true);
       Torserver.my(this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -11979,7 +12135,7 @@
       data.forEach(function (element) {
         element.title = element.title.replace('[LAMPA] ', '');
         var item_data = Arrays.decodeJson(element.data, {});
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_category: true
         });
         card.create();
@@ -12083,8 +12239,8 @@
   }
 
   function component$4(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true,
       step: 250
@@ -12102,7 +12258,7 @@
 
       this.activity.loader(true);
       Api.relise(this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -12126,7 +12282,7 @@
       var _this2 = this;
 
       data.forEach(function (element) {
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_category: true,
           card_type: true
         });
@@ -12200,7 +12356,7 @@
     this.build = function (data) {
       relises = data;
       total_pages = Math.ceil(relises.length / 20);
-      info = new create$k();
+      info = new create$l();
       info.create();
       info.render().find('.info__right').addClass('hide');
       scroll.minus(info.render());
@@ -12261,8 +12417,8 @@
   }
 
   function component$3(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -12278,7 +12434,7 @@
 
       this.activity.loader(true);
       Api.collections(object, this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -12310,7 +12466,7 @@
       var _this3 = this;
 
       data.forEach(function (element) {
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_collection: true,
           object: object
         });
@@ -12400,8 +12556,8 @@
   }
 
   function component$2(object) {
-    var network = new create$q();
-    var scroll = new create$p({
+    var network = new create$r();
+    var scroll = new create$q({
       mask: true,
       over: true
     });
@@ -12418,7 +12574,7 @@
 
       this.activity.loader(true);
       Api.collections(object, this.build.bind(this), function () {
-        var empty = new create$j();
+        var empty = new create$k();
         html.append(empty.render());
         _this.start = empty.start;
 
@@ -12450,7 +12606,7 @@
       var _this3 = this;
 
       data.forEach(function (element) {
-        var card = new create$n(element, {
+        var card = new create$o(element, {
           card_category: true,
           object: object
         });
@@ -12483,7 +12639,7 @@
 
     this.build = function (data) {
       collections = data;
-      info = new create$k();
+      info = new create$l();
       info.create();
       scroll.minus(info.render());
       html.append(info.render());
@@ -12544,7 +12700,7 @@
 
   function component$1(object) {
     var html = $('<div></div>');
-    var empty = new create$j();
+    var empty = new create$k();
 
     this.create = function () {
       html.append(empty.render());
@@ -12622,31 +12778,31 @@
     notices = [{
       time: '2021-12-23 14:00',
       title: '更新 1.3.7',
-      descr: 'one. Added voice search. \u003cbr\u003e 2. Bugs with the mouse fixed and added support for the mouse in the player. \u003cbr\u003e 3. Added account linking to CUB. \u003cbr\u003e 4. Any other not interesting little things.'
+      descr: 'one. Added voice search.\u003cbr\u003e2. Fixed mouse bugs and added mouse support in the player.\u003cbr\u003e3. Added account binding to CUB.\u003cbr\u003e4. All sorts of other uninteresting little things.'
     }, {
       time: '2021-11-25 13:00',
       title: '更新 1.3.6',
-      descr: 'one. Added new catalog CUB. \u003cbr\u003e 2. Changed release source, now even works in MSX. \u003cbr\u003e 3. Added anime category;)'
+      descr: 'one. Added new catalog CUB.\u003cbr\u003e2. Release source changed, now it works even in MSX.\u003cbr\u003e3. Added anime category ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新 1.3.5',
-      descr: 'one. Added screensaver from Google ChromeCast. \u003cbr\u003e 2. Releases start immediately without searching. \u003cbr\u003e 3. The enter button has been removed from the keyboard. \u003cbr\u003e 4. The player has improved rewind and added buttons (to the end / to the beginning). \u003cbr\u003e 5. Added synchronization via gist.github.com service.'
+      descr: 'one. Added screensaver from Google ChromeCast.\u003cbr\u003e2. Releases run immediately without searching for .\u003cbr\u003e3. The enter button has been removed from the keyboard.\u003cbr\u003e4. The player has improved rewinding and added buttons (to the end / to the beginning).\u003cbr\u003e5. Added synchronization via gist.github.com service.'
     }, {
       time: '2021-11-10 10:00',
       title: '更新 1.3.4',
-      descr: 'one. Fixed time stamp when the property is off (continue from last place). \u003cbr\u003e 2. On Samsung TVs fixed black dies in the player. \u003cbr\u003e 3. Added plugins in settings.'
+      descr: 'one. Fixed timestamp when disabled property (continue from last place).\u003cbr\u003e2. On samsung TVs fixed black dice in the player.\u003cbr\u003e3. Added plugins in settings.'
     }, {
       time: '2021-11-02 10:00',
       title: '更新 1.3.3',
-      descr: 'one. Added search for torrents. \u003cbr\u003e 2. Fixed loading the main with the selected source. \u003cbr\u003e 3. Added multiple choice in filter. \u003cbr\u003e 4. Added more choices for video scaling. \u003cbr\u003e 5. Other minor fixes.'
+      descr: 'one. Added search by torrents.\u003cbr\u003e2. Fixed loading main with selected source.\u003cbr\u003e3. Added multiple selection in the filter.\u003cbr\u003e4. Added more choices for video scaling.\u003cbr\u003e5. Other minor fixes.'
     }, {
       time: '2021-10-25 15:00',
       title: '更新 1.3.2',
-      descr: 'one. Fixed card search, each card has its own source (tmdb, ivi, okko) \u003cbr\u003e 2. Ability to switch source to (tmdb, ivi, okko). \u003cbr\u003e 3. Background work has been updated. \u003cbr\u003e 4. Added scrolling in torrent files, left or right scrolls 10 positions. \u003cbr\u003e 5. The source of the NCR has been changed. \u003cbr\u003e 6. Fixed browsing history, now the card is added if you started watching a video. \u003cbr\u003e 7. Added comments in source ivi.'
+      descr: 'one. Fixed card search, each card has its own source (tmdb,ivi,okko)\u003cbr\u003e2. Possibility to switch source to (tmdb,ivi,okko).\u003cbr\u003e3. Updated background work.\u003cbr\u003e4. Added scrolling in torrent files, scrolls left or right by 10 positions.\u003cbr\u003e5. Changed NCR source.\u003cbr\u003e6. Fixed browsing history, now a card is added if you start watching a video.\u003cbr\u003e7. Added comments in source ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新 1.3.1',
-      descr: 'one. Added selections with ivi and okko \u003cbr\u003e 2. Brought back the ability to zoom video. \u003cbr\u003e 3. Added digital releases, does not work in MSX. \u003cbr\u003e 4. In which language to display TMDB data. \u003cbr\u003e 5. Added to the screensaver it is possible to switch to nature. \u003cbr\u003e 6. Ability to choose which language to find torrents in. \u003cbr\u003e 7. Option to disable continue by timecode.'
+      descr: 'one. Added collections with ivi and okko\u003cbr\u003e2. Returned the ability to change the scale of the video.\u003cbr\u003e3. Added digital releases, does not work in MSX.\u003cbr\u003e4. In what language to display data TMDB.\u003cbr\u003e5. In the screensaver added the ability to switch to nature.\u003cbr\u003e6. Possibility to choose in what language to find torrents.\u003cbr\u003e7. Ability to disable continue on timecode.'
     }, {
       time: '2021-10-14 13:00',
       title: '屏幕保护程序',
@@ -12654,54 +12810,54 @@
     }, {
       time: '2021-10-14 10:00',
       title: '更新 1.2.6',
-      descr: 'one. Fixed bug with deleting torrent. \u003cbr\u003e 2. Fixed time stamp. \u003cbr\u003e 3. Added visual for serials, torrent files show better episodes. \u003cbr\u003e 4. Other little things.'
+      descr: 'one. Fixed torrent deletion error.\u003cbr\u003e2. Fixed timestamp.\u003cbr\u003e3. Added a visual for series, in torrent files you can see the series better.\u003cbr\u003e4. Other little things.'
     }, {
       time: '2021-10-12 19:10',
       title: '很高兴知道',
-      descr: 'Did you know? That if you hold down the (OK) button on the card for a long time, you can bring up a menu for adding to bookmarks. The same method works on torrents, a long tap allows you to add the distribution to the list (My torrents)'
+      descr: 'Did you know? That if you hold down the (OK) button on the card for a long time, you can call up the menu for adding to bookmarks. The same method works on torrents, a long tap allows you to add the distribution to the list (My torrents)'
     }, {
       time: '2021-10-12 19:00',
       title: '更新 1.2.4',
-      descr: 'one. Added menu (My torrents). \u003cbr\u003e 2. Updated filter and sorting in torrents. \u003cbr\u003e 3. Added a ribbon (New) in movies and TV series. \u003cbr\u003e 4. Fixed links for Torserver. \u003cbr\u003e 5. Added watch mark for TV series. \u003cbr\u003e 6. Fixed several bugs and errors.'
+      descr: 'one. Added menu (My torrents).\u003cbr\u003e2. Updated filter and sorting in torrents.\u003cbr\u003e3. Added tape (News) in movies and TV shows.\u003cbr\u003e4. Fixed links for Torserver.\u003cbr\u003e5. Added watch mark for serials.\u003cbr\u003e6. Fixed several bugs and bugs.'
     }, {
       time: '2021-10-10 18:00',
       title: '更新 1.2.3',
-      descr: 'one. Added mouse support. \u003cbr\u003e 2. Added storing of viewing position (Movies) \u003cbr\u003e 3. Fixed a bug in the player with half-finished closed dies. \u003cbr\u003e 4. Added additional link to Torserver \u003cbr\u003e 5. Marking a viewed torrent \u003cbr\u003e 6. Added transition from torrent to movie card'
+      descr: 'one. Mouse support added.\u003cbr\u003e2. View position memory added (Movies)\u003cbr\u003e3. Fixed a bug in the player with partially closed tiles.\u003cbr\u003e4. Added additional link to Torserver\u003cbr\u003e5. Viewed torrent mark\u003cbr\u003e6. Added transition from torrent to movie card'
     }, {
       time: '2021-10-09 15:00',
       title: '更新 1.2.2',
-      descr: 'one. Added Tizen player \u003cbr\u003e 2. Added webOS player \u003cbr\u003e 3. Added torrent download statistics in the player. \u003cbr\u003e 4. Added a rewind bar in the player \u003cbr\u003e 5. Fixed blank posters for Torserver \u003cbr\u003e 6. Fixed other minor bugs and bugs'
+      descr: 'one. Added Tizen player\u003cbr\u003e2. Added webOS player\u003cbr\u003e3. Added torrent download statistics to the player.\u003cbr\u003e4. Added rewind bar in player\u003cbr\u003e5. Fixed empty posters for Torserver\u003cbr\u003e6. Fixed other minor bugs and bugs'
     }, {
       time: '2021-10-07 17:00',
       title: '更新 1.2.1',
-      descr: 'one. Fixed bug with back button in MSX \u003cbr\u003e 2. Fixed bug with finding \u003cbr\u003e 3. Added filter in torrents \u003cbr\u003e 4. Player visually improved \u003cbr\u003e 5. Added performance settings \u003cbr\u003e 6. Fixed names in torrent files \u003cbr\u003e 7. Fixed bug with pause in the player \u003cbr\u003e 8. Fixed other minor bugs and bugs'
+      descr: 'one. Fixed bug with back button in MSX\u003cbr\u003e2. Fixed bug with search\u003cbr\u003e3. Added filter in torrents\u003cbr\u003e4. Visually improved player\u003cbr\u003e5. Added performance settings\u003cbr\u003e6. Fixed names in torrent files\u003cbr\u003e7. Fixed bug with pause in player\u003cbr\u003e8. Fixed other minor bugs and bugs'
     }, {
       time: '2021-10-03 12:00',
       title: '更新 1.0.10',
-      descr: 'one. Improved loading of cards in small mode \u003cbr\u003e 2. Added logs, to view the logs, hover over the header and click up 10 times'
+      descr: 'one. Improved loading of cards in small mode\u003cbr\u003e2. Added logs, to view the logs hover over the header and click up 10 times'
     }, {
       time: '2021-10-01 09:00',
       title: '更新 1.0.9',
-      descr: 'one. Improved background in bookmarks and in the movie \u003cbr\u003e 2. Changed instructions \u003cbr\u003e 3. Completed plugin for Orsay'
+      descr: 'one. Improved background in bookmarks and in movie\u003cbr\u003e2. Changed instructions\u003cbr\u003e3. Completed plugin for Orsay'
     }, {
       time: '2021-09-30 18:00',
-      title: '更新 1.0.8',
-      descr: 'one. Improved background \u003cbr\u003e 2. The (Torrents) button is displayed \u003cbr\u003e 3. Added sorting of torrents \u003cbr\u003e 4. Completed output for Tizen and WebOS \u003cbr\u003e 5. Perhaps completed control buttons for Orsay'
+      title: 'Update 1.0.8',
+      descr: 'one. Improved background\u003cbr\u003e2. The button (Torrents)\u003cbr\u003e3 is displayed. Added sorting of torrents\u003cbr\u003e4. Finished output for Tizen and WebOS\u003cbr\u003e 5. Possibly finished control buttons for Orsay'
     }, {
       time: '2021-09-29 17:00',
-      title: '更新 1.0.7',
-      descr: 'one. Optimized home page and catalogs \u003cbr\u003e 2. Added authorization for TorServer \u003cbr\u003e 3. Added error hints in TorServer'
+      title: 'Update 1.0.7',
+      descr: 'one. Optimized main page and catalogs\u003cbr\u003e2. Added authorization for TorServer\u003cbr\u003e 3. Added error hints to TorServer'
     }, {
       time: '2021-09-28 16:00',
-      title: '修复',
-      descr: 'one. Fixed bug (Unable to get HASH) \u003cbr\u003e 2. Parser for MSX has been completed, now you do not need to specify an explicit link, only at will \u003cbr\u003e 3. Improved the jac.red parser, now it searches more precisely'
+      title: 'Fixes',
+      descr: 'one. Bug fixed (Unable to get HASH)\u003cbr\u003e2. Completed parser for MSX, now you do not need to specify an explicit link, only if you wish\u003cbr\u003e 3. Improved parser jac.red, now searches more accurately'
     }, {
       time: '2021-09-27 15:00',
-      title: '解析器修复',
-      descr: 'An error was detected in the parser due to which jac.red did not return results'
+      title: 'Parser fixed',
+      descr: 'There was a bug in the parser that caused jac.red to not produce results'
     }, {
       time: '2021-09-26 17:00',
-      title: '欢迎！',
+      title: 'Welcome!',
       descr: 'This is your first time launching the app, we hope you enjoy it very much. Enjoy your viewing.'
     }];
     Arrays.extend(data, {
@@ -12719,7 +12875,7 @@
           items.push({
             time: item.date + ' 12:00',
             title: data.card.name,
-            descr: 'New Series \u003cbr\u003e \u003cbr\u003e Season - \u003cb\u003e\'' + season[0] + '</b><br>Эпизод - <b>' + data.card.seasons[season[0]] + '</b>',
+            descr: 'New series\u003cbr\u003e\u003cbr\u003eSeason - \u003cb\u003e, \'' + season[0] + '</b><br>Эпизод - <b>' + data.card.seasons[season[0]] + '</b>',
             card: data.card
           });
         });
@@ -12766,7 +12922,7 @@
         html.append(item);
       });
       Modal.open({
-        title: '通知',
+        title: 'Notifications',
         size: 'medium',
         html: html,
         onBack: function onBack() {
@@ -13152,7 +13308,7 @@
     } else {
       push({
         url: '',
-        title: '主页 -' + Storage.field('source').toUpperCase(),
+        title: 'Home -' + Storage.field('source').toUpperCase(),
         component: 'main',
         source: Storage.field('source'),
         page: 1
@@ -13438,7 +13594,7 @@
       'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
       'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
       'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L G E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
     };
     this.listener = start$4();
 
@@ -13522,7 +13678,7 @@
           console.log('Speech', 'error:', event);
 
           if (event.error == 'not-allowed') {
-            Noty.show('无麦克风访问权限');
+            Noty.show('无法访问麦克风');
           }
 
           recognition.stop();
@@ -13627,7 +13783,9 @@
       back();
       call(val);
     });
+    html$4.toggleClass('settings-input--free', params.free ? true : false);
     $('.settings-input__links', html$4).toggleClass('hide', params.nosave ? true : false);
+    if (params.title) html$4.find('.settings-input__content').prepend('<div class="settings-input__title">' + params.title + '</div>');
     keyboard$1.listener.follow('down', function (event) {
       if (params.nosave) return;
       var members = Storage.get('setting_member', []);
@@ -13658,12 +13816,12 @@
         subtitle: '对于本地 TorrServ',
         url: '127.0.0.1:8090'
       }, {
-        title: Utils.shortText('api.scraperapi.com/?url= {qq }api_key=', 35),
+        title: Utils.shortText('api.scraperapi.com/?url={q}api_key=', 35),
         subtitle: 'scraperapi.com',
         url: 'api.scraperapi.com/?url={q}&api_key='
       }]);
       Select.show({
-        title: '链接',
+        title: 'Links',
         items: links,
         onSelect: function onSelect(a) {
           if (a.add) {
@@ -13672,7 +13830,7 @@
               Noty.show('添加 (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('删除 (' + a.subtitle + ')');
+              Noty.show('Removed (' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -13685,7 +13843,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('已删除 (' + a.url + ')');
+            Noty.show('Deleted (' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -13766,12 +13924,12 @@
   function trigger(name, _default) {
     values[name] = {
       'true': '是',
-      'false': '否'
+      'false': '无'
     };
     defaults[name] = _default;
   }
   /**
-   * 选择
+   * Select
    * @param {String} name - название
    * @param {*} _select - значение
    * @param {String} _default - значение по дефолту
@@ -13852,7 +14010,7 @@
 
         var enabled = Controller.enabled().name;
         Select.show({
-          title: '选择',
+          title: 'Select',
           items: items,
           onBack: function onBack() {
             Controller.toggle(enabled);
@@ -13924,8 +14082,8 @@
 
 
   select('interface_size', {
-    'small': '少',
-    'normal': '普通'
+    'small': '更小',
+    'normal': '正常'
   }, 'normal');
   select('parser_torrent_type', {
     'jackett': 'Jackett',
@@ -13938,7 +14096,7 @@
   select('background_type', {
     'complex': '复杂',
     'simple': '简单',
-    'poster': '图片'
+    'poster': '图像'
   }, 'simple');
   select('pages_save_total', {
     '1': '1',
@@ -13948,15 +14106,15 @@
     '5': '5'
   }, '5');
   select('player', {
-    'inner': '内置'
+    'inner': '内联'
   }, 'inner');
   select('torrserver_use_link', {
-    'one': '主要',
-    'two': '次要'
+    'one': '基本',
+    'two': '额外'
   }, 'one');
   select('subtitles_size', {
     'small': '小',
-    'normal': '普通',
+    'normal': '常规',
     'large': '大'
   }, 'normal');
   select('screensaver_type', {
@@ -13994,7 +14152,7 @@
     'cub': 'CUB'
   }, 'yyds');
   select('start_page', {
-    'main': '首页',
+    'main': '主页',
     'last': '最后'
   }, 'last');
   select('scroll_type', {
@@ -14002,8 +14160,8 @@
     'js': 'Javascript'
   }, 'css');
   select('card_views_type', {
-    'preload': '预加载',
-    'view': '显示全部'
+    'preload': '加载',
+    'view': '全部显示'
   }, 'preload');
   select('navigation_type', {
     'controll': '遥控器',
@@ -14207,7 +14365,7 @@
 
   function init$3() {
     html$3 = Template.get('menu');
-    scroll$1 = new create$p({
+    scroll$1 = new create$q({
       mask: true,
       over: true
     });
@@ -14268,7 +14426,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: '主页-' + Storage.field('source').toUpperCase(),
+          title: 'Home -' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
@@ -14292,7 +14450,7 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -14358,7 +14516,7 @@
           var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
           Activity$1.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-            title: '目录-' + a.title + ' - ' + Storage.field('source').toUpperCase(),
+            title: '目录 -' + a.title + ' - ' + Storage.field('source').toUpperCase(),
             component: tmdb ? 'category' : 'category_full',
             genres: a.id,
             id: a.id,
@@ -14393,7 +14551,7 @@
     this.listener = start$4();
 
     this.create = function () {
-      scroll = new create$p({
+      scroll = new create$q({
         over: true
       });
     };
@@ -14442,7 +14600,7 @@
         };
       }
 
-      var item = new create$l(data, params);
+      var item = new create$m(data, params);
       item.onDown = this.down;
       item.onUp = this.up;
       item.onBack = this.back.bind(this);
@@ -14528,6 +14686,10 @@
       scroll.append(item.render());
     };
 
+    this.any = function () {
+      return items.length;
+    };
+
     this.back = function () {
       this.listener.send('back');
     };
@@ -14603,7 +14765,7 @@
     this.create = function () {
       var _this = this;
 
-      scroll = new create$p({
+      scroll = new create$q({
         over: true,
         mask: false,
         nopadding: true
@@ -14674,6 +14836,10 @@
       Controller.toggle('search_history');
     };
 
+    this.any = function () {
+      return keys.length;
+    };
+
     this.render = function () {
       return scroll.render();
     };
@@ -14737,7 +14903,7 @@
     keyboard = new create$3({
       layout: {
         'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {bksp}'],
-        'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё I h c m 等 b yu.', '{mic} {EN} {space} {bksp}']
+        'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{mic} {EN} {space} {bksp}']
       }
     });
     keyboard.create();
@@ -14752,10 +14918,10 @@
       }
     });
     keyboard.listener.follow('right', function () {
-      results.toggle();
+      if (results.any()) results.toggle();
     });
     keyboard.listener.follow('down', function () {
-      history.toggle();
+      if (history.any()) history.toggle();
     });
     keyboard.listener.follow('back', destroy);
     keyboard.toggle();
@@ -14847,7 +15013,7 @@
 
   function build() {
     html$1 = Template.get('console');
-    scroll = new create$p({
+    scroll = new create$q({
       over: true
     });
     scroll.minus();
@@ -14925,7 +15091,7 @@
 
   var body$1;
   var code = 0;
-  var network = new create$q();
+  var network = new create$r();
   var fields = ['torrents_view', 'plugins', 'favorite', 'file_view'];
   var timer;
   var readed;
@@ -14978,28 +15144,28 @@
 
       if (code == 0) {
         name.text('已禁用');
-        desc.text('开启同步');
+        desc.text('启用同步');
       }
 
       if (code == 1) {
-        name.text('未登录');
-        desc.text('你必须登录');
+        name.text('未授权');
+        desc.text('需要登录');
       }
 
       if (code == 2) {
-        name.text('登录失败');
-        desc.text('检查输入的数据再试一次');
+        name.text('授权失败');
+        desc.text('请检查您的详细信息，然后重试');
       }
 
       if (code == 3) {
         name.text('登录');
-        desc.text('你登录成功');
+        desc.text('您已成功登录');
       }
 
       if (code == 4) {
         var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
         name.text('同步');
-        desc.text(time.full + 'at' + time.time);
+        desc.text(time.full + 'in' + time.time);
       }
     }
   }
@@ -15193,7 +15359,7 @@
               checked: function checked(error) {
                 Modal.open({
                   title: '',
-                  html: $('<div class="about"><div class="selector">' + (error ? '检查插件是否工作失败, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : '为了使插件正常工作, необходимо перезагрузить приложение.') + '</div></div>'),
+                  html: $('<div class="about"><div class="selector">' + (error ? '检查插件失败, 然而，这并不意味着它不起作用。重新加载应用程序以查看插件是否正在加载。' : '为了让插件工作, необходимо перезагрузить приложение.') + '</div></div>'),
                   onBack: function onBack() {
                     Modal.close();
                     Controller.toggle('settings_component');
@@ -15232,7 +15398,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击测试插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击查看插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -15363,11 +15529,11 @@
     Keypad: Keypad,
     Template: Template,
     Component: Component,
-    Reguest: create$q,
+    Reguest: create$r,
     Filter: create$6,
     Files: create$8,
-    Scroll: create$p,
-    Empty: create$j,
+    Scroll: create$q,
+    Empty: create$k,
     Arrays: Arrays,
     Noty: Noty,
     Player: Player,
@@ -15377,10 +15543,11 @@
     Cloud: Cloud,
     Settings: Settings,
     Android: Android,
-    Card: create$n,
-    Info: create$k,
+    Card: create$o,
+    Info: create$l,
     Account: Account,
-    Socket: Socket
+    Socket: Socket,
+    Input: Input
   };
   Console.init();
 
