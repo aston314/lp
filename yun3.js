@@ -89,9 +89,12 @@
                 {
                 if (json.status_code === 200) {
                     //console.log(json.data);
-                    var getlink = _this.getFilteredElement(json,"link","aliyundrive");
+                    var getlink = _this.getFilteredElement(json,"name","阿里网盘");
+                    //var getlink = json.data.links[2].item[0].link;
+                    //console.log(getlink);
                     if (getlink.length>0){
-                        getlink = getlink[0];
+
+                        getlink = JSON.stringify(getlink);;
         
                         //console.log("取得阿里云盘分享链接:"+getlink);
                 
@@ -275,10 +278,14 @@
         var linkFilter = [];
         jsonresult.data.links.forEach(function(item) {
            var getFilterField = item[key];
+           //console.log(getFilterField);
            if(getFilterField){
               var keyArray = item[key].split(',');
+              //console.log(keyArray);
               if (keyArray[0].indexOf(value) != -1) {
-                linkFilter.push(item.link);
+                //console.log(item)
+
+                linkFilter.push(item);
               };
           };
         });
