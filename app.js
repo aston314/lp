@@ -5009,7 +5009,7 @@
       result.result.popular.forEach(function (t) {
         delete t.viewed;
       });
-      data.Results = data.Results.concat(result.result.popular);
+      data.Results = data.Results.concat(result.result.popular.slice(0, 3));
       call(data);
     }, function () {
       call(data);
@@ -7180,7 +7180,7 @@
       }
     });
     /**
-     * Audio tracks
+     * Audio Tracks
      */
 
     Object.defineProperty(video, "audioTracks", {
@@ -11809,7 +11809,7 @@
                 label: true
               }, {
                 title: 'Clear timecodes',
-                subtitle: 'Clear all timecodes',
+                subtitle: 'Clear all timestamps',
                 timecode: true
               }],
               onBack: function onBack() {
@@ -13336,7 +13336,7 @@
           Select.show({
             title: 'Action',
             items: [{
-              title: 'Delete',
+              title: 'Remove',
               subtitle: 'The torrent will be removed from your list'
             }],
             onBack: function onBack() {
@@ -13955,7 +13955,7 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: 'Weekly',
-      descr: '- New feature, popular torrents that are most often watched (test mode)<br>- Added catalog of plug-ins for quick installation.<br>- Broadcasting the card to other devices on the network.<br>- Checklist for checking the operation of TorrServe<br>- Copying links to videos from torrents.<br>- Added click log for your and tach.<br>- Collections appeared in cards.<br>- Added notifications about movie releases in better quality.'
+      descr: '- New feature, popular torrents that are most often watched (test mode)<br>- Added catalog of plug-ins for quick installation.<br>- Broadcasting the card to other devices on the network.<br>- Checklist for checking the operation of TorrServe<br>- Copying links to videos from torrents.<br>- Added long click for mice and wheelbarrows.<br>- Collections appeared in the cards.<br>- Added notifications about the release of the movie in better quality.'
     }, {
       time: '2021-12-23 14:00',
       title: 'Update  1.3.7',
@@ -13979,7 +13979,7 @@
     }, {
       time: '2021-10-25 15:00',
       title: 'Update  1.3.2',
-      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Ability to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added scrolling in torrent files, scrolls left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
+      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Ability to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added flipping in torrent files, flipping left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: 'Update  1.3.1',
@@ -14035,7 +14035,7 @@
     }, {
       time: '2021-09-27 15:00',
       title: 'Fixed parser',
-      descr: 'A bug was found in the parser, из за которой jac.red не выдавал результаты'
+      descr: 'An error has been detected in the parser, из за которой jac.red не выдавал результаты'
     }, {
       time: '2021-09-26 17:00',
       title: 'Welcome!',
@@ -15523,7 +15523,7 @@
   }, 'one');
   select$1('subtitles_size', {
     'small': 'Small',
-    'normal': 'Regular',
+    'normal': 'Normal',
     'large': 'Large'
   }, 'normal');
   select$1('screensaver_type', {
@@ -15568,7 +15568,7 @@
     'js': 'Javascript'
   }, 'css');
   select$1('card_views_type', {
-    'preload': 'Upload',
+    'preload': 'Load',
     'view': 'Show all'
   }, 'preload');
   select$1('navigation_type', {
@@ -17188,6 +17188,34 @@
     if (params.is_new) check();
     $('.selector:eq(1)', body).after(item);
   }
+
+  function saveInMemory(list) {
+    list.forEach(function (url) {
+      if (url.indexOf('modification.js') !== -1) return;
+      network.timeout(5000);
+      network.silent('http://proxy.cub.watch/cdn/' + url, function (str) {
+        localStorage.setItem('plugin_' + url, str);
+      }, false, false, {
+        dataType: 'text'
+      });
+    });
+  }
+
+  function loadFromMemory(list, call) {
+    var noload = [];
+    list.forEach(function (url) {
+      var str = localStorage.getItem('plugin_' + url, str);
+
+      if (str) {
+        try {
+          eval(str);
+        } catch (e) {
+          noload.push(url);
+        }
+      }
+    });
+    call(noload);
+  }
   /**
    * Загрузка всех плагинов
    */
@@ -17201,27 +17229,32 @@
         return plugin.url;
       }).concat(Storage.get('plugins', '[]'));
       list.push('./plugins/modification.js');
+      saveInMemory(list);
       console.log('Plugins', 'list:', list);
       var errors = [];
       Utils.putScript(list, function () {
         call();
 
         if (errors.length) {
-          setTimeout(function () {
-            var enabled = Controller.enabled().name;
-            Modal.open({
-              title: '',
-              html: $('<div class="about"><div class="selector">При загрузке приложения, часть плагинов не удалось загрузить (' + errors.join(', ') + ')</div></div>'),
-              onBack: function onBack() {
-                Modal.close();
-                Controller.toggle(enabled);
-              },
-              onSelect: function onSelect() {
-                Modal.close();
-                Controller.toggle(enabled);
-              }
-            });
-          }, 3000);
+          loadFromMemory(errors, function (notload) {
+            if (notload.length) {
+              setTimeout(function () {
+                var enabled = Controller.enabled().name;
+                Modal.open({
+                  title: '',
+                  html: $('<div class="about"><div class="selector">При загрузке приложения, часть плагинов не удалось загрузить (' + notload.join(', ') + ')</div></div>'),
+                  onBack: function onBack() {
+                    Modal.close();
+                    Controller.toggle(enabled);
+                  },
+                  onSelect: function onSelect() {
+                    Modal.close();
+                    Controller.toggle(enabled);
+                  }
+                });
+              }, 3000);
+            }
+          });
         }
       }, function (u) {
         if (u.indexOf('modification.js') == -1) errors.push(u);
