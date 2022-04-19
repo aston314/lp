@@ -722,7 +722,7 @@
 
   var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Source</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">In which language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB poster size</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Proxy</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">Proxy TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">Proxy other resources</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Keep pages as you left them</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Move Time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation Type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"For example: My Lamp\">\n        <div class=\"settings-param__name\">Device Name</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">Clear Cache</div>\n        <div class=\"settings-param__value\">All settings and data will be cleared</div>\n    </div>\n</div>";
 
-  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application.\">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold the OK button or double click OK</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">Install plugin</div>\n        <div class=\"settings-param__descr\">Install plugin from the list of available ones</div>\n    </div>\n</div>";
+  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application.\">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold the OK button or double-click OK</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">Install plugin</div>\n        <div class=\"settings-param__descr\">Install plugin from the list of available ones</div>\n    </div>\n</div>";
 
   var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronization</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization allows you to synchronize your bookmarks, browsing history , labels and timecodes Connection instructions https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -818,7 +818,7 @@
 
   var html$j = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
-  var html$i = "<div class=\"plugins-catalog\">\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title selector\">Working plugins</div>\n        <div class=\"plugins-catalog__descr\">Plugins that work exactly in the lamp.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title\">Popular plugins among users</div>\n        <div class=\"plugins-catalog__descr\">Installation from unknown sources may cause the application to work incorrectly.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n</div>";
+  var html$i = "<div class=\"plugins-catalog\">\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title selector\">Working plugins</div>\n        <div class=\"plugins-catalog__descr\">Plugins that work exactly in the lamp.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title\">Popular plugins among users</div>\n        <div class=\"plugins-catalog__descr\">Installing from unknown sources may cause the application to work incorrectly.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n</div>";
 
   var html$h = "<div class=\"broadcast\">\n    <div class=\"broadcast__text\">{text}</div>\n\n    <div class=\"broadcast__scan\"><div></div></div>\n\n    <div class=\"broadcast__devices\">\n    \n    </div>\n</div>";
 
@@ -1181,16 +1181,16 @@
   function checkVersion(needVersion) {
     if (Storage.field('platform') == 'android') {
       try {
-        var versionCode = 28;
+        var versionCode = 16;
 
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;
         } else {
-          Lampa.Noty.show("请更新应用程序。<br>需要Android版本: " + needVersion + "<br>当前版本: " + versionCode);
+          //Lampa.Noty.show("请更新应用程序。<br>需要Android版本: " + needVersion + "<br>当前版本: " + versionCode);
           return false;
         }
       } catch (e) {
-        Lampa.Noty.show("请更新应用程序。<br>所需Android版本：" + needVersion);
+        //Lampa.Noty.show("请更新应用程序。<br>所需Android版本：" + needVersion);
         return false;
       }
     } else return false;
@@ -10101,7 +10101,9 @@
     btn.on('hover:enter', function () {
       makeStep();
     });
-    Controller.add('torrent_error', {
+    Modal.title('Connection failed');
+    Modal.update(temp);
+    Controller.add('modal', {
       invisible: true,
       toggle: function toggle() {
         Controller.collectionSet(temp);
@@ -10112,9 +10114,7 @@
         Controller.toggle('content');
       }
     });
-    Modal.title('Connection failed');
-    Modal.update(temp);
-    Controller.toggle('torrent_error');
+    Controller.toggle('modal');
   }
 
   var Torserver = {
@@ -10471,6 +10471,7 @@
         if (!preloader.call) $('body').append(html$6);
         toggle$1();
         Panel.show(true);
+        Controller.updateSelects();
       });
     };
 
@@ -11105,7 +11106,7 @@
       mask: true,
       over: true,
       step: 400,
-      scroll_by_item: true
+      scroll_by_item: false
     });
     var items = [];
     var active = 0;
@@ -14007,7 +14008,7 @@
     }, {
       time: '2021-10-09 15:00',
       title: 'Update  1.2.2',
-      descr: '1. Added Tizen player<br>2. Added webOS player<br>3.Added torrent download statistics in player.<br>4.Added rewind bar in player<br>5.Fixed empty posters for Torserver<br>6.Fixed others minor errors and bugs'
+      descr: '1. Added Tizen player<br>2. Added webOS player<br>3. Added torrent download statistics in player.<br>4. Added rewind bar in player<br>5. Fixed empty posters for Torserver<br>6. Fixed others minor errors and bugs'
     }, {
       time: '2021-10-07 17:00',
       title: 'Update  1.2.1',
@@ -14419,6 +14420,12 @@
 
     this.loader = function (status) {
       slide.toggleClass('activity--load', status);
+
+      if (!status) {
+        setTimeout(function () {
+          Controller.updateSelects();
+        }, 10);
+      }
     };
     /**
      * Создает повторно
@@ -14828,7 +14835,6 @@
 
 
   function toggle(name) {
-    //console.log('Contoller','toggle of [',active_name,'] to [',name,']')
     if (active && active.gone) active.gone(name);
 
     if (controlls[name]) {
@@ -14837,8 +14843,8 @@
       Activity$1.call(function () {
         run('back');
       });
-      if (active.toggle) active.toggle();
-      updateSelects();
+      if (active.toggle) active.toggle(); //updateSelects()
+
       listener$2.send('toggle', {
         name: name
       });
@@ -14876,8 +14882,8 @@
     });
   }
 
-  function updateSelects() {
-    selects = $('.selector');
+  function updateSelects(cuctom) {
+    selects = cuctom || $('.selector');
     selects.unbind('.hover');
 
     if (Storage.field('navigation_type') == 'mouse') {
@@ -14898,8 +14904,7 @@
 
   function clearSelects() {
     select_active = false;
-    $('.selector').removeClass('focus enter');
-    if (selects) selects.unbind('.hover');
+    if (selects) selects.removeClass('focus enter'); //if(selects) selects.unbind('.hover')
   }
   /**
    * Вызвать событие
@@ -14924,16 +14929,18 @@
   }
 
   function collectionSet(html, append) {
-    var colection = html.find('.selector').toArray();
+    var selectors = html.find('.selector');
+    var colection = selectors.toArray();
 
     if (append) {
+      selectors = $.merge(selectors, append.find('.selector'));
       colection = colection.concat(append.find('.selector').toArray());
     }
 
     if (colection.length || active.invisible) {
-      clearSelects(); //$(colection).data('controller', enabled().name)
-
+      clearSelects();
       Navigator.setCollection(colection);
+      updateSelects(selectors);
     }
   }
 
