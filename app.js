@@ -1167,15 +1167,15 @@
   }
 
   function voiceStart() {
-    if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("只适用于 Android TV");
+    //if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("只适用于 Android TV");
   }
 
   function showInput(inputText) {
-    if (checkVersion(27)) AndroidJS.showInput(inputText);
+    //if (checkVersion(27)) AndroidJS.showInput(inputText);
   }
 
   function updateChannel(where) {
-    if (checkVersion(28)) AndroidJS.updateChannel(where);
+    //if (checkVersion(28)) AndroidJS.updateChannel(where);
   }
 
   function checkVersion(needVersion) {
