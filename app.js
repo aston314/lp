@@ -1066,6 +1066,7 @@
         intentExtra = {
           title: "[LAMPA]   " + SERVER.movie.title,
           poster: SERVER.movie.img,
+          action: "play",
           data: {
             lampa: true,
             movie: SERVER.movie
@@ -1073,6 +1074,13 @@
         };
       }
 
+      else {
+        intentExtra = {
+          action: "play",
+          data: {
+            lampa: true
+          }
+        };
       window.plugins.intentShim.startActivity(
       {
           action: window.plugins.intentShim.ACTION_VIEW,
