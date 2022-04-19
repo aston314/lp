@@ -1093,6 +1093,7 @@
       var intentExtra = {
         title: "[LAMPA] " + SERVER.object.title,
         poster: SERVER.object.poster,
+        action: "play",
         data: {
           lampa: true,
           movie: SERVER.movie
