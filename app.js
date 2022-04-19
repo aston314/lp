@@ -1080,6 +1080,7 @@
           data: {
             lampa: true
           }
+        }
         };
       window.plugins.intentShim.startActivity(
       {
