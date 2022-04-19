@@ -1053,7 +1053,7 @@
   var reqCallback = {};
 
   function exit$1() {
-    if (checkVersion(1)) AndroidJS.exit();else $('<a href="lampa://exit"></a>')[0].click();
+    if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
   }
 
   function playHash(SERVER) {
