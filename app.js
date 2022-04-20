@@ -3513,7 +3513,7 @@
       append('New', 'new', json);
     }, status.error.bind(status));
     get$6(params.url + '/airing_today', params, function (json) {
-      append('Today on air', 'tv_today', json);
+      append('Today on the air', 'tv_today', json);
     }, status.error.bind(status));
     get$6(params.url + '/on_the_air', params, function (json) {
       append('This week', 'tv_air', json);
@@ -3592,7 +3592,7 @@
       status.append('movie', json);
     }, status.error.bind(status));
     get$6('search/tv', params, function (json) {
-      json.title = 'TV series';
+      json.title = 'Series';
       status.append('tv', json);
     }, status.error.bind(status));
   }
@@ -4550,7 +4550,7 @@
       collections$1({
         id: '8448'
       }, function (json) {
-        append('Selection ivi', 'ivi', '8448', {
+        append('Choice ivi', 'ivi', '8448', {
           results: json
         });
       }, status.error.bind(status));
@@ -4637,7 +4637,7 @@
     collections$1({
       id: '1327'
     }, function (json) {
-      append('Comedy-adventure', '4', '1327', {
+      append('Adventure comedies', '4', '1327', {
         results: json
       });
     }, status.error.bind(status));
@@ -7180,7 +7180,7 @@
       }
     });
     /**
-     * Audio Tracks
+     * Audio tracks
      */
 
     Object.defineProperty(video, "audioTracks", {
@@ -11810,7 +11810,7 @@
                 label: true
               }, {
                 title: 'Clear timecodes',
-                subtitle: 'Clear all timestamps',
+                subtitle: 'Clear all timecodes',
                 timecode: true
               }],
               onBack: function onBack() {
@@ -13513,12 +13513,12 @@
                   card: finded
                 });
               } else {
-                Noty.show('Failed to find the movie.');
+                Noty.show('Could not find movie.');
                 Controller.toggle('content');
               }
             }, function () {
               Modal.close();
-              Noty.show('Could not find the movie.');
+              Noty.show('Couldn\'t find movie.');
               Controller.toggle('content');
             });
           }
@@ -15342,7 +15342,7 @@
   function trigger(name, _default) {
     values[name] = {
       'true': '是',
-      'false': 'None'
+      'false': 'No'
     };
     defaults[name] = _default;
   }
@@ -15537,7 +15537,7 @@
   }, 'one');
   select$1('subtitles_size', {
     'small': 'Small',
-    'normal': 'Normal',
+    'normal': 'Regular',
     'large': 'Large'
   }, 'normal');
   select$1('screensaver_type', {
