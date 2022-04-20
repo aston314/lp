@@ -78,7 +78,7 @@
       var toLength = function toLength(value) {
         var len = toInteger(value);
         return Math.min(Math.max(len, 0), maxSafeInteger);
-      }; // Сin ойстin о length методa from рaвно 1.
+      }; // Свойство length методa from рaвно 1.
 
 
       return function from(arrayLike
@@ -278,7 +278,7 @@
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
         // ближайший аналог внутренней функции
-        // IsCallable в ECMAScript 5
+        // IsCallablein ECMAScript 5
         throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
@@ -300,11 +300,11 @@
     var _slice = Array.prototype.slice;
 
     try {
-      // Не может использоватьсi с элементами DOM в IE < 9
+      // Не может использоватьсi с элементами DOMin IE < 9
       _slice.call(document.documentElement);
     } catch (e) {
       // В IE < 9 кидаетсi исключение
-      // Функциi будет рабfrom ать для истинных массивов, массивоподобных объектов,
+      // Функциi будет работать для истинных массивов, массивоподобных объектов,
       // NamedNodeMap (атрибуты, сущности, примечания),
       // NodeList (например, getElementsByTagName), HTMLCollection (например, childNodes)
       // и не будет падать на других объектах DOM (как это происходит на элементах DOM в IE < 9)
@@ -320,10 +320,10 @@
         var i,
             cloned = [],
             size,
-            len = this.length; // Обрабатываем from рицательное значение begin
+            len = this.length; // Обрабатываем отрицательное значение begin
 
         var start = begin || 0;
-        start = start >= 0 ? start : len + start; // Обрабатываем from рицательное значение end
+        start = start >= 0 ? start : len + start; // Обрабатываем отрицательное значение end
 
         var upTo = end ? end : len;
 
@@ -892,7 +892,7 @@
     var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     var tpl = templates[name];
-    if (!tpl) throw 'Template: ' + name + ' not found!';
+    if (!tpl) throw 'Template: ' + name + 'not found!';
 
     for (var n in vars) {
       tpl = tpl.replace(new RegExp('{' + n + '}', 'g'), vars[n]);
@@ -1064,7 +1064,7 @@
 
       if (SERVER.movie) {
         intentExtra = {
-          title: "[LAMPA]   " + SERVER.movie.title,
+          title: "[LAMPA] " + SERVER.movie.title,
           poster: SERVER.movie.img,
           action: "play",
           data: {
@@ -1265,7 +1265,7 @@
       });
     };
     /**
-     * Тихий запрос, from работает в любом случае
+     * Тихий запрос, отработает в любом случае
      * @param {String} url адрес
      * @param {Function} complite успешно
      * @param {Function} error ошибка
@@ -1446,11 +1446,11 @@
       if (jqXHR.status === 0 && exception !== 'timeout') {
         msg = 'No network connection.';
       } else if (jqXHR.status == 404) {
-        msg = 'Requested page not found.  [404]';
+        msg = 'Requested page not found. [404]';
       } else if (jqXHR.status == 401) {
         msg = 'Authorization failed';
       } else if (jqXHR.status == 500) {
-        msg = 'Internal server error.  [500]';
+        msg = 'Internal server error. [500]';
       } else if (exception === 'parsererror') {
         msg = 'Requested JSON parsing failed failed.';
       } else if (exception === 'timeout') {
@@ -1893,7 +1893,7 @@
   function secondsToTimeHuman(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'h  ' : '') + minutes + 'm.';
+    return (hours ? hours + 'h ' : '') + minutes + 'm.';
   }
 
   function strToTime(str) {
@@ -2546,7 +2546,7 @@
             title: 'Synchronization',
             items: [{
               title: 'I confirm',
-              subtitle: 'All bookmarks will be transferred to profile  (' + account.profile.name + ')',
+              subtitle: 'All bookmarks will be transferred to profile (' + account.profile.name + ')',
               confirm: true
             }, {
               title: 'Cancel'
@@ -2638,7 +2638,7 @@
     var account = Storage.get('account', '{}');
 
     if (account.token) {
-      renderStatus$1('Authorized', 'You are logged in under account  ' + account.email);
+      renderStatus$1('Authorized', 'You are logged in under account ' + account.email);
     } else {
       renderStatus$1('Not logged in', 'Waiting to login');
     }
@@ -2664,7 +2664,7 @@
     });
   }
   /**
-   * Проверка авторfrom ации
+   * Проверка авторизации
    */
 
 
@@ -3622,7 +3622,7 @@
           movie = sortCredits(cast.filter(function (media) {
         return media.media_type === 'movie';
       })),
-          knownFor; //Наиболее from вестные работы человека
+          knownFor; //Наиболее известные работы человека
       //1. Группируем все работы по департаментам (Actor, Director, Сценарист и т.д.)
 
       knownFor = Arrays.groupBy(crew, 'department');
@@ -4550,7 +4550,7 @@
       collections$1({
         id: '8448'
       }, function (json) {
-        append('Selection  ivi', 'ivi', '8448', {
+        append('Selection ivi', 'ivi', '8448', {
           results: json
         });
       }, status.error.bind(status));
@@ -4586,7 +4586,7 @@
       collections$1({
         id: '1057'
       }, function (json) {
-        append('Choice  ivi', 'ivi', '1057', {
+        append('Choice ivi', 'ivi', '1057', {
           results: json
         });
       }, status.error.bind(status));
@@ -5378,15 +5378,15 @@
         title: 'Action',
         items: [{
           title: status.book ? 'Unbookmark' : 'Bookmark',
-          subtitle: 'See menu  (Bookmarks)',
+          subtitle: 'See menu (Bookmarks)',
           where: 'book'
         }, {
           title: status.like ? 'Remove from favorites' : 'Like',
-          subtitle: 'See in menu  (Like)',
+          subtitle: 'See in menu (Like)',
           where: 'like'
         }, {
           title: status.wath ? 'Remove from expected' : 'See later',
-          subtitle: 'See in menu  (Later)',
+          subtitle: 'See in menu (Later)',
           where: 'wath'
         }],
         onBack: function onBack() {
@@ -7324,7 +7324,7 @@
 
     video.addEventListener = listener.follow.bind(listener);
     /**
-     * Вешаем события от плеера тайзен
+     * Вешаем события from плеера тайзен
      */
 
     webapis.avplay.setListener({
@@ -7763,23 +7763,23 @@
         value: 'fill',
         selected: select == 'fill'
       }, {
-        title: 'Zoom  115%',
-        subtitle: 'Zoom Video to  115%',
+        title: 'Zoom 115%',
+        subtitle: 'Zoom Video to 115%',
         value: 's115',
         selected: select == 's115'
       }, {
-        title: 'Zoom in  130%',
-        subtitle: 'Zoom video by  130%',
+        title: 'Zoom in 130%',
+        subtitle: 'Zoom video by 130%',
         value: 's130',
         selected: select == 's130'
       }, {
-        title: 'Vertical  115%',
-        subtitle: 'Zoom video by  115%',
+        title: 'Vertical 115%',
+        subtitle: 'Zoom video by 115%',
         value: 'v115',
         selected: select == 'v115'
       }, {
-        title: 'Vertical  130%',
-        subtitle: 'Zoom video by  130%',
+        title: 'Vertical 130%',
+        subtitle: 'Zoom video by 130%',
         value: 'v130',
         selected: select == 'v130'
       }]);
@@ -8860,8 +8860,8 @@
 
 
     _video.addEventListener('subtitle', function (e) {
-      //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
-      //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
+      //В srt существует тег {\anX}, где X - цифра from 1 до 9, Тег определяет нестандартное положение субтитра на экране.
+      //Здесь удаляется тегfrom строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
       subtitles$1.removeClass('on-top');
       var posTag = e.text.match(/^{\\an(\d)}/);
@@ -9966,7 +9966,7 @@
     network$3.timeout(5000);
     network$3.silent(url() + '/settings', function (json) {
       if (typeof json.CacheSize == 'undefined') {
-        fail('Failed to verify version  Matrix');
+        fail('Failed to verify version Matrix');
       } else {
         success(json);
       }
@@ -10081,7 +10081,7 @@
       position++;
       list.slice(0, position + 1).addClass('wait');
       var total = list.length;
-      comp.text('Done  ' + Math.max(0, position) + ' из ' + total);
+      comp.text('Done ' + Math.max(0, position) + 'from ' + total);
 
       if (position > list.length) {
         Modal.close();
@@ -12278,7 +12278,7 @@
   function secondsToTime(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'h  ' : '') + minutes + 'm';
+    return (hours ? hours + 'h ' : '') + minutes + 'm';
   }
 
   function format(params) {
@@ -12321,6 +12321,7 @@
 
   function open$2(hash, movie) {
     SERVER.hash = hash;
+    SERVER.movie = "";
     if (movie) SERVER.movie = movie;
 
     if (!Storage.field('internal_torrclient')) {
@@ -12354,7 +12355,7 @@
       let ip = Torserver.ip()
         let tpl = Template.get('torrent_noconnect',{
           title: 'Error',
-          text: 'Failed to connect to  TorrServer',
+          text: 'Failed to connect to TorrServer',
           ip: ip,
           href: window.location.href,
           echo: echo
@@ -12385,7 +12386,7 @@
       let jac = Storage.field('parser_torrent_type') == 'jackett'
         let tpl = Template.get('torrent_nohash',{
           title: 'Error',
-          text: 'Failed to receive  HASH',
+          text: 'Failed to receive HASH',
           url: SERVER.object.MagnetUri || SERVER.object.Link,
           echo: echo
       })
@@ -12573,20 +12574,20 @@
 
         if (Platform.is('webos')) {
           menu.push({
-            title: 'Launch player -  Webos',
+            title: 'Launch player - Webos',
             player: 'webos'
           });
         }
 
         if (Platform.is('android')) {
           menu.push({
-            title: 'Start player -  Android',
+            title: 'Start player - Android',
             player: 'android'
           });
         }
 
         menu.push({
-          title: 'Start player -  Lampa',
+          title: 'Start player - Lampa',
           player: 'lampa'
         });
 
@@ -12850,7 +12851,7 @@
         }
 
         if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-      }); //надо очистить от отсутствующих ключей
+      }); //надо очистить from отсутствующих ключей
 
       need.voice = Arrays.removeNoIncludes(Arrays.toArray(need.voice), filter_items.voice);
       need.tracker = Arrays.removeNoIncludes(Arrays.toArray(need.tracker), filter_items.tracker);
@@ -13123,7 +13124,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + ' - added to mine torrents');
+        Noty.show(object.movie.title + '- added to mine torrents');
       });
     };
 
@@ -13190,11 +13191,11 @@
               tomy: true
             }, {
               title: 'Flag',
-              subtitle: 'Flag a share with flag  (просмотрено)',
+              subtitle: 'Flag a share with flag (просмотрено)',
               mark: true
             }, {
               title: 'Unflag',
-              subtitle: 'Unflag a seed  (просмотрено)'
+              subtitle: 'Unflag a seed (просмотрено)'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -13662,7 +13663,7 @@
           Activity$1.push({
             url: card_data.url,
             id: card_data.id,
-            title: 'Collections -  ' + card_data.title,
+            title: 'Collections - ' + card_data.title,
             component: 'collections_view',
             source: object.source,
             page: 1
@@ -13959,31 +13960,31 @@
       descr: '- New feature, popular torrents that are most often watched (test mode)<br>- Added catalog of plug-ins for quick installation.<br>- Broadcasting the card to other devices on the network.<br>- Checklist for checking the operation of TorrServe<br>- Copying links to videos from torrents.<br>- Added long click for mice and wheelbarrows.<br>- Collections appeared in the cards.<br>- Added notifications about the release of the movie in better quality.'
     }, {
       time: '2021-12-23 14:00',
-      title: 'Update  1.3.7',
+      title: 'Update 1.3.7',
       descr: '1. Added voice search.<br>2. Fixed bugs with the mouse and added mouse support in the player.<br>3. Added account linking to CUB.<br>4. All sorts of other uninteresting little things.'
     }, {
       time: '2021-11-25 13:00',
-      title: 'Update  1.3.6',
+      title: 'Update 1.3.6',
       descr: '1 .Added new catalog CUB.<br>2.Changed source of releases, now works even in MSX.<br>3.Added anime category ;)'
     }, {
       time: '2021-11-15 11:00',
-      title: 'Update  1.3.5',
-      descr: '1. Screensaver added от Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
+      title: 'Update 1.3.5',
+      descr: '1. Screensaver added from Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
     }, {
       time: '2021-11-10 10:00',
-      title: 'Update  1.3.4',
+      title: 'Update 1.3.4',
       descr: '1. Fixed timestamp when the property is disabled (continue from the last place).<br>2. On Samsung TVs, black dice in the player have been fixed.<br>3. Added plug-ins in the settings.'
     }, {
       time: '2021-11-02 10:00',
-      title: 'Update  1.3.3',
-      descr: '1. Добавлен поиск по торрентам.<br>2. Исправлена загрузка главной с выбранным источником.<br>3. Добавлен множественный выбор в фильтре.<br>4. Added больше выбора для масштабирования видео.<br>5. Исправлены другие мелочи.'
+      title: 'Update 1.3.3',
+      descr: '1. Добавлен поиск по торрентам.<br>2. Исправлена загрузка главной с выбранным источником.<br>3. Добавлен множественный выбор в фильтре.<br>4. Addedбольше выбора для масштабирования видео.<br>5. Исправлены другие мелочи.'
     }, {
       time: '2021-10-25 15:00',
-      title: 'Update  1.3.2',
-      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Ability to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added flipping in torrent files, flipping left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
+      title: 'Update 1.3.2',
+      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Ability to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added scrolling in torrent files, scrolls left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
     }, {
       time: '2021-10-20 16:20',
-      title: 'Update  1.3.1',
+      title: 'Update 1.3.1',
       descr: '1. Added collections with ivi and okko<br>2. Returned the ability to change the scale of the video.<br>3. Added digital releases, does not work in MSX.<br>4. In what language to display data TMDB.<br>5. In the screensaver added the ability to switch to nature.<br>6. Possibility to choose in what language to find torrents.<br>7. Ability to disable continue by timecode.'
     }, {
       time: '2021-10-14 13:00',
@@ -13991,7 +13992,7 @@
       descr: 'Added screensaver, starts after 5 minutes if nothing is done.'
     }, {
       time: '2021-10-14 10:00',
-      title: 'Update  1.2.6',
+      title: 'Update 1.2.6',
       descr: '1. Fixed error deleting torrent.<br>2. Fixed timestamp.<br>3. Added a visual for series, in torrent files you can see the series better.<br>4. Other little things.'
     }, {
       time: '2021-10-12 19:10',
@@ -13999,35 +14000,35 @@
       descr: 'Did you know? Что если долго удерживать кнопку (OK) на карточке, то можно вызвать меню для добавления в закладки. Такой же метод работает и на торрентах, долгий тап позволяет добавить раздачу в список (My torrents)'
     }, {
       time: '2021-10-12 19:00',
-      title: 'Update  1.2.4',
+      title: 'Update 1.2.4',
       descr: '1. Добавлено меню (My Torrents).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (New) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
     }, {
       time: '2021-10-10 18:00',
-      title: 'Update  1.2.3',
+      title: 'Update 1.2.3',
       descr: '1. Добавлена поддержка мыши.<br>2. Добавлено запоминание позиции просмотра (Movies)<br>3. Исправлен баг в плеере с недоконца закрытыми плашками.<br>4. Добавлена дополнительная ссылка на Torserver<br>5. Отметка просмотренного торрента<br>6. Добавлен переход с торрента на карточку фильма'
     }, {
       time: '2021-10-09 15:00',
-      title: 'Update  1.2.2',
+      title: 'Update 1.2.2',
       descr: '1. Added Tizen player<br>2. Added webOS player<br>3. Added torrent download statistics in player.<br>4. Added rewind bar in player<br>5. Fixed empty posters for Torserver<br>6. Fixed others minor errors and bugs'
     }, {
       time: '2021-10-07 17:00',
-      title: 'Update  1.2.1',
+      title: 'Update 1.2.1',
       descr: '1. Fixed bug with back button in MSX<br>2. Fixed bug with search<br>3. Added filter in torrents<br>4. Visually improved player<br>5. Added performance settings<br>6. Fixed names in torrent files<br>7. Fixed bug with pause in player<br>8. Fixed other minor errors and bugs'
     }, {
       time: '2021-10-03 12:00',
-      title: 'Update  1.0.10',
+      title: 'Update 1.0.10',
       descr: '1. Improved loading of cards in small mode<br>2. Added logs, to view logs hover over the header and click up 10 times'
     }, {
       time: '2021-10-01 09:00',
-      title: 'Update  1.0.9',
+      title: 'Update 1.0.9',
       descr: '1. Improved background in tabs and in the movie<br>2. Changed instructions<br>3. Added plugin for Orsay'
     }, {
       time: '2021-09-30 18:00',
-      title: 'Update  1.0.8',
+      title: 'Update 1.0.8',
       descr: '1. Доработан фон<br>2. Выведена кнопка (Torrents)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
     }, {
       time: '2021-09-29 17:00',
-      title: 'Update  1.0.7',
+      title: 'Update 1.0.7',
       descr: '1. Optimized main page and directories<br>2. Added authorization for TorServer<br> 3. Added error hints to TorServer'
     }, {
       time: '2021-09-28 16:00',
@@ -14693,7 +14694,7 @@
     } else {
       push({
         url: '',
-        title: 'Home -  ' + Storage.field('source').toUpperCase(),
+        title: 'Home - ' + Storage.field('source').toUpperCase(),
         component: 'main',
         source: Storage.field('source'),
         page: 1
@@ -15216,7 +15217,7 @@
       var members = Storage.get('setting_member', []);
       var links = [];
       links.push({
-        title: (members.indexOf(input$1.text()) == -1 ? 'Добавить' : 'Delete') + ' current value',
+        title: (members.indexOf(input$1.text()) == -1 ? 'Добавить' : 'Delete') + 'current value',
         subtitle: input$1.text(),
         add: true
       });
@@ -15234,7 +15235,7 @@
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
-        subtitle: 'For local  TorrServ',
+        subtitle: 'For local TorrServ',
         url: '127.0.0.1:8090'
       }]);
       Select.show({
@@ -15247,7 +15248,7 @@
               Noty.show('Добавлено (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('Removed (' + a.subtitle + ')');
+              Noty.show('Removed(' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -15260,7 +15261,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('Removed (' + a.url + ')');
+            Noty.show('Removed(' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -15341,7 +15342,7 @@
   function trigger(name, _default) {
     values[name] = {
       'true': '是',
-      'false': 'No'
+      'false': 'None'
     };
     defaults[name] = _default;
   }
@@ -16098,7 +16099,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: 'Home -  ' + Storage.field('source').toUpperCase(),
+          title: 'Home - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
@@ -16151,10 +16152,10 @@
         Select.show({
           title: 'Collections',
           items: [{
-            title: 'Collections on  ivi',
+            title: 'Collections on ivi',
             source: 'ivi'
           }, {
-            title: 'Collections on  okko',
+            title: 'Collections on okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -16190,7 +16191,7 @@
           var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
           Activity$1.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-            title: 'Directory -  ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
+            title: 'Directory - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
             component: tmdb ? 'category' : 'category_full',
             genres: a.id,
             id: a.id,
@@ -16313,7 +16314,7 @@
         } else {
           Activity$1.push({
             url: 'search/' + type,
-            title: 'Search -  ' + query,
+            title: 'Search - ' + query,
             component: 'category_full',
             page: 2,
             query: encodeURIComponent(query),
@@ -16829,7 +16830,7 @@
 
       if (code == 1) {
         name.text('Not logged in');
-        desc.text('Login required  ');
+        desc.text('Login required ');
       }
 
       if (code == 2) {
@@ -17117,7 +17118,7 @@
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
-        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - Installs' : plug.name);
+        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + '- Installs' : plug.name);
         container.append(item);
       }
 
@@ -17148,7 +17149,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from  CUB' : 'Click to test plugin') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from CUB' : 'Click to test plugin') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
