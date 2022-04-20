@@ -17426,7 +17426,7 @@
         $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
       }
     });
-    Utils.putScript([window.location.protocol == 'file:' ? 'https://yumata.github.io/lampa/vender/hls/hls.js' : './vender/hls/hls.js'], function () {});
+    Utils.putScript([window.location.protocol == 'file:' ? 'https://raw.fastgit.org/yumata/lampa/main/vender/hls/hls.js' : './vender/hls/hls.js'], function () {});
     Lampa.Listener.send('app', {
       type: 'ready'
     });
