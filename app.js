@@ -2610,6 +2610,7 @@
           title: '个人资料',
           items: result.profiles.map(function (elem) {
             elem.title = elem.name;
+            elem.selected = account.profile.id == elem.id;
             return elem;
           }),
           onSelect: function onSelect(a) {
@@ -4680,7 +4681,7 @@
     collections$1({
       id: '62'
     }, function (json) {
-      append('战争剧', '10', '62', {
+      append('军事剧', '10', '62', {
         results: json
       });
     }, status.error.bind(status));
@@ -11137,8 +11138,15 @@
 
           _this.build('start', data);
 
-          if (data.episodes && data.episodes.episodes && data.episodes.episodes.length) {
-            _this.build('episodes', data.episodes.episodes);
+          if (data.episodes && data.episodes.episodes) {
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = new Date(date).getTime();
+            var cameout = data.episodes.episodes.filter(function (e) {
+              var air = new Date(e.air_date).getTime();
+              return air <= time;
+            });
+            if (cameout.length) _this.build('episodes', cameout);
           }
 
           _this.build('descr', data);
@@ -13993,7 +14001,7 @@
     }, {
       time: '2021-10-25 15:00',
       title: '更新1.3.2',
-      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.增加了torrent文件的翻转功能，左右翻转10个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
+      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。可以将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.增加了torrent文件的翻转功能，左右翻转10个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新1.3.1',
@@ -16262,7 +16270,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: '家庭 - ' + Storage.field('source').toUpperCase(),
+          title: '首页 - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
