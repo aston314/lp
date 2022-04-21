@@ -123,7 +123,7 @@
 
         var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Положим k равным 0.
 
-        var k = 0; // 17. Пока k < len, будем повторiть... (шаги с a по h)
+        var k = 0; // 17. Пока k < len, будем повторiтb... (шаги с a по h)
 
         var kValue;
 
@@ -304,7 +304,7 @@
       _slice.call(document.documentElement);
     } catch (e) {
       // В IE < 9 кидаетсi исключение
-      // Функциme будет работать для истинных массивов, массивоподобных объектов,
+      // Функциi будет работать для истинных массивов, массивоподобных объектов,
       // NamedNodeMap (атрибуты, сущности, примечания),
       // NodeList (например, getElementsByTagName), HTMLCollection (например, childNodes)
       // и не будет падать на других объектах DOM (как это происходит на элементах DOM в IE < 9)
@@ -722,7 +722,7 @@
 
   var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">Start page</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Which page to start at startup</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Source</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Where to get information about movies</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to display data from TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB poster size</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>Screensaver</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">Show splash screen when idle</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">Screen saver type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Proxy</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">Proxy TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">Proxy other resources</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">How many pages to keep in memory</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Keep pages as you left them.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">Shift time</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">Navigation type</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"For example: My Lamp\">\n        <div class=\"settings-param__name\">Device name</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">Clear cache</div>\n        <div class=\"settings-param__value\">All settings and data will be cleared</div>\n    </div>\n</div>";
 
-  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application.\">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold the OK button or double click OK</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">Install plugin</div>\n        <div class=\"settings-param__descr\">Install plugin from the list of available ones</div>\n    </div>\n</div>";
+  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"For the plugin to work, you need to restart the application.\">\n        <div class=\"settings-param__name\">Add plugin</div>\n        <div class=\"settings-param__descr\">To remove a plugin, hold the OK button or double-click OK</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">Install plugin</div>\n        <div class=\"settings-param__descr\">Install plugin from the list of available ones</div>\n    </div>\n</div>";
 
   var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">Synchronization</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Synchronization allows you to synchronize your bookmarks, browsing history , labels and timecodes Connection instructions https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -788,7 +788,7 @@
 
   var html$y = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__info\">\n            <div class=\"files__title\">{title}</div>\n            <div class=\"files__title-original\">{original_title}</div>\n        </div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-  var html$x = "<div class=\"about\">\n    <div>The application is completely free and uses public links to get information about videos, new releases, popular films, etc. All available information is used for educational purposes only, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donate</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+  var html$x = "<div class=\"about\">\n    <div>The application is completely free and uses public links to get information about videos, new releases, popular films, etc. All available information is used for educational purposes only, the application does not use its own servers to distribute information.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Our channel</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>Group</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>Version</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donat</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
   var html$w = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
@@ -800,7 +800,7 @@
 
   var html$s = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">Need TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 an application that allows you to view content from torrent files online.<br><br>More detailed installation information, you will find in the telegram groups below.</div>\n        \n        <div class=\"torrent-install__label\">Telegram groups</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">Failed to connect to TorrServe, the problem may be Let\'s quickly go through the list of possible problems and check everything.</div>\n\n    <div class=\"torrent-checklist__progress-steps\">Succeeded 0 out of 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>Is TorrServe running</li>\n                <li>Dynamic IP address</li>\n                <li>Protocol</li>\n                <li>Virus blocked</li>\n                <li>Check for availability</li>\n                <li>Still not working</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">Verify that you have started TorrServe on the device where it is installed.</div>\n            <div class=\"hide\">Common error{ip}, matches the address of the device on which TorrServe is installed</div>\n            <div class=\"hide\">To access TorrServe, you need the protocol:8090 at the end of the address. Make sure that the protocol is written at the end of your IP address, your current address{ip}</div>\n            <div class=\"hide\">Frequent, antivirus or the firewall may block access to the IP address, try disabling your antivirus and firewall.</div>\n            <div class=\"hide\">On any other device where TorrServe is not installed, open the address in the browser{ip} and check if a response from TorrServe is available</div>\n            <div class=\"hide\">If after all the checks it still doesn’t work, try restarting TorrServe and the Internet adapter.</div>\n            <div class=\"hide\">If the problem persists, write the @lampa_group group in telegram with the text (The lamp does not connect to TorrServe after all checks, current address{ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">Start checking</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
+  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">Failed to connect to TorrServe, the problem may be Let\'s quickly go through the list of possible problems and check everything.</div>\n\n    <div class=\"torrent-checklist__progress-steps\">Succeeded 0 out of 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>Is TorrServe running</li>\n                <li>Dynamic IP address</li>\n                <li>Protocol</li>\n                <li>Virus blocked</li>\n                <li>Check availability</li>\n                <li>Still not working</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">Verify that you have started TorrServe on the device where it is installed.</div>\n            <div class=\"hide\">Common error{ip}, matches the address of the device on which TorrServe is installed</div>\n            <div class=\"hide\">To access TorrServe, you need the protocol:8090 at the end of the address. Make sure that the protocol is written at the end of your IP address, your current address{ip}</div>\n            <div class=\"hide\">Frequent, antivirus or the firewall may block access to the IP address, try disabling your antivirus and firewall.</div>\n            <div class=\"hide\">On any other device where TorrServe is not installed, open the address in the browser{ip} and check if a response from TorrServe is available</div>\n            <div class=\"hide\">If after all the checks it still doesn’t work, try restarting TorrServe and the Internet adapter.</div>\n            <div class=\"hide\">If the problem persists, write the @lampa_group group in telegram with the text (The lamp does not connect to TorrServe after all checks, current address{ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">Start checking</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
 
   var html$q = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">Series -<b>{episode}</b> &nbsp;\u2022&nbsp; Season -<b>{season}</b> &nbsp;\u2022&nbsp; Exit -{air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -1775,7 +1775,7 @@
     }
 
     var unitMultiple = 1024;
-    var unitNames = ['Byte', 'KB', 'MB', 'GB', 'TB', 'PB'];
+    var unitNames = ['Byte', 'KB ', 'MB', 'GB', 'TB', 'PB'];
 
     if (speed) {
       unitMultiple = 1000;
@@ -6762,7 +6762,7 @@
 
     this.empty = function () {
       this.update({
-        title: 'More ',
+        title: 'More',
         original_title: 'Show more results',
         vote_average: 0
       }, true);
@@ -7974,7 +7974,7 @@
     elems$1.position.css({
       width: 0
     });
-    elems$1.time.text('00:00');
+    elems$1.time.text('00:00 ');
     elems$1.timenow.text('00:00');
     elems$1.timeend.text('00:00');
     elems$1.quality.text('auto');
@@ -9376,7 +9376,7 @@
     }
   }
   /**
-   * Video Size, масштаб
+   * Video size, масштаб
    * @param {String} type 
    */
 
@@ -12284,7 +12284,7 @@
   function secondsToTime(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'h. ' : '') + minutes + 'm .';
+    return (hours ? hours + 'h. ' : '') + minutes + 'm';
   }
 
   function format(params) {
@@ -13963,15 +13963,15 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: 'Weekly',
-      descr: '- New feature, popular torrents that are most often watched (test mode)<br>- Added catalog of plug-ins for quick installation.<br>- Broadcasting the card to other devices on the network.<br>- Checklist for checking the operation of TorrServe<br>- Copying links to videos from torrents.<br>- Added long click for mice and wheelbarrows.<br>- Collections appeared in the cards.<br>- Added notifications about the release of the movie in better quality.'
+      descr: '- A new feature, popular torrents that are most often watched (test mode)<br>- Added a directory of plug-ins for quick installation.<br>- Broadcasting the card to other devices on the network.<br>- Checklist for checking the operation of TorrServe<br >- Copying links to videos from torrents.<br>- Added long click for mice and wheelbarrows.<br>- Collections appeared in cards.<br>- Added notifications about movie releases in better quality.'
     }, {
       time: '2021-12-23 14:00',
       title: 'Update 1.3.7',
-      descr: '1. Added voice search.<br>2. Fixed bugs with the mouse and added mouse support in the player.<br>3. Added account linking to CUB.<br>4. All sorts of other uninteresting little things.'
+      descr: '1. Added voice search.<br>2. Fixed bugs with the mouse and added support for the mouse in the player.<br>3. Added account binding to CUB.<br>4. All sorts of other uninteresting little things.'
     }, {
       time: '2021-11-25 13:00',
       title: 'Update 1.3.6',
-      descr: '1 .Added new catalog CUB.<br>2.Changed source of releases, now works even in MSX.<br>3.Added anime category ;)'
+      descr: '1. Added a new catalog CUB.<br>2. Changed source of releases, now even works in MSX.<br>3. Added anime category ;)'
     }, {
       time: '2021-11-15 11:00',
       title: 'Update 1.3.5',
@@ -13979,7 +13979,7 @@
     }, {
       time: '2021-11-10 10:00',
       title: 'Update 1.3.4',
-      descr: '1. Fixed timestamp when the property is disabled (continue from the last place).<br>2. On Samsung TVs, black dice in the player have been fixed.<br>3. Added plug-ins in the settings.'
+      descr: '1. Fixed timestamp when property (continue from last place) is off.<br>2. On samsung TVs fixed black dice in the player.<br>3. Added plugins in settings.'
     }, {
       time: '2021-11-02 10:00',
       title: 'Update 1.3.3',
@@ -13987,7 +13987,7 @@
     }, {
       time: '2021-10-25 15:00',
       title: 'Update 1.3.2',
-      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Possibility to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added flipping in torrent files, flipping left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
+      descr: '1. Fixed card search, each card has its own source (tmdb,ivi,okko)<br>2. Ability to switch source to (tmdb,ivi,okko).<br>3. Updated background work.<br>4. Added flipping in torrent files, flipping left or right by 10 positions.<br>5. Changed NCR source.<br>6. Fixed browsing history, now a card is added if you start watching a video.<br>7. Added comments in the source ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: 'Update 1.3.1',
@@ -13999,7 +13999,7 @@
     }, {
       time: '2021-10-14 10:00',
       title: 'Update 1.2.6',
-      descr: '1. Fixed error deleting torrent.<br>2. Fixed timestamp.<br>3. Added a visual for series, in torrent files you can see the series better.<br>4. Other little things.'
+      descr: '1. Fixed error deleting torrent.<br>2. Fixed timestamp.<br>3. Added visual for series, episodes are better visible in torrent files.<br>4. Other little things.'
     }, {
       time: '2021-10-12 19:10',
       title: 'Good to know',
@@ -14015,7 +14015,7 @@
     }, {
       time: '2021-10-09 15:00',
       title: 'Update 1.2.2',
-      descr: '1. Added Tizen player<br>2. Added webOS player<br>3. Added torrent download statistics in player.<br>4. Added rewind bar in player<br>5. Fixed empty posters for Torserver<br>6. Fixed others minor errors and bugs'
+      descr: '1.Added Tizen player<br>2.Added webOS player<br>3. Added torrent download statistics to the player.<br>4. Added rewind bar in player<br>5. Fixed empty posters for Torserver<br>6. Fixed other minor errors and bugs'
     }, {
       time: '2021-10-07 17:00',
       title: 'Update 1.2.1',
@@ -14039,7 +14039,7 @@
     }, {
       time: '2021-09-28 16:00',
       title: 'Corrections',
-      descr: '1. Bug fixed (Unable to get HASH)<br>2. Parser for MSX completed, now you do not need to specify an explicit link, only if you wish<br> 3. Improved jac.red parser, now searches more accurately'
+      descr: '1. Fixed bug (Unable to get HASH)<br>2. Completed parser for MSX, now you do not need to specify an explicit link, only if you wish<br> 3. Improved jac.red parser, now searches more accurately'
     }, {
       time: '2021-09-27 15:00',
       title: 'Fixed parser',
@@ -14842,7 +14842,7 @@
     }
   }
   /**
-   * Quit
+   * Terminate
    */
 
 
@@ -15839,14 +15839,27 @@
     title: 'Type',
     items: [{
       title: 'Movies',
-      selected: true
+      selected: true,
+      cat: 'movie'
     }, {
-      title: 'TV series'
+      title: 'Cartoons',
+      cat: 'multmovie'
+    }, {
+      title: 'Series',
+      cat: 'tv'
+    }, {
+      title: 'Cartoons',
+      cat: 'multtv'
+    }, {
+      title: 'Anime',
+      cat: 'anime'
     }]
   };
   data.rating = {
     title: 'Rating',
     items: [{
+      title: 'Any'
+    }, {
       title: '0 to 3',
       voite: '0-3'
     }, {
@@ -15926,7 +15939,7 @@
       title: 'Poland',
       code: 'pl'
     }, {
-      title: 'Romania',
+      title: 'Romunia',
       code: 'ro'
     }, {
       title: 'Serbia',
@@ -16030,7 +16043,7 @@
       checkbox: true
     }, {
       "id": 10770,
-      "title": "tv movie",
+      "title": "TV movie",
       checkbox: true
     }, {
       "id": 53,
@@ -16048,7 +16061,10 @@
   };
   data.year = {
     title: 'Year',
-    items: []
+    items: [{
+      title: 'Any',
+      any: true
+    }]
   };
   var i = 100,
       y = new Date().getFullYear();
@@ -16059,6 +16075,10 @@
       title: end + 5 + '-' + end
     });
   }
+
+  data.country.items.forEach(function (i) {
+    return i.checkbox = true;
+  });
 
   function select(where, a) {
     where.forEach(function (element) {
@@ -16099,22 +16119,23 @@
   function search$1() {
     Controller.toggle('content');
     var query = [];
-    var type = data.type.items[0].selected ? 'movie' : 'tv';
+    var cat = data.type.items.find(function (s) {
+      return s.selected;
+    }).cat;
+    var type = cat.indexOf('movie') >= 0 ? 'movie' : 'tv';
     var genres = [];
-    var country = '';
+    var countrys = [];
     data.rating.items.forEach(function (a) {
-      if (a.selected) {
+      if (a.selected && a.voite) {
         query.push('vote_average.gte=' + a.voite.split('-')[0]);
         query.push('vote_average.lte=' + a.voite.split('-')[1]);
       }
     });
     data.country.items.forEach(function (a) {
-      if (a.selected) {
-        country = a.code;
-      }
+      if (a.checked) countrys.push(a.code);
     });
     data.year.items.forEach(function (a) {
-      if (a.selected) {
+      if (a.selected && !a.any) {
         var need = type == 'movie' ? 'release_date' : 'air_date';
         query.push(need + '.lte=' + a.title.split('-')[0] + '-01-01');
         query.push(need + '.gte=' + a.title.split('-')[1] + '-01-01');
@@ -16123,13 +16144,16 @@
     data.genres.items.forEach(function (a) {
       if (a.checked) genres.push(a.id);
     });
+    if (cat == 'mult' || cat == 'multtv' && genres.indexOf(16) == -1) genres.push(16);
 
     if (genres.length) {
       query.push('with_genres=' + genres.join(','));
     }
 
-    if (country) {
-      query.push('with_original_language=' + country);
+    if (cat == 'anime' && countrys.indexOf('ja') == -1) countrys.push('ja');
+
+    if (countrys.length) {
+      query.push('with_original_language=' + countrys.join('|'));
     }
 
     var url = 'discover/' + type + '?' + query.join('&');
@@ -16141,7 +16165,8 @@
       card_type: true,
       page: 1
     };
-    if (Activity$1.active().component == 'category_full') Activity$1.replace(activity);else Activity$1.push(activity);
+    var object = Activity$1.active();
+    if (object.component == 'category_full' && object.url.indexOf('discover') == 0) Activity$1.replace(activity);else Activity$1.push(activity);
   }
 
   function submenu(item) {
@@ -16222,7 +16247,7 @@
       if (action == 'movie' || action == 'tv' || action == 'anime') {
         Activity$1.push({
           url: action,
-          title: (action == 'movie' ? 'Movies' : action == 'anime' ? 'Anime' : 'TV shows') + ' - ' + Storage.field('source').toUpperCase(),
+          title: (action == 'movie' ? 'Movies' : action == 'anime' ? 'Anime' : 'TV Shows') + ' - ' + Storage.field('source').toUpperCase(),
           component: 'category',
           source: action == 'anime' ? 'cub' : Storage.field('source')
         });
@@ -16284,7 +16309,7 @@
         Select.show({
           title: 'Collections',
           items: [{
-            title: 'Features on ivi',
+            title: 'Collections on ivi',
             source: 'ivi'
           }, {
             title: 'Collections on okko',
@@ -16727,7 +16752,7 @@
         search.find('.search__input').text(input);
         results.search(input);
       } else {
-        search.find('.search__input').text('Enter text. ..');
+        search.find('.search__input').text('Enter text...');
       }
     });
     keyboard.listener.follow('right', function () {
@@ -16957,7 +16982,7 @@
 
       if (code == 0) {
         name.text('Disabled');
-        desc.text('Sync on');
+        desc.text('Enable sync');
       }
 
       if (code == 1) {
@@ -16966,13 +16991,13 @@
       }
 
       if (code == 2) {
-        name.text('Login failed');
+        name.text('Authorization failed');
         desc.text('Please check your details and try again');
       }
 
       if (code == 3) {
         name.text('Logged in');
-        desc.text('You\'ve successfully logged in');
+        desc.text('You have successfully logged in');
       }
 
       if (code == 4) {
@@ -17166,7 +17191,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : 'For plugin to work, необходимо перезагрузить приложение.') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to check plugin functionality, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : 'For the plugin to work, необходимо перезагрузить приложение.') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -17281,7 +17306,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from CUB' : 'Click to test plugin') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from CUB' : 'Click to test the plugin') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -17496,7 +17521,7 @@
         Select.show({
           title: 'Exit',
           items: [{
-            title: 'Yes, log out',
+            title: 'Yes, exit',
             out: true
           }, {
             title: 'Continue'
