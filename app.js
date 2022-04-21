@@ -10609,7 +10609,7 @@
       html = Template.get('full_start', {
         title: data.movie.title,
         original_title: data.movie.original_title,
-        descr: Utils.substr(data.movie.overview || '无描述', 420),
+        descr: Utils.substr(data.movie.overview || '无描述。', 420),
         time: Utils.secondsToTime(data.movie.runtime * 60, true),
         genres: Utils.substr(genres, 30),
         r_themovie: parseFloat((data.movie.vote_average || 0) + '').toFixed(1),
