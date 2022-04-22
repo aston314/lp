@@ -726,7 +726,7 @@
 
   var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步您的书签、浏览历史、标签和时间码 连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步您的书签、浏览历史记录、时间戳和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销帐户</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步您的书签、浏览历史记录、时间戳和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">退出</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$$ = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -2693,7 +2693,7 @@
           renderStatus$1('错误', result.text);
         }
       }, function () {
-        renderStatus$1('错误', '没有网络连接');
+        renderStatus$1('错误', '无网络连接');
       }, {
         email: email,
         password: password
@@ -3376,7 +3376,7 @@
       append('热门电影', 'top', json);
     }, status.error.bind(status));
     get$6('tv/top_rated', params, function (json) {
-      append('热门节目', 'top_tv', json);
+      append('热门电视剧', 'top_tv', json);
     }, status.error.bind(status));
   }
 
@@ -3393,11 +3393,11 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续观看' : '您已观看'
+        title: params.url == 'tv' ? '继续观看' : '已观看'
       });
       if (recomend.length) fulldata.push({
         results: recomend,
-        title: '推荐观看'
+        title: '精选'
       });
       if (status.data["continue"] && status.data["continue"].results.length) fulldata.push(status.data["continue"]);
       if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
@@ -3499,7 +3499,7 @@
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$6(params.url + '/popular', params, function (json) {
-      append('热门', 'popular', json);
+      append('流行', 'popular', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     var date = new Date();
@@ -3515,10 +3515,10 @@
       append('新', 'new', json);
     }, status.error.bind(status));
     get$6(params.url + '/airing_today', params, function (json) {
-      append('今日播出', 'tv_today', json);
+      append('今天播出', 'tv_today', json);
     }, status.error.bind(status));
     get$6(params.url + '/on_the_air', params, function (json) {
-      append('这周', 'tv_air', json);
+      append('本周', 'tv_air', json);
     }, status.error.bind(status));
     get$6(params.url + '/top_rated', params, function (json) {
       append('热门', 'top', json);
@@ -3594,7 +3594,7 @@
       status.append('movie', json);
     }, status.error.bind(status));
     get$6('search/tv', params, function (json) {
-      json.title = '电视剧';
+      json.title = '电视节目';
       status.append('tv', json);
     }, status.error.bind(status));
   }
@@ -4002,9 +4002,10 @@
           blocks.forEach(function (el) {
             if (el.element && el.element.alias === "web_featured") {
               var slides = {
-                title: '新',
+                title: '新的',
                 results: [],
-                wide: true
+                wide: true,
+                nomore: true
               };
               el.element.collectionItems.items.forEach(function (elem) {
                 slides.results.push(tocard$1(elem.element));
@@ -4681,7 +4682,7 @@
     collections$1({
       id: '62'
     }, function (json) {
-      append('军事剧', '10', '62', {
+      append('战争剧', '10', '62', {
         results: json
       });
     }, status.error.bind(status));
@@ -6575,7 +6576,7 @@
     var body = content.find('.items-line__body');
     var scroll = new create$r({
       horizontal: true,
-      step: 300
+      step: params.wide ? 600 : 300
     });
     var viewall = Storage.field('card_views_type') == 'view' || Storage.field('navigation_type') == 'mouse';
     var items = [];
@@ -6824,7 +6825,8 @@
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
-      over: true
+      over: true,
+      scroll_by_item: true
     });
     var items = [];
     var html = $('<div></div>');
@@ -6869,7 +6871,8 @@
         card_small: true,
         genres: object.genres,
         object: object,
-        card_wide: element.wide
+        card_wide: element.wide,
+        nomore: element.nomore
       });
       item.create();
       item.onDown = this.down.bind(this);
@@ -11043,13 +11046,19 @@
       data.reverse().forEach(function (element) {
         element.date = element.air_date ? Utils.parseTime(element.air_date).full : '----';
         var episode = Template.get('full_episode', element);
-        var img = episode.find('img')[0];
 
-        img.onerror = function (e) {
-          img.src = './img/img_broken.svg';
-        };
+        if (element.plus) {
+          episode.addClass('full-episode--next');
+        } else {
+          var img = episode.find('img')[0];
 
-        if (element.still_path) img.src = Api.img(element.still_path, 'w200');else img.src = './img/img_broken.svg';
+          img.onerror = function (e) {
+            img.src = './img/img_broken.svg';
+          };
+
+          if (element.still_path) img.src = Api.img(element.still_path, 'w200');else img.src = './img/img_broken.svg';
+        }
+
         episode.on('hover:focus', function (e) {
           last = e.target;
           scroll.update($(e.target), true);
@@ -11142,9 +11151,15 @@
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             var time = new Date(date).getTime();
+            var plus = false;
             var cameout = data.episodes.episodes.filter(function (e) {
               var air = new Date(e.air_date).getTime();
-              return air <= time;
+              if (air <= time) return true;else if (!plus) {
+                plus = true;
+                e.plus = true;
+                return true;
+              }
+              return false;
             });
             if (cameout.length) _this.build('episodes', cameout);
           }
@@ -13977,7 +13992,7 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: '每周',
-      descr: '- 一个新功能，最常观看的热门种子（测试模式）<br>- 添加了一个插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>-检查 TorrServe 操作的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加了长按。<br>- 收藏出现在卡片中。<br>- 更好地添加了有关电影发行的通知quality.'
+      descr: '- 一个新功能，最常观看的热门种子（测试模式）<br>- 添加了一个插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>-检查 TorrServe 操作的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加长按。<br>- 收藏出现在卡片中。<br>- 更好地添加了有关电影发行的通知quality.'
     }, {
       time: '2021-12-23 14:00',
       title: '更新1.3.7',
@@ -14001,7 +14016,7 @@
     }, {
       time: '2021-10-25 15:00',
       title: '更新1.3.2',
-      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。可以将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.增加了torrent文件的翻转功能，左右翻转10个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
+      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.在 torrent 文件中添加滚动，向左或向右滚动 10 个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新1.3.1',
@@ -15582,7 +15597,7 @@
   }, 'one');
   select$1('subtitles_size', {
     'small': '小型',
-    'normal': '普通',
+    'normal': '常规',
     'large': '大'
   }, 'normal');
   select$1('screensaver_type', {
