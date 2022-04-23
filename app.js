@@ -3059,7 +3059,7 @@
    */
 
   function init$g() {
-    data$4 = Storage.cache('recomends_scan', 500, []);
+    data$4 = Storage.cache('recomends_scan', 300, []);
     Favorite.get({
       type: 'history'
     }).forEach(function (elem) {
@@ -3137,7 +3137,7 @@
    */
 
   function init$f() {
-    data$3 = Storage.cache('quality_scan', 500, []);
+    data$3 = Storage.cache('quality_scan', 300, []);
     setInterval(extract$2, 30 * 1000);
   }
 
@@ -13985,7 +13985,7 @@
    */
 
   function init$9() {
-    data$2 = Storage.cache('timetable', 500, []);
+    data$2 = Storage.cache('timetable', 300, []);
     setInterval(extract, 1000 * 60 * 2);
     setInterval(favorites, 1000 * 60 * 10);
   }
@@ -14299,7 +14299,7 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: '每周',
-      descr: '-新功能，最受关注的热门种子（测试模式）<br>- 添加插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>- 检查 TorrServe 操作的清单<br>- 从 torrent 复制视频链接。< br>- 添加长按鼠标和 tacha。<br>- 收藏出现在卡片中。<br>- 添加有关以更好质量发布电影的通知。'
+      descr: '-新功能，最受关注的热门种子（测试模式）<br>- 添加插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>- 检查 TorrServe 操作的清单<br>- 从 torrent 复制视频链接。<br>- 添加长按鼠标和 tacha。<br>- 收藏出现在卡片中。<br>- 添加有关以更好质量发布电影的通知。'
     }, {
       time: '2021-12-23 14:00',
       title: '更新1.3.7',
@@ -16041,12 +16041,14 @@
   }
 
   function set(name, value, nolisten) {
-    if (Arrays.isObject(value) || Arrays.isArray(value)) {
-      var str = JSON.stringify(value);
-      window.localStorage.setItem(name, str);
-    } else {
-      window.localStorage.setItem(name, value);
-    }
+    try {
+      if (Arrays.isObject(value) || Arrays.isArray(value)) {
+        var str = JSON.stringify(value);
+        window.localStorage.setItem(name, str);
+      } else {
+        window.localStorage.setItem(name, value);
+      }
+    } catch (e) {}
 
     if (!nolisten) listener.send('change', {
       name: name,
@@ -16076,11 +16078,17 @@
     var result = get$1(name, JSON.stringify(empty));
 
     if (Arrays.isObject(empty)) {
-      var c = Arrays.getKeys(result);
-      if (c.length > max) delete result[c[0]];
-      set(name, result);
+      var keys = Arrays.getKeys(result);
+
+      if (keys.length > max) {
+        var remv = keys.slice(0, keys.length - max);
+        remv.forEach(function (k) {
+          delete result[k];
+        });
+        set(name, result);
+      }
     } else if (result.length > max) {
-      result.shift();
+      result = result.slice(result.length - max);
       set(name, result);
     }
 
