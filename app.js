@@ -123,7 +123,7 @@
 
         var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Положим k равным 0.
 
-        var k = 0; // 17. Пока k < len, будем повтор我ть... (шаги с a по h)
+        var k = 0; // 17. Пока k < len, будем повторiтb... (шаги с a по h)
 
         var kValue;
 
@@ -266,7 +266,7 @@
           i = ownProps.length,
           resArray = new Array(i); // preallocate the Array
 
-      while (i--) {
+      while (i播放列表) {
         resArray[i] = [ownProps[i], obj[ownProps[i]]];
       }
 
@@ -278,7 +278,7 @@
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
         // ближайший аналог внутренней функции
-        // IsCallable在 ECMAScript 5
+        // IsCallable在ECMAScript 5
         throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
@@ -300,11 +300,11 @@
     var _slice = Array.prototype.slice;
 
     try {
-      // Не может использоватьс我 с элементами DOM在IE < 9
+      // Не может использоватьсi с элементами DOM в IE < 9
       _slice.call(document.documentElement);
     } catch (e) {
-      // В IE < 9 кидаетс我 исключение
-      // Функциme будет работать для истинных массивов, массивоподобных объектов,
+      // В IE < 9 кидаетсi исключение
+      // Функциi будет работать для истинных массивов, массивоподобных объектов,
       // NamedNodeMap (атрибуты, сущности, примечания),
       // NodeList (например, getElementsByTagName), HTMLCollection (например, childNodes)
       // и не будет падать на других объектах DOM (как это происходит на элементах DOM в IE < 9)
@@ -746,7 +746,7 @@
 
   var html$T = "<div class=\"player\">\n    \n</div>";
 
-  var html$S = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__tstart button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14.75 10.2302C13.4167 11 13.4167 12.9245 14.75 13.6943L32 23.6536C33.3333 24.4234 35 23.4612 35 21.9216L35 2.00298C35 0.463381 33.3333 -0.498867 32 0.270933L14.75 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M1.75 10.2302C0.416665 11 0.416667 12.9245 1.75 13.6943L19 23.6536C20.3333 24.4234 22 23.4612 22 21.9216L22 2.00298C22 0.463381 20.3333 -0.498867 19 0.270933L1.75 10.2302Z\" fill=\"currentColor\"/>\n                    <rect width=\"6\" height=\"24\" rx=\"2\" transform=\"matrix(-1 0 0 1 6 0)\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__tend button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.2302C21.5833 11 21.5833 12.9245 20.25 13.6943L3 23.6536C1.66666 24.4234 -6.72981e-08 23.4612 0 21.9216L8.70669e-07 2.00298C9.37967e-07 0.463381 1.66667 -0.498867 3 0.270933L20.25 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.2302C34.5833 11 34.5833 12.9245 33.25 13.6943L16 23.6536C14.6667 24.4234 13 23.4612 13 21.9216L13 2.00298C13 0.463381 14.6667 -0.498867 16 0.270933L33.25 10.2302Z\" fill=\"currentColor\"/>\n                    <rect x=\"29\" width=\"6\" height=\"24\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__quality button selector\">自动</div>\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n                <div class=\"player-panel__fullscreen button selector\">\n                    <svg width=\"27\" height=\"28\" viewBox=\"0 0 27 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <path d=\"M2 11V2H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M2 17V26H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 11V2H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 17V26H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+  var html$S = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__tstart button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14.75 10.2302C13.4167 11 13.4167 12.9245 14.75 13.6943L32 23.6536C33.3333 24.4234 35 23.4612 35 21.9216L35 2.00298C35 0.463381 33.3333 -0.498867 32 0.270933L14.75 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M1.75 10.2302C0.416665 11 0.416667 12.9245 1.75 13.6943L19 23.6536C20.3333 24.4234 22 23.4612 22 21.9216L22 2.00298C22 0.463381 20.3333 -0.498867 19 0.270933L1.75 10.2302Z\" fill=\"currentColor\"/>\n                    <rect width=\"6\" height=\"24\" rx=\"2\" transform=\"matrix(-1 0 0 1 6 0)\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__tend button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.2302C21.5833 11 21.5833 12.9245 20.25 13.6943L3 23.6536C1.66666 24.4234 -6.72981e-08 23.4612 0 21.9216L8.70669e-07 2.00298C9.37967e-07 0.463381 1.66667 -0.498867 3 0.270933L20.25 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.2302C34.5833 11 34.5833 12.9245 33.25 13.6943L16 23.6536C14.6667 24.4234 13 23.4612 13 21.9216L13 2.00298C13 0.463381 14.6667 -0.498867 16 0.270933L33.25 10.2302Z\" fill=\"currentColor\"/>\n                    <rect x=\"29\" width=\"6\" height=\"24\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__quality button selector\">音轨</div>\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n                <div class=\"player-panel__fullscreen button selector\">\n                    <svg width=\"27\" height=\"28\" viewBox=\"0 0 27 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <path d=\"M2 11V2H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M2 17V26H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 11V2H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 17V26H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
 
   var html$R = "<div class=\"player-video\">\n    <div class=\"player-video__display\"></div>\n    <div class=\"player-video__loader\"></div>\n    <div class=\"player-video__paused hide\">\n        <svg width=\"19\" height=\"25\" viewBox=\"0 0 19 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"13\" width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n        </svg>\n    </div>\n    <div class=\"player-video__subtitles hide\">\n        <div class=\"player-video__subtitles-text\"></div>\n    </div>\n</div>";
 
@@ -892,7 +892,7 @@
     var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     var tpl = templates[name];
-    if (!tpl) throw '模板: ' + name + '未找到!';
+    if (!tpl) throw '模式: ' + name + ' не найден!';
 
     for (var n in vars) {
       tpl = tpl.replace(new RegExp('{' + n + '}', 'g'), vars[n]);
@@ -1064,7 +1064,7 @@
 
       if (SERVER.movie) {
         intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
+          title: "无法验证 Matrix 版本" + SERVER.movie.title,
           poster: SERVER.movie.img,
           action: "play",
           data: {
@@ -1100,7 +1100,7 @@
   function openTorrent(SERVER) {
     if (checkVersion(10)) {
       var intentExtra = {
-        title: "[LAMPA] " + SERVER.object.title,
+        title: "完成" + SERVER.object.title,
         poster: SERVER.object.poster,
         action: "play",
         data: {
@@ -1444,7 +1444,7 @@
       var msg = '';
 
       if (jqXHR.status === 0 && exception !== 'timeout') {
-        msg = '没有网络连接。';
+        msg = '无网络连接。';
       } else if (jqXHR.status == 404) {
         msg = '未找到请求的页面。[404]';
       } else if (jqXHR.status == 401) {
@@ -1452,7 +1452,7 @@
       } else if (jqXHR.status == 500) {
         msg = '内部服务器错误。[500]';
       } else if (exception === 'parsererror') {
-        msg = '请求的 JSON 解析失败失败。';
+        msg = '请求解析JSON завершился неудачно.';
       } else if (exception === 'timeout') {
         msg = '请求超时。';
       } else if (exception === 'abort') {
@@ -1775,11 +1775,11 @@
     }
 
     var unitMultiple = 1024;
-    var unitNames = ['字节', 'KB', 'MB', 'GB', 'TB', 'PB'];
+    var unitNames = ['字节', 'KB', 'MB', 'GB', '结核病', 'BTS'];
 
     if (speed) {
       unitMultiple = 1000;
-      unitNames = ['位', 'Kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps'];
+      unitNames = ['bits', 'Kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps'];
     }
 
     var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
@@ -1808,7 +1808,7 @@
 
   function time$1(html) {
     var create = function create() {
-      var months = ['Jan', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+      var months = ['一月', '二月', '三月', '四月', 'Ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
       var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
       this.moth = function (m) {
@@ -1854,7 +1854,7 @@
   }
 
   function parseTime(str) {
-    var months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    var months = ['一月', '二月', '三月', '四月', 'ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
     var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
     var mouth = function mouth(m) {
@@ -2563,7 +2563,7 @@
             title: '同步',
             items: [{
               title: '确认',
-              subtitle: '所有书签将移动到配置文件(' + account.profile.name + ')',
+              subtitle: '所有书签将转移到配置文件(' + account.profile.name + ')',
               confirm: true
             }, {
               title: '取消'
@@ -2623,7 +2623,7 @@
     network$c.silent(api + 'profiles/all', function (result) {
       if (result.secuses) {
         Select.show({
-          title: '个人资料',
+          title: '配置文件',
           items: result.profiles.map(function (elem) {
             elem.title = elem.name;
             elem.selected = account.profile.id == elem.id;
@@ -2658,7 +2658,7 @@
     if (account.token) {
       renderStatus$1('已授权', '您已登录' + account.email);
     } else {
-      renderStatus$1('登录失败', '等待登录');
+      renderStatus$1('未登录', '等待登录');
     }
   }
 
@@ -2699,7 +2699,7 @@
             token: result.user.token,
             id: result.user.id,
             profile: {
-              name: '通用',
+              name: '常规',
               id: 0
             }
           });
@@ -3385,11 +3385,11 @@
       }, status.error.bind(status));
 
       get$7('movie/now_playing', params, function (json) {
-      append('正在观看', 'wath', json);
+      append('正在看', 'wath', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$7('trending/moviews/day', params, function (json) {
-      append('今日热门', 'trend_day', json);
+      append('”“今天很流行', 'trend_day', json);
     }, status.error.bind(status));
     get$7('trending/moviews/week', params, function (json) {
       append('本周热门', 'trend_week', json);
@@ -3398,17 +3398,17 @@
       append('在电影院观看', 'upcoming', json);
     }, status.error.bind(status));
     get$7('movie/popular', params, function (json) {
-      append('精选电影', 'popular', json);
+      append('热门电影', 'popular', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$7('tv/popular', params, function (json) {
-      append('精选电视剧', 'popular_tv', json);
+      append('热门电视节目', 'popular_tv', json);
     }, status.error.bind(status));
     get$7('movie/top_rated', params, function (json) {
       append('热门电影', 'top', json);
     }, status.error.bind(status));
     get$7('tv/top_rated', params, function (json) {
-      append('热门节目', 'top_tv', json);
+      append('热门电视节目', 'top_tv', json);
     }, status.error.bind(status));
   }
 
@@ -3425,11 +3425,11 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续观看' : '您已观看'
+        title: params.url == 'tv' ? '继续观看' : '你看过'
       });
       if (recomend.length) fulldata.push({
         results: recomend,
-        title: '推荐观看'
+        title: '推荐看'
       });
       if (status.data["continue"] && status.data["continue"].results.length) fulldata.push(status.data["continue"]);
       if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
@@ -3531,7 +3531,7 @@
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$7(params.url + '/popular', params, function (json) {
-      append('热门', 'popular', json);
+      append('流行', 'popular', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     var date = new Date();
@@ -3550,7 +3550,7 @@
       append('今日播出', 'tv_today', json);
     }, status.error.bind(status));
     get$7(params.url + '/on_the_air', params, function (json) {
-      append('这周', 'tv_air', json);
+      append('本周', 'tv_air', json);
     }, status.error.bind(status));
     get$7(params.url + '/top_rated', params, function (json) {
       append('热门', 'top', json);
@@ -4034,7 +4034,7 @@
           blocks.forEach(function (el) {
             if (el.element && el.element.alias === "web_featured") {
               var slides = {
-                title: '新的',
+                title: '新',
                 results: [],
                 wide: true,
                 nomore: true
@@ -4071,7 +4071,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续观看' : '你看过'
+        title: params.url == 'tv' ? '继续观看' : '你已经看过'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
@@ -4109,14 +4109,14 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('喜剧恐怖片', 'three', 'comedy-plus-horror-movies', json);
+        append('恐怖喜剧', 'three', 'comedy-plus-horror-movies', json);
       }, status.error.bind(status));
       list$4({
         url: 'collection_maniacs',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('关于疯子的电影', 'four', 'collection_maniacs', json);
+        append('疯子电影', 'four', 'collection_maniacs', json);
       }, status.error.bind(status));
       list$4({
         url: 'witches',
@@ -4145,14 +4145,14 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('新的', 'new', 'Serials', json);
+        append('新', 'new', 'Serials', json);
       }, status.error.bind(status));
       list$4({
         url: 'horror-serial-all-svod',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('”“非常可怕', 'top', 'horror-serial-all-svod', json);
+        append('非常可怕', 'top', 'horror-serial-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'series-about-serial-killers',
@@ -4166,7 +4166,7 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('带有黑色幽默', 'four', 'black-humor-serial-all-svod', json);
+        append('喜剧', 'four', 'black-humor-serial-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'legkiye-serialy-all-svod',
@@ -4544,7 +4544,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续看' : '你在看'
+        title: params.url == 'tv' ? '继续观看' : '已观看'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
@@ -4621,7 +4621,7 @@
       collections$1({
         id: '1057'
       }, function (json) {
-        append('选择ivi', 'ivi', '1057', {
+        append('Choiceivi', 'ivi', '1057', {
           results: json
         });
       }, status.error.bind(status));
@@ -4651,14 +4651,14 @@
     collections$1({
       id: '4655'
     }, function (json) {
-      append('我们推荐你看', '1', '4655', {
+      append('推荐你看', '1', '4655', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '2460'
     }, function (json) {
-      append('适合全家的动画片', '2', '2460', {
+      append('全家卡通', '2', '2460', {
         results: json
       });
     }, status.error.bind(status));
@@ -4672,14 +4672,14 @@
     collections$1({
       id: '1327'
     }, function (json) {
-      append('冒险喜剧', '4', '1327', {
+      append('喜剧冒险', '4', '1327', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1246'
     }, function (json) {
-      append('侦探改编', '5', '1246', {
+      append('屏幕改编侦探', '5', '1246', {
         results: json
       });
     }, status.error.bind(status));
@@ -4693,7 +4693,7 @@
     collections$1({
       id: '1411'
     }, function (json) {
-      append('浪漫剧', '7', '1411', {
+      append('爱情剧', '7', '1411', {
         results: json
       });
     }, status.error.bind(status));
@@ -4707,7 +4707,7 @@
     collections$1({
       id: '1413'
     }, function (json) {
-      append('精彩的戏剧', '9', '1413', {
+      append('奇幻剧', '9', '1413', {
         results: json
       });
     }, status.error.bind(status));
@@ -4721,7 +4721,7 @@
     collections$1({
       id: '1418'
     }, function (json) {
-      append('悬疑片', '11', '1418', {
+      append('推理片', '11', '1418', {
         results: json
       });
     }, status.error.bind(status));
@@ -4848,7 +4848,7 @@
       VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$6('?sort=latest', params, function (json) {
-      append('最后添加', 's2', json);
+      append('最新添加', 's2', json);
     }, status.error.bind(status));
     get$6('movie/now', params, function (json) {
       append('电影', 's3', json);
@@ -4872,7 +4872,7 @@
       append('恐怖', 's9', json);
     }, status.error.bind(status));
     get$6('?sort=now&genre=878', params, function (json) {
-      append('科幻', 's10', json);
+      append('奇幻', 's10', json);
     }, status.error.bind(status));
     get$6('?sort=now&genre=53', params, function (json) {
       append('惊悚片', 's11', json);
@@ -4895,7 +4895,7 @@
       var data = status.data;
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续观看' : '你看过的'
+        title: params.url == 'tv' ? '继续看' : '你看过'
       });
       if (recomend.length) fulldata.push({
         results: recomend,
@@ -4916,7 +4916,7 @@
     };
 
     get$6('?cat=' + params.url + '&sort=now_playing', params, function (json) {
-      append('正在观看', 's1', json);
+      append('现在看', 's1', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
 
@@ -4927,11 +4927,11 @@
     }
 
     get$6('?cat=' + params.url + '&sort=top', params, function (json) {
-      append('热门', 's3', json);
+      append('流行', 's3', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$6('?cat=' + params.url + '&sort=latest', params, function (json) {
-      append('最新上传', 's4', json);
+      append('上次上传', 's4', json);
     }, status.error.bind(status));
     get$6('?cat=' + params.url + '&sort=now', params, function (json) {
       append('今年新', 's5', json);
@@ -5149,7 +5149,7 @@
         element.MagnetUri = 'magnet:' + math[1];
         oncomplite();
       } else {
-        onerror('获取磁力链接失败');
+        onerror('获取失败magnet ссылку');
       }
     }, function (a, c) {
       onerror(network$6.errorDecode(a, c));
@@ -5419,15 +5419,15 @@
         title: '动作',
         items: [{
           title: status.book ? '从书签中删除' : '书签',
-          subtitle: '在菜单中查看(书签)',
+          subtitle: '在菜单中查找(书签)',
           where: 'book'
         }, {
-          title: status.like ? '不喜欢' : '点赞',
-          subtitle: '在菜单中查看(点赞)',
+          title: status.like ? '从点赞中删除' : '点赞',
+          subtitle: '查看菜单 (点赞)',
           where: 'like'
         }, {
-          title: status.wath ? '删除出乎意料' : '稍后观看',
-          subtitle: '在菜单中查看(稍后)',
+          title: status.wath ? '从预期中删除' : '稍后观看',
+          subtitle: '查看菜单(稍后)',
           where: 'wath'
         }],
         onBack: function onBack() {
@@ -6802,7 +6802,7 @@
 
     this.empty = function () {
       this.update({
-        title: '更多',
+        title: '此处为空',
         original_title: '显示更多结果',
         vote_average: 0
       }, true);
@@ -6986,7 +6986,7 @@
       playerVars: {
         'controls': 0,
         'showinfo': 0,
-        '自动hide': 1,
+        '- / - • - 种子hide': 1,
         'modestbranding': 1,
         'autoplay': 1
       },
@@ -7353,7 +7353,7 @@
       }
     };
     /**
-     * 周日егда говорим да, мы можем играть
+     * Sunегда говорим да, мы можем играть
      */
 
 
@@ -7367,7 +7367,7 @@
 
     video.addEventListener = listener.follow.bind(listener);
     /**
-     * Вешаем события 来自плеера тайзен
+     * Вешаем события от плеера тайзен
      */
 
     webapis.avplay.setListener({
@@ -7713,7 +7713,7 @@
       tracks.forEach(function (element, p) {
         var name = [];
         name.push(p + 1);
-        name.push(element.language || element.name || '未知');
+        name.push(element.language || element.name || '，未知');
         if (element.label) name.push(element.label);
 
         if (element.extra) {
@@ -7821,8 +7821,8 @@
         value: 'v115',
         selected: select == 'v115'
       }, {
-        title: '垂直130%',
-        subtitle: '放大视频130%',
+        title: '垂直 130%',
+        subtitle: '”“将视频增加130%',
         value: 'v130',
         selected: select == 'v130'
       }]);
@@ -8016,8 +8016,8 @@
     elems$1.position.css({
       width: 0
     });
-    elems$1.time.text('00:00');
-    elems$1.timenow.text('00:00');
+    elems$1.time.text('自动');
+    elems$1.timenow.text('禁用');
     elems$1.timeend.text('00:00');
     elems$1.quality.text('auto');
     elems$1.subs.toggleClass('hide', true);
@@ -8903,7 +8903,7 @@
 
 
     _video.addEventListener('subtitle', function (e) {
-      //В srt существует тег {\anX}, где X - цифра 来自1 до 9, Тег определяет нестандартное положение субтитра на экране.
+      //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
       //Здесь удаляется тег来自строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
       subtitles$1.removeClass('on-top');
@@ -9418,7 +9418,7 @@
     }
   }
   /**
-   * 视频大小, масштаб
+   * ”“视频大小, масштаб
    * @param {String} type 
    */
 
@@ -9536,7 +9536,7 @@
 
   function stat$1(url) {
     var wait = 0;
-    elems.stat.text('- / - • - 种子');
+    elems.stat.text('正在加载...');
     elems.speed.text('--');
 
     var update = function update() {
@@ -9647,7 +9647,7 @@
     }
   }
   /**
-   * 下一个
+   * 下一步
    */
 
 
@@ -10011,7 +10011,7 @@
     network$3.timeout(5000);
     network$3.silent(url() + '/settings', function (json) {
       if (typeof json.CacheSize == 'undefined') {
-        fail('验证版本失败Matrix');
+        fail('不是无法验证版本Matrix');
       } else {
         success(json);
       }
@@ -10126,7 +10126,7 @@
       position++;
       list.slice(0, position + 1).addClass('wait');
       var total = list.length;
-      comp.text('完成' + Math.max(0, position) + '来自' + total);
+      comp.text('完成' + Math.max(0, position) + ' из ' + total);
 
       if (position > list.length) {
         Modal.close();
@@ -10137,7 +10137,7 @@
         var next_step = list.eq(position + 1);
         prog.css('width', Math.round(position / total * 100) + '%');
         list.slice(0, position).addClass('check');
-        btn.text(position < total ? '下一个' : '退出');
+        btn.text(position < total ? '更远' : '终止');
         next.text(next_step.length ? '- ' + next_step.text() : '');
       }
     }
@@ -10664,7 +10664,7 @@
         var air = new Date(data.movie.next_episode_to_air.air_date);
         var now = Date.now();
         var day = Math.round((air.getTime() - now) / (24 * 60 * 60 * 1000));
-        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('下一个: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
+        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('下一步: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
       }
 
       tbtn = html.find('.view--torrent');
@@ -11228,7 +11228,7 @@
           }
 
           if (data.simular && data.simular.results.length) {
-            data.simular.title = '相关';
+            data.simular.title = '类似';
             data.simular.noimage = true;
 
             _this.build('simular', data.simular);
@@ -11685,7 +11685,7 @@
             }
 
             if (data.tv && data.tv.results.length) {
-              data.tv.title = '电视节目';
+              data.tv.title = '电视剧';
               data.tv.noimage = true;
 
               _this.build('line', data.tv);
@@ -11864,16 +11864,16 @@
             Select.show({
               title: '动作',
               items: [{
-                title: '从历史中删除',
-                subtitle: '删除选中的卡片',
+                title: '从历史记录中删除',
+                subtitle: '删除所选卡片',
                 one: true
               }, {
                 title: '清除历史记录',
-                subtitle: '清除历史记录中的所有卡片',
+                subtitle: '从历史记录中删除所有卡片',
                 all: true
               }, {
-                title: '清除标签',
-                subtitle: '清除视图标记',
+                title: '清除标记',
+                subtitle: '清除查看标记',
                 label: true
               }, {
                 title: '清除时间码',
@@ -11895,7 +11895,7 @@
                 } else if (a.label) {
                   Storage.set('online_view', []);
                   Storage.set('torrents_view', []);
-                  Noty.show('标记清除');
+                  Noty.show('清除标记');
                 } else if (a.timecode) {
                   Storage.set('file_view', {});
                   Noty.show('清除时间码');
@@ -12073,7 +12073,7 @@
     var keyboard = new create$3({
       layout: {
         'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h m i t b y .', '{mic} {EN} {space} {search}']
+        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
       }
     });
     keyboard.create();
@@ -12135,12 +12135,12 @@
       }
 
       search.push({
-        title: '指定标题',
+        title: '输入标题',
         selected: selected == -1,
         query: ''
       });
       Select.show({
-        title: 'Refine',
+        title: '优化搜索',
         items: search,
         onBack: this.onBack,
         onSelect: function onSelect(a) {
@@ -12160,10 +12160,10 @@
     empty.on('hover:enter', selectSearch.bind(this));
     line.find('.filter--search').on('hover:enter', selectSearch.bind(this));
     line.find('.filter--sort').on('hover:enter', function () {
-      _this2.show('Sort', 'sort');
+      _this2.show('排序', 'sort');
     });
     line.find('.filter--filter').on('hover:enter', function () {
-      _this2.show('Filter', 'filter');
+      _this2.show('筛选', 'filter');
     });
     buttons_scroll.append(line);
 
@@ -12345,7 +12345,7 @@
   function secondsToTime(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'h.' : '') + minutes + 'm。 ';
+    return (hours ? hours + 'h' : '') + minutes + 'm';
   }
 
   function format(params) {
@@ -12421,8 +12421,8 @@
       /*
       let ip = Torserver.ip()
         let tpl = Template.get('torrent_noconnect',{
-          title: 'Error',
-          text: 'Failed连接到TorrServer',
+          title: '错误',
+          text: '连接失败TorrServer',
           ip: ip,
           href: window.location.href,
           echo: echo
@@ -12641,20 +12641,20 @@
 
         if (Platform.is('webos')) {
           menu.push({
-            title: '开始播放器-Webos',
+            title: '开始播放器- Webos',
             player: 'webos'
           });
         }
 
         if (Platform.is('android')) {
           menu.push({
-            title: '开始播放器-Android',
+            title: '开始播放器- Android',
             player: 'android'
           });
         }
 
         menu.push({
-          title: '开始播放器-Lampa',
+          title: '开始播放器- Lampa',
           player: 'lampa'
         });
 
@@ -12666,7 +12666,7 @@
         }
 
         Select.show({
-          title: '操作',
+          title: '动作',
           items: menu,
           onBack: function onBack() {
             Controller.toggle(enabled);
@@ -12681,9 +12681,9 @@
 
             if (a.link) {
               Utils.copyTextToClipboard(element.url, function () {
-                Noty.show('链接已复制到剪贴板');
+                Noty.show('链接复制到剪贴板');
               }, function () {
-                Noty.show('复制链接时出错');
+                Noty.show('复制错误链接');
               });
             }
 
@@ -12699,8 +12699,8 @@
       html.append(item);
     });
     if (items.length == 0) html = Template.get('error', {
-      title: '空',
-      text: '无法获取匹配文件'
+      title: '空的',
+      text: '”“无法提取合适的文件'
     });else Modal.title('文件');
     Modal.update(html);
   }
@@ -12750,9 +12750,9 @@
     var last;
     var last_filter;
     var filter_items = {
-      quality: ['任意', '4k', '1080p', '720p'],
-      hdr: ['未选中', '是', '不是'],
-      sub: ['未选中', '是', '无'],
+      quality: ['任何', '4k', '1080p', '720p'],
+      hdr: ['未选择', '是的', '”“否'],
+      sub: ['未选择', '是', '否'],
       voice: [],
       tracker: ['任何'],
       year: ['任何']
@@ -12769,7 +12769,7 @@
     var sort_translate = {
       Seeders: '按共享者',
       Size: '按大小',
-      Title: '按名称',
+      Title: '按标题',
       Tracker: '按来源',
       PublisTime: '按日期',
       viewed: '按查看'
@@ -12782,7 +12782,7 @@
     }
 
     var viewed = Storage.cache('torrents_view', 5000, []);
-    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "是севич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "翻译ман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "俄罗斯", "РТР", "俄语 дубляж", "俄语 Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союз卡通", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супер位", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
+    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "是севич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "翻译ман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "俄罗斯", "РТР", "俄语 дубляж", "俄语 Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союз犯罪", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супербит", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
     scroll.minus();
     scroll.body().addClass('torrent-list');
 
@@ -12904,7 +12904,7 @@
       };
 
       filter_items.voice = ["Any", "Dubbing", "Multi-Voice", "Two-Voice", "Amateur"];
-      filter_items.tracker = ['任意'];
+      filter_items.tracker = ['任何'];
       results.Results.forEach(function (element) {
         var title = element.Title.toLowerCase(),
             tracker = element.Tracker;
@@ -12918,7 +12918,7 @@
         }
 
         if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-      }); //надо очистить 来自отсутствующих ключей
+      }); //надо очистить от отсутствующих ключей
 
       need.voice = Arrays.removeNoIncludes(Arrays.toArray(need.voice), filter_items.voice);
       need.tracker = Arrays.removeNoIncludes(Arrays.toArray(need.tracker), filter_items.tracker);
@@ -13191,7 +13191,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + '-添加到我的种子');
+        Noty.show(object.movie.title + ' - добавлено в мои торренты');
       });
     };
 
@@ -13257,8 +13257,8 @@
               title: '添加到我的种子',
               tomy: true
             }, {
-              title: '旗帜',
-              subtitle: '”“用 (просмотрено)',
+              title: '标记',
+              subtitle: '用 (просмотрено)',
               mark: true
             }, {
               title: '取消标记',
@@ -14119,7 +14119,7 @@
 
     this.empty = function () {
       var empty = new create$l({
-        descr: '此部分将显示新剧集的发布日期'
+        descr: '此部分将显示发布新剧集的日期'
       });
       html.append(empty.render());
       _this.start = empty.start;
@@ -14134,7 +14134,7 @@
       var air_date = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
       var air_epis = [];
       var day_week = Utils.parseTime(date.getTime());
-      var weeks = ['Вс', '周一', '周二', '周三', '周四', '周五', '星期六'];
+      var weeks = ['Вс', 'Mon', 'Tue', '周三', '周四', '周五', '周六'];
       table.forEach(function (elem) {
         elem.episodes.forEach(function (ep) {
           var card = cards.find(function (card) {
@@ -14182,7 +14182,7 @@
           var noty = Template.get('notice_card', {
             time: air_date,
             title: elem.card.name,
-            descr: '季节 - <b>' + elem.episode.season_number + '</b><br>集 - <b>' + elem.episode.episode_number + '</b>'
+            descr: 'Season - <b>' + elem.episode.season_number + '</b><br>集 - <b>' + elem.episode.episode_number + '</b>'
           });
           Utils.imgLoad(noty.find('img'), elem.card.poster ? elem.card.poster : elem.card.img ? elem.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + elem.card.poster_path);
           noty.on('hover:enter', function () {
@@ -14299,23 +14299,23 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: '每周',
-      descr: '- 新功能，最受关注的热门种子（测试模式）<br>- 添加插件目录以便快速安装。<br>- 广播卡到网络上的其他设备。<br> - 检查 TorrServe 的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加了长按。<br>- 收藏出现在卡片中。<br>- 以更好的质量添加了有关电影发行的通知。 '
+      descr: '- 新功能，最受关注的热门种子（测试模式）<br>- 添加插件目录以便快速安装。 <br>- 将卡广播到网络上的其他设备。<br>- 检查 TorrServe 操作的清单<br>- 从 torrent 复制视频链接。<br>- 鼠标和手推车的长按已完成。 <br>- 添加到卡片收藏中。<br>- 添加有关以最佳质量发布电影的通知。'
     }, {
       time: '2021-12-23 14:00',
       title: '更新1.3.7',
-      descr: '1. 增加了语音搜索。<br>2. 修复了鼠标的错误并在播放器中增加了鼠标支持。<br>3. 增加了与CUB的帐户链接。<br>4. 各种其他无趣的小东西。'
+      descr: '1. 添加语音搜索。<br>2. 修复了鼠标错误并添加了支持用于播放器中的鼠标。<br>3. 添加了与 CUB 的帐户绑定。<br>4. 其他不感兴趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
       title: '更新1.3.6',
-      descr: '1 .添加了新目录 CUB。<br>2.更改了发布源，现在甚至可以在 MSX 中使用。<br>3.添加了动漫类别 ;)'
+      descr: '1. 添加了新的 CUB 目录。<br>2. 更改了发布源，现在甚至可以在 MSX 中使用。<br>3. 添加了动漫类别 ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新1.3.5',
-      descr: '1. 添加屏幕保护程序 来自Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
+      descr: '1. 添加了来自 Google ChromeCast 的屏幕保护程序。<br>2. 无需搜索即可立即运行版本。<br>3. 从键盘上删除了输入按钮。 <br>4. 改进播放器倒带并添加到按钮（到结尾/到开头）。<br>5。通过 gist.github.com 服务添加了同步。'
     }, {
       time: '2021-11-10 10:00',
       title: '更新1.3.4',
-      descr: '1. 修复了属性被禁用时的时间戳（从最后一个地方继续）。<br>2. 在三星电视上，黑色骰子在播放器中已修复。<br>3.在设置中添加插件。'
+      descr: '1. 修复了禁用属性（从最后一个位置继续）时的时间戳。<br>2。在三星电视上修复了播放器中的黑色骰子。<br>3.在设置中添加插件。'
     }, {
       time: '2021-11-02 10:00',
       title: '更新1.3.3',
@@ -14323,27 +14323,27 @@
     }, {
       time: '2021-10-25 15:00',
       title: '更新1.3.2',
-      descr: '1.固定卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.增加了torrent文件的翻转功能，左右翻转10个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
+      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.增加了torrent文件的翻转功能，左右翻转10个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi 中添加了注释'
     }, {
       time: '2021-10-20 16:20',
       title: '更新1.3.1',
-      descr: '1 中添加了注释。添加了 ivi 和 okko<br>2 的集合。恢复了更改视频比例的功能。<br>3.添加了数字版本，在 MSX 中不起作用。<br>4. TMDB 以什么语言显示数据。<br>5.在屏幕保护程序中添加了切换到自然的功能。<br>6.可以选择以何种语言查找种子。<br>7.能够通过时间码禁用继续。'
+      descr: '1. 添加了 ivi 和 okko 的选择<br>2. 恢复了更改视频比例的功能。<br>3. 添加了数字版本，在 MSX 中不起作用。<br>4. 显示 TMDB 的语言数据输入。<br>5 屏幕保护程序中添加了切换到自然的功能。<br>6. 选择要查找种子的语言的功能。<br>7. 禁用按时间码继续的功能。'
     }, {
       time: '2021-10-14 13:00',
       title: '屏幕保护程序',
-      descr: '添加屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
+      descr: '添加屏幕保护程序，通过开始5 минут, если ничего не делать.'
     }, {
       time: '2021-10-14 10:00',
       title: '更新1.2.6',
-      descr: '1. 修复了删除 torrent 的错误。<br>2。固定时间戳。<br>3.为电视剧添加了视觉效果，在 torrent 文件中您可以更好地查看电视剧。<br>4.其他小事'
+      descr: '1. 修复了 torrent 删除错误。<br>2. 修复了时间戳。<br>3. 为电视剧添加了视觉效果，可以更好地观看剧集在 torrent 文件中。<br>4. 其他小东西。'
     }, {
       time: '2021-10-12 19:10',
       title: '很高兴知道',
-      descr: '你知道吗? Что если долго удерживать кнопку (OK) на карточке, то можно вызвать меню для добавления в закладки. Такой же метод работает и на торрентах, долгий тап позволяет добавить раздачу в список (我的种子)'
+      descr: 'А вы знали? Что если долго удерживать кнопку (OK) на карточке, то можно вызвать меню для добавления в закладки. Такой же метод работает и на торрентах, долгий тап позволяет добавить раздачу в список (我的种子)'
     }, {
       time: '2021-10-12 19:00',
       title: '更新1.2.4',
-      descr: '1. Добавлено меню (我的种子).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (新品) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
+      descr: '1. Добавлено меню (我的种子).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (新的) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
     }, {
       time: '2021-10-10 18:00',
       title: '更新1.2.3',
@@ -14351,39 +14351,39 @@
     }, {
       time: '2021-10-09 15:00',
       title: '更新1.2.2',
-      descr: '1. 添加 Tizen 播放器<br>2. 添加 webOS 播放器<br>3. 在播放器中添加 torrent 下载统计信息。<br>4. 在播放器中添加倒带栏<br>5. 修复 Torserver 的空海报<br>6.固定其他小错误和错误'
+      descr: '1. 添加了 Tizen 播放器<br>2。添加了 webOS 播放器<br>3。向播放器添加了 torrent 下载统计信息。<br>4.在播放器<br>5中添加了倒带条。修复了 Torserver<br>6 的空白海报。修复了其他小错误和错误'
     }, {
       time: '2021-10-07 17:00',
       title: '更新1.2.1',
-      descr: '1. 修复了 MSX 中的后退按钮错误<br>2。修复了搜索<br>3 的错误。在种子中添加了过滤器<br>4。视觉上改进的播放器<br>5。添加了性能设置<br>6.修正种子文件中的名称<br>7.修复了播放器中暂停的错误<br>8。修复了其他小错误和错误'
+      descr: '1. 修复了 MSX<br>2 中带有后退按钮的错误。修复了搜索<br>3 的错误。在种子中添加了过滤器<br>4。视觉上改进的播放器<br>5。添加了性能设置<br>6.修正种子文件中的名称<br>7.修复了播放器中暂停的错误<br>8。修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
       title: '更新1.0.10',
-      descr: '1. 改进了小模式下卡片的加载<br>2。添加日志，查看日志将鼠标悬停在标题上并单击 10 次'
+      descr: '1. 改进了小模式下卡片的加载<br>2。添加日志，查看日志悬停在标题上并单击 10 次'
     }, {
       time: '2021-10-01 09:00',
       title: '更新1.0.9',
-      descr: '1. 改进了选项卡和电影中的背景<br>2。更改说明<br>3。为 Orsay 添加了插件'
+      descr: '1. 改进了书签和电影中的背景<br>2. 更改了说明<br>3. 完成了 Orsay 插件'
     }, {
       time: '2021-09-30 18:00',
       title: '更新1.0.8',
-      descr: '1. Доработан фон<br>2. Выведена кнопка (Torrents)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
+      descr: '1. Доработан фон<br>2. Выведена кнопка (种子)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
     }, {
       time: '2021-09-29 17:00',
       title: '更新1.0.7',
-      descr: '1. 优化的主页和目录<br>2. 可能完成了 Orsay 的控制按钮。增加 TorServer 授权<br> 3. 增加 TorServer 错误提示'
+      descr: '1. 主页和目录优化<br>2. TorServer 添加授权<br> 3.在 TorServer 中添加错误提示'
     }, {
       time: '2021-09-28 16:00',
       title: '更正',
-      descr: '1. 错误修复（无法获取 HASH）<br>2. MSX 解析器已完成，现在您无需指定显式链接，只要您愿意<br> 3. 改进的 jac。红色的 解析器，现在搜索更多准确地说'
+      descr: '1. 修复错误（无法获取 HASH）<br>2. 改进 MSX 解析器，现在无需指定显式链接，仅可选<br> 3. 改进 Links 解析器，现在更准确地查找'
     }, {
       time: '2021-09-27 15:00',
-      title: '固定解析器',
-      descr: '在解析器中检测到错误, из за которой jac.red не выдавал результаты'
+      title: '解析器修复',
+      descr: '解析器中存在导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
       title: '欢迎!',
-      descr: '这是你的第一个应用程序发布, надеемся вам очень понравится. Приятного вам просмотра.'
+      descr: '这是你第一次启动应用程序，我们希望你喜欢它。享受观看。'
     }];
     Arrays.extend(data$1, {
       time: 0
@@ -15042,7 +15042,7 @@
       if (action == 'favorite') {
         push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览记录' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -15057,7 +15057,7 @@
       } else {
         push({
           url: '',
-          title: 'Home - ' + Storage.field('source').toUpperCase(),
+          title: '主页 - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -15178,7 +15178,7 @@
     }
   }
   /**
-   * 退出
+   * ”“完成
    */
 
 
@@ -15384,7 +15384,7 @@
       'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
       'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
       'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'Ф Ы В А П Р О Л Д Ж Э', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
     };
     this.listener = start$4();
 
@@ -15444,7 +15444,7 @@
           console.log('Speech', 'start');
           $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
           recognition.record = true;
-          Noty.show('说话, я слушаю..');
+          Noty.show('说话，我在听..');
         });
         recognition.addEventListener("end", function () {
           console.log('Speech', 'end');
@@ -15471,7 +15471,7 @@
           console.log('Speech', 'error:', event);
 
           if (event.error == 'not-allowed') {
-            Noty.show('无法使用麦克风');
+            Noty.show('没有麦克风访问权限');
           }
 
           recognition.stop();
@@ -15598,7 +15598,7 @@
       });
       links = links.concat([{
         title: 'jac.red',
-        subtitle: '对于种子, Api ключ - пустой',
+        subtitle: '对于种子，Api ключ - пустой',
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
@@ -15615,7 +15615,7 @@
               Noty.show('Добавлено (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('删除(' + a.subtitle + ')');
+              Noty.show('已删除(' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -15628,7 +15628,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('删除(' + a.url + ')');
+            Noty.show('已删除(' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -15709,7 +15709,7 @@
   function trigger(name, _default) {
     values[name] = {
       'true': '是',
-      'false': '无'
+      'false': '否'
     };
     defaults[name] = _default;
   }
@@ -15867,7 +15867,7 @@
 
 
   select$1('interface_size', {
-    'small': 'Less',
+    'small': '较小',
     'normal': '正常'
   }, 'normal');
   select$1('poster_size', {
@@ -15886,7 +15886,7 @@
   select$1('background_type', {
     'complex': '复杂',
     'simple': '简单',
-    'poster': '图像'
+    'poster': '图片'
   }, 'simple');
   select$1('pages_save_total', {
     '1': '1',
@@ -15896,11 +15896,11 @@
     '5': '5'
   }, '5');
   select$1('player', {
-    'inner': '内联'
+    'inner': '内置'
   }, 'inner');
   select$1('torrserver_use_link', {
     'one': '主要',
-    'two': '额外'
+    'two': '次要'
   }, 'one');
   select$1('subtitles_size', {
     'small': '小',
@@ -15943,11 +15943,11 @@
   select$1('start_page', {
     'main': '主页',
     'favorite@book': '书签',
-    'favorite@like': '喜欢',
+    'favorite@like': '点赞',
     'favorite@wath': '稍后',
-    'favorite@history': '浏览历史记录',
+    'favorite@history': '浏览历史',
     'mytorrents': '我的种子',
-    'last': '最后'
+    'last': '最新'
   }, 'last');
   select$1('scroll_type', {
     'css': 'CSS',
@@ -15955,7 +15955,7 @@
   }, 'css');
   select$1('card_views_type', {
     'preload': '预加载',
-    'view': '全部显示'
+    'view': '显示全部'
   }, 'preload');
   select$1('navigation_type', {
     'controll': '遥控器',
@@ -16172,7 +16172,7 @@
 
   var data = {};
   data.type = {
-    title: '类型',
+    title: '卡通',
     items: [{
       title: '电影',
       selected: true,
@@ -16181,10 +16181,10 @@
       title: '卡通',
       cat: 'multmovie'
     }, {
-      title: '电视节目',
+      title: '电视剧',
       cat: 'tv'
     }, {
-      title: '电视剧',
+      title: '卡通电视剧',
       cat: 'multtv'
     }, {
       title: '动漫',
@@ -16196,16 +16196,16 @@
     items: [{
       title: '任何'
     }, {
-      title: '0 到 3',
+      title: '6 到 8',
       voite: '0-3'
     }, {
-      title: '3 到 6',
+      title: '8 到 10',
       voite: '3-6'
     }, {
-      title: '6 到 8',
+      title: '国家',
       voite: '6-8'
     }, {
-      title: '8 到 10',
+      title: '乌克兰',
       voite: '8-10'
     }]
   };
@@ -16319,11 +16319,11 @@
     title: '类型',
     items: [{
       "id": 28,
-      "title": "动作",
+      "title": "卡通",
       checkbox: true
     }, {
       "id": 12,
-      "title": "冒险",
+      "title": "喜剧",
       checkbox: true
     }, {
       "id": 16,
@@ -16331,67 +16331,67 @@
       checkbox: true
     }, {
       "id": 35,
-      "title": "喜剧",
-      checkbox: true
-    }, {
-      "id": 80,
-      "title": "犯罪",
-      checkbox: true
-    }, {
-      "id": 99,
       "title": "纪录片",
       checkbox: true
     }, {
-      "id": 18,
+      "id": 80,
       "title": "戏剧",
       checkbox: true
     }, {
-      "id": 10751,
+      "id": 99,
       "title": "家庭",
       checkbox: true
     }, {
-      "id": 14,
+      "id": 18,
       "title": "奇幻",
       checkbox: true
     }, {
-      "id": 36,
+      "id": 10751,
       "title": "历史",
       checkbox: true
     }, {
-      "id": 27,
+      "id": 14,
       "title": "恐怖",
       checkbox: true
     }, {
-      "id": 10402,
+      "id": 36,
       "title": "音乐",
       checkbox: true
     }, {
-      "id": 9648,
+      "id": 27,
       "title": "侦探",
       checkbox: true
     }, {
+      "id": 10402,
+      "title": "情节剧",
+      checkbox: true
+    }, {
+      "id": 9648,
+      "title": "奇幻",
+      checkbox: true
+    }, {
       "id": 10749,
-      "title": "浪漫",
-      checkbox: true
-    }, {
-      "id": 878,
-      "title": "科幻",
-      checkbox: true
-    }, {
-      "id": 10770,
       "title": "电视电影",
       checkbox: true
     }, {
-      "id": 53,
+      "id": 878,
       "title": "惊悚片",
       checkbox: true
     }, {
-      "id": 10752,
+      "id": 10770,
       "title": "军事",
       checkbox: true
     }, {
-      "id": 37,
+      "id": 53,
       "title": "西部片",
+      checkbox: true
+    }, {
+      "id": 10752,
+      "title": "военный",
+      checkbox: true
+    }, {
+      "id": 37,
+      "title": "вестерн",
       checkbox: true
     }]
   };
@@ -16592,7 +16592,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: '首页 - ' + Storage.field('source').toUpperCase(),
+          title: '首页-' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
@@ -16616,7 +16616,7 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史记录' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -16626,7 +16626,7 @@
       if (action == 'timetable') {
         Activity$1.push({
           url: '',
-          title: '日程安排',
+          title: '计划',
           component: 'timetable',
           page: 1
         });
@@ -16644,7 +16644,7 @@
       if (action == 'relise') {
         Activity$1.push({
           url: '',
-          title: '数字发布',
+          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
           component: 'relise',
           page: 1
         });
@@ -16654,10 +16654,10 @@
         Select.show({
           title: '合集',
           items: [{
-            title: 'ivi',
+            title: '收藏ivi',
             source: 'ivi'
           }, {
-            title: '上的功能okko',
+            title: '收藏okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -16802,7 +16802,7 @@
 
           Activity$1.push({
             url: '',
-            title: '洪流',
+            title: '种子',
             component: 'torrents',
             search: query,
             movie: {
@@ -16816,7 +16816,7 @@
         } else {
           Activity$1.push({
             url: 'search/' + type,
-            title: '搜索 -' + query,
+            title: '搜索 - ' + query,
             component: 'category_full',
             page: 2,
             query: encodeURIComponent(query),
@@ -17097,7 +17097,7 @@
         search.find('.search__input').text(input);
         results.search(input);
       } else {
-        search.find('.search__input').text('输入文本。 ..');
+        search.find('.search__input').text('输入文本...');
       }
     });
     keyboard.listener.follow('right', function () {
@@ -17327,22 +17327,22 @@
 
       if (code == 0) {
         name.text('已禁用');
-        desc.text('同步');
+        desc.text('启用同步');
       }
 
       if (code == 1) {
-        name.text('未授权');
+        name.text('未登录');
         desc.text('需要登录');
       }
 
       if (code == 2) {
-        name.text('登录失败');
-        desc.text('请检查您的详细信息并重试');
+        name.text('授权失败');
+        desc.text('检查输入的数据再试一次');
       }
 
       if (code == 3) {
         name.text('登录');
-        desc.text('您已经登录成功');
+        desc.text('你已成功登录');
       }
 
       if (code == 4) {
@@ -17536,7 +17536,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : '插件工作, необходимо перезагрузить приложение.') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '检查功能失败插件，但这并不意味着插件不工作 重新启动应用程序以查看插件是否正在加载。' : '要使插件工作，您需要重新启动应用程序。') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -17616,11 +17616,11 @@
             });
             Params.listener.send('update_scroll');
           } else {
-            Noty.show('此插件已安装。');
+            Noty.show('这个插件是已安装。');
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
-        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + '- 安装' : plug.name);
+        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - Установок' : plug.name);
         container.append(item);
       }
 
@@ -17651,7 +17651,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击测试插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自CUB' : '点击查看插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
