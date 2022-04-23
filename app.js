@@ -78,7 +78,7 @@
       var toLength = function toLength(value) {
         var len = toInteger(value);
         return Math.min(Math.max(len, 0), maxSafeInteger);
-      }; // Свойство length метода from равно 1.
+      }; // Свойство length методa from рaвно 1.
 
 
       return function from(arrayLike
@@ -115,7 +115,7 @@
 
 
         var len = toLength(items.length); // 13. Если IsConstructor(C) равен true, то
-        // 13. a. Положим A равным результату вызова внутреннего метода
+        // 13. a. Положим A равным резулbтату вызова внутреннего метода
         // [[Construct]]
         // объекта C со списком аргументов, содержащим единственный элемент
         // len.
@@ -123,7 +123,7 @@
 
         var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Положим k равным 0.
 
-        var k = 0; // 17. Пока k < len, будем повторять... (шаги с a по h)
+        var k = 0; // 17. Пока k < len, будем повторiтb... (шаги с a по h)
 
         var kValue;
 
@@ -278,7 +278,7 @@
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
         // ближайший аналог внутренней функции
-        // IsCallable в ECMAScript 5
+        // IsCallable在ECMAScript 5
         throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
@@ -300,11 +300,11 @@
     var _slice = Array.prototype.slice;
 
     try {
-      // Не может использоваться с элементами DOM в IE < 9
+      // Не может использоватьсi с элементами DOM在IE < 9
       _slice.call(document.documentElement);
     } catch (e) {
-      // В IE < 9 кидается исключение
-      // Функция будет работать для истинных массивов, массивоподобных объектов,
+      // В IE < 9 кидаетсi исключение
+      // Функциi будет работать для истинных массивов, массивоподобных объектов,
       // NamedNodeMap (атрибуты, сущности, примечания),
       // NodeList (например, getElementsByTagName), HTMLCollection (например, childNodes)
       // и не будет падать на других объектах DOM (как это происходит на элементах DOM в IE < 9)
@@ -314,7 +314,7 @@
 
         if (Object.prototype.toString.call(this) === '[object Array]') {
           return _slice.call(this, begin, end);
-        } // Массивоподобные объекты мы обрабатываем самостоятельно
+        } // 马ссивоподобные объекты мы обрабатываем самостоятельно
 
 
         var i,
@@ -700,7 +700,7 @@
 
   var html$1e = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-  var html$1d = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">\u0413\u043B\u0430\u0432\u043D\u0430\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">\u0424\u0438\u043B\u044C\u043C\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">\u0421\u0435\u0440\u0438\u0430\u043B\u044B</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041A\u0430\u0442\u0430\u043B\u043E\u0433</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"filter\">\n                <div class=\"menu__ico\">\n                    <svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"33\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"7\" y=\"8\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"16\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"25\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"13.5\" cy=\"17.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"23.5\" cy=\"26.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"21.5\" cy=\"9.5\" r=\"3.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0424\u0438\u043B\u044C\u0442\u0440</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0434\u0431\u043E\u0440\u043A\u0438</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0420\u0435\u043B\u0438\u0437\u044B</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0410\u043D\u0438\u043C\u0435</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">\u0417\u0430\u043A\u043B\u0430\u0434\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0440\u0430\u0432\u0438\u0442\u0441\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">\u041F\u043E\u0437\u0436\u0435</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0418\u0441\u0442\u043E\u0440\u0438\u044F</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"timetable\">\n                <div class=\"menu__ico\">\n                    <svg height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"3.5\" width=\"25\" height=\"23\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"6\" width=\"3\" height=\"7\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"19\" width=\"3\" height=\"7\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"7\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"7\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"14\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"14\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"21\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"21\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0420\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442\u044B</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">\u041E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+  var html$1d = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">首页</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">电影</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">电视节目</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">目录</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"filter\">\n                <div class=\"menu__ico\">\n                    <svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"33\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"7\" y=\"8\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"16\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"25\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"13.5\" cy=\"17.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"23.5\" cy=\"26.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"21.5\" cy=\"9.5\" r=\"3.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">过滤器</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">合集</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">发布</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">动漫</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">书签</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">喜欢</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">稍后</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">历史</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">种子</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">设置</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">关于</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
   var html$1c = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
@@ -708,49 +708,49 @@
 
   var html$1a = "<div class=\"scroll\">\n    <div class=\"scroll__content\">\n        <div class=\"scroll__body\">\n            \n        </div>\n    </div>\n</div>";
 
-  var html$19 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
+  var html$19 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">设置</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
 
-  var html$18 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">\u0410\u043A\u043A\u0430\u0443\u043D\u0442</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">\u041F\u043B\u0435\u0435\u0440</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">\u041F\u0430\u0440\u0441\u0435\u0440</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">\u041F\u043B\u0430\u0433\u0438\u043D\u044B</div>\n    </div>\n    <div class=\"settings-folder selector hide\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">\u041E\u0441\u0442\u0430\u043B\u044C\u043D\u043E\u0435</div>\n    </div>\n    \n</div>";
+  var html$18 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">帐户</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">界面</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">播放器</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">种子搜索</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">插件</div>\n    </div>\n    <div class=\"settings-folder selector hide\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">同步</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">其他</div>\n    </div>\n    \n</div>";
 
-  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">\u0420\u0430\u0437\u043C\u0435\u0440 \u0438\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0424\u043E\u043D</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0444\u043E\u043D</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u0444\u043E\u043D\u0430</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0411\u044B\u0441\u0442\u0440\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">\u0410\u043D\u0438\u043C\u0430\u0446\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0410\u043D\u0438\u043C\u0430\u0446\u0438\u044F \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A \u0438 \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">\u0417\u0430\u0442\u0443\u0445\u0430\u043D\u0438\u0435</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041F\u043B\u0430\u0432\u043D\u043E\u0435 \u0437\u0430\u0442\u0443\u0445\u0430\u043D\u0438\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A \u0441\u043D\u0438\u0437\u0443 \u0438 \u0441\u0432\u0435\u0440\u0445\u0443</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u0441\u043A\u0440\u043E\u043B\u0438\u043D\u0433\u0430</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041F\u043E \u043C\u0435\u0440\u0435 \u0441\u043A\u0440\u043E\u043B\u043B\u0438\u043D\u0433\u0430 \u043B\u0435\u043D\u0442\u044B, \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438 \u0431\u0443\u0434\u0443\u0442 \u043F\u043E\u0434\u0433\u0440\u0443\u0436\u0430\u0442\u044C\u0441\u044F \u043F\u043E\u0441\u0442\u0435\u043F\u0435\u043D\u043D\u043E \u0438\u043B\u0438 \u0437\u0430\u0433\u0440\u0443\u0436\u0430\u0442\u044C\u0441\u044F \u0432\u0441\u0435.</div>\n    </div> \n\n</div>";
+  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡入淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">淡入淡出卡片底部和顶部</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">滚动时信息流，卡片将逐渐加载或全部加载。</div>\n    </div> \n\n</div>";
 
-  var html$16 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u0430\u0440\u0441\u0435\u0440</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0422\u0435\u043C \u0441\u0430\u043C\u044B\u043C, \u0432\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C \u043F\u0440\u0438\u043D\u044F\u0442\u044C \u043D\u0430 \u0441\u0435\u0431\u044F \u0432\u0441\u044E \u043E\u0442\u0432\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C \u0437\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0445 \u0441\u0441\u044B\u043B\u043E\u043A \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0442\u043E\u0440\u0440\u0435\u043D\u0442 \u0438 \u043E\u043D\u043B\u0430\u0439\u043D \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u0430\u0440\u0441\u0435\u0440\u0430 \u0434\u043B\u044F \u0442\u043E\u0440\u0440\u0435\u043D\u0442\u043E\u0432</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u0421\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 Jackett</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api \u043A\u043B\u044E\u0447</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0432 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">\u041C\u0435\u0442\u043E\u0434 \u043F\u0430\u0440\u0441\u0438\u043D\u0433\u0430 \u0441\u0430\u0439\u0442\u0430 TorLook</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: scraperapi.com\">\n        <div class=\"settings-param__name\">\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0430\u0440\u0441\u0435\u0440 \u0441\u0430\u0439\u0442\u043E\u0432</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044C \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 scraperapi.com, \u043F\u0440\u043E\u043F\u0438\u0441\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443 api.scraperapi.com?api_key=...&url={q}<br>\u0412 {q} \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0442\u0441\u044F \u0441\u0430\u0439\u0442 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0415\u0449\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">\u041F\u043E\u0438\u0441\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430 \u043A\u0430\u043A\u043E\u043C \u044F\u0437\u044B\u043A\u0435 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C \u043F\u043E\u0438\u0441\u043A?</div>\n    </div>\n</div>";
+  var html$16 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意对使用公共链接查看 torrent 和在线内容承担所有责任。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">torrent 解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定链接到 Jackett 脚本</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api 键</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook网站解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到网站解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com上注册，写链接api.scraperapi.com?api_key=...&url={q}<br>B{q} 该网站将交付 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search?</div>\n    </div>\n</div>";
 
-  var html$15 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0441\u044B\u043B\u043A\u0438</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 192.168.\u0445\">\n        <div class=\"settings-param__name\">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0441\u044B\u043B\u043A\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u043A\u0440\u0438\u043F\u0442 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">\u0412\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 \u043A\u043B\u0438\u0435\u043D\u0442</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0432\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u0439 JS-\u043A\u043B\u0438\u0435\u043D\u0442 TorrServe, \u0438\u043D\u0430\u0447\u0435 \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0441\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u043D\u044B\u0439.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u0431\u0430\u0437\u0443</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0422\u043E\u0440\u0440\u0435\u043D\u0442 \u0431\u0443\u0434\u0435\u0442 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u0432 \u0431\u0430\u0437\u0443 TorrServer</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0431\u0443\u0444\u0435\u0440 \u043F\u0440\u0435\u0434.\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0414\u043E\u0436\u0438\u0434\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0431\u0443\u0444\u0435\u0440\u0430 \u043F\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 TorrServer \u043F\u0435\u0440\u0435\u0434 \u043F\u0440\u043E\u0438\u0433\u0440\u044B\u0432\u0430\u043D\u0438\u0435\u043C</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">\u0412\u0445\u043E\u0434 \u043F\u043E \u043F\u0430\u0440\u043E\u043B\u044E</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041B\u043E\u0433\u0438\u043D</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041F\u0430\u0440\u043E\u043B\u044C</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+  var html$15 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接地址</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定到 TorrServer 脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">辅助链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则系统会启动。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预取缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待 TorrServer 的预取缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-  var html$14 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043F\u043B\u0435\u0435\u0440\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043F\u043B\u0435\u0435\u0440\u043E\u043C \u0432\u043E\u0441\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u043B\u0435\u0435\u0440 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442 \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u0439 Android \u043F\u043B\u0435\u0435\u0440 \u0432 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0430\u044F \u0441\u0435\u0440\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438 \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u044C \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0441\u0435\u0440\u0438\u044E \u043F\u043E \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0438 \u0442\u0435\u043A\u0443\u0449\u0435\u0439</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">\u0422\u0430\u0439\u043C\u043A\u043E\u0434</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u0441 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0433\u043E \u043C\u0435\u0441\u0442\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">\u041C\u0435\u0442\u043E\u0434 \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041A\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u044C \u0432\u044B\u0447\u0438\u0441\u043B\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043C\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F \u0432\u0438\u0434\u0435\u043E</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">\u0420\u0430\u0437\u043C\u0435\u0440</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043E\u043A\u0430\u043D\u0442\u043E\u0432\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0431\u0432\u0435\u0434\u0435\u043D\u044B \u0447\u0435\u0440\u043D\u044B\u043C \u0446\u0432\u0435\u0442\u043E\u043C \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0443</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044B \u0431\u0443\u0434\u0443\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u043F\u043E\u043B\u0443\u043F\u0440\u043E\u0437\u0440\u0430\u0447\u043D\u043E\u0439 \u043F\u043E\u0434\u043B\u043E\u0436\u043A\u0435 \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0447\u0438\u0442\u0430\u0435\u043C\u043E\u0441\u0442\u0438</div>\n        </div>\n    </div>  \n</div>";
+  var html$14 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的安卓播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上一个观看位置继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边缘</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421 \u043A\u0430\u043A\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u043D\u0430\u0447\u0438\u043D\u0430\u0442\u044C \u043F\u0440\u0438 \u0437\u0430\u043F\u0443\u0441\u043A\u0435</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041E\u0442\u043A\u0443\u0434\u0430 \u0431\u0440\u0430\u0442\u044C \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u043E \u0444\u0438\u043B\u044C\u043C\u0430\u0445</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u041D\u0430 \u043A\u0430\u043A\u043E\u043C \u044F\u0437\u044B\u043A\u0435 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435 \u0441 TMDB</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043D\u0438\u0435 \u043F\u043E\u0441\u0442\u0435\u0440\u043E\u0432 TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>\u0421\u043A\u0440\u0438\u043D\u0441\u0435\u0439\u0432\u0435\u0440</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0443 \u043F\u0440\u0438 \u0431\u0435\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u041F\u0440\u043E\u043A\u0441\u0438</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">\u041F\u0440\u043E\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u0442\u044C TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">\u041F\u0440\u043E\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0435\u0441\u0443\u0440\u0441\u044B</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>\u0415\u0449\u0435</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0441\u0442\u0440\u0430\u043D\u0438\u0446 \u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0432 \u043F\u0430\u043C\u044F\u0442\u0438</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0425\u0440\u0430\u043D\u0438\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u0432 \u0442\u043E\u043C \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0438, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u0432\u044B \u0438\u0445 \u043F\u043E\u043A\u0438\u043D\u0443\u043B\u0438.</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">\u0421\u043C\u0435\u0441\u0442\u0438\u0442\u044C \u0432\u0440\u0435\u043C\u044F</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">\u0422\u0438\u043F \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u0438</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: \u041C\u043E\u044F \u041B\u0430\u043C\u043F\u0430\">\n        <div class=\"settings-param__name\">\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u043A\u0435\u0448</div>\n        <div class=\"settings-param__value\">\u0411\u0443\u0434\u0443\u0442 \u043E\u0447\u0438\u0449\u0435\u043D\u044B \u0432\u0441\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0438 \u0434\u0430\u043D\u043D\u044B\u0435</div>\n    </div>\n</div>";
+  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">开始页面</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>来源</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取有关电影的信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示来自 TMDB 的数据的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB海报分辨率</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>屏保</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示屏保</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏保类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>代理</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">代理TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">代理其他资源</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面原样。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">换档时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除缓存</div>\n        <div class=\"settings-param__value\">所有设置并且数据将被清除</div>\n    </div>\n</div>";
 
-  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"\u0414\u043B\u044F \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u043F\u043B\u0430\u0433\u0438\u043D\u0430 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\">\n        <div class=\"settings-param__name\">\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043B\u0430\u0433\u0438\u043D</div>\n        <div class=\"settings-param__descr\">\u0414\u043B\u044F \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043D\u043E\u0433\u043E \u043F\u043B\u0430\u0433\u0438\u043D\u0430 \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0439\u0442\u0435 \u0438\u043B\u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u0434\u0432\u0430\u0436\u0434\u044B \u043A\u043D\u043E\u043F\u043A\u0443 OK \u043D\u0430 \u043D\u0435\u043C</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u043B\u0430\u0433\u0438\u043D</div>\n        <div class=\"settings-param__descr\">\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u043B\u0430\u0433\u0438\u043D \u0438\u0437 \u0441\u043F\u0438\u0441\u043A\u0430 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0445</div>\n    </div>\n</div>";
+  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要应用插件，您必须重新启动应用程序\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除添加的插件，请按住或双击其上的确定按钮</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">安装插件</div>\n        <div class=\"settings-param__descr\">从可用列表中安装插件</div>\n    </div>\n</div>";
 
-  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0434\u0430\u0451\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0441\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0432\u0430\u0448\u0438 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0438, \u0438\u0441\u0442\u043E\u0440\u0438\u044E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432, \u043C\u0435\u0442\u043A\u0438 \u0438 \u0442\u0430\u0439\u043C-\u043A\u043E\u0434\u044B. \u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044E https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步您的书签、浏览历史、标签和时间码 连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0441 \u0441\u0435\u0440\u0432\u0438\u0441\u043E\u043C CUB: \u0441\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u0430\u0448\u0438\u0445 \u0437\u0430\u043A\u043B\u0430\u0434\u043E\u043A, \u0438\u0441\u0442\u043E\u0440\u0438\u0438 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432, \u043C\u0435\u0442\u043E\u043A \u0438 \u0442\u0430\u0439\u043C-\u043A\u043E\u0434\u043E\u0432. \u0421\u0430\u0439\u0442: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>\u0410\u043A\u043A\u0430\u0443\u043D\u0442</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0412\u043E\u0448\u043B\u0438 \u043A\u0430\u043A</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u041F\u0440\u043E\u0444\u0438\u043B\u044C</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C</div>\n        <div class=\"settings-param__value\">\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0435 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0438 \u0432 \u0430\u043A\u043A\u0430\u0443\u043D\u0442 CUB</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">\u0412\u044B\u0439\u0442\u0438 \u0438\u0437 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\u0430</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">\u041F\u0430\u0440\u043E\u043B\u044C</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步您的书签、浏览历史记录、时间戳和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">退出</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$$ = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
   var html$_ = "<div class=\"card selector\">\n    <div class=\"card__view\">\n        <img src=\"./img/img_load.svg\" class=\"card__img\" />\n\n        <div class=\"card__icons\">\n            <div class=\"card__icons-inner\">\n                \n            </div>\n        </div>\n    </div>\n\n    <div class=\"card__title\">{title}</div>\n    <div class=\"card__age\">{release_year}</div>\n</div>";
 
-  var html$Z = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>\u0420\u0430\u0437\u0434\u0430\u044E\u0442: <span>{Seeders}</span></div>\n            <div>\u041A\u0430\u0447\u0430\u044E\u0442: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
+  var html$Z = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>分享: <span>{Seeders}</span></div>\n            <div>用户: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
 
-  var html$Y = "<div class=\"full-start\">\n\n    <div class=\"full-start__body\">\n        <div class=\"full-start__right\">\n            <div class=\"full-start__poster\">\n                <img class=\"full-start__img\" />\n\n                <div class=\"info__rate\"><span>{r_themovie}</span></div>\n            </div>\n        </div>\n\n        <div class=\"full-start__left\">\n            <div class=\"full-start__tags\">\n                <div class=\"full-start__tag tag--genres\">\n                    <img src=\"./img/icons/pulse.svg\" /> <div>{genres}</div>\n                </div>\n                <div class=\"full-start__tag tag--time\">\n                    <img src=\"./img/icons/time.svg\" /> <div>{time}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/catalog.svg\" /> <div>{seasons}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/movie.svg\" /> <div>{episodes}</div>\n                </div>\n                <div class=\"full-start__tag tag--episode hide\">\n                    <img src=\"./img/icons/time.svg\" /> <div></div>\n                </div>\n            </div>\n\n            <div class=\"full-start__title\">{title}</div>\n            <div class=\"full-start__title-original\">{original_title}</div>\n\n            <div class=\"full-start__descr\">{descr}</div>\n        </div>\n    </div>\n\n    <div class=\"full-start__footer\">\n        <div class=\"full-start__title-mobile\">{title}</div>\n\n        <div class=\"full-start__buttons-line\">\n            <div class=\"full-start__buttons-scroll\"></div>\n\n            <div class=\"full-start__buttons\">\n                <div class=\"full-start__button view--torrent hide\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n                        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n                        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n                    </svg>\n\n                    <span>\u0422\u043E\u0440\u0440\u0435\u043D\u0442\u044B</span>\n                </div>\n\n                <div class=\"full-start__button selector view--trailer\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M482.909,67.2H29.091C13.05,67.2,0,80.25,0,96.291v319.418C0,431.75,13.05,444.8,29.091,444.8h453.818\n                            c16.041,0,29.091-13.05,29.091-29.091V96.291C512,80.25,498.95,67.2,482.909,67.2z M477.091,409.891H34.909V102.109h442.182\n                            V409.891z\"/>\n                        <rect fill=\"currentColor\" x=\"126.836\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"350.255\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                    </svg>\n\n                    <span>\u0422\u0440\u0435\u0439\u043B\u0435\u0440\u044B</span>\n                </div>\n\n                \n\n                <div class=\"full-start__button selector open--menu\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M436.742,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.755,75.258,75.258,75.258\n                            C478.239,331.258,512,297.503,512,256C512,214.503,478.239,180.742,436.742,180.742z M436.742,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246s38.246,17.155,38.246,38.246\n                            S457.833,294.246,436.742,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M256,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.761,75.258,75.258,75.258c41.503,0,75.258-33.755,75.258-75.258\n                            C331.258,214.503,297.503,180.742,256,180.742z M256,294.246c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246\n                            s38.246,17.155,38.246,38.246S277.091,294.246,256,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M75.258,180.742C33.761,180.742,0,214.503,0,256c0,41.503,33.761,75.258,75.258,75.258\n                            c41.497,0,75.258-33.755,75.258-75.258C150.516,214.503,116.755,180.742,75.258,180.742z M75.258,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246c21.091,0,38.246,17.155,38.246,38.246\n                            S96.342,294.246,75.258,294.246z\"/>\n                    </svg>\n                </div>\n\n                \n            </div>\n\n            <div class=\"full-start__icons\">\n                <div class=\"info__icon icon--book selector\" data-type=\"book\"></div>\n                <div class=\"info__icon icon--like selector\" data-type=\"like\"></div>\n                <div class=\"info__icon icon--wath selector\" data-type=\"wath\"></div>\n            </div>\n        </div>\n\n    </div>\n</div>";
+  var html$Y = "<div class=\"full-start\">\n\n    <div class=\"full-start__body\">\n        <div class=\"full-start__right\">\n            <div class=\"full-start__poster\">\n                <img class=\"full-start__img\" />\n\n                <div class=\"info__rate\"><span>{r_themovie}</span></div>\n            </div>\n        </div>\n\n        <div class=\"full-start__left\">\n            <div class=\"full-start__tags\">\n                <div class=\"full-start__tag tag--genres\">\n                    <img src=\"./img/icons/pulse.svg\" /> <div>{genres}</div>\n                </div>\n                <div class=\"full-start__tag tag--time\">\n                    <img src=\"./img/icons/time.svg\" /> <div>{time}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/catalog.svg\" /> <div>{seasons}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/movie.svg\" /> <div>{episodes}</div>\n                </div>\n                <div class=\"full-start__tag tag--episode hide\">\n                    <img src=\"./img/icons/time.svg\" /> <div></div>\n                </div>\n            </div>\n\n            <div class=\"full-start__title\">{title}</div>\n            <div class=\"full-start__title-original\">{original_title}</div>\n\n            <div class=\"full-start__descr\">{descr}</div>\n        </div>\n    </div>\n\n    <div class=\"full-start__footer\">\n        <div class=\"full-start__title-mobile\">{title}</div>\n\n        <div class=\"full-start__buttons-line\">\n            <div class=\"full-start__buttons-scroll\"></div>\n\n            <div class=\"full-start__buttons\">\n                <div class=\"full-start__button view--torrent hide\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n                        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n                        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n                    </svg>\n\n                    <span>种子</span>\n                </div>\n\n                <div class=\"full-start__button selector view--trailer\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M482.909,67.2H29.091C13.05,67.2,0,80.25,0,96.291v319.418C0,431.75,13.05,444.8,29.091,444.8h453.818\n                            c16.041,0,29.091-13.05,29.091-29.091V96.291C512,80.25,498.95,67.2,482.909,67.2z M477.091,409.891H34.909V102.109h442.182\n                            V409.891z\"/>\n                        <rect fill=\"currentColor\" x=\"126.836\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"350.255\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                    </svg>\n\n                    <span>预告片</span>\n                </div>\n\n                \n\n                <div class=\"full-start__button selector open--menu\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M436.742,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.755,75.258,75.258,75.258\n                            C478.239,331.258,512,297.503,512,256C512,214.503,478.239,180.742,436.742,180.742z M436.742,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246s38.246,17.155,38.246,38.246\n                            S457.833,294.246,436.742,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M256,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.761,75.258,75.258,75.258c41.503,0,75.258-33.755,75.258-75.258\n                            C331.258,214.503,297.503,180.742,256,180.742z M256,294.246c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246\n                            s38.246,17.155,38.246,38.246S277.091,294.246,256,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M75.258,180.742C33.761,180.742,0,214.503,0,256c0,41.503,33.761,75.258,75.258,75.258\n                            c41.497,0,75.258-33.755,75.258-75.258C150.516,214.503,116.755,180.742,75.258,180.742z M75.258,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246c21.091,0,38.246,17.155,38.246,38.246\n                            S96.342,294.246,75.258,294.246z\"/>\n                    </svg>\n                </div>\n\n                \n            </div>\n\n            <div class=\"full-start__icons\">\n                <div class=\"info__icon icon--book selector\" data-type=\"book\"></div>\n                <div class=\"info__icon icon--like selector\" data-type=\"like\"></div>\n                <div class=\"info__icon icon--wath selector\" data-type=\"wath\"></div>\n            </div>\n        </div>\n\n    </div>\n</div>";
 
-  var html$X = "<div class=\"full-descr\">\n    <div class=\"full-descr__left\">\n        <div class=\"full-descr__text\">{text}</div>\n\n        <div class=\"full-descr__line full--genres\">\n            <div class=\"full-descr__line-name\">\u0416\u0430\u043D\u0440</div>\n            <div class=\"full-descr__line-body\">{genres}</div>\n        </div>\n\n        <div class=\"full-descr__line full--companies\">\n            <div class=\"full-descr__line-name\">\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E</div>\n            <div class=\"full-descr__line-body\">{companies}</div>\n        </div>\n    </div>\n\n    <div class=\"full-descr__right\">\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">\u0414\u0430\u0442\u0430 \u0440\u0435\u043B\u0438\u0437\u0430</div>\n            <div class=\"full-descr__info-body\">{relise}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">\u0411\u044E\u0434\u0436\u0435\u0442</div>\n            <div class=\"full-descr__info-body\">{budget}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">\u0421\u0442\u0440\u0430\u043D\u044B</div>\n            <div class=\"full-descr__info-body\">{countries}</div>\n        </div>\n    </div>\n</div>";
+  var html$X = "<div class=\"full-descr\">\n    <div class=\"full-descr__left\">\n        <div class=\"full-descr__text\">{text}</div>\n\n        <div class=\"full-descr__line full--genres\">\n            <div class=\"full-descr__line-name\">类型</div>\n            <div class=\"full-descr__line-body\">{genres}</div>\n        </div>\n\n        <div class=\"full-descr__line full--companies\">\n            <div class=\"full-descr__line-name\">出品公司</div>\n            <div class=\"full-descr__line-body\">{companies}</div>\n        </div>\n    </div>\n\n    <div class=\"full-descr__right\">\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">发布日期</div>\n            <div class=\"full-descr__info-body\">{relise}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">预算</div>\n            <div class=\"full-descr__info-body\">{budget}</div>\n        </div>\n\n        <div class=\"full-descr__info\">\n            <div class=\"full-descr__info-name\">国家</div>\n            <div class=\"full-descr__info-body\">{countries}</div>\n        </div>\n    </div>\n</div>";
 
   var html$W = "<div class=\"full-person selector\">\n    <div style=\"background-image: url('{img}');\" class=\"full-person__photo\"></div>\n\n    <div class=\"full-person__body\">\n        <div class=\"full-person__name\">{name}</div>\n        <div class=\"full-person__role\">{role}</div>\n    </div>\n</div>";
 
-  var html$V = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">\u041D\u0440\u0430\u0432\u0438\u0442\u0441\u044F: {like_count}</div>\n</div>";
+  var html$V = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">喜欢: {like_count}</div>\n</div>";
 
   var html$U = "<div class=\"full-episode selector\">\n    <div class=\"full-episode__left\">\n        <div class=\"full-episode__img\">\n            <img />\n        </div>\n    </div>\n\n    <div class=\"full-episode__body\">\n        <div class=\"full-episode__name\">{name}</div>\n        <div class=\"full-episode__date\">{date}</div>\n    </div>\n</div>";
 
   var html$T = "<div class=\"player\">\n    \n</div>";
 
-  var html$S = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__tstart button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14.75 10.2302C13.4167 11 13.4167 12.9245 14.75 13.6943L32 23.6536C33.3333 24.4234 35 23.4612 35 21.9216L35 2.00298C35 0.463381 33.3333 -0.498867 32 0.270933L14.75 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M1.75 10.2302C0.416665 11 0.416667 12.9245 1.75 13.6943L19 23.6536C20.3333 24.4234 22 23.4612 22 21.9216L22 2.00298C22 0.463381 20.3333 -0.498867 19 0.270933L1.75 10.2302Z\" fill=\"currentColor\"/>\n                    <rect width=\"6\" height=\"24\" rx=\"2\" transform=\"matrix(-1 0 0 1 6 0)\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__tend button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.2302C21.5833 11 21.5833 12.9245 20.25 13.6943L3 23.6536C1.66666 24.4234 -6.72981e-08 23.4612 0 21.9216L8.70669e-07 2.00298C9.37967e-07 0.463381 1.66667 -0.498867 3 0.270933L20.25 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.2302C34.5833 11 34.5833 12.9245 33.25 13.6943L16 23.6536C14.6667 24.4234 13 23.4612 13 21.9216L13 2.00298C13 0.463381 14.6667 -0.498867 16 0.270933L33.25 10.2302Z\" fill=\"currentColor\"/>\n                    <rect x=\"29\" width=\"6\" height=\"24\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__quality button selector\">auto</div>\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n                <div class=\"player-panel__fullscreen button selector\">\n                    <svg width=\"27\" height=\"28\" viewBox=\"0 0 27 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <path d=\"M2 11V2H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M2 17V26H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 11V2H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 17V26H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+  var html$S = "<div class=\"player-panel\">\n\n    <div class=\"player-panel__body\">\n        <div class=\"player-panel__timeline selector\">\n            <div class=\"player-panel__peding\"></div>\n            <div class=\"player-panel__position\"><div></div></div>\n            <div class=\"player-panel__time hide\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__timenow\"></div>\n            <div class=\"player-panel__timeend\"></div>\n        </div>\n\n        <div class=\"player-panel__line\">\n            <div class=\"player-panel__left\">\n                <div class=\"player-panel__prev button selector\"></div>\n                <div class=\"player-panel__next button selector\"></div>\n            </div>\n            <div class=\"player-panel__center\">\n                <div class=\"player-panel__tstart button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14.75 10.2302C13.4167 11 13.4167 12.9245 14.75 13.6943L32 23.6536C33.3333 24.4234 35 23.4612 35 21.9216L35 2.00298C35 0.463381 33.3333 -0.498867 32 0.270933L14.75 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M1.75 10.2302C0.416665 11 0.416667 12.9245 1.75 13.6943L19 23.6536C20.3333 24.4234 22 23.4612 22 21.9216L22 2.00298C22 0.463381 20.3333 -0.498867 19 0.270933L1.75 10.2302Z\" fill=\"currentColor\"/>\n                    <rect width=\"6\" height=\"24\" rx=\"2\" transform=\"matrix(-1 0 0 1 6 0)\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__rprev button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M14 10.7679C12.6667 11.5377 12.6667 13.4622 14 14.232L31.25 24.1913C32.5833 24.9611 34.25 23.9989 34.25 22.4593L34.25 2.5407C34.25 1.0011 32.5833 0.0388526 31.25 0.808653L14 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M0.999998 10.7679C-0.333335 11.5377 -0.333333 13.4622 1 14.232L18.25 24.1913C19.5833 24.9611 21.25 23.9989 21.25 22.4593L21.25 2.5407C21.25 1.0011 19.5833 0.0388526 18.25 0.808653L0.999998 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__playpause button selector\"></div>\n                <div class=\"player-panel__rnext button selector\">\n                    <svg width=\"35\" height=\"25\" viewBox=\"0 0 35 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.7679C21.5833 11.5377 21.5833 13.4622 20.25 14.232L3 24.1913C1.66666 24.9611 -6.72981e-08 23.9989 0 22.4593L8.70669e-07 2.5407C9.37967e-07 1.0011 1.66667 0.0388526 3 0.808653L20.25 10.7679Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.7679C34.5833 11.5377 34.5833 13.4622 33.25 14.232L16 24.1913C14.6667 24.9611 13 23.9989 13 22.4593L13 2.5407C13 1.0011 14.6667 0.0388526 16 0.808653L33.25 10.7679Z\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__tend button selector\">\n                    <svg width=\"35\" height=\"24\" viewBox=\"0 0 35 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M20.25 10.2302C21.5833 11 21.5833 12.9245 20.25 13.6943L3 23.6536C1.66666 24.4234 -6.72981e-08 23.4612 0 21.9216L8.70669e-07 2.00298C9.37967e-07 0.463381 1.66667 -0.498867 3 0.270933L20.25 10.2302Z\" fill=\"currentColor\"/>\n                    <path d=\"M33.25 10.2302C34.5833 11 34.5833 12.9245 33.25 13.6943L16 23.6536C14.6667 24.4234 13 23.4612 13 21.9216L13 2.00298C13 0.463381 14.6667 -0.498867 16 0.270933L33.25 10.2302Z\" fill=\"currentColor\"/>\n                    <rect x=\"29\" width=\"6\" height=\"24\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n            </div>\n            <div class=\"player-panel__right\">\n                <div class=\"player-panel__quality button selector\">自动</div>\n                <div class=\"player-panel__playlist button selector\"></div>\n                <div class=\"player-panel__subs button selector hide\"></div>\n                <div class=\"player-panel__tracks button selector hide\">\n                    <svg width=\"24\" height=\"31\" viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>\n                </div>\n                <div class=\"player-panel__size button selector\"></div>\n                <div class=\"player-panel__fullscreen button selector\">\n                    <svg width=\"27\" height=\"28\" viewBox=\"0 0 27 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <path d=\"M2 11V2H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M2 17V26H11\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 11V2H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                        <path d=\"M25 17V26H16\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
 
   var html$R = "<div class=\"player-video\">\n    <div class=\"player-video__display\"></div>\n    <div class=\"player-video__loader\"></div>\n    <div class=\"player-video__paused hide\">\n        <svg width=\"19\" height=\"25\" viewBox=\"0 0 19 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"13\" width=\"6\" height=\"25\" rx=\"2\" fill=\"white\"/>\n        </svg>\n    </div>\n    <div class=\"player-video__subtitles hide\">\n        <div class=\"player-video__subtitles-text\"></div>\n    </div>\n</div>";
 
-  var html$Q = "<div class=\"player-info\">\n    <div class=\"player-info__body\">\n        <div class=\"player-info__line\">\n            <div class=\"player-info__name\"></div>\n            <div class=\"player-info__time\"><span class=\"time--clock\"></span></div>\n        </div>\n\n        <div class=\"player-info__values\">\n            <div class=\"value--size\">\n                <span>\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...</span>\n            </div>\n            <div class=\"value--stat\">\n                <span></span>\n            </div>\n            <div class=\"value--speed\">\n                <span></span>\n            </div>\n        </div>\n\n        <div class=\"player-info__error hide\"></div>\n    </div>\n</div>";
+  var html$Q = "<div class=\"player-info\">\n    <div class=\"player-info__body\">\n        <div class=\"player-info__line\">\n            <div class=\"player-info__name\"></div>\n            <div class=\"player-info__time\"><span class=\"time--clock\"></span></div>\n        </div>\n\n        <div class=\"player-info__values\">\n            <div class=\"value--size\">\n                <span>加载中...</span>\n            </div>\n            <div class=\"value--stat\">\n                <span></span>\n            </div>\n            <div class=\"value--speed\">\n                <span></span>\n            </div>\n        </div>\n\n        <div class=\"player-info__error hide\"></div>\n    </div>\n</div>";
 
   var html$P = "<div class=\"selectbox\">\n    <div class=\"selectbox__layer\"></div>\n    <div class=\"selectbox__content layer--height\">\n        <div class=\"selectbox__head\">\n            <div class=\"selectbox__title\"></div>\n        </div>\n        <div class=\"selectbox__body\"></div>\n    </div>\n</div>";
 
@@ -758,17 +758,17 @@
 
   var html$N = "<div class=\"info layer--width\">\n    <div class=\"info__rate\"><span></span></div>\n    <div class=\"info__left\">\n        <div class=\"info__title\"></div>\n        <div class=\"info__title-original\"></div>\n    </div>\n    <div class=\"info__right\">\n        <div class=\"info__icon icon--book\"></div>\n        <div class=\"info__icon icon--like\"></div>\n        <div class=\"info__icon icon--wath\"></div>\n    </div>\n</div>";
 
-  var html$M = "<div>\n    <div class=\"simple-button selector filter--search\">\n            <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n            viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n        <g>\n            <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                S326.847,409.323,225.474,409.323z\"/>\n        </g>\n        <g>\n            <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n        </g>\n\n        </svg>\n\n        <span>\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C</span>\n    </div>\n    <div class=\"simple-button simple-button--filter selector filter--sort\">\n        <span>\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C</span><div class=\"hide\"></div>\n    </div>\n\n    <div class=\"simple-button simple-button--filter selector filter--filter\">\n        <span>\u0424\u0438\u043B\u044C\u0442\u0440</span><div class=\"hide\"></div>\n    </div>\n</div>";
+  var html$M = "<div>\n    <div class=\"simple-button selector filter--search\">\n            <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n            viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n        <g>\n            <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                S326.847,409.323,225.474,409.323z\"/>\n        </g>\n        <g>\n            <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n        </g>\n\n        </svg>\n\n        <span>优化</span>\n    </div>\n    <div class=\"simple-button simple-button--filter selector filter--sort\">\n        <span>排序</span><div class=\"hide\"></div>\n    </div>\n\n    <div class=\"simple-button simple-button--filter selector filter--filter\">\n        <span>过滤器</span><div class=\"hide\"></div>\n    </div>\n</div>";
 
-  var html$L = "<div class=\"card-more selector\">\n    <div class=\"card-more__title\">\n        \u0415\u0449\u0435\n    </div>\n</div>";
+  var html$L = "<div class=\"card-more selector\">\n    <div class=\"card-more__title\">\n        更多</div>\n</div>";
 
-  var html$K = "<div class=\"search\">\n    <div class=\"search__left\">\n        <div class=\"search__title\">\u041F\u043E\u0438\u0441\u043A</div>\n        <div class=\"search__input\">\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442...</div>\n        <div class=\"search__keypad\"><div class=\"simple-keyboard\"></div></div>\n        <div class=\"search__history\"></div>\n    </div>\n    <div class=\"search__results\"></div>\n</div>";
+  var html$K = "<div class=\"search\">\n    <div class=\"search__left\">\n        <div class=\"search__title\">搜索</div>\n        <div class=\"search__input\">输入文本...</div>\n        <div class=\"search__keypad\"><div class=\"simple-keyboard\"></div></div>\n        <div class=\"search__history\"></div>\n    </div>\n    <div class=\"search__results\"></div>\n</div>";
 
-  var html$J = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">\u0418\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u0435</div>\n    </div>\n</div>";
+  var html$J = "<div class=\"settings-input\">\n    <div class=\"settings-input__content\">\n        <div class=\"settings-input__input\"></div>\n\n        <div class=\"simple-keyboard\"></div>\n\n        <div class=\"settings-input__links\">收藏夹</div>\n    </div>\n</div>";
 
   var html$I = "<div class=\"modal\">\n    <div class=\"modal__content\">\n        <div class=\"modal__head\">\n            <div class=\"modal__title\">{title}</div>\n        </div>\n        <div class=\"modal__body\">\n            \n        </div>\n    </div>\n</div>";
 
-  var html$H = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">\u0428\u0442\u0430\u0431: {headquarters}</div>\n    <div class=\"company__homepage\">\u0421\u0430\u0439\u0442: {homepage}</div>\n    <div class=\"company__country\">\u0421\u0442\u0440\u0430\u043D\u0430: {origin_country}</div>\n</div>";
+  var html$H = "<div class=\"company\">\n    <div class=\"company__name\">{name}</div>\n    <div class=\"company__headquarters\">总部: {headquarters}</div>\n    <div class=\"company__homepage\">网站: {homepage}</div>\n    <div class=\"company__country\">国家: {origin_country}</div>\n</div>";
 
   var html$G = "<div class=\"modal-loading\">\n    \n</div>";
 
@@ -782,27 +782,27 @@
 
   var html$B = "<div class=\"notice notice--card selector\">\n    <div class=\"notice__left\">\n        <div class=\"notice__img\">\n            <img src=\"{img}\" />\n        </div>\n    </div>\n    <div class=\"notice__body\">\n        <div class=\"notice__head\">\n            <div class=\"notice__title\">{title}</div>\n            <div class=\"notice__time\">{time}</div>\n        </div>\n        \n        <div class=\"notice__descr\">{descr}</div>\n    </div>\n</div>";
 
-  var html$A = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">\u0411\u0438\u0442\u0440\u0435\u0439\u0442: <span>{bitrate} \u041C\u0431/\u0441</span></div>\n        <div class=\"torrent-item__seeds\">\u0420\u0430\u0437\u0434\u0430\u044E\u0442: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">\u041A\u0430\u0447\u0430\u044E\u0442: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
+  var html$A = "<div class=\"torrent-item selector\">\n    <div class=\"torrent-item__title\">{title}</div>\n    <div class=\"torrent-item__details\">\n        <div class=\"torrent-item__date\">{date}</div>\n        <div class=\"torrent-item__tracker\">{tracker}</div>\n\n        <div class=\"torrent-item__bitrate bitrate\">比率: <span>{bitrate} Mbps</span></div>\n        <div class=\"torrent-item__seeds\">分享: <span>{seeds}</span></div>\n        <div class=\"torrent-item__grabs\">用户: <span>{grabs}</span></div>\n        \n        <div class=\"torrent-item__size\">{size}</div>\n    </div>\n</div>";
 
   var html$z = "<div class=\"torrent-file selector\">\n    <div class=\"torrent-file__title\">{title}</div>\n    <div class=\"torrent-file__size\">{size}</div>\n</div>";
 
   var html$y = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__info\">\n            <div class=\"files__title\">{title}</div>\n            <div class=\"files__title-original\">{original_title}</div>\n        </div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-  var html$x = "<div class=\"about\">\n    <div>\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0435 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0432\u0438\u0434\u0435\u043E, \u043D\u043E\u0432\u0438\u043D\u043A\u0430\u0445, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u0444\u0438\u043B\u044C\u043C\u0430\u0445 \u0438 \u0442.\u0434. \u0412\u0441\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0432 \u043F\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0446\u0435\u043B\u044F\u0445, \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0441\u0432\u043E\u0438 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0441\u0435\u0440\u0432\u0435\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u041D\u0430\u0448 \u043A\u0430\u043D\u0430\u043B</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>\u0413\u0440\u0443\u043F\u043F\u0430</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>\u0412\u0435\u0440\u0441\u0438\u044F</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>\u0414\u043E\u043D\u0430\u0442</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+  var html$x = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donat</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
   var html$w = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-  var html$v = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>\u041F\u0440\u0438\u0447\u0438\u043D\u044B</div>\n        <ul>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0430\u0434\u0440\u0435\u0441: <code>{ip}</code></li>\n            <li class=\"nocorect\">\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u0430\u0434\u0440\u0435\u0441 <code>{ip}</code> \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043D\u0435\u0432\u0435\u0440\u043D\u044B\u043C!</li>\n            <li>\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u043E\u0442\u0432\u0435\u0442: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E?</div>\n        <ul>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0430\u0434\u0440\u0435\u0441: <code>192.168.0.\u0445\u0445\u0445:8090</code></li>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044E Matrix</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C?</div>\n        <ul>\n            <li>\u041D\u0430 \u044D\u0442\u043E\u043C \u0436\u0435 \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435, \u043E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 <code>{ip}/echo</code></li>\n            <li>\u0415\u0441\u043B\u0438 \u0436\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u043D\u0435 \u043E\u0442\u0432\u0435\u0442\u0438\u0442, \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D \u043B\u0438 TorrServe, \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0435\u0433\u043E.</li>\n            <li>\u0415\u0441\u043B\u0438 \u0436\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u043E\u0442\u0432\u0435\u0442\u0438\u043B, \u0443\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0432 \u043E\u0442\u0432\u0435\u0442\u0435 \u0435\u0441\u0442\u044C \u0441\u0442\u0440\u043E\u043A\u0430 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$v = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>正在使用的地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址<code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>正确吗？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>，如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器并访问地址<code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，请检查 TorrServe 是否正在运行，或者重新启动它。</li>\n            <li>如果浏览器有响应，请确保响应包含行<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$u = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>\u041F\u0440\u0438\u0447\u0438\u043D\u044B</div>\n        <ul>\n            <li>\u0417\u0430\u043F\u0440\u043E\u0441 \u043D\u0430 \u043F\u0438\u043D\u0433 \u0432\u0435\u0440\u043D\u0443\u043B \u043D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442</li>\n            <li>\u041E\u0442\u0432\u0435\u0442 \u043E\u0442 TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C?</div>\n        <ul>\n            <li>\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0443 \u0432\u0430\u0441 \u0441\u0442\u043E\u0438\u0442 \u0432\u0435\u0440\u0441\u0438\u044F Matrix</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C?</div>\n        <ul>\n            <li>\u041E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 <code>{ip}/echo</code></li>\n            <li>\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0432 \u043E\u0442\u0432\u0435\u0442\u0435 \u0435\u0441\u0442\u044C \u043D\u0430\u043B\u0438\u0447\u0438\u0435 \u043A\u043E\u0434\u0430 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$u = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址<code>{ip}/echo</code></li>\n            <li>确保响应包含代码<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$t = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>\u041F\u0440\u0438\u0447\u0438\u043D\u044B</div>\n        <ul>\n            <li>TorServer \u043D\u0435 \u0441\u043C\u043E\u0433 \u0441\u043A\u0430\u0447\u0430\u0442\u044C \u0442\u043E\u0440\u0440\u0435\u043D\u0442 \u0444\u0430\u0439\u043B</li>\n            <li>\u041E\u0442\u0432\u0435\u0442 \u043E\u0442 TorServer: {echo}</li>\n            <li>\u0421\u0441\u044B\u043B\u043A\u0430: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C?</div>\n        <ul>\n            <li>\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E \u043B\u0438 \u0432\u044B \u043D\u0430\u0441\u0442\u0440\u043E\u0438\u043B\u0438 Jackett</li>\n            <li>\u041F\u0440\u0438\u0432\u0430\u0442\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0438 \u043C\u043E\u0433\u0443\u0442 \u043D\u0435 \u0432\u044B\u0434\u0430\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0444\u0430\u0439\u043B</li>\n            <li>\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E Jackett \u0442\u043E\u0436\u0435 \u043C\u043E\u0436\u0435\u0442 \u0441\u043A\u0430\u0447\u0430\u0442\u044C \u0444\u0430\u0439\u043B</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C?</div>\n        <ul>\n            <li>\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0432 \u043D\u0430\u0448\u0443 \u0442\u0435\u043B\u0435\u0433\u0440\u0430\u043C \u0433\u0440\u0443\u043F\u043F\u0443: @lampa_group</li>\n            <li>\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u043A\u0430\u043A\u043E\u0439 \u0444\u0438\u043B\u044C\u043C, \u043A\u0430\u043A\u0430\u044F \u0440\u0430\u0437\u0434\u0430\u0447\u0430 \u0438 \u043F\u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u0444\u043E\u0442\u043E \u044D\u0442\u043E\u0439 \u0440\u0430\u0437\u0430\u0434\u0430\u0447\u0438</li>\n        </ul>\n    </div>\n</div>";
+  var html$t = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的答案: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办?</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能没有提供文件的链接</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>要做什么？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指定哪部电影，什么发行版，如果可能，请注明发行版的照片</li>\n        </ul>\n    </div>\n</div>";
 
-  var html$s = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u043F\u0440\u043E\u0441\u043C\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044C \u043A\u043E\u043D\u0442\u0435\u043D\u0442 \u0438\u0437 \u0442\u043E\u0440\u0440\u0435\u043D\u0442-\u0444\u0430\u0439\u043B\u043E\u0432 \u0432 \u043E\u043D\u043B\u0430\u0439\u043D \u0440\u0435\u0436\u0438\u043C\u0435.<br><br>\u0411\u043E\u043B\u0435\u0435 \u0434\u0435\u0442\u0430\u043B\u044C\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u043F\u043E \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0435, \u0432\u044B \u043D\u0430\u0439\u0434\u0435\u0442\u0435 \u0432 \u0442\u0435\u043B\u0435\u0433\u0440\u0430\u043C \u0433\u0440\u0443\u043F\u043F\u0430\u0445 \u0447\u0442\u043E \u043D\u0438\u0436\u0435.</div>\n        \n        <div class=\"torrent-install__label\">\u0422\u0435\u043B\u0435\u0433\u0440\u0430\u043C \u0433\u0440\u0443\u043F\u043F\u044B</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
+  var html$s = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">需要 TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 一个允许您在线查看 torrent 文件内容的应用程序。<br><br>更详细的安装信息，您将在下面的电报组中找到。</div>\n        \n        <div class=\"torrent-install__label\">电报组</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u0441\u044F \u043A TorrServe, \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0430 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u0440\u0430\u0437\u043D\u043E\u0439. \u0414\u0430\u0432\u0430\u0439\u0442\u0435 \u0431\u044B\u0441\u0442\u0440\u043E \u043F\u0440\u043E\u0439\u0434\u0435\u043C\u0441\u044F \u043F\u043E \u0441\u043F\u0438\u0441\u043A\u0443 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u044B\u0445 \u043F\u0440\u043E\u0431\u043B\u0435\u043C \u0438 \u0432\u0441\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u043C.</div>\n\n    <div class=\"torrent-checklist__progress-steps\">\u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043E 0 \u0438\u0437 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>\u0417\u0430\u043F\u0443\u0449\u0435\u043D \u043B\u0438 TorrServe</li>\n                <li>\u0414\u0438\u043D\u0430\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439 IP \u0430\u0434\u0440\u0435\u0441</li>\n                <li>\u041F\u0440\u043E\u0442\u043E\u043A\u043E\u043B</li>\n                <li>\u0411\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043A\u0430 \u0430\u043D\u0442\u0438\u0432\u0438\u0440\u0443\u0441\u0430\u043C\u0438</li>\n                <li>\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u043D\u0430 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u0441\u0442\u044C</li>\n                <li>\u0412\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u043D\u0435 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C, \u0447\u0442\u043E \u0432\u044B \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u043B\u0438 TorrServe \u043D\u0430 \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435 \u0433\u0434\u0435 \u043E\u043D \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D.</div>\n            <div class=\"hide\">\u0427\u0430\u0441\u0442\u0430\u044F \u043E\u0448\u0438\u0431\u043A\u0430, \u0438\u0437\u043C\u0435\u043D\u0438\u043B\u0441\u044F IP \u0430\u0434\u0440\u0435\u0441 \u0432\u0430\u0448\u0435\u0433\u043E \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430. \u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C, \u0447\u0442\u043E IP \u0430\u0434\u0440\u0435\u0441 \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u0432\u044B \u0432\u0432\u0435\u043B\u0438 {ip}, \u0441\u043E\u0432\u043F\u0430\u0434\u0430\u0435\u0442 \u0441 \u0430\u0434\u0440\u0435\u0441\u043E\u043C \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430 \u043D\u0430 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D TorrServe</div>\n            <div class=\"hide\">\u0414\u043B\u044F \u043E\u0431\u0440\u0430\u0449\u0435\u043D\u0438\u044F \u043A TorrServe, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B :8090 \u0432 \u043A\u043E\u043D\u0446\u0435 \u0430\u0434\u0440\u0435\u0441\u0430. \u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C, \u0447\u0442\u043E \u0432 \u043A\u043E\u043D\u0446\u0435 \u0432\u0430\u0448\u0435\u0433\u043E IP \u0430\u0434\u0440\u0435\u0441\u0430 \u043F\u0440\u043E\u043F\u0438\u0441\u0430\u043D \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B, \u0432\u0430\u0448 \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0430\u0434\u0440\u0435\u0441 {ip}</div>\n            <div class=\"hide\">\u0427\u0430\u0441\u0442\u043E\u0435 \u044F\u0432\u043B\u0435\u043D\u0438\u0435, \u0430\u043D\u0442\u0438\u0432\u0438\u0440\u0443\u0441 \u0438\u043B\u0438 \u0431\u0440\u0430\u043D\u0434\u043C\u0430\u0443\u044D\u0440 \u043C\u043E\u0436\u0435\u0442 \u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0434\u043E\u0441\u0442\u0443\u043F \u043F\u043E IP \u0430\u0434\u0440\u0435\u0441\u0443, \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0430\u043D\u0442\u0438\u0432\u0438\u0440\u0443\u0441 \u0438 \u0431\u0440\u0430\u043D\u0434\u043C\u0430\u0443\u044D\u0440.</div>\n            <div class=\"hide\">\u041D\u0430 \u043B\u044E\u0431\u043E\u043C \u0434\u0440\u0443\u0433\u043E\u043C \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435, \u0433\u0434\u0435 \u043D\u0435 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D TorrServe, \u043E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u0432 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0435 \u0430\u0434\u0440\u0435\u0441 {ip} \u0438 \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435, \u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D \u043B\u0438 \u043E\u0442\u0432\u0435\u0442 \u043E\u0442 TorrServe</div>\n            <div class=\"hide\">\u0415\u0441\u043B\u0438 \u043F\u043E\u0441\u043B\u0435 \u0432\u0441\u0435\u0445 \u043F\u0440\u043E\u0432\u0435\u0440\u043E\u043A \u0432\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u043D\u0435 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442, \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C TorrServe \u0438 \u0438\u043D\u0442\u0435\u0440\u043D\u0435\u0442 \u0430\u0434\u0430\u043F\u0442\u0435\u0440.</div>\n            <div class=\"hide\">\u0415\u0441\u043B\u0438 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0430 \u043D\u0435 \u0443\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0430, \u043F\u0438\u0448\u0438\u0442\u0435 \u0432 \u0442\u0435\u043B\u0435\u0433\u0440\u0430\u043C \u0433\u0440\u0443\u043F\u043F\u0443 @lampa_group \u0441 \u0442\u0435\u043A\u0441\u0442\u043E\u043C (\u041B\u0430\u043C\u043F\u0430 \u043D\u0435 \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0441\u044F \u043A TorrServe \u043F\u043E\u0441\u043B\u0435 \u0432\u0441\u0435\u0445 \u043F\u0440\u043E\u0432\u0435\u0440\u043E\u043A, \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0430\u0434\u0440\u0435\u0441 {ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">\u041D\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0443</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
+  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">失败连接到 TorrServe，问题可能是让我们快速浏览可能出现的问题列表并检查所有内容。</div>\n\n    <div class=\"torrent-checklist__progress-steps\">成功 0 / 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>正在运行 TorrServe</li>\n                <li>动态 IP 地址</li>\n                <li>协议</li>\n                <li>病毒被阻止</li>\n                <li>检查可用性</li>\n                <li>仍然无法工作</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">验证说明您已经在安装 TorrServe 的设备上启动了。</div>\n            <div class=\"hide\">常见错误，您的设备的 IP 地址已更改。请确保您输入的 IP 地址是{ip}, 与安装了 TorrServe 的设备的地址相匹配</div>\n            <div class=\"hide\">要访问 TorrServe，您需要在地址末尾添加协议:8090 确保协议写在 IP 地址的末尾，您当前的地址{ip}</div>\n            <div class=\"hide\">频繁，防病毒或防火墙可能会阻止对该 IP 地址的访问，请尝试禁用您的防病毒和防火墙。</div>\n            <div class=\"hide\">在任何其他未安装 TorrServe 的设备上，在浏览器中打开该地址{ip} 并检查来自 TorrServe 的响应是否可用</div>\n            <div class=\"hide\">如果在所有检查后仍然无法正常工作，请尝试重新启动 TorrServe 和 Internet 适配器。</div>\n            <div class=\"hide\">如果问题仍然存在，请在 @lampa_group 组中写入带有文本的电报（经过所有检查，当前地址{ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">开始检查</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
 
-  var html$q = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">\u0421\u0435\u0440\u0438\u044F - <b>{episode}</b> &nbsp;\u2022&nbsp; \u0421\u0435\u0437\u043E\u043D - <b>{season}</b> &nbsp;\u2022&nbsp; \u0412\u044B\u0445\u043E\u0434 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
+  var html$q = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">灯未连接到 TorrServe”“电视剧 -<b>{episode}</b> &nbsp;\u2022&nbsp; 季 -<b>{season}</b> &nbsp;\u2022&nbsp; 退出 -{air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
   var html$p = "<div class=\"search-box search\">\n    <div class=\"search-box__input search__input\"></div>\n    <div class=\"search-box__keypad search__keypad\"><div class=\"simple-keyboard\"></div></div>\n</div>";
 
@@ -812,13 +812,13 @@
 
   var html$m = "<div class=\"time-line\" data-hash=\"{hash}\">\n    <div style=\"width: {percent}%\"></div>\n</div>";
 
-  var html$l = "<span class=\"time-line-details\" data-hash=\"{hash}\">\n\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u043D\u043D\u043E - <b a=\"t\">{time}</b> / <b a=\"p\">{percent}</b> \u0438\u0437 <b a=\"d\">{duration}</b>\n</span>";
+  var html$l = "<span class=\"time-line-details\" data-hash=\"{hash}\">\n已查看 -<b a=\"t\">{time}</b> / <b a=\"p\">{percent}</b> 来自<b a=\"d\">{duration}</b>\n</span>";
 
-  var html$k = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">\u041F\u0443\u0441\u0442\u043E</div>\n    <div class=\"empty__descr\">\u041F\u043E \u0432\u0430\u0448\u0435\u043C\u0443 \u0444\u0438\u043B\u044C\u0442\u0440\u0443 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0448\u043B\u043E\u0441\u044C, \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u0435 \u0444\u0438\u043B\u044C\u0442\u0440.</div>\n</div>";
+  var html$k = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有符合您的过滤器，请优化您的过滤器。</div>\n</div>";
 
   var html$j = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
-  var html$i = "<div class=\"plugins-catalog\">\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title selector\">\u0420\u0430\u0431\u043E\u0447\u0438\u0435 \u043F\u043B\u0430\u0433\u0438\u043D\u044B</div>\n        <div class=\"plugins-catalog__descr\">\u041F\u043B\u0430\u0433\u0438\u043D\u044B, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0442\u043E\u0447\u043D\u043E \u0440\u0430\u0431\u043E\u0442\u0430\u044E\u0442 \u0432 \u043B\u0430\u043C\u043F\u0435.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title\">\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u043F\u043B\u0430\u0433\u0438\u043D\u044B \u0441\u0440\u0435\u0434\u0438 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439</div>\n        <div class=\"plugins-catalog__descr\">\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u0438\u0437 \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B\u0445 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432 \u043C\u043E\u0436\u0435\u0442 \u043F\u0440\u0438\u0432\u0435\u0441\u0442\u0438 \u043A \u043D\u0435\u043A\u043E\u0440\u0440\u0435\u043A\u0442\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F.</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n</div>";
+  var html$i = "<div class=\"plugins-catalog\">\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title selector\">工作插件</div>\n        <div class=\"plugins-catalog__descr\">完全在灯中工作的插件。</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n\n    <div class=\"plugins-catalog__block\">\n        <div class=\"plugins-catalog__title\">用户中流行的插件</div>\n        <div class=\"plugins-catalog__descr\">从未知来源安装可能会导致应用程序无法正常工作。</div>\n        <div class=\"plugins-catalog__list\">\n            \n        </div>\n    </div>\n</div>";
 
   var html$h = "<div class=\"broadcast\">\n    <div class=\"broadcast__text\">{text}</div>\n\n    <div class=\"broadcast__scan\"><div></div></div>\n\n    <div class=\"broadcast__devices\">\n    \n    </div>\n</div>";
 
@@ -888,11 +888,11 @@
     broadcast: html$h
   };
 
-  function get$c(name) {
+  function get$b(name) {
     var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     var tpl = templates[name];
-    if (!tpl) throw 'Шаблон: ' + name + ' не найден!';
+    if (!tpl) throw '模板: ' + name + '未找到!';
 
     for (var n in vars) {
       tpl = tpl.replace(new RegExp('{' + n + '}', 'g'), vars[n]);
@@ -904,18 +904,18 @@
     return like_static ? tpl : $(tpl);
   }
 
-  function add$a(name, html) {
+  function add$9(name, html) {
     templates[name] = html;
   }
 
-  function all$2() {
+  function all$1() {
     return templates;
   }
 
   var Template = {
-    get: get$c,
-    add: add$a,
-    all: all$2
+    get: get$b,
+    add: add$9,
+    all: all$1
   };
 
   var Base64 = {
@@ -1064,7 +1064,7 @@
 
       if (SERVER.movie) {
         intentExtra = {
-          title: "[LAMPA] " + SERVER.movie.title,
+          title: "[LAMPA]" + SERVER.movie.title,
           poster: SERVER.movie.img,
           action: "play",
           data: {
@@ -1100,7 +1100,7 @@
   function openTorrent(SERVER) {
     if (checkVersion(10)) {
       var intentExtra = {
-        title: "[LAMPA] " + SERVER.object.title,
+        title: "[LAMPA]" + SERVER.object.title,
         poster: SERVER.object.poster,
         action: "play",
         data: {
@@ -1444,23 +1444,23 @@
       var msg = '';
 
       if (jqXHR.status === 0 && exception !== 'timeout') {
-        msg = 'Нет подключения к сети.';
+        msg = '没有网络连接。';
       } else if (jqXHR.status == 404) {
-        msg = 'Запрошенная страница не найдена. [404]';
+        msg = '未找到请求的页面。[404]';
       } else if (jqXHR.status == 401) {
-        msg = 'Авторизация не удалась';
+        msg = '授权失败';
       } else if (jqXHR.status == 500) {
-        msg = 'Внутренняя ошибка сервера. [500]';
+        msg = '内部服务器错误。[500]';
       } else if (exception === 'parsererror') {
-        msg = 'Запрошенный синтаксический анализ JSON завершился неудачно.';
+        msg = '请求的 JSON 解析失败失败。';
       } else if (exception === 'timeout') {
-        msg = 'Время запроса истекло.';
+        msg = '请求超时。';
       } else if (exception === 'abort') {
-        msg = 'Запрос был прерван.';
+        msg = '请求被中止。';
       } else if (exception === 'custom') {
         msg = jqXHR.responseText;
       } else {
-        msg = 'Неизвестная ошибка: ' + jqXHR.responseText;
+        msg = '未知错误: ' + jqXHR.responseText;
       }
 
       return msg;
@@ -1771,15 +1771,15 @@
 
   function bytesToSize(bytes, speed) {
     if (bytes == 0) {
-      return '0 Байт';
+      return '0 字节';
     }
 
     var unitMultiple = 1024;
-    var unitNames = ['Байт', 'КБ', 'МБ', 'ГБ', 'ТБ', 'ПБ'];
+    var unitNames = ['字节', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
     if (speed) {
       unitMultiple = 1000;
-      unitNames = ['бит', 'Кбит', 'Мбит', 'Гбит', 'Тбит', 'Пбит'];
+      unitNames = ['位', 'Kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps'];
     }
 
     var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
@@ -1808,13 +1808,13 @@
 
   function time$1(html) {
     var create = function create() {
-      var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Ма', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-      var days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+      var months = ['Jan', '二月', '三月', '四月', 'Ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+      var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
       this.moth = function (m) {
         var n = months[m];
         var d = n.slice(-1);
-        if (d == 'ь') return n.slice(0, n.length - 1) + 'я';else if (n == 'Ма') return n + 'я';else return n + '';
+        if (d == 'ь') return n.slice(0, n.length - 1) + 'я';else if (n == '五月') return n + 'я';else return n + '';
       };
 
       this.tik = function () {
@@ -1854,8 +1854,8 @@
   }
 
   function parseTime(str) {
-    var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Ма', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-    var days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+    var months = ['一月', '二月', '三月', '四月', 'Ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
     var mouth = function mouth(m) {
       var n = months[m];
@@ -1894,7 +1894,7 @@
   function secondsToTimeHuman(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'ч. ' : '') + minutes + 'м.';
+    return (hours ? hours + 'h' : '') + minutes + 'm';
   }
 
   function strToTime(str) {
@@ -2069,21 +2069,6 @@
     document.body.removeChild(textArea);
   }
 
-  function imgLoad(image, src, onload, onerror) {
-    var img = $(image)[0];
-
-    img.onload = function () {
-      if (onload) onload();
-    };
-
-    img.onerror = function (e) {
-      img.src = './img/img_broken.svg';
-      if (onerror) onerror();
-    };
-
-    img.src = src;
-  }
-
   var Utils = {
     secondsToTime: secondsToTime$1,
     secondsToTimeHuman: secondsToTimeHuman,
@@ -2108,11 +2093,10 @@
     pathToNormalTitle: pathToNormalTitle,
     hash: hash$2,
     uid: uid,
-    copyTextToClipboard: copyTextToClipboard,
-    imgLoad: imgLoad
+    copyTextToClipboard: copyTextToClipboard
   };
 
-  function component$e(name) {
+  function component$d(name) {
     var scrl = new create$r({
       mask: true,
       over: true
@@ -2138,7 +2122,7 @@
 
     scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
     comp.find('.clear-storage').on('hover:enter', function () {
-      Noty.show('Кеш и данные очищены');
+      Noty.show('缓存和数据清除');
       localStorage.clear();
       setTimeout(function () {
         window.location.reload();
@@ -2228,7 +2212,7 @@
   });
 
   function create$q(name) {
-    var comp = new component$e(name);
+    var comp = new component$d(name);
     body$3.empty().append(comp.render());
     listener$e.send('open', {
       name: name,
@@ -2238,7 +2222,7 @@
     Controller.toggle('settings_component');
   }
 
-  function init$j() {
+  function init$i() {
     var main = new main$6();
     main.onCreate = create$q;
     main.create();
@@ -2282,7 +2266,7 @@
 
   var Settings = {
     listener: listener$e,
-    init: init$j,
+    init: init$i,
     render: render$c,
     update: update$8
   };
@@ -2399,7 +2383,7 @@
    * Запуск
    */
 
-  function init$i() {
+  function init$h() {
     Settings.listener.follow('open', function (e) {
       body$2 = null;
 
@@ -2416,10 +2400,10 @@
       }
     });
     Favorite.listener.follow('add,added', function (e) {
-      save$5('add', e.where, e.card);
+      save$4('add', e.where, e.card);
     });
     Favorite.listener.follow('remove', function (e) {
-      save$5('remove', e.where, e.card);
+      save$4('remove', e.where, e.card);
     });
     Lampa.Listener.follow('activity', function (e) {
       var count = bookmarks.length;
@@ -2431,7 +2415,7 @@
     update$7();
   }
 
-  function save$5(method, type, card) {
+  function save$4(method, type, card) {
     var account = Storage.get('account', '{}');
 
     if (account.token && Storage.field('account_use')) {
@@ -2560,13 +2544,13 @@
         body$2.find('.settings--account-user-sync').on('hover:enter', function () {
           account = Storage.get('account', '{}');
           Select.show({
-            title: 'Синхронизация',
+            title: '同步',
             items: [{
-              title: 'Подтверждаю',
-              subtitle: 'Все закладки будут перенесены в профиль (' + account.profile.name + ')',
+              title: '确认',
+              subtitle: '所有书签将移动到配置文件(' + account.profile.name + ')',
               confirm: true
             }, {
-              title: 'Отменить'
+              title: '取消'
             }],
             onSelect: function onSelect(a) {
               if (a.confirm) {
@@ -2590,7 +2574,7 @@
                   },
                   success: function success(j) {
                     if (j.secuses) {
-                      Noty.show('Все закладки успешно перенесены');
+                      Noty.show('所有书签转移成功');
                       update$7();
                     }
                   }
@@ -2623,7 +2607,7 @@
     network$c.silent(api + 'profiles/all', function (result) {
       if (result.secuses) {
         Select.show({
-          title: 'Профили',
+          title: '个人资料',
           items: result.profiles.map(function (elem) {
             elem.title = elem.name;
             elem.selected = account.profile.id == elem.id;
@@ -2644,7 +2628,7 @@
         Noty.show(result.text);
       }
     }, function () {
-      Noty.show('Не удалось получить список профилей');
+      Noty.show('获取个人资料列表失败');
     }, false, {
       headers: {
         token: account.token
@@ -2656,9 +2640,9 @@
     var account = Storage.get('account', '{}');
 
     if (account.token) {
-      renderStatus$1('Авторизованы', 'Вы вошли под аккаунтом ' + account.email);
+      renderStatus$1('已授权', '您已登录' + account.email);
     } else {
-      renderStatus$1('Вход не выполнен', 'Ожидаем входа в аккаунт');
+      renderStatus$1('登录失败', '等待登录');
     }
   }
 
@@ -2666,7 +2650,7 @@
     return Storage.get('account', '{}').token && Storage.field('account_use');
   }
 
-  function get$b(params) {
+  function get$a(params) {
     return bookmarks.filter(function (elem) {
       return elem.type == params.type;
     }).map(function (elem) {
@@ -2699,17 +2683,17 @@
             token: result.user.token,
             id: result.user.id,
             profile: {
-              name: 'Общий',
+              name: '通用',
               id: 0
             }
           });
           Settings.update();
           update$7();
         } else {
-          renderStatus$1('Ошибка', result.text);
+          renderStatus$1('错误', result.text);
         }
       }, function () {
-        renderStatus$1('Ошибка', 'Нет подключения к сети');
+        renderStatus$1('错误', '无网络连接');
       }, {
         email: email,
         password: password
@@ -2752,9 +2736,9 @@
   }
 
   var Account = {
-    init: init$i,
+    init: init$h,
     working: working,
-    get: get$b,
+    get: get$a,
     plugins: plugins,
     notice: notice,
     pluginsStatus: pluginsStatus,
@@ -2763,32 +2747,32 @@
     torrentPopular: torrentPopular
   };
 
-  var data$5 = {};
+  var data$4 = {};
   var listener$d = start$4();
 
-  function save$4() {
-    Storage.set('favorite', data$5);
+  function save$3() {
+    Storage.set('favorite', data$4);
   }
   /**
-   * Добавить
+   * 添加
    * @param {String} where 
    * @param {Object} card 
    */
 
 
-  function add$9(where, card, limit) {
+  function add$8(where, card, limit) {
     read$1();
 
-    if (data$5[where].indexOf(card.id) < 0) {
-      Arrays.insert(data$5[where], 0, card.id);
+    if (data$4[where].indexOf(card.id) < 0) {
+      Arrays.insert(data$4[where], 0, card.id);
       listener$d.send('add', {
         where: where,
         card: card
       });
-      if (!search$6(card.id)) data$5.card.push(card);
+      if (!search$6(card.id)) data$4.card.push(card);
 
       if (limit) {
-        var excess = data$5[where].slice(limit);
+        var excess = data$4[where].slice(limit);
 
         for (var i = excess.length - 1; i >= 0; i--) {
           remove$1(where, {
@@ -2797,11 +2781,11 @@
         }
       }
 
-      save$4();
+      save$3();
     } else {
-      Arrays.remove(data$5[where], card.id);
-      Arrays.insert(data$5[where], 0, card.id);
-      save$4();
+      Arrays.remove(data$4[where], card.id);
+      Arrays.insert(data$4[where], 0, card.id);
+      save$3();
       listener$d.send('added', {
         where: where,
         card: card
@@ -2809,7 +2793,7 @@
     }
   }
   /**
-   * Удалить
+   * 删除
    * @param {String} where 
    * @param {Object} card 
    */
@@ -2817,17 +2801,17 @@
 
   function remove$1(where, card) {
     read$1();
-    Arrays.remove(data$5[where], card.id);
+    Arrays.remove(data$4[where], card.id);
     listener$d.send('remove', {
       where: where,
       card: card
     });
 
-    for (var i = data$5.card.length - 1; i >= 0; i--) {
-      var element = data$5.card[i];
+    for (var i = data$4.card.length - 1; i >= 0; i--) {
+      var element = data$4.card[i];
 
       if (!check(element).any) {
-        Arrays.remove(data$5.card, element);
+        Arrays.remove(data$4.card, element);
         listener$d.send('remove', {
           where: where,
           card: element
@@ -2835,7 +2819,7 @@
       }
     }
 
-    save$4();
+    save$3();
   }
   /**
    * Найти
@@ -2847,8 +2831,8 @@
   function search$6(id) {
     var found;
 
-    for (var index = 0; index < data$5.card.length; index++) {
-      var element = data$5.card[index];
+    for (var index = 0; index < data$4.card.length; index++) {
+      var element = data$4.card[index];
 
       if (element.id == id) {
         found = element;
@@ -2868,7 +2852,7 @@
   function toggle$7(where, card) {
     read$1();
     var find = cloud(card);
-    if (find[where]) remove$1(where, card);else add$9(where, card);
+    if (find[where]) remove$1(where, card);else add$8(where, card);
     return find[where] ? false : true;
   }
   /**
@@ -2880,10 +2864,10 @@
 
   function check(card) {
     var result = {
-      like: data$5.like.indexOf(card.id) > -1,
-      wath: data$5.wath.indexOf(card.id) > -1,
-      book: data$5.book.indexOf(card.id) > -1,
-      history: data$5.history.indexOf(card.id) > -1,
+      like: data$4.like.indexOf(card.id) > -1,
+      wath: data$4.wath.indexOf(card.id) > -1,
+      book: data$4.book.indexOf(card.id) > -1,
+      history: data$4.history.indexOf(card.id) > -1,
       any: true
     };
     if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
@@ -2932,16 +2916,16 @@
    */
 
 
-  function get$a(params) {
+  function get$9(params) {
     if (Account.working()) {
       return Account.get(params);
     } else {
       read$1();
       var result = [];
-      var ids = data$5[params.type];
+      var ids = data$4[params.type];
       ids.forEach(function (id) {
-        for (var i = 0; i < data$5.card.length; i++) {
-          var card = data$5.card[i];
+        for (var i = 0; i < data$4.card.length; i++) {
+          var card = data$4.card[i];
           if (card.id == id) result.push(card);
         }
       });
@@ -2958,8 +2942,8 @@
   function clear$6(where, card) {
     read$1();
     if (card) remove$1(where, card);else {
-      for (var i = data$5[where].length - 1; i >= 0; i--) {
-        var _card = search$6(data$5[where][i]);
+      for (var i = data$4[where].length - 1; i >= 0; i--) {
+        var _card = search$6(data$4[where][i]);
 
         if (_card) remove$1(where, _card);
       }
@@ -2971,33 +2955,18 @@
 
 
   function read$1() {
-    data$5 = Storage.get('favorite', '{}');
-    Arrays.extend(data$5, {
+    data$4 = Storage.get('favorite', '{}');
+    Arrays.extend(data$4, {
       like: [],
       wath: [],
       book: [],
       card: [],
       history: []
     });
-  }
-  /**
-   * Получить весь список что есть
-   */
-
-
-  function full$5() {
-    Arrays.extend(data$5, {
-      like: [],
-      wath: [],
-      book: [],
-      card: [],
-      history: []
-    });
-    return data$5;
   }
 
   function continues(type) {
-    return Arrays.clone(get$a({
+    return Arrays.clone(get$9({
       type: 'history'
     }).filter(function (e) {
       return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
@@ -3011,21 +2980,20 @@
    */
 
 
-  function init$h() {
+  function init$g() {
     read$1();
   }
 
   var Favorite = {
     listener: listener$d,
     check: cloud,
-    add: add$9,
+    add: add$8,
     remove: remove$1,
     toggle: toggle$7,
-    get: get$a,
-    init: init$h,
+    get: get$9,
+    init: init$g,
     clear: clear$6,
-    continues: continues,
-    full: full$5
+    continues: continues
   };
 
   function status$1(need) {
@@ -3053,35 +3021,35 @@
     };
   }
 
-  var data$4 = [];
+  var data$3 = [];
   /**
    * Запуск
    */
 
-  function init$g() {
-    data$4 = Storage.cache('recomends_scan', 500, []);
+  function init$f() {
+    data$3 = Storage.cache('recomends_scan', 500, []);
     Favorite.get({
       type: 'history'
     }).forEach(function (elem) {
       if (['cub', 'tmdb'].indexOf(elem.source) >= 0) {
-        var id = data$4.filter(function (a) {
+        var id = data$3.filter(function (a) {
           return a.id == elem.id;
         });
 
         if (!id.length) {
-          data$4.push({
+          data$3.push({
             id: elem.id,
             tv: elem.number_of_seasons
           });
         }
       }
     });
-    Storage.set('recomends_scan', data$4);
+    Storage.set('recomends_scan', data$3);
     setInterval(search$5, 120 * 1000);
   }
 
   function search$5() {
-    var ids = data$4.filter(function (e) {
+    var ids = data$3.filter(function (e) {
       return !e.scan;
     });
 
@@ -3107,15 +3075,15 @@
         }
       });
     } else {
-      data$4.forEach(function (a) {
+      data$3.forEach(function (a) {
         return a.scan = 0;
       });
     }
 
-    Storage.set('recomends_scan', data$4);
+    Storage.set('recomends_scan', data$3);
   }
 
-  function get$9(type) {
+  function get$8(type) {
     var all = Storage.get('recomends_list', '[]');
     return all.filter(function (e) {
       return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
@@ -3123,41 +3091,41 @@
   }
 
   var Recomends = {
-    init: init$g,
-    get: get$9
+    init: init$f,
+    get: get$8
   };
 
-  var data$3 = [];
+  var data$2 = [];
   var token = '3i40G5TSECmLF77oAqnEgbx61ZWaOYaE';
   var network$b = new create$s();
   var videocdn = 'https://videocdn.tv/api/short?api_token=' + token;
-  var object$1 = false;
+  var object = false;
   /**
    * Запуск
    */
 
-  function init$f() {
-    data$3 = Storage.cache('quality_scan', 500, []);
-    setInterval(extract$2, 30 * 1000);
+  function init$e() {
+    data$2 = Storage.cache('quality_scan', 500, []);
+    setInterval(extract$1, 30 * 1000);
   }
 
-  function add$8(elems) {
+  function add$7(elems) {
     elems.filter(function (elem) {
       return !elem.number_of_seasons;
     }).forEach(function (elem) {
-      var id = data$3.filter(function (a) {
+      var id = data$2.filter(function (a) {
         return a.id == elem.id;
       });
 
       if (!id.length) {
-        data$3.push({
+        data$2.push({
           id: elem.id,
           title: elem.title,
           imdb_id: elem.imdb_id
         });
       }
     });
-    Storage.set('quality_scan', data$3);
+    Storage.set('quality_scan', data$2);
   }
 
   function search$4(itm) {
@@ -3180,12 +3148,12 @@
       if (results.length && results[0].media) {
         results[0].media.map(function (m) {
           index = Math.max(index, qualitys.indexOf(m.source_quality));
-          object$1.quality = qualitys[index];
+          object.quality = qualitys[index];
         });
       }
 
-      save$3();
-    }, save$3);
+      save$2();
+    }, save$2);
   }
 
   function req(imdb_id, query) {
@@ -3194,9 +3162,9 @@
     network$b.timeout(1000 * 15);
     network$b.silent(url, function (json) {
       if (json.data && json.data.length) {
-        if (object$1.imdb_id) {
+        if (object.imdb_id) {
           var imdb = json.data.filter(function (elem) {
-            return elem.imdb_id == object$1.imdb_id;
+            return elem.imdb_id == object.imdb_id;
           });
           if (imdb.length) json.data = imdb;
         }
@@ -3206,54 +3174,54 @@
         }
       }
 
-      save$3();
-    }, save$3);
+      save$2();
+    }, save$2);
   }
 
-  function extract$2() {
-    var ids = data$3.filter(function (e) {
+  function extract$1() {
+    var ids = data$2.filter(function (e) {
       return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
     });
 
     if (ids.length) {
-      object$1 = ids[0];
+      object = ids[0];
 
-      if (object$1.imdb_id) {
-        req(object$1.imdb_id);
+      if (object.imdb_id) {
+        req(object.imdb_id);
       } else {
         var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
-        network$b.silent('http://' + dom + 'movie/' + object$1.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
-          req(ttid.imdb_id, object$1.title);
-        }, save$3);
+        network$b.silent('http://' + dom + 'movie/' + object.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
+          req(ttid.imdb_id, object.title);
+        }, save$2);
       }
     } else {
-      data$3.forEach(function (a) {
+      data$2.forEach(function (a) {
         return a.scaned = 0;
       });
     }
 
-    Storage.set('quality_scan', data$3);
+    Storage.set('quality_scan', data$2);
   }
 
-  function save$3() {
-    if (object$1) {
-      object$1.scaned = 1;
-      object$1.scaned_time = Date.now();
-      Storage.set('quality_scan', data$3);
+  function save$2() {
+    if (object) {
+      object.scaned = 1;
+      object.scaned_time = Date.now();
+      Storage.set('quality_scan', data$2);
     }
   }
 
-  function get$8(elem) {
-    var fid = data$3.filter(function (e) {
+  function get$7(elem) {
+    var fid = data$2.filter(function (e) {
       return e.id == elem.id;
     });
     return (fid.length ? fid[0] : {}).quality;
   }
 
   var VideoQuality = {
-    init: init$f,
-    get: get$8,
-    add: add$8
+    init: init$e,
+    get: get$7,
+    add: add$7
   };
 
   var network$a = new create$s();
@@ -3262,15 +3230,15 @@
 
   function url$5(u) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    u = add$7(u, 'api_key=' + key);
-    u = add$7(u, 'language=' + Storage.field('tmdb_lang'));
-    if (params.genres) u = add$7(u, 'with_genres=' + params.genres);
-    if (params.page) u = add$7(u, 'page=' + params.page);
-    if (params.query) u = add$7(u, 'query=' + params.query);
+    u = add$6(u, 'api_key=' + key);
+    u = add$6(u, 'language=' + Storage.field('tmdb_lang'));
+    if (params.genres) u = add$6(u, 'with_genres=' + params.genres);
+    if (params.page) u = add$6(u, 'page=' + params.page);
+    if (params.query) u = add$6(u, 'query=' + params.query);
 
     if (params.filter) {
       for (var i in params.filter) {
-        u = add$7(u, i + '=' + params.filter[i]);
+        u = add$6(u, i + '=' + params.filter[i]);
       }
     }
 
@@ -3278,7 +3246,7 @@
     return Utils.protocol() + base + u;
   }
 
-  function add$7(u, params) {
+  function add$6(u, params) {
     return u + (/\?/.test(u) ? '&' : '?') + params;
   }
 
@@ -3338,31 +3306,77 @@
       status.append(name, json);
     };
 
-    get$7('movie/now_playing', params, function (json) {
-      append('Сейчас смотрят', 'wath', json);
+    var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6('tv/popular', nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('热门国产剧', 'popular_tv_cn', json);
+      }, status.error.bind(status));
+
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
+        with_original_language: "ko",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : "18|80|10759|9648|10751"
+      };
+      get$6('tv/popular', nparams5, function (json) {
+        json.filter = nparams5.filter;
+        append('热门韩剧', 'popular_tv_kr', json);
+      }, status.error.bind(status));
+
+      var nparams6 = Arrays.clone(params);
+      nparams6.filter = {
+        with_original_language: "en",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6('tv/popular', nparams6, function (json) {
+        json.filter = nparams6.filter;
+        append('热门英美剧', 'popular_tv_en', json);
+      }, status.error.bind(status));
+
+      get$6('movie/now_playing', params, function (json) {
+      append('正在观看', 'wath', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$7('trending/moviews/day', params, function (json) {
-      append('Сегодня в тренде', 'trend_day', json);
+    get$6('trending/moviews/day', params, function (json) {
+      append('今日热门', 'trend_day', json);
     }, status.error.bind(status));
-    get$7('trending/moviews/week', params, function (json) {
-      append('В тренде за неделю', 'trend_week', json);
+    get$6('trending/moviews/week', params, function (json) {
+      append('本周热门', 'trend_week', json);
     }, status.error.bind(status));
-    get$7('movie/upcoming', params, function (json) {
-      append('Смотрите в кинозалах', 'upcoming', json);
+    get$6('movie/upcoming', params, function (json) {
+      append('在电影院观看', 'upcoming', json);
     }, status.error.bind(status));
-    get$7('movie/popular', params, function (json) {
-      append('Популярные фильмы', 'popular', json);
+    get$6('movie/popular', params, function (json) {
+      append('精选电影', 'popular', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$7('tv/popular', params, function (json) {
-      append('Популярные сериалы', 'popular_tv', json);
+    get$6('tv/popular', params, function (json) {
+      append('精选电视剧', 'popular_tv', json);
     }, status.error.bind(status));
-    get$7('movie/top_rated', params, function (json) {
-      append('Топ фильмы', 'top', json);
+    get$6('movie/top_rated', params, function (json) {
+      append('热门电影', 'top', json);
     }, status.error.bind(status));
-    get$7('tv/top_rated', params, function (json) {
-      append('Топ сериалы', 'top_tv', json);
+    get$6('tv/top_rated', params, function (json) {
+      append('热门电视剧', 'top_tv', json);
     }, status.error.bind(status));
   }
 
@@ -3379,11 +3393,11 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? 'Продолжить просмотр' : 'Вы смотрели'
+        title: params.url == 'tv' ? '继续观看' : '已观看'
       });
       if (recomend.length) fulldata.push({
         results: recomend,
-        title: 'Рекомендуем посмотреть'
+        title: '精选'
       });
       if (status.data["continue"] && status.data["continue"].results.length) fulldata.push(status.data["continue"]);
       if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
@@ -3406,12 +3420,86 @@
       status.append(name, json);
     };
 
-    get$7(params.url + '/now_playing', params, function (json) {
-      append('Сейчас смотрят', 'wath', json);
+    var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
+        with_original_language: "ko",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        'vote_average.gte': 7,
+        filter :"drama"
+      };
+      get$6('discover/' + params.url, nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('今年韩剧', 'new_kr', json);
+      }, status.error.bind(status));
+      var nparams7 = Arrays.clone(params);
+      nparams7.filter = {
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : "18|10759|10751|35|9648"
+      };
+      get$6('discover/' + params.url, nparams7, function (json) {
+        json.filter = nparams7.filter;
+        append('今年国产剧', 'new_cn', json);
+      }, status.error.bind(status));
+      var nparams8 = Arrays.clone(params);
+      nparams8.filter = {
+        with_original_language: "en",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6('discover/' + params.url, nparams8, function (json) {
+        json.filter = nparams8.filter;
+        append('今年英美剧', 'new_en', json);
+      }, status.error.bind(status));
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
+        with_original_language: "ko",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6(params.url + '/on_the_air', nparams5, function (json) {
+        json.filter = nparams5.filter;
+        append('本周韩剧', 'tv_air_kr', json);
+      }, status.error.bind(status));
+
+      var nparams1 = Arrays.clone(params);
+      nparams1.filter = {
+        with_original_language: "zh",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6(params.url + '/on_the_air', nparams1, function (json) {
+        json.filter = nparams1.filter;
+        append('本周国产剧', 'tv_air_ch', json);
+      }, status.error.bind(status));
+      var nparams2 = Arrays.clone(params);
+      nparams2.filter = {
+        with_original_language: "en",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$6(params.url + '/on_the_air', nparams2, function (json) {
+        json.filter = nparams2.filter;
+        append('本周英美剧', 'tv_air_en', json);
+      }, status.error.bind(status));
+
+      get$6(params.url + '/now_playing', params, function (json) {
+      append('正在观看', 'wath', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$7(params.url + '/popular', params, function (json) {
-      append('Популярное', 'popular', json);
+    get$6(params.url + '/popular', params, function (json) {
+      append('流行', 'popular', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
     var date = new Date();
@@ -3422,18 +3510,18 @@
       first_air_date_year: date.getFullYear(),
       'vote_average.gte': 7
     };
-    get$7('discover/' + params.url, nparams, function (json) {
+    get$6('discover/' + params.url, nparams, function (json) {
       json.filter = nparams.filter;
-      append('Новинки', 'new', json);
+      append('新', 'new', json);
     }, status.error.bind(status));
-    get$7(params.url + '/airing_today', params, function (json) {
-      append('Сегодня в эфире', 'tv_today', json);
+    get$6(params.url + '/airing_today', params, function (json) {
+      append('今天播出', 'tv_today', json);
     }, status.error.bind(status));
-    get$7(params.url + '/on_the_air', params, function (json) {
-      append('На этой неделе', 'tv_air', json);
+    get$6(params.url + '/on_the_air', params, function (json) {
+      append('本周', 'tv_air', json);
     }, status.error.bind(status));
-    get$7(params.url + '/top_rated', params, function (json) {
-      append('В топе', 'top', json);
+    get$6(params.url + '/top_rated', params, function (json) {
+      append('热门', 'top', json);
     }, status.error.bind(status));
   }
 
@@ -3442,17 +3530,17 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var status = new status$1(7);
     status.onComplite = oncomplite;
-    get$7(params.method + '/' + params.id, params, function (json) {
+    get$6(params.method + '/' + params.id, params, function (json) {
       json.source = 'tmdb';
 
       if (params.method == 'tv') {
-        get$7('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
+        get$6('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
           status.append('episodes', ep);
         }, status.error.bind(status));
       } else status.need--;
 
       if (json.belongs_to_collection) {
-        get$7('collection/' + json.belongs_to_collection.id, {}, function (collection) {
+        get$6('collection/' + json.belongs_to_collection.id, {}, function (collection) {
           collection.results = collection.parts.slice(0, 19);
           status.append('collection', collection);
         }, status.error.bind(status));
@@ -3463,16 +3551,16 @@
       status.need -= 2;
       status.error();
     });
-    get$7(params.method + '/' + params.id + '/credits', params, function (json) {
+    get$6(params.method + '/' + params.id + '/credits', params, function (json) {
       status.append('persons', json);
     }, status.error.bind(status));
-    get$7(params.method + '/' + params.id + '/recommendations', params, function (json) {
+    get$6(params.method + '/' + params.id + '/recommendations', params, function (json) {
       status.append('recomend', json);
     }, status.error.bind(status));
-    get$7(params.method + '/' + params.id + '/similar', params, function (json) {
+    get$6(params.method + '/' + params.id + '/similar', params, function (json) {
       status.append('simular', json);
     }, status.error.bind(status));
-    get$7(params.method + '/' + params.id + '/videos', params, function (json) {
+    get$6(params.method + '/' + params.id + '/videos', params, function (json) {
       status.append('videos', json);
     }, status.error.bind(status));
   }
@@ -3485,7 +3573,7 @@
     network$a.silent(u, oncomplite, onerror);
   }
 
-  function get$7(method) {
+  function get$6(method) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
     var onerror = arguments.length > 3 ? arguments[3] : undefined;
@@ -3501,12 +3589,12 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var status = new status$1(2);
     status.onComplite = oncomplite;
-    get$7('search/movie', params, function (json) {
-      json.title = 'Фильмы';
+    get$6('search/movie', params, function (json) {
+      json.title = '电影';
       status.append('movie', json);
     }, status.error.bind(status));
-    get$7('search/tv', params, function (json) {
-      json.title = 'Сериалы';
+    get$6('search/tv', params, function (json) {
+      json.title = '电视节目';
       status.append('tv', json);
     }, status.error.bind(status));
   }
@@ -3526,7 +3614,7 @@
 
     var convert = function convert(credits, person) {
       credits.crew.forEach(function (a) {
-        a.department = a.department == 'Production' ? 'Производство' : a.department == 'Directing' ? 'Режиссура' : a.department;
+        a.department = a.department == 'Production' ? '制作' : a.department == 'Directing' ? '导演' : a.department;
       });
       var cast = sortCredits(credits.cast),
           crew = sortCredits(credits.crew),
@@ -3537,12 +3625,12 @@
         return media.media_type === 'movie';
       })),
           knownFor; //Наиболее известные работы человека
-      //1. Группируем все работы по департаментам (Актер, Режиссер, Сценарист и т.д.)
+      //1. Группируем все работы по департаментам (演员, 导演, Сценарист и т.д.)
 
       knownFor = Arrays.groupBy(crew, 'department');
-      var actorGender = person.gender === 1 ? 'Актриса' : 'Актер';
-      if (movie.length > 0) knownFor["".concat(actorGender, " - \u0424\u0438\u043B\u044C\u043C\u044B")] = movie;
-      if (tv.length > 0) knownFor["".concat(actorGender, " - \u0421\u0435\u0440\u0438\u0430\u043B\u044B")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+      var actorGender = person.gender === 1 ? '女演员' : '演员';
+      if (movie.length > 0) knownFor["".concat(actorGender, " - 电影")] = movie;
+      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视剧")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
       knownFor = Object.entries(knownFor).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
@@ -3583,10 +3671,10 @@
       oncomplite(fulldata);
     };
 
-    get$7('person/' + params.id, params, function (json) {
+    get$6('person/' + params.id, params, function (json) {
       status.append('person', json);
     }, status.error.bind(status));
-    get$7('person/' + params.id + '/combined_credits', params, function (json) {
+    get$6('person/' + params.id + '/combined_credits', params, function (json) {
       status.append('credits', json);
     }, status.error.bind(status));
   }
@@ -3612,7 +3700,7 @@
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    get$7('tv/' + params.id + '/external_ids', oncomplite, onerror);
+    get$6('tv/' + params.id + '/external_ids', oncomplite, onerror);
   }
 
   function company$1() {
@@ -3627,14 +3715,14 @@
     var status = new status$1(from.length);
     status.onComplite = oncomplite;
     from.forEach(function (season) {
-      get$7('tv/' + tv.id + '/season/' + season, {}, function (json) {
+      get$6('tv/' + tv.id + '/season/' + season, {}, function (json) {
         status.append('' + season, json);
       }, status.error.bind(status));
     });
   }
 
   function screensavers(oncomplite, onerror) {
-    get$7('trending/all/week', {
+    get$6('trending/all/week', {
       page: Math.round(Math.random() * 30)
     }, function (json) {
       oncomplite(json.results.filter(function (entry) {
@@ -3662,7 +3750,7 @@
     find: find$1,
     screensavers: screensavers,
     external_ids: external_ids,
-    get: get$7
+    get: get$6
   };
 
   var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
@@ -3914,7 +4002,7 @@
           blocks.forEach(function (el) {
             if (el.element && el.element.alias === "web_featured") {
               var slides = {
-                title: 'Новинки',
+                title: '新的',
                 results: [],
                 wide: true,
                 nomore: true
@@ -3951,7 +4039,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? 'Продолжить просмотр' : 'Вы смотрели'
+        title: params.url == 'tv' ? '继续观看' : '你看过'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
@@ -3975,49 +4063,49 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Новое', 'new', 'Novelty', json);
+        append('新', 'new', 'Novelty', json);
       }, status.error.bind(status));
       list$4({
         url: 'topfilms',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Топ-новинки', 'top', 'topfilms', json);
+        append('热门新', 'top', 'topfilms', json);
       }, status.error.bind(status));
       list$4({
         url: 'comedy-plus-horror-movies',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Комедийные фильмы ужасов', 'three', 'comedy-plus-horror-movies', json);
+        append('喜剧恐怖片', 'three', 'comedy-plus-horror-movies', json);
       }, status.error.bind(status));
       list$4({
         url: 'collection_maniacs',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Фильмы про маньяков', 'four', 'collection_maniacs', json);
+        append('关于疯子的电影', 'four', 'collection_maniacs', json);
       }, status.error.bind(status));
       list$4({
         url: 'witches',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Фильмы про ведьм', 'five', 'witches', json);
+        append('关于女巫的电影', 'five', 'witches', json);
       }, status.error.bind(status));
       list$4({
         url: 'zombies',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Фильмы про зомби', 'six', 'zombies', json);
+        append('关于僵尸的电影', 'six', 'zombies', json);
       }, status.error.bind(status));
       list$4({
         url: 'Russian-17490',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Русские', 'seven', 'Russian-17490', json);
+        append('俄语', 'seven', 'Russian-17490', json);
       }, status.error.bind(status));
     } else {
       list$4({
@@ -4025,49 +4113,49 @@
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Новое', 'new', 'Serials', json);
+        append('新的', 'new', 'Serials', json);
       }, status.error.bind(status));
       list$4({
         url: 'horror-serial-all-svod',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Очень страшные', 'top', 'horror-serial-all-svod', json);
+        append('”“非常可怕', 'top', 'horror-serial-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'series-about-serial-killers',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Про маньяков', 'three', 'series-about-serial-killers', json);
+        append('关于疯子', 'three', 'series-about-serial-killers', json);
       }, status.error.bind(status));
       list$4({
         url: 'black-humor-serial-all-svod',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('С чёрным юмором', 'four', 'black-humor-serial-all-svod', json);
+        append('带有黑色幽默', 'four', 'black-humor-serial-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'legkiye-serialy-all-svod',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Лёгкие', 'five', 'legkiye-serialy-all-svod', json);
+        append('光', 'five', 'legkiye-serialy-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'comedy-serial-all-svod',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Комедийные', 'six', 'comedy-serial-all-svod', json);
+        append('喜剧', 'six', 'comedy-serial-all-svod', json);
       }, status.error.bind(status));
       list$4({
         url: 'russian_tvseries',
         type: 'COLLECTION',
         page: 1
       }, function (json) {
-        append('Русские', 'seven', 'russian_tvseries', json);
+        append('俄语', 'seven', 'russian_tvseries', json);
       }, status.error.bind(status));
     }
   }
@@ -4216,7 +4304,7 @@
         if (_person.profession_types[0] == 6) {
           data.push({
             name: _person.name,
-            character: 'Актер',
+            character: '演员',
             id: _person.id,
             img: images.length ? images[0].path : ''
           });
@@ -4424,7 +4512,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? 'Продолжить просмотр' : 'Вы смотрели'
+        title: params.url == 'tv' ? '继续看' : '你看过'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
@@ -4444,28 +4532,28 @@
       collections$1({
         id: '8258'
       }, function (json) {
-        append('Премьеры фильмов', 'new', '8258', {
+        append('电影首映', 'new', '8258', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '942'
       }, function (json) {
-        append('Лучшие фильмы', 'best', '942', {
+        append('最佳电影', 'best', '942', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '11512'
       }, function (json) {
-        append('Популярное сейчас', 'popular', '11512', {
+        append('现在流行', 'popular', '11512', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '8448'
       }, function (json) {
-        append('Выбор ivi', 'ivi', '8448', {
+        append('选择ivi', 'ivi', '8448', {
           results: json
         });
       }, status.error.bind(status));
@@ -4473,35 +4561,35 @@
       collections$1({
         id: '1984'
       }, function (json) {
-        append('Новинки', 'new', '1984', {
+        append('新', 'new', '1984', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '1712'
       }, function (json) {
-        append('Зарубежные', 'best', '1712', {
+        append('外国', 'best', '1712', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '935'
       }, function (json) {
-        append('Русские', 'rus', '935', {
+        append('俄语', 'rus', '935', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '12839'
       }, function (json) {
-        append('Популярное сейчас', 'popular', '12839', {
+        append('现在流行', 'popular', '12839', {
           results: json
         });
       }, status.error.bind(status));
       collections$1({
         id: '1057'
       }, function (json) {
-        append('Выбор ivi', 'ivi', '1057', {
+        append('选择ivi', 'ivi', '1057', {
           results: json
         });
       }, status.error.bind(status));
@@ -4531,91 +4619,91 @@
     collections$1({
       id: '4655'
     }, function (json) {
-      append('Рекомендуем вам посмотреть', '1', '4655', {
+      append('我们推荐你看', '1', '4655', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '2460'
     }, function (json) {
-      append('Мультики для всей семьи', '2', '2460', {
+      append('适合全家的动画片', '2', '2460', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '917'
     }, function (json) {
-      append('Триллеры-ужасы', '3', '917', {
+      append('恐怖惊悚片', '3', '917', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1327'
     }, function (json) {
-      append('Приключенческие комедии', '4', '1327', {
+      append('冒险喜剧', '4', '1327', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1246'
     }, function (json) {
-      append('Экранизации детективов', '5', '1246', {
+      append('侦探改编', '5', '1246', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1335'
     }, function (json) {
-      append('Криминальные комедии', '6', '1335', {
+      append('犯罪喜剧', '6', '1335', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1411'
     }, function (json) {
-      append('Романтические драмы', '7', '1411', {
+      append('浪漫剧', '7', '1411', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '73'
     }, function (json) {
-      append('Криминальные драмы', '8', '73', {
+      append('犯罪剧', '8', '73', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1413'
     }, function (json) {
-      append('Фантастические драмы', '9', '1413', {
+      append('精彩的戏剧', '9', '1413', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '62'
     }, function (json) {
-      append('Военные драмы', '10', '62', {
+      append('战争剧', '10', '62', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '1418'
     }, function (json) {
-      append('Мистические фильмы', '11', '1418', {
+      append('悬疑片', '11', '1418', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '4495'
     }, function (json) {
-      append('Зарубежные сериалы', '12', '4495', {
+      append('外国电视剧', '12', '4495', {
         results: json
       });
     }, status.error.bind(status));
     collections$1({
       id: '217'
     }, function (json) {
-      append('Исторические сериалы', '13', '217', {
+      append('历史电视剧', '13', '217', {
         results: json
       });
     }, status.error.bind(status));
@@ -4664,24 +4752,24 @@
 
   function url$4(u) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    if (params.genres) u = add$6(u, 'genre=' + params.genres);
-    if (params.page) u = add$6(u, 'page=' + params.page);
-    if (params.query) u = add$6(u, 'query=' + params.query);
+    if (params.genres) u = add$5(u, 'genre=' + params.genres);
+    if (params.page) u = add$5(u, 'page=' + params.page);
+    if (params.query) u = add$5(u, 'query=' + params.query);
 
     if (params.filter) {
       for (var i in params.filter) {
-        u = add$6(u, i + '=' + params.filter[i]);
+        u = add$5(u, i + '=' + params.filter[i]);
       }
     }
 
     return baseurl + u;
   }
 
-  function add$6(u, params) {
+  function add$5(u, params) {
     return u + (/\?/.test(u) ? '&' : '?') + params;
   }
 
-  function get$6(method) {
+  function get$5(method) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
     var onerror = arguments.length > 3 ? arguments[3] : undefined;
@@ -4723,39 +4811,39 @@
       status.append(name, json);
     };
 
-    get$6('?sort=now_playing', params, function (json) {
-      append('Сейчас смотрят', 's1', json);
+    get$5('?sort=now_playing', params, function (json) {
+      append('正在观看', 's1', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6('?sort=latest', params, function (json) {
-      append('Последнее добавление', 's2', json);
+    get$5('?sort=latest', params, function (json) {
+      append('最后添加', 's2', json);
     }, status.error.bind(status));
-    get$6('movie/now', params, function (json) {
-      append('Фильмы', 's3', json);
+    get$5('movie/now', params, function (json) {
+      append('电影', 's3', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=16', params, function (json) {
-      append('Мультфильмы', 's4', json);
+    get$5('?sort=now&genre=16', params, function (json) {
+      append('卡通', 's4', json);
     }, status.error.bind(status));
-    get$6('tv/now', params, function (json) {
-      append('Сериалы', 's5', json);
+    get$5('tv/now', params, function (json) {
+      append('电视节目', 's5', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=12', params, function (json) {
-      append('Приключения', 's6', json);
+    get$5('?sort=now&genre=12', params, function (json) {
+      append('冒险', 's6', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=35', params, function (json) {
-      append('Комедии', 's7', json);
+    get$5('?sort=now&genre=35', params, function (json) {
+      append('喜剧', 's7', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=10751', params, function (json) {
-      append('Семейное', 's8', json);
+    get$5('?sort=now&genre=10751', params, function (json) {
+      append('家庭', 's8', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=27', params, function (json) {
-      append('Ужасы', 's9', json);
+    get$5('?sort=now&genre=27', params, function (json) {
+      append('恐怖', 's9', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=878', params, function (json) {
-      append('Фантастика', 's10', json);
+    get$5('?sort=now&genre=878', params, function (json) {
+      append('科幻', 's10', json);
     }, status.error.bind(status));
-    get$6('?sort=now&genre=53', params, function (json) {
-      append('Триллер', 's11', json);
+    get$5('?sort=now&genre=53', params, function (json) {
+      append('惊悚', 's11', json);
     }, status.error.bind(status));
   }
 
@@ -4775,11 +4863,11 @@
       var data = status.data;
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? 'Продолжить просмотр' : 'Вы смотрели'
+        title: params.url == 'tv' ? '继续观看' : '观看'
       });
       if (recomend.length) fulldata.push({
         results: recomend,
-        title: 'Рекомендуем посмотреть'
+        title: '精选'
       });
 
       for (var i = 1; i <= total + 1; i++) {
@@ -4795,36 +4883,36 @@
       status.append(name, json);
     };
 
-    get$6('?cat=' + params.url + '&sort=now_playing', params, function (json) {
-      append('Сейчас смотрят', 's1', json);
+    get$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
+      append('正在观看', 's1', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
 
     if (params.url == 'tv') {
-      get$6('?cat=' + params.url + '&sort=update', params, function (json) {
-        append('Новые серии', 's2', json);
+      get$5('?cat=' + params.url + '&sort=update', params, function (json) {
+        append('新剧集', 's2', json);
       }, status.error.bind(status));
     }
 
-    get$6('?cat=' + params.url + '&sort=top', params, function (json) {
-      append('Популярное', 's3', json);
+    get$5('?cat=' + params.url + '&sort=top', params, function (json) {
+      append('热门', 's3', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6('?cat=' + params.url + '&sort=latest', params, function (json) {
-      append('Последнее добавление', 's4', json);
+    get$5('?cat=' + params.url + '&sort=latest', params, function (json) {
+      append('最新上传', 's4', json);
     }, status.error.bind(status));
-    get$6('?cat=' + params.url + '&sort=now', params, function (json) {
-      append('Новинки этого года', 's5', json);
+    get$5('?cat=' + params.url + '&sort=now', params, function (json) {
+      append('今年新', 's5', json);
     }, status.error.bind(status));
-    get$6('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
-      append('С высоким рейтингом', 's6', json);
+    get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
+      append('高度评价', 's6', json);
     }, status.error.bind(status));
   }
 
   function full$1(params, oncomplite, onerror) {
     var status = new status$1(7);
     status.onComplite = oncomplite;
-    get$6('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
+    get$5('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
       json.source = 'tmdb';
 
       if (params.method == 'tv') {
@@ -4889,7 +4977,7 @@
   var url$3;
   var network$6 = new create$s();
 
-  function get$5() {
+  function get$4() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -5029,7 +5117,7 @@
         element.MagnetUri = 'magnet:' + math[1];
         oncomplite();
       } else {
-        onerror('Неудалось получить magnet ссылку');
+        onerror('获取磁力链接失败');
       }
     }, function (a, c) {
       onerror(network$6.errorDecode(a, c));
@@ -5043,7 +5131,7 @@
   }
 
   var Parser = {
-    get: get$5,
+    get: get$4,
     torlook: torlook,
     jackett: jackett,
     marnet: marnet,
@@ -5104,7 +5192,7 @@
           number_of_seasons: 0
         }
       }, function (json) {
-        json.title = 'Парсер';
+        json.title = '种子';
         json.results = json.Results.slice(0, 20);
         json.Results = null;
         json.results.forEach(function (element) {
@@ -5259,7 +5347,7 @@
         var notice = notices[0];
 
         if (Utils.parseTime(notice.date).full == Utils.parseTime(Date.now()).full) {
-          card.find('.card__view').append('<div class="card__new-episode"><div>新系列</div></div>');
+          card.find('.card__view').append('<div class="card__new-episode"><div>新电视剧</div></div>');
         }
       }
     }
@@ -5296,18 +5384,18 @@
       var enabled = Controller.enabled().name;
       var status = Favorite.check(data);
       Select.show({
-        title: 'Действие',
+        title: '动作',
         items: [{
-          title: status.book ? 'Убрать из закладок' : 'В закладки',
-          subtitle: 'Смотрите в меню (Закладки)',
+          title: status.book ? '从书签中删除' : '书签',
+          subtitle: '在菜单中查看(书签)',
           where: 'book'
         }, {
-          title: status.like ? 'Убрать из понравившихся' : 'Нравится',
-          subtitle: 'Смотрите в меню (Нравится)',
+          title: status.like ? '不同' : '点赞',
+          subtitle: '在菜单中查看(点赞)',
           where: 'like'
         }, {
-          title: status.wath ? 'Убрать из ожидаемых' : 'Смотреть позже',
-          subtitle: 'Смотрите в меню (Позже)',
+          title: status.wath ? '删除出乎意料' : '稍后观看',
+          subtitle: '在菜单中查看(稍后)',
           where: 'wath'
         }],
         onBack: function onBack() {
@@ -5360,7 +5448,7 @@
     };
   }
 
-  function init$e() {
+  function init$d() {
     $(window).on('resize', update$6);
     toggleClasses();
     Storage.listener.follow('change', function (event) {
@@ -5415,7 +5503,7 @@
 
   var Layer = {
     update: update$6,
-    init: init$e
+    init: init$d
   };
 
   /* eslint-disable no-bitwise -- used for calculations */
@@ -6065,7 +6153,7 @@
   canvas.width = 30;
   canvas.height = 17;
 
-  function extract$1(img_data) {
+  function extract(img_data) {
     var data = img_data.data,
         colors = [];
 
@@ -6229,13 +6317,13 @@
     canvas.height = height;
   }
 
-  function get$4(img) {
+  function get$3(img) {
     reset(30, 17);
     var ratio = Math.max(canvas.width / img.width, canvas.height / img.height);
     var nw = img.width * ratio,
         nh = img.height * ratio;
     ctx.drawImage(img, -(nw - canvas.width) / 2, -(nh - canvas.height) / 2, nw, nh);
-    return extract$1(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    return extract(ctx.getImageData(0, 0, canvas.width, canvas.height));
   }
 
   function blur$1(img) {
@@ -6251,8 +6339,8 @@
   }
 
   var Color = {
-    get: get$4,
-    extract: extract$1,
+    get: get$3,
+    extract: extract,
     palette: palette,
     rgba: rgba,
     blur: blur$1,
@@ -6422,7 +6510,7 @@
     return html$d;
   }
 
-  function init$d() {
+  function init$c() {
     Storage.listener.follow('change', function (event) {
       if (event.name == 'background' || event.name == 'background_type') resize();
     });
@@ -6448,7 +6536,7 @@
     render: render$a,
     change: change,
     update: resize,
-    init: init$d,
+    init: init$c,
     immediately: immediately
   };
 
@@ -6574,7 +6662,7 @@
         } else {
           Activity$1.push({
             url: data.url,
-            title: 'Категория',
+            title: '类别',
             component: 'category_full',
             page: 2,
             genres: params.genres,
@@ -6594,7 +6682,7 @@
         onmore();
       };
 
-      var button = $('<div class="items-line__more selector">Еще</div>');
+      var button = $('<div class="items-line__more selector">更多</div>');
       button.on('hover:enter', function () {
         onmore();
       });
@@ -6682,8 +6770,8 @@
 
     this.empty = function () {
       this.update({
-        title: 'Еще',
-        original_title: 'Показать больше результатов',
+        title: '更多',
+        original_title: '显示更多结果',
         vote_average: 0
       }, true);
     };
@@ -6697,8 +6785,8 @@
   function create$l() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     Arrays.extend(params, {
-      title: 'Здесь пусто',
-      descr: 'На данный момент список пустой'
+      title: '此处为空',
+      descr: '列表当前为空'
     });
     var html = Template.get('empty', params);
 
@@ -6733,7 +6821,7 @@
     };
   }
 
-  function component$d(object) {
+  function component$c(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -6866,7 +6954,7 @@
       playerVars: {
         'controls': 0,
         'showinfo': 0,
-        'autohide': 1,
+        '自动hide': 1,
         'modestbranding': 1,
         'autoplay': 1
       },
@@ -7103,7 +7191,7 @@
       }
     });
     /**
-     * Аудиодорожки
+     * 音轨
      */
 
     Object.defineProperty(video, "audioTracks", {
@@ -7139,7 +7227,7 @@
       }
     });
     /**
-     * Субтитры
+     * 字幕
      */
 
     Object.defineProperty(video, "textTracks", {
@@ -7247,7 +7335,7 @@
 
     video.addEventListener = listener.follow.bind(listener);
     /**
-     * Вешаем события от плеера тайзен
+     * Вешаем события 来自 плеера тайзен
      */
 
     webapis.avplay.setListener({
@@ -7567,7 +7655,7 @@
       if (!qs.length) return;
       var enabled = Controller.enabled();
       Select.show({
-        title: 'Качество',
+        title: '质量',
         items: qs,
         onSelect: function onSelect(a) {
           elems$1.quality.text(a.title);
@@ -7593,19 +7681,19 @@
       tracks.forEach(function (element, p) {
         var name = [];
         name.push(p + 1);
-        name.push(element.language || element.name || 'Неизвестно');
+        name.push(element.language || element.name || '未知');
         if (element.label) name.push(element.label);
 
         if (element.extra) {
-          if (element.extra.channels) name.push('Каналов: ' + element.extra.channels);
-          if (element.extra.fourCC) name.push('Тип: ' + element.extra.fourCC);
+          if (element.extra.channels) name.push('频道: ' + element.extra.channels);
+          if (element.extra.fourCC) name.push('类型: ' + element.extra.fourCC);
         }
 
         element.title = name.join(' / ');
       });
       var enabled = Controller.enabled();
       Select.show({
-        title: 'Аудиодорожки',
+        title: '音轨',
         items: tracks,
         onSelect: function onSelect(a) {
           tracks.forEach(function (element) {
@@ -7630,18 +7718,18 @@
     if (subs.length) {
       if (subs[0].index !== -1) {
         Arrays.insert(subs, 0, {
-          title: 'Отключено',
+          title: '禁用',
           selected: true,
           index: -1
         });
       }
 
       subs.forEach(function (element, p) {
-        if (element.index !== -1) element.title = p + ' / ' + (element.language || element.label || 'Неизвестно');
+        if (element.index !== -1) element.title = p + ' / ' + (element.language || element.label || '未知');
       });
       var enabled = Controller.enabled();
       Select.show({
-        title: 'Субтитры',
+        title: '字幕',
         items: subs,
         onSelect: function onSelect(a) {
           subs.forEach(function (element) {
@@ -7668,41 +7756,41 @@
   html$b.find('.player-panel__size').on('hover:enter', function (e) {
     var select = Storage.get('player_size', 'default');
     var items = [{
-      title: 'По умолчанию',
-      subtitle: 'Размер видео по умолчанию',
+      title: '默认',
+      subtitle: '默认视频大小',
       value: 'default',
       selected: select == 'default'
     }, {
-      title: 'Расширить',
-      subtitle: 'Расширяет видео на весь экран',
+      title: '扩展',
+      subtitle: '将视频扩展到全屏',
       value: 'cover',
       selected: select == 'cover'
     }];
 
     if (!(Platform.is('tizen') && Storage.field('player') == 'tizen')) {
       items = items.concat([{
-        title: 'Заполнить',
-        subtitle: 'Вместить видео на весь экран',
+        title: '填充',
+        subtitle: '使视频适合全屏',
         value: 'fill',
         selected: select == 'fill'
       }, {
-        title: 'Увеличить 115%',
-        subtitle: 'Увеличить видео на 115%',
+        title: '放大115%',
+        subtitle: '放大视频115%',
         value: 's115',
         selected: select == 's115'
       }, {
-        title: 'Увеличить 130%',
-        subtitle: 'Увеличить видео на 130%',
+        title: '放大130%',
+        subtitle: '放大视频130%',
         value: 's130',
         selected: select == 's130'
       }, {
-        title: 'По вертикали 115%',
-        subtitle: 'Увеличить видео на 115%',
+        title: '垂直115%',
+        subtitle: '放大视频115%',
         value: 'v115',
         selected: select == 'v115'
       }, {
-        title: 'По вертикали 130%',
-        subtitle: 'Увеличить видео на 130%',
+        title: '垂直130%',
+        subtitle: '放大视频130%',
         value: 'v130',
         selected: select == 'v130'
       }]);
@@ -7713,7 +7801,7 @@
     }
 
     Select.show({
-      title: 'Размер видео',
+      title: '视频大小',
       items: items,
       onSelect: function onSelect(a) {
         listener$c.send('size', {
@@ -7932,7 +8020,7 @@
       orsay_loaded,
       orsay_call = Date.now();
 
-  function init$c() {
+  function init$b() {
     $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
     Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
       try {
@@ -7974,7 +8062,7 @@
   }
 
   var Orsay = {
-    init: init$c,
+    init: init$b,
     exit: exit
   };
 
@@ -8015,7 +8103,7 @@
     return keycode;
   }
 
-  function init$b() {
+  function init$a() {
     window.addEventListener("keydown", function (e) {
       lastdown = keyCode(e);
 
@@ -8166,7 +8254,7 @@
 
   var Keypad = {
     listener: listener$b,
-    init: init$b,
+    init: init$a,
     enable: enable$2,
     disable: disable$1
   };
@@ -8385,7 +8473,7 @@
         };
 
         add({
-          title: 'Отключить',
+          title: '禁用',
           selected: true
         }, -1);
 
@@ -8725,11 +8813,11 @@
       if (msg.indexOf('EMPTY SRC') == -1) {
         if (error.code == 3) {
           listener$9.send('error', {
-            error: 'Не удалось декодировать видео'
+            error: '无法解码视频'
           });
         } else if (error.code == 4) {
           listener$9.send('error', {
-            error: 'Видео не найдено или повреждено'
+            error: '视频未找到或损坏'
           });
         } else if (typeof error.code !== 'undefined') {
           listener$9.send('error', {
@@ -8783,8 +8871,8 @@
 
 
     _video.addEventListener('subtitle', function (e) {
-      //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
-      //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
+      //В srt существует тег {\anX}, где X - цифра 来自 1 до 9, Тег определяет нестандартное положение субтитра на экране.
+      //Здесь удаляется тег来自строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
       subtitles$1.removeClass('on-top');
       var posTag = e.text.match(/^{\\an(\d)}/);
@@ -9298,7 +9386,7 @@
     }
   }
   /**
-   * Размер видео, масштаб
+   * 视频大小, масштаб
    * @param {String} type 
    */
 
@@ -9416,7 +9504,7 @@
 
   function stat$1(url) {
     var wait = 0;
-    elems.stat.text('- / - • - seeds');
+    elems.stat.text('- / - • - 种子');
     elems.speed.text('--');
 
     var update = function update() {
@@ -9455,7 +9543,7 @@
 
 
   function destroy$4() {
-    elems.size.text('Загрузка...');
+    elems.size.text('正在加载...');
     elems.stat.text('');
     elems.speed.text('');
     elems.error.addClass('hide');
@@ -9488,7 +9576,7 @@
     active$3();
     var enabled = Controller.enabled();
     Select.show({
-      title: 'Плейлист',
+      title: '播放列表',
       items: playlist$1,
       onSelect: function onSelect(a) {
         Controller.toggle(enabled.name);
@@ -9527,7 +9615,7 @@
     }
   }
   /**
-   * Далее
+   * 下一个
    */
 
 
@@ -9683,7 +9771,7 @@
     }
   }
 
-  function init$a() {
+  function init$9() {
     $('body').append(html$8);
     resetTimer();
     Keypad.listener.follow('keydown', function (e) {
@@ -9712,7 +9800,7 @@
 
   var Screensaver = {
     listener: listener$6,
-    init: init$a,
+    init: init$9,
     enable: enable$1,
     render: render$6,
     disable: disable,
@@ -9844,7 +9932,7 @@
     }, fail, data);
   }
 
-  function add$5(object, success, fail) {
+  function add$4(object, success, fail) {
     var data = JSON.stringify({
       action: 'add',
       link: object.link,
@@ -9891,7 +9979,7 @@
     network$3.timeout(5000);
     network$3.silent(url() + '/settings', function (json) {
       if (typeof json.CacheSize == 'undefined') {
-        fail('Не удалось подтвердить версию Matrix');
+        fail('验证版本失败Matrix');
       } else {
         success(json);
       }
@@ -10006,7 +10094,7 @@
       position++;
       list.slice(0, position + 1).addClass('wait');
       var total = list.length;
-      comp.text('Выполнено ' + Math.max(0, position) + ' из ' + total);
+      comp.text('完成' + Math.max(0, position) + '来自' + total);
 
       if (position > list.length) {
         Modal.close();
@@ -10017,7 +10105,7 @@
         var next_step = list.eq(position + 1);
         prog.css('width', Math.round(position / total * 100) + '%');
         list.slice(0, position).addClass('check');
-        btn.text(position < total ? 'Далее' : 'Завершить');
+        btn.text(position < total ? '下一个' : '退出');
         next.text(next_step.length ? '- ' + next_step.text() : '');
       }
     }
@@ -10026,7 +10114,7 @@
     btn.on('hover:enter', function () {
       makeStep();
     });
-    Modal.title('Ошибка подключения');
+    Modal.title('连接失败');
     Modal.update(temp);
     Controller.add('modal', {
       invisible: true,
@@ -10045,7 +10133,7 @@
   var Torserver = {
     ip: ip,
     my: my,
-    add: add$5,
+    add: add$4,
     url: url,
     hash: hash$1,
     files: files$1,
@@ -10524,7 +10612,7 @@
       html = Template.get('full_start', {
         title: data.movie.title,
         original_title: data.movie.original_title,
-        descr: Utils.substr(data.movie.overview || 'Без описания.', 420),
+        descr: Utils.substr(data.movie.overview || '无描述。', 420),
         time: Utils.secondsToTime(data.movie.runtime * 60, true),
         genres: Utils.substr(genres, 30),
         r_themovie: parseFloat((data.movie.vote_average || 0) + '').toFixed(1),
@@ -10544,7 +10632,7 @@
         var air = new Date(data.movie.next_episode_to_air.air_date);
         var now = Date.now();
         var day = Math.round((air.getTime() - now) / (24 * 60 * 60 * 1000));
-        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('Следующая: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
+        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('下一个: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
       }
 
       tbtn = html.find('.view--torrent');
@@ -10553,7 +10641,7 @@
         if (Storage.field('parse_lang') == 'ru' || !/\w{3}/.test(query)) query = data.movie.title;
         Activity$1.push({
           url: '',
-          title: 'Торренты',
+          title: '种子',
           component: 'torrents',
           search: query,
           search_one: data.movie.title,
@@ -10577,14 +10665,14 @@
           data.videos.results.forEach(function (element) {
             items.push({
               title: element.name,
-              subtitle: element.official ? 'Официальный' : 'Неофициальный',
+              subtitle: element.official ? '官方' : '非官方',
               id: element.key,
               player: element.player,
               url: element.url
             });
           });
           Select.show({
-            title: 'Трейлеры',
+            title: '预告片',
             items: items,
             onSelect: function onSelect(a) {
               _this.toggle();
@@ -10647,7 +10735,7 @@
             });
           });
           Select.show({
-            title: 'Смотреть',
+            title: '观看',
             items: menu,
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -10723,7 +10811,7 @@
 
     this.create = function () {
       html = Template.get('items_line', {
-        title: 'Подробно'
+        title: '详细信息'
       });
       var genres = data.movie.genres.map(function (a) {
         return '<div class="full-descr__tag selector" data-genre="' + a.id + '" data-url="' + a.url + '">' + a.name + '</div>';
@@ -10735,7 +10823,7 @@
         return a.name;
       }).join(', ');
       body = Template.get('full_descr', {
-        text: (data.movie.overview || 'Без описания.') + '<br><br>',
+        text: (data.movie.overview || '无描述。') + '<br><br>',
         genres: genres,
         companies: companies,
         relise: data.movie.release_date || data.movie.first_air_date,
@@ -10761,7 +10849,7 @@
         if (item.data('company')) {
           Api.clear();
           Modal.open({
-            title: 'Компания',
+            title: '公司',
             html: Template.get('modal_loading'),
             size: 'medium',
             onBack: function onBack() {
@@ -10831,7 +10919,7 @@
 
     this.create = function () {
       html = Template.get('items_line', {
-        title: params.title || 'Актеры'
+        title: params.title || '演员'
       });
       scroll = new create$r({
         horizontal: true,
@@ -10851,7 +10939,7 @@
         }).on('hover:enter', function () {
           Activity$1.push({
             url: element.url,
-            title: 'Персона',
+            title: '人物',
             component: 'actor',
             id: element.id,
             source: params.object.source
@@ -10899,7 +10987,7 @@
 
     this.create = function () {
       html = Template.get('items_line', {
-        title: 'Коментарии'
+        title: '评论'
       });
       scroll = new create$r({
         horizontal: true
@@ -10948,7 +11036,7 @@
 
     this.create = function () {
       html = Template.get('items_line', {
-        title: 'Выход серий'
+        title: '剧集发布'
       });
       scroll = new create$r({
         horizontal: true
@@ -11031,7 +11119,7 @@
     episodes: create$a
   };
 
-  function component$c(object) {
+  function component$b(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11085,7 +11173,7 @@
 
             if (directors.length) {
               _this.build('persons', directors, {
-                title: 'Режиссер'
+                title: '导演'
               });
             }
           }
@@ -11094,21 +11182,21 @@
           if (data.comments && data.comments.length) _this.build('comments', data);
 
           if (data.collection && data.collection.results.length) {
-            data.collection.title = 'Коллекция';
+            data.collection.title = '合集';
             data.collection.noimage = true;
 
             _this.build('recomend', data.collection);
           }
 
           if (data.recomend && data.recomend.results.length) {
-            data.recomend.title = 'Рекомендации';
+            data.recomend.title = '推荐';
             data.recomend.noimage = true;
 
             _this.build('recomend', data.recomend);
           }
 
           if (data.simular && data.simular.results.length) {
-            data.simular.title = 'Похожие';
+            data.simular.title = '相关';
             data.simular.noimage = true;
 
             _this.build('simular', data.simular);
@@ -11208,7 +11296,7 @@
     };
   }
 
-  function component$b(object) {
+  function component$a(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11356,7 +11444,7 @@
     };
   }
 
-  function component$a(object) {
+  function component$9(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11525,7 +11613,7 @@
     line: create$n
   };
 
-  function component$9(object) {
+  function component$8(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11558,14 +11646,14 @@
           } else {
             //для обратной совместимости с иви и окко
             if (data.movie && data.movie.results.length) {
-              data.movie.title = 'Фильмы';
+              data.movie.title = '电影';
               data.movie.noimage = true;
 
               _this.build('line', data.movie);
             }
 
             if (data.tv && data.tv.results.length) {
-              data.tv.title = 'Сериалы';
+              data.tv.title = '电视节目';
               data.tv.noimage = true;
 
               _this.build('line', data.tv);
@@ -11653,7 +11741,7 @@
     };
   }
 
-  function component$8(object) {
+  function component$7(object) {
     var _this2 = this;
 
     var network = new create$s();
@@ -11742,22 +11830,22 @@
           card.onMenu = function (target, card_data) {
             var enabled = Controller.enabled().name;
             Select.show({
-              title: 'Действие',
+              title: '动作',
               items: [{
-                title: 'Удалить из истории',
-                subtitle: 'Удалить выделенную карточку',
+                title: '从历史中删除',
+                subtitle: '删除选中的卡片',
                 one: true
               }, {
-                title: 'Очистить историю',
-                subtitle: 'Удалить все карточки из истории',
+                title: '清除历史记录',
+                subtitle: '清除历史记录中的所有卡片',
                 all: true
               }, {
-                title: 'Очистить метки',
-                subtitle: 'Очистить метки о просмотрах',
+                title: '清除标签',
+                subtitle: '清除视图标记',
                 label: true
               }, {
-                title: 'Очистить таймкоды',
-                subtitle: 'Очистить все таймкоды',
+                title: '清除时间码',
+                subtitle: '清除所有时间码',
                 timecode: true
               }],
               onBack: function onBack() {
@@ -11775,10 +11863,10 @@
                 } else if (a.label) {
                   Storage.set('online_view', []);
                   Storage.set('torrents_view', []);
-                  Noty.show('Отметки очищены');
+                  Noty.show('标记清除');
                 } else if (a.timecode) {
                   Storage.set('file_view', {});
-                  Noty.show('Таймкоды очищены');
+                  Noty.show('清除时间码');
                 } else {
                   Favorite.clear('history', card_data);
                   var index = items.indexOf(card);
@@ -11945,7 +12033,7 @@
       if (input) {
         search.find('.search-box__input').text(input);
       } else {
-        search.find('.search-box__input').text('Введите текст...');
+        search.find('.search-box__input').text('输入文本...');
       }
     }
 
@@ -11953,7 +12041,7 @@
     var keyboard = new create$3({
       layout: {
         'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
+        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'I h m i t b y .', '{mic} {EN} {space} {search}']
       }
     });
     keyboard.create();
@@ -12015,12 +12103,12 @@
       }
 
       search.push({
-        title: 'Указать название',
+        title: '指定标题',
         selected: selected == -1,
         query: ''
       });
       Select.show({
-        title: 'Уточнить',
+        title: 'Refine',
         items: search,
         onBack: this.onBack,
         onSelect: function onSelect(a) {
@@ -12040,10 +12128,10 @@
     empty.on('hover:enter', selectSearch.bind(this));
     line.find('.filter--search').on('hover:enter', selectSearch.bind(this));
     line.find('.filter--sort').on('hover:enter', function () {
-      _this2.show('Сортировать', 'sort');
+      _this2.show('Sort', 'sort');
     });
     line.find('.filter--filter').on('hover:enter', function () {
-      _this2.show('Фильтр', 'filter');
+      _this2.show('Filter', 'filter');
     });
     buttons_scroll.append(line);
 
@@ -12225,7 +12313,7 @@
   function secondsToTime(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'ч. ' : '') + minutes + 'м.';
+    return (hours ? hours + 'h.' : '') + minutes + 'm';
   }
 
   function format(params) {
@@ -12301,8 +12389,8 @@
       /*
       let ip = Torserver.ip()
         let tpl = Template.get('torrent_noconnect',{
-          title: 'Ошибка',
-          text: 'Не удалось подключиться к TorrServer',
+          title: 'Error',
+          text: 'Failed连接到TorrServer',
           ip: ip,
           href: window.location.href,
           echo: echo
@@ -12332,8 +12420,8 @@
       /*
       let jac = Storage.field('parser_torrent_type') == 'jackett'
         let tpl = Template.get('torrent_nohash',{
-          title: 'Ошибка',
-          text: 'Не удалось получить HASH',
+          title: '错误',
+          text: '获取失败HASH',
           url: SERVER.object.MagnetUri || SERVER.object.Link,
           echo: echo
       })
@@ -12357,8 +12445,8 @@
 
       if (repeat >= 45) {
         Modal.update(Template.get('error', {
-          title: 'Ошибка',
-          text: 'Время ожидания истекло'
+          title: '错误',
+          text: '超时'
         }));
         Torserver.clear();
         Torserver.drop(SERVER.hash);
@@ -12515,38 +12603,38 @@
       }).on('hover:long', function () {
         var enabled = Controller.enabled().name;
         var menu = [{
-          title: 'Сбросить таймкод',
+          title: '重置时间码',
           timeclear: true
         }];
 
         if (Platform.is('webos')) {
           menu.push({
-            title: 'Запустить плеер - Webos',
+            title: '开始播放器-Webos',
             player: 'webos'
           });
         }
 
         if (Platform.is('android')) {
           menu.push({
-            title: 'Запустить плеер - Android',
+            title: '开始播放器-Android',
             player: 'android'
           });
         }
 
         menu.push({
-          title: 'Запустить плеер - Lampa',
+          title: '开始播放器-Lampa',
           player: 'lampa'
         });
 
         if (!Platform.tv()) {
           menu.push({
-            title: 'Копировать ссылку на видео',
+            title: '复制视频链接',
             link: true
           });
         }
 
         Select.show({
-          title: 'Действие',
+          title: '操作',
           items: menu,
           onBack: function onBack() {
             Controller.toggle(enabled);
@@ -12561,9 +12649,9 @@
 
             if (a.link) {
               Utils.copyTextToClipboard(element.url, function () {
-                Noty.show('Ссылка скопирована в буфер обмена');
+                Noty.show('链接已复制到剪贴板');
               }, function () {
-                Noty.show('Ошибка при копирование ссылки');
+                Noty.show('复制链接时出错');
               });
             }
 
@@ -12579,9 +12667,9 @@
       html.append(item);
     });
     if (items.length == 0) html = Template.get('error', {
-      title: 'Пусто',
-      text: 'Не удалось извлечь подходящие файлы'
-    });else Modal.title('Файлы');
+      title: '空',
+      text: '无法获取匹配文件'
+    });else Modal.title('文件');
     Modal.update(html);
   }
 
@@ -12615,7 +12703,7 @@
     back: back$3
   };
 
-  function component$7(object) {
+  function component$6(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -12630,29 +12718,29 @@
     var last;
     var last_filter;
     var filter_items = {
-      quality: ['Любое', '4k', '1080p', '720p'],
-      hdr: ['Не выбрано', 'Да', 'Нет'],
-      sub: ['Не выбрано', 'Да', 'Нет'],
+      quality: ['任意', '4k', '1080p', '720p'],
+      hdr: ['未选中', '是', '不是'],
+      sub: ['未选中', '是', '无'],
       voice: [],
-      tracker: ['Любой'],
-      year: ['Любой']
+      tracker: ['任何'],
+      year: ['任何']
     };
     var filter_translate = {
-      quality: 'Качество',
+      quality: '质量',
       hdr: 'HDR',
-      sub: 'Субтитры',
-      voice: 'Перевод',
-      tracker: 'Трекер',
-      year: 'Год'
+      sub: '字幕',
+      voice: '翻译',
+      tracker: '跟踪器',
+      year: '年份'
     };
     var filter_multiple = ['quality', 'voice', 'tracker'];
     var sort_translate = {
-      Seeders: 'По раздающим',
-      Size: 'По размеру',
-      Title: 'По названию',
-      Tracker: 'По источнику',
-      PublisTime: 'По дате',
-      viewed: 'По просмотренным'
+      Seeders: '按共享者',
+      Size: '按大小',
+      Title: '按名称',
+      Tracker: '按来源',
+      PublisTime: '按日期',
+      viewed: '按查看'
     };
     var i = 20,
         y = new Date().getFullYear();
@@ -12662,7 +12750,7 @@
     }
 
     var viewed = Storage.cache('torrents_view', 5000, []);
-    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Дасевич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "Переводман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "Россия", "РТР", "Русский дубляж", "Русский Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союзмультфильм", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супербит", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
+    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "是севич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "翻译ман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "俄罗斯", "РТР", "俄语 дубляж", "俄语 Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союз卡通", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супер比特", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
     scroll.minus();
     scroll.body().addClass('torrent-list');
 
@@ -12680,7 +12768,7 @@
 
         _this.activity.toggle();
       }, function (text) {
-        _this.empty('Ответ: ' + text);
+        _this.empty('回复: ' + text);
       });
 
       filter.onSearch = function (value) {
@@ -12717,22 +12805,22 @@
     this.buildSorted = function () {
       var need = Storage.get('torrents_sort', 'Seeders');
       var select = [{
-        title: 'По раздающим',
+        title: '按共享者',
         sort: 'Seeders'
       }, {
-        title: 'По размеру',
+        title: '按大小',
         sort: 'Size'
       }, {
-        title: 'По названию',
+        title: '按标题',
         sort: 'Title'
       }, {
-        title: 'По источнику',
+        title: '按来源',
         sort: 'Tracker'
       }, {
-        title: 'По дате',
+        title: '按日期',
         sort: 'PublisTime'
       }, {
-        title: 'По просмотренным',
+        title: '按查看',
         sort: 'viewed'
       }];
       select.forEach(function (element) {
@@ -12784,7 +12872,7 @@
       };
 
       filter_items.voice = ["Any", "Dubbing", "Multi-Voice", "Two-Voice", "Amateur"];
-      filter_items.tracker = ['Любой'];
+      filter_items.tracker = ['任意'];
       results.Results.forEach(function (element) {
         var title = element.Title.toLowerCase(),
             tracker = element.Tracker;
@@ -12798,21 +12886,21 @@
         }
 
         if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-      }); //надо очистить от отсутствующих ключей
+      }); //надо очистить 来自 отсутствующих ключей
 
       need.voice = Arrays.removeNoIncludes(Arrays.toArray(need.voice), filter_items.voice);
       need.tracker = Arrays.removeNoIncludes(Arrays.toArray(need.tracker), filter_items.tracker);
       Storage.set('torrents_filter', need);
       select.push({
-        title: 'Сбросить фильтр',
+        title: '重置过滤器',
         reset: true
       });
-      add('quality', 'Качество');
+      add('quality', '质量');
       add('hdr', 'HDR');
-      add('sub', 'Субтитры');
-      add('voice', 'Перевод');
-      add('tracker', 'Трекер');
-      add('year', 'Год');
+      add('sub', '字幕');
+      add('voice', '翻译');
+      add('tracker', '跟踪器');
+      add('year', '年份');
       filter.set('filter', select);
       this.selectedFilter();
     };
@@ -12882,7 +12970,7 @@
       };
 
       if (results.Results.length) this.showResults();else {
-        this.empty('Не удалось получить результатов');
+        this.empty('未能获得结果');
       }
     };
 
@@ -13028,14 +13116,14 @@
         if (call) call();else Torrent.start(element, object.movie);
       }, function (text) {
         Modal.update(Template.get('error', {
-          title: 'Ошибка',
+          title: '错误',
           text: text
         }));
       });
       Modal.open({
         title: '',
         html: Template.get('modal_pending', {
-          text: 'Запрашиваю magnet ссылку'
+          text: '请求磁力链接'
         }),
         onBack: function onBack() {
           Modal.close();
@@ -13071,7 +13159,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + ' - добавлено в мои торренты');
+        Noty.show(object.movie.title + '-添加到我的种子');
       });
     };
 
@@ -13107,7 +13195,7 @@
           });
           time_min = Utils.secondsToTimeHuman(time_min);
           time_max = Utils.secondsToTimeHuman(time_max);
-          var details = $("<div class=\"torrent-item__stat\">\n                    <div>\u0421\u0440\u0435\u0434\u043D\u0435\u0435: ".concat(time_avr, "</div>\n                    <div>\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435: ").concat(time_min, "</div>\n                    <div>\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435: ").concat(time_max, "</div>\n                    <div>\u0417\u0430\u043F\u0440\u043E\u0441\u043E\u0432: ").concat(element.viewing_request, "</div>\n                </div>"));
+          var details = $("<div class=\"torrent-item__stat\">\n                    <div>平均: ".concat(time_avr, "</div>\n                    <div>最小: ").concat(time_min, "</div>\n                    <div>最大: ").concat(time_max, "</div>\n                    <div>请求: ").concat(element.viewing_request, "</div>\n                </div>"));
           item.append(details);
         }
 
@@ -13132,17 +13220,17 @@
         }).on('hover:long', function () {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: 'Действие',
+            title: '动作',
             items: [{
-              title: 'Добавить в мои торренты',
+              title: '添加到我的种子',
               tomy: true
             }, {
-              title: 'Пометить',
-              subtitle: 'Пометить раздачу с флагом (просмотрено)',
+              title: '旗帜',
+              subtitle: '”“用 (просмотрено)',
               mark: true
             }, {
-              title: 'Снять отметку',
-              subtitle: 'Снять отметку с раздачи (просмотрено)'
+              title: '取消标记',
+              subtitle: '取消标记共享(просмотрено)'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -13217,7 +13305,7 @@
     };
   }
 
-  function component$6(object) {
+  function component$5(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13283,10 +13371,10 @@
         card.onMenu = function (target, card_data) {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: 'Действие',
+            title: '动作',
             items: [{
-              title: 'Удалить',
-              subtitle: 'Торрент будет удален из вашего списка'
+              title: '删除',
+              subtitle: '标记共享，种子将从您的列表中删除'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -13364,7 +13452,7 @@
     };
   }
 
-  function component$5(object) {
+  function component$4(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13460,12 +13548,12 @@
                   card: finded
                 });
               } else {
-                Noty.show('Не удалось найти фильм.');
+                Noty.show('找不到电影。 ');
                 Controller.toggle('content');
               }
             }, function () {
               Modal.close();
-              Noty.show('Не удалось найти фильм.');
+              Noty.show('找不到电影。');
               Controller.toggle('content');
             });
           }
@@ -13542,7 +13630,7 @@
     };
   }
 
-  function component$4(object) {
+  function component$3(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13610,7 +13698,7 @@
           Activity$1.push({
             url: card_data.url,
             id: card_data.id,
-            title: 'Подборки - ' + card_data.title,
+            title: '精选 - ' + card_data.title,
             component: 'collections_view',
             source: object.source,
             page: 1
@@ -13681,7 +13769,7 @@
     };
   }
 
-  function component$3(object) {
+  function component$2(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13824,7 +13912,7 @@
     };
   }
 
-  function component$2(object) {
+  function component$1(object) {
     var html = $('<div></div>');
     var empty = new create$l();
 
@@ -13858,294 +13946,19 @@
     };
   }
 
-  var data$2 = [];
-  var object = false;
-  /**
-   * Запуск
-   */
-
-  function init$9() {
-    data$2 = Storage.cache('timetable', 500, []);
-    setInterval(extract, 1000 * 60 * 2);
-    setInterval(favorites, 1000 * 60 * 10);
-  }
-
-  function add$4(elems) {
-    elems.filter(function (elem) {
-      return elem.number_of_seasons;
-    }).forEach(function (elem) {
-      var id = data$2.filter(function (a) {
-        return a.id == elem.id;
-      });
-
-      if (!id.length) {
-        data$2.push({
-          id: elem.id,
-          season: elem.number_of_seasons,
-          episodes: []
-        });
-      }
-    });
-    Storage.set('timetable', data$2);
-  }
-
-  function favorites() {
-    add$4(Favorite.get({
-      type: 'book'
-    }));
-    add$4(Favorite.get({
-      type: 'like'
-    }));
-    add$4(Favorite.get({
-      type: 'wath'
-    }));
-  }
-
-  function extract() {
-    var ids = data$2.filter(function (e) {
-      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
-    });
-
-    if (ids.length) {
-      object = ids[0];
-
-      if (Favorite.check(object).any) {
-        TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
-          object.episodes = ep.episodes;
-          save$2();
-        }, save$2);
-      } else save$2();
-    } else {
-      data$2.forEach(function (a) {
-        return a.scaned = 0;
-      });
-    }
-
-    Storage.set('timetable', data$2);
-  }
-
-  function save$2() {
-    if (object) {
-      object.scaned = 1;
-      object.scaned_time = Date.now();
-      Storage.set('timetable', data$2);
-    }
-  }
-
-  function get$3(elem) {
-    var fid = data$2.filter(function (e) {
-      return e.id == elem.id;
-    });
-    return (fid.length ? fid[0] : {}).episodes || [];
-  }
-
-  function all$1() {
-    return data$2;
-  }
-
-  var TimeTable = {
-    init: init$9,
-    get: get$3,
-    add: add$4,
-    all: all$1
-  };
-
-  function component$1(object) {
-    var _this = this;
-
-    var scroll = new create$r({
-      mask: true,
-      over: true
-    });
-    var html = $('<div></div>');
-    var body = $('<div class="timetable"></div>');
-    var cards = Favorite.full().card;
-    var table = TimeTable.all();
-    var last;
-
-    this.create = function () {
-      if (table.length) {
-        var date_max = 0;
-        var date_now = new Date();
-        var date_end = new Date();
-        var date_one = 24 * 60 * 60 * 1000;
-        table.forEach(function (elem) {
-          elem.episodes.forEach(function (ep) {
-            var air = new Date(ep.air_date);
-            var tim = air.getTime();
-
-            if (date_max < tim) {
-              date_max = tim;
-              date_end = air;
-            }
-          });
-        });
-        var date_dif = Math.min(30, Math.round(Math.abs((date_now - date_end) / date_one)));
-
-        for (var i = 0; i < date_dif; i++) {
-          this.append(date_now);
-          date_now.setDate(date_now.getDate() + 1);
-        }
-
-        scroll.minus();
-        scroll.append(body);
-        html.append(scroll.render());
-      } else this.empty();
-
-      this.activity.loader(false);
-      this.activity.toggle();
-      return this.render();
-    };
-
-    this.empty = function () {
-      var empty = new create$l({
-        descr: 'В этом разделе будут отображаться даты выхода новых серий'
-      });
-      html.append(empty.render());
-      _this.start = empty.start;
-
-      _this.activity.loader(false);
-
-      _this.activity.toggle();
-    };
-
-    this.append = function (date) {
-      var item = $("\n            <div class=\"timetable__item selector\">\n                <div class=\"timetable__inner\">\n                    <div class=\"timetable__date\"></div>\n                    <div class=\"timetable__body\"></div>\n                </div>\n            </div>\n        ");
-      var air_date = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
-      var air_epis = [];
-      var day_week = Utils.parseTime(date.getTime());
-      var weeks = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-      table.forEach(function (elem) {
-        elem.episodes.forEach(function (ep) {
-          var card = cards.find(function (card) {
-            return card.id == elem.id;
-          });
-
-          if (ep.air_date == air_date && card) {
-            air_epis.push({
-              episode: ep,
-              card: cards.find(function (card) {
-                return card.id == elem.id;
-              })
-            });
-          }
-        });
-      });
-
-      if (air_epis.length) {
-        air_epis.slice(0, 3).forEach(function (elem) {
-          item.find('.timetable__body').append('<div><span style="background-color: ' + Utils.stringToHslColor(elem.card.name, 50, 50) + '"></span>' + elem.card.name + '</div>');
-        });
-
-        if (air_epis.length > 3) {
-          item.find('.timetable__body').append('<div>+' + (air_epis.length - 3) + '</div>');
-        }
-
-        if (air_epis.length == 1) {
-          var preview = $('<div class="timetable__preview"><img><div>' + (air_epis[0].episode.name || 'Без названия') + '</div></div>');
-          Utils.imgLoad(preview.find('img'), Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + air_epis[0].episode.still_path, false, function () {
-            preview.find('img').remove();
-          });
-          item.find('.timetable__body').prepend(preview);
-        }
-
-        item.addClass('timetable__item--any');
-      }
-
-      item.find('.timetable__date').text(day_week["short"] + ' - ' + weeks[date.getDay()] + '.');
-      item.on('hover:focus', function () {
-        last = $(this)[0];
-        scroll.update($(this));
-      }).on('hover:enter', function () {
-        var modal = $('<div></div>');
-        air_epis.forEach(function (elem) {
-          var noty = Template.get('notice_card', {
-            time: air_date,
-            title: elem.card.name,
-            descr: '季 - <b>' + elem.episode.season_number + '</b><br>集 - <b>' + elem.episode.episode_number + '</b>'
-          });
-          Utils.imgLoad(noty.find('img'), elem.card.poster ? elem.card.poster : elem.card.img ? elem.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + elem.card.poster_path);
-          noty.on('hover:enter', function () {
-            Modal.close();
-            Activity$1.push({
-              url: '',
-              component: 'full',
-              id: elem.card.id,
-              method: 'tv',
-              card: elem.card,
-              source: elem.card.source
-            });
-          });
-          modal.append(noty);
-        });
-        Modal.open({
-          title: 'Сериалы',
-          size: 'medium',
-          html: modal,
-          onBack: function onBack() {
-            Modal.close();
-            Controller.toggle('head');
-          }
-        });
-      });
-      body.append(item);
-    };
-
-    this.back = function () {
-      Activity$1.backward();
-    };
-
-    this.start = function () {
-      Controller.add('content', {
-        toggle: function toggle() {
-          Controller.collectionSet(scroll.render());
-          Controller.collectionFocus(last || false, scroll.render());
-        },
-        left: function left() {
-          if (Navigator.canmove('left')) Navigator.move('left');else Controller.toggle('menu');
-        },
-        right: function right() {
-          Navigator.move('right');
-        },
-        up: function up() {
-          if (Navigator.canmove('up')) Navigator.move('up');else Controller.toggle('head');
-        },
-        down: function down() {
-          if (Navigator.canmove('down')) Navigator.move('down');
-        },
-        back: this.back
-      });
-      Controller.toggle('content');
-    };
-
-    this.pause = function () {};
-
-    this.stop = function () {};
-
-    this.render = function () {
-      return html;
-    };
-
-    this.destroy = function () {
-      scroll.destroy();
-      html.remove();
-    };
-  }
-
   var component = {
-    main: component$d,
-    full: component$c,
-    category: component$a,
-    category_full: component$b,
-    actor: component$9,
-    favorite: component$8,
-    torrents: component$7,
-    mytorrents: component$6,
-    relise: component$5,
-    collections: component$4,
-    collections_view: component$3,
-    nocomponent: component$2,
-    timetable: component$1
+    main: component$c,
+    full: component$b,
+    category: component$9,
+    category_full: component$a,
+    actor: component$8,
+    favorite: component$7,
+    torrents: component$6,
+    mytorrents: component$5,
+    relise: component$4,
+    collections: component$3,
+    collections_view: component$2,
+    nocomponent: component$1
   };
 
   function create$5(object) {
@@ -14178,92 +13991,92 @@
     data$1 = Storage.get('notice', '{}');
     notices = [{
       time: '2022-04-18 18:00',
-      title: 'Еженедельник',
-      descr: '- Новая фишка, популярные торренты которые чаше всего смотрят (тестовый режим)<br>- Добавлен каталог плагинов для быстрой установки.<br>- Трансляция карточки на другие устройства в сети.<br>- Чек лист для проверки работы TorrServe<br>- Копирование ссылки на видео из торрентов.<br>- Доделан лонг клик для мышей и тача.<br>- В карточках появились коллекции.<br>- Добавлены уведомления о выходе фильма в лучшем качестве.'
+      title: '每周',
+      descr: '- 一个新功能，最常观看的热门种子（测试模式）<br>- 添加了一个插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>-检查 TorrServe 操作的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加长按。<br>- 收藏出现在卡片中。<br>- 更好地添加了有关电影发行的通知quality.'
     }, {
       time: '2021-12-23 14:00',
-      title: 'Обновление 1.3.7',
-      descr: '1. Добавлен голосовой поиск.<br>2. Устранены баги с мышкой и добавлена поддержка мыши в плеере.<br>3. Добавлена привязка аккаунта к CUB.<br>4. Всякие другие не интересные мелочи.'
+      title: '更新1.3.7',
+      descr: '1. 增加了语音搜索。<br>2. 修复了鼠标的bug，增加了对播放器中鼠标的支持。<br>3. 增加了与CUB的账号绑定。<br>4. 各种其他无趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
-      title: 'Обновление 1.3.6',
-      descr: '1. Добавлен новый каталог CUB.<br>2. Изменен источник релизов, теперь работает даже в MSX.<br>3. Добавлена категория аниме ;)'
+      title: '更新1.3.6',
+      descr: '1. 添加了新目录 CUB。<br>2. 更改了发布源，现在甚至可以在 MSX 中使用。<br>3. 添加动漫类别;)'
     }, {
       time: '2021-11-15 11:00',
-      title: 'Обновление 1.3.5',
-      descr: '1. Добавлен скринсейвер от Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
+      title: '更新1.3.5',
+      descr: '1. 添加了屏幕保护程序 来自 Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
     }, {
       time: '2021-11-10 10:00',
-      title: 'Обновление 1.3.4',
-      descr: '1. Исправлена отметка времени при выключенном свойстве (продолжить с последнего места).<br>2. На телеках самсунг исправлены плашки черного цвета в плеере.<br>3. Добавлены плагины в настройках.'
+      title: '更新1.3.4',
+      descr: '1. 修复了属性（从最后一个位置继续）关闭时的时间戳。<br>2.在三星电视上修复了播放器中的黑色骰子。<br>3.在设置中添加插件。'
     }, {
       time: '2021-11-02 10:00',
-      title: 'Обновление 1.3.3',
-      descr: '1. Добавлен поиск по торрентам.<br>2. Исправлена загрузка главной с выбранным источником.<br>3. Добавлен множественный выбор в фильтре.<br>4. Добавлено больше выбора для масштабирования видео.<br>5. Исправлены другие мелочи.'
+      title: '更新1.3.3',
+      descr: '1. Добавлен поиск по торрентам.<br>2. Исправлена загрузка главной с выбранным источником.<br>3. Добавлен множественный выбор в фильтре.<br>4. 添加больше выбора для масштабирования видео.<br>5. Исправлены другие мелочи.'
     }, {
       time: '2021-10-25 15:00',
-      title: 'Обновление 1.3.2',
-      descr: '1. Исправлен поиск карточки, каждая карточка имеет свой источник (tmdb,ivi,okko)<br>2. Возможность переключить источник на (tmdb,ivi,okko).<br>3. Обновлена работа фона.<br>4. Добавлено перелистывание в торрент файлах, влево или вправо перелистывает на 10 позиций.<br>5. Изменен источник НЦР.<br>6. Исправлена история просмотров, теперь карточка добавляется если начали просмотр видео.<br>7. Добавлены комментарии в источнике ivi.'
+      title: '更新1.3.2',
+      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.在 torrent 文件中添加滚动，向左或向右滚动 10 个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
     }, {
       time: '2021-10-20 16:20',
-      title: 'Обновление 1.3.1',
-      descr: '1. Добавлены подборки с ivi и okko<br>2. Вернул возможность изменения масштаба видео.<br>3. Добавлены цифровые релизы, в MSX не работает.<br>4. На каком языке выводить данные TMDB.<br>5. В скринсейвер добавлена возможно переключить на природу.<br>6. Возможность выбрать на каком языке находить торренты.<br>7. Возможность отключить продолжить по таймкоду.'
+      title: '更新1.3.1',
+      descr: '1 中添加了注释。添加了 ivi 和 okko<br>2 的集合。恢复了更改视频比例的功能。<br>3.添加了数字版本，在 MSX 中不起作用。<br>4. TMDB 以什么语言显示数据。<br>5.在屏幕保护程序中添加了切换到自然的功能。<br>6.可以选择以何种语言查找种子。<br>7.能够通过时间码禁用继续。'
     }, {
       time: '2021-10-14 13:00',
-      title: 'Скринсейвер',
-      descr: 'Добавлен скринсейвер, запускается через 5 минут, если ничего не делать.'
+      title: '屏幕保护程序',
+      descr: '添加屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
     }, {
       time: '2021-10-14 10:00',
-      title: 'Обновление 1.2.6',
-      descr: '1. Исправлена ошибка удаления торрента.<br>2. Исправлена отметка времени.<br>3. Добавлен визуал для сериалов, в торрент-файлах лучше видно серии.<br>4. Другие мелочи.'
+      title: '更新1.2.6',
+      descr: '1. 修复了删除 torrent 的错误。<br>2. 修复了时间戳。<br>3. 为电视剧添加了视觉效果，剧集在 torrent 文件中更清晰可见。<br>4. 其他小事。'
     }, {
       time: '2021-10-12 19:10',
-      title: 'Полезно знать',
-      descr: 'А вы знали? Что если долго удерживать кнопку (OK) на карточке, то можно вызвать меню для добавления в закладки. Такой же метод работает и на торрентах, долгий тап позволяет добавить раздачу в список (Мои торренты)'
+      title: '很高兴知道',
+      descr: '你知道吗? Что если долго удерживать кнопку (OK) на карточке, то можно вызвать меню для добавления в закладки. Такой же метод работает и на торрентах, долгий тап позволяет добавить раздачу в список (我的种子)'
     }, {
       time: '2021-10-12 19:00',
-      title: 'Обновление 1.2.4',
-      descr: '1. Добавлено меню (Мои торренты).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (Новинки) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
+      title: '更新1.2.4',
+      descr: '1. Добавлено меню (我的种子).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (新) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
     }, {
       time: '2021-10-10 18:00',
-      title: 'Обновление 1.2.3',
-      descr: '1. Добавлена поддержка мыши.<br>2. Добавлено запоминание позиции просмотра (Фильмы)<br>3. Исправлен баг в плеере с недоконца закрытыми плашками.<br>4. Добавлена дополнительная ссылка на Torserver<br>5. Отметка просмотренного торрента<br>6. Добавлен переход с торрента на карточку фильма'
+      title: '更新1.2.3',
+      descr: '1. Добавлена поддержка мыши.<br>2. Добавлено запоминание позиции просмотра (电影)<br>3. Исправлен баг в плеере с недоконца закрытыми плашками.<br>4. Добавлена дополнительная ссылка на Torserver<br>5. Отметка просмотренного торрента<br>6. Добавлен переход с торрента на карточку фильма'
     }, {
       time: '2021-10-09 15:00',
-      title: 'Обновление 1.2.2',
-      descr: '1. Добавлен Tizen плеер<br>2. Добавлен WebOS плеер<br>3. В плеере добавлена статистика загрузки торрента.<br>4. Добавлена полоса перемотки в плеере<br>5. Исправлено пустые постеры для Torserver<br>6. Исправлены другие мелкие ошибки и баги'
+      title: '更新1.2.2',
+      descr: '1.添加了 Tizen 播放器<br>2.新增webOS播放器<br>3。向播放器添加了 torrent 下载统计信息。<br>4.在播放器<br>5中添加了倒带条。修复了 Torserver<br>6 的空白海报。修复了其他小错误和错误'
     }, {
       time: '2021-10-07 17:00',
-      title: 'Обновление 1.2.1',
-      descr: '1. Исправлен баг с кнопкой назад в MSX<br>2. Исправлен баг с поиском<br>3. Добавлен фильтр в торрентах<br>4. Визуально доработан плеер<br>5. Добавлены настройки быстродействия<br>6. Исправлены имена в торрент-файлах<br>7. Исправлен баг с паузой в плеере<br>8. Исправлены другие мелкие ошибки и баги'
+      title: '更新1.2.1',
+      descr: '1. 修复了 MSX<br>2 中带有后退按钮的错误。修复了搜索<br>3 的错误。在种子中添加了过滤器<br>4。视觉上改进的播放器<br>5。添加了性能设置<br>6.修正种子文件中的名称<br>7.修复了播放器中暂停的错误<br>8。修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
-      title: 'Обновление 1.0.10',
-      descr: '1. Доработана подгрузка карточек в мелком режиме<br>2. Добавлены логи, для просмотра логов наведите на шапку и щелкайте вверх 10 раз'
+      title: '更新1.0.10',
+      descr: '1. 改进了小模式下卡片的加载<br>2。添加日志，查看日志将鼠标悬停在标题上并单击 10 次'
     }, {
       time: '2021-10-01 09:00',
-      title: 'Обновление 1.0.9',
-      descr: '1. Доработан фон в закладках и в фильме<br>2. Изменены инструкции<br>3. Доделан плагин под Orsay'
+      title: 'Update 1.0.9',
+      descr: '1. 改进了选项卡和电影中的背景<br>2。更改说明<br>3。为 Orsay 添加了插件'
     }, {
       time: '2021-09-30 18:00',
-      title: 'Обновление 1.0.8',
-      descr: '1. Доработан фон<br>2. Выведена кнопка (Торренты)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
+      title: 'Update 1.0.8',
+      descr: '1. Доработан фон<br>2. Выведена кнопка (种子)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
     }, {
       time: '2021-09-29 17:00',
-      title: 'Обновление 1.0.7',
-      descr: '1. Оптимизирована главная страница и каталоги<br>2. Добавлена авторизация для TorServer<br> 3. Добавлены подсказки ошибок в TorServer'
+      title: 'Update 1.0.7',
+      descr: '1. 优化主页和目录<br>2. 增加 TorServer 授权<br> 3. 增加 TorServer 错误提示'
     }, {
       time: '2021-09-28 16:00',
-      title: 'Исправления',
-      descr: '1. Исправлена ошибка (Невозможно получить HASH)<br>2. Доделан парсер для MSX, теперь не нужно указывать явную ссылку, только по желанию<br> 3. Улучшен парсер jac.red, теперь точнее ищет'
+      title: '更正',
+      descr: '1. 修复错误（无法获取 HASH）<br>2. 完成 MSX 解析器，现在您不需要指定显式链接，只要您愿意<br> 3. 改进的 jac。红色的 解析器，现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: 'Исправлен парсер',
-      descr: 'В парсере была выявлена ошибка, из за которой jac.red не выдавал результаты'
+      title: 'Fixed parser',
+      descr: '在解析器中发现了一个错误, из за которой jac.red не выдавал результаты'
     }, {
       time: '2021-09-26 17:00',
-      title: 'Добро пожаловать!',
-      descr: 'Это ваш первый запуск приложения, надеемся вам очень понравится. Приятного вам просмотра.'
+      title: 'Welcome!',
+      descr: '这是你第一次运行应用程序, надеемся вам очень понравится. Приятного вам просмотра.'
     }];
     Arrays.extend(data$1, {
       time: 0
@@ -14276,7 +14089,7 @@
         var items = [];
         result.forEach(function (item) {
           var data = JSON.parse(item.data);
-          var desc = 'Доступно новое качество<br><br>Качество - <b>' + data.card.quality + '</b>';
+          var desc = '新质量可用<br><br>质量 - <b>' + data.card.quality + '</b>';
 
           if (data.card.seasons) {
             var k = [];
@@ -14286,7 +14099,7 @@
             }
 
             var s = k.pop();
-            desc = 'Новая серия<br><br>Cезон - <b>' + s + '</b><br>Эпизод - <b>' + data.card.seasons[s] + '</b>';
+            desc = '新系列<br><br>季 - <b>' + s + '</b><br>集 - <b>' + data.card.seasons[s] + '</b>';
           }
 
           items.push({
@@ -14340,7 +14153,7 @@
         html.append(item);
       });
       Modal.open({
-        title: 'Уведомления',
+        title: '通知',
         size: 'medium',
         html: html,
         onBack: function onBack() {
@@ -14455,7 +14268,7 @@
 
   function open(params) {
     var enabled = Controller.enabled().name;
-    var text = params.type == 'card' ? 'Открыть карточку на другом устройстве' : '';
+    var text = params.type == 'card' ? '在另一台设备上打开卡片' : '';
     var temp = Template.get('broadcast', {
       text: text
     });
@@ -14786,7 +14599,7 @@
     }
   }
   /**
-   * Добавить новую активность
+   * 添加 новую активность
    * @param {Object} object 
    */
 
@@ -14922,7 +14735,7 @@
       if (action == 'favorite') {
         push({
           url: '',
-          title: type == 'book' ? 'Закладки' : type == 'like' ? 'Нравится' : type == 'history' ? 'История просмотров' : 'Позже',
+          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -14930,14 +14743,14 @@
       } else if (action == 'mytorrents') {
         push({
           url: '',
-          title: 'Мои торренты',
+          title: '我的种子',
           component: 'mytorrents',
           page: 1
         });
       } else {
         push({
           url: '',
-          title: 'Главная - ' + Storage.field('source').toUpperCase(),
+          title: '主页 - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -15058,7 +14871,7 @@
     }
   }
   /**
-   * Завершить
+   * 终止
    */
 
 
@@ -15264,7 +15077,7 @@
       'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
       'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
       'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'Ф Ы В А П Р О Л Д Ж Э', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L G E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
     };
     this.listener = start$4();
 
@@ -15280,9 +15093,9 @@
           '{RU}': '&nbsp;',
           '{EN}': '&nbsp;',
           '{abc}': '&nbsp;',
-          '{rus}': 'русский',
+          '{rus}': '俄语',
           '{eng}': 'english',
-          '{search}': 'найти',
+          '{search}': '查找',
           '{mic}': "<svg viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>"
         },
         layout: params.layout || _default_layout,
@@ -15324,7 +15137,7 @@
           console.log('Speech', 'start');
           $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
           recognition.record = true;
-          Noty.show('Говорите, я слушаю..');
+          Noty.show('说话, я слушаю..');
         });
         recognition.addEventListener("end", function () {
           console.log('Speech', 'end');
@@ -15351,7 +15164,7 @@
           console.log('Speech', 'error:', event);
 
           if (event.error == 'not-allowed') {
-            Noty.show('Нет доступа к микрофону');
+            Noty.show('无法使用麦克风');
           }
 
           recognition.stop();
@@ -15464,29 +15277,29 @@
       var members = Storage.get('setting_member', []);
       var links = [];
       links.push({
-        title: (members.indexOf(input$1.text()) == -1 ? 'Добавить' : 'Удалить') + ' текущее значение',
+        title: (members.indexOf(input$1.text()) == -1 ? 'Добавить' : '删除') + '当前值',
         subtitle: input$1.text(),
         add: true
       });
       members.forEach(function (link) {
         links.push({
           title: link,
-          subtitle: 'Пользовательская ссылка',
+          subtitle: '用户链接',
           url: link,
           member: true
         });
       });
       links = links.concat([{
         title: 'jac.red',
-        subtitle: 'Для торрентов, Api ключ - пустой',
+        subtitle: '种子, Api ключ - пустой',
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
-        subtitle: 'Для локального TorrServ',
+        subtitle: '本地TorrServ',
         url: '127.0.0.1:8090'
       }]);
       Select.show({
-        title: 'Ссылки',
+        title: '链接',
         items: links,
         onSelect: function onSelect(a) {
           if (a.add) {
@@ -15495,7 +15308,7 @@
               Noty.show('Добавлено (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('Удалено (' + a.subtitle + ')');
+              Noty.show('删除(' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -15508,7 +15321,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('Удалено (' + a.url + ')');
+            Noty.show('删除(' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -15554,24 +15367,24 @@
   function init$5() {
     if (Platform.is('tizen')) {
       select$1('player', {
-        'inner': 'Встроенный',
+        'inner': '内置',
         'tizen': 'Tizen'
       }, 'tizen');
     }
 
     if (Platform.is('orsay')) {
       select$1('player', {
-        'inner': 'Встроенный',
+        'inner': '内置',
         'orsay': 'Orsay'
       }, 'inner');
     } else if (Platform.is('webos')) {
       select$1('player', {
-        'inner': 'Встроенный',
+        'inner': '内置',
         'webos': 'WebOS'
       }, 'inner');
     } else if (Platform.is('android')) {
       select$1('player', {
-        'inner': 'Встроенный',
+        'inner': '内置',
         'android': 'Android'
       }, 'android');
       trigger('internal_torrclient', false);
@@ -15589,12 +15402,12 @@
   function trigger(name, _default) {
     values[name] = {
       'true': '是',
-      'false': 'Нет'
+      'false': '无'
     };
     defaults[name] = _default;
   }
   /**
-   * Выбрать
+   * 选择
    * @param {String} name - название
    * @param {*} _select - значение
    * @param {String} _default - значение по дефолту
@@ -15675,7 +15488,7 @@
 
         var enabled = Controller.enabled().name;
         Select.show({
-          title: 'Выбрать',
+          title: '选择',
           items: items,
           onBack: function onBack() {
             Controller.toggle(enabled);
@@ -15747,26 +15560,26 @@
 
 
   select$1('interface_size', {
-    'small': 'Меньше',
-    'normal': 'Нормальный'
+    'small': '更小',
+    'normal': '正常'
   }, 'normal');
   select$1('poster_size', {
-    'w200': 'Низкое',
-    'w300': 'Среднее',
-    'w500': 'Высокое'
+    'w200': '低',
+    'w300': '中',
+    'w500': '高'
   }, 'w200');
   select$1('parser_torrent_type', {
     'jackett': 'Jackett',
     'torlook': 'Torlook'
   }, 'torlook');
   select$1('torlook_parse_type', {
-    'native': 'Напрямую',
-    'site': 'Через API сайта'
+    'native': '直接',
+    'site': '通过站点 API'
   }, 'native');
   select$1('background_type', {
-    'complex': 'Сложный',
-    'simple': 'Простой',
-    'poster': 'Картинка'
+    'complex': '复杂',
+    'simple': '简单',
+    'poster': '图像'
   }, 'simple');
   select$1('pages_save_total', {
     '1': '1',
@@ -15776,70 +15589,70 @@
     '5': '5'
   }, '5');
   select$1('player', {
-    'inner': 'Встроенный'
+    'inner': '内联'
   }, 'inner');
   select$1('torrserver_use_link', {
-    'one': 'Основную',
-    'two': 'Дополнительную'
+    'one': '主要',
+    'two': '高级'
   }, 'one');
   select$1('subtitles_size', {
-    'small': 'Маленькие',
-    'normal': 'Обычные',
-    'large': 'Большие'
+    'small': '小型',
+    'normal': '常规',
+    'large': '大'
   }, 'normal');
   select$1('screensaver_type', {
-    'nature': 'Природа',
+    'nature': '自然',
     'chrome': 'ChromeCast'
   }, 'chrome');
   select$1('tmdb_lang', {
     'zh-CN': '简体中文',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
-    'ru': 'Русский',
-    'en': 'Английский'
+    'ru': '俄语',
+    'en': '英语'
   }, 'ru');
   select$1('parse_lang', {
     'zh-CN': '简体中文',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
     'en': 'English',
-    'df': 'Оригинал',
-    'ru': 'Русский'
+    'df': '原始',
+    'ru': '俄语'
   }, 'df');
   select$1('player_timecode', {
-    'again': 'Начать с начала',
-    'continue': 'Продолжить'
+    'again': '重新开始',
+    'continue': '继续'
   }, 'continue');
   select$1('player_scale_method', {
     'transform': 'Transform',
-    'calculate': 'Рассчитать'
+    'calculate': '计算'
   }, 'transform');
   select$1('source', {
     'tmdb': 'TMDB',
     'ivi': 'IVI',
     'okko': 'OKKO',
     'cub': 'CUB'
-  }, 'tmdb');
+  }, 'yyds');
   select$1('start_page', {
-    'main': 'Главная',
-    'favorite@book': 'Закладки',
-    'favorite@like': 'Нравится',
-    'favorite@wath': 'Позже',
-    'favorite@history': 'История просмотров',
-    'mytorrents': 'Мои торренты',
-    'last': 'Последняя'
+    'main': '首页',
+    'favorite@book': '书签',
+    'favorite@like': '喜欢',
+    'favorite@wath': '稍后',
+    'favorite@history': '浏览历史',
+    'mytorrents': '我的种子',
+    'last': '最新'
   }, 'last');
   select$1('scroll_type', {
     'css': 'CSS',
     'js': 'Javascript'
   }, 'css');
   select$1('card_views_type', {
-    'preload': 'Подгружать',
-    'view': 'Показать все'
+    'preload': '预加载',
+    'view': '显示全部'
   }, 'preload');
   select$1('navigation_type', {
-    'controll': 'Пульт',
-    'mouse': 'Пульт с мышкой'
+    'controll': '遥控器',
+    'mouse': '用鼠标遥控'
   }, 'mouse');
   select$1('time_offset', {
     'n-5': '-5',
@@ -16052,158 +15865,158 @@
 
   var data = {};
   data.type = {
-    title: 'Тип',
+    title: '类型',
     items: [{
-      title: 'Фильмы',
+      title: '电影',
       selected: true,
       cat: 'movie'
     }, {
-      title: 'Мультфильмы',
+      title: '卡通',
       cat: 'multmovie'
     }, {
-      title: 'Сериалы',
+      title: '电视剧',
       cat: 'tv'
     }, {
-      title: 'Мультсериалы',
+      title: '卡通',
       cat: 'multtv'
     }, {
-      title: 'Аниме',
+      title: '动漫',
       cat: 'anime'
     }]
   };
   data.rating = {
-    title: 'Рейтинг',
+    title: '评级',
     items: [{
-      title: 'Любой'
+      title: '任何'
     }, {
-      title: 'от 0 до 3',
+      title: '0 到 3',
       voite: '0-3'
     }, {
-      title: 'от 3 до 6',
+      title: '3 到 6',
       voite: '3-6'
     }, {
-      title: 'от 6 до 8',
+      title: '6 到 8',
       voite: '6-8'
     }, {
-      title: 'от 8 до 10',
+      title: '8 到 10',
       voite: '8-10'
     }]
   };
   data.country = {
-    title: 'Страна',
+    title: '国家',
     items: [{
-      title: 'Украина',
+      title: '乌克兰',
       code: 'uk'
     }, {
-      title: 'США',
+      title: '美国',
       code: 'en'
     }, {
-      title: 'Россия',
+      title: '俄罗斯',
       code: 'ru'
     }, {
-      title: 'Япония',
+      title: '日本',
       code: 'ja'
     }, {
-      title: 'Корея',
+      title: '韩国',
       code: 'ko'
     }, {
-      title: 'Азербайджан',
+      title: '阿塞拜疆',
       code: 'az'
     }, {
-      title: 'Албания',
+      title: '阿尔巴尼亚',
       code: 'sq'
     }, {
-      title: 'Беларусь',
+      title: '白俄罗斯',
       code: 'be'
     }, {
-      title: 'Болгария',
+      title: '保加利亚',
       code: 'bg'
     }, {
-      title: 'Германия',
+      title: '德国',
       code: 'de'
     }, {
-      title: 'Грузия',
+      title: '格鲁吉亚',
       code: 'ka'
     }, {
-      title: 'Дания',
+      title: '丹麦',
       code: 'da'
     }, {
-      title: 'Естония',
+      title: '爱沙尼亚',
       code: 'et'
     }, {
-      title: 'Ирландия',
+      title: '爱尔兰',
       code: 'ga'
     }, {
-      title: 'Испания',
+      title: '西班牙',
       code: 'es'
     }, {
-      title: 'Италия',
+      title: '意大利',
       code: 'it'
     }, {
-      title: 'Китай',
+      title: '中国',
       code: 'zh'
     }, {
-      title: 'Латвия',
+      title: '拉脱维亚',
       code: 'lv'
     }, {
-      title: 'Непал',
+      title: '尼泊尔',
       code: 'ne'
     }, {
-      title: 'Норвегия',
+      title: '挪威',
       code: 'no'
     }, {
-      title: 'Польша',
+      title: '波兰',
       code: 'pl'
     }, {
-      title: 'Румуния',
+      title: '罗马尼亚',
       code: 'ro'
     }, {
-      title: 'Сербия',
+      title: '塞尔维亚',
       code: 'sr'
     }, {
-      title: 'Словакия',
+      title: '斯​​洛伐克',
       code: 'sk'
     }, {
-      title: 'Словения',
+      title: '斯​​洛文尼亚',
       code: 'sl'
     }, {
-      title: 'Таджикистан',
+      title: '塔吉克斯坦',
       code: 'tg'
     }, {
-      title: 'Турция',
+      title: '土耳其',
       code: 'tr'
     }, {
-      title: 'Узбекистан',
+      title: '乌兹别克斯坦',
       code: 'uz'
     }, {
-      title: 'Финляндия',
+      title: '芬兰',
       code: 'fi'
     }, {
-      title: 'Франция',
+      title: '法国',
       code: 'fr'
     }, {
-      title: 'Хорватия',
+      title: '克罗地亚',
       code: 'hr'
     }, {
-      title: 'Чешская Республика',
+      title: '捷克共和国',
       code: 'cs'
     }, {
-      title: 'Швеция',
+      title: '瑞典',
       code: 'sv'
     }, {
-      title: 'Эстония',
+      title: '爱沙尼亚',
       code: 'et'
     }]
   };
   data.genres = {
-    title: 'Жанр',
+    title: '类型',
     items: [{
       "id": 28,
-      "title": "боевик",
+      "title": "动作",
       checkbox: true
     }, {
       "id": 12,
-      "title": "приключения",
+      "title": "冒险",
       checkbox: true
     }, {
       "id": 16,
@@ -16211,74 +16024,74 @@
       checkbox: true
     }, {
       "id": 35,
-      "title": "комедия",
+      "title": "喜剧",
       checkbox: true
     }, {
       "id": 80,
-      "title": "криминал",
+      "title": "犯罪",
       checkbox: true
     }, {
       "id": 99,
-      "title": "документальный",
+      "title": "纪录片",
       checkbox: true
     }, {
       "id": 18,
-      "title": "драма",
+      "title": "戏剧",
       checkbox: true
     }, {
       "id": 10751,
-      "title": "семейный",
+      "title": "家庭",
       checkbox: true
     }, {
       "id": 14,
-      "title": "фэнтези",
+      "title": "奇幻",
       checkbox: true
     }, {
       "id": 36,
-      "title": "история",
+      "title": "历史",
       checkbox: true
     }, {
       "id": 27,
-      "title": "ужасы",
+      "title": "恐怖",
       checkbox: true
     }, {
       "id": 10402,
-      "title": "музыка",
+      "title": "音乐",
       checkbox: true
     }, {
       "id": 9648,
-      "title": "детектив",
+      "title": "侦探",
       checkbox: true
     }, {
       "id": 10749,
-      "title": "мелодрама",
+      "title": "言情",
       checkbox: true
     }, {
       "id": 878,
-      "title": "фантастика",
+      "title": "奇幻",
       checkbox: true
     }, {
       "id": 10770,
-      "title": "телевизионный фильм",
+      "title": "电视电影",
       checkbox: true
     }, {
       "id": 53,
-      "title": "триллер",
+      "title": "惊悚",
       checkbox: true
     }, {
       "id": 10752,
-      "title": "военный",
+      "title": "军事",
       checkbox: true
     }, {
       "id": 37,
-      "title": "вестерн",
+      "title": "西部",
       checkbox: true
     }]
   };
   data.year = {
-    title: 'Год',
+    title: '年份',
     items: [{
-      title: 'Любой',
+      title: '任何',
       any: true
     }]
   };
@@ -16308,7 +16121,7 @@
     where.items.forEach(function (a) {
       if (a.selected || a.checked) title.push(a.title);
     });
-    where.subtitle = title.length ? title.join(', ') : 'Не выбрано';
+    where.subtitle = title.length ? title.join(', ') : '未选中';
   }
 
   function main() {
@@ -16317,11 +16130,11 @@
     }
 
     var items = [{
-      title: 'Начать поиск',
+      title: '开始搜索',
       search: true
     }, data.type, data.rating, data.genres, data.country, data.year];
     Select.show({
-      title: 'Фильтр',
+      title: '过滤器',
       items: items,
       onBack: function onBack() {
         Controller.toggle('content');
@@ -16375,7 +16188,7 @@
     var url = 'discover/' + type + '?' + query.join('&');
     var activity = {
       url: url,
-      title: 'Фильтр',
+      title: '过滤器',
       component: 'category_full',
       source: 'tmdb',
       card_type: true,
@@ -16463,7 +16276,7 @@
       if (action == 'movie' || action == 'tv' || action == 'anime') {
         Activity$1.push({
           url: action,
-          title: (action == 'movie' ? 'Фильмы' : action == 'anime' ? 'Аниме' : 'Сериалы') + ' - ' + Storage.field('source').toUpperCase(),
+          title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视节目') + ' - ' + Storage.field('source').toUpperCase(),
           component: 'category',
           source: action == 'anime' ? 'cub' : Storage.field('source')
         });
@@ -16472,7 +16285,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: 'Главная - ' + Storage.field('source').toUpperCase(),
+          title: '首页 - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
@@ -16483,7 +16296,7 @@
 
       if (action == 'about') {
         Modal.open({
-          title: 'О приложении',
+          title: '关于',
           html: Template.get('about'),
           size: 'medium',
           onBack: function onBack() {
@@ -16496,18 +16309,9 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? 'Закладки' : type == 'like' ? 'Нравится' : type == 'history' ? 'История просмотров' : 'Позже',
+          title: type == 'book' ? '书签' : type == 'like' ? 'Like' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
-          page: 1
-        });
-      }
-
-      if (action == 'timetable') {
-        Activity$1.push({
-          url: '',
-          title: 'Расписание',
-          component: 'timetable',
           page: 1
         });
       }
@@ -16515,7 +16319,7 @@
       if (action == 'mytorrents') {
         Activity$1.push({
           url: '',
-          title: 'Мои торренты',
+          title: '我的种子',
           component: 'mytorrents',
           page: 1
         });
@@ -16524,7 +16328,7 @@
       if (action == 'relise') {
         Activity$1.push({
           url: '',
-          title: 'Цифровые релизы',
+          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
           component: 'relise',
           page: 1
         });
@@ -16532,12 +16336,12 @@
 
       if (action == 'collections') {
         Select.show({
-          title: 'Подборки',
+          title: '合集',
           items: [{
-            title: 'Подборки на ivi',
+            title: '收藏ivi',
             source: 'ivi'
           }, {
-            title: 'Подборки на okko',
+            title: '收藏okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -16567,13 +16371,13 @@
       source: Storage.field('source')
     }, function (menu) {
       Select.show({
-        title: 'Каталог',
+        title: '目录',
         items: menu,
         onSelect: function onSelect(a) {
           var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
           Activity$1.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-            title: 'Каталог - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
+            title: '目录 - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
             component: tmdb ? 'category' : 'category_full',
             genres: a.id,
             id: a.id,
@@ -16682,7 +16486,7 @@
 
           Activity$1.push({
             url: '',
-            title: 'Торренты',
+            title: '种子',
             component: 'torrents',
             search: query,
             movie: {
@@ -16696,7 +16500,7 @@
         } else {
           Activity$1.push({
             url: 'search/' + type,
-            title: 'Поиск - ' + query,
+            title: '搜索 - ' + query,
             component: 'category_full',
             page: 2,
             query: encodeURIComponent(query),
@@ -16719,14 +16523,14 @@
               Torrent.back(_this3.toggle.bind(_this3));
             }, function (text) {
               Modal.update(Template.get('error', {
-                title: 'Ошибка',
+                title: '错误',
                 text: text
               }));
             });
             Modal.open({
               title: '',
               html: Template.get('modal_pending', {
-                text: 'Запрашиваю magnet ссылку'
+                text: '请求磁力链接'
               }),
               onBack: function onBack() {
                 Modal.close();
@@ -16977,7 +16781,7 @@
         search.find('.search__input').text(input);
         results.search(input);
       } else {
-        search.find('.search__input').text('Введите текст...');
+        search.find('.search__input').text('输入文本...');
       }
     });
     keyboard.listener.follow('right', function () {
@@ -17206,28 +17010,28 @@
           desc = item.find('.settings-param__descr');
 
       if (code == 0) {
-        name.text('Отключено');
-        desc.text('Включите синхронизацию');
+        name.text('已禁用');
+        desc.text('启用同步');
       }
 
       if (code == 1) {
-        name.text('Не авторизованы');
-        desc.text('Необходимо авторизоваться ');
+        name.text('未授权');
+        desc.text('要求登录 ');
       }
 
       if (code == 2) {
-        name.text('Авторизация не удалась');
-        desc.text('Проверьте введённые данные и повторите попытку');
+        name.text('授权失败');
+        desc.text('请检查您的详细信息，然后重试');
       }
 
       if (code == 3) {
-        name.text('Вошли');
-        desc.text('Вы успешно авторизовались');
+        name.text('登录');
+        desc.text('您已成功登录');
       }
 
       if (code == 4) {
         var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
-        name.text('Синхронизовано');
+        name.text('同步');
         desc.text(time.full + ' в ' + time.time);
       }
     }
@@ -17392,10 +17196,10 @@
   var body;
   var network = new create$s();
   var official_list = [{
-    name: 'Просмотр онлайн',
+    name: '在线浏览',
     url: 'http://jin.energy/online.js'
   }, {
-    name: 'Просмотр онлайн',
+    name: '正在浏览在线',
     url: 'http://arkmv.ru/vod'
   }];
   /**
@@ -17416,7 +17220,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? 'Не удалось проверить работоспособность плагина, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : 'Для работы плагина, необходимо перезагрузить приложение.') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '检查插件功能失败, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : '要使插件正常工作, необходимо перезагрузить приложение.') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -17485,7 +17289,7 @@
       var second = temp.find('.plugins-catalog__list').eq(1);
 
       function draw(container, plug) {
-        var item = $("<div class=\"plugins-catalog__line selector\">\n                <div class=\"plugins-catalog__url\"></div>\n                <div class=\"plugins-catalog__detail\"></div>\n                <div class=\"plugins-catalog__button\">\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C</div>\n            </div>");
+        var item = $("<div class=\"plugins-catalog__line selector\">\n                <div class=\"plugins-catalog__url\"></div>\n                <div class=\"plugins-catalog__detail\"></div>\n                <div class=\"plugins-catalog__button\">安装</div>\n            </div>");
         item.on('hover:enter', function () {
           if (Storage.add('plugins', plug.url)) {
             Modal.close();
@@ -17496,11 +17300,11 @@
             });
             Params.listener.send('update_scroll');
           } else {
-            Noty.show('Этот плагин уже установлен.');
+            Noty.show('此插件已安装。');
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
-        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - Установок' : plug.name);
+        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + '- 安装' : plug.name);
         container.append(item);
       }
 
@@ -17531,7 +17335,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Загружено из CUB' : '点击测试插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自CUB' : '单击以检查插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -17704,8 +17508,7 @@
     Input: Input,
     Screensaver: Screensaver,
     Recomends: Recomends,
-    VideoQuality: VideoQuality,
-    TimeTable: TimeTable
+    VideoQuality: VideoQuality
   };
   Console.init();
 
@@ -17737,7 +17540,6 @@
     Socket.init();
     Recomends.init();
     VideoQuality.init();
-    TimeTable.init();
     Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
 
     Controller.listener.follow('toggle', function () {
@@ -17747,12 +17549,12 @@
       if (event.count == 1) {
         var enabled = Controller.enabled();
         Select.show({
-          title: 'Выход',
+          title: '退出',
           items: [{
-            title: 'Да, выйти',
+            title: '是，退出',
             out: true
           }, {
-            title: 'Продолжить'
+            title: '继续看'
           }],
           onSelect: function onSelect(a) {
             if (a.out) {
@@ -17845,7 +17647,7 @@
           var type = color_keys[e.code];
           Activity$1.push({
             url: '',
-            title: type == 'book' ? 'Закладки' : type == 'like' ? 'Нравится' : type == 'history' ? 'История просмотров' : 'Позже',
+            title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
             component: 'favorite',
             type: type,
             page: 1
