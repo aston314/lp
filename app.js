@@ -123,7 +123,7 @@
 
         var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Положим k равным 0.
 
-        var k = 0; // 17. Пока k < len, будем повторiтb... (шаги с a по h)
+        var k = 0; // 17. Пока k < len, будем повтор我ть... (шаги с a по h)
 
         var kValue;
 
@@ -278,7 +278,7 @@
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
         // ближайший аналог внутренней функции
-        // IsCallable在ECMAScript 5
+        // IsCallable在 ECMAScript 5
         throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
@@ -300,11 +300,11 @@
     var _slice = Array.prototype.slice;
 
     try {
-      // Не может использоватьсi с элементами DOM在IE < 9
+      // Не может использоватьс我 с элементами DOM在IE < 9
       _slice.call(document.documentElement);
     } catch (e) {
-      // В IE < 9 кидаетсi исключение
-      // Функциi будет работать для истинных массивов, массивоподобных объектов,
+      // В IE < 9 кидаетс我 исключение
+      // Функциme будет работать для истинных массивов, массивоподобных объектов,
       // NamedNodeMap (атрибуты, сущности, примечания),
       // NodeList (например, getElementsByTagName), HTMLCollection (например, childNodes)
       // и не будет падать на других объектах DOM (как это происходит на элементах DOM в IE < 9)
@@ -700,7 +700,7 @@
 
   var html$1e = "<div class=\"wrap layer--height layer--width\">\n    <div class=\"wrap__left layer--height\"></div>\n    <div class=\"wrap__content layer--height layer--width\"></div>\n</div>";
 
-  var html$1d = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">首页</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">电影</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">电视节目</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">目录</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"filter\">\n                <div class=\"menu__ico\">\n                    <svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"33\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"7\" y=\"8\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"16\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"25\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"13.5\" cy=\"17.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"23.5\" cy=\"26.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"21.5\" cy=\"9.5\" r=\"3.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">过滤器</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">合集</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">发布</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">动漫</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">书签</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">喜欢</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">稍后</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">历史</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">种子</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">设置</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">关于</div>\n            </li>\n        </ul>\n    </div>\n</div>";
+  var html$1d = "<div class=\"menu\">\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"main\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/home.svg\" /></div>\n                <div class=\"menu__text\">首页</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"movie\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/movie.svg\" /></div>\n                <div class=\"menu__text\">电影</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"tv\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/tv.svg\" /></div>\n                <div class=\"menu__text\">电视节目</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"catalog\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">目录</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"filter\">\n                <div class=\"menu__ico\">\n                    <svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"33\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"7\" y=\"8\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"16\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"7\" y=\"25\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"13.5\" cy=\"17.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"23.5\" cy=\"26.5\" r=\"3.5\" fill=\"white\"/>\n                        <circle cx=\"21.5\" cy=\"9.5\" r=\"3.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">过滤器</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"collections\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/catalog.svg\" /></div>\n                <div class=\"menu__text\">合集</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"relise\">\n                <div class=\"menu__ico\">\n                    <svg height=\"30\" viewBox=\"0 0 38 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"27\" rx=\"1.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <path d=\"M18.105 22H15.2936V16H9.8114V22H7V8H9.8114V13.6731H15.2936V8H18.105V22Z\" fill=\"white\"/>\n                    <path d=\"M20.5697 22V8H24.7681C25.9676 8 27.039 8.27885 27.9824 8.83654C28.9321 9.38782 29.6724 10.1763 30.2034 11.2019C30.7345 12.2212 31 13.3814 31 14.6827V15.3269C31 16.6282 30.7376 17.7853 30.2128 18.7981C29.6943 19.8109 28.9602 20.5962 28.0105 21.1538C27.0609 21.7115 25.9895 21.9936 24.7962 22H20.5697ZM23.3811 10.3365V19.6827H24.7399C25.8395 19.6827 26.6798 19.3141 27.2608 18.5769C27.8419 17.8397 28.1386 16.7853 28.1511 15.4135V14.6731C28.1511 13.25 27.8637 12.1731 27.289 11.4423C26.7142 10.7051 25.8739 10.3365 24.7681 10.3365H23.3811Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">发布</div>\n            </li>\n            <li class=\"menu__item selector\" data-action=\"anime\">\n                <div class=\"menu__ico\">\n                    <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n                    <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n                    <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n                    <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">动漫</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"book\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/bookmark.svg\" /></div>\n                <div class=\"menu__text\">书签</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"like\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/like.svg\" /></div>\n                <div class=\"menu__text\">喜欢</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"wath\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/time.svg\" /></div>\n                <div class=\"menu__text\">稍后</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"favorite\" data-type=\"history\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"9\" height=\"9\" rx=\"1\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"19\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"25\" width=\"11\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"17\" y=\"7\" width=\"5\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">历史</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"timetable\">\n                <div class=\"menu__ico\">\n                    <svg height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"1.5\" y=\"3.5\" width=\"25\" height=\"23\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                        <rect x=\"6\" width=\"3\" height=\"7\" rx=\"1.5\" fill=\"white\"/>\n                        <rect x=\"19\" width=\"3\" height=\"7\" rx=\"1.5\" fill=\"white\"/>\n                        <circle cx=\"7\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"7\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"14\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"14\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"21\" cy=\"12\" r=\"2\" fill=\"white\"/>\n                        <circle cx=\"21\" cy=\"19\" r=\"2\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">时间表</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"mytorrents\">\n                <div class=\"menu__ico\">\n                    <svg height=\"34\" viewBox=\"0 0 28 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"1.5\" y=\"1.5\" width=\"25\" height=\"31\" rx=\"2.5\" stroke=\"white\" stroke-width=\"3\"/>\n                    <rect x=\"6\" y=\"7\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    <rect x=\"6\" y=\"13\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">种子</div>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"menu__split\"></div>\n\n    <div class=\"menu__case\">\n        <ul class=\"menu__list\">\n            <li class=\"menu__item selector\" data-action=\"settings\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/settings.svg\" /></div>\n                <div class=\"menu__text\">设置</div>\n            </li>\n\n            <li class=\"menu__item selector\" data-action=\"about\">\n                <div class=\"menu__ico\"><img src=\"./img/icons/menu/info.svg\" /></div>\n                <div class=\"menu__text\">关于</div>\n            </li>\n        </ul>\n    </div>\n</div>";
 
   var html$1c = "<div class=\"activitys layer--width\">\n    <div class=\"activitys__slides\"></div>\n</div>";
 
@@ -710,29 +710,29 @@
 
   var html$19 = "<div class=\"settings\">\n    <div class=\"settings__layer\"></div>\n    <div class=\"settings__content layer--height\">\n        <div class=\"settings__head\">\n            <div class=\"settings__title\">设置</div>\n        </div>\n        <div class=\"settings__body\"></div>\n    </div>\n</div>";
 
-  var html$18 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">帐户</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">界面</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">播放器</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">种子搜索</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">插件</div>\n    </div>\n    <div class=\"settings-folder selector hide\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">同步</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">其他</div>\n    </div>\n    \n</div>";
+  var html$18 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">帐户</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">接口</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">播放器</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">种子搜索</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">插件</div>\n    </div>\n    <div class=\"settings-folder selector hide\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">同步</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">其他</div>\n    </div>\n    \n</div>";
 
-  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡入淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">淡入淡出卡片底部和顶部</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">滚动时信息流，卡片将逐渐加载或全部加载。</div>\n    </div> \n\n</div>";
+  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">接口大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡入淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片淡入淡出</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当您滚动信息流时，卡片将逐渐加载或全部加载。</div>\n    </div> \n\n</div>";
 
-  var html$16 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意对使用公共链接查看 torrent 和在线内容承担所有责任。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">torrent 解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定链接到 Jackett 脚本</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api 键</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook网站解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到网站解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com上注册，写链接api.scraperapi.com?api_key=...&url={q}<br>B{q} 该网站将交付 w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">What language to search?</div>\n    </div>\n</div>";
+  var html$16 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意对使用公共链接查看种子和在线内容承担全部责任。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">种子的解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">提供 Jackett 脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook 抓取方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">链接到 scraper 站点</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在 scraperapi.com 上注册，链接 api.scraperapi.com?api_key=...&url={q}<br>在{q} w41.torlook.info</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">用什么语言搜索种子？</div>\n    </div>\n</div>";
 
-  var html$15 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接地址</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定到 TorrServer 脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">辅助链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则系统会启动。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预取缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待 TorrServer 的预取缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+  var html$15 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>链接地址</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 TorrServer 脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"For例如: 192.168.X\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用内置的TorrServe JS客户端，否则系统启动。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">torrent 将被添加到 TorrServer 的数据库中</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预取缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待 TorrServer 的预取缓冲区填满</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
-  var html$14 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的安卓播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上一个观看位置继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边缘</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>  \n</div>";
+  var html$14 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置播放器默认</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选中的安卓播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前一集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次查看位置恢复</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">缩放方式</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会用黑色勾勒，提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕会显示在半透明背景上，提高可读性</div>\n        </div>\n    </div>  \n</div>";
 
-  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">开始页面</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时从哪个页面开始</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>来源</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取有关电影的信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示来自 TMDB 的数据的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB海报分辨率</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>屏保</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示屏保</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏保类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>代理</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">代理TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">代理其他资源</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保持页面原样。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">换档时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除缓存</div>\n        <div class=\"settings-param__value\">所有设置并且数据将被清除</div>\n    </div>\n</div>";
+  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">到哪个页面start on startup </div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Source</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">Main source</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取有关电影的信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">显示TMDB数据的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB海报分辨率</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>屏保</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示启动画面</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏保类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>代理</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">代理TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">代理其他资源</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">要在内存中保留多少页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保留您离开时的页面。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">换档时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">标题设备</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除缓存</div>\n        <div class=\"settings-param__value\">所有设置和数据将被清除</div>\n    </div>\n</div>";
 
-  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要应用插件，您必须重新启动应用程序\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除添加的插件，请按住或双击其上的确定按钮</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">安装插件</div>\n        <div class=\"settings-param__descr\">从可用列表中安装插件</div>\n    </div>\n</div>";
+  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"要应用插件，必须重新启动应用程序\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除添加的插件，按住或双击它上面的确定按钮</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">安装插件</div>\n        <div class=\"settings-param__descr\">从安装插件可用列表</div>\n    </div>\n</div>";
 
-  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步您的书签、浏览历史、标签和时间码 连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步您的书签、浏览历史、标签和时间码连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步您的书签、浏览历史记录、时间戳和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">退出</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 服务同步: 同步您的书签、浏览历史记录、标签和时间码。站点: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$$ = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
   var html$_ = "<div class=\"card selector\">\n    <div class=\"card__view\">\n        <img src=\"./img/img_load.svg\" class=\"card__img\" />\n\n        <div class=\"card__icons\">\n            <div class=\"card__icons-inner\">\n                \n            </div>\n        </div>\n    </div>\n\n    <div class=\"card__title\">{title}</div>\n    <div class=\"card__age\">{release_year}</div>\n</div>";
 
-  var html$Z = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>分享: <span>{Seeders}</span></div>\n            <div>用户: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
+  var html$Z = "<div class=\"card-parser selector\">\n    <div class=\"card-parser__title\">{Title}</div>\n\n    <div class=\"card-parser__footer\">\n        <div class=\"card-parser__details\">\n            <div>共享: <span>{Seeders}</span></div>\n            <div>用户: <span>{Peers}</span></div>\n        </div>\n        <div class=\"card-parser__size\">{size}</div>\n    </div>\n</div>";
 
   var html$Y = "<div class=\"full-start\">\n\n    <div class=\"full-start__body\">\n        <div class=\"full-start__right\">\n            <div class=\"full-start__poster\">\n                <img class=\"full-start__img\" />\n\n                <div class=\"info__rate\"><span>{r_themovie}</span></div>\n            </div>\n        </div>\n\n        <div class=\"full-start__left\">\n            <div class=\"full-start__tags\">\n                <div class=\"full-start__tag tag--genres\">\n                    <img src=\"./img/icons/pulse.svg\" /> <div>{genres}</div>\n                </div>\n                <div class=\"full-start__tag tag--time\">\n                    <img src=\"./img/icons/time.svg\" /> <div>{time}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/catalog.svg\" /> <div>{seasons}</div>\n                </div>\n                <div class=\"full-start__tag hide is--serial\">\n                    <img src=\"./img/icons/menu/movie.svg\" /> <div>{episodes}</div>\n                </div>\n                <div class=\"full-start__tag tag--episode hide\">\n                    <img src=\"./img/icons/time.svg\" /> <div></div>\n                </div>\n            </div>\n\n            <div class=\"full-start__title\">{title}</div>\n            <div class=\"full-start__title-original\">{original_title}</div>\n\n            <div class=\"full-start__descr\">{descr}</div>\n        </div>\n    </div>\n\n    <div class=\"full-start__footer\">\n        <div class=\"full-start__title-mobile\">{title}</div>\n\n        <div class=\"full-start__buttons-line\">\n            <div class=\"full-start__buttons-scroll\"></div>\n\n            <div class=\"full-start__buttons\">\n                <div class=\"full-start__button view--torrent hide\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n                        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n                        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n                    </svg>\n\n                    <span>种子</span>\n                </div>\n\n                <div class=\"full-start__button selector view--trailer\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M482.909,67.2H29.091C13.05,67.2,0,80.25,0,96.291v319.418C0,431.75,13.05,444.8,29.091,444.8h453.818\n                            c16.041,0,29.091-13.05,29.091-29.091V96.291C512,80.25,498.95,67.2,482.909,67.2z M477.091,409.891H34.909V102.109h442.182\n                            V409.891z\"/>\n                        <rect fill=\"currentColor\" x=\"126.836\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"350.255\" y=\"84.655\" width=\"34.909\" height=\"342.109\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"184.145\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"367.709\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                        <rect fill=\"currentColor\" x=\"17.455\" y=\"292.364\" width=\"126.836\" height=\"34.909\"/>\n                    </svg>\n\n                    <span>预告片</span>\n                </div>\n\n                \n\n                <div class=\"full-start__button selector open--menu\">\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n                        <path fill=\"currentColor\" d=\"M436.742,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.755,75.258,75.258,75.258\n                            C478.239,331.258,512,297.503,512,256C512,214.503,478.239,180.742,436.742,180.742z M436.742,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246s38.246,17.155,38.246,38.246\n                            S457.833,294.246,436.742,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M256,180.742c-41.497,0-75.258,33.761-75.258,75.258s33.761,75.258,75.258,75.258c41.503,0,75.258-33.755,75.258-75.258\n                            C331.258,214.503,297.503,180.742,256,180.742z M256,294.246c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246\n                            s38.246,17.155,38.246,38.246S277.091,294.246,256,294.246z\"/>\n                    \n                        <path fill=\"currentColor\" d=\"M75.258,180.742C33.761,180.742,0,214.503,0,256c0,41.503,33.761,75.258,75.258,75.258\n                            c41.497,0,75.258-33.755,75.258-75.258C150.516,214.503,116.755,180.742,75.258,180.742z M75.258,294.246\n                            c-21.091,0-38.246-17.155-38.246-38.246s17.155-38.246,38.246-38.246c21.091,0,38.246,17.155,38.246,38.246\n                            S96.342,294.246,75.258,294.246z\"/>\n                    </svg>\n                </div>\n\n                \n            </div>\n\n            <div class=\"full-start__icons\">\n                <div class=\"info__icon icon--book selector\" data-type=\"book\"></div>\n                <div class=\"info__icon icon--like selector\" data-type=\"like\"></div>\n                <div class=\"info__icon icon--wath selector\" data-type=\"wath\"></div>\n            </div>\n        </div>\n\n    </div>\n</div>";
 
@@ -758,7 +758,7 @@
 
   var html$N = "<div class=\"info layer--width\">\n    <div class=\"info__rate\"><span></span></div>\n    <div class=\"info__left\">\n        <div class=\"info__title\"></div>\n        <div class=\"info__title-original\"></div>\n    </div>\n    <div class=\"info__right\">\n        <div class=\"info__icon icon--book\"></div>\n        <div class=\"info__icon icon--like\"></div>\n        <div class=\"info__icon icon--wath\"></div>\n    </div>\n</div>";
 
-  var html$M = "<div>\n    <div class=\"simple-button selector filter--search\">\n            <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n            viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n        <g>\n            <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                S326.847,409.323,225.474,409.323z\"/>\n        </g>\n        <g>\n            <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n        </g>\n\n        </svg>\n\n        <span>优化</span>\n    </div>\n    <div class=\"simple-button simple-button--filter selector filter--sort\">\n        <span>排序</span><div class=\"hide\"></div>\n    </div>\n\n    <div class=\"simple-button simple-button--filter selector filter--filter\">\n        <span>过滤器</span><div class=\"hide\"></div>\n    </div>\n</div>";
+  var html$M = "<div>\n    <div class=\"simple-button selector filter--search\">\n            <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n            viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\">\n        <g>\n            <path fill=\"currentColor\" d=\"M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474\n                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323\n                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848\n                S326.847,409.323,225.474,409.323z\"/>\n        </g>\n        <g>\n            <path fill=\"currentColor\" d=\"M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328\n                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z\"/>\n        </g>\n\n        </svg>\n\n        <span>优化</span>\n    </div>\n    <div class=\"simple-button simple-button--filter selector filter--sort\">\n        <span>排序</span><div class=\"hide\"></div>\n    </div>\n\n    <div class=\"simple-button simple-button--filter selector filter--filter\">\n        <span>过滤</span><div class=\"hide\"></div>\n    </div>\n</div>";
 
   var html$L = "<div class=\"card-more selector\">\n    <div class=\"card-more__title\">\n        更多</div>\n</div>";
 
@@ -788,21 +788,21 @@
 
   var html$y = "<div class=\"files\">\n    <div class=\"files__left\">\n        <div class=\"full-start__poster selector\">\n            <img src=\"{img}\" class=\"full-start__img\" />\n        </div>\n\n        <div class=\"files__info\">\n            <div class=\"files__title\">{title}</div>\n            <div class=\"files__title-original\">{original_title}</div>\n        </div>\n    </div>\n    <div class=\"files__body\">\n        \n    </div>\n</div>";
 
-  var html$x = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donat</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
+  var html$x = "<div class=\"about\">\n    <div>该应用程序完全免费，并使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅供参考出于教育目的，该应用程序不使用自己的服务器来分发信息。</div>\n\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>我们的频道</small><br>\n            @lampa_channel\n        </div>\n\n        <div>\n            <small>组</small><br>\n            @lampa_group\n        </div>\n\n        <div>\n            <small>版本</small><br>\n            1.3.8\n        </div>\n    </div>\n\n    <div class=\"about__contacts\">\n        <div>\n            <small>Donat</small><br>\n            www.boosty.to/lampatv\n        </div>\n    </div>\n</div>";
 
   var html$w = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-  var html$v = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>正在使用的地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址<code>{ip}</code> 无效！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>正确吗？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>，如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器并访问地址<code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，请检查 TorrServe 是否正在运行，或者重新启动它。</li>\n            <li>如果浏览器有响应，请确保响应包含行<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$v = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>使用地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址<code>{ip}</code> 错误！</li>\n            <li>当前答案: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>正确？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用矩阵版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一台设备上，打开浏览器，转到地址<code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，检查 TorrServe 是否正在运行，或者重新启动它。</li>\n            <li>如果浏览器响应，确保响应中有字符串<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$u = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址<code>{ip}/echo</code></li>\n            <li>确保响应包含代码<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+  var html$u = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 返回无效格式</li>\n            <li>TorServer 响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址<code>{ip}/echo</code></li>\n            <li>确保响应包含代码<code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-  var html$t = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>来自 TorServer 的答案: {echo}</li>\n            <li>链接: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>怎么办?</div>\n        <ul>\n            <li>检查您是否正确配置了 Jackett</li>\n            <li>私人来源可能没有提供文件的链接</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>要做什么？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指定哪部电影，什么发行版，如果可能，请注明发行版的照片</li>\n        </ul>\n    </div>\n</div>";
+  var html$t = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>TorServer 无法下载 torrent 文件</li>\n            <li>答案来自TorServer: {echo}</li>\n            <li>Link: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>What to do?</div>\n        <ul>\n            <li>检查你是否正确配置了 Jackett</li>\n            <li>私人资源可能不提供文件的链接</li>\n            <li>确保 Jackett 也可以下载文件</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>怎么办？</div>\n        <ul>\n            <li>写信给我们的电报组: @lampa_group</li>\n            <li>指定哪部电影，哪个发行版并且，如果可能的话，这张照片</li>\n        </ul>\n    </div>\n</div>";
 
-  var html$s = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">需要 TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 一个允许您在线查看 torrent 文件内容的应用程序。<br><br>更详细的安装信息，您将在下面的电报组中找到。</div>\n        \n        <div class=\"torrent-install__label\">电报组</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
+  var html$s = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">需要 TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 一个允许您在线查看 torrent 文件内容的应用程序。<br><br>更详细的安装信息可以在下面的电报组中找到。</div>\n        \n        <div class=\"torrent-install__label\">电报组</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">失败连接到 TorrServe，问题可能是让我们快速浏览可能出现的问题列表并检查所有内容。</div>\n\n    <div class=\"torrent-checklist__progress-steps\">成功 0 / 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>正在运行 TorrServe</li>\n                <li>动态 IP 地址</li>\n                <li>协议</li>\n                <li>病毒被阻止</li>\n                <li>检查可用性</li>\n                <li>仍然无法工作</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">验证说明您已经在安装 TorrServe 的设备上启动了。</div>\n            <div class=\"hide\">常见错误，您的设备的 IP 地址已更改。请确保您输入的 IP 地址是{ip}, 与安装了 TorrServe 的设备的地址相匹配</div>\n            <div class=\"hide\">要访问 TorrServe，您需要在地址末尾添加协议:8090 确保协议写在 IP 地址的末尾，您当前的地址{ip}</div>\n            <div class=\"hide\">频繁，防病毒或防火墙可能会阻止对该 IP 地址的访问，请尝试禁用您的防病毒和防火墙。</div>\n            <div class=\"hide\">在任何其他未安装 TorrServe 的设备上，在浏览器中打开该地址{ip} 并检查来自 TorrServe 的响应是否可用</div>\n            <div class=\"hide\">如果在所有检查后仍然无法正常工作，请尝试重新启动 TorrServe 和 Internet 适配器。</div>\n            <div class=\"hide\">如果问题仍然存在，请在 @lampa_group 组中写入带有文本的电报（经过所有检查，当前地址{ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">开始检查</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
+  var html$r = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">无法连接到 TorrServe，问题可能不同。让我们快速浏览可能出现的问题列表并检查所有内容。</div>\n\n    <div class=\"torrent-checklist__progress-steps\">Passed 0 out of 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>TorrServe 是否正在运行</li>\n                <li>动态 IP 地址</li>\n                <li>协议</li>\n                <li>被杀毒软件阻止</li>\n                <li>检查可用性</li>\n                <li>仍然无法工作</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">请确保在安装 TorrServe 的设备上运行。</div>\n            <div class=\"hide\">常见错误，您设备的 IP 地址已更改。请确保您输入的 IP 地址{ip}, 与安装了 TorrServe 的设备的地址</div>\n            <div class=\"hide\">匹配，要访问 TorrServe，您需要一个协议:8090 在地址的末尾。确保协议写在你的IP地址的末尾，你的当前地址{ip}</div>\n            <div class=\"hide\">频繁，杀毒或防火墙可以阻止对该IP地址的访问，尝试禁用杀毒和防火墙。</div>\n            <div class=\"hide\">在任何其他未安装 TorrServe 的设备上，在浏览器中打开地址{ip} 并检查 TorrServe 的答案是否可用</div>\n            <div class=\"hide\">如果经过所有检查仍然无法正常工作，请尝试重新启动 TorrServe和 Internet 适配器。</div>\n            <div class=\"hide\">如果问题仍然存在，请在电报 Lampa_group 中用文本写入组 @（经过所有检查，Lamp 未连接到 TorrServe，当前地址{ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">开始扫描</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
 
-  var html$q = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">灯未连接到 TorrServe”“电视剧 -<b>{episode}</b> &nbsp;\u2022&nbsp; 季 -<b>{season}</b> &nbsp;\u2022&nbsp; 退出 -{air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
+  var html$q = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 -<b>{episode}</b> &nbsp;\u2022&nbsp; 季 -<b>{season}</b> &nbsp;\u2022&nbsp; 退出 -{air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
   var html$p = "<div class=\"search-box search\">\n    <div class=\"search-box__input search__input\"></div>\n    <div class=\"search-box__keypad search__keypad\"><div class=\"simple-keyboard\"></div></div>\n</div>";
 
@@ -814,7 +814,7 @@
 
   var html$l = "<span class=\"time-line-details\" data-hash=\"{hash}\">\n已查看 -<b a=\"t\">{time}</b> / <b a=\"p\">{percent}</b> 来自<b a=\"d\">{duration}</b>\n</span>";
 
-  var html$k = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">没有符合您的过滤器，请优化您的过滤器。</div>\n</div>";
+  var html$k = "<div class=\"empty empty--list\">\n    <div class=\"empty__title\">空</div>\n    <div class=\"empty__descr\">您的过滤器未找到任何内容，请优化您的过滤器.</div>\n</div>";
 
   var html$j = "<div class=\"screensaver\">\n    <div class=\"screensaver__slides\">\n        <img class=\"screensaver__slides-one\" />\n        <img class=\"screensaver__slides-two\" />\n    </div>\n    <div class=\"screensaver__gradient\"></div>\n    <div class=\"screensaver__title\">\n        <div class=\"screensaver__title-name\"></div>\n        <div class=\"screensaver__title-tagline\"></div>\n    </div>\n    <div class=\"screensaver__datetime\">\n        <div class=\"screensaver__datetime-time\"><span class=\"time--clock\"></span></div>\n        <div class=\"screensaver__datetime-date\"><span class=\"time--full\"></span></div>\n    </div>\n</div>";
 
@@ -888,7 +888,7 @@
     broadcast: html$h
   };
 
-  function get$b(name) {
+  function get$c(name) {
     var vars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var like_static = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     var tpl = templates[name];
@@ -904,18 +904,18 @@
     return like_static ? tpl : $(tpl);
   }
 
-  function add$9(name, html) {
+  function add$a(name, html) {
     templates[name] = html;
   }
 
-  function all$1() {
+  function all$2() {
     return templates;
   }
 
   var Template = {
-    get: get$b,
-    add: add$9,
-    all: all$1
+    get: get$c,
+    add: add$a,
+    all: all$2
   };
 
   var Base64 = {
@@ -1064,7 +1064,7 @@
 
       if (SERVER.movie) {
         intentExtra = {
-          title: "[LAMPA]" + SERVER.movie.title,
+          title: "[LAMPA] " + SERVER.movie.title,
           poster: SERVER.movie.img,
           action: "play",
           data: {
@@ -1100,7 +1100,7 @@
   function openTorrent(SERVER) {
     if (checkVersion(10)) {
       var intentExtra = {
-        title: "[LAMPA]" + SERVER.object.title,
+        title: "[LAMPA] " + SERVER.object.title,
         poster: SERVER.object.poster,
         action: "play",
         data: {
@@ -1808,7 +1808,7 @@
 
   function time$1(html) {
     var create = function create() {
-      var months = ['Jan', '二月', '三月', '四月', 'Ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+      var months = ['Jan', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
       var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
       this.moth = function (m) {
@@ -1854,7 +1854,7 @@
   }
 
   function parseTime(str) {
-    var months = ['一月', '二月', '三月', '四月', 'Ma', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    var months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
     var days = ["星期天", "星期一", "星期一", "星期三", "星期四", "星期五", "星期六"];
 
     var mouth = function mouth(m) {
@@ -2069,6 +2069,21 @@
     document.body.removeChild(textArea);
   }
 
+  function imgLoad(image, src, onload, onerror) {
+    var img = $(image)[0];
+
+    img.onload = function () {
+      if (onload) onload();
+    };
+
+    img.onerror = function (e) {
+      img.src = './img/img_broken.svg';
+      if (onerror) onerror();
+    };
+
+    img.src = src;
+  }
+
   var Utils = {
     secondsToTime: secondsToTime$1,
     secondsToTimeHuman: secondsToTimeHuman,
@@ -2093,10 +2108,11 @@
     pathToNormalTitle: pathToNormalTitle,
     hash: hash$2,
     uid: uid,
-    copyTextToClipboard: copyTextToClipboard
+    copyTextToClipboard: copyTextToClipboard,
+    imgLoad: imgLoad
   };
 
-  function component$d(name) {
+  function component$e(name) {
     var scrl = new create$r({
       mask: true,
       over: true
@@ -2212,7 +2228,7 @@
   });
 
   function create$q(name) {
-    var comp = new component$d(name);
+    var comp = new component$e(name);
     body$3.empty().append(comp.render());
     listener$e.send('open', {
       name: name,
@@ -2222,7 +2238,7 @@
     Controller.toggle('settings_component');
   }
 
-  function init$i() {
+  function init$j() {
     var main = new main$6();
     main.onCreate = create$q;
     main.create();
@@ -2266,7 +2282,7 @@
 
   var Settings = {
     listener: listener$e,
-    init: init$i,
+    init: init$j,
     render: render$c,
     update: update$8
   };
@@ -2383,7 +2399,7 @@
    * Запуск
    */
 
-  function init$h() {
+  function init$i() {
     Settings.listener.follow('open', function (e) {
       body$2 = null;
 
@@ -2400,10 +2416,10 @@
       }
     });
     Favorite.listener.follow('add,added', function (e) {
-      save$4('add', e.where, e.card);
+      save$5('add', e.where, e.card);
     });
     Favorite.listener.follow('remove', function (e) {
-      save$4('remove', e.where, e.card);
+      save$5('remove', e.where, e.card);
     });
     Lampa.Listener.follow('activity', function (e) {
       var count = bookmarks.length;
@@ -2415,7 +2431,7 @@
     update$7();
   }
 
-  function save$4(method, type, card) {
+  function save$5(method, type, card) {
     var account = Storage.get('account', '{}');
 
     if (account.token && Storage.field('account_use')) {
@@ -2650,7 +2666,7 @@
     return Storage.get('account', '{}').token && Storage.field('account_use');
   }
 
-  function get$a(params) {
+  function get$b(params) {
     return bookmarks.filter(function (elem) {
       return elem.type == params.type;
     }).map(function (elem) {
@@ -2736,9 +2752,9 @@
   }
 
   var Account = {
-    init: init$h,
+    init: init$i,
     working: working,
-    get: get$a,
+    get: get$b,
     plugins: plugins,
     notice: notice,
     pluginsStatus: pluginsStatus,
@@ -2747,11 +2763,11 @@
     torrentPopular: torrentPopular
   };
 
-  var data$4 = {};
+  var data$5 = {};
   var listener$d = start$4();
 
-  function save$3() {
-    Storage.set('favorite', data$4);
+  function save$4() {
+    Storage.set('favorite', data$5);
   }
   /**
    * 添加
@@ -2760,19 +2776,19 @@
    */
 
 
-  function add$8(where, card, limit) {
+  function add$9(where, card, limit) {
     read$1();
 
-    if (data$4[where].indexOf(card.id) < 0) {
-      Arrays.insert(data$4[where], 0, card.id);
+    if (data$5[where].indexOf(card.id) < 0) {
+      Arrays.insert(data$5[where], 0, card.id);
       listener$d.send('add', {
         where: where,
         card: card
       });
-      if (!search$6(card.id)) data$4.card.push(card);
+      if (!search$6(card.id)) data$5.card.push(card);
 
       if (limit) {
-        var excess = data$4[where].slice(limit);
+        var excess = data$5[where].slice(limit);
 
         for (var i = excess.length - 1; i >= 0; i--) {
           remove$1(where, {
@@ -2781,11 +2797,11 @@
         }
       }
 
-      save$3();
+      save$4();
     } else {
-      Arrays.remove(data$4[where], card.id);
-      Arrays.insert(data$4[where], 0, card.id);
-      save$3();
+      Arrays.remove(data$5[where], card.id);
+      Arrays.insert(data$5[where], 0, card.id);
+      save$4();
       listener$d.send('added', {
         where: where,
         card: card
@@ -2801,17 +2817,17 @@
 
   function remove$1(where, card) {
     read$1();
-    Arrays.remove(data$4[where], card.id);
+    Arrays.remove(data$5[where], card.id);
     listener$d.send('remove', {
       where: where,
       card: card
     });
 
-    for (var i = data$4.card.length - 1; i >= 0; i--) {
-      var element = data$4.card[i];
+    for (var i = data$5.card.length - 1; i >= 0; i--) {
+      var element = data$5.card[i];
 
       if (!check(element).any) {
-        Arrays.remove(data$4.card, element);
+        Arrays.remove(data$5.card, element);
         listener$d.send('remove', {
           where: where,
           card: element
@@ -2819,7 +2835,7 @@
       }
     }
 
-    save$3();
+    save$4();
   }
   /**
    * Найти
@@ -2831,8 +2847,8 @@
   function search$6(id) {
     var found;
 
-    for (var index = 0; index < data$4.card.length; index++) {
-      var element = data$4.card[index];
+    for (var index = 0; index < data$5.card.length; index++) {
+      var element = data$5.card[index];
 
       if (element.id == id) {
         found = element;
@@ -2852,7 +2868,7 @@
   function toggle$7(where, card) {
     read$1();
     var find = cloud(card);
-    if (find[where]) remove$1(where, card);else add$8(where, card);
+    if (find[where]) remove$1(where, card);else add$9(where, card);
     return find[where] ? false : true;
   }
   /**
@@ -2864,10 +2880,10 @@
 
   function check(card) {
     var result = {
-      like: data$4.like.indexOf(card.id) > -1,
-      wath: data$4.wath.indexOf(card.id) > -1,
-      book: data$4.book.indexOf(card.id) > -1,
-      history: data$4.history.indexOf(card.id) > -1,
+      like: data$5.like.indexOf(card.id) > -1,
+      wath: data$5.wath.indexOf(card.id) > -1,
+      book: data$5.book.indexOf(card.id) > -1,
+      history: data$5.history.indexOf(card.id) > -1,
       any: true
     };
     if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
@@ -2916,16 +2932,16 @@
    */
 
 
-  function get$9(params) {
+  function get$a(params) {
     if (Account.working()) {
       return Account.get(params);
     } else {
       read$1();
       var result = [];
-      var ids = data$4[params.type];
+      var ids = data$5[params.type];
       ids.forEach(function (id) {
-        for (var i = 0; i < data$4.card.length; i++) {
-          var card = data$4.card[i];
+        for (var i = 0; i < data$5.card.length; i++) {
+          var card = data$5.card[i];
           if (card.id == id) result.push(card);
         }
       });
@@ -2942,8 +2958,8 @@
   function clear$6(where, card) {
     read$1();
     if (card) remove$1(where, card);else {
-      for (var i = data$4[where].length - 1; i >= 0; i--) {
-        var _card = search$6(data$4[where][i]);
+      for (var i = data$5[where].length - 1; i >= 0; i--) {
+        var _card = search$6(data$5[where][i]);
 
         if (_card) remove$1(where, _card);
       }
@@ -2955,8 +2971,8 @@
 
 
   function read$1() {
-    data$4 = Storage.get('favorite', '{}');
-    Arrays.extend(data$4, {
+    data$5 = Storage.get('favorite', '{}');
+    Arrays.extend(data$5, {
       like: [],
       wath: [],
       book: [],
@@ -2964,9 +2980,24 @@
       history: []
     });
   }
+  /**
+   * Получить весь список что есть
+   */
+
+
+  function full$5() {
+    Arrays.extend(data$5, {
+      like: [],
+      wath: [],
+      book: [],
+      card: [],
+      history: []
+    });
+    return data$5;
+  }
 
   function continues(type) {
-    return Arrays.clone(get$9({
+    return Arrays.clone(get$a({
       type: 'history'
     }).filter(function (e) {
       return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
@@ -2980,20 +3011,21 @@
    */
 
 
-  function init$g() {
+  function init$h() {
     read$1();
   }
 
   var Favorite = {
     listener: listener$d,
     check: cloud,
-    add: add$8,
+    add: add$9,
     remove: remove$1,
     toggle: toggle$7,
-    get: get$9,
-    init: init$g,
+    get: get$a,
+    init: init$h,
     clear: clear$6,
-    continues: continues
+    continues: continues,
+    full: full$5
   };
 
   function status$1(need) {
@@ -3021,35 +3053,35 @@
     };
   }
 
-  var data$3 = [];
+  var data$4 = [];
   /**
    * Запуск
    */
 
-  function init$f() {
-    data$3 = Storage.cache('recomends_scan', 500, []);
+  function init$g() {
+    data$4 = Storage.cache('recomends_scan', 500, []);
     Favorite.get({
       type: 'history'
     }).forEach(function (elem) {
       if (['cub', 'tmdb'].indexOf(elem.source) >= 0) {
-        var id = data$3.filter(function (a) {
+        var id = data$4.filter(function (a) {
           return a.id == elem.id;
         });
 
         if (!id.length) {
-          data$3.push({
+          data$4.push({
             id: elem.id,
             tv: elem.number_of_seasons
           });
         }
       }
     });
-    Storage.set('recomends_scan', data$3);
+    Storage.set('recomends_scan', data$4);
     setInterval(search$5, 120 * 1000);
   }
 
   function search$5() {
-    var ids = data$3.filter(function (e) {
+    var ids = data$4.filter(function (e) {
       return !e.scan;
     });
 
@@ -3075,15 +3107,15 @@
         }
       });
     } else {
-      data$3.forEach(function (a) {
+      data$4.forEach(function (a) {
         return a.scan = 0;
       });
     }
 
-    Storage.set('recomends_scan', data$3);
+    Storage.set('recomends_scan', data$4);
   }
 
-  function get$8(type) {
+  function get$9(type) {
     var all = Storage.get('recomends_list', '[]');
     return all.filter(function (e) {
       return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
@@ -3091,41 +3123,41 @@
   }
 
   var Recomends = {
-    init: init$f,
-    get: get$8
+    init: init$g,
+    get: get$9
   };
 
-  var data$2 = [];
+  var data$3 = [];
   var token = '3i40G5TSECmLF77oAqnEgbx61ZWaOYaE';
   var network$b = new create$s();
   var videocdn = 'https://videocdn.tv/api/short?api_token=' + token;
-  var object = false;
+  var object$1 = false;
   /**
    * Запуск
    */
 
-  function init$e() {
-    data$2 = Storage.cache('quality_scan', 500, []);
-    setInterval(extract$1, 30 * 1000);
+  function init$f() {
+    data$3 = Storage.cache('quality_scan', 500, []);
+    setInterval(extract$2, 30 * 1000);
   }
 
-  function add$7(elems) {
+  function add$8(elems) {
     elems.filter(function (elem) {
       return !elem.number_of_seasons;
     }).forEach(function (elem) {
-      var id = data$2.filter(function (a) {
+      var id = data$3.filter(function (a) {
         return a.id == elem.id;
       });
 
       if (!id.length) {
-        data$2.push({
+        data$3.push({
           id: elem.id,
           title: elem.title,
           imdb_id: elem.imdb_id
         });
       }
     });
-    Storage.set('quality_scan', data$2);
+    Storage.set('quality_scan', data$3);
   }
 
   function search$4(itm) {
@@ -3148,12 +3180,12 @@
       if (results.length && results[0].media) {
         results[0].media.map(function (m) {
           index = Math.max(index, qualitys.indexOf(m.source_quality));
-          object.quality = qualitys[index];
+          object$1.quality = qualitys[index];
         });
       }
 
-      save$2();
-    }, save$2);
+      save$3();
+    }, save$3);
   }
 
   function req(imdb_id, query) {
@@ -3162,9 +3194,9 @@
     network$b.timeout(1000 * 15);
     network$b.silent(url, function (json) {
       if (json.data && json.data.length) {
-        if (object.imdb_id) {
+        if (object$1.imdb_id) {
           var imdb = json.data.filter(function (elem) {
-            return elem.imdb_id == object.imdb_id;
+            return elem.imdb_id == object$1.imdb_id;
           });
           if (imdb.length) json.data = imdb;
         }
@@ -3174,54 +3206,54 @@
         }
       }
 
-      save$2();
-    }, save$2);
+      save$3();
+    }, save$3);
   }
 
-  function extract$1() {
-    var ids = data$2.filter(function (e) {
+  function extract$2() {
+    var ids = data$3.filter(function (e) {
       return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
     });
 
     if (ids.length) {
-      object = ids[0];
+      object$1 = ids[0];
 
-      if (object.imdb_id) {
-        req(object.imdb_id);
+      if (object$1.imdb_id) {
+        req(object$1.imdb_id);
       } else {
         var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
-        network$b.silent('http://' + dom + 'movie/' + object.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
-          req(ttid.imdb_id, object.title);
-        }, save$2);
+        network$b.silent('http://' + dom + 'movie/' + object$1.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
+          req(ttid.imdb_id, object$1.title);
+        }, save$3);
       }
     } else {
-      data$2.forEach(function (a) {
+      data$3.forEach(function (a) {
         return a.scaned = 0;
       });
     }
 
-    Storage.set('quality_scan', data$2);
+    Storage.set('quality_scan', data$3);
   }
 
-  function save$2() {
-    if (object) {
-      object.scaned = 1;
-      object.scaned_time = Date.now();
-      Storage.set('quality_scan', data$2);
+  function save$3() {
+    if (object$1) {
+      object$1.scaned = 1;
+      object$1.scaned_time = Date.now();
+      Storage.set('quality_scan', data$3);
     }
   }
 
-  function get$7(elem) {
-    var fid = data$2.filter(function (e) {
+  function get$8(elem) {
+    var fid = data$3.filter(function (e) {
       return e.id == elem.id;
     });
     return (fid.length ? fid[0] : {}).quality;
   }
 
   var VideoQuality = {
-    init: init$e,
-    get: get$7,
-    add: add$7
+    init: init$f,
+    get: get$8,
+    add: add$8
   };
 
   var network$a = new create$s();
@@ -3230,15 +3262,15 @@
 
   function url$5(u) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    u = add$6(u, 'api_key=' + key);
-    u = add$6(u, 'language=' + Storage.field('tmdb_lang'));
-    if (params.genres) u = add$6(u, 'with_genres=' + params.genres);
-    if (params.page) u = add$6(u, 'page=' + params.page);
-    if (params.query) u = add$6(u, 'query=' + params.query);
+    u = add$7(u, 'api_key=' + key);
+    u = add$7(u, 'language=' + Storage.field('tmdb_lang'));
+    if (params.genres) u = add$7(u, 'with_genres=' + params.genres);
+    if (params.page) u = add$7(u, 'page=' + params.page);
+    if (params.query) u = add$7(u, 'query=' + params.query);
 
     if (params.filter) {
       for (var i in params.filter) {
-        u = add$6(u, i + '=' + params.filter[i]);
+        u = add$7(u, i + '=' + params.filter[i]);
       }
     }
 
@@ -3246,7 +3278,7 @@
     return Utils.protocol() + base + u;
   }
 
-  function add$6(u, params) {
+  function add$7(u, params) {
     return u + (/\?/.test(u) ? '&' : '?') + params;
   }
 
@@ -3306,76 +3338,30 @@
       status.append(name, json);
     };
 
-    var date = new Date();
-      var nparams4 = Arrays.clone(params);
-      nparams4.filter = {
-        with_original_language: "zh",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6('tv/popular', nparams4, function (json) {
-        json.filter = nparams4.filter;
-        append('热门国产剧', 'popular_tv_cn', json);
-      }, status.error.bind(status));
-
-      var nparams5 = Arrays.clone(params);
-      nparams5.filter = {
-        with_original_language: "ko",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : "18|80|10759|9648|10751"
-      };
-      get$6('tv/popular', nparams5, function (json) {
-        json.filter = nparams5.filter;
-        append('热门韩剧', 'popular_tv_kr', json);
-      }, status.error.bind(status));
-
-      var nparams6 = Arrays.clone(params);
-      nparams6.filter = {
-        with_original_language: "en",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6('tv/popular', nparams6, function (json) {
-        json.filter = nparams6.filter;
-        append('热门英美剧', 'popular_tv_en', json);
-      }, status.error.bind(status));
-
-      get$6('movie/now_playing', params, function (json) {
+    get$7('movie/now_playing', params, function (json) {
       append('正在观看', 'wath', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6('trending/moviews/day', params, function (json) {
+    get$7('trending/moviews/day', params, function (json) {
       append('今日热门', 'trend_day', json);
     }, status.error.bind(status));
-    get$6('trending/moviews/week', params, function (json) {
+    get$7('trending/moviews/week', params, function (json) {
       append('本周热门', 'trend_week', json);
     }, status.error.bind(status));
-    get$6('movie/upcoming', params, function (json) {
+    get$7('movie/upcoming', params, function (json) {
       append('在电影院观看', 'upcoming', json);
     }, status.error.bind(status));
-    get$6('movie/popular', params, function (json) {
+    get$7('movie/popular', params, function (json) {
       append('精选电影', 'popular', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6('tv/popular', params, function (json) {
+    get$7('tv/popular', params, function (json) {
       append('精选电视剧', 'popular_tv', json);
     }, status.error.bind(status));
-    get$6('movie/top_rated', params, function (json) {
+    get$7('movie/top_rated', params, function (json) {
       append('热门电影', 'top', json);
     }, status.error.bind(status));
-    get$6('tv/top_rated', params, function (json) {
+    get$7('tv/top_rated', params, function (json) {
       append('热门电视剧', 'top_tv', json);
     }, status.error.bind(status));
   }
@@ -3420,85 +3406,11 @@
       status.append(name, json);
     };
 
-    var date = new Date();
-      var nparams4 = Arrays.clone(params);
-      nparams4.filter = {
-        with_original_language: "ko",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        'vote_average.gte': 7,
-        filter :"drama"
-      };
-      get$6('discover/' + params.url, nparams4, function (json) {
-        json.filter = nparams4.filter;
-        append('今年韩剧', 'new_kr', json);
-      }, status.error.bind(status));
-      var nparams7 = Arrays.clone(params);
-      nparams7.filter = {
-        with_original_language: "zh",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : "18|10759|10751|35|9648"
-      };
-      get$6('discover/' + params.url, nparams7, function (json) {
-        json.filter = nparams7.filter;
-        append('今年国产剧', 'new_cn', json);
-      }, status.error.bind(status));
-      var nparams8 = Arrays.clone(params);
-      nparams8.filter = {
-        with_original_language: "en",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6('discover/' + params.url, nparams8, function (json) {
-        json.filter = nparams8.filter;
-        append('今年英美剧', 'new_en', json);
-      }, status.error.bind(status));
-      var nparams5 = Arrays.clone(params);
-      nparams5.filter = {
-        with_original_language: "ko",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6(params.url + '/on_the_air', nparams5, function (json) {
-        json.filter = nparams5.filter;
-        append('本周韩剧', 'tv_air_kr', json);
-      }, status.error.bind(status));
-
-      var nparams1 = Arrays.clone(params);
-      nparams1.filter = {
-        with_original_language: "zh",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6(params.url + '/on_the_air', nparams1, function (json) {
-        json.filter = nparams1.filter;
-        append('本周国产剧', 'tv_air_ch', json);
-      }, status.error.bind(status));
-      var nparams2 = Arrays.clone(params);
-      nparams2.filter = {
-        with_original_language: "en",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$6(params.url + '/on_the_air', nparams2, function (json) {
-        json.filter = nparams2.filter;
-        append('本周英美剧', 'tv_air_en', json);
-      }, status.error.bind(status));
-
-      get$6(params.url + '/now_playing', params, function (json) {
+    get$7(params.url + '/now_playing', params, function (json) {
       append('正在观看', 'wath', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6(params.url + '/popular', params, function (json) {
+    get$7(params.url + '/popular', params, function (json) {
       append('流行', 'popular', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
@@ -3510,17 +3422,17 @@
       first_air_date_year: date.getFullYear(),
       'vote_average.gte': 7
     };
-    get$6('discover/' + params.url, nparams, function (json) {
+    get$7('discover/' + params.url, nparams, function (json) {
       json.filter = nparams.filter;
       append('新', 'new', json);
     }, status.error.bind(status));
-    get$6(params.url + '/airing_today', params, function (json) {
+    get$7(params.url + '/airing_today', params, function (json) {
       append('今天播出', 'tv_today', json);
     }, status.error.bind(status));
-    get$6(params.url + '/on_the_air', params, function (json) {
+    get$7(params.url + '/on_the_air', params, function (json) {
       append('本周', 'tv_air', json);
     }, status.error.bind(status));
-    get$6(params.url + '/top_rated', params, function (json) {
+    get$7(params.url + '/top_rated', params, function (json) {
       append('热门', 'top', json);
     }, status.error.bind(status));
   }
@@ -3530,17 +3442,17 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var status = new status$1(7);
     status.onComplite = oncomplite;
-    get$6(params.method + '/' + params.id, params, function (json) {
+    get$7(params.method + '/' + params.id, params, function (json) {
       json.source = 'tmdb';
 
       if (params.method == 'tv') {
-        get$6('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
+        get$7('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
           status.append('episodes', ep);
         }, status.error.bind(status));
       } else status.need--;
 
       if (json.belongs_to_collection) {
-        get$6('collection/' + json.belongs_to_collection.id, {}, function (collection) {
+        get$7('collection/' + json.belongs_to_collection.id, {}, function (collection) {
           collection.results = collection.parts.slice(0, 19);
           status.append('collection', collection);
         }, status.error.bind(status));
@@ -3551,16 +3463,16 @@
       status.need -= 2;
       status.error();
     });
-    get$6(params.method + '/' + params.id + '/credits', params, function (json) {
+    get$7(params.method + '/' + params.id + '/credits', params, function (json) {
       status.append('persons', json);
     }, status.error.bind(status));
-    get$6(params.method + '/' + params.id + '/recommendations', params, function (json) {
+    get$7(params.method + '/' + params.id + '/recommendations', params, function (json) {
       status.append('recomend', json);
     }, status.error.bind(status));
-    get$6(params.method + '/' + params.id + '/similar', params, function (json) {
+    get$7(params.method + '/' + params.id + '/similar', params, function (json) {
       status.append('simular', json);
     }, status.error.bind(status));
-    get$6(params.method + '/' + params.id + '/videos', params, function (json) {
+    get$7(params.method + '/' + params.id + '/videos', params, function (json) {
       status.append('videos', json);
     }, status.error.bind(status));
   }
@@ -3573,7 +3485,7 @@
     network$a.silent(u, oncomplite, onerror);
   }
 
-  function get$6(method) {
+  function get$7(method) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
     var onerror = arguments.length > 3 ? arguments[3] : undefined;
@@ -3589,11 +3501,11 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var status = new status$1(2);
     status.onComplite = oncomplite;
-    get$6('search/movie', params, function (json) {
+    get$7('search/movie', params, function (json) {
       json.title = '电影';
       status.append('movie', json);
     }, status.error.bind(status));
-    get$6('search/tv', params, function (json) {
+    get$7('search/tv', params, function (json) {
       json.title = '电视节目';
       status.append('tv', json);
     }, status.error.bind(status));
@@ -3630,7 +3542,7 @@
       knownFor = Arrays.groupBy(crew, 'department');
       var actorGender = person.gender === 1 ? '女演员' : '演员';
       if (movie.length > 0) knownFor["".concat(actorGender, " - 电影")] = movie;
-      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视剧")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视节目")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
 
       knownFor = Object.entries(knownFor).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
@@ -3671,10 +3583,10 @@
       oncomplite(fulldata);
     };
 
-    get$6('person/' + params.id, params, function (json) {
+    get$7('person/' + params.id, params, function (json) {
       status.append('person', json);
     }, status.error.bind(status));
-    get$6('person/' + params.id + '/combined_credits', params, function (json) {
+    get$7('person/' + params.id + '/combined_credits', params, function (json) {
       status.append('credits', json);
     }, status.error.bind(status));
   }
@@ -3700,7 +3612,7 @@
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    get$6('tv/' + params.id + '/external_ids', oncomplite, onerror);
+    get$7('tv/' + params.id + '/external_ids', oncomplite, onerror);
   }
 
   function company$1() {
@@ -3715,14 +3627,14 @@
     var status = new status$1(from.length);
     status.onComplite = oncomplite;
     from.forEach(function (season) {
-      get$6('tv/' + tv.id + '/season/' + season, {}, function (json) {
+      get$7('tv/' + tv.id + '/season/' + season, {}, function (json) {
         status.append('' + season, json);
       }, status.error.bind(status));
     });
   }
 
   function screensavers(oncomplite, onerror) {
-    get$6('trending/all/week', {
+    get$7('trending/all/week', {
       page: Math.round(Math.random() * 30)
     }, function (json) {
       oncomplite(json.results.filter(function (entry) {
@@ -3750,7 +3662,7 @@
     find: find$1,
     screensavers: screensavers,
     external_ids: external_ids,
-    get: get$6
+    get: get$7
   };
 
   var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
@@ -4752,24 +4664,24 @@
 
   function url$4(u) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    if (params.genres) u = add$5(u, 'genre=' + params.genres);
-    if (params.page) u = add$5(u, 'page=' + params.page);
-    if (params.query) u = add$5(u, 'query=' + params.query);
+    if (params.genres) u = add$6(u, 'genre=' + params.genres);
+    if (params.page) u = add$6(u, 'page=' + params.page);
+    if (params.query) u = add$6(u, 'query=' + params.query);
 
     if (params.filter) {
       for (var i in params.filter) {
-        u = add$5(u, i + '=' + params.filter[i]);
+        u = add$6(u, i + '=' + params.filter[i]);
       }
     }
 
     return baseurl + u;
   }
 
-  function add$5(u, params) {
+  function add$6(u, params) {
     return u + (/\?/.test(u) ? '&' : '?') + params;
   }
 
-  function get$5(method) {
+  function get$6(method) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
     var onerror = arguments.length > 3 ? arguments[3] : undefined;
@@ -4811,38 +4723,38 @@
       status.append(name, json);
     };
 
-    get$5('?sort=now_playing', params, function (json) {
+    get$6('?sort=now_playing', params, function (json) {
       append('正在观看', 's1', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$5('?sort=latest', params, function (json) {
+    get$6('?sort=latest', params, function (json) {
       append('最后添加', 's2', json);
     }, status.error.bind(status));
-    get$5('movie/now', params, function (json) {
+    get$6('movie/now', params, function (json) {
       append('电影', 's3', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=16', params, function (json) {
+    get$6('?sort=now&genre=16', params, function (json) {
       append('卡通', 's4', json);
     }, status.error.bind(status));
-    get$5('tv/now', params, function (json) {
+    get$6('tv/now', params, function (json) {
       append('电视节目', 's5', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=12', params, function (json) {
+    get$6('?sort=now&genre=12', params, function (json) {
       append('冒险', 's6', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=35', params, function (json) {
+    get$6('?sort=now&genre=35', params, function (json) {
       append('喜剧', 's7', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=10751', params, function (json) {
+    get$6('?sort=now&genre=10751', params, function (json) {
       append('家庭', 's8', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=27', params, function (json) {
+    get$6('?sort=now&genre=27', params, function (json) {
       append('恐怖', 's9', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=878', params, function (json) {
+    get$6('?sort=now&genre=878', params, function (json) {
       append('科幻', 's10', json);
     }, status.error.bind(status));
-    get$5('?sort=now&genre=53', params, function (json) {
+    get$6('?sort=now&genre=53', params, function (json) {
       append('惊悚', 's11', json);
     }, status.error.bind(status));
   }
@@ -4883,28 +4795,28 @@
       status.append(name, json);
     };
 
-    get$5('?cat=' + params.url + '&sort=now_playing', params, function (json) {
+    get$6('?cat=' + params.url + '&sort=now_playing', params, function (json) {
       append('正在观看', 's1', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
 
     if (params.url == 'tv') {
-      get$5('?cat=' + params.url + '&sort=update', params, function (json) {
+      get$6('?cat=' + params.url + '&sort=update', params, function (json) {
         append('新剧集', 's2', json);
       }, status.error.bind(status));
     }
 
-    get$5('?cat=' + params.url + '&sort=top', params, function (json) {
+    get$6('?cat=' + params.url + '&sort=top', params, function (json) {
       append('热门', 's3', json);
       if (show) VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$5('?cat=' + params.url + '&sort=latest', params, function (json) {
+    get$6('?cat=' + params.url + '&sort=latest', params, function (json) {
       append('最新上传', 's4', json);
     }, status.error.bind(status));
-    get$5('?cat=' + params.url + '&sort=now', params, function (json) {
+    get$6('?cat=' + params.url + '&sort=now', params, function (json) {
       append('今年新', 's5', json);
     }, status.error.bind(status));
-    get$5('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
+    get$6('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
       append('高度评价', 's6', json);
     }, status.error.bind(status));
   }
@@ -4912,7 +4824,7 @@
   function full$1(params, oncomplite, onerror) {
     var status = new status$1(7);
     status.onComplite = oncomplite;
-    get$5('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
+    get$6('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
       json.source = 'tmdb';
 
       if (params.method == 'tv') {
@@ -4977,7 +4889,7 @@
   var url$3;
   var network$6 = new create$s();
 
-  function get$4() {
+  function get$5() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -5131,7 +5043,7 @@
   }
 
   var Parser = {
-    get: get$4,
+    get: get$5,
     torlook: torlook,
     jackett: jackett,
     marnet: marnet,
@@ -5448,7 +5360,7 @@
     };
   }
 
-  function init$d() {
+  function init$e() {
     $(window).on('resize', update$6);
     toggleClasses();
     Storage.listener.follow('change', function (event) {
@@ -5503,7 +5415,7 @@
 
   var Layer = {
     update: update$6,
-    init: init$d
+    init: init$e
   };
 
   /* eslint-disable no-bitwise -- used for calculations */
@@ -6153,7 +6065,7 @@
   canvas.width = 30;
   canvas.height = 17;
 
-  function extract(img_data) {
+  function extract$1(img_data) {
     var data = img_data.data,
         colors = [];
 
@@ -6317,13 +6229,13 @@
     canvas.height = height;
   }
 
-  function get$3(img) {
+  function get$4(img) {
     reset(30, 17);
     var ratio = Math.max(canvas.width / img.width, canvas.height / img.height);
     var nw = img.width * ratio,
         nh = img.height * ratio;
     ctx.drawImage(img, -(nw - canvas.width) / 2, -(nh - canvas.height) / 2, nw, nh);
-    return extract(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    return extract$1(ctx.getImageData(0, 0, canvas.width, canvas.height));
   }
 
   function blur$1(img) {
@@ -6339,8 +6251,8 @@
   }
 
   var Color = {
-    get: get$3,
-    extract: extract,
+    get: get$4,
+    extract: extract$1,
     palette: palette,
     rgba: rgba,
     blur: blur$1,
@@ -6510,7 +6422,7 @@
     return html$d;
   }
 
-  function init$c() {
+  function init$d() {
     Storage.listener.follow('change', function (event) {
       if (event.name == 'background' || event.name == 'background_type') resize();
     });
@@ -6536,7 +6448,7 @@
     render: render$a,
     change: change,
     update: resize,
-    init: init$c,
+    init: init$d,
     immediately: immediately
   };
 
@@ -6821,7 +6733,7 @@
     };
   }
 
-  function component$c(object) {
+  function component$d(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -7321,7 +7233,7 @@
       }
     };
     /**
-     * Всегда говорим да, мы можем играть
+     * 周日егда говорим да, мы можем играть
      */
 
 
@@ -7335,7 +7247,7 @@
 
     video.addEventListener = listener.follow.bind(listener);
     /**
-     * Вешаем события 来自 плеера тайзен
+     * Вешаем события 来自плеера тайзен
      */
 
     webapis.avplay.setListener({
@@ -8020,7 +7932,7 @@
       orsay_loaded,
       orsay_call = Date.now();
 
-  function init$b() {
+  function init$c() {
     $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
     Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
       try {
@@ -8062,7 +7974,7 @@
   }
 
   var Orsay = {
-    init: init$b,
+    init: init$c,
     exit: exit
   };
 
@@ -8103,7 +8015,7 @@
     return keycode;
   }
 
-  function init$a() {
+  function init$b() {
     window.addEventListener("keydown", function (e) {
       lastdown = keyCode(e);
 
@@ -8254,7 +8166,7 @@
 
   var Keypad = {
     listener: listener$b,
-    init: init$a,
+    init: init$b,
     enable: enable$2,
     disable: disable$1
   };
@@ -8871,7 +8783,7 @@
 
 
     _video.addEventListener('subtitle', function (e) {
-      //В srt существует тег {\anX}, где X - цифра 来自 1 до 9, Тег определяет нестандартное положение субтитра на экране.
+      //В srt существует тег {\anX}, где X - цифра 来自1 до 9, Тег определяет нестандартное положение субтитра на экране.
       //Здесь удаляется тег来自строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
       subtitles$1.removeClass('on-top');
@@ -9771,7 +9683,7 @@
     }
   }
 
-  function init$9() {
+  function init$a() {
     $('body').append(html$8);
     resetTimer();
     Keypad.listener.follow('keydown', function (e) {
@@ -9800,7 +9712,7 @@
 
   var Screensaver = {
     listener: listener$6,
-    init: init$9,
+    init: init$a,
     enable: enable$1,
     render: render$6,
     disable: disable,
@@ -9932,7 +9844,7 @@
     }, fail, data);
   }
 
-  function add$4(object, success, fail) {
+  function add$5(object, success, fail) {
     var data = JSON.stringify({
       action: 'add',
       link: object.link,
@@ -10133,7 +10045,7 @@
   var Torserver = {
     ip: ip,
     my: my,
-    add: add$4,
+    add: add$5,
     url: url,
     hash: hash$1,
     files: files$1,
@@ -11119,7 +11031,7 @@
     episodes: create$a
   };
 
-  function component$b(object) {
+  function component$c(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11296,7 +11208,7 @@
     };
   }
 
-  function component$a(object) {
+  function component$b(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11444,7 +11356,7 @@
     };
   }
 
-  function component$9(object) {
+  function component$a(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11613,7 +11525,7 @@
     line: create$n
   };
 
-  function component$8(object) {
+  function component$9(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11741,7 +11653,7 @@
     };
   }
 
-  function component$7(object) {
+  function component$8(object) {
     var _this2 = this;
 
     var network = new create$s();
@@ -12313,7 +12225,7 @@
   function secondsToTime(sec_num) {
     var hours = Math.trunc(sec_num / 3600);
     var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    return (hours ? hours + 'h.' : '') + minutes + 'm';
+    return (hours ? hours + 'h.' : '') + minutes + 'm。 ';
   }
 
   function format(params) {
@@ -12703,7 +12615,7 @@
     back: back$3
   };
 
-  function component$6(object) {
+  function component$7(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -12750,7 +12662,7 @@
     }
 
     var viewed = Storage.cache('torrents_view', 5000, []);
-    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "是севич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "翻译ман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "俄罗斯", "РТР", "俄语 дубляж", "俄语 Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союз卡通", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супер比特", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
+    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "是севич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "翻译ман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "俄罗斯", "РТР", "俄语 дубляж", "俄语 Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союз卡通", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супер位", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
     scroll.minus();
     scroll.body().addClass('torrent-list');
 
@@ -12886,7 +12798,7 @@
         }
 
         if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-      }); //надо очистить 来自 отсутствующих ключей
+      }); //надо очистить 来自отсутствующих ключей
 
       need.voice = Arrays.removeNoIncludes(Arrays.toArray(need.voice), filter_items.voice);
       need.tracker = Arrays.removeNoIncludes(Arrays.toArray(need.tracker), filter_items.tracker);
@@ -13195,7 +13107,7 @@
           });
           time_min = Utils.secondsToTimeHuman(time_min);
           time_max = Utils.secondsToTimeHuman(time_max);
-          var details = $("<div class=\"torrent-item__stat\">\n                    <div>平均: ".concat(time_avr, "</div>\n                    <div>最小: ").concat(time_min, "</div>\n                    <div>最大: ").concat(time_max, "</div>\n                    <div>请求: ").concat(element.viewing_request, "</div>\n                </div>"));
+          var details = $("<div class=\"torrent-item__stat\">\n                    <div>平均: ".concat(time_avr, "</div>\n                    <div>最小值: ").concat(time_min, "</div>\n                    <div>最大值: ").concat(time_max, "</div>\n                    <div>请求: ").concat(element.viewing_request, "</div>\n                </div>"));
           item.append(details);
         }
 
@@ -13305,7 +13217,7 @@
     };
   }
 
-  function component$5(object) {
+  function component$6(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13452,7 +13364,7 @@
     };
   }
 
-  function component$4(object) {
+  function component$5(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13630,7 +13542,7 @@
     };
   }
 
-  function component$3(object) {
+  function component$4(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13769,7 +13681,7 @@
     };
   }
 
-  function component$2(object) {
+  function component$3(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -13912,7 +13824,7 @@
     };
   }
 
-  function component$1(object) {
+  function component$2(object) {
     var html = $('<div></div>');
     var empty = new create$l();
 
@@ -13946,19 +13858,294 @@
     };
   }
 
+  var data$2 = [];
+  var object = false;
+  /**
+   * Запуск
+   */
+
+  function init$9() {
+    data$2 = Storage.cache('timetable', 500, []);
+    setInterval(extract, 1000 * 60 * 2);
+    setInterval(favorites, 1000 * 60 * 10);
+  }
+
+  function add$4(elems) {
+    elems.filter(function (elem) {
+      return elem.number_of_seasons;
+    }).forEach(function (elem) {
+      var id = data$2.filter(function (a) {
+        return a.id == elem.id;
+      });
+
+      if (!id.length) {
+        data$2.push({
+          id: elem.id,
+          season: elem.number_of_seasons,
+          episodes: []
+        });
+      }
+    });
+    Storage.set('timetable', data$2);
+  }
+
+  function favorites() {
+    add$4(Favorite.get({
+      type: 'book'
+    }));
+    add$4(Favorite.get({
+      type: 'like'
+    }));
+    add$4(Favorite.get({
+      type: 'wath'
+    }));
+  }
+
+  function extract() {
+    var ids = data$2.filter(function (e) {
+      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
+    });
+
+    if (ids.length) {
+      object = ids[0];
+
+      if (Favorite.check(object).any) {
+        TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
+          object.episodes = ep.episodes;
+          save$2();
+        }, save$2);
+      } else save$2();
+    } else {
+      data$2.forEach(function (a) {
+        return a.scaned = 0;
+      });
+    }
+
+    Storage.set('timetable', data$2);
+  }
+
+  function save$2() {
+    if (object) {
+      object.scaned = 1;
+      object.scaned_time = Date.now();
+      Storage.set('timetable', data$2);
+    }
+  }
+
+  function get$3(elem) {
+    var fid = data$2.filter(function (e) {
+      return e.id == elem.id;
+    });
+    return (fid.length ? fid[0] : {}).episodes || [];
+  }
+
+  function all$1() {
+    return data$2;
+  }
+
+  var TimeTable = {
+    init: init$9,
+    get: get$3,
+    add: add$4,
+    all: all$1
+  };
+
+  function component$1(object) {
+    var _this = this;
+
+    var scroll = new create$r({
+      mask: true,
+      over: true
+    });
+    var html = $('<div></div>');
+    var body = $('<div class="timetable"></div>');
+    var cards = Favorite.full().card;
+    var table = TimeTable.all();
+    var last;
+
+    this.create = function () {
+      if (table.length) {
+        var date_max = 0;
+        var date_now = new Date();
+        var date_end = new Date();
+        var date_one = 24 * 60 * 60 * 1000;
+        table.forEach(function (elem) {
+          elem.episodes.forEach(function (ep) {
+            var air = new Date(ep.air_date);
+            var tim = air.getTime();
+
+            if (date_max < tim) {
+              date_max = tim;
+              date_end = air;
+            }
+          });
+        });
+        var date_dif = Math.min(30, Math.round(Math.abs((date_now - date_end) / date_one)));
+
+        for (var i = 0; i < date_dif; i++) {
+          this.append(date_now);
+          date_now.setDate(date_now.getDate() + 1);
+        }
+
+        scroll.minus();
+        scroll.append(body);
+        html.append(scroll.render());
+      } else this.empty();
+
+      this.activity.loader(false);
+      this.activity.toggle();
+      return this.render();
+    };
+
+    this.empty = function () {
+      var empty = new create$l({
+        descr: '此部分将显示新剧集的发布日期'
+      });
+      html.append(empty.render());
+      _this.start = empty.start;
+
+      _this.activity.loader(false);
+
+      _this.activity.toggle();
+    };
+
+    this.append = function (date) {
+      var item = $("\n            <div class=\"timetable__item selector\">\n                <div class=\"timetable__inner\">\n                    <div class=\"timetable__date\"></div>\n                    <div class=\"timetable__body\"></div>\n                </div>\n            </div>\n        ");
+      var air_date = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+      var air_epis = [];
+      var day_week = Utils.parseTime(date.getTime());
+      var weeks = ['Вс', '周一', '周二', '周三', '周四', '周五', '星期六'];
+      table.forEach(function (elem) {
+        elem.episodes.forEach(function (ep) {
+          var card = cards.find(function (card) {
+            return card.id == elem.id;
+          });
+
+          if (ep.air_date == air_date && card) {
+            air_epis.push({
+              episode: ep,
+              card: cards.find(function (card) {
+                return card.id == elem.id;
+              })
+            });
+          }
+        });
+      });
+
+      if (air_epis.length) {
+        air_epis.slice(0, 3).forEach(function (elem) {
+          item.find('.timetable__body').append('<div><span style="background-color: ' + Utils.stringToHslColor(elem.card.name, 50, 50) + '"></span>' + elem.card.name + '</div>');
+        });
+
+        if (air_epis.length > 3) {
+          item.find('.timetable__body').append('<div>+' + (air_epis.length - 3) + '</div>');
+        }
+
+        if (air_epis.length == 1) {
+          var preview = $('<div class="timetable__preview"><img><div>' + (air_epis[0].episode.name || '无标题') + '</div></div>');
+          Utils.imgLoad(preview.find('img'), Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + air_epis[0].episode.still_path, false, function () {
+            preview.find('img').remove();
+          });
+          item.find('.timetable__body').prepend(preview);
+        }
+
+        item.addClass('timetable__item--any');
+      }
+
+      item.find('.timetable__date').text(day_week["short"] + ' - ' + weeks[date.getDay()] + '.');
+      item.on('hover:focus', function () {
+        last = $(this)[0];
+        scroll.update($(this));
+      }).on('hover:enter', function () {
+        var modal = $('<div></div>');
+        air_epis.forEach(function (elem) {
+          var noty = Template.get('notice_card', {
+            time: air_date,
+            title: elem.card.name,
+            descr: '季节 - <b>' + elem.episode.season_number + '</b><br>集 - <b>' + elem.episode.episode_number + '</b>'
+          });
+          Utils.imgLoad(noty.find('img'), elem.card.poster ? elem.card.poster : elem.card.img ? elem.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + elem.card.poster_path);
+          noty.on('hover:enter', function () {
+            Modal.close();
+            Activity$1.push({
+              url: '',
+              component: 'full',
+              id: elem.card.id,
+              method: 'tv',
+              card: elem.card,
+              source: elem.card.source
+            });
+          });
+          modal.append(noty);
+        });
+        Modal.open({
+          title: '电视剧',
+          size: 'medium',
+          html: modal,
+          onBack: function onBack() {
+            Modal.close();
+            Controller.toggle('head');
+          }
+        });
+      });
+      body.append(item);
+    };
+
+    this.back = function () {
+      Activity$1.backward();
+    };
+
+    this.start = function () {
+      Controller.add('content', {
+        toggle: function toggle() {
+          Controller.collectionSet(scroll.render());
+          Controller.collectionFocus(last || false, scroll.render());
+        },
+        left: function left() {
+          if (Navigator.canmove('left')) Navigator.move('left');else Controller.toggle('menu');
+        },
+        right: function right() {
+          Navigator.move('right');
+        },
+        up: function up() {
+          if (Navigator.canmove('up')) Navigator.move('up');else Controller.toggle('head');
+        },
+        down: function down() {
+          if (Navigator.canmove('down')) Navigator.move('down');
+        },
+        back: this.back
+      });
+      Controller.toggle('content');
+    };
+
+    this.pause = function () {};
+
+    this.stop = function () {};
+
+    this.render = function () {
+      return html;
+    };
+
+    this.destroy = function () {
+      scroll.destroy();
+      html.remove();
+    };
+  }
+
   var component = {
-    main: component$c,
-    full: component$b,
-    category: component$9,
-    category_full: component$a,
-    actor: component$8,
-    favorite: component$7,
-    torrents: component$6,
-    mytorrents: component$5,
-    relise: component$4,
-    collections: component$3,
-    collections_view: component$2,
-    nocomponent: component$1
+    main: component$d,
+    full: component$c,
+    category: component$a,
+    category_full: component$b,
+    actor: component$9,
+    favorite: component$8,
+    torrents: component$7,
+    mytorrents: component$6,
+    relise: component$5,
+    collections: component$4,
+    collections_view: component$3,
+    nocomponent: component$2,
+    timetable: component$1
   };
 
   function create$5(object) {
@@ -13992,23 +14179,23 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: '每周',
-      descr: '- 一个新功能，最常观看的热门种子（测试模式）<br>- 添加了一个插件目录以便快速安装。<br>- 将卡广播到网络上的其他设备。<br>-检查 TorrServe 操作的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加长按。<br>- 收藏出现在卡片中。<br>- 更好地添加了有关电影发行的通知quality.'
+      descr: '- 新功能，最受关注的热门种子（测试模式）<br>- 添加插件目录以便快速安装。<br>- 广播卡到网络上的其他设备。<br> - 检查 TorrServe 的清单<br>- 从 torrent 复制视频的链接。<br>- 为鼠标和独轮车添加了长按。<br>- 收藏出现在卡片中。<br>- 以更好的质量添加了有关电影发行的通知。 '
     }, {
       time: '2021-12-23 14:00',
       title: '更新1.3.7',
-      descr: '1. 增加了语音搜索。<br>2. 修复了鼠标的bug，增加了对播放器中鼠标的支持。<br>3. 增加了与CUB的账号绑定。<br>4. 各种其他无趣的小东西。'
+      descr: '1. 增加了语音搜索。<br>2. 修复了鼠标的错误并在播放器中增加了鼠标支持。<br>3. 增加了与CUB的帐户链接。<br>4. 各种其他无趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
       title: '更新1.3.6',
-      descr: '1. 添加了新目录 CUB。<br>2. 更改了发布源，现在甚至可以在 MSX 中使用。<br>3. 添加动漫类别;)'
+      descr: '1 .添加了新目录 CUB。<br>2.更改了发布源，现在甚至可以在 MSX 中使用。<br>3.添加了动漫类别 ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新1.3.5',
-      descr: '1. 添加了屏幕保护程序 来自 Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
+      descr: '1. 添加屏幕保护程序 来自Google ChromeCast.<br>2. Релизы запускаются сразу же без поиска .<br>3. В клавиатуре убрана кнопка ввода.<br>4. В плеере улучшена перемотка и добавлены кнопки (в конец / в начало).<br>5. Добавлена синхронизация через сервис gist.github.com.'
     }, {
       time: '2021-11-10 10:00',
       title: '更新1.3.4',
-      descr: '1. 修复了属性（从最后一个位置继续）关闭时的时间戳。<br>2.在三星电视上修复了播放器中的黑色骰子。<br>3.在设置中添加插件。'
+      descr: '1. 修复了属性被禁用时的时间戳（从最后一个地方继续）。<br>2. 在三星电视上，黑色骰子在播放器中已修复。<br>3.在设置中添加插件。'
     }, {
       time: '2021-11-02 10:00',
       title: '更新1.3.3',
@@ -14016,7 +14203,7 @@
     }, {
       time: '2021-10-25 15:00',
       title: '更新1.3.2',
-      descr: '1.修复了卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.在 torrent 文件中添加滚动，向左或向右滚动 10 个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
+      descr: '1.固定卡片搜索，每张卡片都有自己的来源（tmdb，ivi，okko）<br>2。能够将源切换到 (tmdb,ivi,okko)。<br>3.更新了后台工作。<br>4.在 torrent 文件中添加滚动，向左或向右滚动 10 个位置。<br>5.更改了 NCR 源。<br>6。修复了浏览历史记录，现在如果您开始观看视频，则会添加一张卡片。<br>7.在源 ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新1.3.1',
@@ -14028,7 +14215,7 @@
     }, {
       time: '2021-10-14 10:00',
       title: '更新1.2.6',
-      descr: '1. 修复了删除 torrent 的错误。<br>2. 修复了时间戳。<br>3. 为电视剧添加了视觉效果，剧集在 torrent 文件中更清晰可见。<br>4. 其他小事。'
+      descr: '1. 修复了删除 torrent 的错误。<br>2。固定时间戳。<br>3.为电视剧添加了视觉效果，在 torrent 文件中您可以更好地查看电视剧。<br>4.其他小事'
     }, {
       time: '2021-10-12 19:10',
       title: '很高兴知道',
@@ -14036,7 +14223,7 @@
     }, {
       time: '2021-10-12 19:00',
       title: '更新1.2.4',
-      descr: '1. Добавлено меню (我的种子).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (新) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
+      descr: '1. Добавлено меню (我的种子).<br>2. Обновлен фильтр и сортировка в торрентах.<br>3. Добавлена лента (新品) в фильмах и сериалах.<br>4. Исправлены ссылки для Torserver.<br>5. Добавлена отметка просмотра для сериалов.<br>6. Исправлено несколько багов и ошибок.'
     }, {
       time: '2021-10-10 18:00',
       title: '更新1.2.3',
@@ -14044,39 +14231,39 @@
     }, {
       time: '2021-10-09 15:00',
       title: '更新1.2.2',
-      descr: '1.添加了 Tizen 播放器<br>2.新增webOS播放器<br>3。向播放器添加了 torrent 下载统计信息。<br>4.在播放器<br>5中添加了倒带条。修复了 Torserver<br>6 的空白海报。修复了其他小错误和错误'
+      descr: '1. 添加 Tizen 播放器<br>2. 添加 webOS 播放器<br>3. 在播放器中添加 torrent 下载统计信息。<br>4. 在播放器中添加倒带栏<br>5. 修复 Torserver 的空海报<br>6.固定其他小错误和错误'
     }, {
       time: '2021-10-07 17:00',
       title: '更新1.2.1',
-      descr: '1. 修复了 MSX<br>2 中带有后退按钮的错误。修复了搜索<br>3 的错误。在种子中添加了过滤器<br>4。视觉上改进的播放器<br>5。添加了性能设置<br>6.修正种子文件中的名称<br>7.修复了播放器中暂停的错误<br>8。修复了其他小错误和错误'
+      descr: '1. 修复了 MSX 中的后退按钮错误<br>2。修复了搜索<br>3 的错误。在种子中添加了过滤器<br>4。视觉上改进的播放器<br>5。添加了性能设置<br>6.修正种子文件中的名称<br>7.修复了播放器中暂停的错误<br>8。修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
       title: '更新1.0.10',
       descr: '1. 改进了小模式下卡片的加载<br>2。添加日志，查看日志将鼠标悬停在标题上并单击 10 次'
     }, {
       time: '2021-10-01 09:00',
-      title: 'Update 1.0.9',
+      title: '更新1.0.9',
       descr: '1. 改进了选项卡和电影中的背景<br>2。更改说明<br>3。为 Orsay 添加了插件'
     }, {
       time: '2021-09-30 18:00',
-      title: 'Update 1.0.8',
-      descr: '1. Доработан фон<br>2. Выведена кнопка (种子)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
+      title: '更新1.0.8',
+      descr: '1. Доработан фон<br>2. Выведена кнопка (Torrents)<br>3. Добавлена сортировка торрентов<br>4. Доделан выход под Tizen и WebOS<br> 5. Возможно доделаны кнопки управления под Orsay'
     }, {
       time: '2021-09-29 17:00',
-      title: 'Update 1.0.7',
-      descr: '1. 优化主页和目录<br>2. 增加 TorServer 授权<br> 3. 增加 TorServer 错误提示'
+      title: '更新1.0.7',
+      descr: '1. 优化的主页和目录<br>2. 可能完成了 Orsay 的控制按钮。增加 TorServer 授权<br> 3. 增加 TorServer 错误提示'
     }, {
       time: '2021-09-28 16:00',
       title: '更正',
-      descr: '1. 修复错误（无法获取 HASH）<br>2. 完成 MSX 解析器，现在您不需要指定显式链接，只要您愿意<br> 3. 改进的 jac。红色的 解析器，现在搜索更准确'
+      descr: '1. 错误修复（无法获取 HASH）<br>2. MSX 解析器已完成，现在您无需指定显式链接，只要您愿意<br> 3. 改进的 jac。红色的 解析器，现在搜索更多准确地说'
     }, {
       time: '2021-09-27 15:00',
-      title: 'Fixed parser',
-      descr: '在解析器中发现了一个错误, из за которой jac.red не выдавал результаты'
+      title: '固定解析器',
+      descr: '在解析器中检测到错误, из за которой jac.red не выдавал результаты'
     }, {
       time: '2021-09-26 17:00',
-      title: 'Welcome!',
-      descr: '这是你第一次运行应用程序, надеемся вам очень понравится. Приятного вам просмотра.'
+      title: '欢迎!',
+      descr: '这是你的第一个应用程序发布, надеемся вам очень понравится. Приятного вам просмотра.'
     }];
     Arrays.extend(data$1, {
       time: 0
@@ -14099,7 +14286,7 @@
             }
 
             var s = k.pop();
-            desc = '新系列<br><br>季 - <b>' + s + '</b><br>集 - <b>' + data.card.seasons[s] + '</b>';
+            desc = '新系列<br><br>季 - <b>' + s + '</b><br>Эпизод - <b>' + data.card.seasons[s] + '</b>';
           }
 
           items.push({
@@ -14735,7 +14922,7 @@
       if (action == 'favorite') {
         push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览记录' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -14750,7 +14937,7 @@
       } else {
         push({
           url: '',
-          title: '主页 - ' + Storage.field('source').toUpperCase(),
+          title: 'Home - ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -14871,7 +15058,7 @@
     }
   }
   /**
-   * 终止
+   * 退出
    */
 
 
@@ -15077,7 +15264,7 @@
       'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
       'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
       'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A P R O L G E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'F Y V A R O L J E', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
     };
     this.listener = start$4();
 
@@ -15284,18 +15471,18 @@
       members.forEach(function (link) {
         links.push({
           title: link,
-          subtitle: '用户链接',
+          subtitle: '自定义链接',
           url: link,
           member: true
         });
       });
       links = links.concat([{
         title: 'jac.red',
-        subtitle: '种子, Api ключ - пустой',
+        subtitle: '对于种子, Api ключ - пустой',
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
-        subtitle: '本地TorrServ',
+        subtitle: '对于本地TorrServ',
         url: '127.0.0.1:8090'
       }]);
       Select.show({
@@ -15560,7 +15747,7 @@
 
 
   select$1('interface_size', {
-    'small': '更小',
+    'small': 'Less',
     'normal': '正常'
   }, 'normal');
   select$1('poster_size', {
@@ -15574,7 +15761,7 @@
   }, 'torlook');
   select$1('torlook_parse_type', {
     'native': '直接',
-    'site': '通过站点 API'
+    'site': '通过网站 API'
   }, 'native');
   select$1('background_type', {
     'complex': '复杂',
@@ -15593,11 +15780,11 @@
   }, 'inner');
   select$1('torrserver_use_link', {
     'one': '主要',
-    'two': '高级'
+    'two': '额外'
   }, 'one');
   select$1('subtitles_size', {
-    'small': '小型',
-    'normal': '常规',
+    'small': '小',
+    'normal': '普通',
     'large': '大'
   }, 'normal');
   select$1('screensaver_type', {
@@ -15632,15 +15819,15 @@
     'ivi': 'IVI',
     'okko': 'OKKO',
     'cub': 'CUB'
-  }, 'yyds');
+  }, 'tmdb');
   select$1('start_page', {
-    'main': '首页',
+    'main': '主页',
     'favorite@book': '书签',
     'favorite@like': '喜欢',
     'favorite@wath': '稍后',
-    'favorite@history': '浏览历史',
+    'favorite@history': '浏览历史记录',
     'mytorrents': '我的种子',
-    'last': '最新'
+    'last': '最后'
   }, 'last');
   select$1('scroll_type', {
     'css': 'CSS',
@@ -15648,11 +15835,11 @@
   }, 'css');
   select$1('card_views_type', {
     'preload': '预加载',
-    'view': '显示全部'
+    'view': '全部显示'
   }, 'preload');
   select$1('navigation_type', {
     'controll': '遥控器',
-    'mouse': '用鼠标遥控'
+    'mouse': '鼠标遥控器'
   }, 'mouse');
   select$1('time_offset', {
     'n-5': '-5',
@@ -15874,10 +16061,10 @@
       title: '卡通',
       cat: 'multmovie'
     }, {
-      title: '电视剧',
+      title: '电视节目',
       cat: 'tv'
     }, {
-      title: '卡通',
+      title: '电视剧',
       cat: 'multtv'
     }, {
       title: '动漫',
@@ -16064,11 +16251,11 @@
       checkbox: true
     }, {
       "id": 10749,
-      "title": "言情",
+      "title": "浪漫",
       checkbox: true
     }, {
       "id": 878,
-      "title": "奇幻",
+      "title": "科幻",
       checkbox: true
     }, {
       "id": 10770,
@@ -16076,7 +16263,7 @@
       checkbox: true
     }, {
       "id": 53,
-      "title": "惊悚",
+      "title": "惊悚片",
       checkbox: true
     }, {
       "id": 10752,
@@ -16084,7 +16271,7 @@
       checkbox: true
     }, {
       "id": 37,
-      "title": "西部",
+      "title": "西部片",
       checkbox: true
     }]
   };
@@ -16121,7 +16308,7 @@
     where.items.forEach(function (a) {
       if (a.selected || a.checked) title.push(a.title);
     });
-    where.subtitle = title.length ? title.join(', ') : '未选中';
+    where.subtitle = title.length ? title.join(', ') : '未选择';
   }
 
   function main() {
@@ -16309,9 +16496,18 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? 'Like' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
+          page: 1
+        });
+      }
+
+      if (action == 'timetable') {
+        Activity$1.push({
+          url: '',
+          title: '日程安排',
+          component: 'timetable',
           page: 1
         });
       }
@@ -16328,7 +16524,7 @@
       if (action == 'relise') {
         Activity$1.push({
           url: '',
-          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
+          title: '数字发布',
           component: 'relise',
           page: 1
         });
@@ -16338,10 +16534,10 @@
         Select.show({
           title: '合集',
           items: [{
-            title: '收藏ivi',
+            title: 'ivi',
             source: 'ivi'
           }, {
-            title: '收藏okko',
+            title: '上的功能okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -16486,7 +16682,7 @@
 
           Activity$1.push({
             url: '',
-            title: '种子',
+            title: '洪流',
             component: 'torrents',
             search: query,
             movie: {
@@ -16500,7 +16696,7 @@
         } else {
           Activity$1.push({
             url: 'search/' + type,
-            title: '搜索 - ' + query,
+            title: '搜索 -' + query,
             component: 'category_full',
             page: 2,
             query: encodeURIComponent(query),
@@ -16781,7 +16977,7 @@
         search.find('.search__input').text(input);
         results.search(input);
       } else {
-        search.find('.search__input').text('输入文本...');
+        search.find('.search__input').text('输入文本。 ..');
       }
     });
     keyboard.listener.follow('right', function () {
@@ -17011,22 +17207,22 @@
 
       if (code == 0) {
         name.text('已禁用');
-        desc.text('启用同步');
+        desc.text('同步');
       }
 
       if (code == 1) {
         name.text('未授权');
-        desc.text('要求登录 ');
+        desc.text('需要登录');
       }
 
       if (code == 2) {
-        name.text('授权失败');
-        desc.text('请检查您的详细信息，然后重试');
+        name.text('登录失败');
+        desc.text('请检查您的详细信息并重试');
       }
 
       if (code == 3) {
         name.text('登录');
-        desc.text('您已成功登录');
+        desc.text('您已经登录成功');
       }
 
       if (code == 4) {
@@ -17199,7 +17395,7 @@
     name: '在线浏览',
     url: 'http://jin.energy/online.js'
   }, {
-    name: '正在浏览在线',
+    name: '在线浏览',
     url: 'http://arkmv.ru/vod'
   }];
   /**
@@ -17220,7 +17416,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? '检查插件功能失败, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : '要使插件正常工作, необходимо перезагрузить приложение.') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件功能, однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения загружается ли плагин.' : '插件工作, необходимо перезагрузить приложение.') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -17335,7 +17531,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自CUB' : '单击以检查插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击测试插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -17508,7 +17704,8 @@
     Input: Input,
     Screensaver: Screensaver,
     Recomends: Recomends,
-    VideoQuality: VideoQuality
+    VideoQuality: VideoQuality,
+    TimeTable: TimeTable
   };
   Console.init();
 
@@ -17540,6 +17737,7 @@
     Socket.init();
     Recomends.init();
     VideoQuality.init();
+    TimeTable.init();
     Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
 
     Controller.listener.follow('toggle', function () {
