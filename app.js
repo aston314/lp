@@ -3389,7 +3389,7 @@
       VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$7('trending/moviews/day', params, function (json) {
-      append('”“今天很流行', 'trend_day', json);
+      append('今天很流行', 'trend_day', json);
     }, status.error.bind(status));
     get$7('trending/moviews/week', params, function (json) {
       append('本周热门', 'trend_week', json);
