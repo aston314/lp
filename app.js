@@ -3567,7 +3567,7 @@
       append('本周', 'tv_air', json);
     }, status.error.bind(status));
     get$7(params.url + '/top_rated', params, function (json) {
-      append('热门', 'top', json);
+      append('Top', 'top', json);
     }, status.error.bind(status));
   }
 
@@ -3636,11 +3636,11 @@
     var status = new status$1(2);
     status.onComplite = oncomplite;
     get$7('search/movie', params, function (json) {
-      json.title = '电影';
+      json.title = 'Movies';
       status.append('movie', json);
     }, status.error.bind(status));
     get$7('search/tv', params, function (json) {
-      json.title = '电视剧';
+      json.title = 'TV Shows';
       status.append('tv', json);
     }, status.error.bind(status));
   }
@@ -3660,7 +3660,7 @@
 
     var convert = function convert(credits, person) {
       credits.crew.forEach(function (a) {
-        a.department = a.department == 'Production' ? '制作' : a.department == 'Directing' ? '导演' : a.department;
+        a.department = a.department == 'Production' ? 'Production' : a.department == 'Directing' ? 'Directing ' : a.department;
       });
       var cast = sortCredits(credits.cast),
           crew = sortCredits(credits.crew),
@@ -14331,11 +14331,11 @@
     }, {
       time: '2021-12-23 14:00',
       title: '更新 1.3.7',
-      descr: '1. 添加了语音搜索<br>2. 修复了鼠标的错误并在播放器中添加了鼠标支持。<br>3. 添加了将帐户链接到 CUB.<br>4. 各种其他无趣的小东西。'
+      descr: '1. 添加了语音搜索。<br>2. 修复了鼠标错误并在播放器中添加了鼠标支持。<br>3. 帐户链接到 CUB.<br>4. 添加了各种其他无趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
       title: '更新 1.3.6',
-      descr: '1. 添加了一个新目录 CUB.<br>2. 更改了发布源，现在甚至可以在 MSX.<br>3. 添加动漫类别 ;)'
+      descr: '1. 新添加了目录 CUB.<br>2. 更改了发布源，现在甚至可以在 MSX.<br>3. 添加动漫类别 ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新 1.3.5',
@@ -14480,7 +14480,7 @@
               id: element.card.id,
               method: element.card.seasons ? 'tv' : 'movie',
               card: element.card,
-              source: 'cub'
+              source: 'tmdb'
             });
           });
         }
