@@ -8979,8 +8979,8 @@
     var vw = _video.videoWidth,
         vh = _video.videoHeight,
         rt = 1,
-        sx = 1.01,
-        sy = 1.01;
+        sx = 1.00,
+        sy = 1.00;
     if (vw == 0 || vh == 0 || typeof vw == 'undefined') return;
 
     var increase = function increase(sfx, sfy) {
@@ -9028,7 +9028,7 @@
       var sz = {
         width: Math.round(window.innerWidth) + 'px',
         height: Math.round(window.innerHeight) + 'px',
-        transform: 'scaleX(' + sx + ') scaleY(' + sy + ')'
+        transform: sx == 1.00 ? 'unset' : 'scaleX(' + sx + ') scaleY(' + sy + ')'
       };
     }
 
