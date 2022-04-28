@@ -10286,6 +10286,7 @@
   var work = false;
   var network$2 = new create$s();
   var launch_player;
+  var timer_ask;
   var preloader = {
     wait: false
   };
@@ -10525,6 +10526,7 @@
   function destroy$2() {
     if (work.timeline) work.timeline.handler(work.timeline.percent, work.timeline.time, work.timeline.duration);
     if (work.viewed) work.viewed(viewing.time);
+    clearTimeout(timer_ask);
     work = false;
     preloader.wait = false;
     preloader.call = null;
@@ -10625,6 +10627,12 @@
             toggle$1();
           }
         });
+        clearTimeout(timer_ask);
+        timer_ask = setTimeout(function () {
+          work.timeline.continued = true;
+          Modal.close();
+          toggle$1();
+        }, 8000);
       }
     }
   }
@@ -16123,7 +16131,7 @@
     '480': '480p',
     '720': '720p',
     '1080': '1080p',
-    '1140': '1140p',
+    '1440': '1440p',
     '2160': '2160p'
   }, '1080');
   /**
