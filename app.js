@@ -720,13 +720,13 @@
 
   var html$14 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选择的Android播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当前集结束时自动切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上次查看的位置继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n\n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_start\">\n            <div class=\"settings-param__name\">启用</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">视频开始后始终启用字幕</div>\n        </div>\n\n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边框</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将用黑色勾勒以提高可读性</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"video_quality_default\">\n        <div class=\"settings-param__name\">默认视频质量</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要观看的首选视频质量</div>\n    </div>\n</div>";
 
-  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时要开始的页面</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>来源</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">TMDB 数据显示的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB 海报分辨率</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>屏保​​</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏保类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>代理</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">代理TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">代理其他资源</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">保留多少页在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保留您离开时的页面。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移位时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除缓存</div>\n        <div class=\"settings-param__value\">将清除所有设置和数据</div>\n    </div>\n</div>";
+  var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"start_page\">\n        <div class=\"settings-param__name\">起始页</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">启动时要开始的页面</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>来源</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"source\">\n        <div class=\"settings-param__name\">主要来源</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从哪里获取电影信息</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"tmdb_lang\">\n        <div class=\"settings-param__name\">TMDB</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">TMDB 数据显示的语言</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"poster_size\">\n        <div class=\"settings-param__name\">TMDB 海报分辨率</div>\n        <div class=\"settings-param__value\"></div>\n    </div> \n\n    <div class=\"settings-param-title\"><span>屏保</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver\">\n        <div class=\"settings-param__name\">空闲时显示闪屏</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"screensaver_type\">\n        <div class=\"settings-param__name\">屏保类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>代理</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_tmdb\">\n        <div class=\"settings-param__name\">代理TMDB</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"proxy_other\">\n        <div class=\"settings-param__name\">代理其他资源</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"pages_save_total\">\n        <div class=\"settings-param__name\">保留多少页在内存中</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">保留您离开时的页面。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"time_offset\">\n        <div class=\"settings-param__name\">移位时间</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"select\" data-name=\"navigation_type\">\n        <div class=\"settings-param__name\">导航操控方式</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"device_name\" placeholder=\"例如: 我的灯\">\n        <div class=\"settings-param__name\">设备名称</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector clear-storage\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除缓存</div>\n        <div class=\"settings-param__value\">将清除所有设置和数据</div>\n    </div>\n</div>";
 
   var html$12 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"使用插件，你需要重新加载应用程序\">\n        <div class=\"settings-param__name\">添加插件</div>\n        <div class=\"settings-param__descr\">要删除添加的插件，请按住或双击其上的确定按钮</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">安装插件</div>\n        <div class=\"settings-param__descr\">从可用列表中安装插件</div>\n    </div>\n</div>";
 
   var html$11 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许您同步书签，浏览history, tags and time-codes 连接说明 https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Authorization</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"Not specified\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Status</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">Synchronization</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步你的书签，浏览历史，标签和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">保存本地书签到CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">退出</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$10 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 同步: 同步你的书签，浏览历史，标签和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">保存本地书签到CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">退出</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>授权</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$$ = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -740,7 +740,7 @@
 
   var html$W = "<div class=\"full-person selector\">\n    <div style=\"background-image: url('{img}');\" class=\"full-person__photo\"></div>\n\n    <div class=\"full-person__body\">\n        <div class=\"full-person__name\">{name}</div>\n        <div class=\"full-person__role\">{role}</div>\n    </div>\n</div>";
 
-  var html$V = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">点赞: {like_count}</div>\n</div>";
+  var html$V = "<div class=\"full-review selector\">\n    <div class=\"full-review__text\">{text}</div>\n\n    <div class=\"full-review__footer\">喜欢: {like_count}</div>\n</div>";
 
   var html$U = "<div class=\"full-episode selector\">\n    <div class=\"full-episode__left\">\n        <div class=\"full-episode__img\">\n            <img />\n        </div>\n    </div>\n\n    <div class=\"full-episode__body\">\n        <div class=\"full-episode__name\">{name}</div>\n        <div class=\"full-episode__date\">{date}</div>\n    </div>\n</div>";
 
@@ -9939,6 +9939,7 @@
     title$1(params.title);
     html$7.toggleClass('modal--medium', params.size == 'medium' ? true : false);
     html$7.toggleClass('modal--large', params.size == 'large' ? true : false);
+    html$7.toggleClass('modal--overlay', params.overlay ? true : false);
     scroll$2 = new create$r({
       over: true,
       mask: params.mask
@@ -9955,6 +9956,7 @@
       last$3 = e.target;
       scroll$2.update($(e.target));
     }).on('hover:enter', function (e) {
+      console.log('llol');
       if (active$2.onSelect) active$2.onSelect($(e.target));
     });
   }
@@ -10291,8 +10293,8 @@
     Panel.update('timeend', Utils.secondsToTime(e.duration || 0));
     Panel.update('position', e.current / e.duration * 100 + '%');
 
-    if (work && work.timeline && e.duration) {
-      if (Storage.field('player_timecode') == 'continue' && !work.timeline.continued) {
+    if (work && work.timeline && !work.timeline.waiting_for_user && e.duration) {
+      if (Storage.field('player_timecode') !== 'again' && !work.timeline.continued) {
         var prend = e.duration - 15,
             posit = Math.round(e.duration * work.timeline.percent / 100);
         if (posit > 10) Video.to(posit > prend ? prend : posit);
@@ -10584,7 +10586,36 @@
     } else call();
   }
   /**
-   * 启动播放器
+   * 询问是否继续浏览
+   */
+
+
+  function ask() {
+    if (work && work.timeline && work.timeline.percent) {
+      work.timeline.waiting_for_user = false;
+
+      if (Storage.field('player_timecode') == 'ask') {
+        work.timeline.waiting_for_user = true;
+        Modal.open({
+          title: '',
+          html: $('<div style="text-align: center"><div class="selector about">继续浏览 ' + Utils.secondsToTime(work.timeline.time) + '?</div></div>'),
+          overlay: true,
+          onSelect: function onSelect() {
+            Modal.close();
+            work.timeline.waiting_for_user = false;
+            toggle$1();
+          },
+          onBack: function onBack() {
+            work.timeline.continued = true;
+            Modal.close();
+            toggle$1();
+          }
+        });
+      }
+    }
+  }
+  /**
+   * 开始播放器
    * @param {Object} data 
    */
 
@@ -10606,6 +10637,7 @@
         toggle$1();
         Panel.show(true);
         Controller.updateSelects();
+        ask();
       });
     };
 
@@ -10753,7 +10785,7 @@
         var air = new Date(data.movie.next_episode_to_air.air_date);
         var now = Date.now();
         var day = Math.round((air.getTime() - now) / (24 * 60 * 60 * 1000));
-        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('下一个: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
+        if (day > 0) $('.tag--episode', html).removeClass('hide').find('div').text('下一步: ' + Utils.parseTime(data.movie.next_episode_to_air.air_date)["short"] + ' / 剩余天数: ' + day);
       }
 
       tbtn = html.find('.view--torrent');
@@ -10944,7 +10976,7 @@
         return a.name;
       }).join(', ');
       body = Template.get('full_descr', {
-        text: (data.movie.overview || '无描述。') + '<br><br>',
+        text: (data.movie.overview || '无描述') + '<br><br>',
         genres: genres,
         companies: companies,
         relise: data.movie.release_date || data.movie.first_air_date,
@@ -11060,7 +11092,7 @@
         }).on('hover:enter', function () {
           Activity$1.push({
             url: element.url,
-            title: '人物',
+            title: '人',
             component: 'actor',
             id: element.id,
             source: params.object.source
@@ -11774,7 +11806,7 @@
             }
 
             if (data.tv && data.tv.results.length) {
-              data.tv.title = '电视节目';
+              data.tv.title = '电视剧';
               data.tv.noimage = true;
 
               _this.build('line', data.tv);
@@ -11954,14 +11986,14 @@
               title: '动作',
               items: [{
                 title: '从历史记录中删除',
-                subtitle: '删除选定的卡片',
+                subtitle: '删除选定的卡',
                 one: true
               }, {
                 title: '清除历史记录',
                 subtitle: '从历史记录中删除所有卡片',
                 all: true
               }, {
-                title: '清除标签',
+                title: '清除标记',
                 subtitle: '清除查看标记',
                 label: true
               }, {
@@ -12154,7 +12186,7 @@
       if (input) {
         search.find('.search-box__input').text(input);
       } else {
-        search.find('.search-box__input').text('输入文本...');
+        search.find('.search-box__input').text('输入文本……');
       }
     }
 
@@ -12162,7 +12194,7 @@
     var keyboard = new create$3({
       layout: {
         'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
-        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'by .', '{mic} {EN} {space} {search}']
+        'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '对不起', '{mic} {EN} {space} {search}']
       }
     });
     keyboard.create();
@@ -12224,7 +12256,7 @@
       }
 
       search.push({
-        title: '指定标题',
+        title: '指定名称',
         selected: selected == -1,
         query: ''
       });
@@ -12252,7 +12284,7 @@
       _this2.show('排序', 'sort');
     });
     line.find('.filter--filter').on('hover:enter', function () {
-      _this2.show('过滤', 'filter');
+      _this2.show('过滤器', 'filter');
     });
     buttons_scroll.append(line);
 
@@ -12730,20 +12762,20 @@
 
         if (Platform.is('webos')) {
           menu.push({
-            title: '开始播放器 - Webos',
+            title: '开始播放器- Webos',
             player: 'webos'
           });
         }
 
         if (Platform.is('android')) {
           menu.push({
-            title: '开始播放器 - Android',
+            title: '开始播放器- Android',
             player: 'android'
           });
         }
 
         menu.push({
-          title: '开始播放器 - Lampa',
+          title: '开始播放器- Lampa',
           player: 'lampa'
         });
 
@@ -12770,9 +12802,9 @@
 
             if (a.link) {
               Utils.copyTextToClipboard(element.url, function () {
-                Noty.show('链接复制到剪贴板');
+                Noty.show('复制到剪贴板的链接');
               }, function () {
-                Noty.show('错误复制链接');
+                Noty.show('复制链接时出错');
               });
             }
 
@@ -12789,7 +12821,7 @@
     });
     if (items.length == 0) html = Template.get('error', {
       title: '空',
-      text: '无法获取有效文件'
+      text: '无法获取匹配文件'
     });else Modal.title('文件');
     Modal.update(html);
   }
@@ -12840,8 +12872,8 @@
     var last_filter;
     var filter_items = {
       quality: ['任何', '4k', '1080p', '720p'],
-      hdr: ['未选择', '是', '否'],
-      sub: ['未选择', '是', '否'],
+      hdr: ['未选中', '是', '否'],
+      sub: ['未选中', '是', '否'],
       voice: [],
       tracker: ['任何'],
       year: ['任何']
@@ -12856,12 +12888,12 @@
     };
     var filter_multiple = ['quality', 'voice', 'tracker'];
     var sort_translate = {
-      Seeders: '按共享者',
+      Seeders: '按分销商',
       Size: '按大小',
-      Title: '按名称',
+      Title: '按标题',
       Tracker: '按来源',
       PublisTime: '按日期',
-      viewed: '按查看'
+      viewed: '按浏览量'
     };
     var i = 20,
         y = new Date().getFullYear();
@@ -12871,7 +12903,7 @@
     }
 
     var viewed = Storage.cache('torrents_view', 5000, []);
-    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "怪癖", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "古巴的 Cube", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Serbin", "To4ka", "Kravets", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "地精", "Universal Russia", "Kiitos", "Paramount Comedy", "Courage-Bambay", "海盗配音工作室", "Chadov", "Karpovsky", "RecentFilms", "第一频道", "Alternative Production", "NEON Studio", "Kolobok", "Dolsky", "美国电影院", "Gavrilov", "Zhivov", "SDI Media", "Alekseev", "GreenРай Studio", "Mikhalev", "Esarev", "Vizgunov", "Libergal", "库兹涅佐夫", "萨纳耶夫", "ДТВ", "多哈洛夫", "Sunshine Studio", "戈尔恰科夫", "LevshaFilm", "CasStudio", "沃洛达尔斯基", "ColdFilm", "什瓦尔科", "卡尔采夫", "ETV+", "VGTRK", "Gravi-TV", "1001cinema", "Zone Vision Studio", "咯咯笑的医生", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Kolobok", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "四平方", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Igmar", "Kotov", "DeadLine Studio", "Jetvis Studio", "RenTV", "Andrey Pitersky", "Fox Life", "Rybin", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Interfilm", "SunshineStudio", "Kulzvuk Studio", "卡什金", "Vartan Dokhalov", "Nemakhov", "Sedorelli", "СТС", "Yarotsky", "ICG", "ТВЦ", "Stein", "AzOnFilm", "SorzTeam", "Gaevsky", "Mudrov", "Vorobiev Sergey", "Studio Raido", "DeeAFilm Studio", "zamez", "ViruseProject", "Ivanov", "STEPonee", "RenTV", "SV-Dubl", "BadBajo", "Comedy TV", "Master Tape", "5-й 圣彼得堡频道", "SDI Media", "Glantz", "Ох! Studio", "SV-Kadr", "2x2", "Kotova", "Positive", "RusFilm", "Nazarov", "XDUB Dorama", "Real translation", "Kansai", "Sound-Group", "Nikolay Drozdov", "ZEE TV", "Ozz.tv", "MTV", "Syenduk", "GoldTeam", "Belov", "Dream Records", "Yakovlev", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Denis Shadinsky", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "First HDTV", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "SV-Dubl", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "ArchiTheatre", "Project Web Mania", "ko136", "KuraSgrechey", "AMS", "SV-Studio", "Temple Doram TV", "TurkStar", "Medvedev", "Ryabov", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Kurds", "Neoclassic", "fiendover", "SomeWax", "Loginoff", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Vorotilin", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Kolobok", "SDI Media", "KosharaSerials", "叶卡捷琳堡艺术", "Julia Prosenuk", "ARK-TV Studio", "T.O Friends", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Cyrillic", "AniPLague", "Videoservice", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "格式 AB", "Film Prestige", "West Video", "叶卡捷琳堡艺术", "SovetRomantica", "RuFilms", "AveBrasil", "Greb&Creative", "BTI Studios", "Pythagoras", "Eurochannel", "NewStudio", "Karmen Video", "Koshkin", "Kravets", "Rainbow World", "Vorotilin", "Varus-Video", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "A.B. Video", "AniStar", "Korean Craze", "LakeFilms", "Nevafilm", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Anastasia Gaydarzhi", "Madeleine Duval", "Fox Life", "Sound Film", "Cowabunga Studio", "Filmexport", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Kirill Sagach", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Muravsky", "IdeaFilm", "Rutilov", "Timofeev", "拉古塔", "迪亚科诺夫", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "毕达哥拉斯", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Condor", "伊格玛", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "扬克列维奇", "基里耶夫", "巴吉切夫", "2x2", "词典", "注意", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Kinomaniya", "DDV", "Alternative Production", "WestFilm", "Anastasia Gaydarzhi + Andrey Yurchenko", "Kinomaniya", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "视频制作", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Dasevich", "Anatoly Gusev", "Twister", "Morozov", "NewComers", "kubik&ko", "DeMon", "Anatoly Ashmarin", "Inter Video", "Pronin", "AMC", "Veles", "Volume-6 Studio", "Horror Maker", "Ghostface", "Sephiroth", "Akira", "Deval Video", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "乌鸦", "Andre1288", "Selena International", "GalVid", "其他电影院", "工作室 NLS", "Sam2007", "HaseRiLLoPaW", "Sevastyanov", "D.I.M.", "Marchenko", "Zhuravlev", "N-Kino", "Lazer Video", "SesDizi", "Red Media", "Rudoy，​​​", "Tovbin", "Sergey Didok", "Juan Rojas", "binjak", "Karusel", "Lizard Cinema", "Varus-Video", "Accent", "RG.Paravozik", "Max Nabokov", "Barin101", "Vaska Kurolesov", "Fortuna-Film", "Amalgama", "AnyFilm", "雷多工作室", "科兹洛夫", "Zoomvision Studio", "毕达哥拉斯", "Urasiko", "VIP Serial HD", "НСТ", "Kinolux", "Project Web Mania", "Zavgorodniy", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "S.R.I", "老比尔博", "Ozz.tv", "Mystery Film", "RenTV", "Latyshev", "Vashchenko", "Laiko", "Sonotek", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Neva-1", "Maxim Zholobov", "Good People", "移动电视", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Nikitin", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Ostankino", "TatamiFilm", "Videobase", "Crunchyroll", "Novamedia", "RedRussian1337", "ContentOFF", "Creative Sound", "HelloMickey Production", "Pyramid", "CLS Media", "Sonkin", "Master Tape", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Naryshkin", "Intra Communications", "OnisFilms", "XDUB Dorama", "Cypress", "科罗廖夫", "visanti-vasaer", "戈特利布", "Paramount Channel", "СТС", "播音员 CDV", "Pazl Voice", "普里亚莫斯塔诺夫", "Zerzia", "НТВ", "MGM", "迪亚科夫", "伏尔加", "ARK-TV Studio", "杜布罗文", "МИР", "Netflix", "Jetix", "赛普拉斯", "RUSCICO", "Seoul Bay", "Filonov", "Makhonko", "Stroev", "Sanya Bely", "Govinda Raga", "Oshurkov", "Horror Maker", "Khlopushka", "赫鲁斯塔列夫", "安东诺夫尼古拉", "佐洛图欣", "ArchiAsia", "波波夫", "Ultradox", "Most-Video", "Altera Pars", "Ogorodnikov", "双胞胎", "Khabar", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ulpanei Elrom", "Videoimpulse", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Karusel", "国际米兰", "Contentica", "Mill", "RealFake", "IDDC", "信息电影", "音乐贸易", "Kirdin | Stalk", "DioNik", "Stasyuk", "TV1000", "Hallmark", "Tonix Media", "Bessonov", "Gears Media", "Bakhurani", "NewDub", "Cinema Prestige", "Nabiev", "New Dream Media", "ТВ3", "Malinovsky Sergey", "Superbit", "Kens Matvey", "LE-Production", "Voiz", "Svetla", "Cinema Prestige", "JAM", "LDV", "Videogram", "印度电视台", "RedDiamond Studio", "Gerusov", "挽歌电影", "Nastia", "Semykina Julia", "电动火车", "Stamp Dmitry", "星期五", "Oneinchnales", "Gravi-TV", "D2Lab", "电影首映", "Busov Gleb", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 频道", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Agapov", "Hakobyan", "阿列克谢耶夫", "阿尔捷米耶夫", "巴吉乔夫", "贝索诺夫", "瓦西里耶夫", "瓦西尔采夫", "加夫里洛夫", "格鲁索夫", "Gotlib", "Grigoriev", "Dasevich", "Dolsky", "Karpovsky", "Kashkin", "Kireev", "Klyukvin", "Kostyukevich", "Matveev", "Mikhalev", "Mishin", "Mudrov", "Pronin", "Savchenko", "Smirnov", "Timofeev", "Tolstobrov", "Chuev", "Shuvaev", "Yakovlev", "ААА-sound", "AByGDe", "Akalit", "Akira", "Alliance", "Amalgam", "АМС", "AnVad", "Anubis", "Anubis", "Ark-TV", "ARK-TV Studio", "B. Fedorov", "Bibikov", "Bigych", "Boykov", "Abdulov", "Belov", "Vikhrov", "Vorontsov", "Gorchakov", "Danilov", "多哈洛夫", "科托夫", "科什金", "纳扎罗夫", "波波夫", "鲁金", "鲁蒂洛夫", "韦鲁斯视频", "Vaska Kurolesov", "Vashchenko S.", "Vekshin", "Veles", "Veselchak", "Videopulse", "Vitya «говорун»", "Voysover", "伏尔加", "乌鸦", "Voroticin", "G. Liebergal", "G. Rumyantsev", "同性恋电影指南", "ГКГ", "Glukhovsky", "Grizzly", "Gundos", "Denshchikov", "Esarev", "Nurmukhametov", "Puchkov", "Stasyuk", "Shadinsky", "Stamp", "sf@irat", "德尔日莫达", "多马什尼", "ДТВ", "迪亚科诺夫", "E. Gaevsky", "E. Grankin", "E. Lurie", "E. Rudoy", "E. Khrustalev", "EA Cinema", "叶卡捷琳堡艺术", "Zhivago", "Zhuchkov", "Z Ranku To Nightі", "Zavgorodniy", "Zeburo", "Zerenitsyn", "I. Eremeev", "I. Klushin", "I. Safronov", "I. Stepanov", "ИГМ", "Igmar", "IDDC", "Image-Art", "Inis", "艾伦", "东西方", "K. Pozdnyakov", "K. Filonov", "К9", "Karapetyan", "卡门视频", "旋转木马", "马列维奇广场", "Sprat", "Cypress", "Korolev", "Kotova", "Kravets", "Cube in Cuba", "Courage-Bambay", "L. Volodarsky", "激光视频", "LancelaP", "Lapshin", "Lexicon", "Lenfilm", "Lesha Ensign", "蜥蜴", "Lucien", "Zaugarov", "Ivanov", "Ivanova 和 P. Pashut", "Latyshev", "Oshurkov", "Chadov", "Yarotsky", "Maxim Loginoff", "Malinovsky", "Marchenko", "Master Tape", "Makhonko", "Mashinskiy", "Media Complex", "Mill", "Mika Bondarik", "Minyaev", "Mitelman", "Most Video", "Mosfilm", "Muravsky", "Music Trade", "N-Kino", "N. Antonov", "N. Drozdov", "N. Zolotukhin", "N. Sevastyanov seva1988", "Nabiev", "Natalia Gurzo", "NEVA 1", "Nevafilm", "NeZupinyaiProduction", "新古典", "非致命武器", "НЛО-TV", "新", "新光盘", "新配音", "新频道", "注", "НСТ", "НТВ", "НТН", "霸王", "Ogorodnikov", "Omicron", "Glantz", "Kartsev", "Morozov", "Pryamostanov", "Sanaev", "Paradise", "Pepelats", "Channel One ORT", "Perevodman", "Pepper", "Petersburg dubbing", "Petersburger", "Pyramid", "Pythagoras", "Positive-Multimedia", "Pride Production", "Premier Video", "Premier Multimedia", "Freaks", "R. Yankelevich", "Raido", "Angle", "RenTV", "俄罗斯", "РТР", "俄语配音", "俄罗斯报告文学", "RuFilms", "红狗", "S. Vizgunov", "S. Dyakov", "S. Kazakov", "S. Kuznetsov", "S. Kuzmichev", "S. Lebedev", "S. Makashov", "S. Ryabov", "S. Shchegolkov", "S.R.I.", "Сolumbia Service", "Samarsky", "SV Studio", "SV-Dubl", "Svetla", "Selena International", "Cinema Trade", "Cinema US", "Sinta Ruroni", "同步", "苏联", "Sokurov", "Solodukhin", "Sonotek", "Sonkin", "联盟视频", "Soyuzmultfilm", "SPD - Sweet Couple", "Stroev", "СТС", "Sovereign Leprosarium Studios", "Studio «Стартрек»", "KOleso", "Gorky Studio", "Kolobok Studio", "Pirate Dubbing Studio", "Raido Studio", "三人工作室", "Gurtom", "Superbeat", "Syenduk", "Tak Treba Production", "TV XXI 世纪", "TV SPb", "ТВ-3", "ТВ6", "TWIN", "ТВЦ", "高清电视 1", "ТНТ", "致朋友", "托尔马切夫", "观点", "电车电影", "ТРК", "华特迪士尼公司", "Khikhidok", "Flapper", "Цікава Ідея", "四平方", "Shvetsov", "Stamp", "Stein", "Y. Zhivov", "Y. Nemakhov", "Y. Serbin", "Y. Tovbin", "J. Bellmann"];
+    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "怪癖", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Cube Cube", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Serbin", "To4ka", "Kravets", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Goblin", "Universal Russia", "Kiitos", "Paramount Comedy", "Courage-Bambay", "Pirate Dubbing Studio", "Chadov", "Karpovsky", "RecentFilms", "Channel One", "Alternative Production", "NEON Studio", "Kolobok", "Dolsky", "Cinema US", "Gavrilov", "Zhivov", "SDI Media", "Alekseev", "GreenРай Studio", "Mikhalev", "Esarev", "维兹古诺夫", "利贝加尔", "库兹涅佐夫", "萨纳耶夫", "ДТВ", "多哈洛夫", "Sunshine Studio", "戈尔恰科夫", "LevshaFilm", "CasStudio", "沃洛达尔斯基", "ColdFilm", "什瓦尔科", "Kartsev", "ETV+", "VGTRK", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Giggling Doctor", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Kolobok", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "四方", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Igmar", "Kotov", "DeadLine Studio", "Jetvis Studio", "RenTV", "安德烈·皮特斯基", "Fox Life", "莱宾", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Interfilm", "SunshineStudio", "Kulzvuk Studio", "卡什金", "瓦尔坦·多哈洛夫", "内马霍夫", "Sedorelli", "СТС", "雅罗茨基", "ICG", "ТВЦ", "斯坦因", "AzOnFilm", "SorzTeam", "Gaevsky", "Mudrov", "Sergey Vorobyov", "Raido Studio", "DeeAFilm Studio", "zamez", "ViruseProject", "Ivanov", "STEPonee", "RenTV", "SV-Dubl", "BadBajo", "Comedy TV", "母带", "5-й 圣彼得堡频道", "SDI Media", "格兰仕", "Ох! 工作室", "SV-Kadr", "2x2", "科托瓦", "正片", "RusFilm", "纳扎罗夫", "XDUB Dorama", "真正的翻译", "Kansai", "Sound-Group", "Nikolai Drozdov", "ZEE TV", "Ozz.tv", "MTV", "Syenduk", "GoldTeam", "Belov", "Dream Records", "Yakovlev", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Denis Shadinsky", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "First HDTV", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "SV-Double", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "ArchiTheatre", "Project Web Mania", "ko136", "KuraSgrechey", "AMS", "SV-Studio", "Khram Doram TV", "TurkStar", "梅德韦杰夫", "Ryabov", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "库尔德人", "新古典主义", "fiendover", "SomeWax", "Loginoff", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Vorotilin", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Kolobok", "SDI Media", "KosharaSerials", "Ekaterinburg Art", "Julia Prosenuk", "ARK-TV Studio", "T.O Friends", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Cyrillic", "AniPLague", "Video service", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "格式 AB", "Film Prestige", "West Video", "叶卡捷琳堡艺术", "SovetRomantica", "RuFilms", "AveBrasil", "Greb&Creative", "BTI Studios", "毕达哥拉斯", "Eurochannel", "NewStudio", "卡门视频", "Koshkin", "Kravets", "Rainbow World", "Voroticin", "Varus-Video", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "ABB Video", "AniStar", "Korean Craze", "LakeFilms", "Nevafilm", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Anastasia Gaydarzhi", "Madeleine Duval", "Fox Life", "Sound Film", "Cowabunga Studio", "Filmexport", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Kirill Sagach", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Muravsky", "IdeaFilm", "鲁蒂洛夫", "季莫菲耶夫", "拉古塔", "迪亚科诺夫", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "毕达哥拉斯", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "秃鹰", "伊格玛", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "扬克列维奇", "Kireev", "Bagichev", "2x2", "Lexicon", "Nota", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Kinomaniya", "DDV", "Alternative Production", "WestFilm", "Anastasia Gaydarzhi + Andrey Yurchenko", "Kinomaniya", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "视频制作", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Dasevich", "Anatoly Gusev", "Twister", "Morozov", "NewComers", "kubik&ko", "DeMon", "Anatoly Ashmarin", "Inter Video", "Pronin", "AMC", "Veles", "Volume-6 Studio", "Horror Maker", "Ghostface", "Sephiroth", "Akira", "Deval Video", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Raven", "Andre1288", "Selena International", "GalVid", "其他电影院", "Studio NLS", "Sam2007", "HaseRiLLoPaW", "Sevastyanov", "D.I.M.", "Marchenko", "Zhuravlev", "N-Kino", "Lazer Video", "SesDizi", "Red Media", "Rudoy", "Tovbin", "Sergey Didok", "Juan Rojas", "binjak", "Carousel", "Lizard Cinema", "Varus-Video", "Emphasis", "RG.Paravozik", "Max Nabokov", "Barin101", "Vaska Kurolesov", "Fortuna-Film", "Amalgama", "AnyFilm", "Raido Studio", "Kozlov", "Zoomvision Studio", "Pythagoras", "Urasiko", "VIP Serial HD", "НСТ", "Kinolux", "Project Web Mania", "Zavgorodniy", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "S.R.I", "老比尔博", "Ozz.tv", "Mystery Film", "RenTV", "Latyshev", "Vashchenko", "莱科", "Sonotek", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Neva-1", "Maxim Zholobov", "Good People", "移动电视", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Nikitin", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Ostankino", "TatamiFilm", "Videobase", "Crunchyroll", "Novamedia", "RedRussian1337", "内容OFF", "Creative Sound", "HelloMickey Production", "金字塔", "CLS Media", "Sonkin", "母带", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "纳里什金", "Intra Communications", "OnisFilms", "XDUB Dorama", "赛普拉斯", "科罗廖夫", "visanti-vasaer", "戈特利布", "Paramount Channel", "СТС", "播音员 CDV", "Pazl Voice", "普里亚莫斯塔诺夫", "Zerzia", "НТВ", "MGM", "迪亚科夫", "伏尔加", "ARK-TV Studio", "Dubrovin", "МИР", "Netflix", "Jetix", "Cypress", "RUSCICO", "Seoul Bay", "Filonov", "Makhonko", "Stroev", "Sanya Bely", "Govinda Raga", "Oshurkov", "Horror Maker", "Khlopushka", "Khrustalev", "Antonov Nikolay", "Zolotukhin", "ArchiAsia", "Popov", "Ultradox", "Most-Video", "Altera Pars", "Ogorodnikov", "Twin", "Khabar", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ulpanei Elrom", "Videoimpulse", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Karusel", "Inter", "Contentica", "Mill", "RealFake", "IDDC", "Info-film", "Music-trade", "Kirdin | Stalk", "DioNik", "Stasyuk", "TV1000", "Hallmark", "Toniks Media", "Bessonov", "Gears Media", "Bakhurani", "NewDub", "Cinema Prestige", "Nabiev", "New Dream Media", "ТВ3", "Malinovsky Sergey", "Superbit", "Kens Matvey", "LE-Production", "Voiz", "Svetla", "Cinema Prestige", "JAM", "LDV", "Videogram", "India TV", "RedDiamond Studio", "Gerusov", "挽歌电影", "Nastia", "Semykina Julia", "电动火车", "Stamp Dmitry", "星期五", "Oneinchnales", "Gravi-TV", "D2Lab", "电影首映", "Busov Gleb", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 频道", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "阿加波夫", "阿科皮扬", "阿列克谢耶夫", "阿尔捷米耶夫", "巴吉乔夫", "贝索诺夫", "瓦西里耶夫", "瓦西尔采夫", "加夫里洛夫", "格鲁索夫", "戈特利布", "格里戈里耶夫", "达塞维奇", "多尔斯基", "卡尔波夫斯基", "卡什金", "Kireev", "Klyukvin", "Kostyukevich", "Matveev", "Mikhalev", "Mishin", "Mudrov", "Pronin", "萨夫琴科", "斯​​米尔诺夫", "季莫费耶夫", "托尔斯托布罗夫", "楚耶夫", "舒瓦耶夫", "雅科夫列夫", "ААА-sound", "ABYGDe", "Akalit", "Akira", "Alliance", "Amalgam", "АМС", "AnVad", "Anubis", "Anubis", "Arc-TV", "Arc-TV Studio", "B. Fedorov", "Bibikov", "Bigych", "Boykov", "Abdulov", "Belov", "Vikhrov", "Vorontsov", "戈尔恰科夫", "达尼洛夫", "多哈洛夫", "科托夫", "科什金", "纳扎罗夫", "波波夫", "鲁金", "Rutilov", "Varus Video", "Vaska Kurolesov", "Vashchenko S.", "Vekshin", "Veles", "Veselchak", "Videoimpulse", "Vitya «говорун»", "Voysover", "Volga", "Raven", "Vortilin", "G. Libergal", "G. Rumyantsev", "同性恋电影指南", "ГКГ", "格鲁霍夫斯基", "灰熊", "贡多斯", "登什奇科夫", "埃萨列夫", "努尔穆哈梅托夫", "普契科夫", "斯​​塔修克", "Shadinsky", "Stamp", "sf@irat", "Derzhimorda", "Domashny", "ДТВ", "Dyakonov", "E. Gaevsky", "E. Grankin", "E. Lurie", "E. Rudoy", "E. Khrustalev", "EA Cinema", "叶卡捷琳堡艺术", "Zhivago", "Zhuchkov", "Z Ranku until Nightі", "Zavgorodniy", "Zeburo", "Zerenitsyn", "I. Eremeev", "I. Klushin", "I. Safronov", "I. Stepanov", "ИГМ", "Igmar", "IDDC", "图像艺术", "Inis", "Iren", "东西方", "K. Pozdnyakov", "K. Filonov", "К9", "Karapetyan", "Karmen Video", "旋转木马", "马列维奇广场", "斯​​普拉特", "柏树", "科罗廖夫", "科托瓦", "克拉维茨", "古巴的立方体", "Courage-Bambay", "L. Volodarsky", "Laser Video", "LancelaP", "Lapshin", "Lexicon", "Lenfilm", "Lyosha Ensign", "蜥蜴", "Lucien", "Zaugarov", "Ivanov", "Ivanova 和 P. Pashut", "Latyshev", "Oshurkov", "Chadov", "Yarotsky", "Maxim Loginoff", "Malinovsky", "Marchenko", "Master Tape", "Makhonko", "Mashinskiy", "Media Complex", "The Mill", "Mika Bondarik", "Minyaev", "Mitelman", "Most Video", "Mosfilm", "Muravsky", "Music Trade", "N-Kino", "N. Antonov", "N. Drozdov", "N. Zolotukhin", "N. Sevastyanov seva1988", "Nabiev", "Natalia Gurzo", "NEVA 1", "Nevafilm", "NeZupinyaiProduction", "新古典", "非致命武器", "НЛО-TV", "新", "新 CD", "新配音", "新频道", "Nota", "НСТ", "НТВ", "НТН", "Overlord", "Ogorodnikov", "Omicron", "Glantz", "Kartsev", "Morozov", "Pryamostanov", "Sanaev", "Paradise", "Pepelats", "ORT 第一频道", "Perevodman", "Pepper", "彼得堡配音", "Petersburger", "金字塔", "毕达哥拉斯", "Positive-Multimedia", "Pride Production", "Premier Video", "Premier Multimedia", "Quirks", "R. Yankelevich", "Raido", "Angle", "RenTV", "俄罗斯", "РТР", "俄语配音", "俄罗斯报道", "RuFilms", "红狗", "S. Vizgunov", "S. Dyakov", "S. Kazakov", "S. Kuznetsov", "S. Kuzmichev", "S. Lebedev", "S. Makashov", "S. Ryabov", "S. Schegolkov", "S.R.I.", "Сolumbia Service", "Samara", "SV Studio", "SV-Dubl", "Svetla", "Selena International", "Cinema Trade", "美国电影院", "Sinta Ruroni", "同步", "苏联", "Sokurov", "Solodukhin", "Sonotek", "Sonkin", "Union Video", "Soyuzmultfilm", "SPD - Sweet Couple", "Stroev", "СТС", "Sovereign Leprosarium Studios", "Studio «Стартрек»", "KOleso", "Gorky Studio", "Kolobok Studio", "海盗配音工作室", "Raido Studio", "第三工作室", "Gurtom", "Superbit", "Syenduk", "Tak Treba Production", "XXI Century TV", "电视 SPb", "ТВ-3", "ТВ6", "TWIN", "ТВЦ", "HDTV 1", "ТНТ", "致朋友", "托尔马切夫", "观点", "电车电影", "ТРК", "华特迪士尼公司", "Khihidok", "Clapperboard", "Цікава Ідея", "四方格", "Shvetsov", "Stamp", "Stein", "Y. Zhivov", "Y. Nemakhov", "Yu. Serbin", "Y. Tovbin", "J. Bellmann"];
     scroll.minus();
     scroll.body().addClass('torrent-list');
 
@@ -12889,7 +12921,7 @@
 
         _this.activity.toggle();
       }, function (text) {
-        _this.empty('回复: ' + text);
+        _this.empty('Answer: ' + text);
       });
 
       filter.onSearch = function (value) {
@@ -12926,13 +12958,13 @@
     this.buildSorted = function () {
       var need = Storage.get('torrents_sort', 'Seeders');
       var select = [{
-        title: '按共享者',
+        title: '按种子数',
         sort: 'Seeders'
       }, {
         title: '按大小',
         sort: 'Size'
       }, {
-        title: '按标题',
+        title: '按名称',
         sort: 'Title'
       }, {
         title: '按来源',
@@ -12993,7 +13025,7 @@
       };
 
       filter_items.voice = ["Any", "Dubbing", "Multi-Voice", "Two-Voice", "Amateur"];
-      filter_items.tracker = ['任何'];
+      filter_items.tracker = ['任意'];
       results.Results.forEach(function (element) {
         var title = element.Title.toLowerCase(),
             tracker = element.Tracker;
@@ -13007,7 +13039,7 @@
         }
 
         if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-      }); //需要清除丢失的键
+      }); //需要清理丢失的键
 
       need.voice = Arrays.removeNoIncludes(Arrays.toArray(need.voice), filter_items.voice);
       need.tracker = Arrays.removeNoIncludes(Arrays.toArray(need.tracker), filter_items.tracker);
@@ -13020,7 +13052,7 @@
       add('hdr', 'HDR');
       add('sub', '字幕');
       add('voice', '翻译');
-      add('tracker', '追踪器');
+      add('tracker', '跟踪器');
       add('year', '年');
       filter.set('filter', select);
       this.selectedFilter();
@@ -13091,7 +13123,7 @@
       };
 
       if (results.Results.length) this.showResults();else {
-        this.empty('查不到结果');
+        this.empty('获取结果失败');
       }
     };
 
@@ -13162,7 +13194,7 @@
                 } else if (p == 2) {
                   if (test('многоголос| p[,| |$]|[,|\\s](лм|пм)[,|\\s|$]')) any = true;
                 } else if (p == 3) {
-                  if (test('двухголос|双声| l2[,| |$]|[,|\\s](лд|пд)[,|\\s|$]')) any = true;
+                  if (test('двухголос|两个声音| l2[,| |$]|[,|\\s](лд|пд)[,|\\s|$]')) any = true;
                 } else if (p == 4) {
                   if (test('любитель|作者| l1[,| |$]|[,|\\s](ло|ап)[,|\\s|$]')) any = true;
                 } else if (test(a.toLowerCase(), true)) any = true;
@@ -13347,11 +13379,11 @@
               tomy: true
             }, {
               title: '标志',
-              subtitle: '带有标志的标志上传 (已查看)',
+              subtitle: '标记共享 (查看)',
               mark: true
             }, {
               title: '取消标记',
-              subtitle: '取消标记共享 (已观看)'
+              subtitle: '取消标记共享 (查看)'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -13492,7 +13524,7 @@
         card.onMenu = function (target, card_data) {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: '动作',
+            title: '操作',
             items: [{
               title: '删除',
               subtitle: '种子将从您的列表中删除'
@@ -13674,7 +13706,7 @@
               }
             }, function () {
               Modal.close();
-              Noty.show('没有找到了电影。');
+              Noty.show('找不到电影。');
               Controller.toggle('content');
             });
           }
@@ -13819,7 +13851,7 @@
           Activity$1.push({
             url: card_data.url,
             id: card_data.id,
-            title: 'Selections - ' + card_data.title,
+            title: '精选 - ' + card_data.title,
             component: 'collections_view',
             source: object.source,
             page: 1
@@ -14070,7 +14102,7 @@
   var data$2 = [];
   var object = false;
   /**
-   * Launch
+   * 正在启动
    */
 
   function init$9() {
@@ -14251,7 +14283,7 @@
         }
 
         if (air_epis.length == 1) {
-          var preview = $('<div class="timetable__preview"><img><div>' + (air_epis[0].episode.name || 'Untitled') + '</div></div>');
+          var preview = $('<div class="timetable__preview"><img><div>' + (air_epis[0].episode.name || '无标题') + '</div></div>');
           Utils.imgLoad(preview.find('img'), Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + air_epis[0].episode.still_path, false, function () {
             preview.find('img').remove();
           });
@@ -14271,7 +14303,7 @@
           var noty = Template.get('notice_card', {
             time: air_date,
             title: elem.card.name,
-            descr: 'Season - <b>' + elem.episode.season_number + '</b><br>Episode - <b>' + elem.episode.episode_number + '</b>'
+            descr: '季 - <b>' + elem.episode.season_number + '</b><br>剧集 - <b>' + elem.episode.episode_number + '</b>'
           });
           Utils.imgLoad(noty.find('img'), elem.card.poster ? elem.card.poster : elem.card.img ? elem.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + elem.card.poster_path);
           noty.on('hover:enter', function () {
@@ -14288,7 +14320,7 @@
           modal.append(noty);
         });
         Modal.open({
-          title: 'Series',
+          title: '电视剧',
           size: 'medium',
           html: modal,
           onBack: function onBack() {
@@ -14387,92 +14419,92 @@
     data$1 = Storage.get('notice', '{}');
     notices = [{
       time: '2022-04-18 18:00',
-      title: 'Weekly',
-      descr: '- 新功能，最常观看的热门种子 (测试模式)<br>- 添加快速安装的插件目录。<br>- 将卡广播到网络上的其他设备。<br>- 清单检查操作 TorrServe<br>- 从种子中复制视频链接。<br>- 鼠标和独轮车长按完成。<br>- 收藏出现在卡片中。<br>- 添加了有关以最佳质量发布电影的通知。'
+      title: '周刊',
+      descr: '- 新功能，热门种子最受关注 (测试模式)<br>- 添加插件目录以便快速安装。<br>- 广播卡到网络上的其他设备.<br>- 检查工作清单 TorrServe<br>- 从种子复制视频链接。<br>- 长按鼠标和独轮车完成。<br>- 收藏出现在卡片中。<br>- 添加有关电影发布质量更好的通知。'
     }, {
       time: '2021-12-23 14:00',
       title: '更新 1.3.7',
-      descr: '1. 添加了语音搜索。<br>2. 修复了鼠标的错误并添加了对播放器中鼠标的支持。<br>3. 添加帐户链接到 CUB.<br>4. 任何其他不感兴趣的小东西。'
+      descr: '1. 添加语音搜索。<br>2. 修复错误带鼠标并在播放器中添加了对鼠标的支持。<br>3. 添加了账号绑定 CUB.<br>4. 各种其他无趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
       title: '更新 1.3.6',
-      descr: '1. 添加新目录 CUB.<br>2. 发布源已更改，现在即使在 MSX.<br>3. 添加的动漫类别 ;)'
+      descr: '1. 添加新目录 CUB.<br>2. 更改发布源，现在甚至可以在 MSX.<br>3. 添加动漫类别 ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新 1.3.5',
-      descr: '1. 添加的屏幕保护程序 Google ChromeCast.<br>2. 发布立即运行，无需搜索。<br>3. 从键盘上删除输入按钮。<br>4. 播放器改进了倒带并在末尾添加了按钮 ( / 到开头).<br>5. 通过服务添加同步 gist.github.com.'
+      descr: '1. 添加屏幕保护程序 Google ChromeCast.<br>2. 发布立即开始，无需搜索。<br>3. 从键盘上移除 Enter 键。<br>4. 播放器中的倒带得到了改进，并添加了按钮 (结束 / 开始).<br>5. 通过服务同步已添加 gist.github.com.'
     }, {
       time: '2021-11-10 10:00',
       title: '更新 1.3.4',
-      descr: '1. 属性关闭时固定时间戳 (从最后一个地方继续).<br>2. 在三星电视上，黑色骰子在播放器中是固定的。<br>3. 在设置中添加插件。'
+      descr: '1. 时间戳关闭属性时已修复 (从最后的地方继续).<br>2. 在三星电视上，播放器中的黑色骰子已修复。<br>3. 在设置中添加了插件。'
     }, {
       time: '2021-11-02 10:00',
       title: '更新 1.3.3',
-      descr: '1. 添加了种子搜索。<br>2. 修复了使用选定源加载主页。<br>3. 在过滤器中添加了多项选择。<br>4. 添加了更多视频缩放选择。<br>5. 修复了其他小东西。'
+      descr: '1. 添加了种子搜索。<br>2. 固定加载带有选定源的主页。<br>3. 在过滤器中添加了多项选择。<br>4. 添加了更多缩放选择视频。<br>5. 其他小修复。'
     }, {
       time: '2021-10-25 15:00',
       title: '更新 1.3.2',
-      descr: '1. 固定卡片搜索,每张卡片都有自己的来源 (tmdb,ivi,okko)<br>2. 能够切换来源 (tmdb,ivi,okko).<br>3. 更新了后台工作。<br>4. 在torrent文件中添加了翻转，向左或向右翻转10个位置。<br>5. 更改了NCR源。<br>6. 修复了浏览历史记录，现在如果您开始观看，则会添加一张卡片一个视频。<br>7. 在源中添加了评论 ivi.'
+      descr: '1. 固定卡片搜索，每张卡片都有自己的来源 (tmdb,ivi,okko)<br>2. 能够切换来源 (tmdb,ivi,okko).<br>3. 更新后台工作。<br>4. 在torrent文件中添加滚动，向左或向右滚动10个位置。<br>5. 更改了来源НЦР。<br>6. 浏览历史记录已修复，现在如果您开始观看视频，则会添加一张卡片。<br>7. 在源中添加评论 ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新 1.3.1',
-      descr: '1. 添加了 ivi 和的选择 okko<br>2. 返回了更改视频比例的能力。<br>3. 添加了数字版本，在 MSX 中不起作用。<br>4. 以哪种语言显示数据 TMDB.<br>5. 屏幕保护程序中添加了切换到自然的能力。<br>6. 能够选择哪种语言来查找种子in.<br>7. 能够禁用按时间码继续。'
+      descr: '1. 添加了 ivi 和 的选择 okko<br>2. 返回了更改视频比例的能力。<br>3. 添加了数字版本，在 MSX 中不起作用。<br>4. 显示数据的语言 TMDB.<br>5. 添加在屏幕保护程序中切换到自然的能力。<br>6. 能够选择在哪种语言中找到种子文件。<br>7. 能够禁用按时间码继续。'
     }, {
       time: '2021-10-14 13:00',
       title: '屏幕保护程序',
-      descr: '添加屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
+      descr: '添加了屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
     }, {
       time: '2021-10-14 10:00',
       title: '更新 1.2.6',
-      descr: '1. 修复了 Torrent 删除错误。<br>2. 修复了时间戳。<br>3. 为电视剧添加了视觉效果，电视剧可以在 torrent 文件中更好地看到。<br>4. 其他小东西。'
+      descr: '1. 修复 torrent 删除错误。<br>2. 固定时间戳。<br>3. 为电视剧添加视觉效果，更好地在 torrent 文件中看到电视剧。<br>4. 其他小事。'
     }, {
       time: '2021-10-12 19:10',
       title: '很高兴知道',
-      descr: '你知道? 如果你长按卡片上的按钮 (OK) 你可以调出添加书签的菜单。同样的方法适用于种子，长按可以添加分配到列表 (我的种子)'
+      descr: '你知道吗? 如果你长时间按住卡片上的按钮 (OK) 你可以调出添加到书签的菜单。同样的方法适用于种子，长按可以将分发添加到列表中 (我的种子)'
     }, {
       time: '2021-10-12 19:00',
       title: '更新 1.2.4',
-      descr: '1. 添加的菜单 (我的种子).<br>2. 更新的种子中的过滤和排序。<br>3. 添加的磁带 (新的) 在电影和电视中电视剧 .<br>4. 修复了 Torserver.<br>5. 链接，添加了连续剧的查看标记。<br>6. 修复了几个错误和错误。'
+      descr: '1. 添加的菜单 (我的种子).<br>2. 过滤和排序更新的种子。<br>3. 添加的提要 (新) 在电影和电视节目中。<br>4. 固定链接 Torserver.<br>5. 为电视节目添加观看标记。<br>6. 修复了几个错误和错误。'
     }, {
       time: '2021-10-10 18:00',
       title: '更新 1.2.3',
-      descr: '1. 添加了鼠标支持。<br>2. 添加了记住视图位置 (电影)<br>3. 修复了部分封闭瓷砖的播放器错误。<br>4. 添加了次要链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的转换'
+      descr: '1. 添加鼠标支持 .<br>2. 查看位置记忆添加 (电影)<br>3. 修复了播放器中半封闭瓷砖的错误。<br>4. 添加了一个额外的链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的过渡'
     }, {
       time: '2021-10-09 15:00',
       title: '更新 1.2.2',
-      descr: '1. 添加了 Tizen 播放器<br>2. 添加了 webOS 播放器<br>3. 添加了统计信息到播放器洪流加载。<br>4. 在播放器中添加了倒带条<br>5. 修复了 Torserver<br>6. 空海报，修复了其他小错误和错误'
+      descr: '1. 添加 Tizen 播放器<br>2. 添加 webOS 播放器<br>3. 播放器添加了种子下载统计。<br>4. 在播放器中添加了倒带条<br>5. 修复了空海报 Torserver<br>6. 修复了其他小错误和错误'
     }, {
       time: '2021-10-07 17:00',
       title: '更新 1.2.1',
-      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加了过滤器<br>4. 视觉上改进的播放器<br>5. 添加了性能设置<br>6. 修复了种子文件中的名称<br>7. 修复了播放器暂停的错误<br>8. 修复了其他小错误和错误'
+      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加了过滤器<br>4. 视觉上改进了播放器<br>5. 添加了性能设置<br>6. 在 torrent 文件中修复了名称<br>7. 修复了播放器中暂停的错误<br>8. 修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
       title: '更新 1.0.10',
-      descr: '1. 改进了浅模式下的加载卡<br>2. 添加了日志, 对于查看日志，将鼠标悬停在标题上并单击 10 次'
+      descr: '1. 改进了浅模式下卡片的加载<br>2. 添加了日志，查看日志悬停在标题上并单击 10 次'
     }, {
       time: '2021-10-01 09:00',
       title: '更新 1.0.9',
-      descr: '1. 改进书签和电影中的背景<br>2. 说明已更改<br>3. 插件完成 Orsay'
+      descr: '1. 书签和电影中的改进背景<br>2. 更改说明<br>3. 已完成插件 Orsay'
     }, {
       time: '2021-09-30 18:00',
       title: '更新 1.0.8',
-      descr: '1. 背景改进<br>2. 显示按钮 (Torrents)<br>3. 添加 Torrent 排序<br>4. 退出 Tizen 和 WebOS<br> 5. 可能改进了 Orsay'
+      descr: '1. 改进背景<br>2. 显示按钮 (种子)<br>3. 添加了 Torrents 排序<br>4. Tizen 的退出和 WebOS<br> 5. 控制按钮 Orsay'
     }, {
       time: '2021-09-29 17:00',
       title: '更新 1.0.7',
-      descr: '1. 的控制按钮，优化了主页和目录<br>2. 添加了对 TorServer<br> 3. 授权，添加了错误提示 TorServer'
+      descr: '1. 优化的主页和目录<br>2. 添加了授权 TorServer<br> 3. 添加了错误提示 TorServer'
     }, {
       time: '2021-09-28 16:00',
       title: '更正',
-      descr: '1. 错误修复 (无法获取 HASH)<br>2.  MSX, 解析器已经完成，现在你不需要指定显式链接，只要你愿意<br> 3. 解析器已经改进 jac.red, 现在搜索更准确'
+      descr: '1. Bug 已修复 (无法获取 HASH)<br>2. 改进的解析器 MSX, 现在您不需要指定显式链接，只需可选<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '解析器已修复',
-      descr: '由于 jac.red 没有返回结果，解析器中发现错误'
+      title: '修复解析器',
+      descr: '解析器中存在导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
       title: '欢迎!',
-      descr: '这是您第一次运行该应用程序，希望您喜欢它。享受您的浏览。'
+      descr: '这是您第一次启动该应用程序，我们希望您喜欢它。玩得开心。'
     }];
     Arrays.extend(data$1, {
       time: 0
@@ -14485,7 +14517,7 @@
         var items = [];
         result.forEach(function (item) {
           var data = JSON.parse(item.data);
-          var desc = '新质量可用<br><br>质量 - <b>' + data.card.quality + '</b>';
+          var desc = '新质量可用<br><br>质量- <b>' + data.card.quality + '</b>';
 
           if (data.card.seasons) {
             var k = [];
@@ -14495,7 +14527,7 @@
             }
 
             var s = k.pop();
-            desc = '新剧集<br><br>季节 - <b>' + s + '</b><br>剧集 - <b>' + data.card.seasons[s] + '</b>';
+            desc = '新电视剧<br><br>季- <b>' + s + '</b><br>剧集 - <b>' + data.card.seasons[s] + '</b>';
           }
 
           items.push({
@@ -14829,14 +14861,14 @@
     this.stoped = false;
     this.started = false;
     /**
-     * 将活动添加到列出激活
+     * 将活动添加到活动列表
      */
 
     this.append = function () {
       slides.append(slide);
     };
     /**
-     * 创建一个新活动
+     * 创建新活动
      */
 
 
@@ -14870,7 +14902,7 @@
       component.start();
     };
     /**
-     * 启动活动活动
+     * 开始活动
      */
 
 
@@ -14902,7 +14934,7 @@
       component.pause();
     };
     /**
-     * 如果活动则启动活动
+     * 启用活动，如果它是活动的
      */
 
 
@@ -15119,7 +15151,7 @@
     var start_from = Storage.field("start_page");
 
     if (active && start_from === "last") {
-      if (active.page) active.page = 1; // 不能，重新加载的最后一页，需要修复
+      if (active.page) active.page = 1; // 不能, 重新加载时会有最后一页，你需要修复它
 
       push(active);
     } else {
@@ -15131,7 +15163,7 @@
       if (action == 'favorite') {
         push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -15222,7 +15254,7 @@
     controlls[name] = calls;
   }
   /**
-   * 运行功能
+   * 启动功能
    * @param {String} name 
    * @param {Object} params 
    */
@@ -15238,7 +15270,7 @@
     }
   }
   /**
-   * 移动
+   * Move
    * @param {String} direction 
    */
 
@@ -15247,7 +15279,7 @@
     run(direction);
   }
   /**
-   * 调用 enter
+   * Call enter
    */
 
 
@@ -15267,7 +15299,7 @@
     }
   }
   /**
-   * Quit
+   * End
    */
 
 
@@ -15283,7 +15315,7 @@
     run('back');
   }
   /**
-   * Toggle controller
+   * Switch controller
    * @param {String} name 
    */
 
@@ -15345,7 +15377,7 @@
 
     if (Storage.field('navigation_type') == 'mouse') {
       selects.on('click.hover', function (e) {
-        var time = $(this).data('click-time') || 0; //well xs, click 工作 2 次, 找到这个解决方案:
+        var time = $(this).data('click-time') || 0; //well xs,2次点击就可以了，找到了这样的解决方案:
 
         if (time + 100 < Date.now()) {
           selects.removeClass('focus enter');
@@ -15370,7 +15402,7 @@
     if (selects) selects.removeClass('focus enter'); //if(selects) selects.unbind('.hover')
   }
   /**
-   * Trigger event
+   * Trigger一个事件
    * @param {String} name 
    * @param {Object} params 
    */
@@ -15380,7 +15412,7 @@
     run(name, params);
   }
   /**
-   * Focus on element
+   * 关注元素
    * @param {Object} target 
    */
 
@@ -15472,8 +15504,8 @@
       'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
       'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
       'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
-      'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} 我 h s m i t b yu , . : http://', '{space}'],
-      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} J Ts U K E N G SH SH Z X X b', 'F Y V A P R O L D J E', '{shift} I CH S M I T B Yu , . : http://', '{space}']
+      'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} i h with m and t b yu , . P O L D J E : http://', '{space}'],
+      'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} I C S M I T B Yu , .', '俄语', '{shift} find : http://', '{space}']
     };
     this.listener = start$4();
 
@@ -15489,9 +15521,9 @@
           '{RU}': '&nbsp;',
           '{EN}': '&nbsp;',
           '{abc}': '&nbsp;',
-          '{rus}': '俄语',
+          '{rus}': '说话，我在听..',
           '{eng}': 'english',
-          '{search}': 'find',
+          '{search}': '没有麦克风访问权限',
           '{mic}': "<svg viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                    <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                    <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                    </svg>"
         },
         layout: params.layout || _default_layout,
@@ -15533,7 +15565,7 @@
           console.log('Speech', 'start');
           $('.simple-keyboard [data-skbtn="{mic}"]').css('color', 'red');
           recognition.record = true;
-          Noty.show('Speak, I\'我在听..');
+          Noty.show('添加');
         });
         recognition.addEventListener("end", function () {
           console.log('Speech', 'end');
@@ -15560,7 +15592,7 @@
           console.log('Speech', 'error:', event);
 
           if (event.error == 'not-allowed') {
-            Noty.show('无法使用麦克风');
+            Noty.show('删除');
           }
 
           recognition.stop();
@@ -15673,38 +15705,38 @@
       var members = Storage.get('setting_member', []);
       var links = [];
       links.push({
-        title: (members.indexOf(input$1.text()) == -1 ? '添加' : '删除') + ' 当前值',
+        title: (members.indexOf(input$1.text()) == -1 ? '当前值' : '自定义链接') + ' 用于种子，Api 键',
         subtitle: input$1.text(),
         add: true
       });
       members.forEach(function (link) {
         links.push({
           title: link,
-          subtitle: '自定义链接',
+          subtitle: '空的',
           url: link,
           member: true
         });
       });
       links = links.concat([{
         title: 'jac.red',
-        subtitle: '对于种子，Api 密钥 - 空',
+        subtitle: '对于本地 - 链接',
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
-        subtitle: '对于本地 TorrServ',
+        subtitle: '已添加 TorrServ',
         url: '127.0.0.1:8090'
       }]);
       Select.show({
-        title: '链接',
+        title: '已删除',
         items: links,
         onSelect: function onSelect(a) {
           if (a.add) {
             if (members.indexOf(a.subtitle) == -1) {
               Arrays.insert(members, 0, a.subtitle);
-              Noty.show('已添加 (' + a.subtitle + ')');
+              Noty.show('已删除 (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('已删除 (' + a.subtitle + ')');
+              Noty.show('内置 (' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -15717,7 +15749,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('已删除 (' + a.url + ')');
+            Noty.show('内置 (' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -15775,23 +15807,23 @@
       }, 'inner');
     } else if (Platform.is('webos')) {
       select$1('player', {
-        'inner': '内置',
+        'inner': '恢复正常视频缩放',
         'webos': 'WebOS'
       }, 'inner');
     } else if (Platform.is('android')) {
       select$1('player', {
-        'inner': '内置',
+        'inner': '开关',
         'android': 'Android'
       }, 'android');
       trigger('internal_torrclient', false);
     }
 
-    Storage.set('player_size', 'default'); //恢复正常视频缩放
+    Storage.set('player_size', 'default'); //标题
   }
   /**
-   * 开关
-   * @param {String} name - 名称
-   * @param {Boolean} _default - 默认值
+   * 默认值
+   * @param {String} name - 选择
+   * @param {Boolean} _default - 标题
    */
 
 
@@ -15803,10 +15835,10 @@
     defaults[name] = _default;
   }
   /**
-   * 选择
-   * @param {String} name - 名称
-   * @param {*} _select - 值
-   * @param {String} _default - 默认值
+   * 值
+   * @param {String} name - 默认值
+   * @param {*} _select - 在元素上绑定事件
+   * @param {String} _default - Select
    */
 
 
@@ -15815,7 +15847,7 @@
     defaults[name] = _default;
   }
   /**
-   * 在元素上绑定事件
+   * 在元素上更新值
    * @param {*} elems 
    */
 
@@ -15884,7 +15916,7 @@
 
         var enabled = Controller.enabled().name;
         Select.show({
-          title: '选择',
+          title: '获取参数值',
           items: items,
           onBack: function onBack() {
             Controller.toggle(enabled);
@@ -15927,7 +15959,7 @@
     listener$1.send('update_scroll');
   }
   /**
-   * 更新元素上的值
+   * 添加选择器
    * @param {*} elem 
    */
 
@@ -15941,7 +15973,7 @@
     elem.find('.settings-param__value').text(val);
   }
   /**
-   * 获取参数值
+   * 小于
    * @param {String} name 
    * @returns *
    */
@@ -15951,31 +15983,31 @@
     return Storage.get(name, defaults[name] + '');
   }
   /**
-   * 添加选择器
+   * 普通
    */
 
 
   select$1('interface_size', {
-    'small': '更小',
-    'normal': '正常'
+    'small': '低',
+    'normal': '中'
   }, 'normal');
   select$1('poster_size', {
-    'w200': '低',
-    'w300': '中',
-    'w500': '高'
+    'w200': '高',
+    'w300': '直接',
+    'w500': '通过网站 API'
   }, 'w200');
   select$1('parser_torrent_type', {
     'jackett': 'Jackett',
     'torlook': 'Torlook'
   }, 'torlook');
   select$1('torlook_parse_type', {
-    'native': '直接',
-    'site': '通过站点 API'
+    'native': '复杂',
+    'site': '简单'
   }, 'native');
   select$1('background_type', {
-    'complex': '复杂',
-    'simple': '简单',
-    'poster': '图像'
+    'complex': '图像',
+    'simple': '内置',
+    'poster': '主要'
   }, 'simple');
   select$1('pages_save_total', {
     '1': '1',
@@ -15985,43 +16017,44 @@
     '5': '5'
   }, '5');
   select$1('player', {
-    'inner': '内置'
+    'inner': '额外'
   }, 'inner');
   select$1('torrserver_use_link', {
-    'one': '主要',
-    'two': '额外'
+    'one': '小',
+    'two': '常规'
   }, 'one');
   select$1('subtitles_size', {
-    'small': '小',
-    'normal': '正常',
-    'large': '大'
+    'small': '大',
+    'normal': '自然',
+    'large': '俄语'
   }, 'normal');
   select$1('screensaver_type', {
-    'nature': '自然',
+    'nature': '英语',
     'chrome': 'ChromeCast'
   }, 'chrome');
   select$1('tmdb_lang', {
     'zh-CN': '简体中文',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
-    'ru': '俄语',
-    'en': '英语'
+    'ru': '原始',
+    'en': '俄语'
   }, 'zh-CN');
   select$1('parse_lang', {
     'zh-CN': '简体中文',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
     'en': 'English',
-    'df': '原始',
-    'ru': '俄语'
+    'df': '重新开始',
+    'ru': '继续'
   }, 'df');
   select$1('player_timecode', {
-    'again': '重新开始',
-    'continue': '继续'
+    'again': '询问',
+    'continue': '计算',
+    'ask': '首页'
   }, 'continue');
   select$1('player_scale_method', {
     'transform': 'Transform',
-    'calculate': '计算'
+    'calculate': '书签'
   }, 'transform');
   select$1('source', {
     'tmdb': 'TMDB',
@@ -16030,25 +16063,25 @@
     'cub': 'CUB'
   }, 'tmdb');
   select$1('start_page', {
-    'main': '首页',
-    'favorite@book': '书签',
-    'favorite@like': '点赞',
-    'favorite@wath': '稍后',
-    'favorite@history': '浏览历史',
-    'mytorrents': '我的种子',
-    'last': '最新'
+    'main': '喜欢',
+    'favorite@book': '稍后',
+    'favorite@like': '浏览历史记录',
+    'favorite@wath': '我的种子',
+    'favorite@history': '最新',
+    'mytorrents': '预加载',
+    'last': '显示全部'
   }, 'last');
   select$1('scroll_type', {
     'css': 'CSS',
     'js': 'Javascript'
   }, 'css');
   select$1('card_views_type', {
-    'preload': '预加载',
-    'view': '显示全部'
+    'preload': '遥控器',
+    'view': '鼠标和遥控器'
   }, 'preload');
   select$1('navigation_type', {
-    'controll': '遥控器',
-    'mouse': '鼠标和遥控器'
+    'controll': '添加触发器',
+    'mouse': '添加字段'
   }, 'mouse');
   select$1('time_offset', {
     'n-5': '-5',
@@ -16071,7 +16104,7 @@
     '2160': '2160p'
   }, '1080');
   /**
-   * 添加触发器
+   * 什么平台
    */
 
   trigger('animation', true);
@@ -16093,7 +16126,7 @@
   trigger('parse_in_search', false);
   trigger('subtitles_start', false);
   /**
-   * 添加字段
+   * 如果这是一个平台
    */
 
   select$1('jackett_url', '', 'jac.red');
@@ -16233,7 +16266,7 @@
       Storage.set('native', Storage.get('platform') ? true : false);
   }
   /**
-   * 哪个平台
+   * 需要哪一个
    * @returns String
    */
 
@@ -16242,8 +16275,8 @@
     return Storage.get('platform', '');
   }
   /**
-   * 如果这是一个平台
-   * @param {String} need - 需要哪个? tizen, webos, android, orsay
+   * 如果至少有一个平台
+   * @param {String} need - 如果是电视? tizen, webos, android, orsay
    * @returns Boolean
    */
 
@@ -16252,7 +16285,7 @@
     return get() == need ? true : false;
   }
   /**
-   * 如果至少有一个平台是 tizen, webos, android
+   * 电影 tizen, webos, android
    * @returns Boolean
    */
 
@@ -16261,7 +16294,7 @@
     return is('tizen') || is('webos') || is('android') ? true : false;
   }
   /**
-   * 如果这是一个电视机
+   * 卡通
    * @returns Boolean
    */
 
@@ -16282,231 +16315,231 @@
   data.type = {
     title: '类型',
     items: [{
-      title: '电影',
+      title: '电视剧',
       selected: true,
       cat: 'movie'
     }, {
       title: '卡通',
       cat: 'multmovie'
     }, {
-      title: '电视剧',
+      title: '动漫',
       cat: 'tv'
     }, {
-      title: '卡通',
+      title: '评级',
       cat: 'multtv'
     }, {
-      title: '动漫',
+      title: '任何',
       cat: 'anime'
     }]
   };
   data.rating = {
-    title: '评级',
+    title: '0 到',
     items: [{
-      title: '任何'
+      title: '任意'
     }, {
-      title: '0 到 3',
+      title: '6 到 3',
       voite: '0-3'
     }, {
-      title: '3 到 6',
+      title: '8 到 6',
       voite: '3-6'
     }, {
-      title: '6 到 8',
+      title: '国家 8',
       voite: '6-8'
     }, {
-      title: '从 8 到 10',
+      title: '乌克兰 10',
       voite: '8-10'
     }]
   };
   data.country = {
-    title: '国家',
+    title: '俄罗斯',
     items: [{
-      title: '乌克兰',
+      title: '日本',
       code: 'uk'
     }, {
       title: '美国',
       code: 'en'
     }, {
-      title: '俄罗斯',
+      title: '韩国',
       code: 'ru'
     }, {
-      title: '日本',
+      title: '阿塞拜疆',
       code: 'ja'
     }, {
-      title: '韩国',
+      title: '阿尔巴尼亚',
       code: 'ko'
     }, {
-      title: '阿塞拜疆',
+      title: '白俄罗斯',
       code: 'az'
     }, {
-      title: '阿尔巴尼亚',
+      title: '保加利亚',
       code: 'sq'
     }, {
-      title: '白俄罗斯',
+      title: '德国',
       code: 'be'
     }, {
-      title: '保加利亚',
+      title: '格鲁吉亚',
       code: 'bg'
     }, {
-      title: '德国',
+      title: '丹麦',
       code: 'de'
     }, {
-      title: '格鲁吉亚',
+      title: '爱沙尼亚',
       code: 'ka'
     }, {
-      title: '丹麦',
+      title: '爱尔兰',
       code: 'da'
     }, {
-      title: '爱沙尼亚',
+      title: '西班牙',
       code: 'et'
     }, {
-      title: '爱尔兰',
+      title: '意大利',
       code: 'ga'
     }, {
-      title: '西班牙',
+      title: '中国',
       code: 'es'
     }, {
-      title: '意大利',
+      title: '拉脱维亚',
       code: 'it'
     }, {
-      title: '中国',
+      title: '尼泊尔',
       code: 'zh'
     }, {
-      title: '拉脱维亚',
+      title: '挪威',
       code: 'lv'
     }, {
-      title: '尼泊尔',
+      title: '波兰',
       code: 'ne'
     }, {
-      title: '挪威',
+      title: '罗马尼亚',
       code: 'no'
     }, {
-      title: '波兰',
+      title: '塞尔维亚',
       code: 'pl'
     }, {
-      title: '罗马尼亚',
+      title: '斯​​洛伐克',
       code: 'ro'
     }, {
-      title: '塞尔维亚',
+      title: '斯​​洛文尼亚',
       code: 'sr'
     }, {
-      title: '斯洛伐克',
+      title: '塔吉克斯坦',
       code: 'sk'
     }, {
-      title: '斯​​洛文尼亚',
+      title: '土耳其',
       code: 'sl'
     }, {
-      title: '塔吉克斯坦',
+      title: '乌兹别克斯坦',
       code: 'tg'
     }, {
-      title: '土耳其',
+      title: '芬兰',
       code: 'tr'
     }, {
-      title: '乌兹别克斯坦',
+      title: '法国',
       code: 'uz'
     }, {
-      title: '芬兰',
+      title: '克罗地亚',
       code: 'fi'
     }, {
-      title: '法国',
+      title: '捷克共和国',
       code: 'fr'
     }, {
-      title: '克罗地亚',
+      title: '瑞典',
       code: 'hr'
     }, {
-      title: '捷克共和国',
+      title: '爱沙尼亚',
       code: 'cs'
     }, {
-      title: '瑞典',
+      title: '类型',
       code: 'sv'
     }, {
-      title: '爱沙尼亚',
+      title: '动作',
       code: 'et'
     }]
   };
   data.genres = {
-    title: '类型',
+    title: '冒险',
     items: [{
       "id": 28,
-      "title": "动作",
-      checkbox: true
-    }, {
-      "id": 12,
-      "title": "冒险",
-      checkbox: true
-    }, {
-      "id": 16,
       "title": "卡通",
       checkbox: true
     }, {
-      "id": 35,
+      "id": 12,
       "title": "喜剧",
       checkbox: true
     }, {
-      "id": 80,
+      "id": 16,
       "title": "犯罪",
       checkbox: true
     }, {
-      "id": 99,
+      "id": 35,
       "title": "纪录片",
       checkbox: true
     }, {
-      "id": 18,
+      "id": 80,
       "title": "戏剧",
       checkbox: true
     }, {
-      "id": 10751,
+      "id": 99,
       "title": "家庭",
       checkbox: true
     }, {
-      "id": 14,
+      "id": 18,
       "title": "奇幻",
       checkbox: true
     }, {
-      "id": 36,
-      "title": "历史",
+      "id": 10751,
+      "title": "故事",
       checkbox: true
     }, {
-      "id": 27,
+      "id": 14,
       "title": "恐怖",
       checkbox: true
     }, {
-      "id": 10402,
+      "id": 36,
       "title": "音乐",
       checkbox: true
     }, {
-      "id": 9648,
+      "id": 27,
       "title": "侦探",
       checkbox: true
     }, {
-      "id": 10749,
-      "title": "浪漫",
+      "id": 10402,
+      "title": "言情",
       checkbox: true
     }, {
-      "id": 878,
+      "id": 9648,
       "title": "奇幻",
       checkbox: true
     }, {
-      "id": 10770,
+      "id": 10749,
       "title": "电视电影",
       checkbox: true
     }, {
-      "id": 53,
-      "title": "惊悚片",
+      "id": 878,
+      "title": "惊悚",
       checkbox: true
     }, {
-      "id": 10752,
+      "id": 10770,
       "title": "军事",
       checkbox: true
     }, {
-      "id": 37,
+      "id": 53,
       "title": "西部",
+      checkbox: true
+    }, {
+      "id": 10752,
+      "title": "任何",
+      checkbox: true
+    }, {
+      "id": 37,
+      "title": "未选择",
       checkbox: true
     }]
   };
   data.year = {
     title: '年份',
     items: [{
-      title: '任何',
+      title: '3 到',
       any: true
     }]
   };
@@ -16536,7 +16569,7 @@
     where.items.forEach(function (a) {
       if (a.selected || a.checked) title.push(a.title);
     });
-    where.subtitle = title.length ? title.join(', ') : '未选中';
+    where.subtitle = title.length ? title.join(', ') : '过滤器';
   }
 
   function main() {
@@ -16545,11 +16578,11 @@
     }
 
     var items = [{
-      title: '开始搜索',
+      title: '过滤器',
       search: true
     }, data.type, data.rating, data.genres, data.country, data.year];
     Select.show({
-      title: '过滤',
+      title: '电影',
       items: items,
       onBack: function onBack() {
         Controller.toggle('content');
@@ -16603,7 +16636,7 @@
     var url = 'discover/' + type + '?' + query.join('&');
     var activity = {
       url: url,
-      title: '过滤',
+      title: '动漫',
       component: 'category_full',
       source: 'tmdb',
       card_type: true,
@@ -16691,7 +16724,7 @@
       if (action == 'movie' || action == 'tv' || action == 'anime') {
         Activity$1.push({
           url: action,
-          title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视节目') + ' - ' + Storage.field('source').toUpperCase(),
+          title: (action == 'movie' ? '电视节目' : action == 'anime' ? '首页 -' : '关于') + ' - ' + Storage.field('source').toUpperCase(),
           component: 'category',
           source: action == 'anime' ? 'cub' : Storage.field('source')
         });
@@ -16700,7 +16733,7 @@
       if (action == 'main') {
         Activity$1.push({
           url: '',
-          title: '首页 - ' + Storage.field('source').toUpperCase(),
+          title: '书签 ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source')
         });
@@ -16711,7 +16744,7 @@
 
       if (action == 'about') {
         Modal.open({
-          title: '关于',
+          title: '喜欢',
           html: Template.get('about'),
           size: 'medium',
           onBack: function onBack() {
@@ -16724,7 +16757,7 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+          title: type == 'book' ? '浏览历史' : type == 'like' ? '稍后' : type == 'history' ? '计划' : '我的种子',
           component: 'favorite',
           type: type,
           page: 1
@@ -16734,7 +16767,7 @@
       if (action == 'timetable') {
         Activity$1.push({
           url: '',
-          title: '日程安排',
+          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
           component: 'timetable',
           page: 1
         });
@@ -16743,7 +16776,7 @@
       if (action == 'mytorrents') {
         Activity$1.push({
           url: '',
-          title: '我的种子',
+          title: '合集',
           component: 'mytorrents',
           page: 1
         });
@@ -16752,7 +16785,7 @@
       if (action == 'relise') {
         Activity$1.push({
           url: '',
-          title: '数字发布',
+          title: '合集',
           component: 'relise',
           page: 1
         });
@@ -16762,10 +16795,10 @@
         Select.show({
           title: '合集',
           items: [{
-            title: '收藏 ivi',
+            title: '目录 ivi',
             source: 'ivi'
           }, {
-            title: '收藏 okko',
+            title: '目录 - okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -16795,13 +16828,13 @@
       source: Storage.field('source')
     }, function (menu) {
       Select.show({
-        title: '目录',
+        title: '种子',
         items: menu,
         onSelect: function onSelect(a) {
           var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
           Activity$1.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
-            title: '目录 - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
+            title: '搜索 - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
             component: tmdb ? 'category' : 'category_full',
             genres: a.id,
             id: a.id,
@@ -16910,7 +16943,7 @@
 
           Activity$1.push({
             url: '',
-            title: '种子',
+            title: '错误',
             component: 'torrents',
             search: query,
             movie: {
@@ -16924,7 +16957,7 @@
         } else {
           Activity$1.push({
             url: 'search/' + type,
-            title: '搜索 - ' + query,
+            title: '请求磁力链接 ' + query,
             component: 'category_full',
             page: 2,
             query: encodeURIComponent(query),
@@ -16947,14 +16980,14 @@
               Torrent.back(_this3.toggle.bind(_this3));
             }, function (text) {
               Modal.update(Template.get('error', {
-                title: '错误',
+                title: '左 - 删除',
                 text: text
               }));
             });
             Modal.open({
               title: '',
               html: Template.get('modal_pending', {
-                text: '请求磁力链接'
+                text: '输入文本...'
               }),
               onBack: function onBack() {
                 Modal.close();
@@ -17070,7 +17103,7 @@
     this.append = function (value) {
       var _this2 = this;
 
-      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>左 - 删除</div></div></div>');
+      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>正在运行</div></div></div>');
       key.on('hover:enter', function () {
         _this2.listener.send('enter', {
           value: value
@@ -17205,7 +17238,7 @@
         search.find('.search__input').text(input);
         results.search(input);
       } else {
-        search.find('.search__input').text('输入文本...');
+        search.find('.search__input').text('状态');
       }
     });
     keyboard.listener.follow('right', function () {
@@ -17387,7 +17420,7 @@
   var timer;
   var readed;
   /**
-   * 正在运行
+   * 渲染状态
    */
 
   function init$1() {
@@ -17413,7 +17446,7 @@
     login(start);
   }
   /**
-   * 状态
+   * 禁用
    * @param {Int} c - код
    */
 
@@ -17423,7 +17456,7 @@
     renderStatus();
   }
   /**
-   * 渲染状态
+   * 同步
    */
 
 
@@ -17434,36 +17467,36 @@
           desc = item.find('.settings-param__descr');
 
       if (code == 0) {
-        name.text('禁用');
-        desc.text('启用同步');
+        name.text('未登录');
+        desc.text('需要登录');
       }
 
       if (code == 1) {
-        name.text('未登录');
-        desc.text('需要登录 ');
+        name.text('登录失败');
+        desc.text('检查您的输入并重试 ');
       }
 
       if (code == 2) {
-        name.text('登录失败');
-        desc.text('请检查您的详细信息并重试');
+        name.text('登录');
+        desc.text('你登录成功');
       }
 
       if (code == 3) {
-        name.text('登录');
-        desc.text('您已成功登录');
+        name.text('同步');
+        desc.text('授权验证');
       }
 
       if (code == 4) {
         var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
-        name.text('同步');
+        name.text('成功');
         desc.text(time.full + ' в ' + time.time);
       }
     }
   }
   /**
-   * 检查授权
-   * @param {Function} good - 成功
-   * @param {Function} fail - 失败
+   * 失败
+   * @param {Function} good - 从云端读取文件和更新数据
+   * @param {Function} fail - 更新状态
    */
 
 
@@ -17506,7 +17539,7 @@
     }
   }
   /**
-   * 从云端读取文件和更新数据
+   * 获取文件列表
    */
 
 
@@ -17527,7 +17560,7 @@
     } else if (call) call();
   }
   /**
-   * 更新状态
+   * 正在保存书签到云端
    */
 
 
@@ -17535,7 +17568,7 @@
     save();
   }
   /**
-   * 获取文件列表
+   * 在线浏览
    */
 
 
@@ -17573,7 +17606,7 @@
     }
   }
   /**
-   * 将书签保存到云端
+   * 在线浏览
    */
 
 
@@ -17620,14 +17653,14 @@
   var body;
   var network = new create$s();
   var official_list = [{
-    name: '在线浏览',
+    name: '正在启动',
     url: 'http://jin.energy/online.js'
   }, {
-    name: '在线浏览',
+    name: '无法检查插件是否工作，但这并不意味着插件没有工作。重新启动应用程序查看插件是否正在加载。',
     url: 'http://arkmv.ru/vod'
   }];
   /**
-   * Launching
+   * 您需要重新启动应用程序才能使插件工作。
    */
 
   function init() {
@@ -17644,7 +17677,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? 'Failed to test the plugin, 但这并不代表插件不工作。重新加载应用程序看看插件是否正在加载。' : '插件工作需要重启应用程序。') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '插件面板渲染' : '该插件已安装。') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -17656,7 +17689,7 @@
     });
   }
   /**
-   * 插件面板渲染
+   * 安装
    */
 
 
@@ -17724,11 +17757,11 @@
             });
             Params.listener.send('update_scroll');
           } else {
-            Noty.show('该插件已安装。');
+            Noty.show('渲染插件');
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
-        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - 安装' : plug.name);
+        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - 加载自' : plug.name);
         container.append(item);
       }
 
@@ -17753,13 +17786,13 @@
     });
   }
   /**
-   * 渲染插件
+   * 点击查看插件
    */
 
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击查看插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '下载所有插件 CUB' : '谁知道呢，好像内存低，不会保存') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -17830,7 +17863,7 @@
     call(noload);
   }
   /**
-   * Loading all plugins
+   * 加载应用时，部分插件加载不出来
    */
 
 
@@ -17841,7 +17874,7 @@
       }).map(function (plugin) {
         return plugin.url;
       }).concat(Storage.get('plugins', '[]'));
-      list.push('./plugins/modification.js'); //saveInMemory(list) //谁知道呢，好像内存不是很多，我就不存了
+      list.push('./plugins/modification.js'); //saveInMemory(list) //要清除，不能亮密码
 
       console.log('Plugins', 'list:', list);
       var errors = [];
@@ -17855,7 +17888,7 @@
                 var enabled = Controller.enabled().name;
                 Modal.open({
                   title: '',
-                  html: $('<div class="about"><div class="selector">加载应用的时候，有些插件无法保存正在加载 (' + notload.join(', ') + ')</div></div>'),
+                  html: $('<div class="about"><div class="selector">退出 (' + notload.join(', ') + ')</div></div>'),
                   onBack: function onBack() {
                     Modal.close();
                     Controller.toggle(enabled);
@@ -17953,7 +17986,7 @@
     Recomends.init();
     VideoQuality.init();
     TimeTable.init();
-    Storage.set('account_password', ''); //我要清除它，亮密码不好 ;)
+    Storage.set('account_password', ''); //是的，退出 ;)
 
     Controller.listener.follow('toggle', function () {
       Layer.update();
@@ -17962,12 +17995,12 @@
       if (event.count == 1) {
         var enabled = Controller.enabled();
         Select.show({
-          title: '退出',
+          title: '继续看',
           items: [{
-            title: '是，退出',
+            title: '还没用，需要弄清楚为什么在加载主的时候调用activity',
             out: true
           }, {
-            title: '继续看'
+            title: '标记它已经加载'
           }],
           onSelect: function onSelect(a) {
             if (a.out) {
@@ -17975,7 +18008,7 @@
               Controller.toggle(enabled.name);
               if (Platform.is('tizen')) tizen.application.getCurrentApplication().exit();
               if (Platform.is('webos')) window.close();
-              if (Platform.is('android')) navigator.app.exitApp(); //我们还没有使用它，我们需要弄清楚为什么在加载主要活动时调用活动
+              if (Platform.is('android')) navigator.app.exitApp(); //到测试一些废话
 
               if (Platform.is('orsay')) Orsay.exit();
             } else {
@@ -18032,7 +18065,7 @@
       type: 'ready'
     });
     Menu.ready();
-    window.appready = true; //标记已经加载的内容
+    window.appready = true; //书签
 
     var mask = [37, 37, 38, 38, 39, 39, 40, 40],
         psdg = -1;
@@ -18045,7 +18078,7 @@
 
       if (psdg == 8) {
         psdg = -1;
-        console.log('Welcome God'); //用于测试一些废话:))
+        console.log('Welcome God'); //喜欢:))
       }
     });
     var color_keys = {
@@ -18060,7 +18093,7 @@
           var type = color_keys[e.code];
           Activity$1.push({
             url: '',
-            title: type == 'book' ? '书签' : type == 'like' ? '点赞' : type == 'history' ? '浏览历史' : '稍后',
+            title: type == 'book' ? '浏览历史' : type == 'like' ? '稍后' : type == 'history' ? '强制开始' : '之后',
             component: 'favorite',
             type: type,
             page: 1
@@ -18068,7 +18101,7 @@
         }
       }
     });
-  } // 强制开始
+  } // принудительно стартовать
 
 
   setTimeout(startApp, 1000 * 5);
