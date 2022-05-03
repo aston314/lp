@@ -226,7 +226,7 @@
           mytitle = object.search_one;
         };
         
-        var url = 'https://rentry.co/lampa_rule/raw';
+        var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.send();
