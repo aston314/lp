@@ -257,7 +257,7 @@
                   if(find_videos !== null){
                     doreg = doregjson.rule[0];
                   }else{
-                    doreg = doregjson.rule[3];
+                    doreg = doregjson.rule[1];
                   };
             }
             else{
@@ -273,7 +273,7 @@
                   if(find_videos !== null){
                     doreg = doregjson.rule[0];
                   }else{
-                    doreg = doregjson.rule[3];
+                    doreg = doregjson.rule[1];
                   };
               }
             }
