@@ -145,18 +145,18 @@
       Lampa.Component.add('rtv', rtv);
       var catalogs = [{
         title: '国内电视台',
-        url: 'https://rentry.co/cniptv/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/cniptv/raw'
       },{
         title: 'PlutoTV',
-        url: 'https://rentry.co/PlutoTVjson/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/PlutoTVjson/raw'
       },
       {
         title: 'PLEXTV',
-        url: 'https://rentry.co/plextv/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/plextv/raw'
       },
       {
         title: 'SAMSUNGTV',
-        url: 'https://rentry.co/SAMSUNGTV/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/SAMSUNGTV/raw'
       },
       {
         title: 'VinteraTV',
