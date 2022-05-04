@@ -144,18 +144,18 @@
       Lampa.Component.add('Rad', Rad);
       var catalogs = [{
         title: '国内电视台',
-        url: 'https://rentry.co/cniptv/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/cniptv/raw'
       },{
         title: 'Pluto.TV',
-        url: 'https://rentry.co/PlutoTVjson/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/PlutoTVjson/raw'
       },
       {
         title: 'PLEX.TV',
-        url: 'https://rentry.co/plextv/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/plextv/raw'
       },
       {
         title: 'SAMSUNG.TV',
-        url: 'https://rentry.co/SAMSUNGTV/raw'
+        url: 'http://proxy.cub.watch/cdn/https://rentry.co/SAMSUNGTV/raw'
       }];
       Lampa.Listener.follow('app', function (e) {
         if (e.type == 'ready') {
