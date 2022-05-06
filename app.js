@@ -1542,207 +1542,6 @@
     }
   }
 
-  function create$r() {
-    var _this = this;
-
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var html = Template.get('scroll');
-    var body = html.find('.scroll__body');
-    var content = html.find('.scroll__content');
-    html.toggleClass('scroll--horizontal', params.horizontal ? true : false);
-    html.toggleClass('scroll--mask', params.mask ? true : false);
-    html.toggleClass('scroll--over', params.over ? true : false);
-    html.toggleClass('scroll--nopadding', params.nopadding ? true : false);
-    body.data('scroll', 0);
-    var scroll_time = 0,
-        scroll_step = params.step || 150;
-    html.on('mousewheel', function (e) {
-      var parent = $(e.target).parents('.scroll');
-
-      if (Storage.field('navigation_type') == 'mouse' && Date.now() - scroll_time > 100 && html.is(parent[0])) {
-        scroll_time = Date.now();
-
-        if (e.originalEvent.wheelDelta / 120 > 0) {
-          _this.wheel(-scroll_step);
-        } else {
-          _this.wheel(scroll_step);
-        }
-      }
-    });
-    /*
-    let drag = {
-        start: {
-            x: 0,
-            y: 0
-        },
-        move: {
-            x: 0,
-            y: 0
-        },
-        difference : 0,
-        speed: 0,
-        position: 0,
-        animate: false,
-        enable: false
-    }
-      html.on('touchstart',(e)=>{
-        drag.start.x = e.touches[0].clientX
-        drag.start.y = e.touches[0].clientY
-          drag.position = body.data('scroll') || 0
-          body.toggleClass('notransition',true)
-          let parent = $(e.target).parents('.scroll')
-          drag.enable = html.is(parent[0])
-          clearInterval(drag.time)
-        clearTimeout(drag.time_animate)
-          if(drag.enable){
-            drag.animate = true
-              drag.time_animate = setTimeout(()=>{
-                drag.animate = false
-            },200)
-        }
-    })
-      html.on('touchmove',(e)=>{
-        if(drag.enable){
-            drag.move.x = e.touches[0].clientX
-            drag.move.y = e.touches[0].clientY
-              let dir = params.horizontal ? 'x' : 'y'
-              drag.difference = drag.move[dir] - drag.start[dir]
-            drag.speed      = drag.difference
-              touchTo(drag.position + drag.difference)
-        }
-    })
-      html.on('touchend',(e)=>{
-        body.toggleClass('notransition',false)
-          if(drag.animate) touchTo((body.data('scroll') || 0) + drag.speed)
-          drag.enable = false
-        drag.speed  = 0
-          clearInterval(drag.time)
-        clearTimeout(drag.time_animate)
-    })
-      function touchTo(offset){
-        offset = maxOffset(offset)
-          body.css('transform','translate3d('+(params.horizontal ? offset : 0)+'px, '+(params.horizontal ? 0 : offset)+'px, 0px)')
-          body.data('scroll',offset)
-    }
-    */
-
-    function maxOffset(offset) {
-      var w = params.horizontal ? html.width() : html.height();
-      var p = parseInt(content.css('padding-' + (params.horizontal ? 'left' : 'top')));
-      var s = body[0][params.horizontal ? 'scrollWidth' : 'scrollHeight'];
-      offset = Math.min(0, offset);
-      offset = Math.max(-(Math.max(s + p * 2, w) - w), offset);
-      return offset;
-    }
-
-    this.wheel = function (size) {
-      html.toggleClass('scroll--wheel', true);
-      var direct = params.horizontal ? 'left' : 'top';
-      var scrl = body.data('scroll'),
-          scrl_offset = html.offset()[direct],
-          scrl_padding = parseInt(content.css('padding-' + direct));
-
-      if (params.scroll_by_item) {
-        var pos = body.data('scroll-position');
-        pos = pos || 0;
-        var items = $('>*', body);
-        pos += size > 0 ? 1 : -1;
-        pos = Math.max(0, Math.min(items.length - 1, pos));
-        body.data('scroll-position', pos);
-        var item = items.eq(pos),
-            ofst = item.offset()[direct];
-        size = ofst - scrl_offset - scrl_padding;
-      }
-
-      var max = params.horizontal ? 10000 : body.height();
-      max -= params.horizontal ? html.width() : html.height();
-      max += scrl_padding * 2;
-      scrl -= size;
-      scrl = Math.min(0, Math.max(-max, scrl));
-      scrl = maxOffset(scrl);
-      this.reset();
-
-      if (Storage.field('scroll_type') == 'css') {
-        body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
-      } else {
-        body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
-        body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
-      }
-
-      body.data('scroll', scrl);
-    };
-
-    this.update = function (elem, tocenter) {
-      if (elem.data('ismouse')) return;
-      html.toggleClass('scroll--wheel', false);
-      var dir = params.horizontal ? 'left' : 'top',
-          siz = params.horizontal ? 'width' : 'height';
-      var toh = Lampa.Utils.isTouchDevice();
-      var ofs_elm = elem.offset()[dir],
-          ofs_box = body.offset()[dir],
-          center = ofs_box + (tocenter ? content[siz]() / 2 - elem[siz]() / 2 : 0),
-          scrl = Math.min(0, center - ofs_elm);
-      scrl = maxOffset(scrl);
-      this.reset();
-
-      if (toh) {
-        if (params.horizontal) html.stop().animate({
-          scrollLeft: -scrl
-        }, 200);else html.stop().animate({
-          scrollTop: -scrl
-        }, 200);
-      } else {
-        if (Storage.field('scroll_type') == 'css') {
-          body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
-        } else {
-          body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
-          body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
-        }
-      }
-
-      body.data('scroll', scrl);
-    };
-
-    this.append = function (object) {
-      body.append(object);
-    };
-
-    this.minus = function (minus) {
-      html.addClass('layer--wheight');
-      if (minus) html.data('mheight', minus);
-    };
-
-    this.height = function (minus) {
-      html.addClass('layer--height');
-      if (minus) html.data('mheight', minus);
-    };
-
-    this.body = function () {
-      return body;
-    };
-
-    this.render = function (object) {
-      if (object) body.append(object);
-      return html;
-    };
-
-    this.clear = function () {
-      body.empty();
-    };
-
-    this.reset = function () {
-      body.css('transform', 'translate3d(0px, 0px, 0px)');
-      body.css('margin', '0px');
-    };
-
-    this.destroy = function () {
-      html.remove();
-      body = null;
-      content = null;
-      html = null;
-    };
-  }
-
   function secondsToTime$1(sec, _short) {
     var sec_num = parseInt(sec, 10);
     var hours = Math.floor(sec_num / 3600);
@@ -2126,7 +1925,208 @@
     isTouchDevice: isTouchDevice
   };
 
-  function component$e(name) {
+  function create$r() {
+    var _this = this;
+
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var html = Template.get('scroll');
+    var body = html.find('.scroll__body');
+    var content = html.find('.scroll__content');
+    html.toggleClass('scroll--horizontal', params.horizontal ? true : false);
+    html.toggleClass('scroll--mask', params.mask ? true : false);
+    html.toggleClass('scroll--over', params.over ? true : false);
+    html.toggleClass('scroll--nopadding', params.nopadding ? true : false);
+    body.data('scroll', 0);
+    var scroll_time = 0,
+        scroll_step = params.step || 150;
+    html.on('mousewheel', function (e) {
+      var parent = $(e.target).parents('.scroll');
+
+      if (Storage.field('navigation_type') == 'mouse' && Date.now() - scroll_time > 100 && html.is(parent[0])) {
+        scroll_time = Date.now();
+
+        if (e.originalEvent.wheelDelta / 120 > 0) {
+          _this.wheel(-scroll_step);
+        } else {
+          _this.wheel(scroll_step);
+        }
+      }
+    });
+    /*
+    let drag = {
+        start: {
+            x: 0,
+            y: 0
+        },
+        move: {
+            x: 0,
+            y: 0
+        },
+        difference : 0,
+        speed: 0,
+        position: 0,
+        animate: false,
+        enable: false
+    }
+      html.on('touchstart',(e)=>{
+        drag.start.x = e.touches[0].clientX
+        drag.start.y = e.touches[0].clientY
+          drag.position = body.data('scroll') || 0
+          body.toggleClass('notransition',true)
+          let parent = $(e.target).parents('.scroll')
+          drag.enable = html.is(parent[0])
+          clearInterval(drag.time)
+        clearTimeout(drag.time_animate)
+          if(drag.enable){
+            drag.animate = true
+              drag.time_animate = setTimeout(()=>{
+                drag.animate = false
+            },200)
+        }
+    })
+      html.on('touchmove',(e)=>{
+        if(drag.enable){
+            drag.move.x = e.touches[0].clientX
+            drag.move.y = e.touches[0].clientY
+              let dir = params.horizontal ? 'x' : 'y'
+              drag.difference = drag.move[dir] - drag.start[dir]
+            drag.speed      = drag.difference
+              touchTo(drag.position + drag.difference)
+        }
+    })
+      html.on('touchend',(e)=>{
+        body.toggleClass('notransition',false)
+          if(drag.animate) touchTo((body.data('scroll') || 0) + drag.speed)
+          drag.enable = false
+        drag.speed  = 0
+          clearInterval(drag.time)
+        clearTimeout(drag.time_animate)
+    })
+      function touchTo(offset){
+        offset = maxOffset(offset)
+          body.css('transform','translate3d('+(params.horizontal ? offset : 0)+'px, '+(params.horizontal ? 0 : offset)+'px, 0px)')
+          body.data('scroll',offset)
+    }
+    */
+
+    function maxOffset(offset) {
+      var w = params.horizontal ? html.width() : html.height();
+      var p = parseInt(content.css('padding-' + (params.horizontal ? 'left' : 'top')));
+      var s = body[0][params.horizontal ? 'scrollWidth' : 'scrollHeight'];
+      offset = Math.min(0, offset);
+      offset = Math.max(-(Math.max(s + p * 2, w) - w), offset);
+      return offset;
+    }
+
+    this.wheel = function (size) {
+      html.toggleClass('scroll--wheel', true);
+      var direct = params.horizontal ? 'left' : 'top';
+      var scrl = body.data('scroll'),
+          scrl_offset = html.offset()[direct],
+          scrl_padding = parseInt(content.css('padding-' + direct));
+
+      if (params.scroll_by_item) {
+        var pos = body.data('scroll-position');
+        pos = pos || 0;
+        var items = $('>*', body);
+        pos += size > 0 ? 1 : -1;
+        pos = Math.max(0, Math.min(items.length - 1, pos));
+        body.data('scroll-position', pos);
+        var item = items.eq(pos),
+            ofst = item.offset()[direct];
+        size = ofst - scrl_offset - scrl_padding;
+      }
+
+      var max = params.horizontal ? 10000 : body.height();
+      max -= params.horizontal ? html.width() : html.height();
+      max += scrl_padding * 2;
+      scrl -= size;
+      scrl = Math.min(0, Math.max(-max, scrl));
+      scrl = maxOffset(scrl);
+      this.reset();
+
+      if (Storage.field('scroll_type') == 'css') {
+        body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
+      } else {
+        body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
+        body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
+      }
+
+      body.data('scroll', scrl);
+    };
+
+    this.update = function (elem, tocenter) {
+      if (elem.data('ismouse')) return;
+      html.toggleClass('scroll--wheel', false);
+      var dir = params.horizontal ? 'left' : 'top',
+          siz = params.horizontal ? 'width' : 'height';
+      var toh = Lampa.Utils.isTouchDevice();
+      var ofs_elm = elem.offset()[dir],
+          ofs_box = body.offset()[dir],
+          center = ofs_box + (tocenter ? content[siz]() / 2 - elem[siz]() / 2 : 0),
+          scrl = Math.min(0, center - ofs_elm);
+      scrl = maxOffset(scrl);
+      this.reset();
+
+      if (toh) {
+        if (params.horizontal) html.stop().animate({
+          scrollLeft: -scrl
+        }, 200);else html.stop().animate({
+          scrollTop: -scrl
+        }, 200);
+      } else {
+        if (Storage.field('scroll_type') == 'css') {
+          body.css('transform', 'translate3d(' + (params.horizontal ? scrl : 0) + 'px, ' + (params.horizontal ? 0 : scrl) + 'px, 0px)');
+        } else {
+          body.css('margin-left', (params.horizontal ? scrl : 0) + 'px');
+          body.css('margin-top', (params.horizontal ? 0 : scrl) + 'px');
+        }
+      }
+
+      body.data('scroll', scrl);
+    };
+
+    this.append = function (object) {
+      body.append(object);
+    };
+
+    this.minus = function (minus) {
+      html.addClass('layer--wheight');
+      if (minus) html.data('mheight', minus);
+    };
+
+    this.height = function (minus) {
+      html.addClass('layer--height');
+      if (minus) html.data('mheight', minus);
+    };
+
+    this.body = function () {
+      return body;
+    };
+
+    this.render = function (object) {
+      if (object) body.append(object);
+      return html;
+    };
+
+    this.clear = function () {
+      body.empty();
+    };
+
+    this.reset = function () {
+      body.css('transform', 'translate3d(0px, 0px, 0px)');
+      body.css('margin', '0px');
+    };
+
+    this.destroy = function () {
+      html.remove();
+      body = null;
+      content = null;
+      html = null;
+    };
+  }
+
+  function component$g(name) {
     var scrl = new create$r({
       mask: true,
       over: true
@@ -2246,7 +2246,7 @@
   });
 
   function create$q(name) {
-    var comp = new component$e(name);
+    var comp = new component$g(name);
     body$4.empty().append(comp.render());
     listener$e.send('open', {
       name: name,
@@ -3865,6 +3865,7 @@
   var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
   var network$9 = new create$s();
   var menu_list$1 = [];
+  var prox$1 = 'http://proxy.cub.watch/img/';
 
   function img$2(element) {
     var need = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'PORTRAIT';
@@ -3872,10 +3873,10 @@
     if (element.basicCovers && element.basicCovers.items.length) {
       for (var index = 0; index < element.basicCovers.items.length; index++) {
         var _img = element.basicCovers.items[index];
-        if (_img.imageType == need) return _img.url + '?width=' + (need == 'COVER' ? 800 : 300) + '&scale=1&quality=80&mediaType=jpeg';
+        if (_img.imageType == need) return prox$1 + _img.url + '?width=' + (need == 'COVER' ? 800 : 300) + '&scale=1&quality=80&mediaType=jpeg';
       }
 
-      return element.basicCovers.items[0].url + '?width=500&scale=1&quality=80&mediaType=jpeg';
+      return prox$1 + element.basicCovers.items[0].url + '?width=500&scale=1&quality=80&mediaType=jpeg';
     }
 
     return '';
@@ -3900,7 +3901,11 @@
     var frm = 20 * (params.page - 1);
     var uri = baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
     network$9["native"](uri, function (json) {
-      var items = [];
+      var result = {
+        results: [],
+        total_pages: 0,
+        page: params.page
+      };
 
       if (json.element) {
         json.element.collectionItems.items.forEach(function (elem) {
@@ -3909,14 +3914,15 @@
             url: element.alias,
             id: element.id,
             title: element.name,
-            poster: element.basicCovers && element.basicCovers.items.length ? element.basicCovers.items[0].url + '?width=300&scale=1&quality=80&mediaType=jpeg' : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg'
+            poster: prox$1 + (element.basicCovers && element.basicCovers.items.length ? element.basicCovers.items[0].url + '?width=300&scale=1&quality=80&mediaType=jpeg' : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
           };
           if (params.url) item = tocard$1(element);
-          items.push(item);
+          result.results.push(item);
         });
+        result.total_pages = Math.round(json.element.collectionItems.totalSize / 20);
       }
 
-      oncomplite(items);
+      oncomplite(result);
     }, onerror);
   }
 
@@ -4321,6 +4327,7 @@
   var baseurl$1 = 'https://api.ivi.ru/mobileapi/';
   var network$8 = new create$s();
   var menu_list = [];
+  var prox = 'http://proxy.cub.watch/img/';
 
   function tocard(element) {
     return {
@@ -4372,7 +4379,7 @@
 
   function img$1(element) {
     var posters = element.poster_originals || element.posters;
-    return posters && posters[0] ? (posters[0].path || posters[0].url) + '/300x456/' : '';
+    return posters && posters[0] ? prox + (posters[0].path || posters[0].url) + '/300x456/' : '';
   }
 
   function genres$1(element, json) {
@@ -4415,7 +4422,7 @@
             name: _person.name,
             character: '演员',
             id: _person.id,
-            img: images.length ? images[0].path : ''
+            img: images.length ? prox + images[0].path : ''
           });
         }
       }
@@ -4498,7 +4505,7 @@
           json.result.forEach(function (elem) {
             episodes.push({
               name: elem.title,
-              img: elem.promo_images && elem.promo_images.length ? elem.promo_images[0].url + '/300x240/' : '',
+              img: elem.promo_images && elem.promo_images.length ? prox + elem.promo_images[0].url + '/300x240/' : '',
               air_date: elem.release_date || elem.ivi_pseudo_release_date || elem.ivi_release_date || (elem.year ? elem.year + '' : elem.years ? elem.years[0] + '' : '0000'),
               episode_number: elem.episode
             });
@@ -4581,7 +4588,7 @@
         data.person = {
           name: element.name,
           biography: element.bio,
-          img: images.length ? images[0].path : '',
+          img: images.length ? prox + images[0].path : '',
           place_of_birth: element.eng_title,
           birthday: '----'
         };
@@ -4825,7 +4832,11 @@
     if (params.id) uri = baseurl$1 + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
     network$8.timeout(15000);
     network$8["native"](uri, function (json) {
-      var items = [];
+      var result = {
+        results: [],
+        total_pages: 0,
+        page: params.page
+      };
 
       if (json.result) {
         json.result.forEach(function (element) {
@@ -4833,14 +4844,15 @@
             id: element.id,
             url: element.hru,
             title: element.title,
-            poster: element.images && element.images.length ? element.images[0].path : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg'
+            poster: prox + (element.images && element.images.length ? element.images[0].path : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
           };
           if (params.id) item = tocard(element);
-          items.push(item);
+          result.results.push(item);
         });
+        result.total_pages = Math.round(json.count / 20);
       }
 
-      oncomplite(items);
+      oncomplite(result);
     }, onerror);
   }
 
@@ -6997,7 +7009,7 @@
     };
   }
 
-  function component$d(object) {
+  function component$f(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -7011,20 +7023,14 @@
     var lezydata;
     var viewall = Storage.field('card_views_type') == 'view' || Storage.field('navigation_type') == 'mouse';
 
-    this.create = function () {
-      var _this = this;
+    this.create = function () {};
 
-      this.activity.loader(true);
-      Api.main(object, this.build.bind(this), function () {
-        var empty = new create$l();
-        html.append(empty.render());
-        _this.start = empty.start;
-
-        _this.activity.loader(false);
-
-        _this.activity.toggle();
-      });
-      return this.render();
+    this.empty = function () {
+      var empty = new create$l();
+      html.append(empty.render());
+      this.start = empty.start;
+      this.activity.loader(false);
+      this.activity.toggle();
     };
 
     this.build = function (data) {
@@ -7080,11 +7086,11 @@
 
     this.detach = function () {
       if (!info) {
-        items.forEach(function (i) {
-          i.render().detach();
+        items.forEach(function (item) {
+          item.render().detach();
         });
-        items.slice(active, active + 2).forEach(function (i) {
-          i.wrap.append(i.render());
+        items.slice(active, active + 2).forEach(function (item) {
+          item.wrap.append(item.render());
         });
       }
     };
@@ -7092,7 +7098,7 @@
     this.down = function () {
       active++;
       active = Math.min(active, items.length - 1);
-      lezydata.slice(0, active + 2).forEach(this.append.bind(this));
+      if (!viewall) lezydata.slice(0, active + 2).forEach(this.append.bind(this));
       this.detach();
       items[active].toggle();
       scroll.update(items[active].render());
@@ -7114,12 +7120,12 @@
     };
 
     this.start = function () {
-      var _this2 = this;
+      var _this = this;
 
       Controller.add('content', {
         toggle: function toggle() {
           if (items.length) {
-            _this2.detach();
+            _this.detach();
 
             items[active].toggle();
           }
@@ -7147,6 +7153,18 @@
       network = null;
       lezydata = null;
     };
+  }
+
+  function component$e(object) {
+    var comp = new component$f(object);
+
+    comp.create = function () {
+      this.activity.loader(true);
+      Api.main(object, this.build.bind(this), this.empty.bind(this));
+      return this.render();
+    };
+
+    return comp;
   }
 
   var player;
@@ -11602,7 +11620,7 @@
     episodes: create$a
   };
 
-  function component$c(object) {
+  function component$d(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11779,7 +11797,7 @@
     };
   }
 
-  function component$b(object) {
+  function component$c(object) {
     var network = new create$s();
     var scroll = new create$r({
       mask: true,
@@ -11794,11 +11812,7 @@
     var last;
     var waitload;
 
-    this.create = function () {
-      this.activity.loader(true);
-      Api.list(object, this.build.bind(this), this.empty.bind(this));
-      return this.render();
-    };
+    this.create = function () {};
 
     this.empty = function () {
       var empty = new create$l();
@@ -11950,133 +11964,26 @@
     };
   }
 
+  function component$b(object) {
+    var comp = new component$c(object);
+
+    comp.create = function () {
+      Api.list(object, this.build.bind(this), this.empty.bind(this));
+    };
+
+    return comp;
+  }
+
   function component$a(object) {
-    var network = new create$s();
-    var scroll = new create$r({
-      mask: true,
-      over: true,
-      scroll_by_item: true
-    });
-    var items = [];
-    var html = $('<div></div>');
-    var viewall = Storage.field('card_views_type') == 'view' || Storage.field('navigation_type') == 'mouse';
-    var active = 0;
-    var info;
-    var lezydata;
+    var comp = new component$f(object);
 
-    this.create = function () {
-      var _this = this;
-
+    comp.create = function () {
       this.activity.loader(true);
-      Api.category(object, this.build.bind(this), function () {
-        var empty = new create$l();
-        html.append(empty.render());
-        _this.start = empty.start;
-
-        _this.activity.loader(false);
-
-        _this.activity.toggle();
-      });
+      Api.category(object, this.build.bind(this), this.empty.bind(this));
       return this.render();
     };
 
-    this.build = function (data) {
-      lezydata = data;
-
-      if (Storage.field('light_version')) {
-        scroll.minus();
-        html.append(scroll.render());
-      } else {
-        info = new create$m();
-        info.create();
-        scroll.minus(info.render());
-        html.append(info.render());
-        html.append(scroll.render());
-      }
-
-      data.slice(0, viewall ? data.length : 2).forEach(this.append.bind(this));
-      this.activity.loader(false);
-      this.activity.toggle();
-    };
-
-    this.append = function (element) {
-      if (element.ready) return;
-      element.ready = true;
-      var item = new create$n(element, {
-        url: element.url,
-        card_small: true,
-        genres: object.genres,
-        object: object
-      });
-      item.create();
-      item.onDown = this.down.bind(this);
-      item.onUp = this.up;
-      item.onBack = this.back;
-
-      if (info) {
-        item.onFocus = info.update;
-        item.onFocusMore = info.empty.bind(info);
-      }
-
-      scroll.append(item.render());
-      items.push(item);
-    };
-
-    this.back = function () {
-      Activity$1.backward();
-    };
-
-    this.down = function () {
-      active++;
-      active = Math.min(active, items.length - 1);
-      lezydata.slice(0, active + 2).forEach(this.append.bind(this));
-      items[active].toggle();
-      scroll.update(items[active].render());
-    };
-
-    this.up = function () {
-      active--;
-
-      if (active < 0) {
-        active = 0;
-        Controller.toggle('head');
-      } else {
-        items[active].toggle();
-      }
-
-      scroll.update(items[active].render());
-    };
-
-    this.start = function () {
-      Controller.add('content', {
-        toggle: function toggle() {
-          if (items.length) {
-            items[active].toggle();
-          }
-        },
-        back: this.back
-      });
-      Controller.toggle('content');
-    };
-
-    this.pause = function () {};
-
-    this.stop = function () {};
-
-    this.render = function () {
-      return html;
-    };
-
-    this.destroy = function () {
-      network.clear();
-      Arrays.destroy(items);
-      scroll.destroy();
-      if (info) info.destroy();
-      html.remove();
-      html = null;
-      network = null;
-      lezydata = null;
-    };
+    return comp;
   }
 
   function create$9(data) {
@@ -14276,9 +14183,9 @@
         waitload = true;
         object.page++;
         Api.collections(object, function (result) {
-          _this2.append(result);
+          _this2.append(result.results);
 
-          if (result.length) waitload = false;
+          if (result.results.length) waitload = false;
           Controller.enable('content');
         }, function () {});
       }
@@ -14322,7 +14229,7 @@
     };
 
     this.build = function (data) {
-      collections = data;
+      collections = data.results;
       scroll.minus();
       this.append(collections.slice(0, 20));
       scroll.append(body);
@@ -14378,146 +14285,13 @@
   }
 
   function component$3(object) {
-    var network = new create$s();
-    var scroll = new create$r({
-      mask: true,
-      over: true
-    });
-    var items = [];
-    var html = $('<div></div>');
-    var body = $('<div class="category-full"></div>');
-    var last;
-    var info;
-    var collections = [];
-    var waitload;
+    var comp = new component$c(object);
 
-    this.create = function () {
-      var _this = this;
-
-      this.activity.loader(true);
-      Api.collections(object, this.build.bind(this), function () {
-        var empty = new create$l();
-        html.append(empty.render());
-        _this.start = empty.start;
-
-        _this.activity.loader(false);
-
-        _this.activity.toggle();
-      });
-      return this.render();
+    comp.create = function () {
+      Api.collections(object, this.build.bind(this), this.empty.bind(this));
     };
 
-    this.next = function () {
-      var _this2 = this;
-
-      if (waitload) return;
-
-      if (object.page < 15) {
-        waitload = true;
-        object.page++;
-        Api.collections(object, function (result) {
-          _this2.append(result);
-
-          if (result.length) waitload = false;
-          Controller.enable('content');
-        }, function () {});
-      }
-    };
-
-    this.append = function (data) {
-      var _this3 = this;
-
-      data.forEach(function (element) {
-        var card = new create$p(element, {
-          card_category: true,
-          object: object
-        });
-        card.create();
-
-        card.onFocus = function (target, card_data) {
-          last = target;
-          scroll.update(card.render(), true);
-          info.update(card_data);
-          Background.change(Utils.cardImgBackground(card_data));
-          var maxrow = Math.ceil(items.length / 7) - 1;
-          if (Math.ceil(items.indexOf(card) / 7) >= maxrow && items.length > 19) _this3.next();
-        };
-
-        card.onEnter = function (target, card_data) {
-          Activity$1.push({
-            url: card_data.url,
-            component: 'full',
-            id: card_data.id,
-            source: object.source,
-            card: element
-          });
-        };
-
-        card.visible();
-        body.append(card.render());
-        items.push(card);
-      });
-    };
-
-    this.build = function (data) {
-      collections = data;
-      info = new create$m();
-      info.create();
-      scroll.minus(info.render());
-      html.append(info.render());
-      html.append(scroll.render());
-      this.append(collections);
-      scroll.append(body);
-      this.activity.loader(false);
-      this.activity.toggle();
-    };
-
-    this.start = function () {
-      Controller.add('content', {
-        toggle: function toggle() {
-          Controller.collectionSet(scroll.render());
-          Controller.collectionFocus(last || false, scroll.render());
-        },
-        left: function left() {
-          if (Navigator.canmove('left')) Navigator.move('left');else Controller.toggle('menu');
-        },
-        right: function right() {
-          Navigator.move('right');
-        },
-        up: function up() {
-          if (Navigator.canmove('up')) Navigator.move('up');else Controller.toggle('head');
-        },
-        down: function down() {
-          if (Navigator.canmove('down')) Navigator.move('down');
-        },
-        back: function back() {
-          Activity$1.backward();
-        }
-      });
-      Controller.toggle('content');
-    };
-
-    this.pause = function () {};
-
-    this.stop = function () {};
-
-    this.render = function () {
-      return html;
-    };
-
-    this.destroy = function () {
-      network.clear();
-      Arrays.destroy(items);
-      scroll.destroy();
-      html.remove();
-      body.remove();
-      if (info) info.destroy();
-      network = null;
-      items = null;
-      html = null;
-      body = null;
-      info = null;
-    };
+    return comp;
   }
 
   function component$2(object) {
@@ -14829,8 +14603,8 @@
   }
 
   var component = {
-    main: component$d,
-    full: component$c,
+    main: component$e,
+    full: component$d,
     category: component$a,
     category_full: component$b,
     actor: component$9,
@@ -17001,7 +16775,7 @@
       search: true
     }, data.type, data.rating, data['genres_' + type], data.country, data.year];
     Select.show({
-      title: '过滤',
+      title: '过滤器',
       items: items,
       onBack: function onBack() {
         Controller.toggle('content');
@@ -17059,7 +16833,7 @@
     var url = 'discover/' + type + '?' + query.join('&');
     var activity = {
       url: url,
-      title: '过滤',
+      title: '过滤器',
       component: 'category_full',
       source: 'tmdb',
       card_type: true,
@@ -17145,39 +16919,12 @@
       if (action == 'catalog') catalog();
 
       if (action == 'movie' || action == 'tv' || action == 'anime') {
-        var source = Storage.field('source');
-
-        if (Storage.field('light_version') && (source == 'cub' || source == 'tmdb')) {
-          if (action == 'anime') source = 'cub';
-          Api.menuCategory({
-            action: action,
-            source: source
-          }, function (menu) {
-            Select.show({
-              title: '目录',
-              items: menu,
-              onSelect: function onSelect(a) {
-                Activity$1.push({
-                  url: a.url,
-                  title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视节目') + ' - ' + source.toUpperCase(),
-                  component: 'category_full',
-                  source: source,
-                  page: 1
-                });
-              },
-              onBack: function onBack() {
-                Controller.toggle('menu');
-              }
-            });
-          });
-        } else {
-          Activity$1.push({
-            url: action,
-            title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视节目') + ' - ' + Storage.field('source').toUpperCase(),
-            component: 'category',
-            source: action == 'anime' ? 'cub' : Storage.field('source')
-          });
-        }
+        Activity$1.push({
+          url: action,
+          title: (action == 'movie' ? '电影' : action == 'anime' ? '动漫' : '电视节目') + ' - ' + Storage.field('source').toUpperCase(),
+          component: 'category',
+          source: action == 'anime' ? 'cub' : Storage.field('source')
+        });
       }
 
       if (action == 'main') {
@@ -17207,7 +16954,7 @@
       if (action == 'favorite') {
         Activity$1.push({
           url: '',
-          title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史记录' : '稍后',
+          title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
           component: 'favorite',
           type: type,
           page: 1
@@ -17235,7 +16982,7 @@
       if (action == 'relise') {
         Activity$1.push({
           url: '',
-          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
+          title: '数字发布',
           component: 'relise',
           page: 1
         });
@@ -17397,7 +17144,7 @@
 
           Activity$1.push({
             url: '',
-            title: 'Torrents',
+            title: '种子',
             component: 'torrents',
             search: query,
             movie: {
@@ -17557,7 +17304,7 @@
     this.append = function (value) {
       var _this2 = this;
 
-      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>左 - 删除</div></div></div>');
+      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>左-删除</div></div></div>');
       key.on('hover:enter', function () {
         _this2.listener.send('enter', {
           value: value
@@ -17921,23 +17668,23 @@
           desc = item.find('.settings-param__descr');
 
       if (code == 0) {
-        name.text('禁用');
-        desc.text('开启同步');
+        name.text('已禁用');
+        desc.text('启用同步');
       }
 
       if (code == 1) {
-        name.text('未登录');
-        desc.text('需要登录 ');
+        name.text('未授权');
+        desc.text('需要授权 ');
       }
 
       if (code == 2) {
-        name.text('登录失败');
-        desc.text('请检查您的详细信息并重试');
+        name.text('授权失败');
+        desc.text('检查输入的数据再试一次');
       }
 
       if (code == 3) {
-        name.text('已登录');
-        desc.text('您已成功登录');
+        name.text('登录');
+        desc.text('你已成功登录');
       }
 
       if (code == 4) {
@@ -18107,10 +17854,10 @@
   var body;
   var network = new create$s();
   var official_list = [{
-    name: '在线查看',
+    name: '在线浏览',
     url: 'http://jin.energy/online.js'
   }, {
-    name: '在线查看',
+    name: '在线浏览',
     url: 'http://arkmv.ru/vod'
   }];
   /**
@@ -18131,7 +17878,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件的功能。但是，这并不意味着插件不起作用。重新启动应用程序，看看插件是否正在加载。' : '必须重新启动应用程序才能使插件工作。') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '检查功能失败插件。但是，这并不意味着插件不工作 重新加载应用程序以查看插件是否正在加载。' : '重新启动应用程序以使插件工作。') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -18211,7 +17958,7 @@
             });
             Params.listener.send('update_scroll');
           } else {
-            Noty.show('此插件已安装。');
+            Noty.show('这个插件已经安装');
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
@@ -18246,7 +17993,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '单击以检查插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '点击查看插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -18454,7 +18201,7 @@
         Select.show({
           title: '退出',
           items: [{
-            title: '是，退出',
+            title: '是的，退出',
             out: true
           }, {
             title: '继续看'
@@ -18555,7 +18302,7 @@
           var type = color_keys[e.code];
           Activity$1.push({
             url: '',
-            title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
+            title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史记录' : '稍后',
             component: 'favorite',
             type: type,
             page: 1
