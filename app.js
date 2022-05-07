@@ -712,7 +712,7 @@
 
   var html$19 = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">帐户</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">界面</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">播放器</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">种子搜索</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">TorrServer</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">插件</div>\n    </div>\n    <div class=\"settings-folder selector hide\" data-component=\"cloud\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"60\" viewBox=\"0 0 63 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M48.75 25.9904L63 13L48.75 0.00961304V9H5V17H48.75V25.9904Z\" fill=\"white\"/>\n            <path d=\"M14.25 59.9808L0 46.9904L14.25 34V42.9904H58V50.9904H14.25V59.9808Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">同步</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">其他</div>\n    </div>\n    \n</div>";
 
-  var html$18 = "<div>\n    <div class=\"settings-param selector settings-param--light\" data-type=\"toggle\" data-name=\"light_version\">\n        <div class=\"settings-param__name\">轻量版</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上到下淡出卡片</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当您滚动信息流时，卡片将逐渐加载或全部加载</div>\n    </div>\n\n</div>";
+  var html$18 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"light_version\">\n        <div class=\"settings-param__name\">轻量版</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">界面大小</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>背景</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">显示背景</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">背景类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>性能</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">动画</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">卡片和内容的动画</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">淡出</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上到下淡出卡片</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">滚动类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">卡片视图类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">当您滚动信息流时，卡片将逐渐加载或全部加载</div>\n    </div>\n\n</div>";
 
   var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意对使用公共链接查看 torrent 和在线内容承担所有责任。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">torrent 解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 Jackett 脚本链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于 Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook 网站解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">网站爬虫链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">注册对于 scraperapi.com，输入链接 api.scraperapi.com?api_key=...&url={q}<br>to {q} w41.torlook.info 将被发送</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>more</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要搜索的语言是什么？</div>\n    </div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_in_search\">\n        <div class=\"settings-param__name\">搜索中的解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在搜索中显示结果？</div>\n    </div>\n</div>";
 
@@ -5660,7 +5660,7 @@
   function update$6() {
     size$1();
     var left = $('.wrap__left')[0].getBoundingClientRect();
-    $('.layer--width').css('width', window.innerWidth - (Storage.field('light_version') ? left.width : 0));
+    $('.layer--width').css('width', window.innerWidth - (Storage.field('light_version') && window.innerWidth >= 767 ? left.width : 0));
     var head = $('.head')[0].getBoundingClientRect();
     $('.layer--wheight').each(function () {
       var elem = $(this),
@@ -14556,7 +14556,7 @@
           html: modal,
           onBack: function onBack() {
             Modal.close();
-            Controller.toggle('head');
+            Controller.toggle('content');
           }
         });
       });
@@ -16914,6 +16914,10 @@
     });
   }
 
+  function prepared(action, name) {
+    return name.indexOf(action) >= 0 && name.indexOf(Lampa.Activity.active().component) == -1;
+  }
+
   function ready() {
     html$3.find('.selector').on('hover:enter', function (e) {
       var action = $(e.target).data('action');
@@ -16929,7 +16933,7 @@
         });
       }
 
-      if (action == 'main') {
+      if (prepared(action, ['main'])) {
         Activity$1.push({
           url: '',
           title: '首页 - ' + Storage.field('source').toUpperCase(),
@@ -16963,7 +16967,7 @@
         });
       }
 
-      if (action == 'timetable') {
+      if (prepared(action, ['timetable'])) {
         Activity$1.push({
           url: '',
           title: '时间表',
@@ -16972,7 +16976,7 @@
         });
       }
 
-      if (action == 'mytorrents') {
+      if (prepared(action, ['mytorrents'])) {
         Activity$1.push({
           url: '',
           title: '我的种子',
@@ -16981,7 +16985,7 @@
         });
       }
 
-      if (action == 'relise') {
+      if (prepared(action, ['relise'])) {
         Activity$1.push({
           url: '',
           title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
