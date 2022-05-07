@@ -17038,7 +17038,7 @@
         title: '目录',
         items: menu,
         onSelect: function onSelect(a) {
-          var tmdb = (Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub') && !Storage.field('light_version');
+          var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
           Activity$1.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
             title: '目录 - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
