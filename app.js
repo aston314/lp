@@ -3866,8 +3866,8 @@
     menuCategory: menuCategory$2
   };
 
-  var prox$1 = 'http://proxy.cub.watch/cdn/';
-  var baseurl$2 = prox$1 + 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
+  var prox$1 = 'http://proxy.cub.watch/img/';
+  var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
   var network$9 = new create$s();
   var menu_list$1 = [];
 
@@ -4645,6 +4645,11 @@
     var append = function append(title, name, id, json) {
       json.title = title;
       json.url = id;
+
+      if (json.results.results) {
+        json.results = json.results.results;
+      }
+
       status.append(name, json);
     };
 
@@ -4727,12 +4732,18 @@
         if (status.data[n] && status.data[n].results.length) fulldata.push(status.data[n]);
       }
 
+      console.log(fulldata, status);
       if (fulldata.length) oncomplite(fulldata);else onerror();
     };
 
     var append = function append(title, name, id, json) {
       json.title = title;
       json.url = id;
+
+      if (json.results.results) {
+        json.results = json.results.results;
+      }
+
       status.append(name, json);
     };
 
