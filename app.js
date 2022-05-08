@@ -2300,7 +2300,7 @@
     });
   }
 
-  function update$8() {
+  function update$9() {
     create$q(last$4);
   }
 
@@ -2312,7 +2312,7 @@
     listener: listener$e,
     init: init$k,
     render: render$c,
-    update: update$8,
+    update: update$9,
     create: create$q,
     main: function main() {
       return _main;
@@ -2455,12 +2455,12 @@
     });
     Lampa.Listener.follow('activity', function (e) {
       var count = bookmarks.length;
-      if (e.type == 'start' && e.component == 'favorite') update$7(function () {
+      if (e.type == 'start' && e.component == 'favorite') update$8(function () {
         if (!count && bookmarks.length) Lampa.Activity.active().activity.component().create();
       });
     });
     updateBookmarks(Storage.get('account_bookmarks', '[]'));
-    update$7();
+    update$8();
   }
 
   function save$5(method, type, card) {
@@ -2472,7 +2472,7 @@
         return elem.card_id == card.id && elem.type == type;
       });
       network$c.clear();
-      network$c.silent(api + 'bookmarks/' + method, update$7, false, {
+      network$c.silent(api + 'bookmarks/' + method, update$8, false, {
         type: type,
         data: JSON.stringify(card),
         card_id: card.id,
@@ -2500,7 +2500,7 @@
     }
   }
 
-  function update$7(call) {
+  function update$8(call) {
     var account = Storage.get('account', '{}');
 
     if (account.token) {
@@ -2587,7 +2587,7 @@
         body$3.find('.settings--account-user-out').on('hover:enter', function () {
           Storage.set('account', {});
           Settings.update();
-          update$7();
+          update$8();
         });
         body$3.find('.settings--account-user-sync').on('hover:enter', function () {
           account = Storage.get('account', '{}');
@@ -2623,7 +2623,7 @@
                   success: function success(j) {
                     if (j.secuses) {
                       Noty.show('所有书签转移成功');
-                      update$7();
+                      update$8();
                     }
                   }
                 });
@@ -2666,7 +2666,7 @@
             Storage.set('account', account);
             if (body$3) body$3.find('.settings--account-user-profile .settings-param__value').text(a.name);
             Controller.toggle(controller);
-            update$7();
+            update$8();
           },
           onBack: function onBack() {
             Controller.toggle(controller);
@@ -2736,7 +2736,7 @@
             }
           });
           Settings.update();
-          update$7();
+          update$8();
         } else {
           renderStatus$1('错误', result.text);
         }
@@ -5640,10 +5640,10 @@
   }
 
   function init$f() {
-    $(window).on('resize', update$6);
+    $(window).on('resize', update$7);
     toggleClasses();
     Storage.listener.follow('change', function (event) {
-      if (event.name == 'interface_size') update$6();
+      if (event.name == 'interface_size') update$7();
       if (event.name == 'animation' || event.name == 'mask') toggleClasses();
     });
   }
@@ -5661,7 +5661,7 @@
     }).removeClass('size--small size--normal size--bigger').addClass('size--' + sl);
   }
 
-  function update$6() {
+  function update$7() {
     size$1();
     var left = $('.wrap__left')[0].getBoundingClientRect();
     $('.layer--width').css('width', window.innerWidth - (Storage.field('light_version') && window.innerWidth >= 767 ? left.width : 0));
@@ -5694,7 +5694,7 @@
   }
 
   var Layer = {
-    update: update$6,
+    update: update$7,
     init: init$f
   };
 
@@ -6652,6 +6652,7 @@
       draw(loaded$1[src], bg());
     } else if (src) {
       limit$1();
+      var cache_src = src;
       var colors;
       var img = new Image();
       img.crossOrigin = "Anonymous";
@@ -6663,11 +6664,11 @@
           colors = [[200, 200, 200], [100, 100, 100], [10, 10, 10]];
         }
 
-        loaded$1[src] = {
+        loaded$1[cache_src] = {
           img: img,
           palette: Color.palette(colors)
         };
-        draw(loaded$1[src], bg());
+        draw(loaded$1[cache_src], bg());
       };
 
       img.onerror = function () {
@@ -7200,7 +7201,7 @@
       events: {
         onReady: function onReady(event) {
           event.target.playVideo();
-          update$5();
+          update$6();
         },
         onStateChange: function onStateChange(state) {
           if (state.data == 0) {
@@ -7211,11 +7212,11 @@
     });
   }
 
-  function update$5() {
+  function update$6() {
     timer$6 = setTimeout(function () {
       var progress = player.getCurrentTime() / player.getDuration() * 100;
       $('#youtube-player__progress').css('width', progress + '%');
-      update$5();
+      update$6();
     }, 400);
   }
 
@@ -8074,7 +8075,7 @@
    */
 
 
-  function update$4(need, value) {
+  function update$5(need, value) {
     if (need == 'position') {
       elems$1.position.css({
         width: value
@@ -8259,7 +8260,7 @@
     destroy: destroy$6,
     hide: hide,
     canplay: canplay,
-    update: update$4,
+    update: update$5,
     rewind: rewind$1,
     setTracks: setTracks,
     setSubs: setSubs,
@@ -8944,7 +8945,7 @@
     return items;
   }
 
-  function parse$1(data, ms) {
+  function parse$2(data, ms) {
     if (/WEBVTT/gi.test(data)) return parseVTT(data, ms);else return parseSRT(data, ms);
   }
 
@@ -8978,7 +8979,7 @@
     this.load = function (url) {
       network.silent(url, function (data) {
         if (data) {
-          parsed = parse$1(data, true);
+          parsed = parse$2(data, true);
         }
       }, false, false, {
         dataType: 'text'
@@ -10190,7 +10191,7 @@
     Controller.toggle('modal');
   }
 
-  function update$3(new_html) {
+  function update$4(new_html) {
     last$3 = false;
     scroll$2.clear();
     scroll$2.append(new_html);
@@ -10216,7 +10217,7 @@
   var Modal = {
     open: open$3,
     close: close$2,
-    update: update$3,
+    update: update$4,
     title: title$1,
     toggle: toggle$2
   };
@@ -10326,7 +10327,7 @@
     });
   }
 
-  function parse(file_path, movie, is_file) {
+  function parse$1(file_path, movie, is_file) {
     var path = file_path.toLowerCase();
     var data = {
       hash: '',
@@ -10452,7 +10453,7 @@
     stream: stream,
     remove: remove,
     connected: connected,
-    parse: parse,
+    parse: parse$1,
     error: error
   };
 
@@ -11622,6 +11623,124 @@
     };
   }
 
+  var data$2 = [];
+  var object = false;
+  /**
+   * Запуск
+   */
+
+  function init$a() {
+    data$2 = Storage.cache('timetable', 300, []);
+    setInterval(extract, 1000 * 60 * 2);
+    setInterval(favorites, 1000 * 60 * 10);
+  }
+
+  function add$4(elems) {
+    elems.filter(function (elem) {
+      return elem.number_of_seasons;
+    }).forEach(function (elem) {
+      var id = data$2.filter(function (a) {
+        return a.id == elem.id;
+      });
+
+      if (!id.length) {
+        data$2.push({
+          id: elem.id,
+          season: elem.number_of_seasons,
+          episodes: []
+        });
+      }
+    });
+    Storage.set('timetable', data$2);
+  }
+
+  function favorites() {
+    add$4(Favorite.get({
+      type: 'book'
+    }));
+    add$4(Favorite.get({
+      type: 'like'
+    }));
+    add$4(Favorite.get({
+      type: 'wath'
+    }));
+  }
+
+  function parse() {
+    if (Favorite.check(object).any) {
+      TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
+        object.episodes = ep.episodes;
+        save$2();
+      }, save$2);
+    } else save$2();
+  }
+
+  function extract() {
+    var ids = data$2.filter(function (e) {
+      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
+    });
+
+    if (ids.length) {
+      object = ids[0];
+      parse();
+    } else {
+      data$2.forEach(function (a) {
+        return a.scaned = 0;
+      });
+    }
+
+    Storage.set('timetable', data$2);
+  }
+
+  function save$2() {
+    if (object) {
+      object.scaned = 1;
+      object.scaned_time = Date.now();
+      Storage.set('timetable', data$2);
+    }
+  }
+
+  function get$3(elem) {
+    var fid = data$2.filter(function (e) {
+      return e.id == elem.id;
+    });
+    return (fid.length ? fid[0] : {}).episodes || [];
+  }
+
+  function update$3(elem) {
+    if (Favorite.check(elem).any) {
+      var id = data$2.filter(function (a) {
+        return a.id == elem.id;
+      });
+      TMDB.clear();
+
+      if (!id.length) {
+        var item = {
+          id: elem.id,
+          season: elem.number_of_seasons,
+          episodes: []
+        };
+        data$2.push(item);
+        Storage.set('timetable', data$2);
+        object = item;
+      } else object = id[0];
+
+      parse();
+    }
+  }
+
+  function all$1() {
+    return data$2;
+  }
+
+  var TimeTable = {
+    init: init$a,
+    get: get$3,
+    add: add$4,
+    all: all$1,
+    update: update$3
+  };
+
   var components$1 = {
     start: create$e,
     descr: create$d,
@@ -11715,6 +11834,7 @@
             _this.build('simular', data.simular);
           }
 
+          TimeTable.update(data.movie);
           Lampa.Listener.send('full', {
             type: 'complite',
             object: object,
@@ -12831,7 +12951,7 @@
     }
   }
 
-  function init$a() {
+  function init$9() {
     memorys = Storage.cache('helper', 300, {});
     Settings.listener.follow('open', function (e) {
       if (e.name == 'more') {
@@ -12847,7 +12967,7 @@
 
   var Helper = {
     show: show$2,
-    init: init$a
+    init: init$9
   };
 
   var SERVER = {};
@@ -14339,98 +14459,6 @@
       html.remove();
     };
   }
-
-  var data$2 = [];
-  var object = false;
-  /**
-   * Запуск
-   */
-
-  function init$9() {
-    data$2 = Storage.cache('timetable', 300, []);
-    setInterval(extract, 1000 * 60 * 2);
-    setInterval(favorites, 1000 * 60 * 10);
-  }
-
-  function add$4(elems) {
-    elems.filter(function (elem) {
-      return elem.number_of_seasons;
-    }).forEach(function (elem) {
-      var id = data$2.filter(function (a) {
-        return a.id == elem.id;
-      });
-
-      if (!id.length) {
-        data$2.push({
-          id: elem.id,
-          season: elem.number_of_seasons,
-          episodes: []
-        });
-      }
-    });
-    Storage.set('timetable', data$2);
-  }
-
-  function favorites() {
-    add$4(Favorite.get({
-      type: 'book'
-    }));
-    add$4(Favorite.get({
-      type: 'like'
-    }));
-    add$4(Favorite.get({
-      type: 'wath'
-    }));
-  }
-
-  function extract() {
-    var ids = data$2.filter(function (e) {
-      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
-    });
-
-    if (ids.length) {
-      object = ids[0];
-
-      if (Favorite.check(object).any) {
-        TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
-          object.episodes = ep.episodes;
-          save$2();
-        }, save$2);
-      } else save$2();
-    } else {
-      data$2.forEach(function (a) {
-        return a.scaned = 0;
-      });
-    }
-
-    Storage.set('timetable', data$2);
-  }
-
-  function save$2() {
-    if (object) {
-      object.scaned = 1;
-      object.scaned_time = Date.now();
-      Storage.set('timetable', data$2);
-    }
-  }
-
-  function get$3(elem) {
-    var fid = data$2.filter(function (e) {
-      return e.id == elem.id;
-    });
-    return (fid.length ? fid[0] : {}).episodes || [];
-  }
-
-  function all$1() {
-    return data$2;
-  }
-
-  var TimeTable = {
-    init: init$9,
-    get: get$3,
-    add: add$4,
-    all: all$1
-  };
 
   function component$1(object) {
     var _this = this;
