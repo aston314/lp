@@ -119,6 +119,9 @@
         if ("ready" == t.type) {
             var e = Lampa.Template.get("menu_rr");
             var catalogs = [{
+                title: '国内电台',
+                url: 'http://proxy.cub.watch/cdn/https://rentry.co/cnradio/raw'
+              },{
                 title: '新加坡电台',
                 url: 'http://proxy.cub.watch/cdn/https://rentry.co/sgradio/raw'
               }];
