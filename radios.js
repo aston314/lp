@@ -74,7 +74,12 @@
                     title: t.name,
                     release_year: ""
                 });
-                n.addClass("card--collection"), n.find(".card__age").remove(), n.find(".card__img").attr("src", t.picture), t.new && (n.append('<div class="card__type"></div>'), n.find(".card__type").text("NEW!"), n.addClass("card--tv")), n.on("hover:focus", (function(i) {
+                n.addClass('card--category'),n.addClass("card--collection").width('14.266%'), n.find(".card__age").remove(), n.find('.card__img').css({
+                    'cursor': 'pointer',
+                    'background-color': '#353535'
+                }).width('auto').height('11em').attr('src', t.picture), n.find('.card__view').css({
+                    'padding-bottom': '110%',
+                }).width('auto'),t.new && (n.append('<div class="card__type"></div>'), n.find(".card__type").text("NEW!"), n.addClass("card--tv")), n.on("hover:focus", (function(i) {
                     a = i.currentTarget, o.update(n, !0), e.find(".info__title").text(t.name), e.find(".info__title-original").text(t.name)//, e.find(".info__create").text(t.name)
                 })).on("hover:enter", (function() {
                     var e = {
@@ -119,12 +124,45 @@
         if ("ready" == t.type) {
             var e = Lampa.Template.get("menu_rr");
             var catalogs = [{
-                title: '国内电台',
-                url: 'http://proxy.cub.watch/cdn/https://rentry.co/cnradio/raw'
-              },{
                 title: '新加坡电台',
                 url: 'http://proxy.cub.watch/cdn/https://rentry.co/sgradio/raw'
-              }];
+              },{
+            title: '音乐台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/yytradio/raw'
+        },{
+            title: '交通台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/jttradio/raw'
+        },{
+            title: '资讯台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/zxtradio/raw'
+        },{
+            title: '经济台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/jjtradio/raw'
+        },{
+            title: '文艺台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/wytradio/raw'
+        },{
+            title: '都市台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/dstradio/raw'
+        },{
+            title: '体育台',
+            url: 'http://proxy.cub.watch/cdn/https://rentry.co/tytradio/raw'
+        },  {
+            title: 'rock',
+            url: 'http://llpp.xyz/r/rock/'
+        }, {
+            title: 'dance',
+            url: 'http://llpp.xyz/r/dance/'
+        }, {
+            title: 'rap',
+            url: 'http://llpp.xyz/r/rap/'
+        }, {
+            title: 'fon',
+            url: 'http://llpp.xyz/r/fon/'
+        }, {
+            title: 'jazz',
+            url: 'http://llpp.xyz/r/jazz/'
+        }];
             e.on("hover:enter", (function() {
                 Lampa.Select.show({
                     title: '电台',
