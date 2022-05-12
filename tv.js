@@ -57,12 +57,8 @@
             //release_year: element.time + (element.quality ? ' / ' + element.quality : '')
             release_year: ''
           });
-          card.addClass('card--category');
-          card.find('.card__img').css({
-            'cursor': 'pointer',
-            'background-color': '#353535'
-          }).width('auto').height('11em').attr('src', element.picture);
-
+          card.addClass('card--collection');
+          card.find('.card__img').attr('src', element.picture);
           card.on('hover:focus', function () {
             last = card[0];
             scroll.update(card, true);
