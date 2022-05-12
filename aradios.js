@@ -18,8 +18,26 @@
 			title: '新加坡电台',
 			url: 'http://proxy.cub.watch/cdn/https://rentry.co/sgradio/raw'
 		},{
-			title: '国内电台',
-			url: 'http://proxy.cub.watch/cdn/https://rentry.co/cnradio/raw'
+			title: '音乐台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/yytradio/raw'
+		},{
+			title: '交通台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/jttradio/raw'
+		},{
+			title: '资讯台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/zxtradio/raw'
+		},{
+			title: '经济台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/jjtradio/raw'
+		},{
+			title: '文艺台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/wytradio/raw'
+		},{
+			title: '都市台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/dstradio/raw'
+		},{
+			title: '体育台',
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/tytradio/raw'
 		},  {
 			title: 'rock',
 			url: 'http://llpp.xyz/r/rock/'
