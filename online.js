@@ -255,7 +255,7 @@
                   find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
   
                   if(find_videos !== null){
-                    doreg = doregjson.rule[1];
+                    doreg = doregjson.rule[0];
                   }else{
                     doreg = doregjson.rule[1];
                   };
@@ -271,7 +271,7 @@
                   find_videos = search_videos[0].match(doregjson.rule[0].search_list_have_string);
   
                   if(find_videos !== null){
-                    doreg = doregjson.rule[1];
+                    doreg = doregjson.rule[0];
                   }else{
                     doreg = doregjson.rule[1];
                   };
