@@ -36,6 +36,27 @@
       var extract_rule = {
         "rule": [
         {
+          websitelink : 'https://www.libvio.com',
+          listlink : true,
+          search_url : 'https://www.libvio.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+          search_json : true,
+          scVodNode : 'json:list',
+          scVodName : 'name',
+          scVodId : 'id',
+          search_list_reg : '"list":(.+?),"url":',
+          search_list_have_string : 'id',
+          search_list_find_reg : 'id:(.+?),en',
+          title_selector : '', 
+          title_selector_value : '',
+          link_selector : '',
+          link_folder : 'play',
+          detail_url_reg : '<div class="play-content">(.*?)</div>',
+          video_link_reg : '<a href="(.+?)">(.+?)<\/a>',
+          get_link_reg : 'url\":\"([^\"]+)\",\"url_next\"',
+          need_base64decode : false,
+          prefix_video : ''
+        },
+        {
           websitelink : 'https://www.7xiady.cc',
           listlink : true,
           search_url : 'https://www.7xiady.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
@@ -210,6 +231,7 @@
       var resp;
       var search_videos;
       var find_videos;
+      var allowdebug = true;
     
 
       this.create = function () {
@@ -234,7 +256,11 @@
         xhr.onload = function() {
         var results_json = xhr.responseText;
         doregjson = $.parseJSON(results_json);
-        //console.log(doregjson);
+        //
+        if (allowdebug){
+        doregjson = extract_rule;
+        console.log(doregjson);
+      };
     
         if(object.movie.source == 'yyds'){
           if(object.region.indexOf('中国') != -1){
@@ -744,12 +770,36 @@
               //a = decodeURIComponent(a.replace(/\+/g,  " ")).replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               a = a.replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               //var element = $(a),
-              //console.log(a);
+
+              if (allowdebug) console.log(a);
                 var  item = {};
               //item.Title = $('li>a', element).text();
               if(doreg.need_base64decode){
               item.file = unescape(atob(a)).slice(0,1)=='/'? doreg.prefix_video+unescape(atob(a)) : unescape(atob(a));
             }else{
+              if (str.indexOf('www.libvio.com') > -1) {
+                Lampa.Storage.set('online_3_url', '');
+                //console.log('www.libvio.com');
+              (async() => {
+                const res = await cordovaFetch('https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php?url='+a+'&next=0&id=0&nid=1', {
+                  method : 'GET',
+                  headers: {
+                    'Referer': 'https://www.libvio.com/'
+                  },
+                })
+                .then(function(response) {
+                  return response.text()
+                }).then(function(body) {
+                  var mathurl = body.replace(/\n|\r/g, '').match(new RegExp("var urls = '(.+?)'", 'g'));
+                  var urlbody = mathurl.toString().replace("var urls = '","").replace("'","");
+                  console.log(urlbody);
+                  Lampa.Storage.set('online_3_url', urlbody);
+                });
+
+              })();
+               a = Lampa.Storage.field('online_3_url'); 
+              };
+              //console.log(Lampa.Storage.field('online_3_url'));
               item.file = doreg.prefix_video+unescape(a.replace(/\+/g,  " "));
             };
               //console.log(item.Link);
@@ -760,13 +810,14 @@
             });
             link=data.Results[0].file;
             link=link.replace(/\\/g,"");
-            /*console.log(link);*/
+            if (allowdebug) console.log(link);
             return link;
 
         }
 
         if (show_error) Lampa.Noty.show('无法检索链接');
       };
+
 
       this.append = function (items) {
         var _this4 = this;
