@@ -5338,7 +5338,7 @@
     u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
     u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
     u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
-    u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000));
+    u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.original_language == 'ja' && params.movie.number_of_seasons > 0 ? 5070 : params.movie.number_of_seasons > 0 ? 5000 : 2000));
     network$6["native"](u, function (json) {
       json.Results.forEach(function (element) {
         element.PublisTime = Utils.strToTime(element.PublishDate);
@@ -13069,6 +13069,8 @@
         time: 0,
         count: 0
       };
+      if (_typeof(memorys) !== 'object') memorys = {}; //хз, вылазит ошибка, что в переменную true нельзя записать значение, откуда там true хз
+
       memorys[name] = help;
     }
 
@@ -17098,7 +17100,10 @@
   }
 
   function prepared(action, name) {
-    return name.indexOf(action) >= 0 && name.indexOf(Lampa.Activity.active().component) == -1;
+    if (name.indexOf(action) >= 0) {
+      var comp = Lampa.Activity.active().component;
+      if (name.indexOf(comp) >= 0) Activity$1.replace();else return true;
+    }
   }
 
   function ready() {
