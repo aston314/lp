@@ -3231,7 +3231,7 @@
 
   function add$8(elems) {
     elems.filter(function (elem) {
-      return !elem.number_of_seasons;
+      return !(elem.number_of_seasons || elem.seasons);
     }).forEach(function (elem) {
       var id = data$3.filter(function (a) {
         return a.id == elem.id;
@@ -5651,7 +5651,7 @@
   }
 
   function update$7(elem) {
-    if (Favorite.check(elem).any) {
+    if (elem.number_of_seasons && Favorite.check(elem).any) {
       var id = data$2.filter(function (a) {
         return a.id == elem.id;
       });
