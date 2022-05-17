@@ -778,7 +778,7 @@
               if(doreg.need_base64decode){
               item.file = unescape(atob(a)).slice(0,1)=='/'? doreg.prefix_video+unescape(atob(a)) : unescape(atob(a));
             }else{
-              if (str.indexOf('www.libvio.com') > -1) {
+              /*if (str.indexOf('www.libvio.com') > -1) {
                 Lampa.Storage.set('online_3_url', '');
                 //console.log('www.libvio.com');
               (async() => {
@@ -799,7 +799,7 @@
 
               })();
                a = Lampa.Storage.field('online_3_url'); 
-              };
+              };*/
               //console.log(Lampa.Storage.field('online_3_url'));
               item.file = doreg.prefix_video+unescape(a.replace(/\+/g,  " "));
             };
