@@ -257,11 +257,8 @@
         xhr.onload = function() {
         var results_json = xhr.responseText;
         doregjson = $.parseJSON(results_json);
-        //
-        if (allowdebug){
-        doregjson = extract_rule;
-        console.log(doregjson);
-      };
+        //doregjson = extract_rule;
+        //console.log(doregjson);
     
         if(object.movie.source == 'yyds'){
           if(object.region.indexOf('中国') != -1){
@@ -772,7 +769,7 @@
               a = a.replace('url\":\"','').replace('now=base64decode\("','').replace('","url_next"','');
               //var element = $(a),
 
-              if (allowdebug) console.log(a);
+              //console.log(a);
                 var  item = {};
               //item.Title = $('li>a', element).text();
               if(doreg.need_base64decode){
@@ -798,6 +795,31 @@
                 });
 
               })();
+              cordovaHTTP.get("https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php", {
+                  url: a,
+                  next: "",
+                  id: 0,
+                  nid: 1
+              }, { Referer: "https://www.libvio.com/" }, function(response) {
+                  // prints 200
+                  console.log(response.status);
+                  try {
+                      // prints test
+                      console.log(response.data);
+                      var mathurl = response.data.replace(/\n|\r/g, '').match(new RegExp("var urls = '(.+?)'", 'g'));
+                      var urlbody = mathurl.toString().replace("var urls = '","").replace("'","");
+                      console.log(urlbody);
+                      Lampa.Storage.set('online_3_url', urlbody);
+                  } catch(e) {
+                      console.error("parsing error");
+                  }
+              }, function(response) {
+                  // prints 403
+                  console.log(response.status);
+                  
+                  //prints Permission denied 
+                  console.log(response.error);
+              });
                a = Lampa.Storage.field('online_3_url'); 
               };*/
               //console.log(Lampa.Storage.field('online_3_url'));
