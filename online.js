@@ -248,7 +248,8 @@
           mytitle = object.search_one;
         };
         
-        var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
+        //var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
+        var url = 'https://cdn.jsdelivr.net/gh/aston314/lampa@main/online_rule.json';
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.send();
