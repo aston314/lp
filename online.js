@@ -885,7 +885,13 @@
               function fn1() {
                   return new Promise(function(resolve, reject) {
                         // ... some code
-/*                        cordovaHTTP.get("https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php", {
+                        //cordovaHTTP.trustAllCerts(true);
+                        cordovaHTTP.acceptAllCerts(true, function() {
+                            console.log('success!');
+                        }, function() {
+                            console.log('error :(');
+                        });
+                        cordovaHTTP.get("https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php", {
                         url: file,
                         next: "",
                         id: 0,
@@ -940,8 +946,8 @@
                         
                         //prints Permission denied 
                         console.log(response.error);
-                    });*/
-                    cordovaFetch('https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php?url='+file+'&next=0&id=0&nid=1', {
+                    });
+                    /*cordovaFetch('https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php?url='+file+'&next=0&id=0&nid=1', {
                       method : 'GET',
                       headers: {
                         'Referer': 'https://www.libvio.com/'
@@ -985,7 +991,7 @@
                     }).catch(function(ex) {
                       reject(ex);
                       console.log('parsing failed', ex)
-                    });
+                    });*/
 
                   });
               }
