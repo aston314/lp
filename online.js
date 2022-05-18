@@ -885,7 +885,7 @@
               function fn1() {
                   return new Promise(function(resolve, reject) {
                         // ... some code
-                        cordovaHTTP.get("https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php", {
+/*                        cordovaHTTP.get("https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php", {
                         url: file,
                         next: "",
                         id: 0,
@@ -940,6 +940,51 @@
                         
                         //prints Permission denied 
                         console.log(response.error);
+                    });*/
+                    cordovaFetch('https://sh-data-s01.chinaeast2.cloudapp.chinacloudapi.cn/xt.php?url='+file+'&next=0&id=0&nid=1', {
+                      method : 'GET',
+                      headers: {
+                        'Referer': 'https://www.libvio.com/'
+                      },
+                    })
+                    .then(function(response) {
+                      return response.text()
+                    }).then(function(body) {
+                      var mathurl = body.replace(/\n|\r/g, '').match(new RegExp("var urls = '(.+?)'", 'g'));
+                      var file = mathurl.toString().replace("var urls = '","").replace("'","");
+                      //console.log(file);
+                           if (file) {
+                            _this4.start();
+
+                            var playlist = [];
+                            var first = {
+                              url: file,
+                              timeline: view,
+                              title: element.season ? element.title : object.movie.title + ' / ' + element.title+ ' / ' + element.quality
+                            };
+                            Lampa.Player.play(first);
+                            //object.movie.number_of_seasons!== 'undefined' element.season
+                            if (element.season) {
+                              items.forEach(function (elem) {
+                                console.log(elem)
+                                console.log("elem")
+                                playlist.push({
+                                  title: elem.quality+ ' / ' +elem.title,
+                                  url: _this4.getFile(elem)
+                                });
+                              });
+                            } else {
+                              playlist.push(first);
+                            }
+
+                            Lampa.Player.playlist(playlist);
+                          } else {
+                            Lampa.Noty.show('无法检索链接');
+                          }
+                          resolve(value);
+                    }).catch(function(ex) {
+                      reject(ex);
+                      console.log('parsing failed', ex)
                     });
 
                   });
