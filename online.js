@@ -935,7 +935,7 @@
                         }
                     }, function(response) {
                         // prints 403
-                        reject(error);
+                        reject(response.error);
                         console.log(response.status);
                         
                         //prints Permission denied 
