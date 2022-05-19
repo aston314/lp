@@ -16,28 +16,28 @@
 		var last;
 		var catalogs = [{
 			title: '新加坡电台',
-			url: 'https://cors.eu.org/https://rentry.co/sgradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/sgradio/raw'
 		},{
 			title: '音乐台',
-			url: 'https://cors.eu.org/https://rentry.co/yytradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/yytradio/raw'
 		},{
 			title: '交通台',
-			url: 'https://cors.eu.org/https://rentry.co/jttradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/jttradio/raw'
 		},{
 			title: '资讯台',
-			url: 'https://cors.eu.org/https://rentry.co/zxtradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/zxtradio/raw'
 		},{
 			title: '经济台',
-			url: 'https://cors.eu.org/https://rentry.co/jjtradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/jjtradio/raw'
 		},{
 			title: '文艺台',
-			url: 'https://cors.eu.org/https://rentry.co/wytradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/wytradio/raw'
 		},{
 			title: '都市台',
-			url: 'https://cors.eu.org/https://rentry.co/dstradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/dstradio/raw'
 		},{
 			title: '体育台',
-			url: 'https://cors.eu.org/https://rentry.co/tytradio/raw'
+			url: 'http://proxy.cub.watch/cdn/https://rentry.co/tytradio/raw'
 		},  {
 			title: 'rock',
 			url: 'http://llpp.xyz/r/rock/'
@@ -246,7 +246,7 @@
 				var menu_items = $('<li class="menu__item selector focus" data-action="radio_r"><div class="menu__ico">' + ico + '</div><div class="menu__text">电台</div></li>');
 				menu_items.on('hover:enter', function() {
 					Lampa.Activity.push({
-						url: 'https://cors.eu.org/https://rentry.co/sgradio/raw',
+						url: 'http://proxy.cub.watch/cdn/https://rentry.co/sgradio/raw',
 						title: '新加坡电台',
 						component: 'radio_n_',
 						page: 1
