@@ -11892,6 +11892,7 @@
   }
 
   function create$a(data) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var html, scroll, last;
 
     this.create = function () {
@@ -11903,7 +11904,7 @@
       });
       scroll.render().find('.scroll__body').addClass('full-episodes');
       html.find('.items-line__body').append(scroll.render());
-      var movie_title = Activity$1.active().card.original_title;
+      var movie_title = params.title;
       data.reverse().forEach(function (element) {
         element.date = element.air_date ? Utils.parseTime(element.air_date).full : '----';
         var episode = Template.get('full_episode', element);
@@ -12025,7 +12026,9 @@
               }
               return false;
             });
-            if (cameout.length) _this.build('episodes', cameout);
+            if (cameout.length) _this.build('episodes', cameout, {
+              title: data.movie.original_title
+            });
           }
 
           _this.build('descr', data);
@@ -17178,7 +17181,7 @@
       if (prepared(action, ['relise'])) {
         Activity$1.push({
           url: '',
-          title: Storage.field('tmdb_lang') == 'zh-CN' ? '数字版本' : '数字版本',
+          title: Storage.field('tmdb_lang') == 'zh-CN' ? 'yyds.fans' : '数字版本',
           component: 'relise',
           page: 1
         });
