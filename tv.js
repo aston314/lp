@@ -145,18 +145,18 @@
       Lampa.Component.add('rtv', rtv);
       var catalogs = [{
         title: '国内电视台',
-        url: 'http://proxy.cub.watch/cdn/https://rentry.co/cniptv/raw'
+        url: 'https://cors.eu.org/https://rentry.co/cniptv/raw'
       },{
         title: 'PlutoTV',
-        url: 'http://proxy.cub.watch/cdn/https://rentry.co/PlutoTVjson/raw'
+        url: 'https://cors.eu.org/https://rentry.co/PlutoTVjson/raw'
       },
       {
         title: 'PLEXTV',
-        url: 'http://proxy.cub.watch/cdn/https://rentry.co/plextv/raw'
+        url: 'https://cors.eu.org/https://rentry.co/plextv/raw'
       },
       {
         title: 'SAMSUNGTV',
-        url: 'http://proxy.cub.watch/cdn/https://rentry.co/SAMSUNGTV/raw'
+        url: 'https://cors.eu.org/https://rentry.co/SAMSUNGTV/raw'
       }];
       Lampa.Listener.follow('app', function (e) {
         if (e.type == 'ready') {var ico = '<svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tv"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>';
