@@ -726,7 +726,7 @@
 
   var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许你同步你的书签、浏览历史、标签和时间码。连接https的说明://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
-  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 服务同步: 同步你的书签，浏览历史，标签和时间码。网站: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录身份</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>登录</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+  var html$12 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">与 CUB 服务同步: 同步你的书签，浏览历史，标签和时间码。站点: https://cub.watch</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>帐户</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">登录为</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">个人资料</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\">将本地书签保存到 CUB 帐户</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>登录</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
   var html$11 = "<div class=\"items-line\">\n    <div class=\"items-line__head\">\n        <div class=\"items-line__title\">{title}</div>\n    </div>\n    <div class=\"items-line__body\"></div>\n</div>";
 
@@ -802,7 +802,7 @@
 
   var html$t = "<div class=\"torrent-install\">\n    <div class=\"torrent-install__left\">\n        <img src=\"https://yumata.github.io/lampa/img/ili/tv.png\" class=\"torrent-install\"/>\n    </div>\n    <div class=\"torrent-install__details\">\n        <div class=\"torrent-install__title\">需要 TorrServe</div>\n        <div class=\"torrent-install__descr\">TorrServe \u2013 一个允许您在线查看 torrent 文件内容的应用程序.<br><br>有关安装的更多详细信息，您可以在下面的 Telegram 组中找到。</div>\n        \n        <div class=\"torrent-install__label\">Telegram-groups</div>\n\n        <div class=\"torrent-install__links\">\n            <div class=\"torrent-install__link\">\n                <div>LG - Samsung</div>\n                <div>@lampa_group</div>\n            </div>\n\n            <div class=\"torrent-install__link\">\n                <div>Android</div>\n                <div>@lampa_android</div>\n            </div>\n        </div>\n    </div>\n</div>";
 
-  var html$s = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">无法连接到 TorrServe，问题可能不同。让我们快速浏览可能出现的问题列表并检查所有内容。</div>\n\n    <div class=\"torrent-checklist__progress-steps\">Passed 0 out of 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>TorrServe 是否正在运行</li>\n                <li>动态 IP 地址</li>\n                <li>协议</li>\n                <li>被杀毒软件阻止</li>\n                <li>检查可用性</li>\n                <li>仍然无法工作</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">请确保在安装它的设备上运行 TorrServe。</div>\n            <div class=\"hide\">常见错误, IP您设备的地址已更改。请确保您输入的 IP 地址 {ip}, 与安装了 TorrServe 的设备的地址</div>\n            <div class=\"hide\">匹配要访问 TorrServe，您需要一个端口 :8090 在地址的末尾。确保您的 IP 地址末尾的端口是您当前的地址 {ip}</div>\n            <div class=\"hide\">频繁，防病毒或防火墙可能会阻止访问IP地址，尝试禁用防病毒和防火墙。</div>\n            <div class=\"hide\">在任何其他没有安装TorrServe的设备上，在浏览器中打开地址 {ip} 并检查来自TorrServe的响应是否可用</div>\n            <div class=\"hide\">如果毕竟检查它仍然无法正常工作，尝试重新启动 TorrServe 和互联网适配器。</div>\n            <div class=\"hide\">如果问题仍然存在，请在电报中写入 @lampa_group 组和文本（在所有检查后，Lamp 未连接到 TorrServe，当前地址 {ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">开始检查</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
+  var html$s = "<div class=\"torrent-checklist\">\n    <div class=\"torrent-checklist__descr\">连接到 TorrServe 失败，问题可能不同。让我们快速浏览可能出现的问题列表并检查所有内容。</div>\n\n    <div class=\"torrent-checklist__progress-steps\">Passed 0 out of 0</div>\n    <div class=\"torrent-checklist__progress-bar\">\n        <div style=\"width: 0\"></div>\n    </div>\n\n    <div class=\"torrent-checklist__content\">\n        <div class=\"torrent-checklist__steps\">\n            <ul class=\"torrent-checklist__list\">\n                <li>TorrServe 是否正在运行</li>\n                <li>动态 IP 地址</li>\n                <li>协议</li>\n                <li>被杀毒软件阻止</li>\n                <li>检查可用性</li>\n                <li>仍然无法工作</li>\n            </ul>\n        </div>\n\n        <div class=\"torrent-checklist__info\">\n            <div class=\"hide\">请确保在安装它的设备上运行 TorrServe。</div>\n            <div class=\"hide\">常见错误, IP您设备的地址已更改。请确保您输入的 IP 地址 {ip}, 与安装了 TorrServe 的设备的地址</div>\n            <div class=\"hide\">匹配要访问 TorrServe，您需要一个端口 :8090 在地址的末尾。确保您的 IP 地址末尾的端口是您当前的地址 {ip}</div>\n            <div class=\"hide\">频繁，防病毒或防火墙可能会阻止访问IP地址，尝试禁用防病毒和防火墙。</div>\n            <div class=\"hide\">在任何其他没有安装TorrServe的设备上，在浏览器中打开地址 {ip} 并检查来自TorrServe的答案是否可用</div>\n            <div class=\"hide\">如果毕竟检查它仍然无法正常工作，尝试重新启动 TorrServe 和互联网适配器。</div>\n            <div class=\"hide\">如果问题仍然存在，请在电报中写入 @lampa_group 组和文本（在所有检查后，Lamp 未连接到 TorrServe，当前地址 {ip})</div>\n        </div>\n    </div>\n\n    <div class=\"torrent-checklist__footer\">\n        <div class=\"simple-button selector\">开始检查</div><div class=\"torrent-checklist__next-step\"></div>\n    </div>\n</div>";
 
   var html$r = "<div class=\"torrent-serial selector\">\n    <img src=\"{img}\" class=\"torrent-serial__img\" />\n    <div class=\"torrent-serial__content\">\n        <div class=\"torrent-serial__body\">\n            <div class=\"torrent-serial__title\">{fname}</div>\n            <div class=\"torrent-serial__line\">电视剧 - <b>{episode}</b> &nbsp;\u2022&nbsp; 季 - <b>{season}</b> &nbsp;\u2022&nbsp; 输出 - {air_date}</div>\n        </div>\n        <div class=\"torrent-serial__detail\">\n            <div class=\"torrent-serial__size\">{size}</div>\n            <div class=\"torrent-serial__exe\">.{exe}</div>\n        </div>\n    </div>\n    <div class=\"torrent-serial__episode\">{episode}</div>\n</div>";
 
@@ -2155,7 +2155,7 @@
 
     scrl.render().find('.scroll__content').addClass('layer--wheight').data('mheight', $('.settings__head'));
     comp.find('.clear-storage').on('hover:enter', function () {
-      Noty.show('缓存和数据清除');
+      Noty.show('缓存和数据已清除');
       localStorage.clear();
       setTimeout(function () {
         window.location.reload();
@@ -2420,3277 +2420,6 @@
     hide: hide$1,
     close: close$3,
     render: render$b
-  };
-
-  var body$3;
-  var network$c = new create$s();
-  var api = Utils.protocol() + 'cub.watch/api/';
-  var notice_load = {
-    time: 0,
-    data: []
-  };
-  var bookmarks = [];
-  /**
-   * Запуск
-   */
-
-  function init$j() {
-    Settings.listener.follow('open', function (e) {
-      body$3 = null;
-
-      if (e.name == 'account') {
-        body$3 = e.body;
-        renderPanel$1();
-        check$1();
-      }
-    });
-    Storage.listener.follow('change', function (e) {
-      if (e.name == 'account_email' || e.name == 'account_password') {
-        signin();
-        if (e.name == 'account_password') Storage.set('account_password', '', true);
-      }
-    });
-    Favorite.listener.follow('add,added', function (e) {
-      save$5('add', e.where, e.card);
-    });
-    Favorite.listener.follow('remove', function (e) {
-      save$5('remove', e.where, e.card);
-    });
-    Lampa.Listener.follow('activity', function (e) {
-      var count = bookmarks.length;
-      if (e.type == 'start' && e.component == 'favorite') update$8(function () {
-        if (!count && bookmarks.length) Lampa.Activity.active().activity.component().create();
-      });
-    });
-    updateBookmarks(Storage.get('account_bookmarks', '[]'));
-    update$8();
-    timelines();
-  }
-
-  function timelines() {
-    var account = Storage.get('account', '{}');
-
-    if (account.token && Storage.field('account_use')) {
-      network$c.silent(api + 'timeline/all', function (result) {
-        var viewed = Storage.cache('file_view', 10000, {});
-
-        for (var i in result.timelines) {
-          var time = result.timelines[i];
-          viewed[i] = time;
-          Arrays.extend(viewed[i], {
-            duration: 0,
-            time: 0,
-            percent: 0
-          });
-          delete viewed[i].hash;
-        }
-
-        Storage.set('file_view', viewed);
-      }, false, false, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-    }
-  }
-
-  function save$5(method, type, card) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token && Storage.field('account_use')) {
-      var list = Storage.get('account_bookmarks', '[]');
-      var find = list.find(function (elem) {
-        return elem.card_id == card.id && elem.type == type;
-      });
-      network$c.clear();
-      network$c.silent(api + 'bookmarks/' + method, update$8, false, {
-        type: type,
-        data: JSON.stringify(card),
-        card_id: card.id,
-        id: find ? find.id : 0
-      }, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-
-      if (method == 'remove') {
-        if (find) Arrays.remove(list, find);
-      } else {
-        list.push({
-          id: 0,
-          card_id: card.id,
-          type: type,
-          data: JSON.stringify(card),
-          profile: account.profile.id
-        });
-      }
-
-      updateBookmarks(list);
-    }
-  }
-
-  function clear$7(where) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      network$c.silent(api + 'bookmarks/clear', function (result) {
-        if (result.secuses) update$8();
-      }, false, {
-        type: 'group',
-        group: where
-      }, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-    }
-  }
-
-  function update$8(call) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      network$c.silent(api + 'bookmarks/all?full=1', function (result) {
-        if (result.secuses) {
-          updateBookmarks(result.bookmarks);
-          if (call && typeof call == 'function') call();
-        }
-      }, false, false, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-    } else {
-      updateBookmarks([]);
-    }
-  }
-
-  function plugins(call) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      network$c.timeout(2000);
-      network$c.silent(api + 'plugins/all', function (result) {
-        if (result.secuses) {
-          Storage.set('account_plugins', result.plugins);
-          call(result.plugins);
-        } else {
-          call(Storage.get('account_plugins', '[]'));
-        }
-      }, function () {
-        call(Storage.get('account_plugins', '[]'));
-      }, false, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-    } else {
-      call([]);
-    }
-  }
-
-  function pluginsStatus(plugin, status) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      network$c.silent(api + 'plugins/status', false, false, {
-        id: plugin.id,
-        status: status
-      }, {
-        headers: {
-          token: account.token,
-          profile: account.profile.id
-        }
-      });
-    }
-  }
-  /**
-   * Статус
-   */
-
-
-  function renderStatus$1(name) {
-    var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    if (body$3) {
-      body$3.find('.settings--account-status .settings-param__value').text(name);
-      body$3.find('.settings--account-status .settings-param__descr').text(value);
-    }
-  }
-
-  function renderPanel$1() {
-    if (body$3) {
-      var account = Storage.get('account', '{}');
-      var signed = account.token ? true : false;
-      body$3.find('.settings--account-signin').toggleClass('hide', signed);
-      body$3.find('.settings--account-user').toggleClass('hide', !signed);
-
-      if (account.token) {
-        body$3.find('.settings--account-user-info .settings-param__value').text(account.email);
-        body$3.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-        body$3.find('.settings--account-user-out').on('hover:enter', function () {
-          Storage.set('account', {});
-          Settings.update();
-          update$8();
-        });
-        body$3.find('.settings--account-user-sync').on('hover:enter', function () {
-          account = Storage.get('account', '{}');
-          Select.show({
-            title: '同步',
-            items: [{
-              title: '确认',
-              subtitle: '所有书签将移动到配置文件 (' + account.profile.name + ')',
-              confirm: true
-            }, {
-              title: '取消'
-            }],
-            onSelect: function onSelect(a) {
-              if (a.confirm) {
-                var file = new File([localStorage.getItem('favorite') || '{}'], "bookmarks.json", {
-                  type: "text/plain"
-                });
-                var formData = new FormData($('<form></form>')[0]);
-                formData.append("file", file, "bookmarks.json");
-                $.ajax({
-                  url: api + 'bookmarks/sync',
-                  type: 'POST',
-                  data: formData,
-                  async: true,
-                  cache: false,
-                  contentType: false,
-                  enctype: 'multipart/form-data',
-                  processData: false,
-                  headers: {
-                    token: account.token,
-                    profile: account.profile.id
-                  },
-                  success: function success(j) {
-                    if (j.secuses) {
-                      Noty.show('所有书签转移成功');
-                      update$8();
-                    }
-                  }
-                });
-              }
-
-              Controller.toggle('settings_component');
-            },
-            onBack: function onBack() {
-              Controller.toggle('settings_component');
-            }
-          });
-        });
-        profile();
-      } else check$1();
-    }
-  }
-
-  function profile() {
-    var account = Storage.get('account', '{}');
-    body$3.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
-    body$3.find('.settings--account-user-profile').on('hover:enter', function () {
-      showProfiles('settings_component');
-    });
-  }
-
-  function showProfiles(controller) {
-    var account = Storage.get('account', '{}');
-    network$c.clear();
-    network$c.silent(api + 'profiles/all', function (result) {
-      if (result.secuses) {
-        Select.show({
-          title: '个人资料',
-          items: result.profiles.map(function (elem) {
-            elem.title = elem.name;
-            elem.selected = account.profile.id == elem.id;
-            return elem;
-          }),
-          onSelect: function onSelect(a) {
-            account.profile = a;
-            Storage.set('account', account);
-            if (body$3) body$3.find('.settings--account-user-profile .settings-param__value').text(a.name);
-            Controller.toggle(controller);
-            update$8();
-          },
-          onBack: function onBack() {
-            Controller.toggle(controller);
-          }
-        });
-      } else {
-        Noty.show(result.text);
-      }
-    }, function () {
-      Noty.show('获取个人资料列表失败');
-    }, false, {
-      headers: {
-        token: account.token
-      }
-    });
-  }
-
-  function check$1() {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      renderStatus$1('已授权', '您已登录 ' + account.email);
-    } else {
-      renderStatus$1('登录失败', '等待登录');
-    }
-  }
-
-  function working() {
-    return Storage.get('account', '{}').token && Storage.field('account_use');
-  }
-
-  function get$c(params) {
-    return bookmarks.filter(function (elem) {
-      return elem.type == params.type;
-    }).map(function (elem) {
-      return elem.data;
-    });
-  }
-
-  function all$2() {
-    return bookmarks.map(function (elem) {
-      return elem.data;
-    });
-  }
-
-  function updateBookmarks(rows) {
-    Storage.set('account_bookmarks', rows);
-    bookmarks = rows.reverse().map(function (elem) {
-      elem.data = JSON.parse(elem.data);
-      return elem;
-    });
-  }
-  /**
-   * Проверка авторизации
-   */
-
-
-  function signin() {
-    var email = Storage.value('account_email', '');
-    var password = Storage.value('account_password', '');
-
-    if (email && password) {
-      network$c.clear();
-      network$c.silent(api + 'users/signin', function (result) {
-        if (result.secuses) {
-          Storage.set('account', {
-            email: email,
-            token: result.user.token,
-            id: result.user.id,
-            profile: {
-              name: '一般的',
-              id: 0
-            }
-          });
-          Settings.update();
-          update$8();
-        } else {
-          renderStatus$1('错误', result.text);
-        }
-      }, function () {
-        renderStatus$1('错误', '无网络连接');
-      }, {
-        email: email,
-        password: password
-      });
-    }
-  }
-
-  function notice(call) {
-    var account = Storage.get('account', '{}');
-
-    if (account.token) {
-      if (notice_load.time + 1000 * 60 * 10 < Date.now()) {
-        network$c.timeout(1000);
-        network$c.silent(api + 'notice/all', function (result) {
-          if (result.secuses) {
-            notice_load.time = Date.now();
-            notice_load.data = result.notice;
-            Storage.set('account_notice', result.notice);
-            call(result.notice);
-          } else call([]);
-        }, function () {
-          call([]);
-        }, false, {
-          headers: {
-            token: account.token
-          }
-        });
-      } else call(notice_load.data);
-    } else call([]);
-  }
-
-  function torrentViewed(data) {
-    network$c.timeout(5000);
-    network$c.silent(api + 'torrent/viewing', false, false, data);
-  }
-
-  function torrentPopular(data, secuses, error) {
-    network$c.timeout(5000);
-    network$c.silent(api + 'torrent/popular', secuses, error, data);
-  }
-
-  var Account = {
-    init: init$j,
-    working: working,
-    get: get$c,
-    all: all$2,
-    plugins: plugins,
-    notice: notice,
-    pluginsStatus: pluginsStatus,
-    showProfiles: showProfiles,
-    torrentViewed: torrentViewed,
-    torrentPopular: torrentPopular,
-    clear: clear$7
-  };
-
-  var data$5 = {};
-  var listener$d = start$4();
-
-  function save$4() {
-    Storage.set('favorite', data$5);
-  }
-  /**
-   * 添加
-   * @param {String} where 
-   * @param {Object} card 
-   */
-
-
-  function add$9(where, card, limit) {
-    read$1();
-
-    if (data$5[where].indexOf(card.id) < 0) {
-      Arrays.insert(data$5[where], 0, card.id);
-      listener$d.send('add', {
-        where: where,
-        card: card
-      });
-      if (!search$6(card.id)) data$5.card.push(card);
-
-      if (limit) {
-        var excess = data$5[where].slice(limit);
-
-        for (var i = excess.length - 1; i >= 0; i--) {
-          remove$1(where, {
-            id: excess[i]
-          });
-        }
-      }
-
-      save$4();
-    } else {
-      Arrays.remove(data$5[where], card.id);
-      Arrays.insert(data$5[where], 0, card.id);
-      save$4();
-      listener$d.send('added', {
-        where: where,
-        card: card
-      });
-    }
-  }
-  /**
-   * 删除
-   * @param {String} where 
-   * @param {Object} card 
-   */
-
-
-  function remove$1(where, card) {
-    read$1();
-    Arrays.remove(data$5[where], card.id);
-    listener$d.send('remove', {
-      where: where,
-      card: card
-    });
-
-    for (var i = data$5.card.length - 1; i >= 0; i--) {
-      var element = data$5.card[i];
-
-      if (!check(element).any) {
-        Arrays.remove(data$5.card, element);
-        listener$d.send('remove', {
-          where: where,
-          card: element
-        });
-      }
-    }
-
-    save$4();
-  }
-  /**
-   * 搜索
-   * @param {Int} id 
-   * @returns Object
-   */
-
-
-  function search$6(id) {
-    var found;
-
-    for (var index = 0; index < data$5.card.length; index++) {
-      var element = data$5.card[index];
-
-      if (element.id == id) {
-        found = element;
-        break;
-      }
-    }
-
-    return found;
-  }
-  /**
-   * Переключить
-   * @param {String} where 
-   * @param {Object} card 
-   */
-
-
-  function toggle$7(where, card) {
-    read$1();
-    var find = cloud(card);
-    if (find[where]) remove$1(where, card);else add$9(where, card);
-    return find[where] ? false : true;
-  }
-  /**
-   * Проверить
-   * @param {Object} card 
-   * @returns Object
-   */
-
-
-  function check(card) {
-    var result = {
-      like: data$5.like.indexOf(card.id) > -1,
-      wath: data$5.wath.indexOf(card.id) > -1,
-      book: data$5.book.indexOf(card.id) > -1,
-      history: data$5.history.indexOf(card.id) > -1,
-      any: true
-    };
-    if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
-    return result;
-  }
-
-  function cloud(card) {
-    if (Account.working()) {
-      var list = {
-        like: Account.get({
-          type: 'like'
-        }),
-        wath: Account.get({
-          type: 'wath'
-        }),
-        book: Account.get({
-          type: 'book'
-        }),
-        history: Account.get({
-          type: 'history'
-        })
-      };
-      var result = {
-        like: list.like.find(function (elem) {
-          return elem.id == card.id;
-        }) ? true : false,
-        wath: list.wath.find(function (elem) {
-          return elem.id == card.id;
-        }) ? true : false,
-        book: list.book.find(function (elem) {
-          return elem.id == card.id;
-        }) ? true : false,
-        history: list.history.find(function (elem) {
-          return elem.id == card.id;
-        }) ? true : false,
-        any: true
-      };
-      if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
-      return result;
-    } else return check(card);
-  }
-  /**
-   * Получить списаок по типу
-   * @param {String} params.type - тип 
-   * @returns Object
-   */
-
-
-  function get$b(params) {
-    if (Account.working()) {
-      return Account.get(params);
-    } else {
-      read$1();
-      var result = [];
-      var ids = data$5[params.type];
-      ids.forEach(function (id) {
-        for (var i = 0; i < data$5.card.length; i++) {
-          var card = data$5.card[i];
-          if (card.id == id) result.push(card);
-        }
-      });
-      return result;
-    }
-  }
-  /**
-   * Очистить
-   * @param {String} where 
-   * @param {Object} card 
-   */
-
-
-  function clear$6(where, card) {
-    read$1();
-
-    if (Account.working()) {
-      Account.clear(where);
-    } else {
-      if (card) remove$1(where, card);else {
-        for (var i = data$5[where].length - 1; i >= 0; i--) {
-          var _card = search$6(data$5[where][i]);
-
-          if (_card) remove$1(where, _card);
-        }
-      }
-    }
-  }
-  /**
-   * Считать последние данные
-   */
-
-
-  function read$1() {
-    data$5 = Storage.get('favorite', '{}');
-    Arrays.extend(data$5, {
-      like: [],
-      wath: [],
-      book: [],
-      card: [],
-      history: []
-    });
-  }
-  /**
-   * Получить весь список что есть
-   */
-
-
-  function full$5() {
-    Arrays.extend(data$5, {
-      like: [],
-      wath: [],
-      book: [],
-      card: [],
-      history: []
-    });
-    return data$5;
-  }
-
-  function continues(type) {
-    return Arrays.clone(get$b({
-      type: 'history'
-    }).filter(function (e) {
-      return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
-    }).slice(0, 19)).map(function (e) {
-      e.check_new_episode = true;
-      return e;
-    });
-  }
-  /**
-   * Запуск
-   */
-
-
-  function init$i() {
-    read$1();
-  }
-
-  var Favorite = {
-    listener: listener$d,
-    check: cloud,
-    add: add$9,
-    remove: remove$1,
-    toggle: toggle$7,
-    get: get$b,
-    init: init$i,
-    clear: clear$6,
-    continues: continues,
-    full: full$5
-  };
-
-  function status$1(need) {
-    this.data = {};
-    this.work = 0;
-    this.need = need;
-    this.complited = false;
-
-    this.check = function () {
-      if (this.work >= this.need && !this.complited) {
-        this.complited = true;
-        this.onComplite(this.data);
-      }
-    };
-
-    this.append = function (name, json) {
-      this.work++;
-      this.data[name] = json;
-      this.check();
-    };
-
-    this.error = function () {
-      this.work++;
-      this.check();
-    };
-  }
-
-  var data$4 = [];
-  /**
-   * Запуск
-   */
-
-  function init$h() {
-    data$4 = Storage.cache('recomends_scan', 300, []);
-    Favorite.get({
-      type: 'history'
-    }).forEach(function (elem) {
-      if (['cub', 'tmdb'].indexOf(elem.source) >= 0) {
-        var id = data$4.filter(function (a) {
-          return a.id == elem.id;
-        });
-
-        if (!id.length) {
-          data$4.push({
-            id: elem.id,
-            tv: elem.number_of_seasons
-          });
-        }
-      }
-    });
-    Storage.set('recomends_scan', data$4);
-    setInterval(search$5, 120 * 1000);
-  }
-
-  function search$5() {
-    var ids = data$4.filter(function (e) {
-      return !e.scan;
-    });
-
-    if (ids.length) {
-      var elem = ids[0];
-      elem.scan = 1;
-      TMDB.get((elem.tv ? 'tv' : 'movie') + '/' + elem.id + '/recommendations', {}, function (json) {
-        if (json.results && json.results.length) {
-          var recomend = Storage.cache('recomends_list', 200, []);
-          var favorite = Favorite.get({
-            type: 'history'
-          });
-          json.results.forEach(function (e) {
-            if (!recomend.filter(function (r) {
-              return r.id == e.id;
-            }).length && !favorite.filter(function (h) {
-              return h.id == e.id;
-            }).length) {
-              recomend.push(e);
-            }
-          });
-          Storage.set('recomends_list', recomend);
-        }
-      });
-    } else {
-      data$4.forEach(function (a) {
-        return a.scan = 0;
-      });
-    }
-
-    Storage.set('recomends_scan', data$4);
-  }
-
-  function get$a(type) {
-    var all = Storage.get('recomends_list', '[]');
-    return all.filter(function (e) {
-      return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
-    }).reverse();
-  }
-
-  var Recomends = {
-    init: init$h,
-    get: get$a
-  };
-
-  var data$3 = [];
-  var token = '3i40G5TSECmLF77oAqnEgbx61ZWaOYaE';
-  var network$b = new create$s();
-  var videocdn = 'http://cdn.svetacdn.in/api/short?api_token=' + token;
-  var object$1 = false;
-  /**
-   * Запуск
-   */
-
-  function init$g() {
-    data$3 = Storage.cache('quality_scan', 300, []);
-    setInterval(extract$2, 30 * 1000);
-  }
-
-  function add$8(elems) {
-    elems.filter(function (elem) {
-      return !(elem.number_of_seasons || elem.seasons);
-    }).forEach(function (elem) {
-      var id = data$3.filter(function (a) {
-        return a.id == elem.id;
-      });
-
-      if (!id.length) {
-        data$3.push({
-          id: elem.id,
-          title: elem.title,
-          imdb_id: elem.imdb_id
-        });
-      }
-    });
-    Storage.set('quality_scan', data$3);
-  }
-
-  function search$4(itm) {
-    var url = 'http://cdn.svetacdn.in/api/';
-    var type = itm.iframe_src.split('/').slice(-2)[0];
-    if (type == 'movie') type = 'movies';
-    url += type;
-    url = Lampa.Utils.addUrlComponent(url, 'api_token=' + token);
-    url = Lampa.Utils.addUrlComponent(url, itm.imdb_id ? 'imdb_id=' + encodeURIComponent(itm.imdb_id) : 'title=' + encodeURIComponent(itm.title));
-    url = Lampa.Utils.addUrlComponent(url, 'field=' + encodeURIComponent('global'));
-    network$b.timeout(4000);
-    network$b.silent(url, function (found) {
-      var results = found.data.filter(function (elem) {
-        return elem.id == itm.id;
-      });
-      var qualitys = ['ts', 'camrip', 'webdl', 'dvdrip', 'hdrip', 'bd'];
-      var index = 0;
-
-      if (results.length && results[0].media) {
-        results[0].media.map(function (m) {
-          index = Math.max(index, qualitys.indexOf(m.source_quality));
-          object$1.quality = qualitys[index];
-        });
-      }
-
-      save$3();
-    }, save$3);
-  }
-
-  function req(imdb_id, query) {
-    var url = videocdn + '&' + (imdb_id ? 'imdb_id=' + encodeURIComponent(imdb_id) : 'title=' + encodeURIComponent(query));
-    network$b.timeout(1000 * 15);
-    network$b.silent(url, function (json) {
-      if (json.data && json.data.length) {
-        if (object$1.imdb_id) {
-          var imdb = json.data.filter(function (elem) {
-            return elem.imdb_id == object$1.imdb_id;
-          });
-          if (imdb.length) json.data = imdb;
-        }
-
-        if (json.data.length) {
-          return search$4(json.data[0]);
-        }
-      }
-
-      save$3();
-    }, save$3);
-  }
-
-  function extract$2() {
-    var ids = data$3.filter(function (e) {
-      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
-    });
-
-    if (ids.length) {
-      object$1 = ids[0];
-
-      if (object$1.imdb_id) {
-        req(object$1.imdb_id);
-      } else {
-        var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
-        network$b.silent('http://' + dom + 'movie/' + object$1.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
-          req(ttid.imdb_id, object$1.title);
-        }, save$3);
-      }
-    } else {
-      data$3.forEach(function (a) {
-        return a.scaned = 0;
-      });
-    }
-
-    Storage.set('quality_scan', data$3);
-  }
-
-  function save$3() {
-    if (object$1) {
-      object$1.scaned = 1;
-      object$1.scaned_time = Date.now();
-      Storage.set('quality_scan', data$3);
-    }
-  }
-
-  function get$9(elem) {
-    var fid = data$3.filter(function (e) {
-      return e.id == elem.id;
-    });
-    return (fid.length ? fid[0] : {}).quality;
-  }
-
-  var VideoQuality = {
-    init: init$g,
-    get: get$9,
-    add: add$8
-  };
-
-  var network$a = new create$s();
-  var key = '4ef0d7355d9ffb5151e987764708ce96';
-  var menu_list$2 = [];
-
-  function url$5(u) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    u = add$7(u, 'api_key=' + key);
-    u = add$7(u, 'language=' + Storage.field('tmdb_lang'));
-    if (params.genres) u = add$7(u, 'with_genres=' + params.genres);
-    if (params.page) u = add$7(u, 'page=' + params.page);
-    if (params.query) u = add$7(u, 'query=' + params.query);
-
-    if (params.filter) {
-      for (var i in params.filter) {
-        u = add$7(u, i + '=' + params.filter[i]);
-      }
-    }
-
-    var base = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
-    return Utils.protocol() + base + u;
-  }
-
-  function add$7(u, params) {
-    return u + (/\?/.test(u) ? '&' : '?') + params;
-  }
-
-  function img$3(src, size) {
-    var poster_size = Storage.field('poster_size');
-    var baseimg = Utils.protocol() + (Storage.field('proxy_tmdb') ? 'imagetmdb.cub.watch' : 'image.tmdb.org') + '/t/p/' + poster_size + '/';
-    var path = baseimg;
-      if (src.indexOf("http") != -1) path = '';
-    if (size) path = path.replace(new RegExp(poster_size, 'g'), size);
-    return src ? path + src : '';
-  }
-
-  function find$1(find) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var finded;
-
-    var filtred = function filtred(items) {
-      for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-
-        if (params.original_title == item.original_title || params.title == item.title || params.original_title == item.name) {
-          finded = item;
-          break;
-        }
-      }
-    };
-
-    if (find.movie && find.movie.results.length) filtred(find.movie.results);
-    if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
-    return finded;
-  }
-
-  function main$5() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var status = new status$1(11);  
-
-    status.onComplite = function () {
-      var fulldata = [];
-      if (status.data.wath) fulldata.push(status.data.wath);
-      if (status.data.trend_day) fulldata.push(status.data.trend_day);
-      if (status.data.trend_week) fulldata.push(status.data.trend_week);
-      if (status.data.upcoming) fulldata.push(status.data.upcoming);
-      if (status.data.popular) fulldata.push(status.data.popular);
-      if (status.data["popular_tv_kr"] && status.data["popular_tv_kr"].results.length) fulldata.push(status.data["popular_tv_kr"]);
-      if (status.data["popular_tv_cn"] && status.data["popular_tv_cn"].results.length) fulldata.push(status.data["popular_tv_cn"]);
-      if (status.data["popular_tv_en"] && status.data["popular_tv_en"].results.length) fulldata.push(status.data["popular_tv_en"]);
-      if (status.data.popular_tv) fulldata.push(status.data.popular_tv);
-              if (status.data.top) fulldata.push(status.data.top);
-      if (status.data.top_tv) fulldata.push(status.data.top_tv);
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, json) {
-      json.title = title;
-      status.append(name, json);
-    };
-
-    var date = new Date();
-      var nparams4 = Arrays.clone(params);
-      nparams4.filter = {
-        with_original_language: "zh",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8('tv/popular', nparams4, function (json) {
-        json.filter = nparams4.filter;
-        append('热门国产剧', 'popular_tv_cn', json);
-      }, status.error.bind(status));
-
-      var nparams5 = Arrays.clone(params);
-      nparams5.filter = {
-        with_original_language: "ko",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : "18|80|10759|9648|10751"
-      };
-      get$8('tv/popular', nparams5, function (json) {
-        json.filter = nparams5.filter;
-        append('热门韩剧', 'popular_tv_kr', json);
-      }, status.error.bind(status));
-
-      var nparams6 = Arrays.clone(params);
-      nparams6.filter = {
-        with_original_language: "en",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8('tv/popular', nparams6, function (json) {
-        json.filter = nparams6.filter;
-        append('热门英美剧', 'popular_tv_en', json);
-      }, status.error.bind(status));
-
-      get$8('movie/now_playing', params, function (json) {
-      append('正在观看', 'wath', json);
-      VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    get$8('trending/moviews/day', params, function (json) {
-      append('今日热门', 'trend_day', json);
-    }, status.error.bind(status));
-    get$8('trending/moviews/week', params, function (json) {
-      append('本周热门', 'trend_week', json);
-    }, status.error.bind(status));
-    get$8('movie/upcoming', params, function (json) {
-      append('在电影院观看', 'upcoming', json);
-    }, status.error.bind(status));
-    get$8('movie/popular', params, function (json) {
-      append('热门电影', 'popular', json);
-      VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    get$8('tv/popular', params, function (json) {
-      append('热门电视节目', 'popular_tv', json);
-    }, status.error.bind(status));
-    get$8('movie/top_rated', params, function (json) {
-      append('热门电影', 'top', json);
-    }, status.error.bind(status));
-    get$8('tv/top_rated', params, function (json) {
-      append('热门电视节目', 'top_tv', json);
-    }, status.error.bind(status));
-  }
-
-  function category$4() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var show = ['tv', 'movie'].indexOf(params.url) > -1 && !params.genres;
-    var books = show ? Favorite.continues(params.url) : [];
-    var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
-    var status = new status$1(12);  
-
-    status.onComplite = function () {
-      var fulldata = [];
-      if (books.length) fulldata.push({
-        results: books,
-        title: params.url == 'tv' ? '继续观看' : '你看过'
-      });
-      if (recomend.length) fulldata.push({
-        results: recomend,
-        title: '推荐观看'
-      });
-      if (status.data["continue"] && status.data["continue"].results.length) fulldata.push(status.data["continue"]);
-      if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
-        if (status.data["new_kr"] && status.data["new_kr"].results.length) fulldata.push(status.data["new_kr"]);
-        if (status.data["tv_air_ch"] && status.data["tv_air_ch"].results.length) fulldata.push(status.data["tv_air_ch"]);
-        if (status.data["new_cn"] && status.data["new_cn"].results.length) fulldata.push(status.data["new_cn"]);
-        if (status.data["tv_air_en"] && status.data["tv_air_en"].results.length) fulldata.push(status.data["tv_air_en"]);
-        if (status.data["new_en"] && status.data["new_en"].results.length) fulldata.push(status.data["new_en"]);
-        if (status.data.wath && status.data.wath.results.length) fulldata.push(status.data.wath);
-      if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
-      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
-      if (status.data.tv_today && status.data.tv_today.results.length) fulldata.push(status.data.tv_today);
-      if (status.data.tv_air && status.data.tv_air.results.length) fulldata.push(status.data.tv_air);
-      if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, json) {
-      json.title = title;
-      status.append(name, json);
-    };
-
-    var date = new Date();
-      var nparams4 = Arrays.clone(params);
-      nparams4.filter = {
-        with_original_language: "ko",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        'vote_average.gte': 7,
-        filter :"drama"
-      };
-      get$8('discover/' + params.url, nparams4, function (json) {
-        json.filter = nparams4.filter;
-        append('今年韩剧', 'new_kr', json);
-      }, status.error.bind(status));
-      var nparams7 = Arrays.clone(params);
-      nparams7.filter = {
-        with_original_language: "zh",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        //'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : "18|10759|10751|35|9648"
-      };
-      get$8('discover/' + params.url, nparams7, function (json) {
-        json.filter = nparams7.filter;
-        append('今年国产剧', 'new_cn', json);
-      }, status.error.bind(status));
-      var nparams8 = Arrays.clone(params);
-      nparams8.filter = {
-        with_original_language: "en",
-        sort_by: 'release_date.desc',
-        year: date.getFullYear(),
-        first_air_date_year: date.getFullYear(),
-        'vote_average.gte': 7,
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8('discover/' + params.url, nparams8, function (json) {
-        json.filter = nparams8.filter;
-        append('今年英美剧', 'new_en', json);
-      }, status.error.bind(status));
-      var nparams5 = Arrays.clone(params);
-      nparams5.filter = {
-        with_original_language: "ko",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8(params.url + '/on_the_air', nparams5, function (json) {
-        json.filter = nparams5.filter;
-        append('本周韩剧', 'tv_air_kr', json);
-      }, status.error.bind(status));
-
-      var nparams1 = Arrays.clone(params);
-      nparams1.filter = {
-        with_original_language: "zh",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8(params.url + '/on_the_air', nparams1, function (json) {
-        json.filter = nparams1.filter;
-        append('本周国产剧', 'tv_air_ch', json);
-      }, status.error.bind(status));
-      var nparams2 = Arrays.clone(params);
-      nparams2.filter = {
-        with_original_language: "en",
-        filter :"drama",
-        with_genres : 18
-      };
-      get$8(params.url + '/on_the_air', nparams2, function (json) {
-        json.filter = nparams2.filter;
-        append('本周英美剧', 'tv_air_en', json);
-      }, status.error.bind(status));
-
-      get$8(params.url + '/now_playing', params, function (json) {
-      append('正在观看', 'wath', json);
-      if (show) VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    get$8(params.url + '/popular', params, function (json) {
-      append('热门', 'popular', json);
-      if (show) VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    var date = new Date();
-    var nparams = Arrays.clone(params);
-    nparams.filter = {
-      sort_by: 'release_date.desc',
-      year: date.getFullYear(),
-      first_air_date_year: date.getFullYear(),
-      'vote_average.gte': 7
-    };
-    get$8('discover/' + params.url, nparams, function (json) {
-      json.filter = nparams.filter;
-      append('新', 'new', json);
-    }, status.error.bind(status));
-    get$8(params.url + '/airing_today', params, function (json) {
-      append('今日播出', 'tv_today', json);
-    }, status.error.bind(status));
-    get$8(params.url + '/on_the_air', params, function (json) {
-      append('本周', 'tv_air', json);
-    }, status.error.bind(status));
-    get$8(params.url + '/top_rated', params, function (json) {
-      append('热门', 'top', json);
-    }, status.error.bind(status));
-  }
-
-  function full$4() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var status = new status$1(7);
-    status.onComplite = oncomplite;
-    get$8(params.method + '/' + params.id, params, function (json) {
-      json.source = 'tmdb';
-
-      if (params.method == 'tv') {
-        get$8('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
-          status.append('episodes', ep);
-        }, status.error.bind(status));
-      } else status.need--;
-
-      if (json.belongs_to_collection) {
-        get$8('collection/' + json.belongs_to_collection.id, {}, function (collection) {
-          collection.results = collection.parts.slice(0, 19);
-          status.append('collection', collection);
-        }, status.error.bind(status));
-      } else status.need--;
-
-      status.append('movie', json);
-    }, function () {
-      status.need -= 2;
-      status.error();
-    });
-
-    if (Storage.field('light_version')) {
-      status.need -= 4;
-    } else {
-      get$8(params.method + '/' + params.id + '/credits', params, function (json) {
-        status.append('persons', json);
-      }, status.error.bind(status));
-      get$8(params.method + '/' + params.id + '/recommendations', params, function (json) {
-        status.append('recomend', json);
-      }, status.error.bind(status));
-      get$8(params.method + '/' + params.id + '/similar', params, function (json) {
-        status.append('simular', json);
-      }, status.error.bind(status));
-      get$8(params.method + '/' + params.id + '/videos', params, function (json) {
-        status.append('videos', json);
-      }, status.error.bind(status));
-    }
-  }
-
-  function list$5() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var u = url$5(params.url, params);
-    network$a.silent(u, oncomplite, onerror);
-  }
-
-  function get$8(method) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
-    var onerror = arguments.length > 3 ? arguments[3] : undefined;
-    var u = url$5(method, params);
-    network$a.silent(u, function (json) {
-      json.url = method;
-      oncomplite(json);
-    }, onerror);
-  }
-
-  function search$3() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var status = new status$1(2);
-    status.onComplite = oncomplite;
-    get$8('search/movie', params, function (json) {
-      json.title = '电影';
-      status.append('movie', json);
-    }, status.error.bind(status));
-    get$8('search/tv', params, function (json) {
-      json.title = '电视节目';
-      status.append('tv', json);
-    }, status.error.bind(status));
-  }
-
-  function person$4() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-
-    var sortCredits = function sortCredits(credits) {
-      return credits.map(function (a) {
-        a.year = parseInt(((a.release_date || a.first_air_date || '0000') + '').slice(0, 4));
-        return a;
-      }).sort(function (a, b) {
-        return b.vote_average - a.vote_average && b.vote_count - a.vote_count;
-      }); //сортируем по оценке и кол-ву голосов (чтобы отсечь мусор с 1-2 оценками)
-    };
-
-    var convert = function convert(credits, person) {
-      credits.crew.forEach(function (a) {
-        a.department = a.department == 'Production' ? '制作' : a.department == 'Directing' ? '导演' : a.department;
-      });
-      var cast = sortCredits(credits.cast),
-          crew = sortCredits(credits.crew),
-          tv = sortCredits(cast.filter(function (media) {
-        return media.media_type === 'tv';
-      })),
-          movie = sortCredits(cast.filter(function (media) {
-        return media.media_type === 'movie';
-      })),
-          knownFor; //Наиболее известные работы человека
-      //1. Группируем все работы по департаментам (演员, 导演, Сценарист и т.д.)
-
-      knownFor = Arrays.groupBy(crew, 'department');
-      var actorGender = person.gender === 1 ? '女演员' : '演员';
-      if (movie.length > 0) knownFor["".concat(actorGender, " - 电影")] = movie;
-      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视剧")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
-
-      knownFor = Object.entries(knownFor).map(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            depIdx = _ref2[0],
-            dep = _ref2[1];
-
-        //убираем дубликаты (человек может быть указан в одном департаменте несколько раз на разных должностях (job))
-        var set = {},
-            credits = dep.filter(function (credit) {
-          return set.hasOwnProperty(credit.original_title || credit.original_name) ? false : credit.original_title ? set[credit.original_title] = true : set[credit.original_name] = true;
-        });
-        return {
-          name: depIdx,
-          credits: credits,
-          vote_count: dep.reduce(function (a, b) {
-            return a + b.vote_count;
-          }, 0)
-        }; //3. Сортируем департаменты по кол-ву голосов
-      }).sort(function (a, b) {
-        return b.vote_count - a.vote_count;
-      });
-      return {
-        raw: credits,
-        cast: cast,
-        crew: crew,
-        tv: tv,
-        movie: movie,
-        knownFor: knownFor
-      };
-    };
-
-    var status = new status$1(2);
-
-    status.onComplite = function () {
-      var fulldata = {};
-      if (status.data.person) fulldata.person = status.data.person;
-      if (status.data.credits) fulldata.credits = convert(status.data.credits, status.data.person);
-      oncomplite(fulldata);
-    };
-
-    get$8('person/' + params.id, params, function (json) {
-      status.append('person', json);
-    }, status.error.bind(status));
-    get$8('person/' + params.id + '/combined_credits', params, function (json) {
-      status.append('credits', json);
-    }, status.error.bind(status));
-  }
-
-  function menu$4() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    if (menu_list$2.length) oncomplite(menu_list$2);else {
-      var u = url$5('genre/movie/list', params);
-      network$a.silent(u, function (j) {
-        j.genres.forEach(function (g) {
-          menu_list$2.push({
-            title: g.name,
-            id: g.id
-          });
-        });
-        oncomplite(menu_list$2);
-      });
-    }
-  }
-
-  function menuCategory$2(params, oncomplite) {
-    var menu = [];
-
-    if (params.action !== 'tv') {
-      menu.push({
-        title: '正在观看',
-        url: params.action + '/now_playing'
-      });
-    }
-
-    menu.push({
-      title: '流行',
-      url: params.action + '/popular'
-    });
-    var date = new Date();
-    var query = [];
-    query.push('sort_by=release_date.desc');
-    query.push('year=' + date.getFullYear());
-    query.push('first_air_date_year=' + date.getFullYear());
-    query.push('vote_average.gte=7');
-    menu.push({
-      title: '新',
-      url: 'discover/' + params.action + '?' + query.join('&')
-    });
-
-    if (params.action == 'tv') {
-      menu.push({
-        title: '今天直播',
-        url: params.action + '/airing_today'
-      });
-      menu.push({
-        title: '本周',
-        url: params.action + '/on_the_air'
-      });
-    }
-
-    menu.push({
-      title: '热门',
-      url: params.action + '/top_rated'
-    });
-    oncomplite(menu);
-  }
-
-  function external_ids() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    get$8('tv/' + params.id + '/external_ids', oncomplite, onerror);
-  }
-
-  function company$1() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var u = url$5('company/' + params.id, params);
-    network$a.silent(u, oncomplite, onerror);
-  }
-
-  function seasons$4(tv, from, oncomplite) {
-    var status = new status$1(from.length);
-    status.onComplite = oncomplite;
-    from.forEach(function (season) {
-      get$8('tv/' + tv.id + '/season/' + season, {}, function (json) {
-        status.append('' + season, json);
-      }, status.error.bind(status));
-    });
-  }
-
-  function screensavers(oncomplite, onerror) {
-    get$8('trending/all/week', {
-      page: Math.round(Math.random() * 30)
-    }, function (json) {
-      oncomplite(json.results.filter(function (entry) {
-        return entry.backdrop_path && !entry.adult;
-      }));
-    }, onerror);
-  }
-
-  function clear$5() {
-    network$a.clear();
-  }
-
-  var TMDB = {
-    main: main$5,
-    menu: menu$4,
-    img: img$3,
-    full: full$4,
-    list: list$5,
-    category: category$4,
-    search: search$3,
-    clear: clear$5,
-    company: company$1,
-    person: person$4,
-    seasons: seasons$4,
-    find: find$1,
-    screensavers: screensavers,
-    external_ids: external_ids,
-    get: get$8,
-    menuCategory: menuCategory$2
-  };
-
-  var prox$1 = 'http://proxy.cub.watch/img/';
-  var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
-  var network$9 = new create$s();
-  var menu_list$1 = [];
-
-  function img$2(element) {
-    var need = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'PORTRAIT';
-
-    if (element.basicCovers && element.basicCovers.items.length) {
-      for (var index = 0; index < element.basicCovers.items.length; index++) {
-        var _img = element.basicCovers.items[index];
-        if (_img.imageType == need) return prox$1 + _img.url + '?width=' + (need == 'COVER' ? 800 : 300) + '&scale=1&quality=80&mediaType=jpeg';
-      }
-
-      return prox$1 + element.basicCovers.items[0].url + '?width=500&scale=1&quality=80&mediaType=jpeg';
-    }
-
-    return '';
-  }
-
-  function tocard$1(element) {
-    return {
-      url: element.alias,
-      id: element.id,
-      title: element.name,
-      original_title: element.originalName,
-      release_date: '0000',
-      vote_average: element.kinopoiskRating || element.okkoRating || 0,
-      poster: img$2(element),
-      cover: img$2(element, 'COVER'),
-      promo: element.promoText,
-      description: element.description
-    };
-  }
-
-  function collections$2(params, oncomplite, onerror) {
-    var frm = 20 * (params.page - 1);
-    var uri = baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
-    network$9["native"](uri, function (json) {
-      var result = {
-        results: [],
-        total_pages: 0,
-        page: params.page
-      };
-
-      if (json.element) {
-        json.element.collectionItems.items.forEach(function (elem) {
-          var element = elem.element;
-          var item = {
-            url: element.alias,
-            id: element.id,
-            title: element.name,
-            poster: prox$1 + (element.basicCovers && element.basicCovers.items.length ? element.basicCovers.items[0].url + '?width=300&scale=1&quality=80&mediaType=jpeg' : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
-          };
-          if (params.url) item = tocard$1(element);
-          result.results.push(item);
-        });
-        result.total_pages = Math.round(json.element.collectionItems.totalSize / 20);
-      }
-
-      oncomplite(result);
-    }, onerror);
-  }
-
-  function persons$1(element) {
-    var data = [];
-
-    if (element.actors) {
-      element.actors.items.forEach(function (elem) {
-        var item = elem.element;
-        data.push({
-          url: item.alias,
-          name: item.name,
-          character: item.originalName
-        });
-      });
-    }
-
-    return data.length ? {
-      cast: data
-    } : false;
-  }
-
-  function genres$2(element) {
-    return element.genres.items.map(function (elem) {
-      elem.element.url = elem.element.alias;
-      return elem.element;
-    });
-  }
-
-  function countries$1(element) {
-    return element.countries.items.map(function (elem) {
-      return elem.element;
-    });
-  }
-
-  function date(element) {
-    var d = new Date(element.worldReleaseDate || element || 0);
-    return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
-  }
-
-  function seasonsCount$1(element) {
-    var data = {
-      seasons: 0,
-      episodes: 0
-    };
-
-    if (element.children) {
-      data.seasons = element.children.totalSize;
-      element.children.items.forEach(function (elem) {
-        data.episodes += elem.element.children ? elem.element.children.totalSize : 0;
-      });
-    }
-
-    return data;
-  }
-
-  function seasonsDetails(element) {
-    var data = {};
-
-    if (element.children) {
-      element.children.items.forEach(function (elem, sn) {
-        var episodes = [];
-
-        if (elem.element.children) {
-          elem.element.children.items.forEach(function (episode, en) {
-            episodes.push({
-              name: episode.element.name,
-              img: img$2(episode.element, 'COVER'),
-              air_date: date(episode.element.releaseSaleDate || 0),
-              episode_number: en + 1
-            });
-          });
-        }
-
-        data['' + (sn + 1)] = {
-          name: elem.element.name,
-          air_date: date(elem.element.worldReleaseDate || 0),
-          episodes: episodes
-        };
-      });
-      return data;
-    }
-  }
-
-  function similar$1(element) {
-    var data = [];
-    element.similar.items.forEach(function (elem) {
-      data.push(tocard$1(elem.element));
-    });
-    return data.length ? {
-      results: data
-    } : false;
-  }
-
-  function seasons$3(tv, from, oncomplite, onerror) {
-    oncomplite(tv.seasons || {});
-  }
-
-  function menu$3(params, oncomplite) {
-    if (!menu_list$1.length) {
-      network$9.timeout(1000);
-      network$9["native"](baseurl$2 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
-        if (json.uiScreenInfo && json.uiScreenInfo.webMain) {
-          json.uiScreenInfo.webMain.forEach(function (element) {
-            menu_list$1.push({
-              title: element.name,
-              id: element.alias
-            });
-          });
-          oncomplite(menu_list$1);
-        }
-      });
-    } else {
-      oncomplite(menu_list$1);
-    }
-  }
-
-  function videos$1(element) {
-    var data = [];
-    var qa = 0;
-    element.trailers.items.forEach(function (item) {
-      var media = item.media;
-
-      if (media.width > qa && media.mimeType == 'mp4/ts') {
-        qa = media.width;
-        data.push({
-          name: data.length + 1 + ' / ' + item.language,
-          url: item.url,
-          player: true
-        });
-      }
-    });
-    return data.length ? {
-      results: data
-    } : false;
-  }
-
-  function list$4(params, oncomplite, onerror) {
-    var frm = 20 * (params.page - 1);
-    network$9["native"](baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
-      var items = [];
-
-      if (json.element && json.element.collectionItems) {
-        json.element.collectionItems.items.forEach(function (elem) {
-          items.push(tocard$1(elem.element));
-        });
-        oncomplite({
-          results: items,
-          total_pages: Math.round(json.element.collectionItems.totalSize / 20)
-        });
-      } else {
-        onerror();
-      }
-    }, onerror);
-  }
-
-  function person$3(params, oncomplite, onerror) {
-    network$9["native"](baseurl$2 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
-      var data = {
-        movie: {
-          results: []
-        }
-      };
-
-      if (json.element && json.element.collectionItems) {
-        json.element.collectionItems.items.forEach(function (elem) {
-          data.movie.results.push(tocard$1(elem.element));
-        });
-        data.person = {
-          name: json.element.name,
-          biography: '',
-          img: '',
-          place_of_birth: '',
-          birthday: '----'
-        };
-        oncomplite(data);
-      } else {
-        onerror();
-      }
-    }, onerror);
-  }
-
-  function main$4(params, oncomplite, onerror) {
-    network$9["native"](baseurl$2 + 'mainpage/web/1', function (json) {
-      var element = json.element;
-      var fulldata = [];
-
-      if (element) {
-        var blocks = json.element.collectionItems.items;
-
-        if (blocks) {
-          blocks.forEach(function (el) {
-            if (el.element && el.element.alias === "web_featured") {
-              var slides = {
-                title: '新',
-                results: [],
-                wide: true,
-                nomore: true
-              };
-              el.element.collectionItems.items.forEach(function (elem) {
-                slides.results.push(tocard$1(elem.element));
-              });
-              fulldata.push(slides);
-            } else if (el.element && el.element.alias && el.element.name && el.element.description) {
-              var line = {
-                title: el.element.name,
-                url: el.element.alias,
-                results: [],
-                more: true
-              };
-              el.element.collectionItems.items.forEach(function (elem) {
-                line.results.push(tocard$1(elem.element));
-              });
-              fulldata.push(line);
-            }
-          });
-        }
-      }
-
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    }, onerror);
-  }
-
-  function category$3(params, oncomplite, onerror) {
-    var status = new status$1(7);
-    var books = Favorite.continues(params.url);
-
-    status.onComplite = function () {
-      var fulldata = [];
-      if (books.length) fulldata.push({
-        results: books,
-        title: params.url == 'tv' ? '继续观看' : '正在观看'
-      });
-      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
-      if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
-      if (status.data.three && status.data.three.results.length) fulldata.push(status.data.three);
-      if (status.data.four && status.data.four.results.length) fulldata.push(status.data.four);
-      if (status.data.five && status.data.five.results.length) fulldata.push(status.data.five);
-      if (status.data.six && status.data.six.results.length) fulldata.push(status.data.six);
-      if (status.data.seven && status.data.seven.results.length) fulldata.push(status.data.seven);
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, id, json) {
-      json.title = title;
-      json.url = id;
-      status.append(name, json);
-    };
-
-    if (params.url == 'movie') {
-      list$4({
-        url: 'Novelty',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('新', 'new', 'Novelty', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'topfilms',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('热门新', 'top', 'topfilms', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'comedy-plus-horror-movies',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('喜剧恐怖电影', 'three', 'comedy-plus-horror-movies', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'collection_maniacs',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('疯子电影', 'four', 'collection_maniacs', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'witches',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('女巫电影', 'five', 'witches', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'zombies',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('关于僵尸的电影', 'six', 'zombies', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'Russian-17490',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('俄语', 'seven', 'Russian-17490', json);
-      }, status.error.bind(status));
-    } else {
-      list$4({
-        url: 'Serials',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('新', 'new', 'Serials', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'horror-serial-all-svod',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('非常可怕', 'top', 'horror-serial-all-svod', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'series-about-serial-killers',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('关于疯子', 'three', 'series-about-serial-killers', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'black-humor-serial-all-svod',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('黑色幽默', 'four', 'black-humor-serial-all-svod', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'legkiye-serialy-all-svod',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('光', 'five', 'legkiye-serialy-all-svod', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'comedy-serial-all-svod',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('喜剧', 'six', 'comedy-serial-all-svod', json);
-      }, status.error.bind(status));
-      list$4({
-        url: 'russian_tvseries',
-        type: 'COLLECTION',
-        page: 1
-      }, function (json) {
-        append('俄罗斯人', 'seven', 'russian_tvseries', json);
-      }, status.error.bind(status));
-    }
-  }
-
-  function full$3(params, oncomplite, onerror) {
-    var data = {};
-    network$9["native"](baseurl$2 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
-      var element = json.element;
-
-      if (element) {
-        data.persons = persons$1(element);
-        data.simular = similar$1(element);
-        data.videos = videos$1(element);
-        data.movie = {
-          id: element.id,
-          url: element.alias,
-          source: 'okko',
-          title: element.name,
-          original_title: element.originalName,
-          name: element.type == 'SERIAL' ? element.name : '',
-          original_name: element.type == 'SERIAL' ? element.originalName : '',
-          overview: element.description,
-          img: img$2(element),
-          runtime: (element.duration || 0) / 1000 / 60,
-          genres: genres$2(element),
-          vote_average: element.imdbRating || element.kinopoiskRating || 0,
-          production_companies: [],
-          production_countries: countries$1(element),
-          budget: element.budget && element.budget.value ? element.budget.value : 0,
-          release_date: date(element),
-          number_of_seasons: seasonsCount$1(element).seasons,
-          number_of_episodes: seasonsCount$1(element).episodes,
-          seasons: seasonsDetails(element),
-          first_air_date: element.type == 'SERIAL' ? date(element) : ''
-        };
-      }
-
-      oncomplite(data);
-    }, onerror);
-  }
-
-  var OKKO = {
-    main: main$4,
-    full: full$3,
-    collections: collections$2,
-    seasons: seasons$3,
-    list: list$4,
-    person: person$3,
-    menu: menu$3,
-    category: category$3,
-    clear: network$9.clear
-  };
-
-  var baseurl$1 = 'https://api.ivi.ru/mobileapi/';
-  var network$8 = new create$s();
-  var menu_list = [];
-  var prox = 'http://proxy.cub.watch/img/';
-
-  function tocard(element) {
-    return {
-      url: element.hru,
-      id: element.id,
-      title: element.title,
-      original_title: element.orig_title,
-      release_date: element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || (element.year ? element.year + '' : element.years ? element.years[0] + '' : '0000'),
-      vote_average: element.ivi_rating_10 || 0,
-      poster: img$1(element),
-      year: element.year,
-      years: element.years
-    };
-  }
-
-  function entities(url, oncomplite, onerror) {
-    network$8["native"]('https://www.ivi.ru/' + url, function (str) {
-      var parse = str.match(/window.__INITIAL_STATE__ = JSON.parse\('(.*?)'\);<\/script>/);
-      var decod = (parse ? parse[1] : '').replace(/\\'|[\\]+"/g, '\'');
-      var json = Arrays.decodeJson(decod, {});
-
-      if (json.entities) {
-        if (!menu_list.length) {
-          for (var i in json.entities.genres) {
-            var item = json.entities.genres[i];
-            menu_list.push({
-              title: item.title + ' (' + item.catalogue_count + ')',
-              id: item.id
-            });
-          }
-        }
-
-        oncomplite(json.entities, json);
-      } else onerror();
-    }, onerror, false, {
-      dataType: 'text'
-    });
-  }
-
-  function find(json, id) {
-    var found;
-
-    for (var i in json.content) {
-      if (i == id) found = json.content[i];
-    }
-
-    return found;
-  }
-
-  function img$1(element) {
-    var posters = element.poster_originals || element.posters;
-    return posters && posters[0] ? prox + (posters[0].path || posters[0].url) + '/300x456/' : '';
-  }
-
-  function genres$1(element, json) {
-    var data = [];
-    element.genres.forEach(function (id) {
-      var genre = json.genres[id];
-
-      if (genre) {
-        data.push({
-          id: genre.id,
-          name: genre.title
-        });
-      }
-    });
-    return data;
-  }
-
-  function countries(element, json) {
-    var data = [];
-
-    if (element.country && json.countries[element.country]) {
-      data.push({
-        name: json.countries[element.country].title
-      });
-    }
-
-    return data;
-  }
-
-  function persons(json) {
-    var data = [];
-
-    if (json.persons && json.persons.info) {
-      for (var i in json.persons.info) {
-        var _person = json.persons.info[i],
-            images = Arrays.getValues(_person.images || {});
-
-        if (_person.profession_types[0] == 6) {
-          data.push({
-            name: _person.name,
-            character: '演员',
-            id: _person.id,
-            img: images.length ? prox + images[0].path : ''
-          });
-        }
-      }
-    }
-
-    return data.length ? {
-      cast: data
-    } : false;
-  }
-
-  function similar(element, json) {
-    var data = [];
-
-    if (json.content) {
-      for (var i in json.content) {
-        var item = json.content[i];
-        if (element !== item) data.push(tocard(item));
-      }
-
-      data.sort(function (a, b) {
-        var ay = a.year || (a.years ? a.years[0] : 0);
-        var by = b.year || (b.years ? b.years[0] : 0);
-        return by - ay;
-      });
-    }
-
-    return data.length ? {
-      results: data
-    } : false;
-  }
-
-  function videos(element) {
-    var data = [];
-
-    if (element.additional_data) {
-      element.additional_data.forEach(function (atach) {
-        if (atach.data_type == 'trailer' && atach.files) {
-          atach.files.forEach(function (file) {
-            if (file.content_format == 'MP4-HD1080') {
-              data.push({
-                name: atach.title,
-                url: file.url,
-                player: true
-              });
-            }
-          });
-        }
-      });
-    }
-
-    return data.length ? {
-      results: data
-    } : false;
-  }
-
-  function seasonsCount(element) {
-    var data = {
-      seasons: 0,
-      episodes: 0
-    };
-
-    if (element.seasons) {
-      data.seasons = element.seasons.length;
-
-      for (var i in element.seasons_content_total) {
-        data.episodes += element.seasons_content_total[i];
-      }
-    }
-
-    return data;
-  }
-
-  function seasons$2(tv, from, oncomplite, onerror) {
-    var status = new status$1(from.length);
-    status.onComplite = oncomplite;
-    from.forEach(function (season) {
-      network$8["native"](baseurl$1 + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
-        if (json.result) {
-          var episodes = [];
-          json.result.forEach(function (elem) {
-            episodes.push({
-              name: elem.title,
-              img: elem.promo_images && elem.promo_images.length ? prox + elem.promo_images[0].url + '/300x240/' : '',
-              air_date: elem.release_date || elem.ivi_pseudo_release_date || elem.ivi_release_date || (elem.year ? elem.year + '' : elem.years ? elem.years[0] + '' : '0000'),
-              episode_number: elem.episode
-            });
-          });
-          status.append('' + season, {
-            episodes: episodes
-          });
-        } else status.error();
-      }, status.error.bind(status));
-    });
-  }
-
-  function comments(json) {
-    var data = [];
-
-    if (json.comments) {
-      for (var i in json.comments) {
-        var com = json.comments[i];
-        com.text = com.text.replace(/\\[n|r|t]/g, '');
-        data.push(com);
-      }
-    }
-
-    return data.length ? data : false;
-  }
-
-  function menu$2(params, oncomplite) {
-    if (!menu_list.length) {
-      network$8.timeout(1000);
-      entities('', function () {
-        oncomplite(menu_list);
-      });
-    } else oncomplite(menu_list);
-  }
-
-  function full$2(params, oncomplite, onerror) {
-    entities('watch/' + (params.url || params.id), function (json, all) {
-      var data = {};
-      var element = find(json, params.id);
-
-      if (element) {
-        data.persons = persons(json);
-        data.simular = similar(element, json);
-        data.videos = videos(element);
-        data.comments = comments(json);
-        data.movie = {
-          id: element.id,
-          url: element.hru,
-          source: 'ivi',
-          title: element.title,
-          original_title: element.orig_title,
-          name: element.seasons ? element.title : '',
-          original_name: element.seasons ? element.orig_title : '',
-          overview: element.description.replace(/\\[n|r|t]/g, ''),
-          img: img$1(element),
-          runtime: element.duration_minutes,
-          genres: genres$1(element, json),
-          vote_average: parseFloat(element.imdb_rating || element.kp_rating || '0'),
-          production_companies: [],
-          production_countries: countries(element, json),
-          budget: element.budget || 0,
-          release_date: element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || '0000',
-          number_of_seasons: seasonsCount(element).seasons,
-          number_of_episodes: seasonsCount(element).episodes,
-          first_air_date: element.seasons ? element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || '0000' : ''
-        };
-      }
-
-      oncomplite(data);
-    }, onerror);
-  }
-
-  function person$2(params, oncomplite, onerror) {
-    entities('person/' + (params.url || params.id), function (json, all) {
-      var data = {};
-
-      if (all.pages && all.pages.personPage) {
-        var element = all.pages.personPage.person.info,
-            images = Arrays.getValues(element.images || {});
-        data.person = {
-          name: element.name,
-          biography: element.bio,
-          img: images.length ? prox + images[0].path : '',
-          place_of_birth: element.eng_title,
-          birthday: '----'
-        };
-        data.movie = similar(element, json);
-      }
-
-      oncomplite(data);
-    }, onerror);
-  }
-
-  function list$3(params, oncomplite, onerror) {
-    var fr = 20 * (params.page - 1),
-        to = fr + 19;
-    var url = baseurl$1 + 'catalogue/v5/?genre=' + params.genres + '&from=' + fr + '&to=' + to + '&withpreorderable=true';
-    if (!params.genres) url = baseurl$1 + 'collection/catalog/v5/?id=' + params.url + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-    network$8["native"](url, function (json) {
-      var items = [];
-
-      if (json.result) {
-        json.result.forEach(function (element) {
-          items.push(tocard(element));
-        });
-      }
-
-      oncomplite({
-        results: items,
-        total_pages: Math.round(json.count / 20)
-      });
-    }, onerror);
-  }
-
-  function category$2(params, oncomplite, onerror) {
-    var status = new status$1(params.url == 'movie' ? 4 : 5);
-    var books = Favorite.continues(params.url);
-
-    status.onComplite = function () {
-      var fulldata = [];
-      if (books.length) fulldata.push({
-        results: books,
-        title: params.url == 'tv' ? '继续看' : '你看过'
-      });
-      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
-      if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
-      if (status.data.rus && status.data.rus.results.length) fulldata.push(status.data.rus);
-      if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
-      if (status.data.ivi && status.data.ivi.results.length) fulldata.push(status.data.ivi);
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, id, json) {
-      json.title = title;
-      json.url = id;
-
-      if (json.results.results) {
-        json.results = json.results.results;
-      }
-
-      status.append(name, json);
-    };
-
-    if (params.url == 'movie') {
-      collections$1({
-        id: '8258'
-      }, function (json) {
-        append('电影首映', 'new', '8258', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '942'
-      }, function (json) {
-        append('热门电影', 'best', '942', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '11512'
-      }, function (json) {
-        append('现在流行', 'popular', '11512', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '8448'
-      }, function (json) {
-        append('选择 ivi', 'ivi', '8448', {
-          results: json
-        });
-      }, status.error.bind(status));
-    } else {
-      collections$1({
-        id: '1984'
-      }, function (json) {
-        append('《新的', 'new', '1984', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '1712'
-      }, function (json) {
-        append('外国的', 'best', '1712', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '935'
-      }, function (json) {
-        append('俄语', 'rus', '935', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '12839'
-      }, function (json) {
-        append('现在流行', 'popular', '12839', {
-          results: json
-        });
-      }, status.error.bind(status));
-      collections$1({
-        id: '1057'
-      }, function (json) {
-        append('精选 ivi', 'ivi', '1057', {
-          results: json
-        });
-      }, status.error.bind(status));
-    }
-  }
-
-  function main$3(params, oncomplite, onerror) {
-    var status = new status$1(13);
-
-    status.onComplite = function () {
-      var fulldata = [];
-
-      for (var i = 1; i <= 13; i++) {
-        var n = i + '';
-        if (status.data[n] && status.data[n].results.length) fulldata.push(status.data[n]);
-      }
-
-      console.log(fulldata, status);
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, id, json) {
-      json.title = title;
-      json.url = id;
-
-      if (json.results.results) {
-        json.results = json.results.results;
-      }
-
-      status.append(name, json);
-    };
-
-    collections$1({
-      id: '4655'
-    }, function (json) {
-      append('推荐你看', '1', '4655', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '2460'
-    }, function (json) {
-      append('全家看的动画片', '2', '2460', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '917'
-    }, function (json) {
-      append('恐怖惊悚', '3', '917', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1327'
-    }, function (json) {
-      append('冒险喜剧', '4', '1327', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1246'
-    }, function (json) {
-      append('侦探电影', '5', '1246', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1335'
-    }, function (json) {
-      append('犯罪喜剧', '6', '1335', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1411'
-    }, function (json) {
-      append('浪漫剧', '7', '1411', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '73'
-    }, function (json) {
-      append('犯罪剧', '8', '73', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1413'
-    }, function (json) {
-      append('奇幻剧', '9', '1413', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '62'
-    }, function (json) {
-      append('战争剧', '10', '62', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '1418'
-    }, function (json) {
-      append('神秘电影', '11', '1418', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '4495'
-    }, function (json) {
-      append('外国电视剧', '12', '4495', {
-        results: json
-      });
-    }, status.error.bind(status));
-    collections$1({
-      id: '217'
-    }, function (json) {
-      append('历史电视剧', '13', '217', {
-        results: json
-      });
-    }, status.error.bind(status));
-  }
-
-  function collections$1(params, oncomplite, onerror) {
-    var fr = 20 * (params.page - 1),
-        to = fr + 19;
-    var uri = baseurl$1 + 'collections/v5/?app_version=870&from=' + fr + '&tags_exclude=goodmovies&to=' + to;
-    if (params.id) uri = baseurl$1 + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
-    network$8.timeout(15000);
-    network$8["native"](uri, function (json) {
-      var result = {
-        results: [],
-        total_pages: 0,
-        page: params.page
-      };
-
-      if (json.result) {
-        json.result.forEach(function (element) {
-          var item = {
-            id: element.id,
-            url: element.hru,
-            title: element.title,
-            poster: prox + (element.images && element.images.length ? element.images[0].path : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
-          };
-          if (params.id) item = tocard(element);
-          result.results.push(item);
-        });
-        result.total_pages = Math.round(json.count / 20);
-      }
-
-      oncomplite(result);
-    }, onerror);
-  }
-
-  var IVI = {
-    collections: collections$1,
-    full: full$2,
-    main: main$3,
-    person: person$2,
-    list: list$3,
-    category: category$2,
-    menu: menu$2,
-    seasons: seasons$2,
-    clear: network$8.clear
-  };
-
-  var baseurl = Utils.protocol() + 'tmdb.cub.watch/';
-  var network$7 = new create$s();
-
-  function url$4(u) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    if (params.genres) u = add$6(u, 'genre=' + params.genres);
-    if (params.page) u = add$6(u, 'page=' + params.page);
-    if (params.query) u = add$6(u, 'query=' + params.query);
-
-    if (params.filter) {
-      for (var i in params.filter) {
-        u = add$6(u, i + '=' + params.filter[i]);
-      }
-    }
-
-    return baseurl + u;
-  }
-
-  function add$6(u, params) {
-    return u + (/\?/.test(u) ? '&' : '?') + params;
-  }
-
-  function get$7(method) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
-    var onerror = arguments.length > 3 ? arguments[3] : undefined;
-    var u = url$4(method, params);
-    network$7.silent(u, function (json) {
-      json.url = method;
-      oncomplite(json);
-    }, onerror);
-  }
-
-  function list$2() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var u = url$4(params.url, params);
-    network$7.silent(u, oncomplite, onerror);
-  }
-
-  function main$2() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var status = new status$1(11);
-
-    status.onComplite = function () {
-      var fulldata = [];
-      var data = status.data;
-
-      for (var i = 1; i <= 11; i++) {
-        var ipx = 's' + i;
-        if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
-      }
-
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, json) {
-      json.title = title;
-      status.append(name, json);
-    };
-
-    get$7('?sort=now_playing', params, function (json) {
-      append('正在观看', 's1', json);
-      VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    get$7('?sort=latest', params, function (json) {
-      append('最后添加', 's2', json);
-    }, status.error.bind(status));
-    get$7('movie/now', params, function (json) {
-      append('电影', 's3', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=16', params, function (json) {
-      append('卡通', 's4', json);
-    }, status.error.bind(status));
-    get$7('tv/now', params, function (json) {
-      append('电视剧', 's5', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=12', params, function (json) {
-      append('冒险', 's6', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=35', params, function (json) {
-      append('喜剧', 's7', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=10751', params, function (json) {
-      append('家庭', 's8', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=27', params, function (json) {
-      append('恐怖', 's9', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=878', params, function (json) {
-      append('神奇', 's10', json);
-    }, status.error.bind(status));
-    get$7('?sort=now&genre=53', params, function (json) {
-      append('惊悚', 's11', json);
-    }, status.error.bind(status));
-  }
-
-  function category$1() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var total = 6;
-    if (params.url !== 'tv') total--;
-    var show = ['tv', 'movie'].indexOf(params.url) > -1;
-    var books = show ? Favorite.continues(params.url) : [];
-    var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
-    var status = new status$1(total);
-
-    status.onComplite = function () {
-      var fulldata = [];
-      var data = status.data;
-      if (books.length) fulldata.push({
-        results: books,
-        title: params.url == 'tv' ? '继续观看' : '观看'
-      });
-      if (recomend.length) fulldata.push({
-        results: recomend,
-        title: '精选'
-      });
-
-      for (var i = 1; i <= total + 1; i++) {
-        var ipx = 's' + i;
-        if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
-      }
-
-      if (fulldata.length) oncomplite(fulldata);else onerror();
-    };
-
-    var append = function append(title, name, json) {
-      json.title = title;
-      status.append(name, json);
-    };
-
-    get$7('?cat=' + params.url + '&sort=now_playing', params, function (json) {
-      append('正在观看', 's1', json);
-      if (show) VideoQuality.add(json.results);
-    }, status.error.bind(status));
-
-    if (params.url == 'tv') {
-      get$7('?cat=' + params.url + '&sort=update', params, function (json) {
-        append('新剧集', 's2', json);
-      }, status.error.bind(status));
-    }
-
-    get$7('?cat=' + params.url + '&sort=top', params, function (json) {
-      append('热门', 's3', json);
-      if (show) VideoQuality.add(json.results);
-    }, status.error.bind(status));
-    get$7('?cat=' + params.url + '&sort=latest', params, function (json) {
-      append('最新上传', 's4', json);
-    }, status.error.bind(status));
-    get$7('?cat=' + params.url + '&sort=now', params, function (json) {
-      append('今年新', 's5', json);
-    }, status.error.bind(status));
-    get$7('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
-      append('高度评价', 's6', json);
-    }, status.error.bind(status));
-  }
-
-  function full$1(params, oncomplite, onerror) {
-    var status = new status$1(7);
-    status.onComplite = oncomplite;
-    get$7('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
-      json.source = 'tmdb';
-
-      if (params.method == 'tv') {
-        TMDB.get('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
-          status.append('episodes', ep);
-        }, status.error.bind(status));
-      } else status.need--;
-
-      if (json.belongs_to_collection) {
-        TMDB.get('collection/' + json.belongs_to_collection.id, {}, function (collection) {
-          collection.results = collection.parts.slice(0, 19);
-          status.append('collection', collection);
-        }, status.error.bind(status));
-      } else status.need--;
-
-      status.append('movie', json);
-    }, function () {
-      status.need -= 2;
-      status.error();
-    });
-
-    if (Storage.field('light_version')) {
-      status.need -= 4;
-    } else {
-      TMDB.get(params.method + '/' + params.id + '/credits', params, function (json) {
-        status.append('persons', json);
-      }, status.error.bind(status));
-      TMDB.get(params.method + '/' + params.id + '/recommendations', params, function (json) {
-        status.append('recomend', json);
-      }, status.error.bind(status));
-      TMDB.get(params.method + '/' + params.id + '/similar', params, function (json) {
-        status.append('simular', json);
-      }, status.error.bind(status));
-      TMDB.get(params.method + '/' + params.id + '/videos', params, function (json) {
-        status.append('videos', json);
-      }, status.error.bind(status));
-    }
-  }
-
-  function menuCategory$1(params, oncomplite) {
-    var menu = [];
-    menu.push({
-      title: '正在观看',
-      url: '?cat=' + params.action + '&sort=now_playing'
-    });
-
-    if (params.action == 'tv') {
-      menu.push({
-        title: '新剧集',
-        url: '?cat=' + params.action + '&sort=update'
-      });
-    }
-
-    menu.push({
-      title: '热门',
-      url: '?cat=' + params.action + '&sort=top'
-    });
-    menu.push({
-      title: '上次上传',
-      url: '?cat=' + params.action + '&sort=latest'
-    });
-    menu.push({
-      title: '今年新',
-      url: '?cat=' + params.action + '&sort=now'
-    });
-    menu.push({
-      title: '好评',
-      url: '?cat=' + params.action + '&sort=latest&vote=7'
-    });
-    oncomplite(menu);
-  }
-
-  function person$1(params, oncomplite, onerror) {
-    TMDB.person(params, oncomplite, onerror);
-  }
-
-  function menu$1(params, oncomplite) {
-    TMDB.menu(params, oncomplite);
-  }
-
-  function seasons$1(tv, from, oncomplite) {
-    TMDB.seasons(tv, from, oncomplite);
-  }
-
-  function clear$4() {
-    network$7.clear();
-  }
-
-  var CUB = {
-    main: main$2,
-    menu: menu$1,
-    full: full$1,
-    list: list$2,
-    category: category$1,
-    clear: clear$4,
-    person: person$1,
-    seasons: seasons$1,
-    menuCategory: menuCategory$1
-  };
-
-  var url$3;
-  var network$6 = new create$s();
-
-  function get$6() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-
-    function complite(data) {
-      popular(params.movie, data, {}, oncomplite);
-    }
-
-    function error(e) {
-      var data = {
-        Results: []
-      };
-      popular(params.movie, data, {
-        nolimit: true
-      }, function () {
-        if (data.Results.length) oncomplite(data);else onerror(e);
-      });
-    }
-
-    if (Storage.field('parser_torrent_type') == 'jackett') {
-      if (Storage.field('jackett_url')) {
-        url$3 = Utils.checkHttp(Storage.field('jackett_url'));
-        jackett(params, complite, function () {
-          torlook(params, complite, error);
-        });
-      } else {
-        error('请提供解析链接 Jackett');
-      }
-    } else {
-      if (Storage.get('native')) {
-        torlook(params, complite, error);
-      } else if (Storage.field('torlook_parse_type') == 'site' && Storage.field('parser_website_url')) {
-        url$3 = Utils.checkHttp(Storage.field('parser_website_url'));
-        torlook(params, complite, error);
-      } else if (Storage.field('torlook_parse_type') == 'native') {
-        torlook(params, complite, error);
-      } else error('请提供解析链接 TorLook');
-    }
-  }
-
-  function popular(card, data, params, call) {
-    Account.torrentPopular({
-      card: card
-    }, function (result) {
-      var torrents = result.result.torrents.filter(function (t) {
-        return t.viewing_request > (params.nolimit ? 0 : 3);
-      });
-      torrents.sort(function (a, b) {
-        return b.viewing_average - a.viewing_average;
-      });
-      torrents.forEach(function (t) {
-        delete t.viewed;
-      });
-      data.Results = data.Results.concat(params.nolimit ? torrents : torrents.slice(0, 3));
-      call(data);
-    }, function () {
-      call(data);
-    });
-  }
-
-  function viewed(hash) {
-    var view = Storage.cache('torrents_view', 5000, []);
-    return view.indexOf(hash) > -1;
-  }
-
-  function torlook() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    torlookApi(params, oncomplite, onerror);
-  }
-
-  function torlookApi() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    network$6.timeout(1000 * 30);
-    var s = 'https://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
-    var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
-    var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(q) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(q)));
-    network$6["native"](u, function (json) {
-      if (json.error) onerror('请求错误');else {
-        var data = {
-          Results: []
-        };
-
-        if (json.data) {
-          json.data.forEach(function (elem) {
-            var item = {};
-            item.Title = elem.title;
-            item.Tracker = elem.tracker;
-            item.Size = parseInt(elem.size);
-            item.size = Utils.bytesToSize(item.Size);
-            item.PublishDate = parseInt(elem.date) * 1000;
-            item.Seeders = parseInt(elem.seeders);
-            item.Peers = parseInt(elem.leechers);
-            item.PublisTime = parseInt(elem.date) * 1000;
-            item.hash = Utils.hash(elem.title);
-            item.MagnetUri = elem.magnet;
-            item.viewed = viewed(item.hash);
-            if (elem.magnet) data.Results.push(item);
-          });
-        }
-
-        oncomplite(data);
-      }
-    }, function (a, c) {
-      onerror(network$6.errorDecode(a, c));
-    });
-  }
-
-  function jackett() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    network$6.timeout(1000 * 15);
-    var u = url$3 + '/api/v2.0/indexers/all/results?apikey=' + Storage.field('jackett_key') + '&Query=' + encodeURIComponent(params.search);
-    var genres = params.movie.genres.map(function (a) {
-      return a.name;
-    });
-
-    if (!params.clarification) {
-      u = Utils.addUrlComponent(u, 'title=' + encodeURIComponent(params.movie.title));
-      u = Utils.addUrlComponent(u, 'title_original=' + encodeURIComponent(params.movie.original_title));
-    }
-
-    u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
-    u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
-    u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
-    u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000) + (params.movie.original_language == 'ja' ? ',5070' : ''));
-    network$6["native"](u, function (json) {
-      json.Results.forEach(function (element) {
-        element.PublisTime = Utils.strToTime(element.PublishDate);
-        element.hash = Utils.hash(element.Title);
-        element.viewed = viewed(element.hash);
-        element.size = Utils.bytesToSize(element.Size);
-      });
-      oncomplite(json);
-    }, function (a, c) {
-      onerror(network$6.errorDecode(a, c));
-    });
-  }
-
-  function marnet(element, oncomplite, onerror) {
-    network$6.timeout(1000 * 15);
-    var s = Utils.checkHttp(Storage.field('torlook_site')) + '/';
-    var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + element.reguest : url$3.replace('{q}', encodeURIComponent(s + element.reguest));
-    network$6["native"](u, function (html) {
-      var math = html.match(/magnet:(.*?)'/);
-
-      if (math && math[1]) {
-        element.MagnetUri = 'magnet:' + math[1];
-        oncomplite();
-      } else {
-        onerror('获取磁力链接失败');
-      }
-    }, function (a, c) {
-      onerror(network$6.errorDecode(a, c));
-    }, false, {
-      dataType: 'text'
-    });
-  }
-
-  function clear$3() {
-    network$6.clear();
-  }
-
-  var Parser = {
-    get: get$6,
-    torlook: torlook,
-    jackett: jackett,
-    marnet: marnet,
-    clear: clear$3
-  };
-
-  var sources = {
-    ivi: IVI,
-    okko: OKKO,
-    tmdb: TMDB,
-    cub: CUB
-  };
-  var network$5 = new create$s();
-
-  function source(params) {
-    return params.source ? sources[params.source] : sources.tmdb;
-  }
-
-  function main$1() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    source(params).main(params, oncomplite, onerror);
-  }
-
-  function category() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    source(params).category(params, oncomplite, onerror);
-  }
-
-  function full() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    source(params).full(params, oncomplite, onerror);
-  }
-
-  function search$2() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var use_parser = Storage.field('parser_use') && Storage.field('parse_in_search');
-    var status = new status$1(use_parser ? 3 : 2);
-    status.onComplite = oncomplite;
-    TMDB.search(params, function (json) {
-      if (json.movie) status.append('movie', json.movie);
-      if (json.tv) status.append('tv', json.tv);
-    }, status.error.bind(status));
-
-    if (use_parser) {
-      Parser.get({
-        search: decodeURIComponent(params.query),
-        other: true,
-        movie: {
-          genres: [],
-          title: decodeURIComponent(params.query),
-          original_title: decodeURIComponent(params.query),
-          number_of_seasons: 0
-        }
-      }, function (json) {
-        json.title = '种子';
-        json.results = json.Results.slice(0, 20);
-        json.Results = null;
-        json.results.forEach(function (element) {
-          element.Title = Utils.shortText(element.Title, 110);
-        });
-        status.append('parser', json);
-      }, status.error.bind(status));
-    }
-  }
-
-  function menuCategory() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    source(params).menuCategory(params, oncomplite);
-  }
-
-  function person() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    source(params).person(params, oncomplite, onerror);
-  }
-
-  function genres() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    TMDB.genres(params, oncomplite, onerror);
-  }
-
-  function company() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    TMDB.company(params, oncomplite, onerror);
-  }
-
-  function list$1() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    source(params).list(params, oncomplite, onerror);
-  }
-
-  function menu() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    source(params).menu(params, oncomplite);
-  }
-
-  function seasons(tv, from, oncomplite) {
-    source(tv).seasons(tv, from, oncomplite);
-  }
-
-  function collections(params, oncomplite, onerror) {
-    source(params).collections(params, oncomplite, onerror);
-  }
-
-  function favorite() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-    var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var data = {};
-    data.results = Favorite.get(params);
-    data.total_pages = Math.ceil(data.results.length / 20);
-    data.page = Math.min(params.page, data.total_pages);
-    var offset = data.page - 1;
-    data.results = data.results.slice(20 * offset, 20 * offset + 20);
-    if (data.results.length) oncomplite(data);else onerror();
-  }
-
-  function relise(oncomplite, onerror) {
-      var postdata = {
-        category_id: "-1",
-        skip: "0",
-        limit: "60",
-        keyword: ""
-    };
-      network$4.silent('https://cmn.yyds.fans/api/posts', function (json) {
-        if(json.status_code === 405){
-          Noty.show('未能刷新数据，请从菜单重新进入。');
-          return false;
-        };
-        json.data.list.forEach(function (item) {
-          var mytitle = item.title.replace('/',' ');
-          if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
-          if(item.category_id !== 3) item.name = mytitle;
-          if(item.category_id == 3) item.tmdbID = item.imdb_id;
-          //item.tmdbID = item.imdb_id;
-          item.original_title = mytitle;
-          item.title = mytitle;
-          item.release_date = item.release_time;
-          item.vote_average = item.imdb_score;
-          item.poster_path = item.cover.replace('l_ratio_poster','s_ratio_poster');
-        });
-        oncomplite(json.data.list);
-      }, onerror,postdata);
-    }
-
-  function clear$2() {
-    TMDB.clear();
-    OKKO.clear();
-    IVI.clear();
-    network$5.clear();
-  }
-
-  var Api = {
-    main: main$1,
-    img: TMDB.img,
-    full: full,
-    list: list$1,
-    genres: genres,
-    category: category,
-    search: search$2,
-    clear: clear$2,
-    company: company,
-    person: person,
-    favorite: favorite,
-    seasons: seasons,
-    screensavers: TMDB.screensavers,
-    relise: relise,
-    menu: menu,
-    collections: collections,
-    menuCategory: menuCategory
-  };
-
-  var data$2 = [];
-  var object = false;
-  /**
-   * Запуск
-   */
-
-  function init$f() {
-    data$2 = Storage.cache('timetable', 300, []);
-    setInterval(extract$1, 1000 * 60 * 2);
-    setInterval(favorites, 1000 * 60 * 10);
-  }
-
-  function add$5(elems) {
-    elems.filter(function (elem) {
-      return elem.number_of_seasons;
-    }).forEach(function (elem) {
-      var id = data$2.filter(function (a) {
-        return a.id == elem.id;
-      });
-
-      if (!id.length) {
-        data$2.push({
-          id: elem.id,
-          season: elem.number_of_seasons,
-          episodes: []
-        });
-      }
-    });
-    Storage.set('timetable', data$2);
-  }
-
-  function favorites() {
-    add$5(Favorite.get({
-      type: 'book'
-    }));
-    add$5(Favorite.get({
-      type: 'like'
-    }));
-    add$5(Favorite.get({
-      type: 'wath'
-    }));
-  }
-
-  function parse$2() {
-    if (Favorite.check(object).any) {
-      TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
-        object.episodes = ep.episodes;
-        save$2();
-      }, save$2);
-    } else {
-      Arrays.remove(data$2, object); //очистить из расписания если больше нету в закладках
-
-      save$2();
-    }
-  }
-
-  function extract$1() {
-    var ids = data$2.filter(function (e) {
-      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
-    });
-
-    if (ids.length) {
-      object = ids[0];
-      parse$2();
-    } else {
-      data$2.forEach(function (a) {
-        return a.scaned = 0;
-      });
-    }
-
-    Storage.set('timetable', data$2);
-  }
-
-  function save$2() {
-    if (object) {
-      object.scaned = 1;
-      object.scaned_time = Date.now();
-      Storage.set('timetable', data$2);
-    }
-  }
-
-  function get$5(elem) {
-    var fid = data$2.filter(function (e) {
-      return e.id == elem.id;
-    });
-    return (fid.length ? fid[0] : {}).episodes || [];
-  }
-
-  function update$7(elem) {
-    if (elem.number_of_seasons && Favorite.check(elem).any) {
-      var id = data$2.filter(function (a) {
-        return a.id == elem.id;
-      });
-      TMDB.clear();
-
-      if (!id.length) {
-        var item = {
-          id: elem.id,
-          season: elem.number_of_seasons,
-          episodes: []
-        };
-        data$2.push(item);
-        Storage.set('timetable', data$2);
-        object = item;
-      } else object = id[0];
-
-      parse$2();
-    }
-  }
-
-  function all$1() {
-    return data$2;
-  }
-
-  var TimeTable = {
-    init: init$f,
-    get: get$5,
-    add: add$5,
-    all: all$1,
-    update: update$7
   };
 
   function create$p(call_video) {
@@ -6151,7 +2880,7 @@
   }
 
   var html$e = Template.get('player_panel');
-  var listener$c = start$4();
+  var listener$d = start$4();
   var condition = {};
   var timer$7 = {};
   var tracks = [];
@@ -6224,38 +2953,38 @@
   html$e.find('.selector').on('hover:focus', function (e) {
   });
   html$e.find('.player-panel__playpause').on('hover:enter', function (e) {
-    listener$c.send('playpause', {});
+    listener$d.send('playpause', {});
   });
   html$e.find('.player-panel__next').on('hover:enter', function (e) {
-    listener$c.send('next', {});
+    listener$d.send('next', {});
   });
   html$e.find('.player-panel__prev').on('hover:enter', function (e) {
-    listener$c.send('prev', {});
+    listener$d.send('prev', {});
   });
   html$e.find('.player-panel__rprev').on('hover:enter', function (e) {
-    listener$c.send('rprev', {});
+    listener$d.send('rprev', {});
   });
   html$e.find('.player-panel__rnext').on('hover:enter', function (e) {
-    listener$c.send('rnext', {});
+    listener$d.send('rnext', {});
   });
   html$e.find('.player-panel__playlist').on('hover:enter', function (e) {
-    listener$c.send('playlist', {});
+    listener$d.send('playlist', {});
   });
   html$e.find('.player-panel__tstart').on('hover:enter', function (e) {
-    listener$c.send('to_start', {});
+    listener$d.send('to_start', {});
   });
   html$e.find('.player-panel__tend').on('hover:enter', function (e) {
-    listener$c.send('to_end', {});
+    listener$d.send('to_end', {});
   });
   html$e.find('.player-panel__fullscreen').on('hover:enter', function (e) {
-    listener$c.send('fullscreen', {});
+    listener$d.send('fullscreen', {});
   });
   html$e.find('.player-panel__share').on('hover:enter', function () {
-    listener$c.send('share', {});
+    listener$d.send('share', {});
   });
   elems$1.timeline.attr('data-controller', 'player_rewind');
   elems$1.timeline.on('mousemove', function (e) {
-    listener$c.send('mouse_rewind', {
+    listener$d.send('mouse_rewind', {
       method: 'move',
       time: elems$1.time,
       percent: percent(e)
@@ -6263,7 +2992,7 @@
   }).on('mouseout', function () {
     elems$1.time.addClass('hide');
   }).on('click', function (e) {
-    listener$c.send('mouse_rewind', {
+    listener$d.send('mouse_rewind', {
       method: 'click',
       time: elems$1.time,
       percent: percent(e)
@@ -6284,10 +3013,10 @@
         toggleButtons();
       },
       right: function right() {
-        listener$c.send('rnext', {});
+        listener$d.send('rnext', {});
       },
       left: function left() {
-        listener$c.send('rprev', {});
+        listener$d.send('rprev', {});
       },
       gone: function gone() {
         html$e.find('.selector').removeClass('focus');
@@ -6312,7 +3041,7 @@
         Navigator.move('left');
       },
       down: function down() {
-        listener$c.send('playlist', {});
+        listener$d.send('playlist', {});
       },
       gone: function gone() {
         html$e.find('.selector').removeClass('focus');
@@ -6349,7 +3078,7 @@
         onSelect: function onSelect(a) {
           elems$1.quality.text(a.title);
           a.enabled = true;
-          if (!Arrays.isArray(qualitys)) listener$c.send('quality', {
+          if (!Arrays.isArray(qualitys)) listener$d.send('quality', {
             name: a.title,
             url: a.url
           });
@@ -6362,7 +3091,7 @@
     }
   });
   /**
-   * Выбор аудиодорожки
+   * 选择 аудиодорожки
    */
 
   elems$1.tracks.on('hover:enter', function (e) {
@@ -6400,7 +3129,7 @@
     }
   });
   /**
-   * Выбор субтитров
+   * Choice субтитров
    */
 
   elems$1.subs.on('hover:enter', function (e) {
@@ -6410,7 +3139,7 @@
           return s.selected;
         });
         Arrays.insert(subs, 0, {
-          title: '禁用',
+          title: '已禁用',
           selected: any_select ? false : true,
           index: -1
         });
@@ -6430,7 +3159,7 @@
           });
           a.mode = 'showing';
           a.selected = true;
-          listener$c.send('subsview', {
+          listener$d.send('subsview', {
             status: a.index > -1
           });
           Controller.toggle(enabled.name);
@@ -6462,12 +3191,12 @@
     if (!(Platform.is('tizen') && Storage.field('player') == 'tizen')) {
       items = items.concat([{
         title: '填充',
-        subtitle: '使视频适合全屏',
+        subtitle: '将视频调整到全屏',
         value: 'fill',
         selected: select == 'fill'
       }, {
-        title: '缩放 115%',
-        subtitle: '缩放视频 115%',
+        title: '放大 115%',
+        subtitle: '放大视频 115%',
         value: 's115',
         selected: select == 's115'
       }, {
@@ -6496,7 +3225,7 @@
       title: '视频大小',
       items: items,
       onSelect: function onSelect(a) {
-        listener$c.send('size', {
+        listener$d.send('size', {
           size: a.value
         });
         Controller.toggle('player_panel');
@@ -6519,7 +3248,7 @@
    */
 
 
-  function update$6(need, value) {
+  function update$8(need, value) {
     if (need == 'position') {
       elems$1.position.css({
         width: value
@@ -6555,7 +3284,7 @@
 
 
   function _visible(status) {
-    listener$c.send('visible', {
+    listener$d.send('visible', {
       status: status
     });
     html$e.toggleClass('panel--visible', status);
@@ -6591,7 +3320,7 @@
    */
 
 
-  function toggle$6() {
+  function toggle$7() {
     condition.visible = true;
     state.start();
     toggleRewind();
@@ -6697,14 +3426,14 @@
   }
 
   var Panel = {
-    listener: listener$c,
+    listener: listener$d,
     render: render$a,
-    toggle: toggle$6,
+    toggle: toggle$7,
     show: show$4,
     destroy: destroy$7,
     hide: hide,
     canplay: canplay,
-    update: update$6,
+    update: update$8,
     rewind: rewind$1,
     setTracks: setTracks,
     setSubs: setSubs,
@@ -6720,7 +3449,7 @@
       orsay_loaded,
       orsay_call = Date.now();
 
-  function init$e() {
+  function init$j() {
     $('body').append($("<div style=\"position: absolute; left: -1000px; top: -1000px;\">\n    <object id=\"pluginObjectNNavi\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-NNAVI\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectTVMW\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-TVMW\" style=\"opacity: 0.0; background-color: #000; width: 1px; height: 1px;\"></object>\n    <object id=\"pluginObjectSef\" border=\"0\" classid=\"clsid:SAMSUNG-INFOLINK-SEF\" style=\"opacity:0.0;background-color:#000;width:1px;height:1px;\"></object>\n</div>"));
     Utils.putScript(['$MANAGER_WIDGET/Common/API/Widget.js', '$MANAGER_WIDGET/Common/API/TVKeyValue.js', '$MANAGER_WIDGET/Common/API/Plugin.js'], function () {
       try {
@@ -6762,29 +3491,29 @@
   }
 
   var Orsay = {
-    init: init$e,
+    init: init$j,
     exit: exit
   };
 
   var enabled$2 = false;
-  var listener$b = start$4();
+  var listener$c = start$4();
   var lastdown = 0;
   var timer$6;
   var longpress;
 
-  function toggle$5(new_status) {
+  function toggle$6(new_status) {
     enabled$2 = new_status;
-    listener$b.send('toggle', {
+    listener$c.send('toggle', {
       status: enabled$2
     });
   }
 
   function enable$2() {
-    toggle$5(true);
+    toggle$6(true);
   }
 
   function disable$1() {
-    toggle$5(false);
+    toggle$6(false);
   }
 
   function isEnter(keycode) {
@@ -6803,7 +3532,7 @@
     return keycode;
   }
 
-  function init$d() {
+  function init$i() {
     window.addEventListener("keydown", function (e) {
       lastdown = keyCode(e);
 
@@ -6811,7 +3540,7 @@
         timer$6 = setTimeout(function () {
           if (isEnter(lastdown)) {
             longpress = true;
-            listener$b.send('longdown', {});
+            listener$c.send('longdown', {});
             Controller["long"]();
           }
         }, 800);
@@ -6820,7 +3549,7 @@
     window.addEventListener("keyup", function (e) {
       clearTimeout(timer$6);
       timer$6 = null;
-      listener$b.send('keyup', {
+      listener$c.send('keyup', {
         code: keyCode(e),
         enabled: enabled$2,
         event: e
@@ -6832,7 +3561,7 @@
     });
     window.addEventListener("keydown", function (e) {
       var keycode = keyCode(e);
-      listener$b.send('keydown', {
+      listener$c.send('keydown', {
         code: keycode,
         enabled: enabled$2,
         event: e
@@ -6939,15 +3668,15 @@
   }
 
   var Keypad = {
-    listener: listener$b,
-    init: init$d,
+    listener: listener$c,
+    init: init$i,
     enable: enable$2,
     disable: disable$1
   };
 
   var subparams;
 
-  var listener$a = function listener(e) {
+  var listener$b = function listener(e) {
     if (e.code == 405) getWebosmediaId(setSubtitleColor);
     if (e.code == 406) getWebosmediaId(setSubtitleBackgroundColor);
     if (e.code == 403) getWebosmediaId(setSubtitleFontSize);
@@ -6956,7 +3685,7 @@
     if (e.code == 57) getWebosmediaId(setSubtitleCharacterOpacity);
   };
 
-  Keypad.listener.follow('keydown', listener$a);
+  Keypad.listener.follow('keydown', listener$b);
 
   function luna$1(params, call, fail) {
     if (call) params.onSuccess = call;
@@ -7375,7 +4104,7 @@
     return items;
   }
 
-  function parse$1(data, ms) {
+  function parse$2(data, ms) {
     if (/WEBVTT/gi.test(data)) return parseVTT(data, ms);else return parseSRT(data, ms);
   }
 
@@ -7409,7 +4138,7 @@
     this.load = function (url) {
       network.silent(url, function (data) {
         if (data) {
-          parsed = parse$1(data, true);
+          parsed = parse$2(data, true);
         }
       }, false, false, {
         dataType: 'text'
@@ -7444,7 +4173,7 @@
     };
   }
 
-  var listener$9 = start$4();
+  var listener$a = start$4();
   var html$d = Template.get('player_video');
   var display = html$d.find('.player-video__display');
   var paused = html$d.find('.player-video__paused');
@@ -7489,7 +4218,7 @@
 
 
     _video.addEventListener('ended', function () {
-      listener$9.send('ended', {});
+      listener$a.send('ended', {});
     }); // что-то пошло не так
 
 
@@ -7499,15 +4228,15 @@
 
       if (msg.indexOf('EMPTY SRC') == -1) {
         if (error.code == 3) {
-          listener$9.send('error', {
-            error: '解码视频失败'
+          listener$a.send('error', {
+            error: '视频解码失败'
           });
         } else if (error.code == 4) {
-          listener$9.send('error', {
+          listener$a.send('error', {
             error: '视频未找到或损坏'
           });
         } else if (typeof error.code !== 'undefined') {
-          listener$9.send('error', {
+          listener$a.send('error', {
             error: 'code [' + error.code + '] details [' + msg + ']'
           });
         }
@@ -7517,7 +4246,7 @@
 
     _video.addEventListener('progress', function (e) {
       if (e.percent) {
-        listener$9.send('progress', {
+        listener$a.send('progress', {
           down: e.percent
         });
       } else {
@@ -7527,7 +4256,7 @@
           for (var i = 0; i < _video.buffered.length; i++) {
             if (_video.buffered.start(_video.buffered.length - 1 - i) < _video.currentTime) {
               var down = Math.max(0, Math.min(100, _video.buffered.end(_video.buffered.length - 1 - i) / duration * 100)) + "%";
-              listener$9.send('progress', {
+              listener$a.send('progress', {
                 down: down
               });
               break;
@@ -7539,16 +4268,16 @@
 
 
     _video.addEventListener('canplay', function () {
-      listener$9.send('canplay', {});
+      listener$a.send('canplay', {});
     }); // сколько прошло
 
 
     _video.addEventListener('timeupdate', function () {
-      listener$9.send('timeupdate', {
+      listener$a.send('timeupdate', {
         duration: _video.duration,
         current: _video.currentTime
       });
-      listener$9.send('videosize', {
+      listener$a.send('videosize', {
         width: _video.videoWidth,
         height: _video.videoHeight
       });
@@ -7561,7 +4290,7 @@
     _video.addEventListener('subtitle', function (e) {
       //В srt существует тег {\anX}, где X - цифра 1 到 9, Тег определяет нестандартное положение субтитра на экране.
       //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
-      //{\an8} 当字幕不与屏幕底部的铭文或内置视频序列的字幕重叠时使用。
+      //{\an8} 当您希望字幕不与底部的字幕重叠时使用视频中内置的屏幕或字幕。
       subtitles$1.removeClass('on-top');
       var posTag = e.text.match(/^{\\an(\d)}/);
 
@@ -7580,7 +4309,7 @@
     });
 
     _video.addEventListener('loadedmetadata', function (e) {
-      listener$9.send('videosize', {
+      listener$a.send('videosize', {
         width: _video.videoWidth,
         height: _video.videoHeight
       });
@@ -7746,7 +4475,7 @@
         tracks[params.track].selected = true;
       }
 
-      listener$9.send('tracks', {
+      listener$a.send('tracks', {
         tracks: tracks
       });
     }
@@ -7771,7 +4500,7 @@
         subsview(true);
       } else if (Storage.field('subtitles_start')) {
         var full = subs.find(function (s) {
-          return s.label.indexOf('完整') >= 0;
+          return s.label.indexOf('full') >= 0;
         });
 
         if (full) {
@@ -7785,7 +4514,7 @@
         subsview(true);
       }
 
-      listener$9.send('subs', {
+      listener$a.send('subs', {
         subs: subs
       });
     }
@@ -7817,7 +4546,7 @@
         current_level = hls.levels[params.level].title;
       }
 
-      listener$9.send('levels', {
+      listener$a.send('levels', {
         levels: hls.levels,
         current: current_level
       });
@@ -7907,10 +4636,10 @@
         var sub = _video.customSubs;
         console.log('WebOS', 'video loaded');
         $(_video).remove();
-        url$2(src);
+        url$5(src);
         _video.customSubs = sub;
         webos.repet(_video);
-        listener$9.send('reset_continue', {});
+        listener$a.send('reset_continue', {});
       };
 
       webos.start();
@@ -7934,7 +4663,7 @@
    */
 
 
-  function url$2(src) {
+  function url$5(src) {
     loader(true);
 
     if (hls) {
@@ -7997,7 +4726,7 @@
     }
 
     paused.addClass('hide');
-    listener$9.send('play', {});
+    listener$a.send('play', {});
   }
   /**
    * Пауза
@@ -8020,7 +4749,7 @@
     }
 
     paused.removeClass('hide');
-    listener$9.send('pause', {});
+    listener$a.send('pause', {});
   }
   /**
    * Играем или пауза
@@ -8032,10 +4761,10 @@
 
     if (_video.paused) {
       play$2();
-      listener$9.send('play', {});
+      listener$a.send('play', {});
     } else {
       pause();
-      listener$9.send('pause', {});
+      listener$a.send('pause', {});
     }
   }
   /**
@@ -8067,11 +4796,11 @@
     pause();
     if (rewind_position == 0) _video.currentTime = 0;else if (rewind_position == _video.duration) _video.currentTime = _video.duration;
     timer$5.rewind = Date.now();
-    listener$9.send('timeupdate', {
+    listener$a.send('timeupdate', {
       duration: _video.duration,
       current: rewind_position
     });
-    listener$9.send('rewind', {});
+    listener$a.send('rewind', {});
     rewindEnd(immediately);
   }
   /**
@@ -8167,8 +4896,8 @@
   }
 
   var Video = {
-    listener: listener$9,
-    url: url$2,
+    listener: listener$a,
+    url: url$5,
     render: render$9,
     destroy: destroy$6,
     playpause: playpause,
@@ -8188,8 +4917,8 @@
   };
 
   var html$c = Template.get('player_info');
-  var listener$8 = start$4();
-  var network$4 = new create$s();
+  var listener$9 = start$4();
+  var network$c = new create$s();
   var elems = {
     name: $('.player-info__name', html$c),
     size: $('.value--size span', html$c),
@@ -8233,11 +4962,11 @@
         if (wait <= 5) return;else wait = 0;
       }
 
-      network$4.timeout(2000);
-      network$4.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
+      network$c.timeout(2000);
+      network$c.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
         elems.stat.text((data.active_peers || 0) + ' / ' + (data.total_peers || 0) + ' • ' + (data.connected_seeders || 0) + ' seeds');
         elems.speed.text(data.download_speed ? Utils.bytesToSize(data.download_speed * 8, true) + '/c' : '0.0');
-        listener$8.send('stat', {
+        listener$9.send('stat', {
           data: data
         });
       });
@@ -8252,7 +4981,7 @@
    */
 
 
-  function toggle$4(status) {
+  function toggle$5(status) {
     html$c.toggleClass('info--visible', status);
   }
   /**
@@ -8261,13 +4990,13 @@
 
 
   function destroy$5() {
-    elems.size.text('加载中...');
+    elems.size.text('Loading...');
     elems.stat.text('');
     elems.speed.text('');
     elems.error.addClass('hide');
     clearTimeout(error$1);
     clearInterval(stat_timer);
-    network$4.clear();
+    network$c.clear();
   }
 
   function render$8() {
@@ -8275,14 +5004,14 @@
   }
 
   var Info = {
-    listener: listener$8,
+    listener: listener$9,
     render: render$8,
     set: set$2,
-    toggle: toggle$4,
+    toggle: toggle$5,
     destroy: destroy$5
   };
 
-  var listener$7 = start$4();
+  var listener$8 = start$4();
   var current = '';
   var playlist$1 = [];
   var position$1 = 0;
@@ -8298,7 +5027,7 @@
       items: playlist$1,
       onSelect: function onSelect(a) {
         Controller.toggle(enabled.name);
-        listener$7.send('select', {
+        listener$8.send('select', {
           playlist: playlist$1,
           item: a,
           position: position$1
@@ -8329,7 +5058,7 @@
     active$3();
 
     if (position$1 > 0) {
-      listener$7.send('select', {
+      listener$8.send('select', {
         playlist: playlist$1,
         position: position$1 - 1,
         item: playlist$1[position$1 - 1]
@@ -8337,7 +5066,7 @@
     }
   }
   /**
-   * 下一步
+   * 下一个
    */
 
 
@@ -8345,7 +5074,7 @@
     active$3();
 
     if (position$1 < playlist$1.length - 1) {
-      listener$7.send('select', {
+      listener$8.send('select', {
         playlist: playlist$1,
         position: position$1 + 1,
         item: playlist$1[position$1 + 1]
@@ -8363,7 +5092,7 @@
     playlist$1.forEach(function (l, i) {
       if (l.url == current) position$1 = i;
     });
-    listener$7.send('set', {
+    listener$8.send('set', {
       playlist: playlist$1,
       position: position$1
     });
@@ -8373,7 +5102,7 @@
    */
 
 
-  function get$4() {
+  function get$c() {
     return playlist$1;
   }
   /**
@@ -8382,25 +5111,25 @@
    */
 
 
-  function url$1(u) {
+  function url$4(u) {
     current = u;
   }
 
   var Playlist = {
-    listener: listener$7,
+    listener: listener$8,
     show: show$3,
-    url: url$1,
-    get: get$4,
+    url: url$4,
+    get: get$c,
     set: set$1,
     prev: prev,
     next: next
   };
 
-  var listener$6 = start$4();
+  var listener$7 = start$4();
   var enabled$1 = false;
   var worked = false;
   var chrome = false;
-  var img;
+  var img$3;
   var html$b = Template.get('screensaver');
   var movies = [];
   var timer$4 = {};
@@ -8411,20 +5140,20 @@
     if (isWorked()) stopSlideshow();
   });
 
-  function toggle$3(is_enabled) {
+  function toggle$4(is_enabled) {
     enabled$1 = is_enabled;
     if (enabled$1) resetTimer();else clearTimeout(timer$4.wait);
-    listener$6.send('toggle', {
+    listener$7.send('toggle', {
       status: enabled$1
     });
   }
 
   function enable$1() {
-    toggle$3(true);
+    toggle$4(true);
   }
 
   function disable() {
-    toggle$3(false);
+    toggle$4(false);
   }
 
   function resetTimer() {
@@ -8462,13 +5191,13 @@
   function nextSlide() {
     var movie = movies[position];
     var image = 'https://source.unsplash.com/1600x900/?nature&order_by=relevant&v=' + Math.random();
-    img = null;
-    img = new Image();
-    img.src = image;
+    img$3 = null;
+    img$3 = new Image();
+    img$3.src = image;
 
-    img.onload = function () {
+    img$3.onload = function () {
       var to = $('.screensaver__slides-' + (slides$1 == 'one' ? 'two' : 'one'), html$b);
-      to[0].src = img.src;
+      to[0].src = img$3.src;
       to.removeClass(direct.join(' ') + ' animate').addClass(direct[Math.floor(Math.random() * direct.length)]);
       setTimeout(function () {
         $('.screensaver__title', html$b).removeClass('visible');
@@ -8486,7 +5215,7 @@
       }, 3000);
     };
 
-    img.onerror = function (e) {
+    img$3.onerror = function (e) {
       console.error(e);
     };
 
@@ -8511,7 +5240,7 @@
     }
   }
 
-  function init$c() {
+  function init$h() {
     $('body').append(html$b);
     resetTimer();
     Keypad.listener.follow('keydown', function (e) {
@@ -8539,8 +5268,8 @@
   }
 
   var Screensaver = {
-    listener: listener$6,
-    init: init$c,
+    listener: listener$7,
+    init: init$h,
     enable: enable$1,
     render: render$7,
     disable: disable,
@@ -8572,7 +5301,7 @@
     bind$1(params.html);
     scroll$2.append(params.html);
     $('body').append(html$a);
-    toggle$2();
+    toggle$3();
   }
 
   function bind$1(where) {
@@ -8595,7 +5324,7 @@
     }
   }
 
-  function toggle$2() {
+  function toggle$3() {
     Controller.add('modal', {
       invisible: true,
       toggle: function toggle() {
@@ -8621,12 +5350,12 @@
     Controller.toggle('modal');
   }
 
-  function update$5(new_html) {
+  function update$7(new_html) {
     last$3 = false;
     scroll$2.clear();
     scroll$2.append(new_html);
     bind$1(new_html);
-    toggle$2();
+    toggle$3();
   }
 
   function title$1(tit) {
@@ -8647,14 +5376,14 @@
   var Modal = {
     open: open$3,
     close: close$2,
-    update: update$5,
+    update: update$7,
     title: title$1,
-    toggle: toggle$2
+    toggle: toggle$3
   };
 
-  var network$3 = new create$s();
+  var network$b = new create$s();
 
-  function url() {
+  function url$3() {
     var u = ip();
     return u ? Utils.checkHttp(u) : u;
   }
@@ -8667,13 +5396,13 @@
     var data = JSON.stringify({
       action: 'list'
     });
-    clear$1();
-    network$3.silent(url() + '/torrents', function (result) {
+    clear$7();
+    network$b.silent(url$3() + '/torrents', function (result) {
       if (result.length) success(result);else fail();
     }, fail, data);
   }
 
-  function add$4(object, success, fail) {
+  function add$9(object, success, fail) {
     var data = JSON.stringify({
       action: 'add',
       link: object.link,
@@ -8682,8 +5411,8 @@
       data: object.data ? JSON.stringify(object.data) : '',
       save_to_db: true
     });
-    clear$1();
-    network$3.silent(url() + '/torrents', success, fail, data);
+    clear$7();
+    network$b.silent(url$3() + '/torrents', success, fail, data);
   }
 
   function hash$1(object, success, fail) {
@@ -8695,9 +5424,9 @@
       data: object.data ? JSON.stringify(object.data) : '',
       save_to_db: Storage.get('torrserver_savedb', 'false')
     });
-    clear$1();
-    network$3.silent(url() + '/torrents', success, function (a, c) {
-      fail(network$3.errorDecode(a, c));
+    clear$7();
+    network$b.silent(url$3() + '/torrents', success, function (a, c) {
+      fail(network$b.errorDecode(a, c));
     }, data);
   }
 
@@ -8706,9 +5435,9 @@
       action: 'get',
       hash: hash
     });
-    clear$1();
-    network$3.timeout(2000);
-    network$3.silent(url() + '/torrents', function (json) {
+    clear$7();
+    network$b.timeout(2000);
+    network$b.silent(url$3() + '/torrents', function (json) {
       if (json.file_stats) {
         success(json);
       }
@@ -8716,23 +5445,23 @@
   }
 
   function connected(success, fail) {
-    clear$1();
-    network$3.timeout(5000);
-    network$3.silent(url() + '/settings', function (json) {
+    clear$7();
+    network$b.timeout(5000);
+    network$b.silent(url$3() + '/settings', function (json) {
       if (typeof json.CacheSize == 'undefined') {
-        fail('验证失败 Matrix');
+        fail('版本验证失败 Matrix');
       } else {
         success(json);
       }
     }, function (a, c) {
-      fail(network$3.errorDecode(a, c));
+      fail(network$b.errorDecode(a, c));
     }, JSON.stringify({
       action: 'get'
     }));
   }
 
   function stream(path, hash, id) {
-    return url() + '/stream/' + encodeURIComponent(path.split('\\').pop().split('/').pop()) + '?link=' + hash + '&index=' + id + '&' + (Storage.field('torrserver_preload') ? 'preload' : 'play');
+    return url$3() + '/stream/' + encodeURIComponent(path.split('\\').pop().split('/').pop()) + '?link=' + hash + '&index=' + id + '&' + (Storage.field('torrserver_preload') ? 'preload' : 'play');
   }
 
   function drop(hash, success, fail) {
@@ -8740,24 +5469,24 @@
       action: 'drop',
       hash: hash
     });
-    clear$1();
-    network$3.silent(url() + '/torrents', success, fail, data, {
+    clear$7();
+    network$b.silent(url$3() + '/torrents', success, fail, data, {
       dataType: 'text'
     });
   }
 
-  function remove(hash, success, fail) {
+  function remove$1(hash, success, fail) {
     var data = JSON.stringify({
       action: 'rem',
       hash: hash
     });
-    clear$1();
-    network$3.silent(url() + '/torrents', success, fail, data, {
+    clear$7();
+    network$b.silent(url$3() + '/torrents', success, fail, data, {
       dataType: 'text'
     });
   }
 
-  function parse(file_path, movie, is_file) {
+  function parse$1(file_path, movie, is_file) {
     var path = file_path.toLowerCase();
     var data = {
       hash: '',
@@ -8815,8 +5544,8 @@
     return data;
   }
 
-  function clear$1() {
-    network$3.clear();
+  function clear$7() {
+    network$b.clear();
   }
 
   function error() {
@@ -8874,21 +5603,21 @@
   var Torserver = {
     ip: ip,
     my: my,
-    add: add$4,
-    url: url,
+    add: add$9,
+    url: url$3,
     hash: hash$1,
     files: files$1,
-    clear: clear$1,
+    clear: clear$7,
     drop: drop,
     stream: stream,
-    remove: remove,
+    remove: remove$1,
     connected: connected,
-    parse: parse,
+    parse: parse$1,
     error: error
   };
 
   var timer$3;
-  var listener$5;
+  var listener$6;
 
   function open$2(params) {
     var enabled = Controller.enabled().name;
@@ -8899,7 +5628,7 @@
     var list = temp.find('.broadcast__devices');
     if (!text) temp.find('.about').remove();
 
-    listener$5 = function listener(e) {
+    listener$6 = function listener(e) {
       if (e.method == 'devices') {
         var devices = e.data.filter(function (d) {
           return !(d.name == 'CUB' || d.device_id == Socket.uid());
@@ -8944,18 +5673,18 @@
         Controller.toggle(enabled);
       }
     });
-    listener$5({
+    listener$6({
       method: 'devices',
       data: Socket.devices()
     });
-    Socket.listener.follow('message', listener$5);
+    Socket.listener.follow('message', listener$6);
   }
 
   function close$1() {
-    Socket.listener.remove('message', listener$5);
+    Socket.listener.remove('message', listener$6);
     clearInterval(timer$3);
     Modal.close();
-    listener$5 = null;
+    listener$6 = null;
   }
 
   var Broadcast = {
@@ -8968,7 +5697,7 @@
   html$9.append(Info.render());
   var callback$2;
   var work = false;
-  var network$2 = new create$s();
+  var network$a = new create$s();
   var launch_player;
   var timer_ask;
   var preloader = {
@@ -9150,7 +5879,7 @@
    * Главный контроллер
    */
 
-  function toggle$1() {
+  function toggle$2() {
     Controller.add('player', {
       invisible: true,
       toggle: function toggle() {
@@ -9285,8 +6014,8 @@
       $('body').append(html$9);
       Panel.show(true);
       togglePreload();
-      network$2.timeout(2000);
-      network$2.silent(data.url);
+      network$a.timeout(2000);
+      network$a.silent(data.url);
 
       preloader.call = function () {
         data.url = data.url.replace('&preload', '&play');
@@ -9315,13 +6044,13 @@
           }],
           onBack: function onBack() {
             work.timeline.continued = true;
-            toggle$1();
+            toggle$2();
             clearTimeout(timer_ask);
           },
           onSelect: function onSelect(a) {
             work.timeline.waiting_for_user = false;
             if (!a.yes) work.timeline.continued = true;
-            toggle$1();
+            toggle$2();
             clearTimeout(timer_ask);
           }
         });
@@ -9329,7 +6058,7 @@
         timer_ask = setTimeout(function () {
           work.timeline.continued = true;
           Select.hide();
-          toggle$1();
+          toggle$2();
         }, 8000);
       }
     }
@@ -9354,7 +6083,7 @@
         if (data.subtitles) Video.customSubs(data.subtitles);
         Info.set('name', data.title);
         if (!preloader.call) $('body').append(html$9);
-        toggle$1();
+        toggle$2();
         Panel.show(true);
         Controller.updateSelects();
         ask();
@@ -9451,84 +6180,7 @@
     opened: opened$1
   };
 
-  var socket;
-  var ping;
-
-  var _uid = Utils.uid();
-
-  var _devices = [];
-  var listener$4 = start$4();
-
-  function connect$1() {
-    clearInterval(ping);
-
-    try {
-      socket = new WebSocket('wss://cub.watch:8020');
-    } catch (e) {
-      console.log('Socket', 'not work');
-      return;
-    }
-
-    socket.addEventListener('open', function (event) {
-      //console.log('Socket','open')
-      send('start', {});
-      ping = setInterval(function () {
-        send('ping', {});
-      }, 5000);
-    });
-    socket.addEventListener('close', function (event) {
-      //console.log('Socket','close', event.code)
-      setTimeout(connect$1, 5000);
-    });
-    socket.addEventListener('error', function (event) {
-      console.log('Socket', 'error', event.message, event.code);
-      socket.close();
-    }, false);
-    socket.addEventListener('message', function (event) {
-      var result = JSON.parse(event.data);
-
-      if (result.method == 'devices') {
-        _devices = result.data;
-      } else if (result.method == 'open') {
-        Controller.toContent();
-        Activity$1.push(result.data);
-      } else if (result.method == 'timeline') {
-        result.data.received = true; //чтоб снова не остправлять и не зациклить
-
-        Timeline.update(result.data);
-      } else if (result.method == 'other' && result.data.submethod == 'play') {
-        Controller.toContent();
-        Player.play(result.data.object.player);
-        Player.playlist(result.data.object.playlist);
-      }
-
-      listener$4.send('message', result);
-    });
-  }
-
-  function send(method, data) {
-    var name_devise = Platform.get() ? Platform.get() : navigator.userAgent.toLowerCase().indexOf('mobile') > -1 ? 'mobile' : navigator.userAgent.toLowerCase().indexOf('x11') > -1 ? 'chrome' : 'other';
-    data.device_id = _uid;
-    data.name = Utils.capitalizeFirstLetter(name_devise) + ' - ' + Storage.field('device_name');
-    data.method = method;
-    data.version = 1;
-    data.account = Storage.get('account', '{}');
-    if (socket.readyState == 1) socket.send(JSON.stringify(data));
-  }
-
-  var Socket = {
-    listener: listener$4,
-    init: connect$1,
-    send: send,
-    uid: function uid() {
-      return _uid;
-    },
-    devices: function devices() {
-      return _devices;
-    }
-  };
-
-  function update$4(params) {
+  function update$6(params) {
     if (params.hash == 0) return;
     var viewed = Storage.cache('file_view', 10000, {});
     var road = viewed[params.hash];
@@ -9585,7 +6237,7 @@
       time: road.time,
       duration: road.duration,
       handler: function handler(percent, time, duration) {
-        return update$4({
+        return update$6({
           hash: hash,
           percent: percent,
           time: time,
@@ -9627,10 +6279,3337 @@
 
   var Timeline = {
     render: render$5,
-    update: update$4,
+    update: update$6,
     view: view$1,
     details: details,
     format: format
+  };
+
+  var socket;
+  var ping;
+
+  var _uid = Utils.uid();
+
+  var _devices = [];
+  var listener$5 = start$4();
+
+  function connect$1() {
+    clearInterval(ping);
+
+    try {
+      socket = new WebSocket('wss://cub.watch:8020');
+    } catch (e) {
+      console.log('Socket', 'not work');
+      return;
+    }
+
+    socket.addEventListener('open', function (event) {
+      //console.log('Socket','open')
+      send('start', {});
+      ping = setInterval(function () {
+        send('ping', {});
+      }, 5000);
+    });
+    socket.addEventListener('close', function (event) {
+      //console.log('Socket','close', event.code)
+      setTimeout(connect$1, 5000);
+    });
+    socket.addEventListener('error', function (event) {
+      console.log('Socket', 'error', event.message, event.code);
+      socket.close();
+    }, false);
+    socket.addEventListener('message', function (event) {
+      var result = JSON.parse(event.data);
+
+      if (result.method == 'devices') {
+        _devices = result.data;
+      } else if (result.method == 'open') {
+        Controller.toContent();
+        Activity$1.push(result.data);
+      } else if (result.method == 'timeline') {
+        result.data.received = true; //чтоб снова не остправлять и не зациклить
+
+        Timeline.update(result.data);
+      } else if (result.method == 'bookmarks') {
+        Account.update();
+      } else if (result.method == 'other' && result.data.submethod == 'play') {
+        Controller.toContent();
+        Player.play(result.data.object.player);
+        Player.playlist(result.data.object.playlist);
+      }
+
+      listener$5.send('message', result);
+    });
+  }
+
+  function send(method, data) {
+    var name_devise = Platform.get() ? Platform.get() : navigator.userAgent.toLowerCase().indexOf('mobile') > -1 ? 'mobile' : navigator.userAgent.toLowerCase().indexOf('x11') > -1 ? 'chrome' : 'other';
+    data.device_id = _uid;
+    data.name = Utils.capitalizeFirstLetter(name_devise) + ' - ' + Storage.field('device_name');
+    data.method = method;
+    data.version = 1;
+    data.account = Storage.get('account', '{}');
+    if (socket.readyState == 1) socket.send(JSON.stringify(data));
+  }
+
+  var Socket = {
+    listener: listener$5,
+    init: connect$1,
+    send: send,
+    uid: function uid() {
+      return _uid;
+    },
+    devices: function devices() {
+      return _devices;
+    }
+  };
+
+  var body$3;
+  var network$9 = new create$s();
+  var api = Utils.protocol() + 'cub.watch/api/';
+  var notice_load = {
+    time: 0,
+    data: []
+  };
+  var bookmarks = [];
+  /**
+   * Запуск
+   */
+
+  function init$g() {
+    Settings.listener.follow('open', function (e) {
+      body$3 = null;
+
+      if (e.name == 'account') {
+        body$3 = e.body;
+        renderPanel$1();
+        check$1();
+      }
+    });
+    Storage.listener.follow('change', function (e) {
+      if (e.name == 'account_email' || e.name == 'account_password') {
+        signin();
+        if (e.name == 'account_password') Storage.set('account_password', '', true);
+      }
+    });
+    Favorite.listener.follow('add,added', function (e) {
+      save$5('add', e.where, e.card);
+    });
+    Favorite.listener.follow('remove', function (e) {
+      save$5('remove', e.where, e.card);
+    });
+    updateBookmarks(Storage.get('account_bookmarks', '[]'));
+    update$5();
+    timelines();
+  }
+
+  function timelines() {
+    var account = Storage.get('account', '{}');
+
+    if (account.token && Storage.field('account_use')) {
+      network$9.silent(api + 'timeline/all', function (result) {
+        var viewed = Storage.cache('file_view', 10000, {});
+
+        for (var i in result.timelines) {
+          var time = result.timelines[i];
+          viewed[i] = time;
+          Arrays.extend(viewed[i], {
+            duration: 0,
+            time: 0,
+            percent: 0
+          });
+          delete viewed[i].hash;
+        }
+
+        Storage.set('file_view', viewed);
+      }, false, false, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+    }
+  }
+
+  function save$5(method, type, card) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token && Storage.field('account_use')) {
+      var list = Storage.get('account_bookmarks', '[]');
+      var find = list.find(function (elem) {
+        return elem.card_id == card.id && elem.type == type;
+      });
+      network$9.clear();
+      network$9.silent(api + 'bookmarks/' + method, update$5, false, {
+        type: type,
+        data: JSON.stringify(card),
+        card_id: card.id,
+        id: find ? find.id : 0
+      }, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+
+      if (method == 'remove') {
+        if (find) Arrays.remove(list, find);
+      } else {
+        list.push({
+          id: 0,
+          card_id: card.id,
+          type: type,
+          data: JSON.stringify(card),
+          profile: account.profile.id
+        });
+      }
+
+      Socket.send('bookmarks', {});
+      updateBookmarks(list);
+    }
+  }
+
+  function clear$6(where) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      network$9.silent(api + 'bookmarks/clear', function (result) {
+        if (result.secuses) update$5();
+      }, false, {
+        type: 'group',
+        group: where
+      }, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+    }
+  }
+
+  function update$5(call) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      network$9.silent(api + 'bookmarks/all?full=1', function (result) {
+        if (result.secuses) {
+          updateBookmarks(result.bookmarks);
+          if (call && typeof call == 'function') call();
+        }
+      }, false, false, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+    } else {
+      updateBookmarks([]);
+    }
+  }
+
+  function plugins(call) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      network$9.timeout(2000);
+      network$9.silent(api + 'plugins/all', function (result) {
+        if (result.secuses) {
+          Storage.set('account_plugins', result.plugins);
+          call(result.plugins);
+        } else {
+          call(Storage.get('account_plugins', '[]'));
+        }
+      }, function () {
+        call(Storage.get('account_plugins', '[]'));
+      }, false, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+    } else {
+      call([]);
+    }
+  }
+
+  function pluginsStatus(plugin, status) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      network$9.silent(api + 'plugins/status', false, false, {
+        id: plugin.id,
+        status: status
+      }, {
+        headers: {
+          token: account.token,
+          profile: account.profile.id
+        }
+      });
+    }
+  }
+  /**
+   * Статус
+   */
+
+
+  function renderStatus$1(name) {
+    var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    if (body$3) {
+      body$3.find('.settings--account-status .settings-param__value').text(name);
+      body$3.find('.settings--account-status .settings-param__descr').text(value);
+    }
+  }
+
+  function renderPanel$1() {
+    if (body$3) {
+      var account = Storage.get('account', '{}');
+      var signed = account.token ? true : false;
+      body$3.find('.settings--account-signin').toggleClass('hide', signed);
+      body$3.find('.settings--account-user').toggleClass('hide', !signed);
+
+      if (account.token) {
+        body$3.find('.settings--account-user-info .settings-param__value').text(account.email);
+        body$3.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+        body$3.find('.settings--account-user-out').on('hover:enter', function () {
+          Storage.set('account', {});
+          Settings.update();
+          update$5();
+        });
+        body$3.find('.settings--account-user-sync').on('hover:enter', function () {
+          account = Storage.get('account', '{}');
+          Select.show({
+            title: '同步',
+            items: [{
+              title: '确认',
+              subtitle: '所有书签将转移到个人资料 (' + account.profile.name + ')',
+              confirm: true
+            }, {
+              title: '取消'
+            }],
+            onSelect: function onSelect(a) {
+              if (a.confirm) {
+                var file = new File([localStorage.getItem('favorite') || '{}'], "bookmarks.json", {
+                  type: "text/plain"
+                });
+                var formData = new FormData($('<form></form>')[0]);
+                formData.append("file", file, "bookmarks.json");
+                $.ajax({
+                  url: api + 'bookmarks/sync',
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  cache: false,
+                  contentType: false,
+                  enctype: 'multipart/form-data',
+                  processData: false,
+                  headers: {
+                    token: account.token,
+                    profile: account.profile.id
+                  },
+                  success: function success(j) {
+                    if (j.secuses) {
+                      Noty.show('所有书签已成功转移');
+                      update$5();
+                    }
+                  }
+                });
+              }
+
+              Controller.toggle('settings_component');
+            },
+            onBack: function onBack() {
+              Controller.toggle('settings_component');
+            }
+          });
+        });
+        profile();
+      } else check$1();
+    }
+  }
+
+  function profile() {
+    var account = Storage.get('account', '{}');
+    body$3.find('.settings--account-user-profile .settings-param__value').text(account.profile.name);
+    body$3.find('.settings--account-user-profile').on('hover:enter', function () {
+      showProfiles('settings_component');
+    });
+  }
+
+  function showProfiles(controller) {
+    var account = Storage.get('account', '{}');
+    network$9.clear();
+    network$9.silent(api + 'profiles/all', function (result) {
+      if (result.secuses) {
+        Select.show({
+          title: '个人资料',
+          items: result.profiles.map(function (elem) {
+            elem.title = elem.name;
+            elem.selected = account.profile.id == elem.id;
+            return elem;
+          }),
+          onSelect: function onSelect(a) {
+            account.profile = a;
+            Storage.set('account', account);
+            if (body$3) body$3.find('.settings--account-user-profile .settings-param__value').text(a.name);
+            Controller.toggle(controller);
+            update$5();
+          },
+          onBack: function onBack() {
+            Controller.toggle(controller);
+          }
+        });
+      } else {
+        Noty.show(result.text);
+      }
+    }, function () {
+      Noty.show('获取配置文件列表失败');
+    }, false, {
+      headers: {
+        token: account.token
+      }
+    });
+  }
+
+  function check$1() {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      renderStatus$1('已授权', '您已登录 ' + account.email);
+    } else {
+      renderStatus$1('登录失败', '等待登录');
+    }
+  }
+
+  function working() {
+    return Storage.get('account', '{}').token && Storage.field('account_use');
+  }
+
+  function get$b(params) {
+    return bookmarks.filter(function (elem) {
+      return elem.type == params.type;
+    }).map(function (elem) {
+      return elem.data;
+    });
+  }
+
+  function all$2() {
+    return bookmarks.map(function (elem) {
+      return elem.data;
+    });
+  }
+
+  function updateBookmarks(rows) {
+    Storage.set('account_bookmarks', rows);
+    bookmarks = rows.reverse().map(function (elem) {
+      elem.data = JSON.parse(elem.data);
+      return elem;
+    });
+  }
+  /**
+   * Проверка авторизации
+   */
+
+
+  function signin() {
+    var email = Storage.value('account_email', '');
+    var password = Storage.value('account_password', '');
+
+    if (email && password) {
+      network$9.clear();
+      network$9.silent(api + 'users/signin', function (result) {
+        if (result.secuses) {
+          Storage.set('account', {
+            email: email,
+            token: result.user.token,
+            id: result.user.id,
+            profile: {
+              name: '常规',
+              id: 0
+            }
+          });
+          Settings.update();
+          update$5();
+        } else {
+          renderStatus$1('错误', result.text);
+        }
+      }, function () {
+        renderStatus$1('错误', '没有网络连接');
+      }, {
+        email: email,
+        password: password
+      });
+    }
+  }
+
+  function notice(call) {
+    var account = Storage.get('account', '{}');
+
+    if (account.token) {
+      if (notice_load.time + 1000 * 60 * 10 < Date.now()) {
+        network$9.timeout(1000);
+        network$9.silent(api + 'notice/all', function (result) {
+          if (result.secuses) {
+            notice_load.time = Date.now();
+            notice_load.data = result.notice;
+            Storage.set('account_notice', result.notice);
+            call(result.notice);
+          } else call([]);
+        }, function () {
+          call([]);
+        }, false, {
+          headers: {
+            token: account.token
+          }
+        });
+      } else call(notice_load.data);
+    } else call([]);
+  }
+
+  function torrentViewed(data) {
+    network$9.timeout(5000);
+    network$9.silent(api + 'torrent/viewing', false, false, data);
+  }
+
+  function torrentPopular(data, secuses, error) {
+    network$9.timeout(5000);
+    network$9.silent(api + 'torrent/popular', secuses, error, data);
+  }
+
+  var Account = {
+    init: init$g,
+    working: working,
+    get: get$b,
+    all: all$2,
+    plugins: plugins,
+    notice: notice,
+    pluginsStatus: pluginsStatus,
+    showProfiles: showProfiles,
+    torrentViewed: torrentViewed,
+    torrentPopular: torrentPopular,
+    clear: clear$6,
+    update: update$5
+  };
+
+  var data$5 = {};
+  var listener$4 = start$4();
+
+  function save$4() {
+    Storage.set('favorite', data$5);
+  }
+  /**
+   * 添加
+   * @param {String} where 
+   * @param {Object} card 
+   */
+
+
+  function add$8(where, card, limit) {
+    read$1();
+
+    if (data$5[where].indexOf(card.id) < 0) {
+      Arrays.insert(data$5[where], 0, card.id);
+      listener$4.send('add', {
+        where: where,
+        card: card
+      });
+      if (!search$6(card.id)) data$5.card.push(card);
+
+      if (limit) {
+        var excess = data$5[where].slice(limit);
+
+        for (var i = excess.length - 1; i >= 0; i--) {
+          remove(where, {
+            id: excess[i]
+          });
+        }
+      }
+
+      save$4();
+    } else {
+      Arrays.remove(data$5[where], card.id);
+      Arrays.insert(data$5[where], 0, card.id);
+      save$4();
+      listener$4.send('added', {
+        where: where,
+        card: card
+      });
+    }
+  }
+  /**
+   * 删除
+   * @param {String} where 
+   * @param {Object} card 
+   */
+
+
+  function remove(where, card) {
+    read$1();
+    Arrays.remove(data$5[where], card.id);
+    listener$4.send('remove', {
+      where: where,
+      card: card
+    });
+
+    for (var i = data$5.card.length - 1; i >= 0; i--) {
+      var element = data$5.card[i];
+
+      if (!check(element).any) {
+        Arrays.remove(data$5.card, element);
+        listener$4.send('remove', {
+          where: where,
+          card: element
+        });
+      }
+    }
+
+    save$4();
+  }
+  /**
+   * 搜索
+   * @param {Int} id 
+   * @returns Object
+   */
+
+
+  function search$6(id) {
+    var found;
+
+    for (var index = 0; index < data$5.card.length; index++) {
+      var element = data$5.card[index];
+
+      if (element.id == id) {
+        found = element;
+        break;
+      }
+    }
+
+    return found;
+  }
+  /**
+   * Переключить
+   * @param {String} where 
+   * @param {Object} card 
+   */
+
+
+  function toggle$1(where, card) {
+    read$1();
+    var find = cloud(card);
+    if (find[where]) remove(where, card);else add$8(where, card);
+    return find[where] ? false : true;
+  }
+  /**
+   * Проверить
+   * @param {Object} card 
+   * @returns Object
+   */
+
+
+  function check(card) {
+    var result = {
+      like: data$5.like.indexOf(card.id) > -1,
+      wath: data$5.wath.indexOf(card.id) > -1,
+      book: data$5.book.indexOf(card.id) > -1,
+      history: data$5.history.indexOf(card.id) > -1,
+      any: true
+    };
+    if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
+    return result;
+  }
+
+  function cloud(card) {
+    if (Account.working()) {
+      var list = {
+        like: Account.get({
+          type: 'like'
+        }),
+        wath: Account.get({
+          type: 'wath'
+        }),
+        book: Account.get({
+          type: 'book'
+        }),
+        history: Account.get({
+          type: 'history'
+        })
+      };
+      var result = {
+        like: list.like.find(function (elem) {
+          return elem.id == card.id;
+        }) ? true : false,
+        wath: list.wath.find(function (elem) {
+          return elem.id == card.id;
+        }) ? true : false,
+        book: list.book.find(function (elem) {
+          return elem.id == card.id;
+        }) ? true : false,
+        history: list.history.find(function (elem) {
+          return elem.id == card.id;
+        }) ? true : false,
+        any: true
+      };
+      if (!result.like && !result.wath && !result.book && !result.history) result.any = false;
+      return result;
+    } else return check(card);
+  }
+  /**
+   * Получить списаок по типу
+   * @param {String} params.type - тип 
+   * @returns Object
+   */
+
+
+  function get$a(params) {
+    if (Account.working()) {
+      return Account.get(params);
+    } else {
+      read$1();
+      var result = [];
+      var ids = data$5[params.type];
+      ids.forEach(function (id) {
+        for (var i = 0; i < data$5.card.length; i++) {
+          var card = data$5.card[i];
+          if (card.id == id) result.push(card);
+        }
+      });
+      return result;
+    }
+  }
+  /**
+   * Очистить
+   * @param {String} where 
+   * @param {Object} card 
+   */
+
+
+  function clear$5(where, card) {
+    read$1();
+
+    if (Account.working()) {
+      Account.clear(where);
+    } else {
+      if (card) remove(where, card);else {
+        for (var i = data$5[where].length - 1; i >= 0; i--) {
+          var _card = search$6(data$5[where][i]);
+
+          if (_card) remove(where, _card);
+        }
+      }
+    }
+  }
+  /**
+   * Считать последние данные
+   */
+
+
+  function read$1() {
+    data$5 = Storage.get('favorite', '{}');
+    Arrays.extend(data$5, {
+      like: [],
+      wath: [],
+      book: [],
+      card: [],
+      history: []
+    });
+  }
+  /**
+   * Получить весь список что есть
+   */
+
+
+  function full$5() {
+    Arrays.extend(data$5, {
+      like: [],
+      wath: [],
+      book: [],
+      card: [],
+      history: []
+    });
+    return data$5;
+  }
+
+  function continues(type) {
+    return Arrays.clone(get$a({
+      type: 'history'
+    }).filter(function (e) {
+      return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
+    }).slice(0, 19)).map(function (e) {
+      e.check_new_episode = true;
+      return e;
+    });
+  }
+  /**
+   * Запуск
+   */
+
+
+  function init$f() {
+    read$1();
+  }
+
+  var Favorite = {
+    listener: listener$4,
+    check: cloud,
+    add: add$8,
+    remove: remove,
+    toggle: toggle$1,
+    get: get$a,
+    init: init$f,
+    clear: clear$5,
+    continues: continues,
+    full: full$5
+  };
+
+  function status$1(need) {
+    this.data = {};
+    this.work = 0;
+    this.need = need;
+    this.complited = false;
+
+    this.check = function () {
+      if (this.work >= this.need && !this.complited) {
+        this.complited = true;
+        this.onComplite(this.data);
+      }
+    };
+
+    this.append = function (name, json) {
+      this.work++;
+      this.data[name] = json;
+      this.check();
+    };
+
+    this.error = function () {
+      this.work++;
+      this.check();
+    };
+  }
+
+  var data$4 = [];
+  /**
+   * Запуск
+   */
+
+  function init$e() {
+    data$4 = Storage.cache('recomends_scan', 300, []);
+    Favorite.get({
+      type: 'history'
+    }).forEach(function (elem) {
+      if (['cub', 'tmdb'].indexOf(elem.source) >= 0) {
+        var id = data$4.filter(function (a) {
+          return a.id == elem.id;
+        });
+
+        if (!id.length) {
+          data$4.push({
+            id: elem.id,
+            tv: elem.number_of_seasons
+          });
+        }
+      }
+    });
+    Storage.set('recomends_scan', data$4);
+    setInterval(search$5, 120 * 1000);
+  }
+
+  function search$5() {
+    var ids = data$4.filter(function (e) {
+      return !e.scan;
+    });
+
+    if (ids.length) {
+      var elem = ids[0];
+      elem.scan = 1;
+      TMDB.get((elem.tv ? 'tv' : 'movie') + '/' + elem.id + '/recommendations', {}, function (json) {
+        if (json.results && json.results.length) {
+          var recomend = Storage.cache('recomends_list', 200, []);
+          var favorite = Favorite.get({
+            type: 'history'
+          });
+          json.results.forEach(function (e) {
+            if (!recomend.filter(function (r) {
+              return r.id == e.id;
+            }).length && !favorite.filter(function (h) {
+              return h.id == e.id;
+            }).length) {
+              recomend.push(e);
+            }
+          });
+          Storage.set('recomends_list', recomend);
+        }
+      });
+    } else {
+      data$4.forEach(function (a) {
+        return a.scan = 0;
+      });
+    }
+
+    Storage.set('recomends_scan', data$4);
+  }
+
+  function get$9(type) {
+    var all = Storage.get('recomends_list', '[]');
+    return all.filter(function (e) {
+      return type == 'tv' ? e.number_of_seasons || e.first_air_date : !(e.number_of_seasons || e.first_air_date);
+    }).reverse();
+  }
+
+  var Recomends = {
+    init: init$e,
+    get: get$9
+  };
+
+  var data$3 = [];
+  var token = '3i40G5TSECmLF77oAqnEgbx61ZWaOYaE';
+  var network$8 = new create$s();
+  var videocdn = 'http://cdn.svetacdn.in/api/short?api_token=' + token;
+  var object$1 = false;
+  /**
+   * Запуск
+   */
+
+  function init$d() {
+    data$3 = Storage.cache('quality_scan', 300, []);
+    setInterval(extract$2, 30 * 1000);
+  }
+
+  function add$7(elems) {
+    elems.filter(function (elem) {
+      return !(elem.number_of_seasons || elem.seasons);
+    }).forEach(function (elem) {
+      var id = data$3.filter(function (a) {
+        return a.id == elem.id;
+      });
+
+      if (!id.length) {
+        data$3.push({
+          id: elem.id,
+          title: elem.title,
+          imdb_id: elem.imdb_id
+        });
+      }
+    });
+    Storage.set('quality_scan', data$3);
+  }
+
+  function search$4(itm) {
+    var url = 'http://cdn.svetacdn.in/api/';
+    var type = itm.iframe_src.split('/').slice(-2)[0];
+    if (type == 'movie') type = 'movies';
+    url += type;
+    url = Lampa.Utils.addUrlComponent(url, 'api_token=' + token);
+    url = Lampa.Utils.addUrlComponent(url, itm.imdb_id ? 'imdb_id=' + encodeURIComponent(itm.imdb_id) : 'title=' + encodeURIComponent(itm.title));
+    url = Lampa.Utils.addUrlComponent(url, 'field=' + encodeURIComponent('global'));
+    network$8.timeout(4000);
+    network$8.silent(url, function (found) {
+      var results = found.data.filter(function (elem) {
+        return elem.id == itm.id;
+      });
+      var qualitys = ['ts', 'camrip', 'webdl', 'dvdrip', 'hdrip', 'bd'];
+      var index = 0;
+
+      if (results.length && results[0].media) {
+        results[0].media.map(function (m) {
+          index = Math.max(index, qualitys.indexOf(m.source_quality));
+          object$1.quality = qualitys[index];
+        });
+      }
+
+      save$3();
+    }, save$3);
+  }
+
+  function req(imdb_id, query) {
+    var url = videocdn + '&' + (imdb_id ? 'imdb_id=' + encodeURIComponent(imdb_id) : 'title=' + encodeURIComponent(query));
+    network$8.timeout(1000 * 15);
+    network$8.silent(url, function (json) {
+      if (json.data && json.data.length) {
+        if (object$1.imdb_id) {
+          var imdb = json.data.filter(function (elem) {
+            return elem.imdb_id == object$1.imdb_id;
+          });
+          if (imdb.length) json.data = imdb;
+        }
+
+        if (json.data.length) {
+          return search$4(json.data[0]);
+        }
+      }
+
+      save$3();
+    }, save$3);
+  }
+
+  function extract$2() {
+    var ids = data$3.filter(function (e) {
+      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
+    });
+
+    if (ids.length) {
+      object$1 = ids[0];
+
+      if (object$1.imdb_id) {
+        req(object$1.imdb_id);
+      } else {
+        var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
+        network$8.silent('http://' + dom + 'movie/' + object$1.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
+          req(ttid.imdb_id, object$1.title);
+        }, save$3);
+      }
+    } else {
+      data$3.forEach(function (a) {
+        return a.scaned = 0;
+      });
+    }
+
+    Storage.set('quality_scan', data$3);
+  }
+
+  function save$3() {
+    if (object$1) {
+      object$1.scaned = 1;
+      object$1.scaned_time = Date.now();
+      Storage.set('quality_scan', data$3);
+    }
+  }
+
+  function get$8(elem) {
+    var fid = data$3.filter(function (e) {
+      return e.id == elem.id;
+    });
+    return (fid.length ? fid[0] : {}).quality;
+  }
+
+  var VideoQuality = {
+    init: init$d,
+    get: get$8,
+    add: add$7
+  };
+
+  var network$7 = new create$s();
+  var key = '4ef0d7355d9ffb5151e987764708ce96';
+  var menu_list$2 = [];
+
+  function url$2(u) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    u = add$6(u, 'api_key=' + key);
+    u = add$6(u, 'language=' + Storage.field('tmdb_lang'));
+    if (params.genres) u = add$6(u, 'with_genres=' + params.genres);
+    if (params.page) u = add$6(u, 'page=' + params.page);
+    if (params.query) u = add$6(u, 'query=' + params.query);
+
+    if (params.filter) {
+      for (var i in params.filter) {
+        u = add$6(u, i + '=' + params.filter[i]);
+      }
+    }
+
+    var base = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
+    return Utils.protocol() + base + u;
+  }
+
+  function add$6(u, params) {
+    return u + (/\?/.test(u) ? '&' : '?') + params;
+  }
+
+  function img$2(src, size) {
+    var poster_size = Storage.field('poster_size');
+    var baseimg = Utils.protocol() + (Storage.field('proxy_tmdb') ? 'imagetmdb.cub.watch' : 'image.tmdb.org') + '/t/p/' + poster_size + '/';
+    var path = baseimg;
+      if (src.indexOf("http") != -1) path = '';
+    if (size) path = path.replace(new RegExp(poster_size, 'g'), size);
+    return src ? path + src : '';
+  }
+
+  function find$1(find) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var finded;
+
+    var filtred = function filtred(items) {
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+
+        if (params.original_title == item.original_title || params.title == item.title || params.original_title == item.name) {
+          finded = item;
+          break;
+        }
+      }
+    };
+
+    if (find.movie && find.movie.results.length) filtred(find.movie.results);
+    if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
+    return finded;
+  }
+
+  function main$5() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var status = new status$1(11);  
+
+    status.onComplite = function () {
+      var fulldata = [];
+      if (status.data.wath) fulldata.push(status.data.wath);
+      if (status.data.trend_day) fulldata.push(status.data.trend_day);
+      if (status.data.trend_week) fulldata.push(status.data.trend_week);
+      if (status.data.upcoming) fulldata.push(status.data.upcoming);
+      if (status.data.popular) fulldata.push(status.data.popular);
+      if (status.data["popular_tv_kr"] && status.data["popular_tv_kr"].results.length) fulldata.push(status.data["popular_tv_kr"]);
+      if (status.data["popular_tv_cn"] && status.data["popular_tv_cn"].results.length) fulldata.push(status.data["popular_tv_cn"]);
+      if (status.data["popular_tv_en"] && status.data["popular_tv_en"].results.length) fulldata.push(status.data["popular_tv_en"]);
+      if (status.data.popular_tv) fulldata.push(status.data.popular_tv);
+              if (status.data.top) fulldata.push(status.data.top);
+      if (status.data.top_tv) fulldata.push(status.data.top_tv);
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, json) {
+      json.title = title;
+      status.append(name, json);
+    };
+
+    var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7('tv/popular', nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('热门国产剧', 'popular_tv_cn', json);
+      }, status.error.bind(status));
+
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
+        with_original_language: "ko",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : "18|80|10759|9648|10751"
+      };
+      get$7('tv/popular', nparams5, function (json) {
+        json.filter = nparams5.filter;
+        append('热门韩剧', 'popular_tv_kr', json);
+      }, status.error.bind(status));
+
+      var nparams6 = Arrays.clone(params);
+      nparams6.filter = {
+        with_original_language: "en",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7('tv/popular', nparams6, function (json) {
+        json.filter = nparams6.filter;
+        append('热门英美剧', 'popular_tv_en', json);
+      }, status.error.bind(status));
+
+      get$7('movie/now_playing', params, function (json) {
+      append('正在观看', 'wath', json);
+      VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    get$7('trending/moviews/day', params, function (json) {
+      append('今日热门', 'trend_day', json);
+    }, status.error.bind(status));
+    get$7('trending/moviews/week', params, function (json) {
+      append('本周热门', 'trend_week', json);
+    }, status.error.bind(status));
+    get$7('movie/upcoming', params, function (json) {
+      append('在电影院观看', 'upcoming', json);
+    }, status.error.bind(status));
+    get$7('movie/popular', params, function (json) {
+      append('精选电影', 'popular', json);
+      VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    get$7('tv/popular', params, function (json) {
+      append('精选电视剧', 'popular_tv', json);
+    }, status.error.bind(status));
+    get$7('movie/top_rated', params, function (json) {
+      append('热门电影', 'top', json);
+    }, status.error.bind(status));
+    get$7('tv/top_rated', params, function (json) {
+      append('热门节目', 'top_tv', json);
+    }, status.error.bind(status));
+  }
+
+  function category$4() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var show = ['tv', 'movie'].indexOf(params.url) > -1 && !params.genres;
+    var books = show ? Favorite.continues(params.url) : [];
+    var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
+    var status = new status$1(12);  
+
+    status.onComplite = function () {
+      var fulldata = [];
+      if (books.length) fulldata.push({
+        results: books,
+        title: params.url == 'tv' ? '继续观看' : '已观看'
+      });
+      if (recomend.length) fulldata.push({
+        results: recomend,
+        title: '精选'
+      });
+      if (status.data["continue"] && status.data["continue"].results.length) fulldata.push(status.data["continue"]);
+      if (status.data["tv_air_kr"] && status.data["tv_air_kr"].results.length) fulldata.push(status.data["tv_air_kr"]);
+        if (status.data["new_kr"] && status.data["new_kr"].results.length) fulldata.push(status.data["new_kr"]);
+        if (status.data["tv_air_ch"] && status.data["tv_air_ch"].results.length) fulldata.push(status.data["tv_air_ch"]);
+        if (status.data["new_cn"] && status.data["new_cn"].results.length) fulldata.push(status.data["new_cn"]);
+        if (status.data["tv_air_en"] && status.data["tv_air_en"].results.length) fulldata.push(status.data["tv_air_en"]);
+        if (status.data["new_en"] && status.data["new_en"].results.length) fulldata.push(status.data["new_en"]);
+        if (status.data.wath && status.data.wath.results.length) fulldata.push(status.data.wath);
+      if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
+      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+      if (status.data.tv_today && status.data.tv_today.results.length) fulldata.push(status.data.tv_today);
+      if (status.data.tv_air && status.data.tv_air.results.length) fulldata.push(status.data.tv_air);
+      if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, json) {
+      json.title = title;
+      status.append(name, json);
+    };
+
+    var date = new Date();
+      var nparams4 = Arrays.clone(params);
+      nparams4.filter = {
+        with_original_language: "ko",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        'vote_average.gte': 7,
+        filter :"drama"
+      };
+      get$7('discover/' + params.url, nparams4, function (json) {
+        json.filter = nparams4.filter;
+        append('今年韩剧', 'new_kr', json);
+      }, status.error.bind(status));
+      var nparams7 = Arrays.clone(params);
+      nparams7.filter = {
+        with_original_language: "zh",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        //'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : "18|10759|10751|35|9648"
+      };
+      get$7('discover/' + params.url, nparams7, function (json) {
+        json.filter = nparams7.filter;
+        append('今年国产剧', 'new_cn', json);
+      }, status.error.bind(status));
+      var nparams8 = Arrays.clone(params);
+      nparams8.filter = {
+        with_original_language: "en",
+        sort_by: 'release_date.desc',
+        year: date.getFullYear(),
+        first_air_date_year: date.getFullYear(),
+        'vote_average.gte': 7,
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7('discover/' + params.url, nparams8, function (json) {
+        json.filter = nparams8.filter;
+        append('今年英美剧', 'new_en', json);
+      }, status.error.bind(status));
+      var nparams5 = Arrays.clone(params);
+      nparams5.filter = {
+        with_original_language: "ko",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7(params.url + '/on_the_air', nparams5, function (json) {
+        json.filter = nparams5.filter;
+        append('本周韩剧', 'tv_air_kr', json);
+      }, status.error.bind(status));
+
+      var nparams1 = Arrays.clone(params);
+      nparams1.filter = {
+        with_original_language: "zh",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7(params.url + '/on_the_air', nparams1, function (json) {
+        json.filter = nparams1.filter;
+        append('本周国产剧', 'tv_air_ch', json);
+      }, status.error.bind(status));
+      var nparams2 = Arrays.clone(params);
+      nparams2.filter = {
+        with_original_language: "en",
+        filter :"drama",
+        with_genres : 18
+      };
+      get$7(params.url + '/on_the_air', nparams2, function (json) {
+        json.filter = nparams2.filter;
+        append('本周英美剧', 'tv_air_en', json);
+      }, status.error.bind(status));
+
+      get$7(params.url + '/now_playing', params, function (json) {
+      append('正在观看', 'wath', json);
+      if (show) VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    get$7(params.url + '/popular', params, function (json) {
+      append('热门', 'popular', json);
+      if (show) VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    var date = new Date();
+    var nparams = Arrays.clone(params);
+    nparams.filter = {
+      sort_by: 'release_date.desc',
+      year: date.getFullYear(),
+      first_air_date_year: date.getFullYear(),
+      'vote_average.gte': 7
+    };
+    get$7('discover/' + params.url, nparams, function (json) {
+      json.filter = nparams.filter;
+      append('新', 'new', json);
+    }, status.error.bind(status));
+    get$7(params.url + '/airing_today', params, function (json) {
+      append('今日播出', 'tv_today', json);
+    }, status.error.bind(status));
+    get$7(params.url + '/on_the_air', params, function (json) {
+      append('本周', 'tv_air', json);
+    }, status.error.bind(status));
+    get$7(params.url + '/top_rated', params, function (json) {
+      append('热门', 'top', json);
+    }, status.error.bind(status));
+  }
+
+  function full$4() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var status = new status$1(7);
+    status.onComplite = oncomplite;
+    get$7(params.method + '/' + params.id, params, function (json) {
+      json.source = 'tmdb';
+
+      if (params.method == 'tv') {
+        get$7('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
+          status.append('episodes', ep);
+        }, status.error.bind(status));
+      } else status.need--;
+
+      if (json.belongs_to_collection) {
+        get$7('collection/' + json.belongs_to_collection.id, {}, function (collection) {
+          collection.results = collection.parts.slice(0, 19);
+          status.append('collection', collection);
+        }, status.error.bind(status));
+      } else status.need--;
+
+      status.append('movie', json);
+    }, function () {
+      status.need -= 2;
+      status.error();
+    });
+
+    if (Storage.field('light_version')) {
+      status.need -= 4;
+    } else {
+      get$7(params.method + '/' + params.id + '/credits', params, function (json) {
+        status.append('persons', json);
+      }, status.error.bind(status));
+      get$7(params.method + '/' + params.id + '/recommendations', params, function (json) {
+        status.append('recomend', json);
+      }, status.error.bind(status));
+      get$7(params.method + '/' + params.id + '/similar', params, function (json) {
+        status.append('simular', json);
+      }, status.error.bind(status));
+      get$7(params.method + '/' + params.id + '/videos', params, function (json) {
+        status.append('videos', json);
+      }, status.error.bind(status));
+    }
+  }
+
+  function list$5() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var u = url$2(params.url, params);
+    network$7.silent(u, oncomplite, onerror);
+  }
+
+  function get$7(method) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+    var onerror = arguments.length > 3 ? arguments[3] : undefined;
+    var u = url$2(method, params);
+    network$7.silent(u, function (json) {
+      json.url = method;
+      oncomplite(json);
+    }, onerror);
+  }
+
+  function search$3() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var status = new status$1(2);
+    status.onComplite = oncomplite;
+    get$7('search/movie', params, function (json) {
+      json.title = '电影';
+      status.append('movie', json);
+    }, status.error.bind(status));
+    get$7('search/tv', params, function (json) {
+      json.title = '电视节目';
+      status.append('tv', json);
+    }, status.error.bind(status));
+  }
+
+  function person$4() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+
+    var sortCredits = function sortCredits(credits) {
+      return credits.map(function (a) {
+        a.year = parseInt(((a.release_date || a.first_air_date || '0000') + '').slice(0, 4));
+        return a;
+      }).sort(function (a, b) {
+        return b.vote_average - a.vote_average && b.vote_count - a.vote_count;
+      }); //сортируем по оценке и кол-ву голосов (чтобы отсечь мусор с 1-2 оценками)
+    };
+
+    var convert = function convert(credits, person) {
+      credits.crew.forEach(function (a) {
+        a.department = a.department == 'Production' ? '制作' : a.department == 'Directing' ? '导演' : a.department;
+      });
+      var cast = sortCredits(credits.cast),
+          crew = sortCredits(credits.crew),
+          tv = sortCredits(cast.filter(function (media) {
+        return media.media_type === 'tv';
+      })),
+          movie = sortCredits(cast.filter(function (media) {
+        return media.media_type === 'movie';
+      })),
+          knownFor; //Наиболее известные работы человека
+      //1. Группируем все работы по департаментам (演员, 导演, Сценарист и т.д.)
+
+      knownFor = Arrays.groupBy(crew, 'department');
+      var actorGender = person.gender === 1 ? '女演员' : '演员';
+      if (movie.length > 0) knownFor["".concat(actorGender, " - 电影")] = movie;
+      if (tv.length > 0) knownFor["".concat(actorGender, " - 电视剧")] = tv; //2. Для каждого департамента суммируем кол-ва голосов (вроде бы сам TMDB таким образом определяет knownFor для людей)
+
+      knownFor = Object.entries(knownFor).map(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            depIdx = _ref2[0],
+            dep = _ref2[1];
+
+        //убираем дубликаты (человек может быть указан в одном департаменте несколько раз на разных должностях (job))
+        var set = {},
+            credits = dep.filter(function (credit) {
+          return set.hasOwnProperty(credit.original_title || credit.original_name) ? false : credit.original_title ? set[credit.original_title] = true : set[credit.original_name] = true;
+        });
+        return {
+          name: depIdx,
+          credits: credits,
+          vote_count: dep.reduce(function (a, b) {
+            return a + b.vote_count;
+          }, 0)
+        }; //3. Сортируем департаменты по кол-ву голосов
+      }).sort(function (a, b) {
+        return b.vote_count - a.vote_count;
+      });
+      return {
+        raw: credits,
+        cast: cast,
+        crew: crew,
+        tv: tv,
+        movie: movie,
+        knownFor: knownFor
+      };
+    };
+
+    var status = new status$1(2);
+
+    status.onComplite = function () {
+      var fulldata = {};
+      if (status.data.person) fulldata.person = status.data.person;
+      if (status.data.credits) fulldata.credits = convert(status.data.credits, status.data.person);
+      oncomplite(fulldata);
+    };
+
+    get$7('person/' + params.id, params, function (json) {
+      status.append('person', json);
+    }, status.error.bind(status));
+    get$7('person/' + params.id + '/combined_credits', params, function (json) {
+      status.append('credits', json);
+    }, status.error.bind(status));
+  }
+
+  function menu$4() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    if (menu_list$2.length) oncomplite(menu_list$2);else {
+      var u = url$2('genre/movie/list', params);
+      network$7.silent(u, function (j) {
+        j.genres.forEach(function (g) {
+          menu_list$2.push({
+            title: g.name,
+            id: g.id
+          });
+        });
+        oncomplite(menu_list$2);
+      });
+    }
+  }
+
+  function menuCategory$2(params, oncomplite) {
+    var menu = [];
+
+    if (params.action !== 'tv') {
+      menu.push({
+        title: '正在观看',
+        url: params.action + '/now_playing'
+      });
+    }
+
+    menu.push({
+      title: '热门',
+      url: params.action + '/popular'
+    });
+    var date = new Date();
+    var query = [];
+    query.push('sort_by=release_date.desc');
+    query.push('year=' + date.getFullYear());
+    query.push('first_air_date_year=' + date.getFullYear());
+    query.push('vote_average.gte=7');
+    menu.push({
+      title: '新',
+      url: 'discover/' + params.action + '?' + query.join('&')
+    });
+
+    if (params.action == 'tv') {
+      menu.push({
+        title: '今天播出',
+        url: params.action + '/airing_today'
+      });
+      menu.push({
+        title: '本周',
+        url: params.action + '/on_the_air'
+      });
+    }
+
+    menu.push({
+      title: '热门',
+      url: params.action + '/top_rated'
+    });
+    oncomplite(menu);
+  }
+
+  function external_ids() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    get$7('tv/' + params.id + '/external_ids', oncomplite, onerror);
+  }
+
+  function company$1() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var u = url$2('company/' + params.id, params);
+    network$7.silent(u, oncomplite, onerror);
+  }
+
+  function seasons$4(tv, from, oncomplite) {
+    var status = new status$1(from.length);
+    status.onComplite = oncomplite;
+    from.forEach(function (season) {
+      get$7('tv/' + tv.id + '/season/' + season, {}, function (json) {
+        status.append('' + season, json);
+      }, status.error.bind(status));
+    });
+  }
+
+  function screensavers(oncomplite, onerror) {
+    get$7('trending/all/week', {
+      page: Math.round(Math.random() * 30)
+    }, function (json) {
+      oncomplite(json.results.filter(function (entry) {
+        return entry.backdrop_path && !entry.adult;
+      }));
+    }, onerror);
+  }
+
+  function clear$4() {
+    network$7.clear();
+  }
+
+  var TMDB = {
+    main: main$5,
+    menu: menu$4,
+    img: img$2,
+    full: full$4,
+    list: list$5,
+    category: category$4,
+    search: search$3,
+    clear: clear$4,
+    company: company$1,
+    person: person$4,
+    seasons: seasons$4,
+    find: find$1,
+    screensavers: screensavers,
+    external_ids: external_ids,
+    get: get$7,
+    menuCategory: menuCategory$2
+  };
+
+  var prox$1 = 'http://proxy.cub.watch/img/';
+  var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
+  var network$6 = new create$s();
+  var menu_list$1 = [];
+
+  function img$1(element) {
+    var need = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'PORTRAIT';
+
+    if (element.basicCovers && element.basicCovers.items.length) {
+      for (var index = 0; index < element.basicCovers.items.length; index++) {
+        var _img = element.basicCovers.items[index];
+        if (_img.imageType == need) return prox$1 + _img.url + '?width=' + (need == 'COVER' ? 800 : 300) + '&scale=1&quality=80&mediaType=jpeg';
+      }
+
+      return prox$1 + element.basicCovers.items[0].url + '?width=500&scale=1&quality=80&mediaType=jpeg';
+    }
+
+    return '';
+  }
+
+  function tocard$1(element) {
+    return {
+      url: element.alias,
+      id: element.id,
+      title: element.name,
+      original_title: element.originalName,
+      release_date: '0000',
+      vote_average: element.kinopoiskRating || element.okkoRating || 0,
+      poster: img$1(element),
+      cover: img$1(element, 'COVER'),
+      promo: element.promoText,
+      description: element.description
+    };
+  }
+
+  function collections$2(params, oncomplite, onerror) {
+    var frm = 20 * (params.page - 1);
+    var uri = baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || 'collections_web') + '&elementType=COLLECTION&limit=20&offset=' + frm + '&withInnerCollections=true&includeProductsForUpsale=false&filter=%7B%22sortType%22%3A%22RANK%22%2C%22sortOrder%22%3A%22ASC%22%2C%22useSvodFilter%22%3Afalse%2C%22genres%22%3A%5B%5D%2C%22yearsRange%22%3Anull%2C%22rating%22%3Anull%7D';
+    network$6["native"](uri, function (json) {
+      var result = {
+        results: [],
+        total_pages: 0,
+        page: params.page
+      };
+
+      if (json.element) {
+        json.element.collectionItems.items.forEach(function (elem) {
+          var element = elem.element;
+          var item = {
+            url: element.alias,
+            id: element.id,
+            title: element.name,
+            poster: prox$1 + (element.basicCovers && element.basicCovers.items.length ? element.basicCovers.items[0].url + '?width=300&scale=1&quality=80&mediaType=jpeg' : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
+          };
+          if (params.url) item = tocard$1(element);
+          result.results.push(item);
+        });
+        result.total_pages = Math.round(json.element.collectionItems.totalSize / 20);
+      }
+
+      oncomplite(result);
+    }, onerror);
+  }
+
+  function persons$1(element) {
+    var data = [];
+
+    if (element.actors) {
+      element.actors.items.forEach(function (elem) {
+        var item = elem.element;
+        data.push({
+          url: item.alias,
+          name: item.name,
+          character: item.originalName
+        });
+      });
+    }
+
+    return data.length ? {
+      cast: data
+    } : false;
+  }
+
+  function genres$2(element) {
+    return element.genres.items.map(function (elem) {
+      elem.element.url = elem.element.alias;
+      return elem.element;
+    });
+  }
+
+  function countries$1(element) {
+    return element.countries.items.map(function (elem) {
+      return elem.element;
+    });
+  }
+
+  function date(element) {
+    var d = new Date(element.worldReleaseDate || element || 0);
+    return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  }
+
+  function seasonsCount$1(element) {
+    var data = {
+      seasons: 0,
+      episodes: 0
+    };
+
+    if (element.children) {
+      data.seasons = element.children.totalSize;
+      element.children.items.forEach(function (elem) {
+        data.episodes += elem.element.children ? elem.element.children.totalSize : 0;
+      });
+    }
+
+    return data;
+  }
+
+  function seasonsDetails(element) {
+    var data = {};
+
+    if (element.children) {
+      element.children.items.forEach(function (elem, sn) {
+        var episodes = [];
+
+        if (elem.element.children) {
+          elem.element.children.items.forEach(function (episode, en) {
+            episodes.push({
+              name: episode.element.name,
+              img: img$1(episode.element, 'COVER'),
+              air_date: date(episode.element.releaseSaleDate || 0),
+              episode_number: en + 1
+            });
+          });
+        }
+
+        data['' + (sn + 1)] = {
+          name: elem.element.name,
+          air_date: date(elem.element.worldReleaseDate || 0),
+          episodes: episodes
+        };
+      });
+      return data;
+    }
+  }
+
+  function similar$1(element) {
+    var data = [];
+    element.similar.items.forEach(function (elem) {
+      data.push(tocard$1(elem.element));
+    });
+    return data.length ? {
+      results: data
+    } : false;
+  }
+
+  function seasons$3(tv, from, oncomplite, onerror) {
+    oncomplite(tv.seasons || {});
+  }
+
+  function menu$3(params, oncomplite) {
+    if (!menu_list$1.length) {
+      network$6.timeout(1000);
+      network$6["native"](baseurl$2 + 'collection/web/1?elementAlias=action&elementType=GENRE&limit=20&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+        if (json.uiScreenInfo && json.uiScreenInfo.webMain) {
+          json.uiScreenInfo.webMain.forEach(function (element) {
+            menu_list$1.push({
+              title: element.name,
+              id: element.alias
+            });
+          });
+          oncomplite(menu_list$1);
+        }
+      });
+    } else {
+      oncomplite(menu_list$1);
+    }
+  }
+
+  function videos$1(element) {
+    var data = [];
+    var qa = 0;
+    element.trailers.items.forEach(function (item) {
+      var media = item.media;
+
+      if (media.width > qa && media.mimeType == 'mp4/ts') {
+        qa = media.width;
+        data.push({
+          name: data.length + 1 + ' / ' + item.language,
+          url: item.url,
+          player: true
+        });
+      }
+    });
+    return data.length ? {
+      results: data
+    } : false;
+  }
+
+  function list$4(params, oncomplite, onerror) {
+    var frm = 20 * (params.page - 1);
+    network$6["native"](baseurl$2 + 'collection/web/1?elementAlias=' + (params.url || params.id) + '&elementType=' + (params.type || 'GENRE') + '&limit=20&offset=' + frm + '&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+      var items = [];
+
+      if (json.element && json.element.collectionItems) {
+        json.element.collectionItems.items.forEach(function (elem) {
+          items.push(tocard$1(elem.element));
+        });
+        oncomplite({
+          results: items,
+          total_pages: Math.round(json.element.collectionItems.totalSize / 20)
+        });
+      } else {
+        onerror();
+      }
+    }, onerror);
+  }
+
+  function person$3(params, oncomplite, onerror) {
+    network$6["native"](baseurl$2 + 'collection/web/1?elementAlias=' + params.url + '&elementType=PERSON&limit=60&offset=0&withInnerCollections=false&includeProductsForUpsale=false&filter=null', function (json) {
+      var data = {
+        movie: {
+          results: []
+        }
+      };
+
+      if (json.element && json.element.collectionItems) {
+        json.element.collectionItems.items.forEach(function (elem) {
+          data.movie.results.push(tocard$1(elem.element));
+        });
+        data.person = {
+          name: json.element.name,
+          biography: '',
+          img: '',
+          place_of_birth: '',
+          birthday: '----'
+        };
+        oncomplite(data);
+      } else {
+        onerror();
+      }
+    }, onerror);
+  }
+
+  function main$4(params, oncomplite, onerror) {
+    network$6["native"](baseurl$2 + 'mainpage/web/1', function (json) {
+      var element = json.element;
+      var fulldata = [];
+
+      if (element) {
+        var blocks = json.element.collectionItems.items;
+
+        if (blocks) {
+          blocks.forEach(function (el) {
+            if (el.element && el.element.alias === "web_featured") {
+              var slides = {
+                title: '新',
+                results: [],
+                wide: true,
+                nomore: true
+              };
+              el.element.collectionItems.items.forEach(function (elem) {
+                slides.results.push(tocard$1(elem.element));
+              });
+              fulldata.push(slides);
+            } else if (el.element && el.element.alias && el.element.name && el.element.description) {
+              var line = {
+                title: el.element.name,
+                url: el.element.alias,
+                results: [],
+                more: true
+              };
+              el.element.collectionItems.items.forEach(function (elem) {
+                line.results.push(tocard$1(elem.element));
+              });
+              fulldata.push(line);
+            }
+          });
+        }
+      }
+
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    }, onerror);
+  }
+
+  function category$3(params, oncomplite, onerror) {
+    var status = new status$1(7);
+    var books = Favorite.continues(params.url);
+
+    status.onComplite = function () {
+      var fulldata = [];
+      if (books.length) fulldata.push({
+        results: books,
+        title: params.url == 'tv' ? '继续观看' : '你看过'
+      });
+      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+      if (status.data.top && status.data.top.results.length) fulldata.push(status.data.top);
+      if (status.data.three && status.data.three.results.length) fulldata.push(status.data.three);
+      if (status.data.four && status.data.four.results.length) fulldata.push(status.data.four);
+      if (status.data.five && status.data.five.results.length) fulldata.push(status.data.five);
+      if (status.data.six && status.data.six.results.length) fulldata.push(status.data.six);
+      if (status.data.seven && status.data.seven.results.length) fulldata.push(status.data.seven);
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, id, json) {
+      json.title = title;
+      json.url = id;
+      status.append(name, json);
+    };
+
+    if (params.url == 'movie') {
+      list$4({
+        url: 'Novelty',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('新', 'new', 'Novelty', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'topfilms',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('热门新', 'top', 'topfilms', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'comedy-plus-horror-movies',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('喜剧恐怖片', 'three', 'comedy-plus-horror-movies', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'collection_maniacs',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('关于疯子的电影', 'four', 'collection_maniacs', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'witches',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('关于女巫的电影', 'five', 'witches', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'zombies',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('关于僵尸的电影', 'six', 'zombies', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'Russian-17490',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('俄语', 'seven', 'Russian-17490', json);
+      }, status.error.bind(status));
+    } else {
+      list$4({
+        url: 'Serials',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('新', 'new', 'Serials', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'horror-serial-all-svod',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('非常可怕', 'top', 'horror-serial-all-svod', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'series-about-serial-killers',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('关于疯子', 'three', 'series-about-serial-killers', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'black-humor-serial-all-svod',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('带有黑色幽默', 'four', 'black-humor-serial-all-svod', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'legkiye-serialy-all-svod',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('轻', 'five', 'legkiye-serialy-all-svod', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'comedy-serial-all-svod',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('喜剧', 'six', 'comedy-serial-all-svod', json);
+      }, status.error.bind(status));
+      list$4({
+        url: 'russian_tvseries',
+        type: 'COLLECTION',
+        page: 1
+      }, function (json) {
+        append('俄语', 'seven', 'russian_tvseries', json);
+      }, status.error.bind(status));
+    }
+  }
+
+  function full$3(params, oncomplite, onerror) {
+    var data = {};
+    network$6["native"](baseurl$2 + 'moviecard/web/1?elementAlias=' + params.url + '&elementType=MOVIE', function (json) {
+      var element = json.element;
+
+      if (element) {
+        data.persons = persons$1(element);
+        data.simular = similar$1(element);
+        data.videos = videos$1(element);
+        data.movie = {
+          id: element.id,
+          url: element.alias,
+          source: 'okko',
+          title: element.name,
+          original_title: element.originalName,
+          name: element.type == 'SERIAL' ? element.name : '',
+          original_name: element.type == 'SERIAL' ? element.originalName : '',
+          overview: element.description,
+          img: img$1(element),
+          runtime: (element.duration || 0) / 1000 / 60,
+          genres: genres$2(element),
+          vote_average: element.imdbRating || element.kinopoiskRating || 0,
+          production_companies: [],
+          production_countries: countries$1(element),
+          budget: element.budget && element.budget.value ? element.budget.value : 0,
+          release_date: date(element),
+          number_of_seasons: seasonsCount$1(element).seasons,
+          number_of_episodes: seasonsCount$1(element).episodes,
+          seasons: seasonsDetails(element),
+          first_air_date: element.type == 'SERIAL' ? date(element) : ''
+        };
+      }
+
+      oncomplite(data);
+    }, onerror);
+  }
+
+  var OKKO = {
+    main: main$4,
+    full: full$3,
+    collections: collections$2,
+    seasons: seasons$3,
+    list: list$4,
+    person: person$3,
+    menu: menu$3,
+    category: category$3,
+    clear: network$6.clear
+  };
+
+  var baseurl$1 = 'https://api.ivi.ru/mobileapi/';
+  var network$5 = new create$s();
+  var menu_list = [];
+  var prox = 'http://proxy.cub.watch/img/';
+
+  function tocard(element) {
+    return {
+      url: element.hru,
+      id: element.id,
+      title: element.title,
+      original_title: element.orig_title,
+      release_date: element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || (element.year ? element.year + '' : element.years ? element.years[0] + '' : '0000'),
+      vote_average: element.ivi_rating_10 || 0,
+      poster: img(element),
+      year: element.year,
+      years: element.years
+    };
+  }
+
+  function entities(url, oncomplite, onerror) {
+    network$5["native"]('https://www.ivi.ru/' + url, function (str) {
+      var parse = str.match(/window.__INITIAL_STATE__ = JSON.parse\('(.*?)'\);<\/script>/);
+      var decod = (parse ? parse[1] : '').replace(/\\'|[\\]+"/g, '\'');
+      var json = Arrays.decodeJson(decod, {});
+
+      if (json.entities) {
+        if (!menu_list.length) {
+          for (var i in json.entities.genres) {
+            var item = json.entities.genres[i];
+            menu_list.push({
+              title: item.title + ' (' + item.catalogue_count + ')',
+              id: item.id
+            });
+          }
+        }
+
+        oncomplite(json.entities, json);
+      } else onerror();
+    }, onerror, false, {
+      dataType: 'text'
+    });
+  }
+
+  function find(json, id) {
+    var found;
+
+    for (var i in json.content) {
+      if (i == id) found = json.content[i];
+    }
+
+    return found;
+  }
+
+  function img(element) {
+    var posters = element.poster_originals || element.posters;
+    return posters && posters[0] ? prox + (posters[0].path || posters[0].url) + '/300x456/' : '';
+  }
+
+  function genres$1(element, json) {
+    var data = [];
+    element.genres.forEach(function (id) {
+      var genre = json.genres[id];
+
+      if (genre) {
+        data.push({
+          id: genre.id,
+          name: genre.title
+        });
+      }
+    });
+    return data;
+  }
+
+  function countries(element, json) {
+    var data = [];
+
+    if (element.country && json.countries[element.country]) {
+      data.push({
+        name: json.countries[element.country].title
+      });
+    }
+
+    return data;
+  }
+
+  function persons(json) {
+    var data = [];
+
+    if (json.persons && json.persons.info) {
+      for (var i in json.persons.info) {
+        var _person = json.persons.info[i],
+            images = Arrays.getValues(_person.images || {});
+
+        if (_person.profession_types[0] == 6) {
+          data.push({
+            name: _person.name,
+            character: '演员',
+            id: _person.id,
+            img: images.length ? prox + images[0].path : ''
+          });
+        }
+      }
+    }
+
+    return data.length ? {
+      cast: data
+    } : false;
+  }
+
+  function similar(element, json) {
+    var data = [];
+
+    if (json.content) {
+      for (var i in json.content) {
+        var item = json.content[i];
+        if (element !== item) data.push(tocard(item));
+      }
+
+      data.sort(function (a, b) {
+        var ay = a.year || (a.years ? a.years[0] : 0);
+        var by = b.year || (b.years ? b.years[0] : 0);
+        return by - ay;
+      });
+    }
+
+    return data.length ? {
+      results: data
+    } : false;
+  }
+
+  function videos(element) {
+    var data = [];
+
+    if (element.additional_data) {
+      element.additional_data.forEach(function (atach) {
+        if (atach.data_type == 'trailer' && atach.files) {
+          atach.files.forEach(function (file) {
+            if (file.content_format == 'MP4-HD1080') {
+              data.push({
+                name: atach.title,
+                url: file.url,
+                player: true
+              });
+            }
+          });
+        }
+      });
+    }
+
+    return data.length ? {
+      results: data
+    } : false;
+  }
+
+  function seasonsCount(element) {
+    var data = {
+      seasons: 0,
+      episodes: 0
+    };
+
+    if (element.seasons) {
+      data.seasons = element.seasons.length;
+
+      for (var i in element.seasons_content_total) {
+        data.episodes += element.seasons_content_total[i];
+      }
+    }
+
+    return data;
+  }
+
+  function seasons$2(tv, from, oncomplite, onerror) {
+    var status = new status$1(from.length);
+    status.onComplite = oncomplite;
+    from.forEach(function (season) {
+      network$5["native"](baseurl$1 + 'videofromcompilation/v5/?id=' + tv.id + '&season=' + season + '&from=0&to=60&fake=1&mark_as_purchased=1&app_version=870&session=66674cdb8528557407669760_1650471651-0EALRgbYRksN8Hfc5UthGeg', function (json) {
+        if (json.result) {
+          var episodes = [];
+          json.result.forEach(function (elem) {
+            episodes.push({
+              name: elem.title,
+              img: elem.promo_images && elem.promo_images.length ? prox + elem.promo_images[0].url + '/300x240/' : '',
+              air_date: elem.release_date || elem.ivi_pseudo_release_date || elem.ivi_release_date || (elem.year ? elem.year + '' : elem.years ? elem.years[0] + '' : '0000'),
+              episode_number: elem.episode
+            });
+          });
+          status.append('' + season, {
+            episodes: episodes
+          });
+        } else status.error();
+      }, status.error.bind(status));
+    });
+  }
+
+  function comments(json) {
+    var data = [];
+
+    if (json.comments) {
+      for (var i in json.comments) {
+        var com = json.comments[i];
+        com.text = com.text.replace(/\\[n|r|t]/g, '');
+        data.push(com);
+      }
+    }
+
+    return data.length ? data : false;
+  }
+
+  function menu$2(params, oncomplite) {
+    if (!menu_list.length) {
+      network$5.timeout(1000);
+      entities('', function () {
+        oncomplite(menu_list);
+      });
+    } else oncomplite(menu_list);
+  }
+
+  function full$2(params, oncomplite, onerror) {
+    entities('watch/' + (params.url || params.id), function (json, all) {
+      var data = {};
+      var element = find(json, params.id);
+
+      if (element) {
+        data.persons = persons(json);
+        data.simular = similar(element, json);
+        data.videos = videos(element);
+        data.comments = comments(json);
+        data.movie = {
+          id: element.id,
+          url: element.hru,
+          source: 'ivi',
+          title: element.title,
+          original_title: element.orig_title,
+          name: element.seasons ? element.title : '',
+          original_name: element.seasons ? element.orig_title : '',
+          overview: element.description.replace(/\\[n|r|t]/g, ''),
+          img: img(element),
+          runtime: element.duration_minutes,
+          genres: genres$1(element, json),
+          vote_average: parseFloat(element.imdb_rating || element.kp_rating || '0'),
+          production_companies: [],
+          production_countries: countries(element, json),
+          budget: element.budget || 0,
+          release_date: element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || '0000',
+          number_of_seasons: seasonsCount(element).seasons,
+          number_of_episodes: seasonsCount(element).episodes,
+          first_air_date: element.seasons ? element.release_date || element.ivi_pseudo_release_date || element.ivi_release_date || '0000' : ''
+        };
+      }
+
+      oncomplite(data);
+    }, onerror);
+  }
+
+  function person$2(params, oncomplite, onerror) {
+    entities('person/' + (params.url || params.id), function (json, all) {
+      var data = {};
+
+      if (all.pages && all.pages.personPage) {
+        var element = all.pages.personPage.person.info,
+            images = Arrays.getValues(element.images || {});
+        data.person = {
+          name: element.name,
+          biography: element.bio,
+          img: images.length ? prox + images[0].path : '',
+          place_of_birth: element.eng_title,
+          birthday: '----'
+        };
+        data.movie = similar(element, json);
+      }
+
+      oncomplite(data);
+    }, onerror);
+  }
+
+  function list$3(params, oncomplite, onerror) {
+    var fr = 20 * (params.page - 1),
+        to = fr + 19;
+    var url = baseurl$1 + 'catalogue/v5/?genre=' + params.genres + '&from=' + fr + '&to=' + to + '&withpreorderable=true';
+    if (!params.genres) url = baseurl$1 + 'collection/catalog/v5/?id=' + params.url + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
+    network$5["native"](url, function (json) {
+      var items = [];
+
+      if (json.result) {
+        json.result.forEach(function (element) {
+          items.push(tocard(element));
+        });
+      }
+
+      oncomplite({
+        results: items,
+        total_pages: Math.round(json.count / 20)
+      });
+    }, onerror);
+  }
+
+  function category$2(params, oncomplite, onerror) {
+    var status = new status$1(params.url == 'movie' ? 4 : 5);
+    var books = Favorite.continues(params.url);
+
+    status.onComplite = function () {
+      var fulldata = [];
+      if (books.length) fulldata.push({
+        results: books,
+        title: params.url == 'tv' ? '继续看' : '你已经看过'
+      });
+      if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
+      if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
+      if (status.data.rus && status.data.rus.results.length) fulldata.push(status.data.rus);
+      if (status.data.popular && status.data.popular.results.length) fulldata.push(status.data.popular);
+      if (status.data.ivi && status.data.ivi.results.length) fulldata.push(status.data.ivi);
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, id, json) {
+      json.title = title;
+      json.url = id;
+
+      if (json.results.results) {
+        json.results = json.results.results;
+      }
+
+      status.append(name, json);
+    };
+
+    if (params.url == 'movie') {
+      collections$1({
+        id: '8258'
+      }, function (json) {
+        append('电影首映', 'new', '8258', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '942'
+      }, function (json) {
+        append('热门电影', 'best', '942', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '11512'
+      }, function (json) {
+        append('热门电影', 'popular', '11512', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '8448'
+      }, function (json) {
+        append('Выбор ivi', 'ivi', '8448', {
+          results: json
+        });
+      }, status.error.bind(status));
+    } else {
+      collections$1({
+        id: '1984'
+      }, function (json) {
+        append('新的', 'new', '1984', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '1712'
+      }, function (json) {
+        append('外国', 'best', '1712', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '935'
+      }, function (json) {
+        append('俄语', 'rus', '935', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '12839'
+      }, function (json) {
+        append('现在流行', 'popular', '12839', {
+          results: json
+        });
+      }, status.error.bind(status));
+      collections$1({
+        id: '1057'
+      }, function (json) {
+        append('Выбор ivi', 'ivi', '1057', {
+          results: json
+        });
+      }, status.error.bind(status));
+    }
+  }
+
+  function main$3(params, oncomplite, onerror) {
+    var status = new status$1(13);
+
+    status.onComplite = function () {
+      var fulldata = [];
+
+      for (var i = 1; i <= 13; i++) {
+        var n = i + '';
+        if (status.data[n] && status.data[n].results.length) fulldata.push(status.data[n]);
+      }
+
+      console.log(fulldata, status);
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, id, json) {
+      json.title = title;
+      json.url = id;
+
+      if (json.results.results) {
+        json.results = json.results.results;
+      }
+
+      status.append(name, json);
+    };
+
+    collections$1({
+      id: '4655'
+    }, function (json) {
+      append('推荐你看', '1', '4655', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '2460'
+    }, function (json) {
+      append('全家卡通', '2', '2460', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '917'
+    }, function (json) {
+      append('恐怖惊悚片', '3', '917', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1327'
+    }, function (json) {
+      append('喜剧冒险', '4', '1327', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1246'
+    }, function (json) {
+      append('屏幕改编侦探', '5', '1246', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1335'
+    }, function (json) {
+      append('犯罪喜剧', '6', '1335', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1411'
+    }, function (json) {
+      append('浪漫剧', '7', '1411', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '73'
+    }, function (json) {
+      append('犯罪剧', '8', '73', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1413'
+    }, function (json) {
+      append('奇幻剧', '9', '1413', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '62'
+    }, function (json) {
+      append('战争剧', '10', '62', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '1418'
+    }, function (json) {
+      append('悬疑片', '11', '1418', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '4495'
+    }, function (json) {
+      append('外国电视剧', '12', '4495', {
+        results: json
+      });
+    }, status.error.bind(status));
+    collections$1({
+      id: '217'
+    }, function (json) {
+      append('历史电视剧', '13', '217', {
+        results: json
+      });
+    }, status.error.bind(status));
+  }
+
+  function collections$1(params, oncomplite, onerror) {
+    var fr = 20 * (params.page - 1),
+        to = fr + 19;
+    var uri = baseurl$1 + 'collections/v5/?app_version=870&from=' + fr + '&tags_exclude=goodmovies&to=' + to;
+    if (params.id) uri = baseurl$1 + 'collection/catalog/v5/?id=' + params.id + '&withpreorderable=true&fake=false&from=' + fr + '&to=' + to + '&sort=priority_in_collection&fields=id%2Civi_pseudo_release_date%2Corig_title%2Ctitle%2Cfake%2Cpreorderable%2Cavailable_in_countries%2Chru%2Cposter_originals%2Crating%2Ccontent_paid_types%2Ccompilation_hru%2Ckind%2Cadditional_data%2Crestrict%2Chd_available%2Chd_available_all%2C3d_available%2C3d_available_all%2Cuhd_available%2Cuhd_available_all%2Chdr10_available%2Chdr10_available_all%2Cdv_available%2Cdv_available_all%2Cfullhd_available%2Cfullhd_available_all%2Chdr10plus_available%2Chdr10plus_available_all%2Chas_5_1%2Cshields%2Cseasons_count%2Cseasons_content_total%2Cseasons%2Cepisodes%2Cseasons_description%2Civi_rating_10_count%2Cseasons_extra_info%2Ccount%2Cgenres%2Cyears%2Civi_rating_10%2Crating%2Ccountry%2Cduration_minutes%2Cyear&app_version=870';
+    network$5.timeout(15000);
+    network$5["native"](uri, function (json) {
+      var result = {
+        results: [],
+        total_pages: 0,
+        page: params.page
+      };
+
+      if (json.result) {
+        json.result.forEach(function (element) {
+          var item = {
+            id: element.id,
+            url: element.hru,
+            title: element.title,
+            poster: prox + (element.images && element.images.length ? element.images[0].path : 'https://www.ivi.ru/images/stubs/collection_preview_stub.jpeg')
+          };
+          if (params.id) item = tocard(element);
+          result.results.push(item);
+        });
+        result.total_pages = Math.round(json.count / 20);
+      }
+
+      oncomplite(result);
+    }, onerror);
+  }
+
+  var IVI = {
+    collections: collections$1,
+    full: full$2,
+    main: main$3,
+    person: person$2,
+    list: list$3,
+    category: category$2,
+    menu: menu$2,
+    seasons: seasons$2,
+    clear: network$5.clear
+  };
+
+  var baseurl = Utils.protocol() + 'tmdb.cub.watch/';
+  var network$4 = new create$s();
+
+  function url$1(u) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    if (params.genres) u = add$5(u, 'genre=' + params.genres);
+    if (params.page) u = add$5(u, 'page=' + params.page);
+    if (params.query) u = add$5(u, 'query=' + params.query);
+
+    if (params.filter) {
+      for (var i in params.filter) {
+        u = add$5(u, i + '=' + params.filter[i]);
+      }
+    }
+
+    return baseurl + u;
+  }
+
+  function add$5(u, params) {
+    return u + (/\?/.test(u) ? '&' : '?') + params;
+  }
+
+  function get$6(method) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+    var onerror = arguments.length > 3 ? arguments[3] : undefined;
+    var u = url$1(method, params);
+    network$4.silent(u, function (json) {
+      json.url = method;
+      oncomplite(json);
+    }, onerror);
+  }
+
+  function list$2() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var u = url$1(params.url, params);
+    network$4.silent(u, oncomplite, onerror);
+  }
+
+  function main$2() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var status = new status$1(11);
+
+    status.onComplite = function () {
+      var fulldata = [];
+      var data = status.data;
+
+      for (var i = 1; i <= 11; i++) {
+        var ipx = 's' + i;
+        if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+      }
+
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, json) {
+      json.title = title;
+      status.append(name, json);
+    };
+
+    get$6('?sort=now_playing', params, function (json) {
+      append('正在观看', 's1', json);
+      VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    get$6('?sort=latest', params, function (json) {
+      append('上次添加', 's2', json);
+    }, status.error.bind(status));
+    get$6('movie/now', params, function (json) {
+      append('电影', 's3', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=16', params, function (json) {
+      append('卡通', 's4', json);
+    }, status.error.bind(status));
+    get$6('tv/now', params, function (json) {
+      append('电视剧', 's5', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=12', params, function (json) {
+      append('冒险', 's6', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=35', params, function (json) {
+      append('喜剧', 's7', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=10751', params, function (json) {
+      append('家庭', 's8', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=27', params, function (json) {
+      append('恐怖', 's9', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=878', params, function (json) {
+      append('奇幻', 's10', json);
+    }, status.error.bind(status));
+    get$6('?sort=now&genre=53', params, function (json) {
+      append('惊悚', 's11', json);
+    }, status.error.bind(status));
+  }
+
+  function category$1() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var total = 6;
+    if (params.url !== 'tv') total--;
+    var show = ['tv', 'movie'].indexOf(params.url) > -1;
+    var books = show ? Favorite.continues(params.url) : [];
+    var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
+    var status = new status$1(total);
+
+    status.onComplite = function () {
+      var fulldata = [];
+      var data = status.data;
+      if (books.length) fulldata.push({
+        results: books,
+        title: params.url == 'tv' ? '继续看' : '你看过'
+      });
+      if (recomend.length) fulldata.push({
+        results: recomend,
+        title: '推荐观看'
+      });
+
+      for (var i = 1; i <= total + 1; i++) {
+        var ipx = 's' + i;
+        if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+      }
+
+      if (fulldata.length) oncomplite(fulldata);else onerror();
+    };
+
+    var append = function append(title, name, json) {
+      json.title = title;
+      status.append(name, json);
+    };
+
+    get$6('?cat=' + params.url + '&sort=now_playing', params, function (json) {
+      append('正在观看', 's1', json);
+      if (show) VideoQuality.add(json.results);
+    }, status.error.bind(status));
+
+    if (params.url == 'tv') {
+      get$6('?cat=' + params.url + '&sort=update', params, function (json) {
+        append('新剧集', 's2', json);
+      }, status.error.bind(status));
+    }
+
+    get$6('?cat=' + params.url + '&sort=top', params, function (json) {
+      append('热门', 's3', json);
+      if (show) VideoQuality.add(json.results);
+    }, status.error.bind(status));
+    get$6('?cat=' + params.url + '&sort=latest', params, function (json) {
+      append('最新上传', 's4', json);
+    }, status.error.bind(status));
+    get$6('?cat=' + params.url + '&sort=now', params, function (json) {
+      append('今年新', 's5', json);
+    }, status.error.bind(status));
+    get$6('?cat=' + params.url + '&sort=latest&vote=7', params, function (json) {
+      append('高度评价', 's6', json);
+    }, status.error.bind(status));
+  }
+
+  function full$1(params, oncomplite, onerror) {
+    var status = new status$1(7);
+    status.onComplite = oncomplite;
+    get$6('3/' + params.method + '/' + params.id + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=' + Storage.field('tmdb_lang'), params, function (json) {
+      json.source = 'tmdb';
+
+      if (params.method == 'tv') {
+        TMDB.get('tv/' + json.id + '/season/' + json.number_of_seasons, {}, function (ep) {
+          status.append('episodes', ep);
+        }, status.error.bind(status));
+      } else status.need--;
+
+      if (json.belongs_to_collection) {
+        TMDB.get('collection/' + json.belongs_to_collection.id, {}, function (collection) {
+          collection.results = collection.parts.slice(0, 19);
+          status.append('collection', collection);
+        }, status.error.bind(status));
+      } else status.need--;
+
+      status.append('movie', json);
+    }, function () {
+      status.need -= 2;
+      status.error();
+    });
+
+    if (Storage.field('light_version')) {
+      status.need -= 4;
+    } else {
+      TMDB.get(params.method + '/' + params.id + '/credits', params, function (json) {
+        status.append('persons', json);
+      }, status.error.bind(status));
+      TMDB.get(params.method + '/' + params.id + '/recommendations', params, function (json) {
+        status.append('recomend', json);
+      }, status.error.bind(status));
+      TMDB.get(params.method + '/' + params.id + '/similar', params, function (json) {
+        status.append('simular', json);
+      }, status.error.bind(status));
+      TMDB.get(params.method + '/' + params.id + '/videos', params, function (json) {
+        status.append('videos', json);
+      }, status.error.bind(status));
+    }
+  }
+
+  function menuCategory$1(params, oncomplite) {
+    var menu = [];
+    menu.push({
+      title: '正在观看',
+      url: '?cat=' + params.action + '&sort=now_playing'
+    });
+
+    if (params.action == 'tv') {
+      menu.push({
+        title: '新剧集',
+        url: '?cat=' + params.action + '&sort=update'
+      });
+    }
+
+    menu.push({
+      title: '热门',
+      url: '?cat=' + params.action + '&sort=top'
+    });
+    menu.push({
+      title: '最新上传',
+      url: '?cat=' + params.action + '&sort=latest'
+    });
+    menu.push({
+      title: '今年新',
+      url: '?cat=' + params.action + '&sort=now'
+    });
+    menu.push({
+      title: '高度评价',
+      url: '?cat=' + params.action + '&sort=latest&vote=7'
+    });
+    oncomplite(menu);
+  }
+
+  function person$1(params, oncomplite, onerror) {
+    TMDB.person(params, oncomplite, onerror);
+  }
+
+  function menu$1(params, oncomplite) {
+    TMDB.menu(params, oncomplite);
+  }
+
+  function seasons$1(tv, from, oncomplite) {
+    TMDB.seasons(tv, from, oncomplite);
+  }
+
+  function clear$3() {
+    network$4.clear();
+  }
+
+  var CUB = {
+    main: main$2,
+    menu: menu$1,
+    full: full$1,
+    list: list$2,
+    category: category$1,
+    clear: clear$3,
+    person: person$1,
+    seasons: seasons$1,
+    menuCategory: menuCategory$1
+  };
+
+  var url;
+  var network$3 = new create$s();
+
+  function get$5() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+
+    function complite(data) {
+      popular(params.movie, data, {}, oncomplite);
+    }
+
+    function error(e) {
+      var data = {
+        Results: []
+      };
+      popular(params.movie, data, {
+        nolimit: true
+      }, function () {
+        if (data.Results.length) oncomplite(data);else onerror(e);
+      });
+    }
+
+    if (Storage.field('parser_torrent_type') == 'jackett') {
+      if (Storage.field('jackett_url')) {
+        url = Utils.checkHttp(Storage.field('jackett_url'));
+        jackett(params, complite, function () {
+          torlook(params, complite, error);
+        });
+      } else {
+        error('指定要解析的链接 Jackett');
+      }
+    } else {
+      if (Storage.get('native')) {
+        torlook(params, complite, error);
+      } else if (Storage.field('torlook_parse_type') == 'site' && Storage.field('parser_website_url')) {
+        url = Utils.checkHttp(Storage.field('parser_website_url'));
+        torlook(params, complite, error);
+      } else if (Storage.field('torlook_parse_type') == 'native') {
+        torlook(params, complite, error);
+      } else error('指定要解析的链接 TorLook');
+    }
+  }
+
+  function popular(card, data, params, call) {
+    Account.torrentPopular({
+      card: card
+    }, function (result) {
+      var torrents = result.result.torrents.filter(function (t) {
+        return t.viewing_request > (params.nolimit ? 0 : 3);
+      });
+      torrents.sort(function (a, b) {
+        return b.viewing_average - a.viewing_average;
+      });
+      torrents.forEach(function (t) {
+        delete t.viewed;
+      });
+      data.Results = data.Results.concat(params.nolimit ? torrents : torrents.slice(0, 3));
+      call(data);
+    }, function () {
+      call(data);
+    });
+  }
+
+  function viewed(hash) {
+    var view = Storage.cache('torrents_view', 5000, []);
+    return view.indexOf(hash) > -1;
+  }
+
+  function torlook() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    torlookApi(params, oncomplite, onerror);
+  }
+
+  function torlookApi() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    network$3.timeout(1000 * 30);
+    var s = 'https://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
+    var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
+    var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(q) : url.replace('{q}', encodeURIComponent(s + encodeURIComponent(q)));
+    network$3["native"](u, function (json) {
+      if (json.error) onerror('请求错误');else {
+        var data = {
+          Results: []
+        };
+
+        if (json.data) {
+          json.data.forEach(function (elem) {
+            var item = {};
+            item.Title = elem.title;
+            item.Tracker = elem.tracker;
+            item.Size = parseInt(elem.size);
+            item.size = Utils.bytesToSize(item.Size);
+            item.PublishDate = parseInt(elem.date) * 1000;
+            item.Seeders = parseInt(elem.seeders);
+            item.Peers = parseInt(elem.leechers);
+            item.PublisTime = parseInt(elem.date) * 1000;
+            item.hash = Utils.hash(elem.title);
+            item.MagnetUri = elem.magnet;
+            item.viewed = viewed(item.hash);
+            if (elem.magnet) data.Results.push(item);
+          });
+        }
+
+        oncomplite(data);
+      }
+    }, function (a, c) {
+      onerror(network$3.errorDecode(a, c));
+    });
+  }
+
+  function jackett() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    network$3.timeout(1000 * 15);
+    var u = url + '/api/v2.0/indexers/all/results?apikey=' + Storage.field('jackett_key') + '&Query=' + encodeURIComponent(params.search);
+    var genres = params.movie.genres.map(function (a) {
+      return a.name;
+    });
+
+    if (!params.clarification) {
+      u = Utils.addUrlComponent(u, 'title=' + encodeURIComponent(params.movie.title));
+      u = Utils.addUrlComponent(u, 'title_original=' + encodeURIComponent(params.movie.original_title));
+    }
+
+    u = Utils.addUrlComponent(u, 'year=' + encodeURIComponent(((params.movie.release_date || params.movie.first_air_date || '0000') + '').slice(0, 4)));
+    u = Utils.addUrlComponent(u, 'is_serial=' + (params.movie.first_air_date || params.movie.last_air_date ? '2' : params.other ? '0' : '1'));
+    u = Utils.addUrlComponent(u, 'genres=' + encodeURIComponent(genres.join(',')));
+    u = Utils.addUrlComponent(u, 'Category[]=' + (params.movie.number_of_seasons > 0 ? 5000 : 2000) + (params.movie.original_language == 'ja' ? ',5070' : ''));
+    network$3["native"](u, function (json) {
+      json.Results.forEach(function (element) {
+        element.PublisTime = Utils.strToTime(element.PublishDate);
+        element.hash = Utils.hash(element.Title);
+        element.viewed = viewed(element.hash);
+        element.size = Utils.bytesToSize(element.Size);
+      });
+      oncomplite(json);
+    }, function (a, c) {
+      onerror(network$3.errorDecode(a, c));
+    });
+  }
+
+  function marnet(element, oncomplite, onerror) {
+    network$3.timeout(1000 * 15);
+    var s = Utils.checkHttp(Storage.field('torlook_site')) + '/';
+    var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + element.reguest : url.replace('{q}', encodeURIComponent(s + element.reguest));
+    network$3["native"](u, function (html) {
+      var math = html.match(/magnet:(.*?)'/);
+
+      if (math && math[1]) {
+        element.MagnetUri = 'magnet:' + math[1];
+        oncomplite();
+      } else {
+        onerror('获取磁力链接失败');
+      }
+    }, function (a, c) {
+      onerror(network$3.errorDecode(a, c));
+    }, false, {
+      dataType: 'text'
+    });
+  }
+
+  function clear$2() {
+    network$3.clear();
+  }
+
+  var Parser = {
+    get: get$5,
+    torlook: torlook,
+    jackett: jackett,
+    marnet: marnet,
+    clear: clear$2
+  };
+
+  var sources = {
+    ivi: IVI,
+    okko: OKKO,
+    tmdb: TMDB,
+    cub: CUB
+  };
+  var network$2 = new create$s();
+
+  function source(params) {
+    return params.source ? sources[params.source] : sources.tmdb;
+  }
+
+  function main$1() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    source(params).main(params, oncomplite, onerror);
+  }
+
+  function category() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    source(params).category(params, oncomplite, onerror);
+  }
+
+  function full() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    source(params).full(params, oncomplite, onerror);
+  }
+
+  function search$2() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var use_parser = Storage.field('parser_use') && Storage.field('parse_in_search');
+    var status = new status$1(use_parser ? 3 : 2);
+    status.onComplite = oncomplite;
+    TMDB.search(params, function (json) {
+      if (json.movie) status.append('movie', json.movie);
+      if (json.tv) status.append('tv', json.tv);
+    }, status.error.bind(status));
+
+    if (use_parser) {
+      Parser.get({
+        search: decodeURIComponent(params.query),
+        other: true,
+        movie: {
+          genres: [],
+          title: decodeURIComponent(params.query),
+          original_title: decodeURIComponent(params.query),
+          number_of_seasons: 0
+        }
+      }, function (json) {
+        json.title = '种子';
+        json.results = json.Results.slice(0, 20);
+        json.Results = null;
+        json.results.forEach(function (element) {
+          element.Title = Utils.shortText(element.Title, 110);
+        });
+        status.append('parser', json);
+      }, status.error.bind(status));
+    }
+  }
+
+  function menuCategory() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    source(params).menuCategory(params, oncomplite);
+  }
+
+  function person() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    source(params).person(params, oncomplite, onerror);
+  }
+
+  function genres() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    TMDB.genres(params, oncomplite, onerror);
+  }
+
+  function company() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    TMDB.company(params, oncomplite, onerror);
+  }
+
+  function list$1() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    source(params).list(params, oncomplite, onerror);
+  }
+
+  function menu() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    source(params).menu(params, oncomplite);
+  }
+
+  function seasons(tv, from, oncomplite) {
+    source(tv).seasons(tv, from, oncomplite);
+  }
+
+  function collections(params, oncomplite, onerror) {
+    source(params).collections(params, oncomplite, onerror);
+  }
+
+  function favorite() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+    var data = {};
+    data.results = Favorite.get(params);
+    data.total_pages = Math.ceil(data.results.length / 20);
+    data.page = Math.min(params.page, data.total_pages);
+    var offset = data.page - 1;
+    data.results = data.results.slice(20 * offset, 20 * offset + 20);
+    if (data.results.length) oncomplite(data);else onerror();
+  }
+
+  function relise(oncomplite, onerror) {
+    network$2.silent(Utils.protocol() + 'tmdb.cub.watch?sort=releases&results=200', function (json) {
+      json.results.forEach(function (item) {
+        item.tmdbID = item.id;
+      });
+      oncomplite(json.results);
+    }, onerror);
+  }
+
+  function clear$1() {
+    TMDB.clear();
+    OKKO.clear();
+    IVI.clear();
+    network$2.clear();
+  }
+
+  var Api = {
+    main: main$1,
+    img: TMDB.img,
+    full: full,
+    list: list$1,
+    genres: genres,
+    category: category,
+    search: search$2,
+    clear: clear$1,
+    company: company,
+    person: person,
+    favorite: favorite,
+    seasons: seasons,
+    screensavers: TMDB.screensavers,
+    relise: relise,
+    menu: menu,
+    collections: collections,
+    menuCategory: menuCategory
+  };
+
+  var data$2 = [];
+  var object = false;
+  /**
+   * Запуск
+   */
+
+  function init$c() {
+    data$2 = Storage.cache('timetable', 300, []);
+    setInterval(extract$1, 1000 * 60 * 2);
+    setInterval(favorites, 1000 * 60 * 10);
+  }
+
+  function add$4(elems) {
+    elems.filter(function (elem) {
+      return elem.number_of_seasons;
+    }).forEach(function (elem) {
+      var id = data$2.filter(function (a) {
+        return a.id == elem.id;
+      });
+
+      if (!id.length) {
+        data$2.push({
+          id: elem.id,
+          season: elem.number_of_seasons,
+          episodes: []
+        });
+      }
+    });
+    Storage.set('timetable', data$2);
+  }
+
+  function favorites() {
+    add$4(Favorite.get({
+      type: 'book'
+    }));
+    add$4(Favorite.get({
+      type: 'like'
+    }));
+    add$4(Favorite.get({
+      type: 'wath'
+    }));
+  }
+
+  function parse() {
+    if (Favorite.check(object).any) {
+      TMDB.get('tv/' + object.id + '/season/' + object.season, {}, function (ep) {
+        object.episodes = ep.episodes;
+        save$2();
+      }, save$2);
+    } else {
+      Arrays.remove(data$2, object); //очистить из расписания если больше нету в закладках
+
+      save$2();
+    }
+  }
+
+  function extract$1() {
+    var ids = data$2.filter(function (e) {
+      return !e.scaned && (e.scaned_time || 0) + 60 * 60 * 12 * 1000 < Date.now();
+    });
+
+    if (ids.length) {
+      object = ids[0];
+      parse();
+    } else {
+      data$2.forEach(function (a) {
+        return a.scaned = 0;
+      });
+    }
+
+    Storage.set('timetable', data$2);
+  }
+
+  function save$2() {
+    if (object) {
+      object.scaned = 1;
+      object.scaned_time = Date.now();
+      Storage.set('timetable', data$2);
+    }
+  }
+
+  function get$4(elem) {
+    var fid = data$2.filter(function (e) {
+      return e.id == elem.id;
+    });
+    return (fid.length ? fid[0] : {}).episodes || [];
+  }
+
+  function update$4(elem) {
+    if (elem.number_of_seasons && Favorite.check(elem).any) {
+      var id = data$2.filter(function (a) {
+        return a.id == elem.id;
+      });
+      TMDB.clear();
+
+      if (!id.length) {
+        var item = {
+          id: elem.id,
+          season: elem.number_of_seasons,
+          episodes: []
+        };
+        data$2.push(item);
+        Storage.set('timetable', data$2);
+        object = item;
+      } else object = id[0];
+
+      parse();
+    }
+  }
+
+  function all$1() {
+    return data$2;
+  }
+
+  var TimeTable = {
+    init: init$c,
+    get: get$4,
+    add: add$4,
+    all: all$1,
+    update: update$4
   };
 
   function create$k(data) {
@@ -12573,17 +12552,21 @@
     var info;
     var last;
     var waitload;
-    var timer;
     var timer_offer;
 
     this.create = function () {
       var _this = this;
 
       this.activity.loader(true);
-      clearTimeout(timer);
-      Api.favorite(object, this.build.bind(this), function () {
-        timer = setTimeout(_this.empty.bind(_this), 5000);
-      });
+
+      if (Account.working()) {
+        Account.update(function () {
+          Api.favorite(object, _this.build.bind(_this), _this.empty.bind(_this));
+        });
+      } else {
+        Api.favorite(object, this.build.bind(this), this.empty.bind(this));
+      }
+
       return this.render();
     };
 
@@ -12596,7 +12579,7 @@
             var tpl = Template.get('torrent_install', {});
             Storage.set('favotite_offer', 'true');
             tpl.find('.torrent-install__title').text('书签同步');
-            tpl.find('.torrent-install__descr').html('想在你的所有设备上拥有你最喜欢的书签? <br><br>在网站上注册 www.cub.watch, 创建个人资料并登录到灯。');
+            tpl.find('.torrent-install__descr').html('您是否希望您最喜欢的书签出现在您的所有设备上? <br><br>在网站上注册 www.cub.watch, 创建个人资料和登录到台灯。');
             tpl.find('.torrent-install__label').remove();
             tpl.find('.torrent-install__links').html('<div class="torrent-install__link"><div>网站</div><div>www.cub.watch</div></div>');
             tpl.find('.torrent-install__left img').attr('src', 'https://yumata.github.io/lampa/img/ili/bookmarks.png');
@@ -12823,7 +12806,6 @@
       this.clear();
       html.remove();
       body.remove();
-      clearTimeout(timer);
       clearTimeout(timer_offer);
       network = null;
       items = null;
@@ -13563,7 +13545,7 @@
     }
 
     var viewed = Storage.cache('torrents_view', 5000, []);
-    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "怪胎", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Cube in Cube", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Serbin", "To4ka", "Kravets", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Goblin", "Universal Russia", "Kiitos", "Paramount Comedy", "Courage-Bambay", "海盗配音工作室", "Chadov", "Karpovsky", "RecentFilms", "第一频道", "Alternative Production", "NEON Studio", "Kolobok", "Dolsky", "Cinema US", "Gavrilov", "日沃夫", "SDI Media", "阿列克谢耶夫", "GreenРай Studio", "米哈列夫", "埃萨列夫", "维兹古诺夫", "利伯加尔", "库兹涅佐夫", "萨纳耶夫", "ДТВ", "多哈洛夫", "Sunshine Studio", "戈尔恰科夫", "LevshaFilm", "CasStudio", "沃洛达尔斯基", "ColdFilm", "什瓦尔科", "卡尔采夫", "ETV+", "VGTRK", "Gravi-TV", "1001cinema", "Zone Vision Studio", "傻笑医生", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Kolobok", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "四平方", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Igmar", "Kotov", "DeadLine Studio", "Jetvis Studio", "RenTV", "Andrey Pitersky", "Fox Life", "Rybin", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Interfilm", "SunshineStudio", "Kulzvuk Studio", "Kashkin", "Vartan Dokhalov", "Nemakhov", "Sedorelli", "СТС", "Yarotsky", "ICG", "ТВЦ", "Stein", "AzOnFilm", "SorzTeam", "Gaevsky", "Mudrov", "Sergey Vorobyov", "Raido Studio", "DeeAFilm Studio", "zamez", "ViruseProject", "伊万诺夫", "STEPonee", "RenTV", "SV-Dubl", "BadBajo", "喜剧电视", "母带", "5-й 圣彼得堡频道", "SDI Media", "格兰仕", "Ох! 工作室", "SV-Kadr", "2x2", "Kotova", "Positive", "RusFilm", "Nazarov", "XDUB Dorama", "Real translation", "Kansai", "Sound-Group", "Nikolay Drozdov", "ZEE TV", "Ozz.tv", "MTV", "Syenduk", "GoldTeam", "Belov", "Dream Records", "Yakovlev", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Denis Shadinsky", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "First HDTV", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "SV-Double", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "ArchiTheatre", "Project Web Mania", "ko136", "KuraSgrechey", "AMS", "SV-Studio", "Temple Doram TV", "TurkStar", "梅德韦杰夫", "Ryabov", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "库尔德人", "新古典主义", "fiendover", "SomeWax", "Loginoff", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Voroticin", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Kolobok", "SDI Media", "KosharaSerials", "叶卡捷琳堡艺术", "Julia Prosenuk", "ARK-TV Studio", "T.O Friends", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "西里尔字母", "AniPLague", "视频服务", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "格式 AB", "Film Prestige", "West Video", "叶卡捷琳堡艺术", "SovetRomantica", "RuFilms", "AveBrasil", "Greb&Creative", "BTI Studios", "毕达哥拉斯", "Eurochannel", "NewStudio", "卡门视频", "Koshkin", "Kravets", "Rainbow World", "Voroticin", "Varus-Video", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "ABB 视频", "AniStar", "Korean Craze", "LakeFilms", "Nevafilm", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Anastasia Gaydarzhi", "Madeleine Duval", "Fox Life", "Sound Film", "Cowabunga Studio", "Filmexport", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Kirill Sagach", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Muravsky", "IdeaFilm", "Rutilov", "Timofeev", "Laguta", "Dyakonov", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "毕达哥拉斯", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Condor", "Igmar", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Yankelevich", "Kireev", "Bagichev", "2x2", "词典", "Nota", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Kinomaniya", "DDV", "Alternative Production", "WestFilm", "Anastasia Gaydarzhi + Andrey Yurchenko", "Kinomaniya", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "视频制作", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Dasevich", "Anatoly Gusev", "Twister", "Morozov", "NewComers", "kubik&ko", "DeMon", "Anatoly Ashmarin", "Inter Video", "Pronin", "AMC", "Veles", "Volume-6 Studio", "Horror Maker", "Ghostface", "Sephiroth", "Akira", "Deval Video", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Raven", "Andre1288", "Selena International", "GalVid", "Other cinema", "工作室 NLS", "Sam2007", "HaseRiLLoPaW", "Sevastyanov", "D.I.M.", "Marchenko", "Zhuravlev", "N-Kino", "Lazer Video", "SesDizi", "Red Media", "Ore", "Tovbin", "Sergey Didok", "胡安·罗哈斯", "binjak", "Carousel", "Lizard Cinema", "Varus-Video", "Emphasis", "RG.Paravozik", "Max Nabokov", "Barin101", "Vaska Kurolesov", "Fortuna-Film", "Amalgama", "AnyFilm", "Raido Studio", "Kozlov", "Zoomvision Studio", "毕达哥拉斯", "Urasiko", "VIP Serial HD", "НСТ", "Kinolux", "Project Web Mania", "Zavgorodniy", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "S.R.I", "老比尔博", "Ozz.tv", "Mystery Film", "RenTV", "Latyshev", "Vashchenko", "Laiko", "Sonotek", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Neva-1", "Maxim Zholobov", "Good People", "移动电视", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Nikitin", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Ostankino", "TatamiFilm", "Videobase", "Crunchyroll", "Novamedia", "RedRussian1337", "内容OFF", "Creative Sound", "HelloMickey Production", "金字塔", "CLS Media", "Sonkin", "母带", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Naryshkin", "Intra Communications", "OnisFilms", "XDUB Dorama", "Cypress", "Korolev", "visanti-vasaer", "Gottlieb", "Paramount Channel", "СТС", "播音员 CDV", "Pazl Voice", "Pryamostanov", "Zerzia", "НТВ", "MGM", "Dyakov", "伏尔加", "ARK-TV Studio", "杜布罗文", "МИР", "Netflix", "Jetix", "赛普拉斯", "RUSCICO", "Seoul Bay", "Filonov", "Makhonko", "Stroev", "Sanya Bely", "Govinda Raga", "Oshurkov", "Horror Maker", "Khlopushka", "Khrustalev", "Antonov Nikolai", "Zolotukhin", "ArchiAsia", "Popov", "Ultradox", "Most-Video", "Altera Pars", "Ogorodnikov", "Twin", "Khabar", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ulpanei Elrom", "Videoimpulse", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Carousel", "Inter", "Contentica", "Mill", "RealFake", "IDDC", "Info-film", "Music-trade", "Kirdin | Stalk", "DioNik", "Stasyuk", "TV1000", "Hallmark", "Toniks Media", "Bessonov", "Gears Media", "Bakhurani", "NewDub", "Cinema Prestige", "Nabiev", "New Dream Media", "ТВ3", "Malinovsky Sergey", "Superbit", "Kens Matvey", "LE-Production", "Voiz", "Svetla", "Cinema Prestige", "JAM", "LDV", "Videogram", "India TV", "RedDiamond Studio", "Gerusov", "Elegy film", "Nastia", "Yulia Semykina", "Train", "Stamp Dmitry", "星期五", "Oneinchnales", "Gravi-TV", "D2Lab", "电影首映", "Gleb Busov", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 频道", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Agapov", "Akopyan", "Alekseev", "Artemyev", "巴吉切夫", "贝索诺夫", "瓦西里耶夫", "瓦西尔采夫", "加夫里洛夫", "格鲁索夫", "戈特利布", "格里戈里耶夫", "达塞维奇", "多尔斯基", "卡尔波夫斯基", "卡什金", "基里耶夫", "克留克文", "科斯图克维奇", "马特维耶夫", "米哈列夫", "米申", "穆德罗夫", "普罗宁", "萨夫琴科", "斯​​米尔诺夫", "季莫菲耶夫", "托尔斯托布罗夫", "Chuev", "Shuvaev", "Yakovlev", "ААА-sound", "AbyGDe", "Akalite", "Akira", "联盟", "汞合金", "АМС", "AnVad", "Anubis", "Anubis", "Ark-TV", "ARK-TV Studio", "B. Fedorov", "Bibikov", "Bigych", "Boykov", "阿卜杜洛夫", "别洛夫", "维克罗夫", "沃龙佐夫", "戈尔恰科夫", "丹尼洛夫", "多哈洛夫", "科托夫", "科什金", "纳扎罗夫", "波波夫", "鲁金", "鲁蒂洛夫", "韦鲁斯视频", "Vaska Kurolesov", "Vashchenko S.", "Vekshin", "Veles", "Veselchak", "视频冲动", "Vitya «говорун»", "Voysover", "Volga", "Raven", "Vorotilin", "G. Liebergal", "G. Rumyantsev", "同性恋电影指南", "ГКГ", "Glukhovsky", "Grizzly", "Gundos", "Denshchikov", "Esarev", "Nurmukhametov", "Puchkov", "Stasyuk", "Shadinsky", "Stamp", "sf@irat", "Derzhimorda", "Domashny", "ДТВ", "Dyakonov", "E. Gaevsky", "E. Grankin", "E. Lurie", "E. Rudoy,​​", "E. Khrustalev", "EA Cinema", "叶卡捷琳堡艺术", "日瓦戈", "朱奇科夫", "Z Ranku Do Nochі", "Zavgorodniy", "Zeburo", "Zerenitsyn", "I. Eremeev", "I. Klushin", "I. Safronov", "I. Stepanov", "ИГМ", "Igmar", "IDDC", "Image-Art", "Inis", "Iren", "East-West", "K. Pozdnyakov", "K. Filonov", "К9", "Karapetyan", "Karmen Video", "Carousel", "Malevich Square", "Sprat", "Cypress", "Korolev", "Kotova", "Kravets", "Cube in Cuba", "Courage-Bambay", "L. Volodarsky", "Laser Video", "LancelaP", "Lapshin", "Lexicon", "Lenfilm", "Lesha Ensign", "蜥蜴", "Lucien", "Zaugarov", "Ivanov", "Ivanova 和 P. Pashut", "Latyshev", "Oshurkov", "Chadov", "Yarotsky", "Maxim Loginoff", "Malinovsky", "Marchenko", "母带", "Makhonko", "Mashinskiy", "媒体综合体", "Mill", "Mika Bondarik", "Minyaev", "Mitelman", "大多数视频", "Mosfilm", "Muravsky", "Music Trade", "N-Kino", "N. Antonov", "N. Drozdov", "N. Zolotukhin", "N. Sevastyanov seva1988", "Nabiev", "Natalia Gurzo", "NEVA 1", "Nevafilm", "NeZupinyaiProduction", "Neoclassic", "非致命武器", "НЛО-TV", "新", "新 CD", "新配音", "新频道", "注意", "НСТ", "НТВ", "НТН", "霸王", "Ogorodnikov", "Omicron", "Glantz", "Kartsev", "Morozov", "Pryamostanov", "Sanaev", "天堂", "Pepelats", "ORT 第一频道", "Perevodman", "Pepper", "彼得堡配音", "Petersburger", "Pyramid", "毕达哥拉斯", "Positive-Multimedia", "Pride Production", "Premier Video", "Premier Multimedia", "Cranks", "R. Yankelevich", "Raido", "Angle", "RenTV", "Russia", "РТР", "俄罗斯配音", "俄罗斯报告文学", "RuFilms", "红狗", "S. Vizgunov", "S. Dyakov", "S. Kazakov", "S. Kuznetsov", "S. Kuzmichev", "S. Lebedev", "S. Makashov", "S. Ryabov", "S. Shchegolkov", "S.R.I.", "Сolumbia Service", "Samarsky", "SV Studio", "SV-Double", "Svetla", "Selena International", "Cinema Trade", "Cinema US", "Cinta Ruroni", "Synchron", "苏联", "Sokurov", "Solodukhin", "Sonotek", "Sonkin", "Soyuz Video", "Soyuzmultfilm", "SPD - 甜蜜的情侣", "Stroev", "СТС", "Sovereign Leprosarium 工作室", "工作室 «Стартрек»", "KOleso", "高尔基工作室", "Kolobok 工作室", "海盗配音工作室", "Raido 工作室", "工作室三", "Gurtom", "Superbit", "Syenduk", "Tak Treba Production", "TV XXI Century", "TV SPb", "ТВ-3", "ТВ6", "TWIN", "ТВЦ", "HDTV 1", "ТНТ", "TO Friends", "托尔马乔夫", "观点", "电车电影", "ТРК", "华特迪士尼公司", "Khikhidok", "Clapperboard", "Цікава Ідея", "四平方", "Shvetsov", "邮票", "斯​​坦因", "Yu.Zhivov", "Yu.Nemakhov", "Yu.Serbin", "Yu.Tovbin", "Ya.Bellmann"];
+    var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "怪癖", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Cube in Cube", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Serbin", "To4ka", "Kravets", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Goblin", "Universal Russia", "Kiitos", "Paramount Comedy", "Courage-Bambay", "海盗配音工作室", "Chadov", "Karpovsky", "RecentFilms", "第一频道", "Alternative Production", "NEON Studio", "Kolobok", "Dolsky", "Cinema US", "Gavrilov", "日沃夫", "SDI Media", "阿列克谢耶夫", "GreenРай Studio", "米哈列夫", "埃萨列夫", "维兹古诺夫", "利伯加尔", "库兹涅佐夫", "萨纳耶夫", "ДТВ", "多哈洛夫", "Sunshine Studio", "戈尔恰科夫", "LevshaFilm", "CasStudio", "沃洛达尔斯基", "ColdFilm", "什瓦尔科", "卡尔采夫", "ETV+", "VGTRK", "Gravi-TV", "1001cinema", "Zone Vision Studio", "傻笑医生", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Kolobok", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "四平方", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Igmar", "Kotov", "DeadLine Studio", "Jetvis Studio", "RenTV", "Andrey Pitersky", "Fox Life", "Rybin", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Interfilm", "SunshineStudio", "Kulzvuk Studio", "Kashkin", "Vartan Dokhalov", "Nemakhov", "Sedorelli", "СТС", "Yarotsky", "ICG", "ТВЦ", "Stein", "AzOnFilm", "SorzTeam", "Gaevsky", "Mudrov", "Sergey Vorobyov", "Raido Studio", "DeeAFilm Studio", "zamez", "ViruseProject", "伊万诺夫", "STEPonee", "RenTV", "SV-Dubl", "BadBajo", "喜剧电视", "母带", "5-й 圣彼得堡频道", "SDI Media", "格兰仕", "Ох! 工作室", "SV-Kadr", "2x2", "Kotova", "Positive", "RusFilm", "Nazarov", "XDUB Dorama", "Real translation", "Kansai", "Sound-Group", "Nikolay Drozdov", "ZEE TV", "Ozz.tv", "MTV", "Syenduk", "GoldTeam", "Belov", "Dream Records", "Yakovlev", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Denis Shadinsky", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "First HDTV", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "SV-Double", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "ArchiTheatre", "Project Web Mania", "ko136", "KuraSgrechey", "AMS", "SV-Studio", "Temple Doram TV", "TurkStar", "梅德韦杰夫", "Ryabov", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "库尔德人", "新古典主义", "fiendover", "SomeWax", "Loginoff", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Voroticin", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Kolobok", "SDI Media", "KosharaSerials", "叶卡捷琳堡艺术", "Julia Prosenuk", "ARK-TV Studio", "T.O Friends", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "西里尔字母", "AniPLague", "视频服务", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "格式 AB", "Film Prestige", "West Video", "叶卡捷琳堡艺术", "SovetRomantica", "RuFilms", "AveBrasil", "Greb&Creative", "BTI Studios", "毕达哥拉斯", "Eurochannel", "NewStudio", "卡门视频", "Koshkin", "Kravets", "Rainbow World", "Voroticin", "Varus-Video", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "ABB 视频", "AniStar", "Korean Craze", "LakeFilms", "Nevafilm", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Anastasia Gaydarzhi", "Madeleine Duval", "Fox Life", "Sound Film", "Cowabunga Studio", "Filmexport", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Kirill Sagach", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Muravsky", "IdeaFilm", "Rutilov", "Timofeev", "Laguta", "Dyakonov", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "毕达哥拉斯", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Condor", "Igmar", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Yankelevich", "Kireev", "Bagichev", "2x2", "词典", "Nota", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Kinomaniya", "DDV", "Alternative Production", "WestFilm", "Anastasia Gaydarzhi + Andrey Yurchenko", "Kinomaniya", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "视频制作", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Dasevich", "Anatoly Gusev", "Twister", "Morozov", "NewComers", "kubik&ko", "DeMon", "Anatoly Ashmarin", "Inter Video", "Pronin", "AMC", "Veles", "Volume-6 Studio", "Horror Maker", "Ghostface", "Sephiroth", "Akira", "Deval Video", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Raven", "Andre1288", "Selena International", "GalVid", "Other cinema", "工作室 NLS", "Sam2007", "HaseRiLLoPaW", "Sevastyanov", "D.I.M.", "Marchenko", "Zhuravlev", "N-Kino", "Lazer Video", "SesDizi", "Red Media", "Ore", "Tovbin", "Sergey Didok", "胡安·罗哈斯", "binjak", "Carousel", "Lizard Cinema", "Varus-Video", "Emphasis", "RG.Paravozik", "Max Nabokov", "Barin101", "Vaska Kurolesov", "Fortuna-Film", "Amalgama", "AnyFilm", "Raido Studio", "Kozlov", "Zoomvision Studio", "毕达哥拉斯", "Urasiko", "VIP Serial HD", "НСТ", "Kinolux", "Project Web Mania", "Zavgorodniy", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "S.R.I", "老比尔博", "Ozz.tv", "Mystery Film", "RenTV", "Latyshev", "Vashchenko", "Laiko", "Sonotek", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Neva-1", "Maxim Zholobov", "Good People", "移动电视", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Nikitin", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Ostankino", "TatamiFilm", "Videobase", "Crunchyroll", "Novamedia", "RedRussian1337", "内容OFF", "Creative Sound", "HelloMickey Production", "金字塔", "CLS Media", "Sonkin", "母带", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Naryshkin", "Intra Communications", "OnisFilms", "XDUB Dorama", "Cypress", "Korolev", "visanti-vasaer", "Gottlieb", "Paramount Channel", "СТС", "播音员 CDV", "Pazl Voice", "Pryamostanov", "Zerzia", "НТВ", "MGM", "Dyakov", "伏尔加", "ARK-TV Studio", "杜布罗文", "МИР", "Netflix", "Jetix", "赛普拉斯", "RUSCICO", "Seoul Bay", "Filonov", "Makhonko", "Stroev", "Sanya Bely", "Govinda Raga", "Oshurkov", "Horror Maker", "Khlopushka", "Khrustalev", "Antonov Nikolai", "Zolotukhin", "ArchAsia", "Popov", "Ultradox", "Most-Video", "Altera Pars", "Ogorodnikov", "Twin", "Khabar", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ulpaney Elrom", "Videoimpulse", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Carousel", "Inter", "Contentica", "Mill", "RealFake", "IDDC", "Info-film", "Music-trade", "Kirdin | Stalk", "DioNik", "Stasyuk", "TV1000", "Hallmark", "Toniks Media", "Bessonov", "Gears Media", "Bakhurani", "NewDub", "Cinema Prestige", "Nabiev", "New Dream Media", "ТВ3", "Malinovsky Sergey", "Superbit", "Kens Matvey", "LE-Production", "Voiz", "Svetla", "Cinema Prestige", "JAM", "LDV", "Videogram", "India TV", "RedDiamond Studio", "Gerusov", "Elegy film", "Nastia", "Yulia Semykina", "Train", "Stamp Dmitry", "星期五", "Oneinchnales", "Gravi-TV", "D2Lab", "电影首映", "Gleb Busov", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 频道", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Agapov", "Akopyan", "Alekseev", "Artemyev", "巴吉切夫", "贝索诺夫", "瓦西里耶夫", "瓦西尔采夫", "加夫里洛夫", "格鲁索夫", "戈特利布", "格里戈里耶夫", "达塞维奇", "多尔斯基", "卡尔波夫斯基", "卡什金", "基里耶夫", "克留克文", "科斯图克维奇", "马特维耶夫", "米哈列夫", "米申", "穆德罗夫", "普罗宁", "萨夫琴科", "斯​​米尔诺夫", "季莫菲耶夫", "托尔斯托布罗夫", "Chuev", "Shuvaev", "Yakovlev", "ААА-sound", "AbyGDe", "Akalite", "Akira", "联盟", "汞合金", "АМС", "AnVad", "Anubis", "Anubis", "Ark-TV", "ARK-TV Studio", "B. Fedorov", "Bibikov", "Bigych", "Boykov", "阿卜杜洛夫", "别洛夫", "维克罗夫", "沃龙佐夫", "戈尔恰科夫", "丹尼洛夫", "多哈洛夫", "科托夫", "科什金", "纳扎罗夫", "波波夫", "鲁金", "鲁蒂洛夫", "韦鲁斯视频", "Vaska Kurolesov", "Vashchenko S.", "Vekshin", "Veles", "Veselchak", "视频冲动", "Vitya «говорун»", "Voysover", "Volga", "Raven", "Vorotilin", "G. Liebergal", "G. Rumyantsev", "同性恋电影指南", "ГКГ", "Glukhovsky", "Grizzly", "Gundos", "Denshchikov", "Esarev", "Nurmukhametov", "Puchkov", "Stasyuk", "Shadinsky", "Stamp", "sf@irat", "Derzhimorda", "Domashny", "ДТВ", "Dyakonov", "E. Gaevsky", "E. Grankin", "E. Lurie", "E. Rudoy,​​", "E. Khrustalev", "EA Cinema", "叶卡捷琳堡艺术", "日瓦戈", "朱奇科夫", "Z Ranku Do Nochі", "Zavgorodniy", "Zeburo", "Zerenitsyn", "I. Eremeev", "I. Klushin", "I. Safronov", "I. Stepanov", "ИГМ", "Igmar", "IDDC", "Image-Art", "Inis", "Iren", "East-West", "K. Pozdnyakov", "K. Filonov", "К9", "Karapetyan", "Karmen Video", "Carousel", "Malevich Square", "Sprat", "Cypress", "Korolev", "Kotova", "Kravets", "Cube in Cuba", "Courage-Bambay", "L. Volodarsky", "Laser Video", "LancelaP", "Lapshin", "Lexicon", "Lenfilm", "Lesha Ensign", "蜥蜴", "Lucien", "Zaugarov", "Ivanov", "Ivanova 和 P. Pashut", "Latyshev", "Oshurkov", "Chadov", "Yarotsky", "Maxim Loginoff", "Malinovsky", "Marchenko", "母带", "Makhonko", "Mashinskiy", "媒体综合体", "Mill", "Mika Bondarik", "Minyaev", "Mitelman", "大多数视频", "Mosfilm", "Muravsky", "Music Trade", "N-Kino", "N. Antonov", "N. Drozdov", "N. Zolotukhin", "N. Sevastyanov seva1988", "Nabiev", "Natalia Gurzo", "NEVA 1", "Nevafilm", "NeZupinyaiProduction", "Neoclassic", "非致命武器", "НЛО-TV", "新", "新 CD", "新配音", "新频道", "注意", "НСТ", "НТВ", "НТН", "霸王", "Ogorodnikov", "Omicron", "Glantz", "Kartsev", "Morozov", "Pryamostanov", "Sanaev", "天堂", "Pepelats", "ORT 第一频道", "Perevodman", "Pepper", "彼得堡配音", "Petersburger", "Pyramid", "毕达哥拉斯", "Positive-Multimedia", "Pride Production", "Premier Video", "Premier Multimedia", "Cranks", "R. Yankelevich", "Raido", "Angle", "RenTV", "Russia", "РТР", "俄罗斯配音", "俄罗斯报告文学", "RuFilms", "红狗", "S. Vizgunov", "S. Dyakov", "S. Kazakov", "S. Kuznetsov", "S. Kuzmichev", "S. Lebedev", "S. Makashov", "S. Ryabov", "S. Shchegolkov", "S.R.I.", "Сolumbia Service", "Samarsky", "SV Studio", "SV-Double", "Svetla", "Selena International", "Cinema Trade", "Cinema US", "Cinta Ruroni", "Synchron", "苏联", "Sokurov", "Solodukhin", "Sonotek", "Sonkin", "Soyuz Video", "Soyuzmultfilm", "SPD - 甜蜜的情侣", "Stroev", "СТС", "Sovereign Leprosarium 工作室", "工作室 «Стартрек»", "KOleso", "高尔基工作室", "Kolobok 工作室", "海盗配音工作室", "Raido 工作室", "工作室三", "Gurtom", "Superbit", "Syenduk", "Tak Treba Production", "TV XXI Century", "TV SPb", "ТВ-3", "ТВ6", "TWIN", "ТВЦ", "HDTV 1", "ТНТ", "TO Friends", "托尔马乔夫", "观点", "电车电影", "ТРК", "华特迪士尼公司", "Khikhidok", "Clapperboard", "Цікава Ідея", "四平方", "Shvetsov", "邮票", "斯​​坦因", "Yu.Zhivov", "Yu.Nemakhov", "Yu.Serbin", "Yu.Tovbin", "Ya.Bellmann"];
     scroll.minus();
     scroll.body().addClass('torrent-list');
 
@@ -13972,7 +13954,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + ' - 添加到 «我的torrents»');
+        Noty.show(object.movie.title + ' - 添加到 «我的种子»');
       });
     };
 
@@ -14016,7 +13998,7 @@
           last = e.target;
           scroll.update($(e.target), true);
           if (pose > object.page * 20 - 4) _this4.next();
-          Helper.show('torrents', 'Hold key (ОК) to call context menu', item);
+          Helper.show('torrents', '按住 (ОК) 打开上下文菜单', item);
         }).on('hover:enter', function () {
           Torrent.opened(function () {
             _this4.mark(element, item, true);
@@ -14034,17 +14016,17 @@
         }).on('hover:long', function () {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: 'Action',
+            title: '动作',
             items: [{
-              title: 'Add to «我的torrents»',
+              title: '添加到 «我的种子»',
               tomy: true
             }, {
-              title: 'Flag',
-              subtitle: 'Flag share with flag (已观看)',
+              title: '标志',
+              subtitle: '标志与标志共享 (已观看)',
               mark: true
             }, {
-              title: '未标记',
-              subtitle: '未标记共享 (已观看)'
+              title: '取消标记',
+              subtitle: '取消标记共享 (已观看)'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -14884,7 +14866,7 @@
     notices = [{
       time: '2022-04-18 18:00',
       title: '每周',
-      descr: '- 新功能，最受关注的热门种子 (测试模式)<br>- 添加插件目录以便快速安装。<br>- 将卡片广播到网络上的其他设备。<br>- 测试工作清单 TorrServe<br>- 从种子中复制视频链接。<br>- 鼠标和独轮车长按完成。<br>- 收藏出现在卡片中。<br>- 添加有关以最佳质量发布电影的通知。'
+      descr: '- 新功能，最受关注的热门种子 (测试模式)<br>- 添加插件目录以便快速安装。<br>- 将卡片广播到网络上的其他设备。<br>- 测试工作的清单 TorrServe<br>- 从种子复制视频的链接。<br>- 鼠标和独轮车的长按完成。<br>- 收藏出现在卡片中。<br>- 添加有关以最佳质量发布电影的通知。'
     }, {
       time: '2021-12-23 14:00',
       title: '更新 1.3.7',
@@ -14928,11 +14910,11 @@
     }, {
       time: '2021-10-12 19:00',
       title: '更新 1.2.4',
-      descr: '1. 添加了菜单 (我的种子).<br>2. 更新了种子中的过滤器和排序。<br>3. 添加的信息流 (新项目) 在电影和电视节目中。<br>4. 固定链接 Torserver.<br>5. 为电视节目添加观看标记。<br>6. 修复了几个错误和错误。'
+      descr: '1. 添加了菜单 (我的种子).<br>2. 更新了种子中的过滤器和排序。<br>3. 添加的信息流 (新项目) 在电影和电视节目中。<br>4. 固定链接 Torserver.<br>5. 为电视节目添加了观看标记。<br>6. 修复了几个错误和错误。'
     }, {
       time: '2021-10-10 18:00',
       title: '更新 1.2.3',
-      descr: '1. 添加鼠标支持。<br>2. 添加保存视图位置 (电影)<br>3. 修复了播放器中部分关闭的图块的错误。<br>4. 添加了一个次要链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的转换'
+      descr: '1. 添加了鼠标支持。<br>2. 添加保存视图位置 (电影)<br>3. 修复了播放器中部分关闭的图块的错误。<br>4. 添加了一个次要链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的转换'
     }, {
       time: '2021-10-09 15:00',
       title: '更新 1.2.2',
