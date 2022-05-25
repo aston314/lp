@@ -16407,7 +16407,8 @@
   }, 'w200');
   select$1('parser_torrent_type', {
     'jackett': 'Jackett',
-    'torlook': 'Torlook'
+    'torlook': 'Torlook',
+    '1337x': '1337x'
   }, 'torlook');
   select$1('torlook_parse_type', {
     'native': '直接',
