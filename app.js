@@ -15025,11 +15025,11 @@
     }, {
       time: '2021-10-01 09:00',
       title: '更新 1.0.9',
-      descr: '1. 改进了书签和电影中的背景<br>2. 更改说明<br>3. 已完成插件 Orsay'
+      descr: '1. 改进了书签和电影中的背景<br>2. 更改了说明<br>3. 完成了插件 Orsay'
     }, {
       time: '2021-09-30 18:00',
       title: '更新 1.0.8',
-      descr: '1. 改进背景<br>2. 显示按钮 (Torrents)<br>3. 添加排序洪流<br>4. Tizen 和 WebOS<br> 5. 的完成输出, Orsay'
+      descr: '1. 改进了背景<br>2. 显示的按钮 (Torrents)<br>3. 添加了排序洪流<br>4. Tizen 和 WebOS<br> 5. 的完成输出, Orsay'
     }, {
       time: '2021-09-29 17:00',
       title: 'Update 1.0.7',
@@ -15952,6 +15952,7 @@
           if (e.keyCode == 13) _this.listener.send('enter');
         });
         input.on('focus', function () {
+          StatusBar.hide();
           Keypad.disable();
         });
         input.on('hover:focus', function () {
@@ -15961,7 +15962,6 @@
           if (time_blur + 1000 < Date.now()) input.focus();
         });
         $('.simple-keyboard').append(input);
-        StatusBar.hide();
       } else {
         _keyBord = new _keyClass({
           display: {
