@@ -8352,9 +8352,12 @@
 
   function entities(url, oncomplite, onerror) {
     network$5["native"]('https://www.ivi.ru/' + url, function (str) {
-      var parse = str.match(/window.__INITIAL_STATE__ = JSON.parse\('(.*?)'\);<\/script>/);
-      var decod = (parse ? parse[1] : '').replace(/\\'|[\\]+"/g, '\'');
-      var json = Arrays.decodeJson(decod, {});
+      var parse = parse = str.match(/window.__INITIAL_STATE__ = (\{.*?\});<\/script>/);
+      var json = {};
+
+      try {
+        json = parse && eval('(' + parse[1] + ')');
+      } catch (e) {}
 
       if (json.entities) {
         if (!menu_list.length) {
@@ -15943,6 +15946,7 @@
           var keys = [13, 65376, 29443, 117];
           if (keys.indexOf(e.keyCode) >= 0) e.preventDefault(), input.blur();
           if (e.keyCode == 13) _this.listener.send('enter');
+          if (e.keyCode == 65385 || e.keyCode == 461) input.blur();
         });
         input.on('focus', function () {
           Keypad.disable();
@@ -16122,6 +16126,7 @@
       } catch (e) {}
 
       this.listener.destroy();
+      Keypad.enable();
     };
   }
 
