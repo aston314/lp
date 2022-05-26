@@ -8635,7 +8635,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续看' : '你已经看过'
+        title: params.url == 'tv' ? '继续看' : '你已经看过了'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
@@ -9250,7 +9250,7 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
     network$3.timeout(1000 * 30);
-    var s = 'https://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
+    var s = 'http://proxy.cub.watch/cdn/https://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
     var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
     var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(q) : url.replace('{q}', encodeURIComponent(s + encodeURIComponent(q)));
     network$3["native"](u, function (json) {
