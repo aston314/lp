@@ -15025,11 +15025,11 @@
     }, {
       time: '2021-10-01 09:00',
       title: '更新 1.0.9',
-      descr: '1. 改进了书签和电影中的背景<br>2. 更改了说明<br>3. 完成了插件 Orsay'
+      descr: '1. 改进了书签和电影中的背景<br>2. 更改说明<br>3. 已完成插件 Orsay'
     }, {
       time: '2021-09-30 18:00',
       title: '更新 1.0.8',
-      descr: '1. 改进了背景<br>2. 显示的按钮 (Torrents)<br>3. 添加了排序洪流<br>4. Tizen 和 WebOS<br> 5. 的完成输出, Orsay'
+      descr: '1. 改进背景<br>2. 显示按钮 (Torrents)<br>3. 添加排序洪流<br>4. Tizen 和 WebOS<br> 5. 的完成输出, Orsay'
     }, {
       time: '2021-09-29 17:00',
       title: 'Update 1.0.7',
@@ -15934,19 +15934,22 @@
 
       if (simple) {
         input = $('<input type="text" class="simple-keyboard-input selector" placeholder="输入文本..." />');
+        var val_last = '';
+        var time_blur = 0;
         input.on('keyup change', function (e) {
-          _this.listener.send('change', {
-            value: input.val()
+          var val_now = input.val();
+          if (val_last !== val_now) _this.listener.send('change', {
+            value: val_now
           });
         });
         input.on('blur', function () {
           Keypad.enable();
+          time_blur = Date.now();
         });
         input.on('keydown', function (e) {
-          var keys = [13, 65376, 29443, 117];
+          var keys = [13, 65376, 29443, 117, 65385, 461, 27];
           if (keys.indexOf(e.keyCode) >= 0) e.preventDefault(), input.blur();
           if (e.keyCode == 13) _this.listener.send('enter');
-          if (e.keyCode == 65385 || e.keyCode == 461) input.blur();
         });
         input.on('focus', function () {
           Keypad.disable();
@@ -15954,7 +15957,11 @@
         input.on('hover:focus', function () {
           input.focus();
         });
+        input.on('hover:enter', function () {
+          if (time_blur + 1000 < Date.now()) input.focus();
+        });
         $('.simple-keyboard').append(input);
+        StatusBar.hide();
       } else {
         _keyBord = new _keyClass({
           display: {
