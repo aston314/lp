@@ -15017,7 +15017,7 @@
     }, {
       time: '2021-10-07 17:00',
       title: '更新 1.2.1',
-      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加过滤器<br>4. 视觉改进的播放器<br>5. 添加了性能设置<br>6. 种子文件中的固定名称<br>7. 修复了播放器暂停的错误<br>8. 修复了其他小错误和错误'
+      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加过滤器<br>4. 视觉改进的播放器<br>5. 添加了性能设置<br>6. 修复了种子文件中的名称<br>7. 修复了播放器暂停的错误<br>8. 修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
       title: '更新 1.0.10',
@@ -15973,6 +15973,21 @@
         };
 
         document.addEventListener('keyboardStateChange', keyboard_visible, false);
+        var winHeight = $(window).height();
+        $(document).ready(function(event) {
+            var thisHeight=$(this).height();
+            if(winHeight - thisHeight >50){
+            }else{
+                input.blur();
+            }
+        });
+        $(window).on("resize", function(event){
+            var thisHeight=$(this).height();
+            if(winHeight - thisHeight >50){
+            }else{
+                input.blur();
+            }
+        });
         $('.simple-keyboard').append(input);
       } else {
         _keyBord = new _keyClass({
