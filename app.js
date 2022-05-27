@@ -8638,7 +8638,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续看' : '你已经看过了'
+        title: params.url == 'tv' ? '继续看' : '你已经看过'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
@@ -15939,9 +15939,14 @@
         var time_blur = 0;
         input.on('keyup change', function (e) {
           var val_now = input.val();
-          if (val_last !== val_now) _this.listener.send('change', {
-            value: val_now
-          });
+
+          if (val_last !== val_now) {
+            val_last = val_now;
+
+            _this.listener.send('change', {
+              value: val_now
+            });
+          }
         });
         input.on('blur', function () {
           Keypad.enable();
@@ -15951,7 +15956,6 @@
           var keys = [13, 65376, 29443, 117, 65385, 461, 27];
           if (keys.indexOf(e.keyCode) >= 0) e.preventDefault(), input.blur();
           if (e.keyCode == 13) _this.listener.send('enter');
-          console.log('Keyboard', e.keyCode);
         });
         input.on('focus', function () {
           Keypad.disable();
