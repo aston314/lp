@@ -15037,10 +15037,10 @@
     }, {
       time: '2021-09-28 16:00',
       title: '修复',
-      descr: '1. 修复错误 (不可能得到 HASH)<br>2. Parser for MSX, 经完成，现在你不需要指定显式链接，只要你愿意<br> 3. Parser改进 jac.red, 现在搜索更准确'
+      descr: '1. 修复错误 (无法获取 HASH)<br>2. 解析器已完成 MSX, 现在您不需要指定显式链接，只要您愿意<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '解析器已修复',
+      title: '已修复解析器',
       descr: '在解析器中发现导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
@@ -15970,7 +15970,8 @@
         document.addEventListener('keyboardStateChange', keyboard_visible, false);
         window.addEventListener('keyboardDidHide', keyboardHideHandler);
         function keyboardHideHandler(e){
-            input.blur();;
+            console.log('监听到键盘关闭');
+            input.blur();
         };
         $('.simple-keyboard').append(input);
       } else {
