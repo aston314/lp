@@ -15935,11 +15935,6 @@
 
       if (simple) {
         input = $('<input type="text" class="simple-keyboard-input selector" placeholder="输入文本..." />');
-        window.addEventListener('keyboardDidHide', keyboardHideHandler);
-        function keyboardHideHandler(e){
-            console.log('监听到键盘关闭');
-            input.blur();
-        };
         var val_last = '';
         var time_blur = 0;
         input.on('keyup change', function (e) {
@@ -15952,10 +15947,11 @@
           Keypad.enable();
           time_blur = Date.now();
         });
-        input.on('keydown', function (e) {
+        input.on('keyup', function (e) {
           var keys = [13, 65376, 29443, 117, 65385, 461, 27];
           if (keys.indexOf(e.keyCode) >= 0) e.preventDefault(), input.blur();
           if (e.keyCode == 13) _this.listener.send('enter');
+          console.log('Keyboard', e.keyCode);
         });
         input.on('focus', function () {
           Keypad.disable();
@@ -16559,7 +16555,7 @@
   select$1('keyboard_type', {
     'lampa': '内置',
     'integrate': '系统'
-  }, 'lampa');
+  }, 'integrate');
   select$1('time_offset', {
     'n-5': '-5',
     'n-4': '-4',
@@ -17676,6 +17672,7 @@
       keys.forEach(function (key) {
         _this.append(key);
       });
+      if (!keys.length) scroll.append('<div class="selector search-history-empty">搜索历史为空。</div>');
     };
 
     this.append = function (value) {
@@ -18047,7 +18044,7 @@
 
       if (code == 0) {
         name.text('已禁用');
-        desc.text('同步');
+        desc.text('已启用同步');
       }
 
       if (code == 1) {
@@ -18057,17 +18054,17 @@
 
       if (code == 2) {
         name.text('登录失败');
-        desc.text('请检查您的详细信息并重试');
+        desc.text('请检查您的输入并重试');
       }
 
       if (code == 3) {
-        name.text('已登录');
-        desc.text('您已经登录成功');
+        name.text('进来');
+        desc.text('您已成功登录');
       }
 
       if (code == 4) {
         var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
-        name.text('Synchronized');
+        name.text('同步');
         desc.text(time.full + ' в ' + time.time);
       }
     }
@@ -18232,10 +18229,10 @@
   var body;
   var network = new create$s();
   var official_list = [{
-    name: 'Browse Online',
+    name: '在线浏览',
     url: 'http://jin.energy/online.js'
   }, {
-    name: 'Browse Online',
+    name: '在线浏览',
     url: 'http://arkmv.ru/vod'
   }];
   /**
@@ -18256,7 +18253,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否工作。但是，这并不意味着插件没有工作。重新启动应用程序，看看插件是否正在加载.' : '要应用插件应用程序需要重新启动') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '无法检查插件是否工作。但是，这并不意味着插件没有工作。重新启动应用程序查看插件是否正在加载。' : '要使用该插件需要重新启动应用程序') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -18336,11 +18333,11 @@
             });
             Params.listener.send('update_scroll');
           } else {
-            Noty.show('此插件已安装。');
+            Noty.show('该插件已安装。');
           }
         });
         item.find('.plugins-catalog__url').text(plug.url);
-        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - 安装' : plug.name);
+        item.find('.plugins-catalog__detail').text(plug.count ? plug.count + ' - Installations' : plug.name);
         container.append(item);
       }
 
@@ -18371,7 +18368,7 @@
 
   function renderPlugin(url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? '加载自 CUB' : '按 (OK) 检查插件') + '</div><div class="settings-param__status"></div></div>');
+    var item = $('<div class="settings-param selector"><div class="settings-param__name">' + (params.is_cub && params.plugin.name ? params.plugin.name + ' - ' : '') + url + '</div><div class="settings-param__descr">' + (params.is_cub ? 'Loaded from CUB' : '点击 (OK) 检查插件') + '</div><div class="settings-param__status"></div></div>');
 
     var check = function check() {
       var status = $('.settings-param__status', item).removeClass('active error wait').addClass('wait');
@@ -18467,7 +18464,7 @@
                 var enabled = Controller.enabled().name;
                 Modal.open({
                   title: '',
-                  html: $('<div class="about"><div class="selector">加载应用程序时，某些插件无法加载 (' + notload.join(', ') + ')</div></div>'),
+                  html: $('<div class="about"><div class="selector">加载应用程序时,部分插件无法加载 (' + notload.join(', ') + ')</div></div>'),
                   onBack: function onBack() {
                     Modal.close();
                     Controller.toggle(enabled);
@@ -18579,7 +18576,7 @@
         Select.show({
           title: '退出',
           items: [{
-            title: '是，退出',
+            title: '是,退出',
             out: true
           }, {
             title: '继续看'
