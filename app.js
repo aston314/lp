@@ -8638,7 +8638,7 @@
       var fulldata = [];
       if (books.length) fulldata.push({
         results: books,
-        title: params.url == 'tv' ? '继续看' : '你已经看过了'
+        title: params.url == 'tv' ? '继续看' : '你已经看过'
       });
       if (status.data["new"] && status.data["new"].results.length) fulldata.push(status.data["new"]);
       if (status.data.best && status.data.best.results.length) fulldata.push(status.data.best);
@@ -15037,14 +15037,14 @@
     }, {
       time: '2021-09-28 16:00',
       title: '修复',
-      descr: '1. 修复错误 (无法获取 HASH)<br>2. 解析器已完成 MSX, 现在您不需要指定显式链接，只要您愿意<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
+      descr: '1. 修复错误 (获取不到 HASH)<br>2. Parser for MSX, 经完成，现在不需要指定显式链接，只要你愿意<br> 3. Parser改进 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '已修复解析器',
-      descr: '在解析器中发现导致 jac.red 不返回结果的错误'
+      title: 'Parser fixed',
+      descr: 'Parser was a bug 被发现导致 jac.red 不返回结果'
     }, {
       time: '2021-09-26 17:00',
-      title: '欢迎!',
+      title: 'Welcome!',
       descr: '这是您首次发布该应用程序，我们希望您喜欢它。玩得开心。'
     }];
     Arrays.extend(data$1, {
@@ -15937,7 +15937,7 @@
         input = $('<input type="text" class="simple-keyboard-input selector" placeholder="输入文本..." />');
         var val_last = '';
         var time_blur = 0;
-        input.on('keyup change', function (e) {
+        input.on('keyup change input keypress', function (e) {
           var val_now = input.val();
 
           if (val_last !== val_now) {
