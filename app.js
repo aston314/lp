@@ -15935,6 +15935,11 @@
 
       if (simple) {
         input = $('<input type="text" class="simple-keyboard-input selector" placeholder="输入文本..." />');
+        window.addEventListener('keyboardDidHide', keyboardHideHandler);
+        function keyboardHideHandler(e){
+            console.log('监听到键盘关闭');
+            input.blur();
+        };
         var val_last = '';
         var time_blur = 0;
         input.on('keyup change', function (e) {
@@ -15968,11 +15973,6 @@
         };
 
         document.addEventListener('keyboardStateChange', keyboard_visible, false);
-        window.addEventListener('keyboardDidHide', keyboardHideHandler);
-        function keyboardHideHandler(e){
-            console.log('监听到键盘关闭');
-            input.blur();
-        };
         $('.simple-keyboard').append(input);
       } else {
         _keyBord = new _keyClass({
