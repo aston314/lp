@@ -15037,11 +15037,11 @@
     }, {
       time: '2021-09-28 16:00',
       title: '修复',
-      descr: '1. 修复错误 (获取不到 HASH)<br>2. Parser for MSX, 经完成，现在不需要指定显式链接，只要你愿意<br> 3. Parser改进 jac.red, 现在搜索更准确'
+      descr: '1. 修复错误 (无法获取 HASH)<br>2. 解析器已完成 MSX, 现在您不需要指定显式链接，只要您愿意<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '解析器已修复',
-      descr: '解析器是一个导致 jac.red 不返回结果的错误'
+      title: '已修复解析器',
+      descr: '在解析器中发现导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
       title: '欢迎!',
@@ -15999,15 +15999,6 @@
         input.on('hover:enter', function () {
           if (time_blur + 1000 < Date.now()) input.focus();
         });
-        if (Storage.field('keyboard_num')) {
-            $(document).ready(function(event) {
-                trigger('keyboard_num', false);
-                input.blur();
-                setTimeout(function(){
-                  input.focus();
-                }, 190);
-            });
-        };
         $('.simple-keyboard').append(input);
       } else {
         _keyBord = new _keyClass({
@@ -16638,7 +16629,6 @@
   trigger('subtitles_start', false);
   trigger('helper', true);
   trigger('light_version', false);
-  trigger('keyboard_num', true);
   /**
    * Добовляем поля
    */
