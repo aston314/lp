@@ -15972,21 +15972,15 @@
         };
 
         document.addEventListener('keyboardStateChange', keyboard_visible, false);
-        var winHeight = $(window).height();
-        $(document).ready(function(event) {
-            var thisHeight=$(this).height();
-            if(winHeight - thisHeight >50){
-            }else{
+        if (Storage.field('keyboard_num')) {
+            $(document).ready(function(event) {
+                trigger('keyboard_num', false);
                 input.blur();
-            }
-        });
-        $(window).on("resize", function(event){
-            var thisHeight=$(this).height();
-            if(winHeight - thisHeight >50){
-            }else{
-                input.blur();
-            }
-        });
+                setTimeout(function(){
+                  input.focus();
+                }, 190);
+            });
+        };
         $('.simple-keyboard').append(input);
       } else {
         _keyBord = new _keyClass({
@@ -16618,6 +16612,7 @@
   trigger('subtitles_start', false);
   trigger('helper', true);
   trigger('light_version', false);
+  trigger('keyboard_num', true);
   /**
    * Добовляем поля
    */
