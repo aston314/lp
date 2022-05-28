@@ -15037,11 +15037,11 @@
     }, {
       time: '2021-09-28 16:00',
       title: '修复',
-      descr: '1. 修复错误 (无法获取 HASH)<br>2. 解析器已完成 MSX, 现在您不需要指定显式链接，只要您愿意<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
+      descr: '1. 修复错误 (获取不到 HASH)<br>2. Parser for MSX, 经完成，现在不需要指定显式链接，只要你愿意<br> 3. Parser改进 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '已修复解析器',
-      descr: '在解析器中发现导致 jac.red 不返回结果的错误'
+      title: '解析器已修复',
+      descr: '解析器是一个导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
       title: '欢迎!',
@@ -15960,7 +15960,7 @@
         });
         input.on('keyup', function (e) {
           if (time_focus + 1000 > Date.now()) return;
-          var keys = [65376, 29443, 117, 65385, 461, 27];
+          var keys = [13, 65376, 29443, 117, 65385, 461, 27];
           var valu = input.val();
           var cart = e.target.selectionStart;
 
@@ -15990,6 +15990,8 @@
           if (e.keyCode == 38) {
             input.blur(), _this.listener.send('up');
           }
+
+          console.log('Keykode', e.keyCode);
         });
         input.on('hover:focus', function () {
           input.focus();
