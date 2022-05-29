@@ -5167,7 +5167,7 @@
 
   function startChrome() {
     worked = true;
-    chrome = $('<div class="screensaver-chrome"><iframe src="http://proxy.cub.watch/cdn/https://clients3.google.com/cast/chromecast/home" class="screensaver-chrome__iframe"></iframe><div class="screensaver-chrome__overlay"></div></div>');
+    chrome = $('<div class="screensaver-chrome"><iframe src="https://cors.eu.org/https://clients3.google.com/cast/chromecast/home" class="screensaver-chrome__iframe"></iframe><div class="screensaver-chrome__overlay"></div></div>');
     chrome.find('.screensaver-chrome__overlay').on('click', function () {
       stopSlideshow();
     });
