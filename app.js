@@ -2401,6 +2401,7 @@
       down: function down() {
         Navigator.move('down');
       },
+      left: close$3,
       back: close$3
     });
     Controller.toggle('select');
@@ -4233,16 +4234,27 @@
   listener$b.follow('webos_subs', function (data) {
     var subs = data.subs;
 
+    if (!Arrays.isArray(subs)) {
+      var new_subs = [];
+
+      for (var index = 0; index < subs.length; index++) {
+        new_subs.push(subs[index]);
+      }
+
+      subs = new_subs;
+    }
+
     if (typeof params.sub !== 'undefined' && subs[params.sub]) {
       subs.forEach(function (e) {
         return e.mode = 'disabled';
       });
       subs[params.sub].mode = 'showing';
       subs[params.sub].selected = true;
+      console.log('Webos', 'toggle saved subs', params.sub);
       subsview(true);
     } else if (Storage.field('subtitles_start')) {
       var full = subs.find(function (s) {
-        return s.label.indexOf('完整') >= 0;
+        return (s.label || '').indexOf('完整') >= 0;
       });
 
       if (full) {
