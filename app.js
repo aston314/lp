@@ -4343,7 +4343,7 @@
 
 
     _video.addEventListener('subtitle', function (e) {
-      //В srt существует тег {\anX}, где X - цифра 1 到 9, Тег определяет нестандартное положение субтитра на экране.
+      //В srt существует тег {\anX}, где X - цифра 从 1 到 9, Тег определяет нестандартное положение субтитра на экране.
       //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
       //{\an8} 在需要字幕时使用不与屏幕底部的字幕或视频中内置的字幕重叠。
       subtitles$1.removeClass('on-top');
@@ -7025,7 +7025,7 @@
     save$4();
   }
   /**
-   * 搜索
+   * 查找
    * @param {Int} id 
    * @returns Object
    */
@@ -14126,7 +14126,7 @@
                 } else if (p == 3) {
                   if (test('двухголос|双声| l2[,| |$]|[,|\\s](лд|пд)[,|\\s|$]')) any = true;
                 } else if (p == 4) {
-                  if (test('любитель|作者| l1[,| |$]|[,|\\s](ло|ап)[,|\\s|$]')) any = true;
+                  if (test('любитель|作者的| l1[,| |$]|[,|\\s](ло|ап)[,|\\s|$]')) any = true;
                 } else if (test(a.toLowerCase(), true)) any = true;
               }
 
@@ -14135,12 +14135,22 @@
               }
 
               if (type == 'season') {
+                var pad = function pad(n) {
+                  return n < 10 && n != '01' ? '0' + n : n;
+                };
+
                 var _i4 = finded_seasons.indexOf(a);
 
                 var f = finded_seasons_full[_i4];
-                var other = title.match(/\[s(\d+)-(\d+)\]/);
-                if (Array.isArray(other) && (f > other[1] && f <= other[2] || '0' + f > other[1] && '0' + f <= other[2])) any = true;
-                if (test('.?\\[s' + f + '-.?|.?-' + f + '\\].?|.?\\[s0' + f + '\\].?|.?\\[s' + f + '\\].?|.?s' + f + 'e.?|.?s' + f + '-.?|.?季:' + f + '.?|сезон ' + f + ',.?|\\[' + f + ' 季。?|\\(' + f + ' 季。?|.?season ' + f + '.?')) any = true;
+                var SES1 = title.match(/\[s(\d+)-(\d+)\]/);
+                var SES2 = title.match(/season (\d+)-(\d+)/);
+                var SES3 = title.match(/season (\d+) - (\d+).?/);
+                var SES4 = title.match(/季: (\d+)-(\d+) \/.?/);
+                if (Array.isArray(SES1) && (f >= SES1[1] && f <= SES1[2] || pad(f) >= SES1[1] && pad(f) <= SES1[2] || f >= pad(SES1[1]) && f <= pad(SES1[2]))) any = true;
+                if (Array.isArray(SES2) && (f >= SES2[1] && f <= SES2[2] || pad(f) >= SES2[1] && pad(f) <= SES2[2] || f >= pad(SES2[1]) && f <= pad(SES2[2]))) any = true;
+                if (Array.isArray(SES3) && (f >= SES3[1] && f <= SES3[2] || pad(f) >= SES3[1] && pad(f) <= SES3[2] || f >= pad(SES3[1]) && f <= pad(SES3[2]))) any = true;
+                if (Array.isArray(SES4) && (f >= SES4[1] && f <= SES4[2] || pad(f) >= SES4[1] && pad(f) <= SES4[2] || f >= pad(SES4[1]) && f <= pad(SES4[2]))) any = true;
+                if (test('.?\\[0' + f + 'x0.?|.?\\[s' + f + '-.?|.?-' + f + '\\].?|.?\\[s0' + f + '\\].?|.?\\[s' + f + '\\].?|.?s' + f + 'e.?|.?s' + f + '-.?|.?季: ' + f + ' .?|.?сезон:' + f + '.?|сезон ' + f + ',.?|\\[' + f + ' 季。?|.?\\(' + f + ' 季。?|.?season ' + f + '.?')) any = true;
               }
             });
             if (any) passed = true;else nopass = true;
@@ -14252,7 +14262,7 @@
           movie: object.movie
         }
       }, function () {
-        Noty.show(object.movie.title + ' - 添加到 «我的torrents»');
+        Noty.show(object.movie.title + ' - 添加到 «我的种子»');
       });
     };
 
@@ -14296,7 +14306,7 @@
           last = e.target;
           scroll.update($(e.target), true);
           if (pose > object.page * 20 - 4) _this4.next();
-          Helper.show('torrents', 'Hold key (ОК) to call context menu', item);
+          Helper.show('torrents', '按住 (ОК) 打开上下文菜单', item);
         }).on('hover:enter', function () {
           Torrent.opened(function () {
             _this4.mark(element, item, true);
@@ -14314,17 +14324,17 @@
         }).on('hover:long', function () {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: 'Action',
+            title: '动作',
             items: [{
-              title: 'Add to «我的torrents»',
+              title: '添加到 «我的种子»',
               tomy: true
             }, {
-              title: 'Flag',
-              subtitle: 'Flag share with flag (已观看)',
+              title: '标志',
+              subtitle: '用 (查看)',
               mark: true
             }, {
               title: '取消标记',
-              subtitle: '取消标记共享 (已观看)'
+              subtitle: '取消标记共享 (查看)'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -14465,10 +14475,10 @@
         card.onMenu = function (target, card_data) {
           var enabled = Controller.enabled().name;
           Select.show({
-            title: '动作',
+            title: '操作',
             items: [{
               title: '删除',
-              subtitle: 'Torrent 将从您的列表中删除'
+              subtitle: '标记共享，种子将从您的列表中删除'
             }],
             onBack: function onBack() {
               Controller.toggle(enabled);
@@ -15163,92 +15173,92 @@
     data$1 = Storage.get('notice', '{}');
     notices = [{
       time: '2022-04-18 18:00',
-      title: '每周',
-      descr: '- 新功能，最受关注的热门种子 (测试模式)<br>- 添加插件目录以便快速安装。<br>- 将卡片广播到网络上的其他设备。<br>- 测试工作清单 TorrServe<br>- 从种子中复制视频链接。<br>- 鼠标和独轮车长按完成。<br>- 收藏出现在卡片中。<br>- 添加有关以最佳质量发布电影的通知。'
+      title: '周刊',
+      descr: '- 新功能,热门种子最受关注 (测试模式)<br>- 添加插件目录方便快速安装。<br>- 广播卡到网络上的其他设备.<br>- 检查工作清单 TorrServe<br>- 从种子中复制视频链接.<br>- 长按鼠标和独轮车完成。<br>- 收藏出现在卡片中。<br>- 添加有关电影发布质量更好的通知。'
     }, {
       time: '2021-12-23 14:00',
       title: '更新 1.3.7',
-      descr: '1. 添加语音搜索。<br>2. 修复鼠标错误并添加支持播放器中的鼠标。<br>3. 添加帐户链接 CUB.<br>4. 任何其他不有趣的小东西。'
+      descr: '1. 添加语音搜索。<br>2. 修复错误带鼠标并在播放器中添加了对鼠标的支持。<br>3. 添加了帐号绑定 CUB.<br>4. 各种其他无趣的小东西。'
     }, {
       time: '2021-11-25 13:00',
       title: '更新 1.3.6',
-      descr: '1. 添加了新目录 CUB.<br>2. 更改了发布源，现在甚至可以在 MSX.<br>3. 添加动漫类别 ;)'
+      descr: '1. 添加新目录 CUB.<br>2. 更改发布源，现在甚至可以在 MSX.<br>3. 添加动漫类别 ;)'
     }, {
       time: '2021-11-15 11:00',
       title: '更新 1.3.5',
-      descr: '1. 添加屏幕保护程序 Google ChromeCast.<br>2. 发布立即开始，无需搜索。<br>3. 输入按钮已从键盘中删除。<br>4. 播放器中的倒带已得到改进，并添加了按钮 (到最后 / 到开头).<br>5. 通过服务添加同步 gist.github.com.'
+      descr: '1. 添加屏幕保护程序 Google ChromeCast.<br>2. 发布立即开始，无需搜索。<br>3. 从键盘上移除 Enter 键。<br>4. 播放器改进了倒带并添加了按钮 (到结尾 / 到开头).<br>5. 通过服务添加同步 gist.github.com.'
     }, {
       time: '2021-11-10 10:00',
       title: '更新 1.3.4',
-      descr: '1. 关闭属性时固定时间戳 (从上一个地方继续).<br>2. 在三星电视上黑条是播放器中的固定颜色。<br>3. 在设置中添加了插件。'
+      descr: '1. 属性关闭时的固定时间戳 (从最后的地方继续).<br>2. 在三星电视上，播放器中的黑色骰子已修复。<br>3. 在设置中添加了插件。'
     }, {
       time: '2021-11-02 10:00',
       title: '更新 1.3.3',
-      descr: '1. 添加了种子搜索。<br>2. 修复了使用选定源加载主页。<br>3. 添加了过滤器中的多选。<br>4. 添加了更多视频缩放选择。<br>5. 修复了其他小things .'
+      descr: '1. 添加了种子搜索。<br>2. 固定加载带有选定源的主页。<br>3. 在过滤器中添加了多项选择。<br>4. 添加了更多缩放选择视频。<br>5. 其他小修复。'
     }, {
       time: '2021-10-25 15:00',
-      title: 'Update 1.3.2',
-      descr: '1. 固定卡片搜索，每张卡片都有自己的来源 (tmdb,ivi,okko)<br>2. 能够将源切换为 (tmdb,ivi,okko).<br>3. 更新后台工作。<br>4. 在 torrent 文件中添加滚动，向左或向右滚动 10 个位置。<br>5. 更改 NCR 源。<br>6. 修复浏览历史记录，现在如果您开始观看视频，则会添加卡片。<br>7. 在源中添加评论 ivi.'
+      title: '更新 1.3.2',
+      descr: '1. 固定卡片搜索，每张卡片都有自己的来源 (tmdb,ivi,okko)<br>2. 能够切换来源 (tmdb,ivi,okko).<br>3. 更新后台工作。<br>4. 在torrent文件中添加滚动，向左或向右滚动10个位置。<br>5. 更改了来源НЦР.<br>6. 浏览历史记录已修复，现在如果您开始观看视频，则会添加一张卡片。<br>7. 在来源中添加评论 ivi.'
     }, {
       time: '2021-10-20 16:20',
       title: '更新 1.3.1',
-      descr: '1. 使用 ivi 和添加选择 okko<br>2. 返回了改变视频比例的能力。<br>3. 添加了数字版本，在 MSX 中不起作用。<br>4. 以哪种语言显示数据 TMDB.<br>5. 切换到自然的能力已添加到屏幕保护程序。<br>6. 能够选择哪种语言找到种子。<br>7. 能够禁用按时间码继续。'
+      descr: '1. 添加了 ivi 和 的选择 okko<br>2. 返回了更改视频比例的能力。<br>3. 添加了数字版本，在 MSX 中不起作用。<br>4. 显示数据的语言 TMDB.<br>5. 添加在屏幕保护程序中切换到自然的能力。<br>6. 能够选择在哪种语言中查找种子文件。<br>7. 能够通过时间码禁用继续。'
     }, {
       time: '2021-10-14 13:00',
       title: '屏幕保护程序',
-      descr: '添加屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
+      descr: '添加了屏幕保护程序，如果什么都不做，则在 5 分钟后启动。'
     }, {
       time: '2021-10-14 10:00',
       title: '更新 1.2.6',
-      descr: '1. 修复删除 torrent 的错误。<br>2. 固定时间戳。<br>3. 为电视剧添加视觉效果，在 torrent 文件中更好地显示电视剧。<br>4. 其他小东西。'
+      descr: '1. 修复 torrent 删除错误。<br>2. 固定时间戳。<br>3. 为电视剧添加视觉效果，更好地在 torrent 文件中看到电视剧。<br>4. 其他小事。'
     }, {
       time: '2021-10-12 19:10',
       title: '很高兴知道',
-      descr: '你知道吗? 如果你长按按钮怎么办 (OK) 在卡片上，您可以调出添加书签的菜单。同样的方法适用于种子，长按允许您将分发添加到列表 (我的种子)'
+      descr: '你知道吗? 如果您长时间按住卡片上的按钮 (OK) 您可以调出添加书签的菜单。同样的方法适用于种子，长按允许您将分发添加到列表中 (我的种子)'
     }, {
       time: '2021-10-12 19:00',
       title: '更新 1.2.4',
-      descr: '1. 添加了菜单 (我的种子).<br>2. 更新了种子中的过滤器和排序。<br>3. 添加的提要 (新项目) 在电影和电视节目中。<br>4. 固定链接 Torserver.<br>5. 为电视节目添加了观看标记。<br>6. 修复了几个错误和错误。'
+      descr: '1. 添加的菜单 (我的种子).<br>2. 过滤和排序更新的种子。<br>3. 添加的提要 (新) 在电影和电视节目中。<br>4. 固定链接 Torserver.<br>5. 为电视节目添加了观看标记。<br>6. 修复了几个错误和错误。'
     }, {
       time: '2021-10-10 18:00',
       title: '更新 1.2.3',
-      descr: '1. 添加了鼠标支持。<br>2. 添加观看位置记忆 (电影)<br>3. 修复了播放器中部分关闭的图块的错误。<br>4. 添加了一个次要链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的转换'
+      descr: '1. 添加鼠标支持 .<br>2. 查看位置记忆添加 (电影)<br>3. 修复了播放器中半封闭瓷砖的错误。<br>4. 添加了一个次要链接 Torserver<br>5. 标记已查看 torrent<br>6. 添加了从 torrent 到电影卡的转换'
     }, {
       time: '2021-10-09 15:00',
       title: '更新 1.2.2',
-      descr: '1. 添加了 Tizen播放器<br>2. 添加 WebOS 播放器<br>3. 添加到播放器的 Torrent 下载统计信息。<br>4. 在播放器中添加了倒带栏<br>5. 修复了空海报 Torserver<br>6. 修复了其他小错误和错误'
+      descr: '1. 添加 Tizen 播放器<br>2. 添加 webOS 播放器<br>3. 播放器添加了种子下载统计。<br>4. 在播放器中添加了倒带条<br>5. 修复了空海报 Torserver<br>6. 修复了其他小错误和错误'
     }, {
       time: '2021-10-07 17:00',
       title: '更新 1.2.1',
-      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加过滤器<br>4. 视觉改进的播放器<br>5. 添加了性能设置<br>6. 修复了种子文件中的名称<br>7. 修复了播放器暂停的错误<br>8. 修复了其他小错误和错误'
+      descr: '1. 修复了带有后退按钮的错误 MSX<br>2. 修复了搜索错误<br>3. 在种子中添加了过滤器<br>4. 视觉上改进的播放器<br>5. 添加了性能设置<br>6. 修复了种子文件中的名称<br>7. 修复了播放器暂停的错误<br>8. 修复了其他小错误和错误'
     }, {
       time: '2021-10-03 12:00',
       title: '更新 1.0.10',
-      descr: '1. 改进了加载小卡片模式<br>2. 添加日志，查看日志悬停在标题上并单击 10 次'
+      descr: '1. 改进了浅模式下卡片的加载<br>2. 添加了日志，查看日志悬停在标题上并单击 10 次'
     }, {
       time: '2021-10-01 09:00',
       title: '更新 1.0.9',
-      descr: '1. 改进了书签和电影中的背景<br>2. 更改了说明<br>3. 完成了插件 Orsay'
+      descr: '1. 书签和电影中的改进背景<br>2. 更改说明<br>3. 完成插件 Orsay'
     }, {
       time: '2021-09-30 18:00',
       title: '更新 1.0.8',
-      descr: '1. 改进了背景<br>2. 显示的按钮 (Torrents)<br>3. 添加了排序洪流<br>4. Tizen 和 WebOS<br> 5. 的完成输出, Orsay'
+      descr: '1. 改进背景<br>2. 显示按钮 (种子)<br>3. 添加了 Torrent 排序<br>4. Tizen 的退出和 WebOS<br> 5. 控制按钮 Orsay'
     }, {
       time: '2021-09-29 17:00',
-      title: 'Update 1.0.7',
-      descr: '1. 的可能完成的控制按钮, 优化的主页和目录<br>2. 添加了对 TorServer<br> 3. 的授权, 添加了错误提示 TorServer'
+      title: '更新 1.0.7',
+      descr: '1. 优化的主页和目录<br>2. 添加了授权 TorServer<br> 3. 添加了错误提示 TorServer'
     }, {
       time: '2021-09-28 16:00',
-      title: '修复',
-      descr: '1. 修复错误 (无法获取 HASH)<br>2. 解析器已完成 MSX, 现在您不需要指定显式链接，只要您愿意<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
+      title: '更正',
+      descr: '1. Bug 已修复 (无法获取 HASH)<br>2. 改进的解析器 MSX, 现在您不需要指定显式链接，只需可选<br> 3. 改进的解析器 jac.red, 现在搜索更准确'
     }, {
       time: '2021-09-27 15:00',
-      title: '已修复解析器',
-      descr: '在解析器中发现导致 jac.red 不返回结果的错误'
+      title: '修复解析器',
+      descr: '解析器中存在导致 jac.red 不返回结果的错误'
     }, {
       time: '2021-09-26 17:00',
       title: '欢迎!',
-      descr: '这是您第一次运行该应用程序，我们希望您非常喜欢它。玩得开心。'
+      descr: '这是您首次发布的应用程序，希望您喜欢它。玩得开心。'
     }];
     Arrays.extend(data$1, {
       time: 0
@@ -15261,7 +15271,7 @@
         var items = [];
         result.forEach(function (item) {
           var data = JSON.parse(item.data);
-          var desc = '新质量可用<br><br>质量 - <b>' + data.card.quality + '</b>';
+          var desc = '新质量可用<br><br>质量- <b>' + data.card.quality + '</b>';
 
           if (data.card.seasons) {
             var k = [];
@@ -15271,7 +15281,7 @@
             }
 
             var s = k.pop();
-            desc = '新剧集<br><br>季 - <b>' + s + '</b><br>剧集 - <b>' + data.card.seasons[s] + '</b>';
+            desc = '新电视剧<br><br>季- <b>' + s + '</b><br>剧集 - <b>' + data.card.seasons[s] + '</b>';
           }
 
           items.push({
@@ -15789,7 +15799,7 @@
       } else {
         push({
           url: '',
-          title: '主页 - ' + Storage.field('source').toUpperCase(),
+          title: '首页- ' + Storage.field('source').toUpperCase(),
           component: 'main',
           source: Storage.field('source'),
           page: 1
@@ -16193,8 +16203,6 @@
           if (e.keyCode == 38) {
             input.blur(), _this.listener.send('up');
           }
-
-          console.log('Keykode', e.keyCode);
         });
         input.on('hover:focus', function () {
           input.focus();
@@ -16418,11 +16426,11 @@
       });
       links = links.concat([{
         title: 'jac.red',
-        subtitle: '用于种子，Api 键 - 空的',
+        subtitle: '对于种子, API 密钥 - empty',
         url: 'jac.red'
       }, {
         title: '127.0.0.1:8090',
-        subtitle: '对于本地 TorrServer',
+        subtitle: 'For local TorrServer',
         url: '127.0.0.1:8090'
       }]);
       Select.show({
@@ -16432,10 +16440,10 @@
           if (a.add) {
             if (members.indexOf(a.subtitle) == -1) {
               Arrays.insert(members, 0, a.subtitle);
-              Noty.show('Added (' + a.subtitle + ')');
+              Noty.show('added (' + a.subtitle + ')');
             } else {
               Arrays.remove(members, a.subtitle);
-              Noty.show('Removed (' + a.subtitle + ')');
+              Noty.show('Deleted (' + a.subtitle + ')');
             }
 
             Storage.set('setting_member', members);
@@ -16448,7 +16456,7 @@
         onLong: function onLong(a, elem) {
           if (a.member) {
             Arrays.remove(members, a.url);
-            Noty.show('Removed (' + a.url + ')');
+            Noty.show('Deleted (' + a.url + ')');
             Storage.set('setting_member', members);
             $(elem).css({
               opacity: 0.4
@@ -16468,7 +16476,7 @@
     keyboard$1.create();
     keyboard$1.value(params.value);
     keyboard$1.toggle();
-    Helper.show('keyboard', '输入值后，按按钮 «返回» 保存');
+    Helper.show('keyboard', '输入值后按按钮 «返回» 保存');
   }
 
   function back$1() {
@@ -16703,7 +16711,7 @@
   }, 'torlook');
   select$1('torlook_parse_type', {
     'native': '直接',
-    'site': '通过站点 API'
+    'site': '通过网站 API'
   }, 'native');
   select$1('background_type', {
     'complex': '复杂',
@@ -16721,12 +16729,12 @@
     'inner': '内联'
   }, 'inner');
   select$1('torrserver_use_link', {
-    'one': '主要',
+    'one': '基本',
     'two': '次要'
   }, 'one');
   select$1('subtitles_size', {
     'small': '小',
-    'normal': '正常',
+    'normal': '常规',
     'large': '大'
   }, 'normal');
   select$1('screensaver_type', {
@@ -16746,7 +16754,7 @@
     'zh-TW': '繁體中文 - 臺灣',
     'en': 'English',
     'df': '原始',
-    'ru': '英语'
+    'ru': '俄语'
   }, 'df');
   select$1('player_timecode', {
     'again': '重新开始',
@@ -16771,7 +16779,7 @@
     'favorite@book': '书签',
     'favorite@like': '喜欢',
     'favorite@wath': '稍后',
-    'favorite@history': '浏览历史记录',
+    'favorite@history': '浏览历史',
     'mytorrents': '我的种子',
     'last': '最新'
   }, 'last');
@@ -16785,7 +16793,7 @@
   }, 'preload');
   select$1('navigation_type', {
     'controll': '遥控器',
-    'mouse': '鼠标'
+    'mouse': '用鼠标遥控'
   }, 'mouse');
   select$1('keyboard_type', {
     'lampa': '内置',
@@ -17032,7 +17040,7 @@
       title: '卡通',
       cat: 'multmovie'
     }, {
-      title: '电视剧',
+      title: '电视节目',
       cat: 'tv'
     }, {
       title: '卡通',
@@ -17043,20 +17051,20 @@
     }]
   };
   data.rating = {
-    title: '评级',
+    title: '等级',
     items: [{
-      title: '任何'
+      title: '任意'
     }, {
       title: 'от 1 до 3',
       voite: '1-3'
     }, {
-      title: '3 到 6',
+      title: '从 3 到 6',
       voite: '3-6'
     }, {
-      title: '6 到 8',
+      title: '从 6 到 8',
       voite: '6-8'
     }, {
-      title: '8 到 9',
+      title: '从 8 到 9',
       voite: '8-9'
     }, {
       title: 'от 8',
@@ -17144,10 +17152,10 @@
       title: '塞尔维亚',
       code: 'sr'
     }, {
-      title: '斯​​洛伐克',
+      title: '斯洛伐克',
       code: 'sk'
     }, {
-      title: '斯​​洛文尼亚',
+      title: '斯洛文尼亚',
       code: 'sl'
     }, {
       title: '塔吉克斯坦',
@@ -17234,7 +17242,7 @@
       checkbox: true
     }, {
       "id": 10749,
-      "title": "浪漫",
+      "title": "情节剧",
       checkbox: true
     }, {
       "id": 878,
@@ -17246,7 +17254,7 @@
       checkbox: true
     }, {
       "id": 53,
-      "title": "惊悚",
+      "title": "惊悚片",
       checkbox: true
     }, {
       "id": 10752,
@@ -17329,7 +17337,7 @@
   data.year = {
     title: '年份',
     items: [{
-      title: '任何',
+      title: '任意',
       any: true
     }]
   };
@@ -17359,7 +17367,7 @@
     where.items.forEach(function (a) {
       if (a.selected || a.checked) title.push(a.title);
     });
-    where.subtitle = title.length ? title.join(', ') : '未选择';
+    where.subtitle = title.length ? title.join(', ') : '未选中';
   }
 
   function main() {
@@ -17572,7 +17580,7 @@
       if (prepared(action, ['timetable'])) {
         Activity$1.push({
           url: '',
-          title: '日程',
+          title: '时间表',
           component: 'timetable',
           page: 1
         });
@@ -17607,7 +17615,7 @@
             title: '精选 ivi',
             source: 'ivi'
           }, {
-            title: '精选 okko',
+            title: '选择 okko',
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
@@ -17933,7 +17941,7 @@
     this.append = function (value) {
       var _this2 = this;
 
-      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>左-删除</div></div></div>');
+      var key = $('<div class="search-history-key selector"><div><span>' + value + '</span><div>左 - 删除</div></div></div>');
       key.on('hover:enter', function () {
         _this2.listener.send('enter', {
           value: value
@@ -18371,13 +18379,13 @@
       }
 
       if (code == 2) {
-        name.text('未登录祝你好运');
-        desc.text('检查输入的数据再试一次');
+        name.text('授权失败');
+        desc.text('请检查您的详细信息，然后重试');
       }
 
       if (code == 3) {
         name.text('登录');
-        desc.text('你已成功登录');
+        desc.text('您已成功登录');
       }
 
       if (code == 4) {
@@ -18571,7 +18579,7 @@
   function showCheckResult(error) {
     Modal.open({
       title: '',
-      html: $('<div class="about"><div class="selector">' + (error ? '检查功能失败插件。但是，这并不意味着插件不起作用重新加载应用程序，看看插件是否正在加载。' : '您必须重新启动应用程序才能应用插件') + '</div></div>'),
+      html: $('<div class="about"><div class="selector">' + (error ? '无法验证插件是否正常工作。但这并不意味着插件不工作。重新加载应用程序以查看插件是否正在加载。' : '要应用插件需要重启应用') + '</div></div>'),
       onBack: function onBack() {
         Modal.close();
         Controller.toggle('settings_component');
@@ -18782,7 +18790,7 @@
                 var enabled = Controller.enabled().name;
                 Modal.open({
                   title: '',
-                  html: $('<div class="about"><div class="selector">加载应用程序时，某些插件加载失败 (' + notload.join(', ') + ')</div></div>'),
+                  html: $('<div class="about"><div class="selector">当加载应用，部分插件加载失败 (' + notload.join(', ') + ')</div></div>'),
                   onBack: function onBack() {
                     Modal.close();
                     Controller.toggle(enabled);
@@ -18898,7 +18906,7 @@
         Select.show({
           title: '退出',
           items: [{
-            title: '是的, 退出',
+            title: '是，退出',
             out: true
           }, {
             title: '继续看'
@@ -19006,7 +19014,7 @@
           var type = color_keys[e.code];
           Activity$1.push({
             url: '',
-            title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史' : '稍后',
+            title: type == 'book' ? '书签' : type == 'like' ? '喜欢' : type == 'history' ? '浏览历史记录' : '稍后',
             component: 'favorite',
             type: type,
             page: 1
