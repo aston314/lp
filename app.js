@@ -9481,12 +9481,10 @@
       var s = 'http://proxy.cub.watch/cdn/https://1337x.proxyninja.org/srch?search=';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
       network$5["native"](u + '', function (str) {
-        var math1 = str.replace(/
-|/g, '').match(new RegExp('<tbody>(.*?)<\/tbody>', 'g'));
+        var math1 = str.replace(/\n|\r/g, '').match(new RegExp('<tbody>(.*?)<\/tbody>', 'g'));
         var math;
         if (math1){
-         math = math1[0].replace(/
-|/g, '').match(new RegExp('<tr>(.*?)<\/tr>', 'g'));
+         math = math1[0].replace(/\n|\r/g, '').match(new RegExp('<tr>(.*?)<\/tr>', 'g'));
         }else{
          math = [];
         };
