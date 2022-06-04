@@ -9504,10 +9504,10 @@
             if ($('.coll-date', element).text().indexOf(":") != -1){
               torrtime = new Date(new Date().toUTCString().slice(0, -4));
             }else{
-              torrtime = new Date(otime+' '+new Date().getFullYear());
+              torrtime = new Date(otime+' '+new Date().getFullYear()).toISOString();
             }
           }else{
-            torrtime = new Date(otime);
+            torrtime = new Date(otime).toISOString();
           };
           item.PublishDate = torrtime;
           item.Seeders = parseInt($('.coll-2', element).text());
