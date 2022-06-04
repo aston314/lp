@@ -716,7 +716,7 @@
 
   var html$18 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">启用种子搜索</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">您在此同意接受使用公共链接查看种子和在线内容的所有责任。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">torrent解析器类型</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">Link</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定指向Jackett脚本的链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"例如: sa0sk83d..\">\n        <div class=\"settings-param__name\">Api key</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">位于Jackett</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">TorLook网站解析方法</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"例如: scraperapi.com\">\n        <div class=\"settings-param__name\">网络爬虫链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在scraperapi.com上注册，输入链接api.scraperapi.com?api_key=...&url={q}<br>V {q} w41.torlook.info 网站将送达</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">搜索语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">搜索什么语言？</div>\n    </div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_in_search\">\n        <div class=\"settings-param__name\">搜索中的解析器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">在搜索中显示结果？</div>\n    </div>\n</div>";
 
-  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的主链接</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 TorrServer 脚本的次要链接</div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用 TorrServe 内置的 JS 客户端，否则系统启动。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待填充TorrServer预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
+  var html$17 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_use_link\">\n        <div class=\"settings-param__name\">使用链接</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Links</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">主链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定TorrServer脚本的主链接</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_url_two\" placeholder=\"例如: 192.168.x\">\n        <div class=\"settings-param__name\">次要链接</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">指定 TorrServer 脚本的次要链接</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n    \n    <div class=\"settings-param-title\"><span>高级</span></div>\n\n    <div class=\"settings-param selector is--android\" data-type=\"toggle\" data-name=\"internal_torrclient\">\n        <div class=\"settings-param__name\">内置客户端</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用 TorrServe 内置的 JS 客户端，否则系统启动。</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_savedb\">\n        <div class=\"settings-param__name\">保存到数据库</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">Torrent 将被添加到 TorrServer 数据库</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_preload\">\n        <div class=\"settings-param__name\">使用预加载缓冲区</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">播放前等待填充TorrServer预加载缓冲区</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"torrserver_auth\">\n        <div class=\"settings-param__name\">密码登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_login\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">登录</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"torrserver_password\" data-string=\"true\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">密码</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n</div>";
 
   var html$16 = "<div>\n    <div class=\"settings-param selector is--player\" data-type=\"toggle\" data-name=\"player\">\n        <div class=\"settings-param__name\">播放器类型</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪个播放器播放</div>\n    </div>\n    \n    <div class=\"settings-param selector is--android\" data-type=\"button\" data-name=\"reset_player\" data-static=\"true\">\n        <div class=\"settings-param__name\">重置默认播放器</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">重置应用中选定的 Android 播放器</div>\n    </div>\n    \n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"playlist_next\">\n        <div class=\"settings-param__name\">自动播放下一集</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">自动当前一集结束后切换到下一集</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_timecode\">\n        <div class=\"settings-param__name\">时间代码</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">从上一个观看位置继续</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"player_scale_method\">\n        <div class=\"settings-param__name\">视频缩放方法</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">如何计算视频缩放</div>\n    </div>\n    \n    <div class=\"is--has_subs\">\n        <div class=\"settings-param-title\"><span>字幕</span></div>\n\n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_start\">\n            <div class=\"settings-param__name\">启用</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">视频开始后始终启用字幕</div>\n        </div>\n\n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_size\">\n            <div class=\"settings-param__name\">大小</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\"></div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_stroke\">\n            <div class=\"settings-param__name\">使用边缘</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将为提高可读性，黑色轮廓</div>\n        </div>\n        \n        <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"subtitles_backdrop\">\n            <div class=\"settings-param__name\">使用水印</div>\n            <div class=\"settings-param__value\"></div>\n            <div class=\"settings-param__descr\">字幕将显示在半透明背景上以提高可读性</div>\n        </div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>更多</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"video_quality_default\">\n        <div class=\"settings-param__name\">默认视频质量</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">要观看的首选视频质量</div>\n    </div>\n</div>";
 
@@ -18906,9 +18906,13 @@
 
   function startApp() {
     if (window.appready) return;
+    /** Стартуем */
+
     Lampa.Listener.send('app', {
       type: 'start'
     });
+    /** Инициализируем классы */
+
     Keypad.init();
     Settings.init();
     Platform.init();
@@ -18934,11 +18938,16 @@
     VideoQuality.init();
     TimeTable.init();
     Helper.init();
-    Storage.set('account_password', ''); //надо зачиcтить, не хорошо светить пароль ;)
+    /** Надо зачиcтить, не хорошо светить пароль ;) */
+
+    Storage.set('account_password', '');
+    /** Следим за переключением контроллера */
 
     Controller.listener.follow('toggle', function () {
       Layer.update();
     });
+    /** 退出 из приложения */
+
     Activity$1.listener.follow('backward', function (event) {
       if (event.count == 1) {
         var enabled = Controller.enabled();
@@ -18969,19 +18978,31 @@
         });
       }
     });
+    /** Передаем фокус в контроллер */
+
     Navigator.follow('focus', function (event) {
       Controller.focus(event.elem);
     });
+    /** Ренедрим лампу */
+
     Render.app();
+    /** Обновляем слои */
+
     Layer.update();
+    /** Активируем последнию активность */
+
     Activity$1.last();
+    /** Гасим свет :D */
+
     setTimeout(function () {
       Keypad.enable();
       Screensaver.enable();
       $('.welcome').fadeOut(500);
     }, 1000);
-    $('body').addClass('platform--' + Platform.get());
+    /** Если это тач дивайс */
+
     if (Utils.isTouchDevice()) $('body').addClass('touch-device');
+    /** Start - для orsay одни стили,, для других другие */
 
     if (Platform.is('orsay')) {
       Utils.putStyle(['http://lampa.mx/css/app.css'], function () {
@@ -18992,6 +19013,10 @@
         $('link[href="css/app.css"]').remove();
       });
     }
+    /** End */
+
+    /** Start - если это андроид */
+
 
     if (Platform.is('android')) {
       Params.listener.follow('button', function (e) {
@@ -19003,12 +19028,20 @@
         Android.updateChannel(e.where);
       });
     }
+    /** End */
+
+    /** Start - записываем популярные фильмы */
+
 
     Favorite.listener.follow('add,added', function (e) {
       if (e.where == 'history' && e.card.id) {
         $.get(Utils.protocol() + 'tmdb.cub.watch/watch?id=' + e.card.id + '&cat=' + (e.card.original_name ? 'tv' : 'movie'));
       }
     });
+    /** End */
+
+    /** Start - следим за переключением в лайт версию и обновляем интерфейс */
+
     Storage.listener.follow('change', function (e) {
       if (e.name == 'light_version') {
         $('body').toggleClass('light--version', Storage.field('light_version'));
@@ -19019,13 +19052,62 @@
         $('body').toggleClass('system--keyboard', Storage.field('keyboard_type') == 'lampa' ? false : true);
       }
     });
+    /** End */
+
+    /** Start - проверка статуса для торрента */
+
+    var torrent_net = new create$s();
+
+    function check(name) {
+      var item = $('[data-name="' + name + '"]').find('.settings-param__status').removeClass('active error wait').addClass('wait');
+      var url = Storage.get(name);
+
+      if (url) {
+        torrent_net.timeout(10000);
+        torrent_net["native"](Utils.checkHttp(Storage.get(name)), function () {
+          item.removeClass('wait').addClass('active');
+        }, function (a, c) {
+          Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
+          item.removeClass('wait').addClass('error');
+        }, false, {
+          dataType: 'text'
+        });
+      }
+    }
+
+    Storage.listener.follow('change', function (e) {
+      if (e.name == 'torrserver_url') check(e.name);
+      if (e.name == 'torrserver_url_two') check(e.name);
+      if (e.name == 'torrserver_use_link') check(e.value == 'one' ? 'torrserver_url' : 'torrserver_url_two');
+    });
+    Settings.listener.follow('open', function (e) {
+      if (e.name == 'server') {
+        check(Storage.field('torrserver_use_link') == 'one' ? 'torrserver_url' : 'torrserver_url_two');
+      } else torrent_net.clear();
+    });
+    /** End */
+
+    /** Добавляем класс платформы */
+
+    $('body').addClass('platform--' + Platform.get());
+    /** Включаем лайт версию если было включено */
+
     $('body').toggleClass('light--version', Storage.field('light_version')).toggleClass('system--keyboard', Storage.field('keyboard_type') == 'lampa' ? false : true);
+    /** Добавляем hls плагин */
+
     Utils.putScript([window.location.protocol == 'file:' ? 'https://cdn.jsdelivr.net/gh/yumata/lampa@main/vender/hls/hls.js' : './vender/hls/hls.js'], function () {});
+    /** Сообщаем о готовности */
+
     Lampa.Listener.send('app', {
       type: 'ready'
     });
+    /** Меню готово */
+
     Menu.ready();
-    window.appready = true; //пометка что уже загружено
+    /** Лампа полностью готова */
+
+    window.appready = true;
+    /** Start - активация режима GOD, жмем 🠔🠔 🠕🠕 🠖🠖 🠗🠗 */
 
     var mask = [37, 37, 38, 38, 39, 39, 40, 40],
         psdg = -1;
@@ -19038,7 +19120,7 @@
 
       if (psdg == 8) {
         psdg = -1;
-        console.log('Welcome God'); //для тестирования какой-то хрени:))
+        console.log('God', 'enabled'); //для тестирования какой-то хрени:))
       }
     });
     var color_keys = {
@@ -19061,10 +19143,14 @@
         }
       }
     });
-  } // принудительно стартовать
+    /** End */
+  }
+  /** Принудительно стартовать */
 
 
   setTimeout(startApp, 1000 * 5);
+  /** Загружаем плагины и стартуем лампу */
+
   Plugins.load(startApp);
 
 })();
