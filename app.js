@@ -9499,7 +9499,7 @@
           item.Tracker = $('.coll-5', element).text();
           item.size = $('.coll-4', element).text();
           item.Size = Utils.sizeToBytes(item.size);
-          var torrtime,otime = $('.coll-date', element).text().replace(/(0?[1-9]|1[0-2])[a|p]m|.|th|st|rd|nd/g,'').replace("'",'');
+          var torrtime,otime = $('.coll-date', element).text().replace(/(0?[1-9]|1[0-2])[a|p]m|\.|th|st|rd|nd/g,'').replace("'",'');
           console.log(otime);
           console.log($('.coll-date', element).text());
           if ($('.coll-date', element).text().indexOf("'") == -1){
