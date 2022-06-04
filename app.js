@@ -9500,14 +9500,15 @@
           item.size = $('.coll-4', element).text();
           item.Size = Utils.sizeToBytes(item.size);
           var torrtime,otime = $('.coll-date', element).text().replace(/(0?[1-9]|1[0-2])[a|p]m|.|th|st|rd|nd/g,'').replace("'",'');
+          console.log(otime);
           if ($('.coll-date', element).text().indexOf("'") == -1){
             if ($('.coll-date', element).text().indexOf(":") != -1){
               torrtime = new Date(new Date().toUTCString().slice(0, -4));
             }else{
-              torrtime = new Date(otime+' '+new Date().getFullYear()).toISOString();
+              torrtime = new Date(otime+' '+new Date().getFullYear());
             }
           }else{
-            torrtime = new Date(otime).toISOString();
+            torrtime = new Date(otime);
           };
           item.PublishDate = torrtime;
           item.Seeders = parseInt($('.coll-2', element).text());
