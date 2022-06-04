@@ -9482,11 +9482,11 @@
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
       network$5["native"](u + '', function (str) {
         var math1 = str.replace(/
-|/g, '').match(new RegExp('<tbody>(.*?)</tbody>', 'g'));
+|/g, '').match(new RegExp('<tbody>(.*?)<\/tbody>', 'g'));
         var math;
         if (math1){
          math = math1[0].replace(/
-|/g, '').match(new RegExp('<tr>(.*?)</tr>', 'g'));
+|/g, '').match(new RegExp('<tr>(.*?)<\/tr>', 'g'));
         }else{
          math = [];
         };
@@ -9494,7 +9494,7 @@
           Results: []
         };
         $.each(math, function (i, a) {
-          a = a.replace(/<a href=".+?" class="icon">.+?</a>/g, '').replace(/<span class="seeds">.+?</span>/g, '');
+          a = a.replace(/<a href=".+?" class="icon">.+?<\/a>/g, '').replace(/<span class="seeds">.+?<\/span>/g, '');
           var element = $(a + ''),
               item = {};
           item.Title = $('.coll-1', element).text();
