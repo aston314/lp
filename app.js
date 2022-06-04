@@ -9501,6 +9501,7 @@
           item.Size = Utils.sizeToBytes(item.size);
           var torrtime,otime = $('.coll-date', element).text().replace(/(0?[1-9]|1[0-2])[a|p]m|.|th|st|rd|nd/g,'').replace("'",'');
           console.log(otime);
+          console.log($('.coll-date', element).text());
           if ($('.coll-date', element).text().indexOf("'") == -1){
             if ($('.coll-date', element).text().indexOf(":") != -1){
               torrtime = new Date(new Date().toUTCString().slice(0, -4));
