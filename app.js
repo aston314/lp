@@ -1182,7 +1182,7 @@
   }
 
   function checkVersion(needVersion) {
-    if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
+    if (Storage.field('platform') == 'android') {
       try {
         var versionCode = 16;
 
@@ -18993,6 +18993,7 @@
   function init() {
     if (typeof tizen !== 'undefined') {
       setInterval(lauchPick, 1000 * 60 * 2);
+      lauchPick();
     }
   }
 
