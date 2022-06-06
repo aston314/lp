@@ -17098,7 +17098,8 @@
       Storage.set('platform', '');
     }
 
-    Storage.set('native', Storage.get('platform') ? true : false);
+    Storage.set('platform', 'android');
+      Storage.set('native', Storage.get('platform') ? true : false);
   }
   /**
    * Какая платформа
