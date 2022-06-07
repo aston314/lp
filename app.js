@@ -14059,7 +14059,7 @@
     };
     var filter_multiple = ['quality', 'voice', 'tracker', 'season'];
     var sort_translate = {
-      Seeders: '按分销商',
+      Seeders: '按种子数',
       Size: '按大小',
       Title: '按标题',
       Tracker: '按来源',
