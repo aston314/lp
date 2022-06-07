@@ -9593,7 +9593,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       network$5.timeout(1000 * 60);
-      var s = 'https://www.magnetdl.com/search/?m=1&x=0&y=0&q=';
+      var s = 'https://cors.eu.org/https://www.magnetdl.com/search/?m=1&x=0&y=0&q=';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
       network$5["native"](u + '', function (str) {
         var math1 = str.replace(/\n|\r/g, '').replace(/<tr><td class="d" colspan="8"><\/td><\/tr>/g,'').replace(/<tr><td colspan="8" id="pages">.+?<\/td><\/tr>/g,'').match(new RegExp('<tbody>(.*?)<\/tbody>', 'g'));
