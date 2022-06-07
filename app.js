@@ -9695,7 +9695,7 @@
             }, function (a, c) {
               onerror(network$3.errorDecode(a, c));
             }); 
-          }, 3000);//wait 2.7 seconds
+          }, 2700);//wait 2.7 seconds
         };
       }, function (a, c) {
         network.errorDecode(a, c);
