@@ -9596,13 +9596,11 @@
       var s = 'https://www.magnetdl.com/search/?m=1&x=0&y=0&q=';
       var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
       network$5["native"](u + '', function (str) {
-        var math1 = str.replace(/
-|/g, '').replace(/<tr><td class="d" colspan="8"></td></tr>/g,'').replace(/<tr><td colspan="8" id="pages">.+?</td></tr>/g,'').match(new RegExp('<tbody>(.*?)</tbody>', 'g'));
+        var math1 = str.replace(/\n|\r/g, '').replace(/<tr><td class="d" colspan="8"><\/td><\/tr>/g,'').replace(/<tr><td colspan="8" id="pages">.+?<\/td><\/tr>/g,'').match(new RegExp('<tbody>(.*?)<\/tbody>', 'g'));
         var math;
 
         if (math1){
-         math = math1[0].replace(/
-|/g, '').match(new RegExp('<tr>(.*?)</tr>', 'g'));
+         math = math1[0].replace(/\n|\r/g, '').match(new RegExp('<tr>(.*?)<\/tr>', 'g'));
         }else{
          math = [];
         };
@@ -9610,7 +9608,7 @@
           Results: []
         };
         $.each(math, function (i, a) {
-          a = a.replace(/<a href=".+?" class="icon">.+?</a>/g, '').replace(/<span class="seeds">.+?</span>/g, '');
+          a = a.replace(/<a href=".+?" class="icon">.+?<\/a>/g, '').replace(/<span class="seeds">.+?<\/span>/g, '');
           var element = $(a + ''),
               item = {};
           item.Title = $('.n', element).text();
@@ -9618,7 +9616,7 @@
           item.size = $('.s', element).prev().text();
           item.Size = Utils.sizeToBytes(item.size);
           var y = new Date();
-          var whattime =$('.n', element).next().text().split(/s+/);
+          var whattime =$('.n', element).next().text().split(/\s+/);
           var whattype = whattime ? whattime[1].replace('s','') : '';
           switch (whattype) {
           case "day":
