@@ -9552,6 +9552,63 @@
     });
   }
 
+  function rarbg() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var onerror = arguments.length > 2 ? arguments[2] : undefined;
+
+    var category = params.movie.first_air_date ? 'tv' : 'movies';
+    var rarbg_token = { token: null, updated: 0 };
+    var url = 'https://cors.eu.org/https://torrentapi.org';
+    var seconds = Math.floor(Date.now() / 1000);
+    if (seconds - rarbg_token.updated > 870) {
+    network.silent(url + '/pubapi_v2.php?get_token=get_token&app_id=lampa', function (json) {
+        if (json.error) onerror('请求错误');else {
+          rarbg_token = { token: json.token, updated: seconds };
+          setTimeout(function(){
+            network$3.timeout(1000 * 30);
+            var s = url + '/pubapi_v2.php?mode=search&app_id=lampa&category='+category+'&sort=seeders&min_seeders=1&ranked=0&format=json_extended&token='+rarbg_token.token+'&search_string=';
+            var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
+            var u =  s + encodeURIComponent(q);
+            network$3["native"](u, function (json) {
+              if (json.error) onerror('请求错误');else {
+                var data = {
+                  Results: []
+                };
+
+                if (json.torrent_results) {
+                  json.torrent_results.forEach(function (elem) {
+                    var item = {};
+                    item.Title = elem.title;
+                    item.Tracker = 'Rrarbg';
+                    item.Size = parseInt(elem.size);
+                    item.size = Utils.bytesToSize(item.Size);
+                    item.PublishDate = elem.pubdate.split("+")[0];
+                    item.Seeders = parseInt(elem.seeders);
+                    item.Peers = parseInt(elem.leechers);
+                    item.PublisTime = elem.pubdate.split("+")[0];
+                    item.hash = Utils.hash(elem.title);
+                    item.MagnetUri = elem.download;
+                    item.viewed = viewed(item.hash);
+                    if (elem.download) data.Results.push(item);
+                  });
+                }
+
+                oncomplite(data);
+              }
+            }, function (a, c) {
+              onerror(network$3.errorDecode(a, c));
+            }); 
+          }, 2700);//wait 2.7 seconds
+        };
+      }, function (a, c) {
+        network.errorDecode(a, c);
+      }, false, false, {
+        dataType: 'json'
+    });
+  }
+  }
+
   function x1337() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
@@ -9670,6 +9727,7 @@
     torlook: torlook,
     jackett: jackett,
     x1337: x1337,
+    rarbg: rarbg,
     marnet: marnet,
     clear: clear$2
   };
@@ -16825,7 +16883,8 @@
   select$1('parser_torrent_type', {
     'jackett': 'Jackett',
     'torlook': 'Torlook',
-    '1337x': '1337x'
+    '1337x': '1337x',
+    'rarbg': 'Rarbg'
   }, 'torlook');
   select$1('torlook_parse_type', {
     'native': '直接',
