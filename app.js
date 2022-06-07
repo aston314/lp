@@ -9448,35 +9448,71 @@
       if (Storage.field('jackett_url')) {
         url = Utils.checkHttp(Storage.field('jackett_url'));
         jackett(params, complite, function () {
-          if (Storage.field('parser_torrent_type') == '1337x'){
-           x1337(params, complite, error);
-        }else{
-           torlook(params, complite, error);
-        }
+          switch (Storage.field('parser_torrent_type')) {
+        case "1337x":
+            x1337(params, complite, error);
+            break;
+        case "torlook":
+            torlook(params, complite, error);
+            break;
+        case "rarbg":
+            rarbg(params, complite, error);
+            break;
+        case "magnetdl":
+            magnetdl(params, complite, error);
+            break;
+        };
         });
       } else {
         error('提供抓取链接 Jackett');
       }
     } else {
       if (Storage.get('native')) {
-        if (Storage.field('parser_torrent_type') == '1337x'){
-           x1337(params, complite, error);
-        }else{
-           torlook(params, complite, error);
-        }
+        switch (Storage.field('parser_torrent_type')) {
+        case "1337x":
+            x1337(params, complite, error);
+            break;
+        case "torlook":
+            torlook(params, complite, error);
+            break;
+        case "rarbg":
+            rarbg(params, complite, error);
+            break;
+        case "magnetdl":
+            magnetdl(params, complite, error);
+            break;
+        };
       } else if (Storage.field('torlook_parse_type') == 'site' && Storage.field('parser_website_url')) {
         url = Utils.checkHttp(Storage.field('parser_website_url'));
-        if (Storage.field('parser_torrent_type') == '1337x'){
-           x1337(params, complite, error);
-        }else{
-           torlook(params, complite, error);
-        }
+        switch (Storage.field('parser_torrent_type')) {
+        case "1337x":
+            x1337(params, complite, error);
+            break;
+        case "torlook":
+            torlook(params, complite, error);
+            break;
+        case "rarbg":
+            rarbg(params, complite, error);
+            break;
+        case "magnetdl":
+            magnetdl(params, complite, error);
+            break;
+        };
       } else if (Storage.field('torlook_parse_type') == 'native') {
-        if (Storage.field('parser_torrent_type') == '1337x'){
-           x1337(params, complite, error);
-        }else{
-           torlook(params, complite, error);
-        }
+        switch (Storage.field('parser_torrent_type')) {
+        case "1337x":
+            x1337(params, complite, error);
+            break;
+        case "torlook":
+            torlook(params, complite, error);
+            break;
+        case "rarbg":
+            rarbg(params, complite, error);
+            break;
+        case "magnetdl":
+            magnetdl(params, complite, error);
+            break;
+        };
       } else error('提供抓取链接 TorLook');
     }
   }
@@ -9552,7 +9588,69 @@
     });
   }
 
-  function rarbg() {
+  function magnetdl() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+      var onerror = arguments.length > 2 ? arguments[2] : undefined;
+      network$5.timeout(1000 * 60);
+      var s = 'https://www.magnetdl.com/search/?m=1&x=0&y=0&q=';
+      var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(params.search) : url$3.replace('{q}', encodeURIComponent(s + encodeURIComponent(params.search)));
+      network$5["native"](u + '', function (str) {
+        var math1 = str.replace(/
+|/g, '').replace(/<tr><td class="d" colspan="8"></td></tr>/g,'').replace(/<tr><td colspan="8" id="pages">.+?</td></tr>/g,'').match(new RegExp('<tbody>(.*?)</tbody>', 'g'));
+        var math;
+
+        if (math1){
+         math = math1[0].replace(/
+|/g, '').match(new RegExp('<tr>(.*?)</tr>', 'g'));
+        }else{
+         math = [];
+        };
+        var data = {
+          Results: []
+        };
+        $.each(math, function (i, a) {
+          a = a.replace(/<a href=".+?" class="icon">.+?</a>/g, '').replace(/<span class="seeds">.+?</span>/g, '');
+          var element = $(a + ''),
+              item = {};
+          item.Title = $('.n', element).text();
+          item.Tracker = $('.t2,.t5', element).text();
+          item.size = $('.s', element).prev().text();
+          item.Size = Utils.sizeToBytes(item.size);
+          var y = new Date();
+          var whattime =$('.n', element).next().text().split(/s+/);
+          var whattype = whattime ? whattime[1].replace('s','') : '';
+          switch (whattype) {
+          case "day":
+              y.setDate(y.getDate() - whattime[0]);
+              break;
+          case "month":
+              y.setMonth(y.getMonth() - whattime[0]);
+              break;
+          case "year":
+              y.setFullYear(y.getFullYear() - whattime[0]);
+              break;
+          };
+          item.PublishDate = y;
+          item.Seeders = parseInt($('.s', element).text());
+          item.Peers = parseInt($('.l', element).text());
+          //item.reguest = 'http://proxy.cub.watch/cdn/https://www.magnetdl.com'+$('.n a', element).attr('href');
+          item.MagnetUri = $('.m a', element).attr('href');
+          item.PublisTime = item.PublishDate;
+          item.hash = Utils.hash(item.Title);
+          item.viewed = viewed(item.hash);
+          element.remove();
+          if (item.Title && item.MagnetUri) data.Results.push(item);
+        });
+        oncomplite(data);
+      }, function (a, c) {
+        onerror(network$5.errorDecode(a, c));
+      }, false, {
+        dataType: 'text'
+      });
+    }
+
+    function rarbg() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
@@ -9728,6 +9826,7 @@
     jackett: jackett,
     x1337: x1337,
     rarbg: rarbg,
+    magnetdl:magnetdl,
     marnet: marnet,
     clear: clear$2
   };
@@ -16884,7 +16983,8 @@
     'jackett': 'Jackett',
     'torlook': 'Torlook',
     '1337x': '1337x',
-    'rarbg': 'Rarbg'
+    'rarbg': 'Rarbg',
+    'magnetdl': 'magnetDL'
   }, 'torlook');
   select$1('torlook_parse_type', {
     'native': '直接',
