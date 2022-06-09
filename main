@@ -54,9 +54,9 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multserial"
       },
       {
-         "title":"动漫",
+         "title":"Аниме",
          "ico":"anime",
-         "playlist_url":"http: \/\/api.vokino.tv\/v2\/category?type=anime"
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=anime"
       },
       {
          "title":"纪录片电影",
