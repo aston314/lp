@@ -33,7 +33,7 @@
       },
       {
          "title":"电影",
-         " ico":"movie",
+         "ico":"movie",
          "is_category":1,
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=movie"
       },
@@ -50,7 +50,7 @@
       },
       {
          "title":"Multfilm",
-         " ico":"multiserial",
+         "ico":"multiserial",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multiserial"
       },
       {
