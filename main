@@ -64,12 +64,12 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=documovie"
       },
       {
-         "title":"纪录片电视",
+         "title":"纪录片剧集",
          "ico":"docuserial",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=docuserial"
       },
       {
-         "title":"电视节目",
+         "title":"综艺",
          "ico":"tvshow",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=tvshow"
       },
