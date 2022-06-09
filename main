@@ -1,1 +1,82 @@
-
+{
+   "type":"main",
+   "search":"http:\/\/api.vokino.tv\/v2\/list",
+   "main":[
+      {
+         "title":"更新",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/list?sort=updatings"
+      },
+      {
+         "title":"最新",
+         "playlist_url":"http:\/\/api.vokino. tv\/v2\/list?sort=new"
+      },
+      {
+         "title":"流行",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/list?sort=popular"
+      },
+      {
+         "title":"最佳",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/list?sort=rating"
+      }
+   ],
+   "channels":[
+      {
+         "title":"历史",
+         "ico":"clock",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/timeline\/list"
+      },
+      {
+         "title":"4K UHD",
+         "ico":"4k",
+         "is_category":1,
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/v4k"
+      },
+      {
+         "title":"电影",
+         " ico":"movie",
+         "is_category":1,
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=movie"
+      },
+      {
+         "title":"电视剧",
+         "ico":"serial",
+         "is_category":1,
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=serial"
+      },
+      {
+         "title":"卡通",
+         "ico":"multfilm",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multfilm"
+      },
+      {
+         "title":"Multfilm",
+         " ico":"multiserial",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multiserial"
+      },
+      {
+         "title":"Anime",
+         "ico":"anime",
+         "playlist_url":"http: \/\/api.vokino.tv\/v2\/category?type=anime"
+      },
+      {
+         "title":"Doc.电影",
+         "ico":"documovie",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=documovie"
+      },
+      {
+         "title":"Doc.系列",
+         "ico":"docuserial",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=docuserial"
+      },
+      {
+         "title":"电视节目",
+         "ico":"tvshow",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=tvshow"
+      },
+      {
+         "title":"Features",
+         "ico":"compilations",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/compilations\/cat"
+      }
+   ]
+}
