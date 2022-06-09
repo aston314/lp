@@ -26,7 +26,7 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/timeline\/list"
       },
       {
-         "title":"4K UHD",
+         "title":"4K超高清",
          "ico":"4k",
          "is_category":1,
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/v4k"
@@ -50,21 +50,21 @@
       },
       {
          "title":"Multfilm",
-         "ico":"multiserial",
-         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multiserial"
+         "ico":"multserial",
+         "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multserial"
       },
       {
-         "title":"Anime",
+         "title":"动漫",
          "ico":"anime",
          "playlist_url":"http: \/\/api.vokino.tv\/v2\/category?type=anime"
       },
       {
-         "title":"Doc.电影",
+         "title":"纪录片电影",
          "ico":"documovie",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=documovie"
       },
       {
-         "title":"Doc.系列",
+         "title":"纪录片电视",
          "ico":"docuserial",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=docuserial"
       },
