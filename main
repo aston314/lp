@@ -49,7 +49,7 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multfilm"
       },
       {
-         "title":"Multfilm",
+         "title":"动画系列",
          "ico":"multserial",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multserial"
       },
@@ -74,7 +74,7 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=tvshow"
       },
       {
-         "title":"Features",
+         "title":"合集",
          "ico":"compilations",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/compilations\/cat"
       }
