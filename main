@@ -11,7 +11,7 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/list?sort=new"
       },
       {
-         "title":"流行",
+         "title":"热门",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/list?sort=popular"
       },
       {
