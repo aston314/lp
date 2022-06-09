@@ -54,7 +54,7 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multserial"
       },
       {
-         "title":"Аниме",
+         "title":"日漫",
          "ico":"anime",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=anime"
       },
