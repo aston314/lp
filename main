@@ -44,12 +44,12 @@
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=serial"
       },
       {
-         "title":"卡通",
+         "title":"动漫电影",
          "ico":"multfilm",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multfilm"
       },
       {
-         "title":"动画系列",
+         "title":"动漫剧集",
          "ico":"multserial",
          "playlist_url":"http:\/\/api.vokino.tv\/v2\/category?type=multserial"
       },
