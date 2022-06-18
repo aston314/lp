@@ -6819,7 +6819,7 @@
       if (file.existsSync(path)) {
         var spawn = require('child_process').spawn;
 
-        spawn(path, [data.url]);
+        spawn(path, [data.url.replace(/\s/g, '%20')]);
       } else {
         Noty.show('找不到播放器: ' + path);
       }
