@@ -10335,6 +10335,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       var re = /^(?:(?=[A-Za-z])\S|\s|d+|:|-|,|.|&|')+$/;
+      console.log(re.test(params.search));
       if (re.test(params.search)){
       network$5.timeout(1000 * 60);
       var s = 'http://proxy.cub.watch/cdn/https://www.1377x.to/srch?search=';
