@@ -360,7 +360,7 @@
 
     var html$1b = "<div>\n    <div class=\"settings-folder selector\" data-component=\"account\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"169\" viewBox=\"0 0 172 169\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"85.765\" cy=\"47.5683\" r=\"15.5683\" stroke=\"white\" stroke-width=\"12\"/>\n                <path d=\"M121.53 112C121.53 92.2474 105.518 76.2349 85.7651 76.2349C66.0126 76.2349 50 92.2474 50 112\" stroke=\"white\" stroke-width=\"12\"/>\n                <rect x=\"44\" y=\"125\" width=\"84\" height=\"16\" rx=\"8\" fill=\"white\"/>\n                <rect x=\"6\" y=\"6\" width=\"160\" height=\"157\" rx=\"21\" stroke=\"white\" stroke-width=\"12\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_account}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"interface\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/panel.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_interface}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"player\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/player.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_player}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"parser\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/parser.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_parser}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"server\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/server.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_torrserver}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"plugins\">\n        <div class=\"settings-folder__icon\">\n            <svg height=\"44\" viewBox=\"0 0 44 44\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect width=\"21\" height=\"21\" rx=\"2\" fill=\"white\"/>\n            <mask id=\"path-2-inside-1_154:24\" fill=\"white\">\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\"/>\n            </mask>\n            <rect x=\"2\" y=\"27\" width=\"17\" height=\"17\" rx=\"2\" stroke=\"white\" stroke-width=\"6\" mask=\"url(#path-2-inside-1_154:24)\"/>\n            <rect x=\"27\" y=\"2\" width=\"17\" height=\"17\" rx=\"2\" fill=\"white\"/>\n            <rect x=\"27\" y=\"34\" width=\"17\" height=\"3\" fill=\"white\"/>\n            <rect x=\"34\" y=\"44\" width=\"17\" height=\"3\" transform=\"rotate(-90 34 44)\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_plugins}</div>\n    </div>\n    <div class=\"settings-folder selector\" data-component=\"more\">\n        <div class=\"settings-folder__icon\">\n            <img src=\"./img/icons/settings/more.svg\" />\n        </div>\n        <div class=\"settings-folder__name\">#{settings_main_rest}</div>\n    </div>\n    \n</div>";
 
-    var html$1a = "<div>\n    <div class=\"settings-param selector\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_interface_lang}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"show_lang\">\n        <div class=\"settings-param__name\">界面语言</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">使用哪种语言显示</div>\n    </div>\n\n<div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"light_version\">\n        <div class=\"settings-param__name\">#{settings_interface_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">#{settings_interface_size}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{settings_interface_background}</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">#{settings_interface_background_use}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">#{settings_interface_background_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{settings_interface_performance}</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">#{settings_interface_animation}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_animation_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">#{settings_interface_attenuation}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_attenuation_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">#{settings_interface_scroll}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">#{settings_interface_view_card}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_view_card_descr}</div>\n    </div>\n\n</div>";
+    var html$1a = "<div>\n    <div class=\"settings-param selector\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_interface_lang}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"light_version\">\n        <div class=\"settings-param__name\">#{settings_interface_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"interface_size\">\n        <div class=\"settings-param__name\">#{settings_interface_size}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{settings_interface_background}</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background\">\n        <div class=\"settings-param__name\">#{settings_interface_background_use}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"background_type\">\n        <div class=\"settings-param__name\">#{settings_interface_background_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{settings_interface_performance}</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"animation\">\n        <div class=\"settings-param__name\">#{settings_interface_animation}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_animation_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"mask\">\n        <div class=\"settings-param__name\">#{settings_interface_attenuation}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_attenuation_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"scroll_type\">\n        <div class=\"settings-param__name\">#{settings_interface_scroll}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"card_views_type\">\n        <div class=\"settings-param__name\">#{settings_interface_view_card}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_interface_view_card_descr}</div>\n    </div>\n\n</div>";
 
     var html$19 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_use\">\n        <div class=\"settings-param__name\">#{settings_parser_use}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_use_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parser_torrent_type\">\n        <div class=\"settings-param__name\">#{settings_parser_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>Jackett</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_url\" placeholder=\"#{settings_parser_jackett_placeholder}\">\n        <div class=\"settings-param__name\">#{settings_parser_jackett_link}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_jackett_link_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"jackett_key\" placeholder=\"#{settings_parser_jackett_key_placeholder}\">\n        <div class=\"settings-param__name\">#{settings_parser_jackett_key}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_jackett_key_descr}</div>\n    </div>\n\n    <div class=\"settings-param-title is--torllok\"><span>Torlook</span></div> \n\n    <div class=\"settings-param selector is--torllok\" data-type=\"toggle\" data-name=\"torlook_parse_type\">\n        <div class=\"settings-param__name\">#{settings_parser_torlook_type}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector is--torllok\" data-type=\"input\" data-name=\"parser_website_url\" placeholder=\"#{settings_parser_scraperapi_placeholder}\">\n        <div class=\"settings-param__name\">#{settings_parser_scraperapi_link}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_scraperapi_descr}</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{more}</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_lang\">\n        <div class=\"settings-param__name\">#{settings_parser_search}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_search_descr}</div>\n    </div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"parse_in_search\">\n        <div class=\"settings-param__name\">#{settings_parser_in_search}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_parser_in_search_descr}</div>\n    </div>\n</div>";
 
@@ -372,7 +372,7 @@
 
     var html$15 = "<div>\n    <div class=\"settings-param selector\" data-name=\"plugins\" data-static=\"true\" data-notice=\"#{settings_plugins_notice}\">\n        <div class=\"settings-param__name\">#{settings_plugins_add}</div>\n        <div class=\"settings-param__descr\">#{settings_plugins_add_descr}</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"install\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_plugins_install}</div>\n        <div class=\"settings-param__descr\">#{settings_plugins_install_descr}</div>\n    </div>\n</div>";
 
-    var html$14 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">同步</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">同步允许你同步你的书签，浏览历史，标签和时间码。连接https的说明://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>授权</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"未指定\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>状态</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
+    var html$14 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"cloud_use\">\n        <div class=\"settings-param__name\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">\u0421\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0434\u0430\u0451\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0441\u0438\u043D\u0445\u0440\u043E\u043D\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0432\u0430\u0448\u0438 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0438, \u0438\u0441\u0442\u043E\u0440\u0438\u044E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432, \u043C\u0435\u0442\u043A\u0438 \u0438 \u0442\u0430\u0439\u043C-\u043A\u043E\u0434\u044B. \u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044E https://github.com/yumata/lampa/wiki</div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F</span></div>\n\n    <div class=\"settings-param selector\" data-type=\"input\" data-name=\"cloud_token\" placeholder=\"\u041D\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\">\n        <div class=\"settings-param__name\">Token</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span></div>\n\n    <div class=\"settings-param selector settings--cloud-status\" data-static=\"true\">\n        <div class=\"settings-param__name\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
     var html$13 = "<div>\n    <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"account_use\">\n        <div class=\"settings-param__name\">#{settings_cub_sync}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{settings_cub_sync_descr}</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-user hide\"><span>#{settings_cub_account}</span></div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-info hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_cub_logged_in_as}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-profile hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_cub_profile}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-sync hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_cub_sync_btn}</div>\n        <div class=\"settings-param__value\">#{settings_cub_sync_btn_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-backup hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_cub_backup}</div>\n        <div class=\"settings-param__value\">#{settings_cub_backup_descr}</div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-user settings--account-user-out hide\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{settings_cub_logout}</div>\n    </div>\n\n    <div class=\"settings-param-title settings--account-signin\"><span>#{settings_cub_signin}</span></div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-name=\"account_email\" placeholder=\"#{settings_cub_not_specified}\">\n        <div class=\"settings-param__name\">Email</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param selector settings--account-signin\" data-type=\"input\" data-string=\"true\" data-name=\"account_password\" placeholder=\"#{settings_cub_not_specified}\">\n        <div class=\"settings-param__name\">#{settings_cub_password}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n\n    <div class=\"settings-param-title\"><span>#{settings_cub_status}</span></div>\n\n    <div class=\"settings-param selector settings--account-status\" data-static=\"true\">\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\"></div>\n    </div>\n</div>";
 
@@ -442,9 +442,9 @@
 
     var html$y = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>";
 
-    var html$x = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>正在使用的地址: <code>{ip}</code></li>\n            <li class=\"nocorect\">当前地址 <code>{ip}</code> 无效！</li>\n            <li>当前回复: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>什么是正确的？</div>\n        <ul>\n            <li>使用地址: <code>192.168.0.xxx:8090</code></li>\n            <li>使用Matrix版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>在同一设备上，打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>如果浏览器没有响应，检查 TorrServe 是否正在运行，或者重新加载。</li>\n            <li>如果浏览器有响应，请确保响应中有一行 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$x = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>\u041F\u0440\u0438\u0447\u0438\u043D\u044B</div>\n        <ul>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0430\u0434\u0440\u0435\u0441: <code>{ip}</code></li>\n            <li class=\"nocorect\">\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u0430\u0434\u0440\u0435\u0441 <code>{ip}</code> \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043D\u0435\u0432\u0435\u0440\u043D\u044B\u043C!</li>\n            <li>\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u043E\u0442\u0432\u0435\u0442: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E?</div>\n        <ul>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0430\u0434\u0440\u0435\u0441: <code>192.168.0.\u0445\u0445\u0445:8090</code></li>\n            <li>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044E Matrix</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C?</div>\n        <ul>\n            <li>\u041D\u0430 \u044D\u0442\u043E\u043C \u0436\u0435 \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435, \u043E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 <code>{ip}/echo</code></li>\n            <li>\u0415\u0441\u043B\u0438 \u0436\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u043D\u0435 \u043E\u0442\u0432\u0435\u0442\u0438\u0442, \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D \u043B\u0438 TorrServe, \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0435\u0433\u043E.</li>\n            <li>\u0415\u0441\u043B\u0438 \u0436\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u043E\u0442\u0432\u0435\u0442\u0438\u043B, \u0443\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0432 \u043E\u0442\u0432\u0435\u0442\u0435 \u0435\u0441\u0442\u044C \u0441\u0442\u0440\u043E\u043A\u0430 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
-    var html$w = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>原因</div>\n        <ul>\n            <li>Ping 请求返回无效格式</li>\n            <li>来自 TorServer 的响应: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>怎么办？</div>\n        <ul>\n            <li>确保你有 Matrix 版本</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>如何检查？</div>\n        <ul>\n            <li>打开浏览器并转到地址 <code>{ip}/echo</code></li>\n            <li>确保答案包含代码 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
+    var html$w = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>\u041F\u0440\u0438\u0447\u0438\u043D\u044B</div>\n        <ul>\n            <li>\u0417\u0430\u043F\u0440\u043E\u0441 \u043D\u0430 \u043F\u0438\u043D\u0433 \u0432\u0435\u0440\u043D\u0443\u043B \u043D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442</li>\n            <li>\u041E\u0442\u0432\u0435\u0442 \u043E\u0442 TorServer: <code>{echo}</code></li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C?</div>\n        <ul>\n            <li>\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0443 \u0432\u0430\u0441 \u0441\u0442\u043E\u0438\u0442 \u0432\u0435\u0440\u0441\u0438\u044F Matrix</li>\n        </ul>\n    </div>\n\n    <div>\n        <div>\u041A\u0430\u043A \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C?</div>\n        <ul>\n            <li>\u041E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 <code>{ip}/echo</code></li>\n            <li>\u0423\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044C \u0447\u0442\u043E \u0432 \u043E\u0442\u0432\u0435\u0442\u0435 \u0435\u0441\u0442\u044C \u043D\u0430\u043B\u0438\u0447\u0438\u0435 \u043A\u043E\u0434\u0430 <code>MatriX</code></li>\n        </ul>\n    </div>\n</div>";
 
     var html$v = "<div class=\"error\">\n    <div class=\"error__ico\"></div>\n    <div class=\"error__body\">\n        <div class=\"error__title\">{title}</div>\n        <div class=\"error__text\">{text}</div>\n    </div>\n</div>\n\n<div class=\"torrent-error noconnect\">\n    <div>\n        <div>#{torent_nohash_reasons}</div>\n        <ul>\n            <li>#{torent_nohash_reason_one}</li>\n            <li>#{torent_nohash_reason_two}: {echo}</li>\n            <li>#{torent_nohash_reason_three}: <code>{url}</code></li>\n        </ul>\n    </div>\n\n    <div class=\"is--jackett\">\n        <div>#{torent_nohash_do}</div>\n        <ul>\n            <li>#{torent_nohash_do_one}</li>\n            <li>#{torent_nohash_do_two}</li>\n            <li>#{torent_nohash_do_three}</li>\n        </ul>\n    </div>\n\n    <div class=\"is--torlook\">\n        <div>#{torent_nohash_do}</div>\n        <ul>\n            <li>#{torent_nohash_do_four}</li>\n            <li>#{torent_nohash_do_five}</li>\n        </ul>\n    </div>\n</div>";
 
@@ -820,7 +820,7 @@
     }
 
     function voiceStart() {
-      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("仅适用于 Android TV");
+      if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
     }
 
     function showInput(inputText) {
@@ -834,17 +834,16 @@
     function checkVersion(needVersion) {
       if (Storage.field('platform') == 'android') {
         try {
-          var current = AndroidJS.appVersion().split('-');
-          var versionCode = current.pop();
+          var versionCode = 16;
 
           if (parseInt(versionCode, 10) >= needVersion) {
             return true;
           } else {
-            Lampa.Noty.show("更新应用程序。<br>所需版本: " + needVersion + "<br>当前版本: " + versionCode);
+            Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
             return false;
           }
         } catch (e) {
-          Lampa.Noty.show("更新应用程序。<br>所需版本: " + needVersion);
+          Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion);
           return false;
         }
       } else return false;
@@ -1191,14 +1190,7 @@
       function _native(params) {
         var platform = Storage.get('platform', '');
         if (platform == 'webos') go(params);else if (platform == 'tizen') go(params);else if (platform == 'android') {
-          listener.send('go');
-          last_reguest = params;
-          if (params.start) params.start();
-          Android.httpReq(params, {
-            complite: params.complite,
-            error: params.error
-          });
-          need.timeout = 1000 * 60;
+          go(params);
         } else go(params);
       }
     }
@@ -1870,7 +1862,7 @@
     var components$2 = {};
     var params$1 = {};
     /**
-     * 添加 компонент
+     * Добавить компонент
      * @param {{component:string, icon:string, name:string}} data 
      */
 
@@ -1947,7 +1939,7 @@
       var comp = Template.get('settings_' + name);
       var last;
       /**
-       * Обновить 滚动л
+       * Обновить скролл
        */
 
       function updateScroll() {
@@ -2374,7 +2366,7 @@
       object.width(window.innerWidth);
       object.height(window.innerHeight);
       /**
-       * 安装 урл
+       * Установить урл
        */
 
       Object.defineProperty(video, "src", {
@@ -2443,7 +2435,7 @@
         }
       });
       /**
-       * 音轨
+       * Аудиодорожки
        */
 
       Object.defineProperty(video, "audioTracks", {
@@ -2483,7 +2475,7 @@
         }
       });
       /**
-       * 字幕
+       * Субтитры
        */
 
       Object.defineProperty(video, "textTracks", {
@@ -2857,7 +2849,7 @@
       });
       html$e.find('.player-panel__line:eq(1) .selector').attr('data-controller', 'player_panel');
       /**
-       * 选择 качества
+       * Выбор качества
        */
 
       elems$1.quality.text('auto').on('hover:enter', function () {
@@ -2906,12 +2898,12 @@
           tracks.forEach(function (element, p) {
             var name = [];
             name.push(p + 1);
-            name.push(element.language || element.name || '未知');
+            name.push(element.language || element.name || 'Неизвестно');
             if (element.label) name.push(element.label);
 
             if (element.extra) {
-              if (element.extra.channels) name.push('频道: ' + element.extra.channels);
-              if (element.extra.fourCC) name.push('类型: ' + element.extra.fourCC);
+              if (element.extra.channels) name.push('Каналов: ' + element.extra.channels);
+              if (element.extra.fourCC) name.push('Тип: ' + element.extra.fourCC);
             }
 
             element.title = name.join(' / ');
@@ -2936,7 +2928,7 @@
         }
       });
       /**
-       * Выбор 字幕ов
+       * Выбор субтитров
        */
 
       elems$1.subs.on('hover:enter', function (e) {
@@ -3101,7 +3093,7 @@
       });
     }
     /**
-     * 计算 проценты
+     * Рассчитать проценты
      * @param {object} e 
      * @returns {number}
      */
@@ -3179,7 +3171,7 @@
       state.start();
     }
     /**
-     * Пере键ить на контроллер перемотки
+     * Переключить на контроллер перемотки
      */
 
 
@@ -3187,7 +3179,7 @@
       Controller.toggle('player_rewind');
     }
     /**
-     * Переkeyить на контроллер кнопки
+     * Переключить на контроллер кнопки
      */
 
 
@@ -3758,7 +3750,7 @@
         timer = setInterval(this.search.bind(this), 300);
       };
       /**
-       * 启用/выключить сабы
+       * Включить/выключить сабы
        * @param {boolean} status 
        */
 
@@ -4148,7 +4140,7 @@
         });
       };
       /**
-       * Показать 文本
+       * Показать текст
        * @param {number} time_sec 
        */
 
@@ -4378,7 +4370,7 @@
         subsview(true);
       } else if (Storage.field('subtitles_start')) {
         var full = subs.find(function (s) {
-          return (s.label || '').indexOf('full') >= 0;
+          return (s.label || '').indexOf('олные') >= 0;
         });
         subs[0].selected = false;
 
@@ -4501,7 +4493,7 @@
       _video.addEventListener('subtitle', function (e) {
         //В srt существует тег {\anX}, где X - цифра от 1 до 9, Тег определяет нестандартное положение субтитра на экране.
         //Здесь удаляется тег из строки и обрабатывается положение 8 (субтитр вверху по центру).
-        //{\an8} 当需要字幕不与屏幕底部的铭文或缝合到视频序列中的字幕重叠时使用。
+        //{\an8} используется когда нужно, чтобы субтитр не перекрывал надписи в нижней части экрана или субтитры вшитые в видеоряд.
         subtitles$1.removeClass('on-top');
         var posTag = e.text.match(/^{\\an(\d)}/);
 
@@ -4743,7 +4735,7 @@
           subsview(true);
         } else if (Storage.field('subtitles_start')) {
           var full = subs.find(function (s) {
-            return (s.label || '').indexOf('full') >= 0;
+            return (s.label || '').indexOf('олные') >= 0;
           });
 
           if (full) {
@@ -5098,7 +5090,7 @@
       }
     }
     /**
-     * 大小 видео, масштаб
+     * Размер видео, масштаб
      * @param {string} type
      */
 
@@ -5224,7 +5216,7 @@
       } else if (need == 'stat') stat$1(value);
     }
     /**
-     * Показываем статистику по 种子у
+     * Показываем статистику по торренту
      * @param {string} url 
      */
 
@@ -5347,7 +5339,7 @@
       }
     }
     /**
-     * 下一个
+     * Далее
      */
 
 
@@ -6065,7 +6057,7 @@
       PlayerVideo.listener.follow('rewind', function (e) {
         PlayerPanel.rewind();
       });
-      /** Видео было 完成 */
+      /** Видео было завершено */
 
       PlayerVideo.listener.follow('ended', function (e) {
         if (Storage.field('playlist_next')) PlayerPlaylist.next();
@@ -6075,22 +6067,22 @@
       PlayerVideo.listener.follow('tracks', function (e) {
         PlayerPanel.setTracks(e.tracks);
       });
-      /** 字幕 полученые из видео */
+      /** Субтитры полученые из видео */
 
       PlayerVideo.listener.follow('subs', function (e) {
         PlayerPanel.setSubs(e.subs);
       });
-      /** 质量 видео в m3u8 */
+      /** Качество видео в m3u8 */
 
       PlayerVideo.listener.follow('levels', function (e) {
         PlayerPanel.setLevels(e.levels, e.current);
       });
-      /** 视频大小 */
+      /** Размер видео */
 
       PlayerVideo.listener.follow('videosize', function (e) {
         PlayerInfo.set('size', e);
       });
-      /** 错误 при попытки возпроизвести */
+      /** Ошибка при попытки возпроизвести */
 
       PlayerVideo.listener.follow('error', function (e) {
         if (work) PlayerInfo.set('error', e.error);
@@ -6191,7 +6183,7 @@
         PlayerVideo.url(e.url);
         if (work && work.timeline) work.timeline.continued = false;
       });
-      /** Нажали на 按钮 (отправить) */
+      /** Нажали на кнопку (отправить) */
 
       PlayerPanel.listener.follow('share', function (e) {
         Broadcast.open({
@@ -6218,7 +6210,7 @@
       /** Установить название следующей серии */
 
       PlayerPlaylist.listener.follow('set', PlayerPanel.showNextEpisodeName);
-      /** Прослушиваем на сколько загрузилось, затем 启动ем видео */
+      /** Прослушиваем на сколько загрузилось, затем запускаем видео */
 
       PlayerInfo.listener.follow('stat', function (e) {
         if (preloader.wait) {
@@ -6466,7 +6458,7 @@
       }
     }
     /**
-     * 启动播放器
+     * Запустить плеер
      * @param {Object} data 
      */
 
@@ -6536,7 +6528,7 @@
       launch_player = '';
     }
     /**
-     * Статистика для торр服务ера
+     * Статистика для торрсервера
      * @param {String} url 
      */
 
@@ -6984,7 +6976,7 @@
       }
     }
     /**
-     * 状态
+     * Статус
      */
 
 
@@ -7372,7 +7364,7 @@
       }
     }
     /**
-     * 删除
+     * Удалить
      * @param {String} where 
      * @param {Object} card 
      */
@@ -7401,7 +7393,7 @@
       save$4();
     }
     /**
-     * Search
+     * Найти
      * @param {Int} id 
      * @returns Object
      */
@@ -8259,7 +8251,7 @@
           return media.media_type === 'movie';
         })),
             knownFor; //Наиболее известные работы человека
-        //1. Группируем все работы по департаментам (演员, 导演, Сценарист и т.д.)
+        //1. Группируем все работы по департаментам (Актер, Режиссер, Сценарист и т.д.)
 
         knownFor = Arrays.groupBy(crew, 'department');
         var actorGender = person.gender === 1 ? Lang.translate('title_actress') : Lang.translate('title_actor');
@@ -9975,7 +9967,7 @@
         var q = (params.movie.id + '').replace(/( )/g, "+").toLowerCase();
         var u =  s + encodeURIComponent(q);
         network$3["native"](u, function (json) {
-          if (json.error) onerror((json.rate_limit === 1?' 超过界面刷新频次限制 ':'')+json.error);else {
+          if (json.error) onerror((json.rate_limit === 1?' 超过接口刷新频次限制 ':'')+json.error);else {
             var data = {
               Results: []
             };
@@ -10139,7 +10131,7 @@
     };
 
     /**
-     * Sourceи
+     * Источники
      */
 
     var sources = {
@@ -10149,7 +10141,7 @@
       cub: CUB
     };
     /**
-     * Чтоб 不是 nереписали их
+     * Чтоб не переписали их
      */
 
     Object.defineProperty(sources, 'ivi', {
@@ -10183,7 +10175,7 @@
       return params.source ? sources[params.source] : sources.tmdb;
     }
     /**
-     * 首页 страница
+     * Главная страница
      * @param {{source:string}} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10197,7 +10189,7 @@
       source(params).main(params, oncomplite, onerror);
     }
     /**
-     * 类别
+     * Категория
      * @param {{url:string, source:string}} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10276,7 +10268,7 @@
       source(params).menuCategory(params, oncomplite);
     }
     /**
-     * 信息 об актёре
+     * Информация об актёре
      * @param {{id:integer, source:string}} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10290,7 +10282,7 @@
       source(params).person(params, oncomplite, onerror);
     }
     /**
-     * 类型ы
+     * Жанры
      * @param {object} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10304,7 +10296,7 @@
       TMDB.genres(params, oncomplite, onerror);
     }
     /**
-     * 公司
+     * Компания
      * @param {{id:integer}} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10332,7 +10324,7 @@
       source(params).list(params, oncomplite, onerror);
     }
     /**
-     * Получить список категорий для каталога 在菜单中
+     * Получить список категорий для каталога в меню
      * @param {{source:string}} params 
      * @param {function} oncomplite 
      */
@@ -10344,9 +10336,9 @@
       source(params).menu(params, oncomplite);
     }
     /**
-     * 季ы
+     * Сезоны
      * @param {{id:integer, source:string}} tv 
-     * @param {[1,2,3]} from - список 季ов 1,3,4...
+     * @param {[1,2,3]} from - список сезонов 1,3,4...
      * @param {function} oncomplite 
      */
 
@@ -10366,7 +10358,7 @@
       source(params).collections(params, oncomplite, onerror);
     }
     /**
-     * 书签
+     * Закладки
      * @param {{page:integer, type:string}} params 
      * @param {function} oncomplite 
      * @param {function} onerror 
@@ -10386,7 +10378,7 @@
       if (data.results.length) oncomplite(data);else onerror();
     }
     /**
-     * 发布
+     * Релизы
      * @param {function} oncomplite 
      * @param {function} onerror 
      */
@@ -10470,7 +10462,7 @@
       Storage.set('timetable', data$2);
     }
     /**
-     * Добавить из 书签
+     * Добавить из закладок
      */
 
 
@@ -10697,7 +10689,7 @@
         this.card.find('.card__icons-inner').append('<div class="card__icon icon--' + name + '"></div>');
       };
       /**
-       * Какие серии 查看
+       * Какие серии просмотрено
        */
 
 
@@ -14188,7 +14180,7 @@
           time: 0,
           count: 0
         };
-        if (_typeof(memorys) !== 'object') memorys = {}; //хз, вылазит ошибка, что в переменную true нельзя recordать значение, откуда там true хз
+        if (_typeof(memorys) !== 'object') memorys = {}; //хз, вылазит ошибка, что в переменную true нельзя записать значение, откуда там true хз
 
         memorys[name] = help;
       }
@@ -14640,7 +14632,7 @@
       var viewed = Storage.cache('torrents_view', 5000, []);
       var finded_seasons = [];
       var finded_seasons_full = [];
-      var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Quirks", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Cube in the立方体", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Serbin", "To4ka", "Kravets", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "地精", "Universal Russia", "Kiitos", "Paramount Comedy", "Courage-Bambay", "Pirate Dubbing Studio", "Chadov", "Karpovsky", "RecentFilms", "Channel One", "Alternative Production", "NEON Studio", "Kolobok", "Dolsky", "Cinema US", "加夫里洛夫", "日沃夫", "SDI Media", "阿列克谢耶夫", "GreenРай Studio", "米哈列夫", "埃萨列夫", "维兹古诺夫", "利伯加尔", "库兹涅佐夫", "Sanaev", "ДТВ", "Dokhalov", "Sunshine Studio", "Gorchakov", "LevshaFilm", "CasStudio", "Volodarsky", "ColdFilm", "Shvarko", "Kartsev", "ETV+", "VGTRK", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Giggling Doctor", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Kolobok", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "四平方", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Igmar", "Kotov", "DeadLine Studio", "Jetvis Studio", "RenTV", "Andrey Pitersky", "Fox Life", "Rybin", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Interfilm", "SunshineStudio", "Kulzvuk Studio", "卡什金", "瓦尔坦·多哈洛夫", "内马霍夫", "Sedorelli", "СТС", "雅罗茨基", "ICG", "ТВЦ", "斯​​坦因", "AzOnFilm", "SorzTeam", "加耶夫斯基", "穆德罗夫", "谢尔盖·沃罗比约夫", "Studio Raido", "DeeAFilm Studio", "zamez", "ViruseProject", "Ivanov", "STEPonee", "RenTV", "SV-Dubl", "BadBajo", "Comedy TV", "Master Tape", "5-й 圣彼得堡频道", "SDI Media", "Glantz", "Ох! 工作室", "SV-Kadr", "2x2", "Kotova", "正面", "RusFilm", "Nazarov", "XDUB Dorama", "真正的翻译", "Kansai", "Sound-Group", "Nikolay Drozdov", "ZEE TV", "Ozz.tv", "MTV", "Syenduk", "GoldTeam", "Belov", "Dream Records", "Yakovlev", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Denis Shadinsky", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "First HDTV", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "SV-Dubl", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "ArchiTheatre", "Project Web Mania", "ko136", "KuraSgrechey", "AMS", "SV-Studio", "Temple Doram TV", "TurkStar", "Medvedev", "Ryabov", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Kurds", "Neoclassic", "fiendover", "SomeWax", "Loginoff", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Vorotilin", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Kolobok", "SDI Media", "KosharaSerials", "叶卡捷琳堡艺术", "Julia Prosenuk", "ARK-TV Studio", "T.O Friends", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "西里尔文", "AniPLague", "视频服务", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "格式 AB", "Film Prestige", "West Video", "叶卡捷琳堡艺术", "SovetRomantica", "RuFilms", "AveBrasil", "Greb&Creative", "BTI Studios", "毕达哥拉斯", "Eurochannel", "NewStudio", "Karmen Video", "Koshkin", "Kravets", "Rainbow World", "Voroticin", "Varus-Video", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "ABB 视频", "AniStar", "Korean Craze", "LakeFilms", "Nevafilm", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Anastasia Gaydarzhi", "Madeleine Duval", "Fox Life", "Sound Film", "Cowabunga Studio", "Filmexport", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Kirill Sagach", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Muravsky", "IdeaFilm", "Rutilov", "Timofeev", "Laguta", "Dyakonov", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "毕达哥拉斯", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Condor", "Igmar", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Yankelevich", "Kireev", "Bagichev", "2x2", "词典", "Nota", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Kinomaniya", "DDV", "Alternative Production", "WestFilm", "Anastasia Gaydarzhi + Andrey Yurchenko", "Kinomaniya", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "视频制作", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Dasevich", "Anatoly Gusev", "Twister", "Morozov", "NewComers", "kubik&ko", "DeMon", "Anatoly Ashmarin", "Inter Video", "Pronin", "AMC", "Veles", "Volume-6 Studio", "恐怖制造者", "Ghostface", "Sephiroth", "Akira", "Deval Video", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Raven", "Andre1288", "Selena International", "GalVid", "另一个电影院", "工作室 NLS", "Sam2007", "HaseRiLLoPaW", "Sevastyanov", "D.I.M.", "Marchenko", "Zhuravlev", "N-Kino", "Lazer Video", "SesDizi", "Red Media", "Rudoy", "Tovbin", "Sergey Didok", "Juan Rojas", "binjak", "Karusel", "Lizard Cinema", "Varus-Video", "Emphasis", "RG.Paravozik", "Max Nabokov", "Barin101", "Vaska Kurolesov", "Fortuna-Film", "Amalgama", "AnyFilm", "Raido Studio", "科兹洛夫", "Zoomvision Studio", "毕达哥拉斯", "Urasiko", "VIP Serial HD", "НСТ", "Kinolux", "Project Web Mania", "Zavgorodniy", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "S.R.I", "老比尔博", "Ozz.tv", "Mystery Film", "RenTV", "Latyshev", "Vashchenko", "Laiko", "Sonotek", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Neva-1", "Maxim Zholobov", "Good People", "Mobile TV", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Nikitin", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Ostankino", "TatamiFilm", "视频库", "Crunchyroll", "Novamedia", "RedRussian1337", "内容OFF", "Creative Sound", "HelloMickey Production", "金字塔", "CLS Media", "Sonkin", "母带", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Naryshkin", "Intra Communications", "OnisFilms", "XDUB Dorama", "Cypress", "Korolev", "visanti-vasaer", "Gotlib", "Paramount Channel", "СТС", "播音员 CDV", "Pazl Voice", "Pryamostanov", "Zerzia", "НТВ", "MGM", "Dyakov", "Volga", "ARK-TV Studio", "Dubrovin", "МИР", "Netflix", "Jetix", "Cypress", "RUSCICO", "Seoul Bay", "Filonov", "Makhonko", "Stroev", "Sanya Bely", "Govinda Raga", "Oshurkov", "Horror Maker", "Khlopushka", "Khrustalev", "Antonov Nikolai", "Zolotukhin", "ArchAsia", "Popov", "Ultradox", "Most-Video", "Altera Pars", "Ogorodnikov", "Twin", "Khabar", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ulpanei Elrom", "Videoimpulse", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Karusel", "Inter", "Contentica", "Mill", "RealFake", "IDDC", "Info-film", "音乐交易", "Kirdin | Stalk", "DioNiK", "Stasyuk", "TV1000", "Hallmark", "Tonix Media", "Bessonov", "Gears Media", "Bakhurani", "NewDub", "Cinema Prestige", "Nabiev", "New Dream Media", "ТВ3", "Malinovsky Sergey", "Superbit", "Kens Matvey", "LE-Production", "Voiz", "Svetla", "Cinema Prestige", "JAM", "LDV", "Videogram", "India TV", "RedDiamond Studio", "Gerusov", "Elegy film", "Nastia", "Semykina Julia", "Train", "邮票德米特里", "星期五", "Oneinchnales", "Gravi-TV", "D2Lab", "电影首映", "Gleb Busov", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 频道", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Agapov", "Akopyan", "Alekseev", "阿尔特米耶夫", "巴吉乔夫", "贝索诺夫", "瓦西里耶夫", "瓦西尔采夫", "加夫里洛夫", "格鲁索夫", "戈特利布", "格里戈里耶夫", "达塞维奇", "多尔斯基", "卡尔波夫斯基", "卡什金", "基里耶夫", "克柳克文", "科斯图克维奇", "马特维耶夫", "米哈列夫", "米申", "穆德罗夫", "普罗宁", "萨夫琴科", "斯​​米尔诺夫", "蒂莫费耶夫", "托尔斯托布罗夫", "楚耶夫", "舒瓦耶夫", "雅科夫列夫", "ААА-sound", "AByGDe", "阿卡利特", "阿基拉", "联盟", "汞合金", "АМС", "AnVad", "Anubis", "Anubis", "Ark-TV", "ARK-TV Studio", "B. Fedorov", "Bibikov", "Bigych", "博伊科夫", "阿卜杜洛夫", "别洛夫", "维克罗夫", "沃龙佐夫", "戈尔恰科夫", "丹尼洛夫", "多哈洛夫", "Kotov", "Koshkin", "Nazarov", "Popov", "Rukin", "Rutilov", "Varus Video", "Vaska Kurolesov", "Vashchenko S.", "Vekshin", "Veles", "Veselchak", "Videopulse", "Vitya «говорун»", "Voysover", "Volga", "乌鸦", "Voroticin", "G. Liebergal", "G. Rumyantsev", "同性恋电影指南", "ГКГ", "Glukhovsky", "Grizzly", "Gundos", "Denshchikov", "Esarev", "Nurmukhametov", "Puchkov", "Stasyuk", "Shadinsky", "Stamp", "sf@irat", "Derzhimorda", "自制", "ДТВ", "Dyakonov", "E. Gaevsky", "E. Grankin", "E. Lurie", "E. Rudoy", "E. Khrustalev", "EA Cinema", "叶卡捷琳堡艺术", "Zhivago", "Zhuchkov", "Z Ranku To Nightі", "Zavgorodniy", "Zeburo", "Zerenitsyn", "I. Eremeev", "I. Klushin", "I. Safronov", "I. Stepanov", "ИГМ", "Igmar", "IDDC", "Image-Art", "Inis", "Iren", "东西方", "K. Pozdnyakov", "K. Filonov", "К9", "Karapetyan", "卡门视频", "旋转木马", "马列维奇广场", "Sprat", "Cypress", "Korolev", "Kotova", "Kravets", "Cube in Cube", "Courage-Bambay", "L. Volodarsky", "激光视频", "LancelaP", "Lapshin", "Lexicon", "Lenfilm", "Lesha Ensign", "Lizard", "Lucien", "Zaugarov", "伊万诺夫", "伊万诺娃和 P. Pashut", "Latyshev", "Oshurkov", "Chadov", "Yarotsky", "Maxim Loginoff", "Malinovsky", "Marchenko", "Master Tape", "Makhonko", "Mashinskiy", "Media Complex", "Mill", "Mika Bondarik", "Minyaev", "Mitelman", "Most Video", "Mosfilm", "Muravsky", "Music Trade", "N-Kino", "N. Antonov", "N. Drozdov", "N. Zolotukhin", "N. Sevastyanov seva1988", "Nabiev", "Natalia Gurzo", "NEVA 1", "Nevafilm", "NeZupinyaiProduction", "Neoclassic", "非致命武器", "НЛО-TV", "新", "新CD", "新配音", "新频道", "注", "НСТ", "НТВ", "НТН", "霸王", "奥戈罗德尼科夫", "Omicron", "Glantz", "Kartsev", "Morozov", "Pryamostanov", "Sanaev", "Paradise", "Pepelats", "第一频道 ORT", "Perevodman", "Pepper", "彼得堡配音", "彼得斯堡", "金字塔", "毕达哥拉斯", "Positive-Multimedia", "Pride Production", "Premier Video", "Premier Multimedia", "Freaks", "R. Yankelevich", "Raido", "Angle", "RenTV", "俄罗斯", "РТР", "俄语配音", "俄罗斯报告文学", "RuFilms", "红狗", "S. Vizgunov", "S. Dyakov", "S. Kazakov", "S. Kuznetsov", "S. Kuzmichev", "S. Lebedev", "S. Makashov", "S. Ryabov", "S. Shchegolkov", "S.R.I.", "Сolumbia Service", "Samara", "SV Studio", "SV-Double", "Svetla", "Selena International", "Cinema Trade", "Cinema US", "Sinta Ruroni", "Synchron", "苏联", "Sokurov", "Solodukhin", "Sonotek", "Sonkin", "Soyuz Video", "Soyuzmultfilm", "SPD - 甜蜜的情侣", "Stroev", "СТС", "Sovereign Leprosarium Studios", "Studio «Стартрек»", "KOleso", "Gorky Studio", "Kolobok Studio", "Pirate Dubbing Studio", "Raido Studio", "Studio 三", "Group", "Superbeat", "Syenduk", "Tak Treba Production", "TV XXI 世纪", "TV St. Petersburg", "ТВ-3", "ТВ6", "TWIN", "ТВЦ", "HDTV 1", "ТНТ", "致朋友们", "托尔马切夫", "观点", "电车电影", "ТРК", "华特迪士尼公司", "Hihidok", "挡板", "Цікава Ідея", "四平方", "Shvetsov", "Shtamp", "Stein", "Y. Zhivov", "Y. Nemakhov", "Y. Serbin", "Y. Tovbin", "J. Bellmann"];
+      var voices = ["Laci", "Kerob", "LE-Production", "Parovoz Production", "Paradox", "Omskbird", "LostFilm", "Причудики", "BaibaKo", "NewStudio", "AlexFilm", "FocusStudio", "Gears Media", "Jaskier", "ViruseProject", "Кубик в Кубе", "IdeaFilm", "Sunshine Studio", "Ozz.tv", "Hamster Studio", "Сербин", "To4ka", "Кравец", "Victory-Films", "SNK-TV", "GladiolusTV", "Jetvis Studio", "ApofysTeam", "ColdFilm", "Agatha Studdio", "KinoView", "Jimmy J.", "Shadow Dub Project", "Amedia", "Red Media", "Selena International", "Гоблин", "Universal Russia", "Kiitos", "Paramount Comedy", "Кураж-Бамбей", "Студия Пиратского Дубляжа", "Чадов", "Карповский", "RecentFilms", "Первый канал", "Alternative Production", "NEON Studio", "Колобок", "Дольский", "Синема УС", "Гаврилов", "Живов", "SDI Media", "Алексеев", "GreenРай Studio", "Михалев", "Есарев", "Визгунов", "Либергал", "Кузнецов", "Санаев", "ДТВ", "Дохалов", "Sunshine Studio", "Горчаков", "LevshaFilm", "CasStudio", "Володарский", "ColdFilm", "Шварко", "Карцев", "ETV+", "ВГТРК", "Gravi-TV", "1001cinema", "Zone Vision Studio", "Хихикающий доктор", "Murzilka", "turok1990", "FOX", "STEPonee", "Elrom", "Колобок", "HighHopes", "SoftBox", "GreenРай Studio", "NovaFilm", "Четыре в квадрате", "Greb&Creative", "MUZOBOZ", "ZM-Show", "RecentFilms", "Kerems13", "Hamster Studio", "New Dream Media", "Игмар", "Котов", "DeadLine Studio", "Jetvis Studio", "РенТВ", "Андрей Питерский", "Fox Life", "Рыбин", "Trdlo.studio", "Studio Victory Аsia", "Ozeon", "НТВ", "CP Digital", "AniLibria", "STEPonee", "Levelin", "FanStudio", "Cmert", "Интерфильм", "SunshineStudio", "Kulzvuk Studio", "Кашкин", "Вартан Дохалов", "Немахов", "Sedorelli", "СТС", "Яроцкий", "ICG", "ТВЦ", "Штейн", "AzOnFilm", "SorzTeam", "Гаевский", "Мудров", "Воробьев Сергей", "Студия Райдо", "DeeAFilm Studio", "zamez", "ViruseProject", "Иванов", "STEPonee", "РенТВ", "СВ-Дубль", "BadBajo", "Комедия ТВ", "Мастер Тэйп", "5-й канал СПб", "SDI Media", "Гланц", "Ох! Студия", "СВ-Кадр", "2x2", "Котова", "Позитив", "RusFilm", "Назаров", "XDUB Dorama", "Реальный перевод", "Kansai", "Sound-Group", "Николай Дроздов", "ZEE TV", "Ozz.tv", "MTV", "Сыендук", "GoldTeam", "Белов", "Dream Records", "Яковлев", "Vano", "SilverSnow", "Lord32x", "Filiza Studio", "Sony Sci-Fi", "Flux-Team", "NewStation", "XDUB Dorama", "Hamster Studio", "Dream Records", "DexterTV", "ColdFilm", "Good People", "RusFilm", "Levelin", "AniDUB", "SHIZA Project", "AniLibria.TV", "StudioBand", "AniMedia", "Kansai", "Onibaku", "JWA Project", "MC Entertainment", "Oni", "Jade", "Ancord", "ANIvoice", "Nika Lenina", "Bars MacAdams", "JAM", "Anika", "Berial", "Kobayashi", "Cuba77", "RiZZ_fisher", "OSLIKt", "Lupin", "Ryc99", "Nazel & Freya", "Trina_D", "JeFerSon", "Vulpes Vulpes", "Hamster", "KinoGolos", "Fox Crime", "Денис Шадинский", "AniFilm", "Rain Death", "LostFilm", "New Records", "Ancord", "Первый ТВЧ", "RG.Paravozik", "Profix Media", "Tycoon", "RealFake", "HDrezka", "Jimmy J.", "AlexFilm", "Discovery", "Viasat History", "AniMedia", "JAM", "HiWayGrope", "Ancord", "СВ-Дубль", "Tycoon", "SHIZA Project", "GREEN TEA", "STEPonee", "AlphaProject", "AnimeReactor", "Animegroup", "Shachiburi", "Persona99", "3df voice", "CactusTeam", "AniMaunt", "AniMedia", "AnimeReactor", "ShinkaDan", "Jaskier", "ShowJet", "RAIM", "RusFilm", "Victory-Films", "АрхиТеатр", "Project Web Mania", "ko136", "КураСгречей", "AMS", "СВ-Студия", "Храм Дорам ТВ", "TurkStar", "Медведев", "Рябов", "BukeDub", "FilmGate", "FilmsClub", "Sony Turbo", "ТВЦ", "AXN Sci-Fi", "NovaFilm", "DIVA Universal", "Курдов", "Неоклассика", "fiendover", "SomeWax", "Логинофф", "Cartoon Network", "Sony Turbo", "Loginoff", "CrezaStudio", "Воротилин", "LakeFilms", "Andy", "CP Digital", "XDUB Dorama + Колобок", "SDI Media", "KosharaSerials", "Екатеринбург Арт", "Julia Prosenuk", "АРК-ТВ Studio", "Т.О Друзей", "Anifilm", "Animedub", "AlphaProject", "Paramount Channel", "Кириллица", "AniPLague", "Видеосервис", "JoyStudio", "HighHopes", "TVShows", "AniFilm", "GostFilm", "West Video", "Формат AB", "Film Prestige", "West Video", "Екатеринбург Арт", "SovetRomantica", "РуФилмс", "AveBrasil", "Greb&Creative", "BTI Studios", "Пифагор", "Eurochannel", "NewStudio", "Кармен Видео", "Кошкин", "Кравец", "Rainbow World", "Воротилин", "Варус-Видео", "ClubFATE", "HiWay Grope", "Banyan Studio", "Mallorn Studio", "Asian Miracle Group", "Эй Би Видео", "AniStar", "Korean Craze", "LakeFilms", "Невафильм", "Hallmark", "Netflix", "Mallorn Studio", "Sony Channel", "East Dream", "Bonsai Studio", "Lucky Production", "Octopus", "TUMBLER Studio", "CrazyCatStudio", "Amber", "Train Studio", "Анастасия Гайдаржи", "Мадлен Дюваль", "Fox Life", "Sound Film", "Cowabunga Studio", "Фильмэкспорт", "VO-Production", "Sound Film", "Nickelodeon", "MixFilm", "GreenРай Studio", "Sound-Group", "Back Board Cinema", "Кирилл Сагач", "Bonsai Studio", "Stevie", "OnisFilms", "MaxMeister", "Syfy Universal", "TUMBLER Studio", "NewStation", "Neo-Sound", "Муравский", "IdeaFilm", "Рутилов", "Тимофеев", "Лагута", "Дьяконов", "Zone Vision Studio", "Onibaku", "AniMaunt", "Voice Project", "AniStar", "Пифагор", "VoicePower", "StudioFilms", "Elysium", "AniStar", "BeniAffet", "Selena International", "Paul Bunyan", "CoralMedia", "Кондор", "Игмар", "ViP Premiere", "FireDub", "AveTurk", "Sony Sci-Fi", "Янкелевич", "Киреев", "Багичев", "2x2", "Лексикон", "Нота", "Arisu", "Superbit", "AveDorama", "VideoBIZ", "Киномания", "DDV", "Alternative Production", "WestFilm", "Анастасия Гайдаржи + Андрей Юрченко", "Киномания", "Agatha Studdio", "GreenРай Studio", "VSI Moscow", "Horizon Studio", "Flarrow Films", "Amazing Dubbing", "Asian Miracle Group", "Видеопродакшн", "VGM Studio", "FocusX", "CBS Drama", "NovaFilm", "Novamedia", "East Dream", "Дасевич", "Анатолий Гусев", "Twister", "Морозов", "NewComers", "kubik&ko", "DeMon", "Анатолий Ашмарин", "Inter Video", "Пронин", "AMC", "Велес", "Volume-6 Studio", "Хоррор Мэйкер", "Ghostface", "Sephiroth", "Акира", "Деваль Видео", "RussianGuy27", "neko64", "Shaman", "Franek Monk", "Ворон", "Andre1288", "Selena International", "GalVid", "Другое кино", "Студия NLS", "Sam2007", "HaseRiLLoPaW", "Севастьянов", "D.I.M.", "Марченко", "Журавлев", "Н-Кино", "Lazer Video", "SesDizi", "Red Media", "Рудой", "Товбин", "Сергей Дидок", "Хуан Рохас", "binjak", "Карусель", "Lizard Cinema", "Варус-Видео", "Акцент", "RG.Paravozik", "Max Nabokov", "Barin101", "Васька Куролесов", "Фортуна-Фильм", "Amalgama", "AnyFilm", "Студия Райдо", "Козлов", "Zoomvision Studio", "Пифагор", "Urasiko", "VIP Serial HD", "НСТ", "Кинолюкс", "Project Web Mania", "Завгородний", "AB-Video", "Twister", "Universal Channel", "Wakanim", "SnowRecords", "С.Р.И", "Старый Бильбо", "Ozz.tv", "Mystery Film", "РенТВ", "Латышев", "Ващенко", "Лайко", "Сонотек", "Psychotronic", "DIVA Universal", "Gremlin Creative Studio", "Нева-1", "Максим Жолобов", "Good People", "Мобильное телевидение", "Lazer Video", "IVI", "DoubleRec", "Milvus", "RedDiamond Studio", "Astana TV", "Никитин", "КТК", "D2Lab", "НСТ", "DoubleRec", "Black Street Records", "Останкино", "TatamiFilm", "Видеобаза", "Crunchyroll", "Novamedia", "RedRussian1337", "КонтентикOFF", "Creative Sound", "HelloMickey Production", "Пирамида", "CLS Media", "Сонькин", "Мастер Тэйп", "Garsu Pasaulis", "DDV", "IdeaFilm", "Gold Cinema", "Че!", "Нарышкин", "Intra Communications", "OnisFilms", "XDUB Dorama", "Кипарис", "Королёв", "visanti-vasaer", "Готлиб", "Paramount Channel", "СТС", "диктор CDV", "Pazl Voice", "Прямостанов", "Zerzia", "НТВ", "MGM", "Дьяков", "Вольга", "АРК-ТВ Studio", "Дубровин", "МИР", "Netflix", "Jetix", "Кипарис", "RUSCICO", "Seoul Bay", "Филонов", "Махонько", "Строев", "Саня Белый", "Говинда Рага", "Ошурков", "Horror Maker", "Хлопушка", "Хрусталев", "Антонов Николай", "Золотухин", "АрхиАзия", "Попов", "Ultradox", "Мост-Видео", "Альтера Парс", "Огородников", "Твин", "Хабар", "AimaksaLTV", "ТНТ", "FDV", "3df voice", "The Kitchen Russia", "Ульпаней Эльром", "Видеоимпульс", "GoodTime Media", "Alezan", "True Dubbing Studio", "FDV", "Карусель", "Интер", "Contentica", "Мельница", "RealFake", "ИДДК", "Инфо-фильм", "Мьюзик-трейд", "Кирдин | Stalk", "ДиоНиК", "Стасюк", "TV1000", "Hallmark", "Тоникс Медиа", "Бессонов", "Gears Media", "Бахурани", "NewDub", "Cinema Prestige", "Набиев", "New Dream Media", "ТВ3", "Малиновский Сергей", "Superbit", "Кенс Матвей", "LE-Production", "Voiz", "Светла", "Cinema Prestige", "JAM", "LDV", "Videogram", "Индия ТВ", "RedDiamond Studio", "Герусов", "Элегия фильм", "Nastia", "Семыкина Юлия", "Электричка", "Штамп Дмитрий", "Пятница", "Oneinchnales", "Gravi-TV", "D2Lab", "Кинопремьера", "Бусов Глеб", "LE-Production", "1001cinema", "Amazing Dubbing", "Emslie", "1+1", "100 ТВ", "1001 cinema", "2+2", "2х2", "3df voice", "4u2ges", "5 канал", "A. Lazarchuk", "AAA-Sound", "AB-Video", "AdiSound", "ALEKS KV", "AlexFilm", "AlphaProject", "Alternative Production", "Amalgam", "AMC", "Amedia", "AMS", "Andy", "AniLibria", "AniMedia", "Animegroup", "Animereactor", "AnimeSpace Team", "Anistar", "AniUA", "AniWayt", "Anything-group", "AOS", "Arasi project", "ARRU Workshop", "AuraFilm", "AvePremier", "AveTurk", "AXN Sci-Fi", "Azazel", "AzOnFilm", "BadBajo", "BadCatStudio", "BBC Saint-Petersburg", "BD CEE", "Black Street Records", "Bonsai Studio", "Boльгa", "Brain Production", "BraveSound", "BTI Studios", "Bubble Dubbing Company", "Byako Records", "Cactus Team", "Cartoon Network", "CBS Drama", "CDV", "Cinema Prestige", "CinemaSET GROUP", "CinemaTone", "ColdFilm", "Contentica", "CP Digital", "CPIG", "Crunchyroll", "Cuba77", "D1", "D2lab", "datynet", "DDV", "DeadLine", "DeadSno", "DeMon", "den904", "Description", "DexterTV", "Dice", "Discovery", "DniproFilm", "DoubleRec", "DreamRecords", "DVD Classic", "East Dream", "Eladiel", "Elegia", "ELEKTRI4KA", "Elrom", "ELYSIUM", "Epic Team", "eraserhead", "erogg", "Eurochannel", "Extrabit", "F-TRAIN", "Family Fan Edition", "FDV", "FiliZa Studio", "Film Prestige", "FilmGate", "FilmsClub", "FireDub", "Flarrow Films", "Flux-Team", "FocusStudio", "FOX", "Fox Crime", "Fox Russia", "FoxLife", "Foxlight", "Franek Monk", "Gala Voices", "Garsu Pasaulis", "Gears Media", "Gemini", "General Film", "GetSmart", "Gezell Studio", "Gits", "GladiolusTV", "GoldTeam", "Good People", "Goodtime Media", "GoodVideo", "GostFilm", "Gramalant", "Gravi-TV", "GREEN TEA", "GreenРай Studio", "Gremlin Creative Studio", "Hallmark", "HamsterStudio", "HiWay Grope", "Horizon Studio", "hungry_inri", "ICG", "ICTV", "IdeaFilm", "IgVin &amp; Solncekleshka", "ImageArt", "INTERFILM", "Ivnet Cinema", "IНТЕР", "Jakob Bellmann", "JAM", "Janetta", "Jaskier", "JeFerSon", "jept", "JetiX", "Jetvis", "JimmyJ", "KANSAI", "KIHO", "kiitos", "KinoGolos", "Kinomania", "KosharaSerials", "Kолобок", "L0cDoG", "LakeFilms", "LDV", "LE-Production", "LeDoyen", "LevshaFilm", "LeXiKC", "Liga HQ", "Line", "Lisitz", "Lizard Cinema Trade", "Lord32x", "lord666", "LostFilm", "Lucky Production", "Macross", "madrid", "Mallorn Studio", "Marclail", "Max Nabokov", "MC Entertainment", "MCA", "McElroy", "Mega-Anime", "Melodic Voice Studio", "metalrus", "MGM", "MifSnaiper", "Mikail", "Milirina", "MiraiDub", "MOYGOLOS", "MrRose", "MTV", "Murzilka", "MUZOBOZ", "National Geographic", "NemFilm", "Neoclassica", "NEON Studio", "New Dream Media", "NewComers", "NewStation", "NewStudio", "Nice-Media", "Nickelodeon", "No-Future", "NovaFilm", "Novamedia", "Octopus", "Oghra-Brown", "OMSKBIRD", "Onibaku", "OnisFilms", "OpenDub", "OSLIKt", "Ozz TV", "PaDet", "Paramount Comedy", "Paramount Pictures", "Parovoz Production", "PashaUp", "Paul Bunyan", "Pazl Voice", "PCB Translate", "Persona99", "PiratVoice", "Postmodern", "Profix Media", "Project Web Mania", "Prolix", "QTV", "R5", "Radamant", "RainDeath", "RATTLEBOX", "RealFake", "Reanimedia", "Rebel Voice", "RecentFilms", "Red Media", "RedDiamond Studio", "RedDog", "RedRussian1337", "Renegade Team", "RG Paravozik", "RinGo", "RoxMarty", "Rumble", "RUSCICO", "RusFilm", "RussianGuy27", "Saint Sound", "SakuraNight", "Satkur", "Sawyer888", "Sci-Fi Russia", "SDI Media", "Selena", "seqw0", "SesDizi", "SGEV", "Shachiburi", "SHIZA", "ShowJet", "Sky Voices", "SkyeFilmTV", "SmallFilm", "SmallFilm", "SNK-TV", "SnowRecords", "SOFTBOX", "SOLDLUCK2", "Solod", "SomeWax", "Sony Channel", "Sony Turbo", "Sound Film", "SpaceDust", "ssvss", "st.Elrom", "STEPonee", "SunshineStudio", "Superbit", "Suzaku", "sweet couple", "TatamiFilm", "TB5", "TF-AniGroup", "The Kitchen Russia", "The Mike Rec.", "Timecraft", "To4kaTV", "Tori", "Total DVD", "TrainStudio", "Troy", "True Dubbing Studio", "TUMBLER Studio", "turok1990", "TV 1000", "TVShows", "Twister", "Twix", "Tycoon", "Ultradox", "Universal Russia", "VashMax2", "VendettA", "VHS", "VicTeam", "VictoryFilms", "Video-BIZ", "Videogram", "ViruseProject", "visanti-vasaer", "VIZ Media", "VO-production", "Voice Project Studio", "VoicePower", "VSI Moscow", "VulpesVulpes", "Wakanim", "Wayland team", "WestFilm", "WiaDUB", "WVoice", "XL Media", "XvidClub Studio", "zamez", "ZEE TV", "Zendos", "ZM-SHOW", "Zone Studio", "Zone Vision", "Агапов", "Акопян", "Алексеев", "Артемьев", "Багичев", "Бессонов", "Васильев", "Васильцев", "Гаврилов", "Герусов", "Готлиб", "Григорьев", "Дасевич", "Дольский", "Карповский", "Кашкин", "Киреев", "Клюквин", "Костюкевич", "Матвеев", "Михалев", "Мишин", "Мудров", "Пронин", "Савченко", "Смирнов", "Тимофеев", "Толстобров", "Чуев", "Шуваев", "Яковлев", "ААА-sound", "АБыГДе", "Акалит", "Акира", "Альянс", "Амальгама", "АМС", "АнВад", "Анубис", "Anubis", "Арк-ТВ", "АРК-ТВ Studio", "Б. Федоров", "Бибиков", "Бигыч", "Бойков", "Абдулов", "Белов", "Вихров", "Воронцов", "Горчаков", "Данилов", "Дохалов", "Котов", "Кошкин", "Назаров", "Попов", "Рукин", "Рутилов", "Варус Видео", "Васька Куролесов", "Ващенко С.", "Векшин", "Велес", "Весельчак", "Видеоимпульс", "Витя «говорун»", "Войсовер", "Вольга", "Ворон", "Воротилин", "Г. Либергал", "Г. Румянцев", "Гей Кино Гид", "ГКГ", "Глуховский", "Гризли", "Гундос", "Деньщиков", "Есарев", "Нурмухаметов", "Пучков", "Стасюк", "Шадинский", "Штамп", "sf@irat", "Держиморда", "Домашний", "ДТВ", "Дьяконов", "Е. Гаевский", "Е. Гранкин", "Е. Лурье", "Е. Рудой", "Е. Хрусталёв", "ЕА Синема", "Екатеринбург Арт", "Живаго", "Жучков", "З Ранку До Ночі", "Завгородний", "Зебуро", "Зереницын", "И. Еремеев", "И. Клушин", "И. Сафронов", "И. Степанов", "ИГМ", "Игмар", "ИДДК", "Имидж-Арт", "Инис", "Ирэн", "Ист-Вест", "К. Поздняков", "К. Филонов", "К9", "Карапетян", "Кармен Видео", "Карусель", "Квадрат Малевича", "Килька", "Кипарис", "Королев", "Котова", "Кравец", "Кубик в Кубе", "Кураж-Бамбей", "Л. Володарский", "Лазер Видео", "ЛанселаП", "Лапшин", "Лексикон", "Ленфильм", "Леша Прапорщик", "Лизард", "Люсьена", "Заугаров", "Иванов", "Иванова и П. Пашут", "Латышев", "Ошурков", "Чадов", "Яроцкий", "Максим Логинофф", "Малиновский", "Марченко", "Мастер Тэйп", "Махонько", "Машинский", "Медиа-Комплекс", "Мельница", "Мика Бондарик", "Миняев", "Мительман", "Мост Видео", "Мосфильм", "Муравский", "Мьюзик-трейд", "Н-Кино", "Н. Антонов", "Н. Дроздов", "Н. Золотухин", "Н.Севастьянов seva1988", "Набиев", "Наталья Гурзо", "НЕВА 1", "Невафильм", "НеЗупиняйПродакшн", "Неоклассика", "Несмертельное оружие", "НЛО-TV", "Новий", "Новый диск", "Новый Дубляж", "Новый Канал", "Нота", "НСТ", "НТВ", "НТН", "Оверлорд", "Огородников", "Омикрон", "Гланц", "Карцев", "Морозов", "Прямостанов", "Санаев", "Парадиз", "Пепелац", "Первый канал ОРТ", "Переводман", "Перец", "Петербургский дубляж", "Петербуржец", "Пирамида", "Пифагор", "Позитив-Мультимедиа", "Прайд Продакшн", "Премьер Видео", "Премьер Мультимедиа", "Причудики", "Р. Янкелевич", "Райдо", "Ракурс", "РенТВ", "Россия", "РТР", "Русский дубляж", "Русский Репортаж", "РуФилмс", "Рыжий пес", "С. Визгунов", "С. Дьяков", "С. Казаков", "С. Кузнецов", "С. Кузьмичёв", "С. Лебедев", "С. Макашов", "С. Рябов", "С. Щегольков", "С.Р.И.", "Сolumbia Service", "Самарский", "СВ Студия", "СВ-Дубль", "Светла", "Селена Интернешнл", "Синема Трейд", "Синема УС", "Синта Рурони", "Синхрон", "Советский", "Сокуров", "Солодухин", "Сонотек", "Сонькин", "Союз Видео", "Союзмультфильм", "СПД - Сладкая парочка", "Строев", "СТС", "Студии Суверенного Лепрозория", "Студия «Стартрек»", "KOleso", "Студия Горького", "Студия Колобок", "Студия Пиратского Дубляжа", "Студия Райдо", "Студия Трёх", "Гуртом", "Супербит", "Сыендук", "Так Треба Продакшн", "ТВ XXI век", "ТВ СПб", "ТВ-3", "ТВ6", "ТВИН", "ТВЦ", "ТВЧ 1", "ТНТ", "ТО Друзей", "Толмачев", "Точка Zрения", "Трамвай-фильм", "ТРК", "Уолт Дисней Компани", "Хихидок", "Хлопушка", "Цікава Ідея", "Четыре в квадрате", "Швецов", "Штамп", "Штейн", "Ю. Живов", "Ю. Немахов", "Ю. Сербин", "Ю. Товбин", "Я. Беллманн"];
       scroll.minus();
       scroll.body().addClass('torrent-list');
 
@@ -14658,7 +14650,7 @@
 
           _this.activity.toggle();
         }, function (text) {
-          _this.empty('答案: ' + text);
+          _this.empty('Ответ: ' + text);
         });
 
         filter.onSearch = function (value) {
@@ -14777,7 +14769,7 @@
           }
 
           if (filter_items.tracker.indexOf(tracker) === -1) filter_items.tracker.push(tracker);
-          var season = title.match(/.?s\[(\d+)-\].?|.?s(\d+).?|.?\((\d+) 季。?|.?season (\d+),.?/);
+          var season = title.match(/.?s\[(\d+)-\].?|.?s(\d+).?|.?\((\d+) сезон.?|.?season (\d+),.?/);
 
           if (season) {
             season = season.filter(function (c) {
@@ -14959,13 +14951,13 @@
                   var p = filter_items.voice.indexOf(a);
 
                   if (p == 1) {
-                    if (test('дублирован|配音|  apple| dub| d[,| |$]|[,|\\s]дб[,|\\s|$]')) any = true;
+                    if (test('дублирован|дубляж|  apple| dub| d[,| |$]|[,|\\s]дб[,|\\s|$]')) any = true;
                   } else if (p == 2) {
                     if (test('многоголос| p[,| |$]|[,|\\s](лм|пм)[,|\\s|$]')) any = true;
                   } else if (p == 3) {
-                    if (test('двухголос|双声| l2[,| |$]|[,|\\s](лд|пд)[,|\\s|$]')) any = true;
+                    if (test('двухголос|двуголос| l2[,| |$]|[,|\\s](лд|пд)[,|\\s|$]')) any = true;
                   } else if (p == 4) {
-                    if (test('любитель|作者| l1[,| |$]|[,|\\s](ло|ап)[,|\\s|$]')) any = true;
+                    if (test('любитель|авторский| l1[,| |$]|[,|\\s](ло|ап)[,|\\s|$]')) any = true;
                   } else if (test(a.toLowerCase(), true)) any = true;
                 }
 
@@ -14984,12 +14976,12 @@
                   var SES1 = title.match(/\[s(\d+)-(\d+)\]/);
                   var SES2 = title.match(/season (\d+)-(\d+)/);
                   var SES3 = title.match(/season (\d+) - (\d+).?/);
-                  var SES4 = title.match(/季: (\d+)-(\d+) \/.?/);
+                  var SES4 = title.match(/сезон: (\d+)-(\d+) \/.?/);
                   if (Array.isArray(SES1) && (f >= SES1[1] && f <= SES1[2] || pad(f) >= SES1[1] && pad(f) <= SES1[2] || f >= pad(SES1[1]) && f <= pad(SES1[2]))) any = true;
                   if (Array.isArray(SES2) && (f >= SES2[1] && f <= SES2[2] || pad(f) >= SES2[1] && pad(f) <= SES2[2] || f >= pad(SES2[1]) && f <= pad(SES2[2]))) any = true;
                   if (Array.isArray(SES3) && (f >= SES3[1] && f <= SES3[2] || pad(f) >= SES3[1] && pad(f) <= SES3[2] || f >= pad(SES3[1]) && f <= pad(SES3[2]))) any = true;
                   if (Array.isArray(SES4) && (f >= SES4[1] && f <= SES4[2] || pad(f) >= SES4[1] && pad(f) <= SES4[2] || f >= pad(SES4[1]) && f <= pad(SES4[2]))) any = true;
-                  if (test('.?\\[0' + f + 'x0.?|.?\\[s' + f + '-.?|.?-' + f + '\\].?|.?\\[s0' + f + '\\].?|.?\\[s' + f + '\\].?|.?s' + f + 'e.?|.?s' + f + '-.?|.?сезон: ' + f + ' .?|.?сезон:' + f + '.?|сезон ' + f + ',.?|\\[' + f + ' 季。?|.?\\(' + f + ' season.?|.?season ' + f + '.?')) any = true;
+                  if (test('.?\\[0' + f + 'x0.?|.?\\[s' + f + '-.?|.?-' + f + '\\].?|.?\\[s0' + f + '\\].?|.?\\[s' + f + '\\].?|.?s' + f + 'e.?|.?s' + f + '-.?|.?сезон: ' + f + ' .?|.?сезон:' + f + '.?|сезон ' + f + ',.?|\\[' + f + ' сезон.?|.?\\(' + f + ' сезон.?|.?season ' + f + '.?')) any = true;
                 }
               });
               if (any) passed = true;else nopass = true;
@@ -15137,7 +15129,7 @@
             });
             time_min = Utils.secondsToTimeHuman(time_min);
             time_max = Utils.secondsToTimeHuman(time_max);
-            var details = $("<div class=\"torrent-item__stat\">\n                    <div>Average: ".concat(time_avr, "</div>\n                    <div>Minimum: ").concat(time_min, "</div>\n                    <div>Maximum: ").concat(time_max, "</div>\n                    <div>Requests: ").concat(element.viewing_request, "</div>\n                </div>"));
+            var details = $("<div class=\"torrent-item__stat\">\n                    <div>\u0421\u0440\u0435\u0434\u043D\u0435\u0435: ".concat(time_avr, "</div>\n                    <div>\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435: ").concat(time_min, "</div>\n                    <div>\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435: ").concat(time_max, "</div>\n                    <div>\u0417\u0430\u043F\u0440\u043E\u0441\u043E\u0432: ").concat(element.viewing_request, "</div>\n                </div>"));
             item.append(details);
           }
 
@@ -16471,7 +16463,7 @@
       return activites[activites.length - 1];
     }
     /**
-     * Создат пустую и商店ию
+     * Создат пустую историю
      */
 
 
@@ -16632,7 +16624,7 @@
       return content;
     }
     /**
-     * Подключить обратный вызов при изменени иstorии
+     * Подключить обратный вызов при изменени истории
      * @param {*} call 
      */
 
@@ -16641,7 +16633,7 @@
       callback = call;
     }
     /**
-     * 退出 из лампы
+     * Выход из лампы
      */
 
 
@@ -16754,7 +16746,7 @@
       }
     }
     /**
-     * 结束
+     * Завершить
      */
 
 
@@ -17055,9 +17047,9 @@
               '{RU}': '&nbsp;',
               '{EN}': '&nbsp;',
               '{abc}': '&nbsp;',
-              '{rus}': 'Russian',
+              '{rus}': 'русский',
               '{eng}': 'english',
-              '{search}': '查找',
+              '{search}': 'Найти',
               '{mic}': "<svg viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                        <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                        <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                        </svg>"
             },
             layout: params.layout || _default_layout,
@@ -17394,7 +17386,7 @@
       defaults[name] = value_default;
     }
     /**
-     * 选择
+     * Выбрать
      * @param {string} name - название
      * @param {{key:string}} select_data - значение
      * @param {string} select_default_value - значение по дефолту
@@ -17610,7 +17602,7 @@
       'chrome': 'ChromeCast'
     }, 'chrome');
     select$1('tmdb_lang', {
-    'zh-CN': '简体中文',
+    'zh-CN': '#{settings_param_lang_zh}',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
       'ru': '#{settings_param_lang_ru}',
@@ -17618,7 +17610,7 @@
       'en': '#{settings_param_lang_en}'
     }, 'zh-CN');
     select$1('parse_lang', {
-    'zh-CN': '简体中文',
+    'zh-CN': '#{settings_param_lang_zh}',
     'zh-HK': '繁體中文 - 香港',
     'zh-TW': '繁體中文 - 臺灣',
     'en': 'English',
@@ -17640,10 +17632,7 @@
       'okko': 'OKKO',
       'cub': 'CUB'
     }, 'tmdb');
-    select$1('show_lang', {
-    'zh': '中文'
-  }, 'zh');
-  select$1('start_page', {
+    select$1('start_page', {
       'main': '#{title_main}',
       'favorite@book': '#{title_book}',
       'favorite@like': '#{title_like}',
@@ -17830,165 +17819,527 @@
     var _lang_choice_title$la;
 
     var ru = (_lang_choice_title$la = {
-      lang_choice_title: 'Welcome',
-      lang_choice_subtitle: 'Select your language.',
+      lang_choice_title: 'Добро пожаловать',
+      lang_choice_subtitle: 'Выберите свой язык.',
+      more: 'Еще',
+      show_more: 'Показать ещё',
+      more_results: 'Показать больше результатов',
+      loading: 'Загрузка',
+      nofind_movie: 'Не удалось найти фильм.',
+      noname: 'Без названия',
+      nochoice: 'Не выбрано',
+      cancel: 'Отменить',
+      confirm: 'Подтверждаю',
+      sure: 'Вы уверены?',
+      nodata: 'Нет данных',
+      search: 'Поиск',
+      search_input: 'Введите текст',
+      search_empty: 'История поиска пуста.',
+      search_delete: 'Влево - удалить',
+      search_start_typing: 'Начните вводить текст для поиска.',
+      search_searching: 'Идет поиск...',
+      search_start: 'Начать поиск',
+      full_genre: 'Жанр',
+      full_production: 'Производство',
+      full_date_of_release: 'Дата релиза',
+      full_budget: 'Бюджет',
+      full_countries: 'Страны',
+      full_like: 'Нравится',
+      full_torrents: 'Торренты',
+      full_trailers: 'Трейлеры',
+      full_detail: 'Подробно',
+      full_notext: 'Без описания.',
+      full_series_release: 'Выход серий',
+      full_next_episode: 'Следующая',
+      full_episode_days_left: 'Осталось дней',
+      full_trailer_official: 'Официальный',
+      full_trailer_no_official: 'Неофициальный',
+      full_season: 'Cезон',
+      full_episode: 'Эпизод',
+      full_directing: 'Режиссура',
+      settings_cub_sync: 'Синхронизация',
+      settings_cub_sync_descr: 'Синхронизация с сервисом CUB: синхронизация ваших закладок, истории просмотров, меток и тайм-кодов. Сайт: https://cub.watch',
+      settings_cub_account: 'Аккаунт',
+      settings_cub_logged_in_as: 'Вошли как',
+      settings_cub_profile: 'Профиль',
+      settings_cub_sync_btn: 'Синхронизировать',
+      settings_cub_sync_btn_descr: 'Сохранить локальные закладки в аккаунт CUB',
+      settings_cub_backup: 'Бэкап',
+      settings_cub_backup_descr: 'Сохранить или загрузить бэкап данных',
+      settings_cub_logout: 'Выйти из аккаунта',
+      settings_cub_signin: 'Авторизация',
+      settings_cub_not_specified: 'Не указан',
+      settings_cub_password: 'Пароль',
+      settings_cub_status: 'Статус',
+      settings_cub_backup_import: 'Импорт',
+      settings_cub_backup_export: 'Экспорт',
+      settings_input_links: 'Избранное',
+      settings_interface_type: 'Облегчённая версия',
+      settings_interface_size: 'Размер интерфейса',
+      settings_interface_background: 'Фон',
+      settings_interface_background_use: 'Показывать фон',
+      settings_interface_background_type: 'Тип фона',
+      settings_interface_performance: 'Быстродействие',
+      settings_interface_animation: 'Анимация',
+      settings_interface_animation_descr: 'Анимация карточек и контента',
+      settings_interface_attenuation: 'Затухание',
+      settings_interface_attenuation_descr: 'Плавное затухание карточек снизу и сверху',
+      settings_interface_scroll: 'Тип скролинга',
+      settings_interface_view_card: 'Тип просмотра карточек',
+      settings_interface_view_card_descr: 'По мере скроллинга ленты карточки будут подгружаться постепенно или загружаться все',
+      settings_interface_lang: 'Язык интерфейса',
+      settings_interface_lang_reload: 'Необходимо перезагрузить приложение, нажмите "OK" для перезагрузки.',
+      settings_main_account: 'Аккаунт',
+      settings_main_interface: 'Интерфейс',
+      settings_main_player: 'Плеер',
+      settings_main_parser: 'Парсер',
+      settings_main_torrserver: 'TorrServer',
+      settings_main_plugins: 'Плагины',
+      settings_main_rest: 'Остальное',
+      settings_rest_start: 'Стартовая страница',
+      settings_rest_start_descr: 'С какой страницы начинать при запуске',
+      settings_rest_source: 'Источник',
+      settings_rest_source_use: 'Основной источник',
+      settings_rest_source_descr: 'Откуда брать информацию о фильмах',
+      settings_rest_tmdb_lang: 'На каком языке отображать данные с TMDB',
+      settings_rest_tmdb_prox: 'Проксировать TMDB',
+      settings_rest_tmdb_posters: 'Разрешение постеров TMDB',
+      settings_rest_screensaver: 'Скринсейвер',
+      settings_rest_screensaver_use: 'Показывать заставку при бездействии',
+      settings_rest_screensaver_type: 'Тип заставки',
+      settings_rest_helper: 'Подсказки',
+      settings_rest_helper_use: 'Показывать подсказки',
+      settings_rest_helper_reset: 'Показать подсказки снова',
+      settings_rest_pages: 'Сколько страниц хранить в памяти',
+      settings_rest_pages_descr: 'Хранит страницы в том состоянии, в котором вы их покинули',
+      settings_rest_time: 'Сместить время',
+      settings_rest_navigation: 'Тип навигации',
+      settings_rest_keyboard: 'Тип клавиатуры',
+      settings_rest_device: 'Название устройства',
+      settings_rest_device_placeholder: 'Например: Моя Лампа',
+      settings_rest_cache: 'Очистить кэш',
+      settings_rest_cache_descr: 'Будут очищены все настройки и данные',
+      settings_parser_use: 'Использовать парсер',
+      settings_parser_use_descr: 'Тем самым, вы соглашаетесь принять на себя всю ответственность за использование публичных ссылок для просмотра торрент и онлайн контента.',
+      settings_parser_type: 'Тип парсера для торрентов',
+      settings_parser_jackett_placeholder: 'Например: 192.168.х',
+      settings_parser_jackett_link: 'Ссылка',
+      settings_parser_jackett_link_descr: 'Укажите ссылку на скрипт Jackett',
+      settings_parser_jackett_key_placeholder: 'Например: sa0sk83d..',
+      settings_parser_jackett_key: 'Api ключ',
+      settings_parser_jackett_key_descr: 'Находится в Jackett',
+      settings_parser_torlook_type: 'Метод парсинга сайта TorLook',
+      settings_parser_scraperapi_placeholder: 'Например: scraperapi.com',
+      settings_parser_scraperapi_link: 'Ссылка на парсер сайтов',
+      settings_parser_scraperapi_descr: 'Зарегистрируйтесь на сайте scraperapi.com, введите ссылку api.scraperapi.com?api_key=...&url={q}<br>В {q} будет поставляться сайт w41.torlook.info',
+      settings_parser_search: 'Поиск',
+      settings_parser_search_descr: 'На каком языке производить поиск?',
+      settings_parser_in_search: 'Парсер в поиске',
+      settings_parser_in_search_descr: 'Показывать результаты в поиске?',
+      settings_player_type: 'Тип плеера',
+      settings_player_type_descr: 'Каким плеером воспроизводить',
+      settings_player_reset: 'Сбросить плеер по умолчанию',
+      settings_player_reset_descr: 'Сбрасывает выбранный Android плеер в приложении',
+      settings_player_path: 'Путь к плееру',
+      settings_player_path_descr: 'Укажите путь к плееру .exe',
+      settings_player_normalization: 'Нормализация звука',
+      settings_player_normalization_descr: 'Нормализирует звук в один уровень, понижает громкие звуки и повышает тихие.',
+      settings_player_next_episode: 'Следующая серия',
+      settings_player_next_episode_descr: 'Автоматически переключать на следующую серию по окончании текущей',
+      settings_player_timecode: 'Тайм-код',
+      settings_player_timecode_descr: 'Продолжить с последнего места просмотра',
+      settings_player_scale: 'Метод масштабирования',
+      settings_player_scale_descr: 'Каким образом производить вычисления для масштабирования видео',
+      settings_player_subs: 'Субтитры',
+      settings_player_subs_use: 'Включить',
+      settings_player_subs_use_descr: 'Всегда включать субтитры после запуска видео',
+      settings_player_subs_size: 'Размер',
+      settings_player_subs_size_descr: 'Размер субтитров на экране',
+      settings_player_subs_stroke_use: 'Использовать окантовку',
+      settings_player_subs_stroke_use_descr: 'Субтитры будут обведены черным цветом для улучшения читаемости',
+      settings_player_subs_backdrop_use: 'Использовать подложку',
+      settings_player_subs_backdrop_use_descr: 'Субтитры будут отображаться на полупрозрачной подложке для улучшения читаемости',
+      settings_player_quality: 'Качество видео по умолчанию',
+      settings_player_quality_descr: 'Предпочтительное качество видео для просмотра',
+      settings_plugins_notice: 'Для применения плагина необходимо перезагрузить приложение',
+      settings_plugins_add: 'Добавить плагин',
+      settings_plugins_add_descr: 'Для удаления добавленного плагина удерживайте или нажмите дважды клавишу (OK) на нем',
+      settings_plugins_install: 'Установить плагин',
+      settings_plugins_install_descr: 'Установить плагин из списка доступных',
+      settings_server_link: 'Использовать ссылку',
+      settings_server_links: 'Ссылки',
+      settings_server_placeholder: 'Например: 192.168.х',
+      settings_server_link_one: 'Основная ссылка',
+      settings_server_link_one_descr: 'Укажите основную ссылку на скрипт TorrServer',
+      settings_server_link_two: 'Дополнительная ссылка',
+      settings_server_link_two_descr: 'Укажите дополнительную ссылку на скрипт TorrServer',
+      settings_server_additionally: 'Дополнительно',
+      settings_server_client: 'Встроенный клиент',
+      settings_server_client_descr: 'Использовать встроенный JS-клиент TorrServe, иначе запускается системный.',
+      settings_server_base: 'Сохранить в базу',
+      settings_server_base_descr: 'Торрент будет добавлен в базу TorrServer',
+      settings_server_preload: 'Использовать буфер пред.загрузки',
+      settings_server_preload_descr: 'Дожидаться заполнения буфера предварительной загрузки TorrServer перед проигрыванием',
+      settings_server_auth: 'Авторизация',
+      settings_server_password_use: 'Вход по паролю',
+      settings_server_login: 'Логин',
+      settings_server_password: 'Пароль',
+      settings_server_not_specified: 'Не указан',
+      torent_nohash_reasons: 'Причины',
+      torent_nohash_reason_one: 'TorServer не смог скачать торрент файл',
+      torent_nohash_reason_two: 'Ответ от TorServer',
+      torent_nohash_reason_three: 'Ссылка',
+      torent_nohash_do: 'Что делать?',
+      torent_nohash_do_one: 'Проверьте правильно ли вы настроили Jackett',
+      torent_nohash_do_two: 'Приватные источники могут не выдавать ссылку на файл',
+      torent_nohash_do_three: 'Убедитесь что Jackett тоже может скачать файл',
+      torent_nohash_do_four: 'Написать в нашу телеграм группу: @lampa_group',
+      torent_nohash_do_five: 'Укажите какой фильм, какая раздача и по возможности фото этой раздачи',
+      torrent_error_text: 'Не удалось подключиться к TorrServe. Давайте быстро пройдёмся по списку возможных проблем и всё проверим.',
+      torrent_error_step_1: 'Запущен ли TorrServe',
+      torrent_error_step_2: 'Динамический IP-адрес',
+      torrent_error_step_3: 'Протокол и порт',
+      torrent_error_step_4: 'Блокировка антивирусами',
+      torrent_error_step_5: 'Проверьте на доступность',
+      torrent_error_step_6: 'Все равно не работает',
+      torrent_error_info_1: 'Убедитесь, что вы запустили TorrServe на устройстве, где он установлен.',
+      torrent_error_info_2: 'Частая ошибка, изменился IP-адрес устройства с TorrServe. Убедитесь, что IP-адрес, который вы ввели - {ip}, совпадает с адресом устройства, на котором установлен TorrServe.',
+      torrent_error_info_3: 'Для подключения к TorrServe, необходимо указать протокол http:// в начале и порт :8090 в конце адреса. Убедитесь, что после IP-адреса указан порт, ваш текущий адрес - {ip}',
+      torrent_error_info_4: 'Частое явление, антивирус или брандмауэр может блокировать доступ по IP-адресу, попробуйте отключить антивирус и брандмауэр.',
+      torrent_error_info_5: 'На любом другом устройстве в этой же сети, откройте в браузере адрес {ip} и проверьте, доступен ли веб-интерфейс TorrServe.',
+      torrent_error_info_6: 'Если после всех проверок всё равно возникает ошибка подключения, попробуйте перезагрузить TorrServe и интернет-адаптер.',
+      torrent_error_info_7: 'Если проблема не устранена, пишите в Telegram-группу @lampa_group с текстом (Lampa не подключается к TorrServe после всех проверок, текущий адрес {ip})',
+      torrent_error_start: 'Начать проверку',
+      torrent_error_nomatrix: 'Не удалось подтвердить версию Matrix',
+      torrent_error_made: 'Выполнено',
+      torrent_error_from: 'из',
+      torrent_error_next: 'Далее',
+      torrent_error_complite: 'Завершить',
+      torrent_error_connect: 'Ошибка подключения',
+      torrent_install_need: 'Необходим TorrServe',
+      torrent_install_text: 'TorrServe – приложение, которое позволяет просматривать контент из торрент-файлов в онлайн режиме.<br><br>Более детальную информацию по установке вы найдете в Telegram-группах, указанных ниже.',
+      torrent_install_contact: 'Telegram-группы',
+      torrent_item_bitrate: 'Битрейт',
+      torrent_item_seeds: 'Раздают',
+      torrent_item_grabs: 'Качают',
+      torrent_item_mb: 'Мбит/с',
+      torrent_serial_episode: 'Серия',
+      torrent_serial_season: 'Сезон',
+      torrent_serial_date: 'Выход',
+      torrent_get_magnet: 'Запрашиваю magnet ссылку',
+      torrent_remove_title: 'Удалить',
+      torrent_remove_descr: 'Торрент будет удален из вашего списка',
+      torrent_parser_any_one: 'Любое',
+      torrent_parser_any_two: 'Любой',
+      torrent_parser_no_choice: 'Не выбрано',
+      torrent_parser_yes: 'Да',
+      torrent_parser_no: 'Нет',
+      torrent_parser_quality: 'Качество',
+      torrent_parser_subs: 'Субтитры',
+      torrent_parser_voice: 'Перевод',
+      torrent_parser_tracker: 'Трекер',
+      torrent_parser_year: 'Год',
+      torrent_parser_season: 'Сезон',
+      torrent_parser_sort_by_seeders: 'По раздающим',
+      torrent_parser_sort_by_size: 'По размеру',
+      torrent_parser_sort_by_name: 'По названию',
+      torrent_parser_sort_by_tracker: 'По источнику',
+      torrent_parser_sort_by_date: 'По дате',
+      torrent_parser_sort_by_viewed: 'По просмотренным',
+      torrent_parser_voice_dubbing: 'Дубляж',
+      torrent_parser_voice_polyphonic: 'Многоголосый',
+      torrent_parser_voice_two: 'Двухголосый',
+      torrent_parser_voice_amateur: 'Любительский',
+      torrent_parser_reset: 'Сбросить фильтр',
+      torrent_parser_empty: 'Не удалось получить результатов',
+      torrent_parser_no_hash: 'Не удалось получить HASH',
+      torrent_parser_added_to_mytorrents: 'добавлено в «Мои торренты»',
+      torrent_parser_add_to_mytorrents: 'Добавить в «Мои торренты»',
+      torrent_parser_label_title: 'Пометить',
+      torrent_parser_label_descr: 'Пометить раздачу с флагом (просмотрено)',
+      torrent_parser_label_cancel_title: 'Снять отметку',
+      torrent_parser_label_cancel_descr: 'Снять отметку с раздачи (просмотрено)',
+      torrent_parser_timeout: 'Время ожидания истекло',
+      torrent_parser_nofiles: 'Не удалось извлечь подходящие файлы',
+      torrent_parser_set_link: 'Укажите ссылку для парсинга',
+      torrent_parser_request_error: 'Ошибка в запросе',
+      torrent_parser_magnet_error: 'Не удалось получить magnet ссылку',
+      about_text: 'Приложение полностью бесплатное и использует публичные ссылки для получения информации о видео, новинках, популярных фильмах и т.д. Вся доступная информация используется исключительно в познавательных целях, приложение не использует свои собственные серверы для распространения информации.',
+      about_channel: 'Наш канал',
+      about_group: 'Группа',
+      about_version: 'Версия',
+      about_donate: 'Донат',
+      title_watched: 'Вы смотрели',
+      title_settings: 'Настройки',
+      title_collections: 'Подборки',
+      title_collections_ivi: 'Подборки на ivi',
+      title_collections_okko: 'Подборки на okko',
+      title_company: 'Компания',
+      title_actors: 'Актеры',
+      title_actor: 'Актер',
+      title_actress: 'Актриса',
+      title_person: 'Персона',
+      title_comments: 'Комментарии',
+      title_torrents: 'Торренты',
+      title_trailers: 'Трейлеры',
+      title_watch: 'Смотреть',
+      title_error: 'Ошибка',
+      title_links: 'Ссылки',
+      title_choice: 'Выбрать',
+      title_main: 'Главная',
+      title_book: 'Закладки',
+      title_like: 'Нравится',
+      title_wath: 'Позже',
+      title_history: 'История просмотров',
+      title_mytorrents: 'Мои торренты',
+      title_last: 'Последняя',
+      title_action: 'Действие',
+      title_producer: 'Режиссер',
+      title_collection: 'Коллекция',
+      title_recomendations: 'Рекомендации',
+      title_similar: 'Похожие',
+      title_about: 'О приложении',
+      title_timetable: 'Расписание',
+      title_relises: 'Цифровые релизы',
+      title_catalog: 'Каталог',
+      title_category: 'Категория',
+      title_parser: 'Парсер',
+      title_type: 'Тип',
+      title_rating: 'Рейтинг',
+      title_country: 'Страна',
+      title_year: 'Год',
+      title_genre: 'Жанр',
+      title_filter: 'Фильтр',
+      title_notice: 'Уведомления',
+      title_files: 'Файлы',
+      title_now_watch: 'Сейчас смотрят',
+      title_latest: 'Последнее добавление',
+      title_continue: 'Продолжить просмотр',
+      title_recomend_watch: 'Рекомендуем посмотреть',
+      title_new_episodes: 'Новые серии',
+      title_popular: 'Популярное',
+      title_popular_movie: 'Популярные фильмы',
+      title_popular_tv: 'Популярные сериалы',
+      title_new_this_year: 'Новинки этого года',
+      title_hight_voite: 'С высоким рейтингом',
+      title_new: 'Новинки',
+      title_trend_day: 'Сегодня в тренде',
+      title_trend_week: 'В тренде за неделю',
+      title_upcoming: 'Смотрите в кинозалах',
+      title_top_movie: 'Топ фильмы',
+      title_top_tv: 'Топ сериалы',
+      title_tv_today: 'Сегодня в эфире',
+      title_this_week: 'На этой неделе',
+      title_in_top: 'В топе',
+      title_out: 'Выход',
+      title_out_confirm: 'Да, выйти',
+      title_continue_two: 'Продолжить',
+      company_headquarters: 'Штаб',
+      company_homepage: 'Сайт',
+      company_country: 'Страна',
+      filter_clarify: 'Уточнить',
+      filter_clarify_two: 'Уточнить поиск',
+      filter_set_name: 'Указать название',
+      filter_sorted: 'Сортировать',
+      filter_filtred: 'Фильтр',
+      filter_any: 'Любой',
+      filter_rating_from: 'от',
+      filter_rating_to: 'до',
+      filter_country_uk: 'Украина',
+      filter_country_en: 'США',
+      filter_country_ru: 'Россия',
+      filter_country_ja: 'Япония',
+      filter_country_ko: 'Корея',
+      filter_country_az: 'Азербайджан',
+      filter_country_sq: 'Албания',
+      filter_country_be: 'Беларусь',
+      filter_country_bg: 'Болгария',
+      filter_country_de: 'Германия',
+      filter_country_ka: 'Грузия',
+      filter_country_da: 'Дания',
+      filter_country_et: 'Естония',
+      filter_country_ga: 'Ирландия',
+      filter_country_es: 'Испания',
+      filter_country_it: 'Италия',
+      filter_country_zh: 'Китай',
+      filter_country_lv: 'Латвия',
+      filter_country_ne: 'Непал',
+      filter_country_no: 'Норвегия',
+      filter_country_pl: 'Польша',
+      filter_country_ro: 'Румыния',
+      filter_country_sr: 'Сербия',
+      filter_country_sk: 'Словакия',
+      filter_country_sl: 'Словения',
+      filter_country_tg: 'Таджикистан',
+      filter_country_tr: 'Турция',
+      filter_country_uz: 'Узбекистан',
+      filter_country_fi: 'Финляндия',
+      filter_country_fr: 'Франция',
+      filter_country_hr: 'Хорватия',
+      filter_country_cs: 'Чешская Республика',
+      filter_country_sv: 'Швеция'
+    }, _defineProperty(_lang_choice_title$la, "filter_country_et", 'Эстония'), _defineProperty(_lang_choice_title$la, "filter_genre_ac", 'Боевик'), _defineProperty(_lang_choice_title$la, "filter_genre_ad", 'Приключения'), _defineProperty(_lang_choice_title$la, "filter_genre_mv", 'Мультфильм'), _defineProperty(_lang_choice_title$la, "filter_genre_cm", 'Комедия'), _defineProperty(_lang_choice_title$la, "filter_genre_cr", 'Криминал'), _defineProperty(_lang_choice_title$la, "filter_genre_dc", 'Документальный'), _defineProperty(_lang_choice_title$la, "filter_genre_dr", 'Драма'), _defineProperty(_lang_choice_title$la, "filter_genre_fm", 'Семейный'), _defineProperty(_lang_choice_title$la, "filter_genre_fe", 'Фэнтези'), _defineProperty(_lang_choice_title$la, "filter_genre_hi", 'История'), _defineProperty(_lang_choice_title$la, "filter_genre_ho", 'Ужасы'), _defineProperty(_lang_choice_title$la, "filter_genre_mu", 'Музыка'), _defineProperty(_lang_choice_title$la, "filter_genre_de", 'Детектив'), _defineProperty(_lang_choice_title$la, "filter_genre_md", 'Мелодрама'), _defineProperty(_lang_choice_title$la, "filter_genre_fa", 'Фантастика'), _defineProperty(_lang_choice_title$la, "filter_genre_tv", 'Телевизионный фильм'), _defineProperty(_lang_choice_title$la, "filter_genre_tr", 'Триллер'), _defineProperty(_lang_choice_title$la, "filter_genre_mi", 'Военный'), _defineProperty(_lang_choice_title$la, "filter_genre_ve", 'Вестерн'), _defineProperty(_lang_choice_title$la, "filter_genre_aa", 'Боевик и Приключения'), _defineProperty(_lang_choice_title$la, "filter_genre_ch", 'Детский'), _defineProperty(_lang_choice_title$la, "filter_genre_nw", 'Новости'), _defineProperty(_lang_choice_title$la, "filter_genre_rs", 'Реалити-шоу'), _defineProperty(_lang_choice_title$la, "filter_genre_hf", 'НФ и Фэнтези'), _defineProperty(_lang_choice_title$la, "filter_genre_op", 'Мыльная опера'), _defineProperty(_lang_choice_title$la, "filter_genre_tc", 'Ток-шоу'), _defineProperty(_lang_choice_title$la, "filter_genre_mp", 'Война и Политика'), _defineProperty(_lang_choice_title$la, "ivi_premieres", 'Премьеры фильмов'), _defineProperty(_lang_choice_title$la, "ivi_best", 'Лучшие фильмы'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Популярное сейчас'), _defineProperty(_lang_choice_title$la, "ivi_choice", 'Выбор ivi'), _defineProperty(_lang_choice_title$la, "ivi_new", 'Новинки'), _defineProperty(_lang_choice_title$la, "ivi_foreign", 'Зарубежные'), _defineProperty(_lang_choice_title$la, "ivi_ru", 'Русские'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Популярное сейчас'), _defineProperty(_lang_choice_title$la, "ivi_recomend", 'Рекомендуем вам посмотреть'), _defineProperty(_lang_choice_title$la, "ivi_for_famaly", 'Мультики для всей семьи'), _defineProperty(_lang_choice_title$la, "ivi_triller", 'Триллеры-ужасы'), _defineProperty(_lang_choice_title$la, "ivi_advance", 'Приключенческие комедии'), _defineProperty(_lang_choice_title$la, "ivi_detective", 'Экранизации детективов'), _defineProperty(_lang_choice_title$la, "ivi_crime_comedy", 'Криминальные комедии'), _defineProperty(_lang_choice_title$la, "ivi_romantic", 'Романтические драмы'), _defineProperty(_lang_choice_title$la, "ivi_crime_dramas", 'Криминальные драмы'), _defineProperty(_lang_choice_title$la, "ivi_fantastic_dramas", 'Фантастические драмы'), _defineProperty(_lang_choice_title$la, "ivi_military_dramas", 'Военные драмы'), _defineProperty(_lang_choice_title$la, "ivi_mistic", 'Мистические фильмы'), _defineProperty(_lang_choice_title$la, "ivi_foreign_series", 'Зарубежные сериалы'), _defineProperty(_lang_choice_title$la, "ivi_historical_series", 'Исторические сериалы'), _defineProperty(_lang_choice_title$la, "okko_top_new", 'Топ-новинки'), _defineProperty(_lang_choice_title$la, "okko_comedy_horror", 'Комедийные фильмы ужасов'), _defineProperty(_lang_choice_title$la, "okko_collection_maniacs", 'Фильмы про маньяков'), _defineProperty(_lang_choice_title$la, "okko_witches", 'Фильмы про ведьм'), _defineProperty(_lang_choice_title$la, "okko_zombies", 'Фильмы про зомби'), _defineProperty(_lang_choice_title$la, "okko_ru", 'Русские'), _defineProperty(_lang_choice_title$la, "okko_horror_serial", 'Очень страшные'), _defineProperty(_lang_choice_title$la, "okko_serial_killers", 'Про маньяков'), _defineProperty(_lang_choice_title$la, "okko_humor_serial", 'С чёрным юмором'), _defineProperty(_lang_choice_title$la, "okko_legkiye_serialy", 'Лёгкие'), _defineProperty(_lang_choice_title$la, "okko_comedy_serial", 'Комедийные'), _defineProperty(_lang_choice_title$la, "okko_ru_tv", 'Русские'), _defineProperty(_lang_choice_title$la, "empty_title", 'Пусто'), _defineProperty(_lang_choice_title$la, "empty_text", 'По вашему фильтру ничего не нашлось, уточните фильтр.'), _defineProperty(_lang_choice_title$la, "empty_title_two", 'Здесь пусто'), _defineProperty(_lang_choice_title$la, "empty_text_two", 'На данный момент список пустой'), _defineProperty(_lang_choice_title$la, "menu_main", 'Главная'), _defineProperty(_lang_choice_title$la, "menu_movies", 'Фильмы'), _defineProperty(_lang_choice_title$la, "menu_tv", 'Сериалы'), _defineProperty(_lang_choice_title$la, "menu_catalog", 'Каталог'), _defineProperty(_lang_choice_title$la, "menu_filter", 'Фильтр'), _defineProperty(_lang_choice_title$la, "menu_collections", 'Подборки'), _defineProperty(_lang_choice_title$la, "menu_relises", 'Релизы'), _defineProperty(_lang_choice_title$la, "menu_anime", 'Аниме'), _defineProperty(_lang_choice_title$la, "menu_bookmark", 'Закладки'), _defineProperty(_lang_choice_title$la, "menu_like", 'Нравится'), _defineProperty(_lang_choice_title$la, "menu_time", 'Позже'), _defineProperty(_lang_choice_title$la, "menu_history", 'История'), _defineProperty(_lang_choice_title$la, "menu_timeline", 'Расписание'), _defineProperty(_lang_choice_title$la, "menu_torrents", 'Торренты'), _defineProperty(_lang_choice_title$la, "menu_settings", 'Настройки'), _defineProperty(_lang_choice_title$la, "menu_about", 'Информация'), _defineProperty(_lang_choice_title$la, "menu_console", 'Консоль'), _defineProperty(_lang_choice_title$la, "menu_multmovie", 'Мультфильмы'), _defineProperty(_lang_choice_title$la, "menu_multtv", 'Мультсериалы'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work", 'Рабочие плагины'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work_descr", 'Плагины, которые точно работают в лампе.'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular", 'Популярные плагины среди пользователей'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular_descr", 'Установка из неизвестных источников может привести к некорректной работе приложения.'), _defineProperty(_lang_choice_title$la, "plugins_online", 'Просмотр онлайн'), _defineProperty(_lang_choice_title$la, "plugins_check_fail", 'Не удалось проверить работоспособность плагина. Однако это не означает, что плагин не работает. Перезагрузите приложение для выяснения, загружается ли плагин.'), _defineProperty(_lang_choice_title$la, "plugins_need_reload", 'Для применения плагина необходимо перезагрузить приложение'), _defineProperty(_lang_choice_title$la, "plugins_install", 'Установить'), _defineProperty(_lang_choice_title$la, "plugins_install_ready", 'Этот плагин уже установлен.'), _defineProperty(_lang_choice_title$la, "plugins_installed", 'Установок'), _defineProperty(_lang_choice_title$la, "plugins_load_from", 'Загружено из CUB'), _defineProperty(_lang_choice_title$la, "plugins_ok_for_check", 'Нажмите (OK) для проверки плагина'), _defineProperty(_lang_choice_title$la, "plugins_no_loaded", 'При загрузке приложения, часть плагинов не удалось загрузить'), _defineProperty(_lang_choice_title$la, "time_viewed", 'Просмотрено'), _defineProperty(_lang_choice_title$la, "time_from", 'из'), _defineProperty(_lang_choice_title$la, "time_reset", 'Сбросить тайм-код'), _defineProperty(_lang_choice_title$la, "settings_clear_cache", 'Кеш и данные очищены'), _defineProperty(_lang_choice_title$la, "settings_user_links", 'Пользовательская ссылка'), _defineProperty(_lang_choice_title$la, "settings_for_local", 'Для локального TorrServer'), _defineProperty(_lang_choice_title$la, "settings_add", 'Добавить'), _defineProperty(_lang_choice_title$la, "settings_remove", 'Удалить'), _defineProperty(_lang_choice_title$la, "settings_this_value", 'текущее значение'), _defineProperty(_lang_choice_title$la, "settings_added", 'Добавлено'), _defineProperty(_lang_choice_title$la, "settings_removed", 'Удалено'), _defineProperty(_lang_choice_title$la, "settings_param_player_inner", 'Встроенный'), _defineProperty(_lang_choice_title$la, "settings_param_player_outside", 'Внешний'), _defineProperty(_lang_choice_title$la, "settings_param_yes", 'Да'), _defineProperty(_lang_choice_title$la, "settings_param_no", 'Нет'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_small", 'Меньше'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_normal", 'Нормальный'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_low", 'Низкое'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_average", 'Среднее'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_high", 'Высокое'), _defineProperty(_lang_choice_title$la, "settings_param_parse_directly", 'Напрямую'), _defineProperty(_lang_choice_title$la, "settings_param_parse_api", 'Через API сайта'), _defineProperty(_lang_choice_title$la, "settings_param_background_complex", 'Сложный'), _defineProperty(_lang_choice_title$la, "settings_param_background_simple", 'Простой'), _defineProperty(_lang_choice_title$la, "settings_param_background_image", 'Картинка'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_one", 'Основную'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_two", 'Дополнительную'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_small", 'Маленькие'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_normal", 'Обычные'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_bigger", 'Большие'), _defineProperty(_lang_choice_title$la, "settings_param_screensaver_nature", 'Природа'), _defineProperty(_lang_choice_title$la, "settings_param_lang_ru", 'Русский'), _defineProperty(_lang_choice_title$la, "settings_param_lang_uk", 'Українська'), _defineProperty(_lang_choice_title$la, "settings_param_lang_en", 'English'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_orig", 'Оригинал'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_ru", 'Русский'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_again", 'Начать с начала'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_continue", 'Продолжить'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_ask", 'Спрашивать'), _defineProperty(_lang_choice_title$la, "settings_param_player_scale_method", 'Рассчитать'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_load", 'Подгружать'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_all", 'Показать все'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_remote", 'Пульт'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_mouse", 'Пульт с мышкой'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_lampa", 'Встроенная'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_system", 'Системная'), _defineProperty(_lang_choice_title$la, "helper_keyboard", 'После ввода значения нажмите кнопку «Назад» для сохранения'), _defineProperty(_lang_choice_title$la, "helper_torrents", 'Удерживайте клавишу (ОК) для вызова контекстного меню'), _defineProperty(_lang_choice_title$la, "helper_cleared", 'Успешно, подсказки будут показаны заново.'), _defineProperty(_lang_choice_title$la, "helper_torrents_view", 'Для сброса тайм-кода и вызова меню удерживайте клавишу (ОК)'), _defineProperty(_lang_choice_title$la, "fav_sync_title", 'Синхронизация закладок'), _defineProperty(_lang_choice_title$la, "fav_sync_text", 'Хочешь чтобы твои любимые закладки были на всех твоих устройствах? <br><br>Зарегистрируйся на сайте www.cub.watch, создай профиль и авторизуйся в лампе.'), _defineProperty(_lang_choice_title$la, "fav_sync_site", 'Сайт'), _defineProperty(_lang_choice_title$la, "fav_remove_title", 'Удалить из истории'), _defineProperty(_lang_choice_title$la, "fav_remove_descr", 'Удалить выделенную карточку'), _defineProperty(_lang_choice_title$la, "fav_clear_title", 'Очистить историю'), _defineProperty(_lang_choice_title$la, "fav_clear_descr", 'Удалить все карточки из истории'), _defineProperty(_lang_choice_title$la, "fav_clear_label_title", 'Очистить метки'), _defineProperty(_lang_choice_title$la, "fav_clear_label_descr", 'Очистить метки о просмотрах'), _defineProperty(_lang_choice_title$la, "fav_clear_time_title", 'Очистить тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_clear_time_descr", 'Очистить все тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_label_cleared", 'Отметки очищены'), _defineProperty(_lang_choice_title$la, "fav_time_cleared", 'Тайм-коды очищены'), _defineProperty(_lang_choice_title$la, "timetable_empty", 'В этом разделе будут отображаться даты выхода новых серий'), _defineProperty(_lang_choice_title$la, "player_quality", 'Качество'), _defineProperty(_lang_choice_title$la, "player_tracks", 'Аудиодорожки'), _defineProperty(_lang_choice_title$la, "player_disabled", 'Отключено'), _defineProperty(_lang_choice_title$la, "player_unknown", 'Неизвестно'), _defineProperty(_lang_choice_title$la, "player_subs", 'Субтитры'), _defineProperty(_lang_choice_title$la, "player_size_default_title", 'По умолчанию'), _defineProperty(_lang_choice_title$la, "player_size_default_descr", 'Размер видео по умолчанию'), _defineProperty(_lang_choice_title$la, "player_size_cover_title", 'Расширить'), _defineProperty(_lang_choice_title$la, "player_size_cover_descr", 'Расширяет видео на весь экран'), _defineProperty(_lang_choice_title$la, "player_size_fill_title", 'Заполнить'), _defineProperty(_lang_choice_title$la, "player_size_fill_descr", 'Вместить видео на весь экран'), _defineProperty(_lang_choice_title$la, "player_size_115_title", 'Увеличить 115%'), _defineProperty(_lang_choice_title$la, "player_size_115_descr", 'Увеличить видео на 115%'), _defineProperty(_lang_choice_title$la, "player_size_130_title", 'Увеличить 130%'), _defineProperty(_lang_choice_title$la, "player_size_130_descr", 'Увеличить видео на 130%'), _defineProperty(_lang_choice_title$la, "player_size_v115_title", 'По вертикали 115%'), _defineProperty(_lang_choice_title$la, "player_size_v115_descr", 'Увеличить видео на 115%'), _defineProperty(_lang_choice_title$la, "player_size_v130_title", 'По вертикали 130%'), _defineProperty(_lang_choice_title$la, "player_size_v130_descr", 'Увеличить видео на 130%'), _defineProperty(_lang_choice_title$la, "player_video_size", 'Размер видео'), _defineProperty(_lang_choice_title$la, "player_playlist", 'Плейлист'), _defineProperty(_lang_choice_title$la, "player_error_one", 'Не удалось декодировать видео'), _defineProperty(_lang_choice_title$la, "player_error_two", 'Видео не найдено или повреждено'), _defineProperty(_lang_choice_title$la, "player_start_from", 'Продолжить просмотр с'), _defineProperty(_lang_choice_title$la, "player_not_found", 'Плеер не найден'), _defineProperty(_lang_choice_title$la, "player_lauch", 'Запустить плеер'), _defineProperty(_lang_choice_title$la, "broadcast_open", 'Открыть карточку на другом устройстве'), _defineProperty(_lang_choice_title$la, "broadcast_play", 'Выберите устройство на котором смотреть'), _defineProperty(_lang_choice_title$la, "card_new_episode", 'Новая серия'), _defineProperty(_lang_choice_title$la, "card_book_remove", 'Убрать из закладок'), _defineProperty(_lang_choice_title$la, "card_book_add", 'В закладки'), _defineProperty(_lang_choice_title$la, "card_book_descr", 'Смотрите в меню (Закладки)'), _defineProperty(_lang_choice_title$la, "card_like_remove", 'Убрать из понравившихся'), _defineProperty(_lang_choice_title$la, "card_like_add", 'Нравится'), _defineProperty(_lang_choice_title$la, "card_like_descr", 'Смотрите в меню (Нравится)'), _defineProperty(_lang_choice_title$la, "card_wath_remove", 'Убрать из ожидаемых'), _defineProperty(_lang_choice_title$la, "card_wath_add", 'Смотреть позже'), _defineProperty(_lang_choice_title$la, "card_wath_descr", 'Смотрите в меню (Позже)'), _defineProperty(_lang_choice_title$la, "card_history_remove", 'Убрать из истории'), _defineProperty(_lang_choice_title$la, "card_history_add", 'Добавить в историю'), _defineProperty(_lang_choice_title$la, "card_history_descr", 'Смотрите в меню (История)'), _defineProperty(_lang_choice_title$la, "keyboard_listen", 'Говорите, я слушаю...'), _defineProperty(_lang_choice_title$la, "keyboard_nomic", 'Нет доступа к микрофону'), _defineProperty(_lang_choice_title$la, "notice_new_quality", 'Доступно новое качество'), _defineProperty(_lang_choice_title$la, "notice_quality", 'Качество'), _defineProperty(_lang_choice_title$la, "notice_new_episode", 'Новая серия'), _defineProperty(_lang_choice_title$la, "notice_none", 'У вас еще нет никах уведомлений, зарегистрируйтесь на сайте <b>www.cub.watch</b>, чтобы следить за новыми сериями и релизами.'), _defineProperty(_lang_choice_title$la, "notice_in_quality", 'В качестве'), _defineProperty(_lang_choice_title$la, "copy_link", 'Копировать ссылку на видео'), _defineProperty(_lang_choice_title$la, "copy_secuses", 'Ссылка скопирована в буфер обмена'), _defineProperty(_lang_choice_title$la, "copy_error", 'Ошибка при копирование ссылки'), _defineProperty(_lang_choice_title$la, "account_sync_to_profile", 'Все закладки будут перенесены в профиль'), _defineProperty(_lang_choice_title$la, "account_sync_secuses", 'Все закладки успешно перенесены'), _defineProperty(_lang_choice_title$la, "account_profiles", 'Профили'), _defineProperty(_lang_choice_title$la, "account_profiles_empty", 'Не удалось получить список профилей'), _defineProperty(_lang_choice_title$la, "account_authorized", 'Авторизованы'), _defineProperty(_lang_choice_title$la, "account_logged_in", 'Вы вошли под аккаунтом'), _defineProperty(_lang_choice_title$la, "account_login_failed", 'Вход не выполнен'), _defineProperty(_lang_choice_title$la, "account_login_wait", 'Ожидаем входа в аккаунт'), _defineProperty(_lang_choice_title$la, "account_profile_main", 'Общий'), _defineProperty(_lang_choice_title$la, "account_export_secuses", 'Экспорт успешно завершён'), _defineProperty(_lang_choice_title$la, "account_export_fail", 'Ошибка при экспорте'), _defineProperty(_lang_choice_title$la, "account_import_secuses", 'Импорт успешно завершён'), _defineProperty(_lang_choice_title$la, "account_import_fail", 'Ошибка при импорте'), _defineProperty(_lang_choice_title$la, "account_imported", 'импортировано'), _defineProperty(_lang_choice_title$la, "account_reload_after", 'перезагрузка через 5 сек.'), _defineProperty(_lang_choice_title$la, "network_noconnect", 'Нет подключения к сети'), _defineProperty(_lang_choice_title$la, "network_404", 'Запрошенная страница не найдена. [404]'), _defineProperty(_lang_choice_title$la, "network_401", 'Авторизация не удалась'), _defineProperty(_lang_choice_title$la, "network_500", 'Внутренняя ошибка сервера. [500]'), _defineProperty(_lang_choice_title$la, "network_parsererror", 'Запрошенный синтаксический анализ JSON завершился неудачно.'), _defineProperty(_lang_choice_title$la, "network_timeout", 'Время запроса истекло.'), _defineProperty(_lang_choice_title$la, "network_abort", 'Запрос был прерван.'), _defineProperty(_lang_choice_title$la, "network_error", 'Неизвестная ошибка'), _defineProperty(_lang_choice_title$la, "size_zero", '0 Байт'), _defineProperty(_lang_choice_title$la, "size_byte", 'Байт'), _defineProperty(_lang_choice_title$la, "size_kb", 'КБ'), _defineProperty(_lang_choice_title$la, "size_mb", 'МБ'), _defineProperty(_lang_choice_title$la, "size_gb", 'ГБ'), _defineProperty(_lang_choice_title$la, "size_tb", 'ТБ'), _defineProperty(_lang_choice_title$la, "size_pp", 'ПБ'), _defineProperty(_lang_choice_title$la, "speed_bit", 'бит'), _defineProperty(_lang_choice_title$la, "speed_kb", 'Кбит'), _defineProperty(_lang_choice_title$la, "speed_mb", 'Мбит'), _defineProperty(_lang_choice_title$la, "speed_gb", 'Гбит'), _defineProperty(_lang_choice_title$la, "speed_tb", 'Тбит'), _defineProperty(_lang_choice_title$la, "speed_pp", 'Пбит'), _defineProperty(_lang_choice_title$la, "month_1", 'Январь'), _defineProperty(_lang_choice_title$la, "month_2", 'Февраль'), _defineProperty(_lang_choice_title$la, "month_3", 'Март'), _defineProperty(_lang_choice_title$la, "month_4", 'Апрель'), _defineProperty(_lang_choice_title$la, "month_5", 'Ма'), _defineProperty(_lang_choice_title$la, "month_6", 'Июнь'), _defineProperty(_lang_choice_title$la, "month_7", 'Июль'), _defineProperty(_lang_choice_title$la, "month_8", 'Август'), _defineProperty(_lang_choice_title$la, "month_9", 'Сентябрь'), _defineProperty(_lang_choice_title$la, "month_10", 'Октябрь'), _defineProperty(_lang_choice_title$la, "month_11", 'Ноябрь'), _defineProperty(_lang_choice_title$la, "month_12", 'Декабрь'), _defineProperty(_lang_choice_title$la, "day_1", 'Понедельник'), _defineProperty(_lang_choice_title$la, "day_2", 'Вторник'), _defineProperty(_lang_choice_title$la, "day_3", 'Среда'), _defineProperty(_lang_choice_title$la, "day_4", 'Четверг'), _defineProperty(_lang_choice_title$la, "day_5", 'Пятница'), _defineProperty(_lang_choice_title$la, "day_6", 'Суббота'), _defineProperty(_lang_choice_title$la, "day_7", 'Воскресенье'), _defineProperty(_lang_choice_title$la, "month_1_e", 'Января'), _defineProperty(_lang_choice_title$la, "month_2_e", 'Февраля'), _defineProperty(_lang_choice_title$la, "month_3_e", 'Марта'), _defineProperty(_lang_choice_title$la, "month_4_e", 'Апреля'), _defineProperty(_lang_choice_title$la, "month_5_e", 'Мая'), _defineProperty(_lang_choice_title$la, "month_6_e", 'Июня'), _defineProperty(_lang_choice_title$la, "month_7_e", 'Июля'), _defineProperty(_lang_choice_title$la, "month_8_e", 'Августа'), _defineProperty(_lang_choice_title$la, "month_9_e", 'Сентября'), _defineProperty(_lang_choice_title$la, "month_10_e", 'Октября'), _defineProperty(_lang_choice_title$la, "month_11_e", 'Ноября'), _defineProperty(_lang_choice_title$la, "month_12_e", 'Декабря'), _defineProperty(_lang_choice_title$la, "week_1", 'Пн'), _defineProperty(_lang_choice_title$la, "week_2", 'Вт'), _defineProperty(_lang_choice_title$la, "week_3", 'Ср'), _defineProperty(_lang_choice_title$la, "week_4", 'Чт'), _defineProperty(_lang_choice_title$la, "week_5", 'Пт'), _defineProperty(_lang_choice_title$la, "week_6", 'Сб'), _defineProperty(_lang_choice_title$la, "week_7", 'Вс'), _lang_choice_title$la);
+
+    var zh = {
+      lang_choice_title: '欢迎',
+      lang_choice_subtitle: '选择您的语言。',
       more: '更多',
-      show_more: 'Show more',
-      more_results: 'Show more results',
-      loading: 'Loading',
+      show_more: '显示更多',
+      more_results: '显示更多结果',
+      loading: '加载中',
       nofind_movie: '找不到电影。',
       noname: '无标题',
       nochoice: '未选择',
       cancel: '取消',
-      confirm: '确认',
-      sure: '你确定?',
+      confirm: '我确认',
+      sure: '你确定吗？',
       nodata: '无数据',
-      search: '正在搜索',
+      search: '搜索',
       search_input: '输入文本',
       search_empty: '搜索历史为空。',
       search_delete: '左 - 删除',
-      search_start_typing: '开始输入搜索。',
-      search_searching: '搜索中...',
+      search_start_typing: '开始输入搜索文本。',
+      search_searching: '搜索进行中...',
       search_start: '开始搜索',
-      full_genre: '类型',
-      full_production: '出品公司',
-      full_date_of_release: '发布日期',
+      full_genre: '流派',
+      full_production: '生产',
+      full_date_of_release: '、发布日期',
       full_budget: '预算',
-      full_countries: '国家',
-      full_like: '喜欢',
+      full_countries: '国家/地区',
+      full_like: '赞',
       full_torrents: '种子',
       full_trailers: '预告片',
-      full_detail: '详细信息',
-      full_notext: '无描述',
-      full_series_release: '剧集发布',
-      full_next_episode: '下一集',
+      full_detail: '详细',
+      full_notext: '无描述。',
+      full_series_release: '系列发布',
+      full_next_episode: '下一个',
       full_episode_days_left: '剩余天数',
       full_trailer_official: '官方',
-      full_trailer_no_official: '非官方',
-      full_season: '季',
+      full_trailer_no_official: '非正式',
+      full_season: '季节',
       full_episode: '剧集',
       full_directing: '导演',
       settings_cub_sync: '同步',
-      settings_cub_sync_descr: '与服务同步 CUB: 同步你的书签，浏览历史，标签和时间码。网站: https://cub.watch',
+      settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史记录、标签和时间码。网站：https://cub.watch',
       settings_cub_account: '帐户',
-      settings_cub_logged_in_as: '登录身份',
-      settings_cub_profile: '个人资料',
+      settings_cub_logged_in_as: 'Logged in as',
+      settings_cub_profile: '配置文件',
       settings_cub_sync_btn: '同步',
-      settings_cub_sync_btn_descr: '将本地书签保存到帐户 CUB',
+      settings_cub_sync_btn_descr: '将本地书签保存到CUB帐户',
       settings_cub_backup: '备份',
       settings_cub_backup_descr: '保存或加载备份数据',
-      settings_cub_logout: '退出',
-      settings_cub_signin: '登录',
+      settings_cub_logout: '注销',
+      settings_cub_signin: '授权',
       settings_cub_not_specified: '未指定',
       settings_cub_password: '密码',
       settings_cub_status: '状态',
       settings_cub_backup_import: '导入',
       settings_cub_backup_export: '导出',
       settings_input_links: '收藏夹',
-      settings_interface_type: '轻量版',
+      settings_interface_type: '精简版',
       settings_interface_size: '界面大小',
       settings_interface_background: '背景',
       settings_interface_background_use: '显示背景',
       settings_interface_background_type: '背景类型',
       settings_interface_performance: '性能',
       settings_interface_animation: '动画',
-      settings_interface_animation_descr: '卡片和内容动画',
-      settings_interface_attenuation: '渐变',
-      settings_interface_attenuation_descr: '卡片顶部和底部渐变',
+      settings_interface_animation_descr: '卡片和内容的动画',
+      settings_interface_attenuation: '衰减',
+      settings_interface_attenuation_descr: '卡片从下方和上方平滑淡化',
       settings_interface_scroll: '滚动类型',
       settings_interface_view_card: '卡片视图类型',
-      settings_interface_view_card_descr: '卡片将在滚动时逐渐加载或全部加载',
+      settings_interface_view_card_descr: '随着滚动提要，卡片会逐渐加载或全部加载',
       settings_interface_lang: '界面语言',
-      settings_interface_lang_reload: '应用程序需要重启，按 "OK" 重新加载。',
+      settings_interface_lang_reload: '您需要重新启动应用程序，单击“确定”重新启动。',
       settings_main_account: '帐户',
       settings_main_interface: '界面',
       settings_main_player: '播放器',
       settings_main_parser: '解析器',
       settings_main_torrserver: 'TorrServer',
       settings_main_plugins: '插件',
-      settings_main_rest: '杂项',
-      settings_rest_start: '首页',
-      settings_rest_start_descr: '启动时从哪个页面开始',
-      settings_rest_source: '源',
+      settings_main_rest: '其他',
+      settings_rest_start: '起始页',
+      settings_rest_start_descr: '启动时要启动的页面',
+      settings_rest_source: '来源',
       settings_rest_source_use: '主要来源',
-      settings_rest_source_descr: '从哪里获取电影信息',
-      settings_rest_tmdb_lang: '从什么语言显示数据 TMDB',
-      settings_rest_tmdb_prox: '代理 TMDB',
-      settings_rest_tmdb_posters: '海报分辨率 TMDB',
-      settings_rest_screensaver: '屏幕保护',
+      settings_rest_source_descr: '从哪里获取有关电影的信息',
+      settings_rest_tmdb_lang: '从 TMDB',
+      settings_rest_tmdb_prox: '显示数据的语言，代理 TMDB',
+      settings_rest_tmdb_posters: 'TMDB海报的分辨率',
+      settings_rest_screensaver: '屏幕保护程序',
       settings_rest_screensaver_use: '空闲时显示启动画面',
       settings_rest_screensaver_type: '屏幕保护程序类型',
-      settings_rest_helper: '工具提示',
-      settings_rest_helper_use: '显示工具提示',
-      settings_rest_helper_reset: '再次显示工具提示',
+      settings_rest_helper: '提示',
+      settings_rest_helper_use: '显示提示',
+      settings_rest_helper_reset: '再次显示提示',
       settings_rest_pages: '要在内存中保留多少页',
-      settings_rest_pages_descr: '保持页面原样你离开他们了吗',
-      settings_rest_time: '换班时间',
-      settings_rest_navigation: '导航操控方式',
+      settings_rest_pages_descr: '将页面保持在您离开时的状态',
+      settings_rest_time: '移动时间',
+      settings_rest_navigation: '导航类型',
       settings_rest_keyboard: '键盘类型',
       settings_rest_device: '设备名称',
-      settings_rest_device_placeholder: '例如: 我的灯',
+      settings_rest_device_placeholder: '例如：我的灯',
       settings_rest_cache: '清除缓存',
       settings_rest_cache_descr: '所有设置和数据将被清除',
-      settings_parser_use: '启用种子搜索',
-      settings_parser_use_descr: '因此，您同意接受使用公共链接查看 torrent 和在线内容的所有责任。',
-      settings_parser_type: 'torrent 解析器类型',
-      settings_parser_jackett_placeholder: '例如: 192.168.х',
-      settings_parser_jackett_link: 'Link',
-      settings_parser_jackett_link_descr: '指定指向脚本 Jackett',
-      settings_parser_jackett_key_placeholder: '例如: sa0sk83d..',
-      settings_parser_jackett_key: 'Api ключ',
-      settings_parser_jackett_key_descr: '位于 Jackett',
-      settings_parser_torlook_type: '站点解析方法 TorLook',
-      settings_parser_scraperapi_placeholder: '例如: scraperapi.com',
-      settings_parser_scraperapi_link: '链接到站点解析器',
-      settings_parser_scraperapi_descr: '在站点上注册 scraperapi.com, 输入链接 api.scraperapi.com?api_key=...&url={q}<br>В {q} 站点将被传递 w41.torlook.info',
+      settings_parser_use: '使用解析器',
+      settings_parser_use_descr: '在此，您同意承担使用公共链接查看种子和在线内容的所有责任。',
+      settings_parser_type: '种子解析器类型',
+      settings_parser_jackett_placeholder: '例如：192.168.x',
+      settings_parser_jackett_link: '的回复，链接',
+      settings_parser_jackett_link_descr: '提供Jackett脚本的链接',
+      settings_parser_jackett_key_placeholder: '例如：sa0sk83d..',
+      settings_parser_jackett_key: 'Api key',
+      settings_parser_jackett_key_descr: '位于Jackett',
+      settings_parser_torlook_type: 'TorLook网站解析方法',
+      settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
+      settings_parser_scraperapi_link: 'Link to site parser',
+      settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
       settings_parser_search: '搜索',
-      settings_parser_search_descr: '生成搜索的语言?',
+      settings_parser_search_descr: '用什么语言搜索？',
       settings_parser_in_search: '搜索中的解析器',
-      settings_parser_in_search_descr: '在搜索中显示结果?',
+      settings_parser_in_search_descr: '显示搜索结果？',
       settings_player_type: '播放器类型',
-      settings_player_type_descr: '要玩的播放器',
+      settings_player_type_descr: '播放哪个播放器',
       settings_player_reset: '重置默认播放器',
-      settings_player_reset_descr: '在应用程序中重置选定的 Android 播放器',
-      settings_player_path: '路径player',
-      settings_player_path_descr: '指定播放器的路径 .exe',
-      settings_player_normalization: '音频归一化',
-      settings_player_normalization_descr: '将声音归一化，降低响亮的声音，提高安静的声音。',
+      settings_player_reset_descr: '重置应用程序中选定的 Android 播放器',
+      settings_player_path: '播放器路径',
+      settings_player_path_descr: '指定播放器路径.exe',
+      settings_player_normalization: '声音规范化',
+      settings_player_normalization_descr: '将声音规范化到一个级别, 降低响亮的声音并提高安静的声音。',
       settings_player_next_episode: '下一集',
-      settings_player_next_episode_descr: '当前一集结束时自动切换到下一集',
+      settings_player_next_episode_descr: '当前一个结束后自动切换到下一个系列',
       settings_player_timecode: '时间码',
       settings_player_timecode_descr: '从上次查看的位置继续',
       settings_player_scale: '缩放方法',
       settings_player_scale_descr: '如何计算视频缩放',
       settings_player_subs: '字幕',
-      settings_player_subs_use: '启用',
-      settings_player_subs_use_descr: '视频开始后始终启用字幕',
+      settings_player_subs_use: '开启',
+      settings_player_subs_use_descr: '开始视频后总是打开字幕',
       settings_player_subs_size: '大小',
       settings_player_subs_size_descr: '字幕的屏幕大小',
-      settings_player_subs_stroke_use: '使用边框',
+      settings_player_subs_stroke_use: '使用边缘',
       settings_player_subs_stroke_use_descr: '字幕将用黑色勾勒出更好的可读性',
-      settings_player_subs_backdrop_use: '使用背景',
-      settings_player_subs_backdrop_use_descr: '字幕将显示在半透明底衬上以提高可读性',
+      settings_player_subs_backdrop_use: '使用底衬',
+      settings_player_subs_backdrop_use_descr: '字幕将是显示在半透明背景上以提高可读性',
       settings_player_quality: '默认视频质量',
-      settings_player_quality_descr: '观看的首选视频质量',
-      settings_plugins_notice: '您需要重新启动应用程序才能应用插件',
+      settings_player_quality_descr: '观看首选视频质量',
+      settings_plugins_notice: '应用插件需要重启应用',
       settings_plugins_add: '添加插件',
-      settings_plugins_add_descr: '删除添加的插件, 按住或双击 (OK) 就可以了',
-      settings_plugins_install: '安装插件',
-      settings_plugins_install_descr: '从可用列表安装插件',
-      settings_server_link: '使用链接',
+      settings_plugins_add_descr: '删除添加的插件, 按住或双击(OK)键on it',
+      settings_plugins_install: 'Install Plugin',
+      settings_plugins_install_descr: '从可用列表中安装插件',
+      settings_server_link: '使用link',
       settings_server_links: '链接',
-      settings_server_placeholder: '例如: 192.168.х',
-      settings_server_link_one: '主链接',
-      settings_server_link_one_descr: '指定脚本的主链接 TorrServer',
-      settings_server_link_two: '次要链接',
-      settings_server_link_two_descr: '指定次要链接到脚本 TorrServer',
+      settings_server_placeholder: '例如：192.168.X',
+      settings_server_link_one: '主要链接',
+      settings_server_link_one_descr: '指定到TorrServer的主链接脚本',
+      settings_server_link_two: '附加链接',
+      settings_server_link_two_descr: '提供到 TorrServer 脚本的附加链接',
       settings_server_additionally: '另外',
-      settings_server_client: '内置客户端',
-      settings_server_client_descr: '使用内置JS客户端 TorrServe, 否则运行系统客户端',
+      settings_server_client: '嵌入式客户端',
+      settings_server_client_descr: '使用内置的 TorrServe JS 客户端，否则系统启动。',
       settings_server_base: '保存到数据库',
-      settings_server_base_descr: 'Torrent将被添加到数据库 TorrServer',
+      settings_server_base_descr: 'torrent 将被添加到 TorrServer 数据库',
       settings_server_preload: '使用预取缓冲区',
       settings_server_preload_descr: '播放前等待 TorrServer 的预加载缓冲区填满',
       settings_server_auth: '授权',
@@ -17997,105 +18348,105 @@
       settings_server_password: '密码',
       settings_server_not_specified: '未指定',
       torent_nohash_reasons: '原因',
-      torent_nohash_reason_one: 'TorServer 无法下载 torrent 文件',
-      torent_nohash_reason_two: '回复来自 TorServer',
-      torent_nohash_reason_three: '链接',
-      torent_nohash_do: '做什么?',
-      torent_nohash_do_one: '检查是否设置正确 Jackett',
-      torent_nohash_do_two: '私人来源可能不会给出文件的链接',
+      torent_nohash_reason_one: 'TorServer 无法下载种子文件',
+      torent_nohash_reason_two: '来自 TorServer',
+      torent_nohash_reason_three: 'Link',
+      torent_nohash_do: '怎么办？',
+      torent_nohash_do_one: '检查您是否正确配置了 Jackett',
+      torent_nohash_do_two: '私人来源可能没有提供文件的链接',
       torent_nohash_do_three: '确保 Jackett 也可以下载文件',
-      torent_nohash_do_four: '写信给我们的电报组: @lampa_group',
-      torent_nohash_do_five: '指定哪部电影，哪个，如果可能的话，这张的照片',
-      torrent_error_text: '无法连接到 TorrServe 让我们快速浏览可能的问题列表并检查所有内容。',
-      torrent_error_step_1: '它是否正在运行 TorrServe',
-      torrent_error_step_2: '动态 IP 地址',
+      torent_nohash_do_four: '写信给我们的电报群：@lampa_group',
+      torent_nohash_do_five: '指定哪个电影，哪个发行版，如果可能的话，请提供此发行版的照片',
+      torrent_error_text: '无法连接到 TorrServe。让我们快速浏览一下可能的问题列表和检查一切。',
+      torrent_error_step_1: 'TorrServe 正在运行',
+      torrent_error_step_2: '动态 IP',
       torrent_error_step_3: '协议和端口',
-      torrent_error_step_4: '被杀毒软件阻止',
+      torrent_error_step_4: '防病毒阻止',
       torrent_error_step_5: '检查可用性',
-      torrent_error_step_6: '仍然无法工作',
-      torrent_error_info_1: '确保您在设备上启动 TorrServe安装位置。',
-      torrent_error_info_2: '常见错误，设备 IP 地址更改为 TorrServe. 确保您输入的 IP 地址 - {ip}, 与安装了 TorrServe.',
-      torrent_error_info_3: '的设备的地址匹配，要连接到 TorrServe, 您必须指定协议 http:// в начале и порт :8090 в конце адреса. Убедитесь, что после IP-адреса указан порт, ваш текущий адрес - {ip}',
-      torrent_error_info_4: '通用、防病毒或防火墙可能是通过IP地址阻止访问，尝试禁用防病毒和防火墙。',
-      torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开地址 {ip} 检查Web界面是否可用 TorrServe.',
-      torrent_error_info_6: '如果毕竟检查它是否仍然存在连接错误，尝试重新启动 TorrServe 和互联网-адаптер.',
-      torrent_error_info_7: '如果问题仍然存在，请写信给 Telegram 组 @lampa_group 带有文本 (Lampa 在所有检查后无法连接到 TorrServe，当前地址 {ip})',
-      torrent_error_start: '开始检查',
-      torrent_error_nomatrix: '无法验证版本 Matrix',
-      torrent_error_made: '完成',
-      torrent_error_from: '从',
-      torrent_error_next: '下一个',
-      torrent_error_complite: '完成',
-      torrent_error_connect: '连接失败',
-      torrent_install_need: '必需 TorrServe',
-      torrent_install_text: 'TorrServe – 一个允许您在线查看种子文件内容的应用程序。<br><br>更详细的安装信息可以在下面的电报组中找到。',
-      torrent_install_contact: 'Telegram-группы',
-      torrent_item_bitrate: '比特率',
-      torrent_item_seeds: '分发',
-      torrent_item_grabs: '下载',
-      torrent_item_mb: 'Mbps/с',
-      torrent_serial_episode: '电视剧',
-      torrent_serial_season: '季',
+      torrent_error_step_6: '还是不行',
+      torrent_error_info_1: '请确保您已在安装了 TorrServe 的设备上启动。',
+      torrent_error_info_2: '常见错误，安装 TorrServe 的设备的 IP 地址已更改。请确保您输入的 IP 地址- {ip} - 匹配安装了 TorrServe 的设备的地址。',
+      torrent_error_info_3: '要连接到 TorrServe，必须在地址开头指定协议 http://，在地址末尾指定端口：8090。确保IP地址后面有一个端口，你当前的地址是{ip}',
+      torrent_error_info_4: '经常出现，杀毒或防火墙会阻止IP地址访问，尝试禁用杀毒和防火墙。',
+      torrent_error_info_5: '在同一网络的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
+      torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
+      torrent_error_info_7: '如果问题仍然存在，用文本写信给电报组@lampa_group（Lampa 在所有检查后都没有连接到 TorrServe，th e当前地址为{ip})',
+      torrent_error_start: '开始验证',
+      torrent_error_nomatrix: '验证矩阵版本失败',
+      torrent_error_made: '已执行',
+      torrent_error_from: '来自',
+      torrent_error_next: 'Further',
+      torrent_error_complite: '待完成',
+      torrent_error_connect: '连接错误',
+      torrent_install_need: '需要 TorrServe',
+      torrent_install_text: 'TorrServe 是一款允许您在线查看 torrent 文件内容的应用程序。<br><br>有关安装的更多详细信息，请参阅下面的电报组。',
+      torrent_install_contact: '电报groups',
+      torrent_item_bitrate: 'Bitrate',
+      torrent_item_seeds: 'Handing out',
+      torrent_item_grabs: 'pumping',
+      torrent_item_mb: 'Mbps',
+      torrent_serial_episode: '系列',
+      torrent_serial_season: 'Season',
       torrent_serial_date: '退出',
-      torrent_get_magnet: '请求磁力链接',
-      torrent_remove_title: '删除',
-      torrent_remove_descr: 'Torrent 将从您的列表中删除',
-      torrent_parser_any_one: '任何',
-      torrent_parser_any_two: '任何',
-      torrent_parser_no_choice: '未选择',
+      torrent_get_magnet: 'Requesting a magnet link',
+      torrent_remove_title: 'Delete',
+      torrent_remove_descr: 'torrent 将从你的名单',
+      torrent_parser_any_one: 'Any',
+      torrent_parser_any_two: 'Any',
+      torrent_parser_no_choice: 'Not selected',
       torrent_parser_yes: '是',
       torrent_parser_no: '否',
       torrent_parser_quality: '质量',
       torrent_parser_subs: '字幕',
-      torrent_parser_voice: '翻译',
-      torrent_parser_tracker: '跟踪器',
+      torrent_parser_voice: 'Translation',
+      torrent_parser_tracker: 'tracker',
       torrent_parser_year: '年份',
-      torrent_parser_season: '季',
-      torrent_parser_sort_by_seeders: '按种子数',
-      torrent_parser_sort_by_size: '按大小',
-      torrent_parser_sort_by_name: '按标题',
+      torrent_parser_season: 'Season',
+      torrent_parser_sort_by_seeders: 'By 经销商',
+      torrent_parser_sort_by_size: '大小',
+      torrent_parser_sort_by_name: '按名称',
       torrent_parser_sort_by_tracker: '按来源',
       torrent_parser_sort_by_date: '按日期',
-      torrent_parser_sort_by_viewed: '按查看',
+      torrent_parser_sort_by_viewed: '查看',
       torrent_parser_voice_dubbing: '配音',
       torrent_parser_voice_polyphonic: '复音',
-      torrent_parser_voice_two: '双声部',
+      torrent_parser_voice_two: '双声',
       torrent_parser_voice_amateur: '业余',
       torrent_parser_reset: '重置过滤器',
       torrent_parser_empty: '获取结果失败',
-      torrent_parser_no_hash: '获取失败 HASH',
-      torrent_parser_added_to_mytorrents: '添加到 «我的种子»',
-      torrent_parser_add_to_mytorrents: '添加到 «我的种子»',
-      torrent_parser_label_title: '标志',
-      torrent_parser_label_descr: '用 (查看)',
-      torrent_parser_label_cancel_title: 'Unflag',
-      torrent_parser_label_cancel_descr: 'Unflag a seed (просмотрено)',
-      torrent_parser_timeout: '超时',
-      torrent_parser_nofiles: '获取匹配文件失败',
-      torrent_parser_set_link: '指定解析的链接',
+      torrent_parser_no_hash: '获取HASH失败',
+      torrent_parser_added_to_mytorrents: '添加到“我的种子',
+      torrent_parser_add_to_mytorrents: '添加到“我的种子',
+      torrent_parser_label_title: '标记',
+      torrent_parser_label_descr: '用标记标记手（已查看）',
+      torrent_parser_label_cancel_title: '取消选中',
+      torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
+      torrent_parser_timeout: '超时过期',
+      torrent_parser_nofiles: '无法提取合适的文件',
+      torrent_parser_set_link: '指定解析链接',
       torrent_parser_request_error: '请求错误',
       torrent_parser_magnet_error: '获取磁力链接失败',
-      about_text: '该应用程序完全免费，并使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，该应用程序不使用自己的服务器来分发信息。',
+      about_text: '该应用程序是完全免费的，并使用公共链接来获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，该应用程序不使用自己的服务器来分发信息。',
       about_channel: '我们的频道',
-      about_group: '组',
+      about_group: '群组',
       about_version: '版本',
       about_donate: '捐赠',
-      title_watched: '你看过',
+      title_watched: '您观看了',
       title_settings: '设置',
-      title_collections: '精选',
-      title_collections_ivi: '精选 ivi',
-      title_collections_okko: '精选 okko',
-      title_company: 'Kompanия',
-      title_actors: '演员',
-      title_actor: '演员',
-      title_actress: '女演员',
-      title_person: '人',
-      title_comments: '评论',
+      title_collections: '合集',
+      title_collections_ivi: 'Collections on ivi',
+      title_collections_okko: 'Collections on okko',
+      title_company: 'Company',
+      title_actors: 'Actors',
+      title_actor: 'Actor',
+      title_actress: 'Actress',
+      title_person: 'A person',
+      title_comments: 'Comments',
       title_torrents: '种子',
-      title_trailers: '预告片',
+      title_trailers: 'Trailers',
       title_watch: '观看',
       title_error: '错误',
-      title_links: '链接',
+      title_links: 'Links',
       title_choice: '选择',
       title_main: '首页',
       title_book: '书签',
@@ -18103,61 +18454,61 @@
       title_wath: '稍后',
       title_history: '浏览历史',
       title_mytorrents: '我的种子',
-      title_last: '最新',
+      title_last: '最后',
       title_action: '动作',
-      title_producer: '导演',
+      title_producer: '制作人',
       title_collection: '合集',
       title_recomendations: '推荐',
-      title_similar: '相关',
-      title_about: '关于',
+      title_similar: '类似',
+      title_about: '关于应用程序',
       title_timetable: '时间表',
-      title_relises: '数字发布',
+      title_relises: '数字版本',
       title_catalog: '目录',
-      title_category: '类别ия',
-      title_parser: '解析器',
-      title_type: '类型',
-      title_rating: '评级',
-      title_country: '国家',
-      title_year: '年份',
-      title_genre: 'Genre',
+      title_category: '类别',
+      title_parser: 'Parser',
+      title_type: '',
+      title_rating: '类型、评级',
+      title_country: '国家/地区',
+      title_year: 'Year',
+      title_genre: '流派',
       title_filter: '过滤器',
       title_notice: '通知',
       title_files: '文件',
       title_now_watch: '正在观看',
-      title_latest: '上次添加',
-      title_continue: '继续观看',
-      title_recomend_watch: '精选',
+      title_latest: '最后添加',
+      title_continue: '继续浏览',
+      title_recomend_watch: '推荐看',
       title_new_episodes: '新剧集',
       title_popular: '热门',
-      title_popular_movie: '精选电影',
-      title_popular_tv: '精选电视节目',
+      title_popular_movie: '热门电影',
+      title_popular_tv: '热门电视剧',
       title_new_this_year: '今年新',
-      title_hight_voite: '高度评价',
+      title_hight_voite: '好评',
       title_new: '新',
-      title_trend_day: '今日热门',
-      title_trend_week: '本周热门',
+      title_trend_day: '今日流行',
+      title_trend_week: '本周流行',
       title_upcoming: '在电影院观看',
       title_top_movie: '热门电影',
-      title_top_tv: '热门剧集',
-      title_tv_today: '今天直播',
+      title_top_tv: '热门系列',
+      title_tv_today: '今天播出',
       title_this_week: '本周',
-      title_in_top: '顶部',
+      title_in_top: '热门',
       title_out: '退出',
-      title_out_confirm: '是，退出',
+      title_out_confirm: '是的，出去',
       title_continue_two: '继续',
       company_headquarters: '总部',
       company_homepage: '网站',
       company_country: '国家',
-      filter_clarify: '优化',
+      filter_clarify: '澄清',
       filter_clarify_two: '优化搜索',
-      filter_set_name: '指定名称',
+      filter_set_name: '指定标题',
       filter_sorted: '排序',
       filter_filtred: '过滤器',
-      filter_any: '任何',
-      filter_rating_from: '从',
-      filter_rating_to: '到',
+      filter_any: 'Any',
+      filter_rating_from: 'from',
+      filter_rating_to: 'to',
       filter_country_uk: '乌克兰',
-      filter_country_en: '美国',
+      filter_country_en: 'USA',
       filter_country_ru: '俄罗斯',
       filter_country_ja: '日本',
       filter_country_ko: '韩国',
@@ -18188,8 +18539,293 @@
       filter_country_fr: '法国',
       filter_country_hr: '克罗地亚',
       filter_country_cs: '捷克共和国',
-      filter_country_sv: '瑞典'
-    }, _defineProperty(_lang_choice_title$la, "filter_country_et", '爱沙尼亚'), _defineProperty(_lang_choice_title$la, "filter_genre_ac", '动作'), _defineProperty(_lang_choice_title$la, "filter_genre_ad", '冒险'), _defineProperty(_lang_choice_title$la, "filter_genre_mv", '卡通'), _defineProperty(_lang_choice_title$la, "filter_genre_cm", '喜剧'), _defineProperty(_lang_choice_title$la, "filter_genre_cr", '犯罪'), _defineProperty(_lang_choice_title$la, "filter_genre_dc", '纪录片'), _defineProperty(_lang_choice_title$la, "filter_genre_dr", '戏剧'), _defineProperty(_lang_choice_title$la, "filter_genre_fm", '家庭'), _defineProperty(_lang_choice_title$la, "filter_genre_fe", '奇幻'), _defineProperty(_lang_choice_title$la, "filter_genre_hi", '历史'), _defineProperty(_lang_choice_title$la, "filter_genre_ho", '恐怖'), _defineProperty(_lang_choice_title$la, "filter_genre_mu", '音乐'), _defineProperty(_lang_choice_title$la, "filter_genre_de", '侦探'), _defineProperty(_lang_choice_title$la, "filter_genre_md", '情节剧'), _defineProperty(_lang_choice_title$la, "filter_genre_fa", '奇幻'), _defineProperty(_lang_choice_title$la, "filter_genre_tv", '电视电影'), _defineProperty(_lang_choice_title$la, "filter_genre_tr", '惊悚'), _defineProperty(_lang_choice_title$la, "filter_genre_mi", '军事'), _defineProperty(_lang_choice_title$la, "filter_genre_ve", '西部'), _defineProperty(_lang_choice_title$la, "filter_genre_aa", '动作与冒险'), _defineProperty(_lang_choice_title$la, "filter_genre_ch", '儿童'), _defineProperty(_lang_choice_title$la, "filter_genre_nw", '新上映'), _defineProperty(_lang_choice_title$la, "filter_genre_rs", '真人秀'), _defineProperty(_lang_choice_title$la, "filter_genre_hf", '科幻与奇幻'), _defineProperty(_lang_choice_title$la, "filter_genre_op", '肥皂剧'), _defineProperty(_lang_choice_title$la, "filter_genre_tc", '脱口秀'), _defineProperty(_lang_choice_title$la, "filter_genre_mp", '战争与政治'), _defineProperty(_lang_choice_title$la, "ivi_premieres", '电影首映'), _defineProperty(_lang_choice_title$la, "ivi_best", '精选电影'), _defineProperty(_lang_choice_title$la, "ivi_popular", '热门'), _defineProperty(_lang_choice_title$la, "ivi_choice", 'Выбор ivi'), _defineProperty(_lang_choice_title$la, "ivi_new", '新'), _defineProperty(_lang_choice_title$la, "ivi_foreign", '《外国'), _defineProperty(_lang_choice_title$la, "ivi_ru", '俄罗斯'), _defineProperty(_lang_choice_title$la, "ivi_popular", '现在流行'), _defineProperty(_lang_choice_title$la, "ivi_recomend", '推荐你看'), _defineProperty(_lang_choice_title$la, "ivi_for_famaly", '全家卡通'), _defineProperty(_lang_choice_title$la, "ivi_triller", '恐怖惊悚'), _defineProperty(_lang_choice_title$la, "ivi_advance", '冒险喜剧'), _defineProperty(_lang_choice_title$la, "ivi_detective", '屏幕改编侦探'), _defineProperty(_lang_choice_title$la, "ivi_crime_comedy", '犯罪喜剧'), _defineProperty(_lang_choice_title$la, "ivi_romantic", '浪漫剧'), _defineProperty(_lang_choice_title$la, "ivi_crime_dramas", '犯罪剧'), _defineProperty(_lang_choice_title$la, "ivi_fantastic_dramas", '奇幻剧'), _defineProperty(_lang_choice_title$la, "ivi_military_dramas", '战争剧'), _defineProperty(_lang_choice_title$la, "ivi_mistic", '悬疑片'), _defineProperty(_lang_choice_title$la, "ivi_foreign_series", '外国电视剧'), _defineProperty(_lang_choice_title$la, "ivi_historical_series", '历史电视剧'), _defineProperty(_lang_choice_title$la, "okko_top_new", '头条新闻'), _defineProperty(_lang_choice_title$la, "okko_comedy_horror", '喜剧恐怖片'), _defineProperty(_lang_choice_title$la, "okko_collection_maniacs", '关于疯子的电影'), _defineProperty(_lang_choice_title$la, "okko_witches", '关于女巫的电影'), _defineProperty(_lang_choice_title$la, "okko_zombies", '关于僵尸的电影'), _defineProperty(_lang_choice_title$la, "okko_ru", '俄语'), _defineProperty(_lang_choice_title$la, "okko_horror_serial", '非常可怕'), _defineProperty(_lang_choice_title$la, "okko_serial_killers", '关于疯子'), _defineProperty(_lang_choice_title$la, "okko_humor_serial", '黑色幽默'), _defineProperty(_lang_choice_title$la, "okko_legkiye_serialy", '浅色'), _defineProperty(_lang_choice_title$la, "okko_comedy_serial", '喜剧'), _defineProperty(_lang_choice_title$la, "okko_ru_tv", '俄语'), _defineProperty(_lang_choice_title$la, "empty_title", '空'), _defineProperty(_lang_choice_title$la, "empty_text", '没有符合您的过滤条件的内容，请完善您的过滤条件。'), _defineProperty(_lang_choice_title$la, "empty_title_two", '此处为空'), _defineProperty(_lang_choice_title$la, "empty_text_two", '当前时刻列表为空'), _defineProperty(_lang_choice_title$la, "menu_main", '主页'), _defineProperty(_lang_choice_title$la, "menu_movies", '电影'), _defineProperty(_lang_choice_title$la, "menu_tv", '电视剧'), _defineProperty(_lang_choice_title$la, "menu_catalog", '目录'), _defineProperty(_lang_choice_title$la, "menu_filter", '过滤器'), _defineProperty(_lang_choice_title$la, "menu_collections", '合集'), _defineProperty(_lang_choice_title$la, "menu_relises", '发布'), _defineProperty(_lang_choice_title$la, "menu_anime", '动漫'), _defineProperty(_lang_choice_title$la, "menu_bookmark", '书签'), _defineProperty(_lang_choice_title$la, "menu_like", '喜欢'), _defineProperty(_lang_choice_title$la, "menu_time", '稍后'), _defineProperty(_lang_choice_title$la, "menu_history", '历史记录'), _defineProperty(_lang_choice_title$la, "menu_timeline", '时间表'), _defineProperty(_lang_choice_title$la, "menu_torrents", '种子文件'), _defineProperty(_lang_choice_title$la, "menu_settings", '设置'), _defineProperty(_lang_choice_title$la, "menu_about", '信息'), _defineProperty(_lang_choice_title$la, "menu_console", '控制台'), _defineProperty(_lang_choice_title$la, "menu_multmovie", '卡通'), _defineProperty(_lang_choice_title$la, "menu_multtv", '卡通'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work", '工作插件'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work_descr", '完全在灯中工作的插件。'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular", '用户中流行的插件'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular_descr", '从未知来源安装可能会导致不正确申请作品。'), _defineProperty(_lang_choice_title$la, "plugins_online", '在线浏览'), _defineProperty(_lang_choice_title$la, "plugins_check_fail", '插件测试失败。但是，这并不代表插件不工作。重启应用看看插件是否在加载。'), _defineProperty(_lang_choice_title$la, "plugins_need_reload", '要应用插件，必须重启应用'), _defineProperty(_lang_choice_title$la, "plugins_install", '安装'), _defineProperty(_lang_choice_title$la, "plugins_install_ready", '此插件已安装。'), _defineProperty(_lang_choice_title$la, "plugins_installed", '安装'), _defineProperty(_lang_choice_title$la, "plugins_load_from", '加载自 CUB'), _defineProperty(_lang_choice_title$la, "plugins_ok_for_check", '单击 (OK) 检查插件'), _defineProperty(_lang_choice_title$la, "plugins_no_loaded", '加载应用时，部分插件加载失败'), _defineProperty(_lang_choice_title$la, "time_viewed", '已查看'), _defineProperty(_lang_choice_title$la, "time_from", '来自'), _defineProperty(_lang_choice_title$la, "time_reset", '重置时间码'), _defineProperty(_lang_choice_title$la, "settings_clear_cache", '缓存和数据清除'), _defineProperty(_lang_choice_title$la, "settings_user_links", '自定义链接'), _defineProperty(_lang_choice_title$la, "settings_for_local", 'For local TorrServer'), _defineProperty(_lang_choice_title$la, "settings_add", '添加'), _defineProperty(_lang_choice_title$la, "settings_remove", '删除'), _defineProperty(_lang_choice_title$la, "settings_this_value", '当前值'), _defineProperty(_lang_choice_title$la, "settings_added", '已添加'), _defineProperty(_lang_choice_title$la, "settings_removed", '已删除'), _defineProperty(_lang_choice_title$la, "settings_param_player_inner", '内置'), _defineProperty(_lang_choice_title$la, "settings_param_player_outside", '外部'), _defineProperty(_lang_choice_title$la, "settings_param_yes", '是'), _defineProperty(_lang_choice_title$la, "settings_param_no", '否'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_small", 'Less'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_normal", '正常'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_low", 'Low'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_average", '中'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_high", '高'), _defineProperty(_lang_choice_title$la, "settings_param_parse_directly", '直接'), _defineProperty(_lang_choice_title$la, "settings_param_parse_api", '通过网站 API'), _defineProperty(_lang_choice_title$la, "settings_param_background_complex", '复杂'), _defineProperty(_lang_choice_title$la, "settings_param_background_simple", '简单'), _defineProperty(_lang_choice_title$la, "settings_param_background_image", '图像'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_one", '主要'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_two", '次要'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_small", '小'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_normal", '常规'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_bigger", '大'), _defineProperty(_lang_choice_title$la, "settings_param_screensaver_nature", '自然'), _defineProperty(_lang_choice_title$la, "settings_param_lang_ru", '俄语'), _defineProperty(_lang_choice_title$la, "settings_param_lang_uk", 'Ukraїнська'), _defineProperty(_lang_choice_title$la, "settings_param_lang_en", 'English'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_orig", '原始'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_ru", '俄语'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_again", '重新开始'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_continue", '继续'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_ask", '询问'), _defineProperty(_lang_choice_title$la, "settings_param_player_scale_method", '计算'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_load", '加载'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_all", '显示全部'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_remote", '控制台'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_mouse", '用鼠标遥控'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_lampa", '内置'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_system", '系统'), _defineProperty(_lang_choice_title$la, "helper_keyboard", '输入数值后，按下按钮 «返回» 保存'), _defineProperty(_lang_choice_title$la, "helper_torrents", '按住键 (ОК) 打开上下文菜单'), _defineProperty(_lang_choice_title$la, "helper_cleared", '成功，提示将再次显示。'), _defineProperty(_lang_choice_title$la, "helper_torrents_view", '要重置时间码并调出菜单，请按住键 (ОК)'), _defineProperty(_lang_choice_title$la, "fav_sync_title", '同步书签'), _defineProperty(_lang_choice_title$la, "fav_sync_text", '你想要你最喜欢的书签出现在你的所有设备上吗? <br><br>在网站上注册 www.cub.watch, 创建一个个人资料并登录到台灯。'), _defineProperty(_lang_choice_title$la, "fav_sync_site", '网站'), _defineProperty(_lang_choice_title$la, "fav_remove_title", '从历史记录中删除'), _defineProperty(_lang_choice_title$la, "fav_remove_descr", '删除选定的卡片'), _defineProperty(_lang_choice_title$la, "fav_clear_title", '清除历史记录'), _defineProperty(_lang_choice_title$la, "fav_clear_descr", '从历史记录中删除所有卡片'), _defineProperty(_lang_choice_title$la, "fav_clear_label_title", '清除标记'), _defineProperty(_lang_choice_title$la, "fav_clear_label_descr", '清除查看标记'), _defineProperty(_lang_choice_title$la, "fav_clear_time_title", '清除时间码'), _defineProperty(_lang_choice_title$la, "fav_clear_time_descr", '清除所有时间码'), _defineProperty(_lang_choice_title$la, "fav_label_cleared", '清除标记'), _defineProperty(_lang_choice_title$la, "fav_time_cleared", '清除时间码'), _defineProperty(_lang_choice_title$la, "timetable_empty", '此部分将显示新剧集的发布日期'), _defineProperty(_lang_choice_title$la, "player_quality", '质量'), _defineProperty(_lang_choice_title$la, "player_tracks", '音轨'), _defineProperty(_lang_choice_title$la, "player_disabled", '已禁用'), _defineProperty(_lang_choice_title$la, "player_unknown", '未知'), _defineProperty(_lang_choice_title$la, "player_subs", '字幕'), _defineProperty(_lang_choice_title$la, "player_size_default_title", '默认'), _defineProperty(_lang_choice_title$la, "player_size_default_descr", '默认视频大小'), _defineProperty(_lang_choice_title$la, "player_size_cover_title", '扩展'), _defineProperty(_lang_choice_title$la, "player_size_cover_descr", '将视频扩展到全屏'), _defineProperty(_lang_choice_title$la, "player_size_fill_title", '填充'), _defineProperty(_lang_choice_title$la, "player_size_fill_descr", '使视频适合全屏'), _defineProperty(_lang_choice_title$la, "player_size_115_title", '放大 115%'), _defineProperty(_lang_choice_title$la, "player_size_115_descr", '将视频放大 115%'), _defineProperty(_lang_choice_title$la, "player_size_130_title", '放大 130%'), _defineProperty(_lang_choice_title$la, "player_size_130_descr", '将视频放大 130%'), _defineProperty(_lang_choice_title$la, "player_size_v115_title", '垂直 115%'), _defineProperty(_lang_choice_title$la, "player_size_v115_descr", '放大视频 115%'), _defineProperty(_lang_choice_title$la, "player_size_v130_title", '垂直 130%'), _defineProperty(_lang_choice_title$la, "player_size_v130_descr", '放大视频 130%'), _defineProperty(_lang_choice_title$la, "player_video_size", 'Размер видео'), _defineProperty(_lang_choice_title$la, "player_playlist", '播放列表'), _defineProperty(_lang_choice_title$la, "player_error_one", '视频解码失败'), _defineProperty(_lang_choice_title$la, "player_error_two", '视频未找到或损坏'), _defineProperty(_lang_choice_title$la, "player_start_from", '继续观看'), _defineProperty(_lang_choice_title$la, "player_not_found", '找不到播放器'), _defineProperty(_lang_choice_title$la, "player_lauch", 'Запустить плеер'), _defineProperty(_lang_choice_title$la, "broadcast_open", '在另一台设备上打开卡'), _defineProperty(_lang_choice_title$la, "broadcast_play", '选择要观看的设备'), _defineProperty(_lang_choice_title$la, "card_new_episode", '新电视剧'), _defineProperty(_lang_choice_title$la, "card_book_remove", '从书签中删除'), _defineProperty(_lang_choice_title$la, "card_book_add", '到书签'), _defineProperty(_lang_choice_title$la, "card_book_descr", '查看菜单 (书签)'), _defineProperty(_lang_choice_title$la, "card_like_remove", '从收藏夹中删除'), _defineProperty(_lang_choice_title$la, "card_like_add", '喜欢'), _defineProperty(_lang_choice_title$la, "card_like_descr", '查看菜单 (喜欢)'), _defineProperty(_lang_choice_title$la, "card_wath_remove", '从预期中删除'), _defineProperty(_lang_choice_title$la, "card_wath_add", '稍后观看'), _defineProperty(_lang_choice_title$la, "card_wath_descr", '查看菜单 (稍后)'), _defineProperty(_lang_choice_title$la, "card_history_remove", '从历史记录中删除'), _defineProperty(_lang_choice_title$la, "card_history_add", '添加到历史记录'), _defineProperty(_lang_choice_title$la, "card_history_descr", '查看菜单 (历史记录)'), _defineProperty(_lang_choice_title$la, "keyboard_listen", '说话，我在听...'), _defineProperty(_lang_choice_title$la, "keyboard_nomic", '没有麦克风访问权限'), _defineProperty(_lang_choice_title$la, "notice_new_quality", '新质量可用'), _defineProperty(_lang_choice_title$la, "notice_quality", '质量'), _defineProperty(_lang_choice_title$la, "notice_new_episode", '新电视剧'), _defineProperty(_lang_choice_title$la, "notice_none", '您还没有任何通知，请在网站上注册 <b>www.cub.watch</b>, 以关注新电视剧和发布。'), _defineProperty(_lang_choice_title$la, "notice_in_quality", '作为'), _defineProperty(_lang_choice_title$la, "copy_link", '复制视频链接'), _defineProperty(_lang_choice_title$la, "copy_secuses", '链接复制到剪贴板'), _defineProperty(_lang_choice_title$la, "copy_error", '复制链接时出错'), _defineProperty(_lang_choice_title$la, "account_sync_to_profile", '所有书签将转移到个人资料'), _defineProperty(_lang_choice_title$la, "account_sync_secuses", '所有书签转移成功'), _defineProperty(_lang_choice_title$la, "account_profiles", '个人资料'), _defineProperty(_lang_choice_title$la, "account_profiles_empty", '获取个人资料列表失败'), _defineProperty(_lang_choice_title$la, "account_authorized", '已授权'), _defineProperty(_lang_choice_title$la, "account_logged_in", '您已登录'), _defineProperty(_lang_choice_title$la, "account_login_failed", '登录失败'), _defineProperty(_lang_choice_title$la, "account_login_wait", '等待登录'), _defineProperty(_lang_choice_title$la, "account_profile_main", '常规'), _defineProperty(_lang_choice_title$la, "account_export_secuses", '导出成功'), _defineProperty(_lang_choice_title$la, "account_export_fail", '导出失败'), _defineProperty(_lang_choice_title$la, "account_import_secuses", '导入成功'), _defineProperty(_lang_choice_title$la, "account_import_fail", '导入失败'), _defineProperty(_lang_choice_title$la, "account_imported", '导入'), _defineProperty(_lang_choice_title$la, "account_reload_after", '5 秒后重启'), _defineProperty(_lang_choice_title$la, "network_noconnect", '没有网络连接'), _defineProperty(_lang_choice_title$la, "network_404", '未找到请求的页面。 [404]'), _defineProperty(_lang_choice_title$la, "network_401", '授权失败'), _defineProperty(_lang_choice_title$la, "network_500", '内部服务器错误。 [500]'), _defineProperty(_lang_choice_title$la, "network_parsererror", '请求的 JSON 解析失败。'), _defineProperty(_lang_choice_title$la, "network_timeout", '请求超时。'), _defineProperty(_lang_choice_title$la, "network_abort", '请求被中止。'), _defineProperty(_lang_choice_title$la, "network_error", '未知错误'), _defineProperty(_lang_choice_title$la, "size_zero", '0 字节'), _defineProperty(_lang_choice_title$la, "size_byte", '字节'), _defineProperty(_lang_choice_title$la, "size_kb", 'KB'), _defineProperty(_lang_choice_title$la, "size_mb", 'MB'), _defineProperty(_lang_choice_title$la, "size_gb", 'GB'), _defineProperty(_lang_choice_title$la, "size_tb", 'TB'), _defineProperty(_lang_choice_title$la, "size_pp", 'PB'), _defineProperty(_lang_choice_title$la, "speed_bit", 'beat'), _defineProperty(_lang_choice_title$la, "speed_kb", 'Kbps'), _defineProperty(_lang_choice_title$la, "speed_mb", 'Mbps'), _defineProperty(_lang_choice_title$la, "speed_gb", 'Gbps'), _defineProperty(_lang_choice_title$la, "speed_tb", 'Tbps'), _defineProperty(_lang_choice_title$la, "speed_pp", 'Pbps'), _defineProperty(_lang_choice_title$la, "month_1", 'Jan'), _defineProperty(_lang_choice_title$la, "month_2", '二月'), _defineProperty(_lang_choice_title$la, "month_3", '三月'), _defineProperty(_lang_choice_title$la, "month_4", '四月'), _defineProperty(_lang_choice_title$la, "month_5", '五月'), _defineProperty(_lang_choice_title$la, "month_6", '六月'), _defineProperty(_lang_choice_title$la, "month_7", '七月'), _defineProperty(_lang_choice_title$la, "month_8", '八月'), _defineProperty(_lang_choice_title$la, "month_9", '九月'), _defineProperty(_lang_choice_title$la, "month_10", '十月'), _defineProperty(_lang_choice_title$la, "month_11", '十一月'), _defineProperty(_lang_choice_title$la, "month_12", '十二月'), _defineProperty(_lang_choice_title$la, "day_1", '星期一'), _defineProperty(_lang_choice_title$la, "day_2", '星期二'), _defineProperty(_lang_choice_title$la, "day_3", '星期三'), _defineProperty(_lang_choice_title$la, "day_4", '星期四'), _defineProperty(_lang_choice_title$la, "day_5", '星期五'), _defineProperty(_lang_choice_title$la, "day_6", '星期六'), _defineProperty(_lang_choice_title$la, "day_7", '星期日'), _defineProperty(_lang_choice_title$la, "month_1_e", '一月'), _defineProperty(_lang_choice_title$la, "month_2_e", '二月'), _defineProperty(_lang_choice_title$la, "month_3_e", '三月'), _defineProperty(_lang_choice_title$la, "month_4_e", '四月'), _defineProperty(_lang_choice_title$la, "month_5_e", 'May'), _defineProperty(_lang_choice_title$la, "month_6_e", '六月'), _defineProperty(_lang_choice_title$la, "month_7_e", '七月'), _defineProperty(_lang_choice_title$la, "month_8_e", '八月'), _defineProperty(_lang_choice_title$la, "month_9_e", '九月'), _defineProperty(_lang_choice_title$la, "month_10_e", '十月'), _defineProperty(_lang_choice_title$la, "month_11_e", '十一月'), _defineProperty(_lang_choice_title$la, "month_12_e", '十二月'), _defineProperty(_lang_choice_title$la, "week_1", 'Mon'), _defineProperty(_lang_choice_title$la, "week_2", 'Tue'), _defineProperty(_lang_choice_title$la, "week_3", 'Wed'), _defineProperty(_lang_choice_title$la, "week_4", 'Thu'), _defineProperty(_lang_choice_title$la, "week_5", '周五'), _defineProperty(_lang_choice_title$la, "week_6", '周六'), _defineProperty(_lang_choice_title$la, "week_7", '周日'), _lang_choice_title$la);
+      filter_country_sv: '瑞典',
+      filter_genre_ac: '动作',
+      filter_genre_ad: '冒险',
+      filter_genre_mv: '卡通',
+      filter_genre_cm: '喜剧',
+      filter_genre_cr: '犯罪',
+      filter_genre_dc: '纪录片',
+      filter_genre_dr: '戏剧',
+      filter_genre_fm: '家庭',
+      filter_genre_fe: '幻想',
+      filter_genre_hi: '故事',
+      filter_genre_ho: '恐怖',
+      filter_genre_mu: '音乐',
+      filter_genre_de: '侦探',
+      filter_genre_md: '情节剧',
+      filter_genre_fa: '小说',
+      filter_genre_tv: '电视电影',
+      filter_genre_tr: '惊悚片',
+      filter_genre_mi: '军事',
+      filter_genre_ve: '西部',
+      filter_genre_aa: '动作与冒险',
+      filter_genre_ch: '儿童',
+      filter_genre_nw: '新闻',
+      filter_genre_rs: '真人秀',
+      filter_genre_hf: '科幻与奇幻',
+      filter_genre_op: '肥皂剧',
+      filter_genre_tc: '脱口秀',
+      filter_genre_mp: '战争与政治',
+      ivi_premieres: '电影首映',
+      ivi_best: '最佳电影',
+      ivi_popular: '现在流行',
+      ivi_choice: '艾维的选择',
+      ivi_new: '新的',
+      ivi_foreign: '外国的',
+      ivi_ru: '俄罗斯人',
+      ivi_recomend: '推荐大家看',
+      ivi_for_famaly: '合家欢卡通',
+      ivi_triller: '恐怖惊悚',
+      ivi_advance: '冒险喜剧',
+      ivi_detective: '侦探电影改编',
+      ivi_crime_comedy: '犯罪喜剧',
+      ivi_romantic: '爱情剧',
+      ivi_crime_dramas: '犯罪剧',
+      ivi_fantastic_dramas: '玄幻剧',
+      ivi_military_dramas: '军旅剧',
+      ivi_mistic: '悬疑片',
+      ivi_foreign_series: '外国剧',
+      ivi_historical_series: '历史剧',
+      okko_top_new: '热门新剧',
+      okko_comedy_horror: '喜剧恐怖片',
+      okko_collection_maniacs: '关于疯子的电影',
+      okko_witches: '关于女巫的电影',
+      okko_zombies: '关于僵尸的电影',
+      okko_ru: '俄罗斯人',
+      okko_horror_serial: '非常可怕',
+      okko_serial_killers: '关于疯子',
+      okko_humor_serial: '黑色幽默',
+      okko_legkiye_serialy: '肺',
+      okko_comedy_serial: '喜剧',
+      okko_ru_tv: '俄罗斯人',
+      empty_title: '空洞',
+      empty_text: '未找到适合您的过滤器的内容，请优化您的过滤器。',
+      empty_title_two: '这里为空',
+      empty_text_two: '列表当前为空。',
+      menu_main: '首页',
+      menu_movies: '电影',
+      menu_tv: '剧集',
+      menu_catalog: '目录',
+      menu_filter: '过滤器',
+      menu_collections: '合集',
+      menu_relises: '发布',
+      menu_anime: '动漫',
+      menu_bookmark: '、书签',
+      menu_like: '点赞',
+      menu_time: '稍后',
+      menu_history: '历史记录',
+      menu_timeline: '时间表',
+      menu_torrents: '种子',
+      menu_settings: '设置',
+      menu_about: '关于',
+      menu_console: '日志',
+      menu_multmovie: '卡通',
+      menu_multtv: '动画系列',
+      plugins_catalog_work: '工作插件',
+      plugins_catalog_work_descr: '完全在灯中工作的插件。',
+      plugins_catalog_popular: '用户中流行的插件',
+      plugins_catalog_popular_descr: '未知来源安装可能导致应用无法正常工作。',
+      plugins_online: '在线查看',
+      plugins_check_fail: '插件功能测试失败。但这并不代表插件不工作。请重新加载应用查看如果插件正在加载。',
+      plugins_need_reload: '要应用插件，您需要重新启动应用程序',
+      plugins_install: 'Install',
+      plugins_install_ready: '这个插件已经安装了。',
+      plugins_installed: 'Installations',
+      plugins_load_from: 'Loaded from CUB',
+      plugins_ok_for_check: '点击(OK) 测试插件',
+      plugins_no_loaded: '加载应用时, 部分插件无法加载',
+      time_viewed: '已查看',
+      time_from: 'from',
+      time_reset: 'Reset timecode',
+      settings_clear_cache: '缓存和数据清除',
+      settings_user_links: 'Custom Link',
+      settings_for_local: 'For local TorrServer',
+      settings_add: 'Add',
+      settings_remove: 'Delete',
+      settings_this_value: '现值',
+      settings_added: '添加',
+      settings_removed: '删除',
+      settings_param_player_inner: 'Lampa',
+      settings_param_player_outside: '外部',
+      settings_param_yes: 'Yes',
+      settings_param_no: 'No',
+      settings_param_interface_size_small: '较小',
+      settings_param_interface_size_normal: '正常',
+      settings_param_poster_quality_low: '低',
+      settings_param_poster_quality_average: '平均',
+      settings_param_poster_quality_high: '高',
+      settings_param_parse_directly: '直接',
+      settings_param_parse_api: '通过网站API',
+      settings_param_background_complex: '复杂',
+      settings_param_background_simple: '简单',
+      settings_param_background_image: '图片',
+      settings_param_link_use_one: '主要',
+      settings_param_link_use_two: '附加',
+      settings_param_subtitles_size_small: '小',
+      settings_param_subtitles_size_normal: '普通',
+      settings_param_subtitles_size_bigger: '大',
+      settings_param_screensaver_nature: '自然',
+      settings_param_lang_ru: 'Русский',
+      settings_param_lang_zh: '简体中文',
+      settings_param_lang_uk: 'Українська',
+      settings_param_lang_en: '英语',
+      settings_param_torrent_lang_orig: '原始',
+      settings_param_torrent_lang_ru: '俄语',
+      settings_param_player_timecode_again: '重新开始',
+      settings_param_player_timecode_continue: '继续',
+      settings_param_player_timecode_ask: '询问',
+      settings_param_player_scale_method: '计算',
+      settings_param_card_view_load: '上传',
+      settings_param_card_view_all: '全部显示',
+      settings_param_navigation_remote: '遥控器',
+      settings_param_navigation_mouse: '鼠标遥控',
+      settings_param_keyboard_lampa: 'Lampa',
+      settings_param_keyboard_system: 'Systemic',
+      helper_keyboard: '进入后值，按“返回”按钮保存',
+      helper_torrents: '按住（OK）键弹出上下文菜单',
+      helper_cleared: '成功，工具提示将再次显示。',
+      helper_torrents_view: '按住（OK）键重置时间码并显示菜单',
+      fav_sync_title: '书签同步',
+      fav_sync_text: '您希望您最喜欢的书签出现在您的所有设备上吗？<br><br>在网站 www.cub.watch 上注册，创建个人资料并登录到 Lamp。',
+      fav_sync_site: '网站',
+      fav_remove_title: '从历史记录中删除',
+      fav_remove_descr: '删除选定的卡片',
+      fav_clear_title: '清除历史记录',
+      fav_clear_descr: '从历史记录中删除所有卡片',
+      fav_clear_label_title: '清除标签',
+      fav_clear_label_descr: '清除视图标签',
+      fav_clear_time_title: '清除时间码',
+      fav_clear_time_descr: '清除所有时间码',
+      fav_label_cleared: '标记已清除',
+      fav_time_cleared: '时间码已清除',
+      timetable_empty: '此部分将显示新剧集的发布日期。',
+      player_quality: '质量',
+      player_tracks: '音轨',
+      player_disabled: '禁用',
+      player_unknown: '未知',
+      player_subs: 'Subtitles',
+      player_size_default_title: '默认',
+      player_size_default_descr: '默认视频大小',
+      player_size_cover_title: '扩展',
+      player_size_cover_descr: '将视频扩展到全屏',
+      player_size_fill_title: '填充',
+      player_size_fill_descr: '适合视频全屏',
+      player_size_115_title: '缩放 115%',
+      player_size_115_descr: '将视频放大 115%',
+      player_size_130_title: '缩放 130%',
+      player_size_130_descr: '将视频放大 130%',
+      player_size_v115_title: '垂直 115%',
+      player_size_v115_descr: '将视频放大 115%',
+      player_size_v130_title: '垂直 130%',
+      player_size_v130_descr: '将视频放大 130%',
+      player_video_size: '视频大小',
+      player_playlist: '播放列表',
+      player_error_one: '无法解码视频',
+      player_error_two: '视频未找到或损坏',
+      player_start_from: '从',
+      player_not_found: '续浏览，未找到播放器',
+      player_lauch: '启动播放器',
+      broadcast_open: '在其他设备上打开卡',
+      broadcast_play: '选择要观看的设备',
+      card_new_episode: '新系列',
+      card_book_remove: '从书签中删除',
+      card_book_add: '到书签',
+      card_book_descr: '查看菜单（书签）',
+      card_like_remove: '从收藏夹中删除',
+      card_like_add: 'Like',
+      card_like_descr: '查看菜单（点赞）',
+      card_wath_remove: '从预期中删除',
+      card_wath_add: '稍后观看',
+      card_wath_descr: '查看菜单（稍后）',
+      card_history_remove: '从历史记录中删除',
+      card_history_add: '添加到历史记录',
+      card_history_descr: '查看菜单（历史记录）',
+      keyboard_listen: '说话，我正在听...',
+      keyboard_nomic: '没有麦克风访问权限',
+      notice_new_quality: '新质量可用',
+      notice_quality: 'Quality',
+      notice_new_episode: '新系列',
+      notice_none: '您还没有任何通知，请在 <b>www.cub.watch</b> 注册以关注新剧集并发布。',
+      notice_in_quality: 'As',
+      copy_link: '复制视频链接',
+      copy_secuses: '链接复制到剪贴板',
+      copy_error: '复制链接出错',
+      account_sync_to_profile: '所有书签将被移动到个人资料',
+      account_sync_secuses: '所有书签已成功转移',
+      account_profiles: '个人资料',
+      account_profiles_empty: '获取配置文件列表失败',
+      account_authorized: '已授权',
+      account_logged_in: '您已登录',
+      account_login_failed: '登录失败',
+      account_login_wait: '等待登录',
+      account_profile_main: '常规',
+      account_export_secuses: '导出成功',
+      account_export_fail: '导出错误',
+      account_import_secuses: '导入成功',
+      account_import_fail: '导入错误',
+      account_imported: '导入',
+      account_reload_after: '重启5 秒后。',
+      network_noconnect: '无网络连接',
+      network_404: '未找到请求的页面。[404]',
+      network_401: '授权失败',
+      network_500: '内部服务器错误。[500]',
+      network_parsererror: '请求的 JSON 解析失败。',
+      network_timeout: '请求超时。',
+      network_abort: '请求已中止。',
+      network_error: '未知错误',
+      size_zero: '0 字节',
+      size_byte: '字节',
+      size_kb: 'KB',
+      size_mb: 'MB',
+      size_gb: 'GB',
+      size_tb: 'TB',
+      size_pp: 'PB',
+      speed_bit: 'bit',
+      speed_kb: 'Kbps',
+      speed_mb: 'Mbps',
+      speed_gb: 'Gbit',
+      speed_tb: 'Tbit',
+      speed_pp: 'Pbit',
+      month_1: '一月',
+      month_2: '二月',
+      month_3: '三月',
+      month_4: '四月',
+      month_5: '五月',
+      month_6: '六月',
+      month_7: '七月',
+      month_8: '八月',
+      month_9: '九月',
+      month_10: '十月',
+      month_11: '十一月',
+      month_12: '十二月',
+      day_1: '星期一',
+      day_2: '星期二',
+      day_3: '星期三',
+      day_4: '星期四',
+      day_5: '星期五',
+      day_6: '星期六',
+      day_7: '星期日',
+      month_1_e: '一月',
+      month_2_e: '二月',
+      month_3_e: '三月',
+      month_4_e: '四月',
+      month_5_e: '五月',
+      month_6_e: '六月',
+      month_7_e: '7 月',
+      month_8_e: '8 月',
+      month_9_e: '9 月',
+      month_10_e: '10 月',
+      month_11_e: '11 月',
+      month_12_e: '12 月',
+      week_1: '周一',
+      week_2: '周二',
+      week_3: '周三',
+      week_4: '周四',
+      week_5: '周五',
+      week_6: '周六',
+      week_7: '周日'
+    };
 
     var en = {
       lang_choice_title: 'Welcome',
@@ -18218,7 +18854,7 @@
       full_budget: 'Budget',
       full_countries: 'Countries',
       full_like: 'Like',
-      full_torrents: 'torrents',
+      full_torrents: 'Torrents',
       full_trailers: 'Trailers',
       full_detail: 'In detail',
       full_notext: 'No description.',
@@ -18237,7 +18873,7 @@
       settings_cub_profile: 'Profile',
       settings_cub_sync_btn: 'Synchronize',
       settings_cub_sync_btn_descr: 'Save local bookmarks to CUB account',
-      settings_cub_backup: 'backup',
+      settings_cub_backup: 'Backup',
       settings_cub_backup_descr: 'Save or load backup data',
       settings_cub_logout: 'Sign out',
       settings_cub_signin: 'Authorization',
@@ -18255,7 +18891,7 @@
       settings_interface_performance: 'Performance',
       settings_interface_animation: 'Animation',
       settings_interface_animation_descr: 'Animation of cards and content',
-      settings_interface_attenuation: 'attenuation',
+      settings_interface_attenuation: 'Attenuation',
       settings_interface_attenuation_descr: 'Smooth fading of cards from below and from above',
       settings_interface_scroll: 'Scroll Type',
       settings_interface_view_card: 'Card view type',
@@ -18265,7 +18901,7 @@
       settings_main_account: 'Account',
       settings_main_interface: 'Interface',
       settings_main_player: 'Player',
-      settings_main_parser: 'parser',
+      settings_main_parser: 'Parser',
       settings_main_torrserver: 'TorrServer',
       settings_main_plugins: 'Plugins',
       settings_main_rest: 'Other',
@@ -18299,7 +18935,7 @@
       settings_parser_jackett_link: 'Link',
       settings_parser_jackett_link_descr: 'Provide a link to the Jackett script',
       settings_parser_jackett_key_placeholder: 'For example: sa0sk83d..',
-      settings_parser_jackett_key: 'api key',
+      settings_parser_jackett_key: 'Api key',
       settings_parser_jackett_key_descr: 'Located in Jackett',
       settings_parser_torlook_type: 'TorLook site parsing method',
       settings_parser_scraperapi_placeholder: 'For example: scraperapi.com',
@@ -18396,7 +19032,7 @@
       torrent_item_seeds: 'Handing out',
       torrent_item_grabs: 'pumping',
       torrent_item_mb: 'Mbps',
-      torrent_serial_episode: '电视节目',
+      torrent_serial_episode: 'Series',
       torrent_serial_season: 'Season',
       torrent_serial_date: 'Exit',
       torrent_get_magnet: 'Requesting a magnet link',
@@ -18419,9 +19055,9 @@
       torrent_parser_sort_by_tracker: 'By source',
       torrent_parser_sort_by_date: 'By date',
       torrent_parser_sort_by_viewed: 'Viewed',
-      torrent_parser_voice_dubbing: 'dubbing',
-      torrent_parser_voice_polyphonic: 'polyphonic',
-      torrent_parser_voice_two: 'two-voiced',
+      torrent_parser_voice_dubbing: 'Dubbing',
+      torrent_parser_voice_polyphonic: 'Polyphonic',
+      torrent_parser_voice_two: 'Two-voiced',
       torrent_parser_voice_amateur: 'Amateur',
       torrent_parser_reset: 'Reset filter',
       torrent_parser_empty: 'Failed to get results',
@@ -18517,7 +19153,7 @@
       filter_filtred: 'Filter',
       filter_any: 'Any',
       filter_rating_from: 'from',
-      filter_rating_to: 'before',
+      filter_rating_to: 'to',
       filter_country_uk: 'Ukraine',
       filter_country_en: 'USA',
       filter_country_ru: 'Russia',
@@ -18559,9 +19195,9 @@
       filter_genre_dc: 'Documentary',
       filter_genre_dr: 'Drama',
       filter_genre_fm: 'Family',
-      filter_genre_fe: 'fantasy',
+      filter_genre_fe: 'Fantasy',
       filter_genre_hi: 'Story',
-      filter_genre_ho: 'horror',
+      filter_genre_ho: 'Horror',
       filter_genre_mu: 'Music',
       filter_genre_de: 'Detective',
       filter_genre_md: 'Melodrama',
@@ -18581,7 +19217,7 @@
       ivi_premieres: 'Movie premieres',
       ivi_best: 'Best Movies',
       ivi_popular: 'Popular now',
-      ivi_choice: 'ivi\'s choice',
+      ivi_choice: 'Ivi\'s choice',
       ivi_new: 'New',
       ivi_foreign: 'Foreign',
       ivi_ru: 'Russians',
@@ -18610,10 +19246,10 @@
       okko_legkiye_serialy: 'Lungs',
       okko_comedy_serial: 'Comedy',
       okko_ru_tv: 'Russians',
-      empty_title: 'empty',
+      empty_title: 'Empty',
       empty_text: 'Nothing found for your filter, please refine your filter.',
       empty_title_two: 'It\'s empty here',
-      empty_text_two: '该列表目前为空.',
+      empty_text_two: 'The list is currently empty.',
       menu_main: 'Home',
       menu_movies: 'Movies',
       menu_tv: 'Series',
@@ -18625,13 +19261,13 @@
       menu_bookmark: 'Bookmarks',
       menu_like: 'Like',
       menu_time: 'Later',
-      menu_history: 'Story',
+      menu_history: 'History',
       menu_timeline: 'Schedule',
-      menu_torrents: 'torrents',
+      menu_torrents: 'Torrents',
       menu_settings: 'Settings',
       menu_about: 'Information',
       menu_console: 'Console',
-      menu_multmovie: 'cartoons',
+      menu_multmovie: 'Cartoons',
       menu_multtv: 'Animated series',
       plugins_catalog_work: 'Working plugins',
       plugins_catalog_work_descr: 'Plugins that work exactly in the lamp.',
@@ -18657,28 +19293,29 @@
       settings_this_value: 'present value',
       settings_added: 'Added',
       settings_removed: 'Removed',
-      settings_param_player_inner: 'built-in',
+      settings_param_player_inner: 'Lampa',
       settings_param_player_outside: 'External',
       settings_param_yes: 'Yes',
       settings_param_no: 'No',
       settings_param_interface_size_small: 'Smaller',
-      settings_param_interface_size_normal: '正常',
+      settings_param_interface_size_normal: 'Normal',
       settings_param_poster_quality_low: 'Low',
       settings_param_poster_quality_average: 'Average',
-      settings_param_poster_quality_high: 'high',
+      settings_param_poster_quality_high: 'High',
       settings_param_parse_directly: 'Directly',
       settings_param_parse_api: 'Through the website API',
       settings_param_background_complex: 'Complex',
       settings_param_background_simple: 'Simple',
       settings_param_background_image: 'Picture',
-      settings_param_link_use_one: 'main',
+      settings_param_link_use_one: 'Main',
       settings_param_link_use_two: 'Additional',
       settings_param_subtitles_size_small: 'small',
       settings_param_subtitles_size_normal: 'Ordinary',
       settings_param_subtitles_size_bigger: 'Large',
       settings_param_screensaver_nature: 'Nature',
-      settings_param_lang_ru: '俄语',
-      settings_param_lang_uk: '乌克兰语їнська',
+      settings_param_lang_ru: 'Русский',
+      settings_param_lang_zh: '简体中文',
+      settings_param_lang_uk: 'Українська',
       settings_param_lang_en: 'English',
       settings_param_torrent_lang_orig: 'Original',
       settings_param_torrent_lang_ru: 'Russian',
@@ -18687,7 +19324,7 @@
       settings_param_player_timecode_ask: 'To ask',
       settings_param_player_scale_method: 'Calculate',
       settings_param_card_view_load: 'Upload',
-      settings_param_card_view_all: 'show all',
+      settings_param_card_view_all: 'Show all',
       settings_param_navigation_remote: 'Remote controller',
       settings_param_navigation_mouse: 'Remote control with mouse',
       settings_param_keyboard_lampa: 'Lampa',
@@ -18730,7 +19367,7 @@
       player_size_v130_title: 'Vertical 130%',
       player_size_v130_descr: 'Enlarge video by 130%',
       player_video_size: 'Video size',
-      player_playlist: 'playlist',
+      player_playlist: 'Playlist',
       player_error_one: 'Failed to decode video',
       player_error_two: 'Video not found or corrupted',
       player_start_from: 'Continue browsing from',
@@ -18838,605 +19475,606 @@
     };
 
     var uk = {
-      lang_choice_title: '亲切',
-      lang_choice_subtitle: 'Viberіть mov.',
-      more: 'Scha',
-      show_more: '指示性',
-      more_results: 'Show bільше resultів',
-      loading: 'Advance',
-      nofind_movie: '不知道fільм.',
-      noname: 'Untitled',
-      nochoice: 'Unselected',
-      cancel: 'Skasuwati',
+      lang_choice_title: 'Ласкаво просимо',
+      lang_choice_subtitle: 'Виберіть мову.',
+      more: 'Ще',
+      show_more: 'Показати ще',
+      more_results: 'Показати більше результатів',
+      loading: 'Завантаження',
+      nofind_movie: 'Не вдалось знайти фільм.',
+      noname: 'Без назви',
+      nochoice: 'Не вибрано',
+      cancel: 'Скасувати',
       confirm: 'Підтверджую',
-      sure: 'Vi vpevnenі?',
-      nodata: 'Nemaє danih',
-      search: 'Poshuk',
-      search_input: '输入іть текст',
-      search_empty: 'Іstoreія 空洞的笑话。',
-      search_delete: 'Ліворуч - visuality',
-      search_start_typing: 'Pochnіть 输入笑话的文字。',
-      search_searching: 'Go poshuk...',
-      search_start: 'Spoke poshuk',
-      full_genre: '流派',
-      full_production: 'Virobnitstvo',
-      full_date_of_release: 'Rel dateізу',
-      full_budget: '预算',
+      sure: 'Ви впевнені?',
+      nodata: 'Немає даних',
+      search: 'Пошук',
+      search_input: 'Введіть текст',
+      search_empty: 'Історія пошуку порожня.',
+      search_delete: 'Ліворуч - видалити',
+      search_start_typing: 'Почніть вводити текст для пошуку.',
+      search_searching: 'Йде пошук...',
+      search_start: 'Розпочати пошук',
+      full_genre: 'Жанр',
+      full_production: 'Виробництво',
+      full_date_of_release: 'Дата релізу',
+      full_budget: 'Бюджет',
       full_countries: 'Країни',
-      full_like: 'Podobaється',
-      full_torrents: 'Torrenti',
-      full_trailers: '预告片',
-      full_detail: '详细信息',
-      full_notext: '无描述',
+      full_like: 'Подобається',
+      full_torrents: 'Торренти',
+      full_trailers: 'Трейлери',
+      full_detail: 'Детально',
+      full_notext: 'Без опису.',
       full_series_release: 'Вихід серій',
-      full_next_episode: '步进',
-      full_episode_days_left: '逝去的日子ів',
+      full_next_episode: 'Наступна',
+      full_episode_days_left: 'Залишилось днів',
       full_trailer_official: 'Офіційний',
-      full_trailer_no_official: 'Neofіційний',
-      full_season: '季',
+      full_trailer_no_official: 'Неофіційний',
+      full_season: 'Сезон',
       full_episode: 'Епізод',
-      full_directing: '导演',
-      settings_cub_sync: '同步ізація',
-      settings_cub_sync_descr: '同步ізація із сервісом CUB: 同步ізація 你的书签， іstoreії 查看ів, міток 那个时间码ів. 网站: https://cub.watch',
-      settings_cub_account: '帐户',
+      full_directing: 'Режисура',
+      settings_cub_sync: 'Синхронізація',
+      settings_cub_sync_descr: 'Синхронізація із сервісом CUB: синхронізація ваших закладок, історії переглядів, міток та тайм-кодів. Сайт: https://cub.watch',
+      settings_cub_account: 'Акаунт',
       settings_cub_logged_in_as: 'Увійшли як',
-      settings_cub_profile: '教授іль',
-      settings_cub_sync_btn: '同步ізувати',
-      settings_cub_sync_btn_descr: '保存本地і 区域书签іковий 记录 CUB',
-      settings_cub_backup: 'Backup',
-      settings_cub_backup_descr: '保存或保存备份数据',
-      settings_cub_logout: '出区ікового 记录',
-      settings_cub_signin: '授权ія',
-      settings_cub_not_specified: '未指定',
-      settings_cub_password: '密码',
-      settings_cub_status: '状态',
+      settings_cub_profile: 'Профіль',
+      settings_cub_sync_btn: 'Синхронізувати',
+      settings_cub_sync_btn_descr: 'Зберегти локальні закладки в обліковий запис CUB',
+      settings_cub_backup: 'Бекап',
+      settings_cub_backup_descr: 'Зберегти або завантажити бекап даних',
+      settings_cub_logout: 'Вийти з облікового запису',
+      settings_cub_signin: 'Авторизація',
+      settings_cub_not_specified: 'Не вказано',
+      settings_cub_password: 'Пароль',
+      settings_cub_status: 'Статус',
       settings_cub_backup_import: 'Імпорт',
-      settings_cub_backup_export: '导出',
-      settings_input_links: 'Vibrane',
-      settings_interface_type: '增强版ія',
-      settings_interface_size: '调整大小ір інтерфейсу',
-      settings_interface_background: '背景',
-      settings_interface_background_use: '显示背景',
-      settings_interface_background_type: '背景类型',
-      settings_interface_performance: 'Widcodeія',
+      settings_cub_backup_export: 'Експорт',
+      settings_input_links: 'Вибране',
+      settings_interface_type: 'Полегшена версія',
+      settings_interface_size: 'Розмір інтерфейсу',
+      settings_interface_background: 'Фон',
+      settings_interface_background_use: 'Показувати фон',
+      settings_interface_background_type: 'Тип фону',
+      settings_interface_performance: 'Швидкодія',
       settings_interface_animation: 'Анімація',
-      settings_interface_animation_descr: 'Анімація 卡片和内容',
-      settings_interface_attenuation: 'Gasanya',
-      settings_interface_attenuation_descr: '卡片从底部和顶部平滑淡出',
-      settings_interface_scroll: '滚动类型інгу',
-      settings_interface_view_card: '卡片审查类型',
-      settings_interface_view_card_descr: 'У міру скролінгу стрічки 卡片 nідвантажуватимуться 一步一步或 zavantazhuvatimu 太阳і',
-      settings_interface_lang: 'Mova інтерфейсу',
-      settings_interface_lang_reload: '必需ідно 重新加载程序，单击іть "OK" 重新加载。',
-      settings_main_account: '帐户',
+      settings_interface_animation_descr: 'Анімація карток та контенту',
+      settings_interface_attenuation: 'Згасання',
+      settings_interface_attenuation_descr: 'Плавне згасання карток знизу та зверху',
+      settings_interface_scroll: 'Тип скролінгу',
+      settings_interface_view_card: 'Тип перегляду карток',
+      settings_interface_view_card_descr: 'У міру скролінгу стрічки картки підвантажуватимуться поступово або завантажуватимуться всі',
+      settings_interface_lang: 'Мова інтерфейсу',
+      settings_interface_lang_reload: 'Необхідно перезавантажити програму, натисніть "OK" для перезавантаження.',
+      settings_main_account: 'Акаунт',
       settings_main_interface: 'Інтерфейс',
       settings_main_player: 'Плеєр',
-      settings_main_parser: '解析器',
+      settings_main_parser: 'Парсер',
       settings_main_torrserver: 'TorrServer',
-      settings_main_plugins: 'Plugіни',
-      settings_main_rest: 'Rashta',
-      settings_rest_start: 'Pochatkova 商店інка',
-      settings_rest_start_descr: 'Z Yakoї сторінки 修复 pід 开始时间',
-      settings_rest_source: 'Dzherelo',
-      settings_rest_source_use: '主要是 Dzherelo',
-      settings_rest_source_descr: 'Звідки 采取 інформацію about fільми',
-      settings_rest_tmdb_lang: 'Like my vідображати дані з TMDB',
-      settings_rest_tmdb_prox: 'Proxy TMDB',
-      settings_rest_tmdb_posters: 'Sectionільна zdatnість TMDB',
+      settings_main_plugins: 'Плагіни',
+      settings_main_rest: 'Iнше',
+      settings_rest_start: 'Початкова сторінка',
+      settings_rest_start_descr: 'З якої сторінки починати під час запуску',
+      settings_rest_source: 'Джерело',
+      settings_rest_source_use: 'Основне джерело',
+      settings_rest_source_descr: 'Звідки брати інформацію про фільми',
+      settings_rest_tmdb_lang: 'Якою мовою відображати дані з TMDB',
+      settings_rest_tmdb_prox: 'Проксирувати TMDB',
+      settings_rest_tmdb_posters: 'Раздільна здатність TMDB',
       settings_rest_screensaver: 'Скрінсейвер',
-      settings_rest_screensaver_use: '显示深渊屏保іяльності',
-      settings_rest_screensaver_type: '屏保类型',
+      settings_rest_screensaver_use: 'Показувати заставку за бездіяльності',
+      settings_rest_screensaver_type: 'Тип заставки',
       settings_rest_helper: 'Підказки',
-      settings_rest_helper_use: '显示 pідказки',
-      settings_rest_helper_reset: 'show nідказки renew',
-      settings_rest_pages: 'Скільки сторінок zberігати at memory\'яті',
-      settings_rest_pages_descr: 'zberігає сторінки in that campі, 在你所拥有的 їх left',
+      settings_rest_helper_use: 'Показувати підказки',
+      settings_rest_helper_reset: 'Показати підказки знову',
+      settings_rest_pages: 'Скільки сторінок зберігати у пам\'яті',
+      settings_rest_pages_descr: 'Зберігає сторінки в тому стані, в якому ви їх покинули',
       settings_rest_time: 'Змістити час',
-      settings_rest_navigation: '键入navігації',
-      settings_rest_keyboard: '键入clavіатури',
-      settings_rest_device: '我将添加一个名称',
-      settings_rest_device_placeholder: '例如: My Lamp',
-      settings_rest_cache: '清除缓存',
-      settings_rest_cache_descr: '要清除і всі nalashtuvannya ta danі',
-      settings_parser_use: 'Vikoristovuvati 解析器',
-      settings_parser_use_descr: 'Tim 你自己，我们会等待єтесь 全力以赴ідповідальність 为 publ 配音ічних 发送 torrent在线查看内容。',
-      settings_parser_type: 'torrent 的解析器类型ів',
-      settings_parser_jackett_placeholder: '例如: 192.168.х',
-      settings_parser_jackett_link: 'Posilannya',
-      settings_parser_jackett_link_descr: 'Vkazhіть posilannya 为脚本 Jackett',
-      settings_parser_jackett_key_placeholder: '例如: sa0sk83d.',
+      settings_rest_navigation: 'Тип навігації',
+      settings_rest_keyboard: 'Тип клавіатури',
+      settings_rest_device: 'Назва пристрою',
+      settings_rest_device_placeholder: 'Наприклад: Моя Лампа',
+      settings_rest_cache: 'Очистити кеш',
+      settings_rest_cache_descr: 'Будуть очищені всі налаштування та дані',
+      settings_parser_use: 'Використовувати парсер',
+      settings_parser_use_descr: 'Тим самим ви погоджуєтесь взяти на себе всю відповідальність за використання публічних посилань для перегляду торрент та онлайн контенту.',
+      settings_parser_type: 'Тип парсера для торентів',
+      settings_parser_jackett_placeholder: 'Наприклад: 192.168.х',
+      settings_parser_jackett_link: 'Посилання',
+      settings_parser_jackett_link_descr: 'Вкажіть посилання на скрипт Jackett',
+      settings_parser_jackett_key_placeholder: 'Наприклад: sa0sk83d.',
       settings_parser_jackett_key: 'Api ключ',
-      settings_parser_jackett_key_descr: 'Know with Jackett',
-      settings_parser_torlook_type: '解析网站的方法 TorLook',
-      settings_parser_scraperapi_placeholder: '比如: scraperapi.com',
-      settings_parser_scraperapi_link: '发送到解析器站点ів',
-      settings_parser_scraperapi_descr: 'zareєструйтесь 到站点і scraperapi.com, 回车іть 发送 api.scraperapi.com?api_key=...&url={q}<br>У {q} 站点将被传递 w41.torlook.info',
-      settings_parser_search: 'Poshuk',
-      settings_parser_search_descr: 'What my zdійснювати poshuk?',
-      settings_parser_in_search: 'poshuk 的解析器',
-      settings_parser_in_search_descr: '显示 poshuk 的结果?',
-      settings_player_type: 'Type pleєра',
-      settings_player_type_descr: 'Yakim pleєром відтворювати',
-      settings_player_reset: 'Throw off the program for zamovchuvannyam',
-      settings_player_reset_descr: '斯基达є 震动安卓播放єр programі',
-      settings_player_path: 'Way to playєра',
-      settings_player_path_descr: 'Vkazhіть way to program.exe.',
-      settings_player_normalization: 'Normalізація sound',
-      settings_player_normalization_descr: 'Normalізує 声音在一个pівень, lowerє goochnі 听起来像nідвищує тихі.',
-      settings_player_next_episode: 'Step serія',
-      settings_player_next_episode_descr: '自动切换到step serію після закінчення streamingї',
-      settings_player_timecode: 'Timecode',
-      settings_player_timecode_descr: '继续m的其余部分ісця review',
-      settings_player_scale: '缩放方法',
-      settings_player_scale_descr: '如何计算缩放到ідео',
-      settings_player_subs: '字幕',
+      settings_parser_jackett_key_descr: 'Знаходиться у Jackett',
+      settings_parser_torlook_type: 'Метод парсингу сайту TorLook',
+      settings_parser_scraperapi_placeholder: 'Наприклад: scraperapi.com',
+      settings_parser_scraperapi_link: 'Посилання на парсер сайтів',
+      settings_parser_scraperapi_descr: 'Зареєструйтесь на сайті scraperapi.com, введіть посилання api.scraperapi.com?api_key=...&url={q}<br>У {q} буде поставлятися сайт w41.torlook.info',
+      settings_parser_search: 'Пошук',
+      settings_parser_search_descr: 'Якою мовою здійснювати пошук?',
+      settings_parser_in_search: 'Парсер у пошуку',
+      settings_parser_in_search_descr: 'Показувати результати у пошуку?',
+      settings_player_type: 'Тип плеєра',
+      settings_player_type_descr: 'Яким плеєром відтворювати',
+      settings_player_reset: 'Скинути програвач за замовчуванням',
+      settings_player_reset_descr: 'Скидає вибраний Android плеєр у програмі',
+      settings_player_path: 'Шлях до плеєра',
+      settings_player_path_descr: 'Вкажіть шлях до програвача .exe.',
+      settings_player_normalization: 'Нормалізація звуку',
+      settings_player_normalization_descr: 'Нормалізує звук в один рівень, знижує гучні звуки та підвищує тихі.',
+      settings_player_next_episode: 'Наступна серія',
+      settings_player_next_episode_descr: 'Автоматично перемикати на наступну серію після закінчення поточної',
+      settings_player_timecode: 'Тайм-код',
+      settings_player_timecode_descr: 'Продовжити з останнього місця перегляду',
+      settings_player_scale: 'Метод масштабування',
+      settings_player_scale_descr: 'Як проводити обчислення для масштабування відео',
+      settings_player_subs: 'Субтитри',
       settings_player_subs_use: 'Увімкнути',
-      settings_player_subs_use_descr: '开始打开字幕pісля 发射到ідео',
-      settings_player_subs_size: '调整大小ір',
-      settings_player_subs_size_descr: '调整大小ір субтитрів 到屏幕і',
-      settings_player_subs_stroke_use: 'Vikoristovate 边框',
-      settings_player_subs_stroke_use_descr: '字幕将被圈起来і 黑色以提高可读性і',
-      settings_player_subs_backdrop_use: 'Vikoristovyvat pідкладку',
-      settings_player_subs_backdrop_use_descr: '字幕到ідображатимуться 打盹івпрозорій підкладці 提高可读性і',
-      settings_player_quality: 'Якість відео 提高可读性',
-      settings_player_quality_descr: '很重要ість відео 复习',
-      settings_plugins_notice: '修复插件іна 必要ідно 重新配置程序',
-      settings_plugins_add: '添加插件ін',
-      settings_plugins_add_descr: '要查看插件添加ін, 尝试或按іть двічі clavішу (OK) 到新的。',
-      settings_plugins_install: '安装插件ін',
-      settings_plugins_install_descr: '安装插件ін зі 可用列表',
-      settings_server_link: 'Vikoristovuvati posilannya',
-      settings_server_links: 'Posilannya',
-      settings_server_placeholder: '例如: 192.168.х',
-      settings_server_link_one: '主要是 posilannya',
-      settings_server_link_one_descr: 'Vkazhіть 脚本上的主要 posilannya TorrServer',
-      settings_server_link_two: 'Dodatkovo posilannya',
-      settings_server_link_two_descr: 'Vkazhіть 额外发送到脚本 TorrServer',
-      settings_server_additionally: 'Dodatkovo',
-      settings_server_client: 'Vbudovanie clієнт',
-      settings_server_client_descr: 'Vikoristovuvati vbudovaniya JS-clієнт TorrServe, інакше запускається 系统。',
-      settings_server_base: '保存在基地',
-      settings_server_base_descr: 'Torrent将被添加到 bazi TorrServer',
-      settings_server_preload: '检查转发缓冲区',
-      settings_server_preload_descr: '在程序之前检查转发缓冲区到TorrServer',
-      settings_server_auth: '授权ія',
-      settings_server_password_use: 'Вхід 密码',
+      settings_player_subs_use_descr: 'Завжди включати субтитри після запуску відео',
+      settings_player_subs_size: 'Розмір',
+      settings_player_subs_size_descr: 'Розмір субтитрів на екрані',
+      settings_player_subs_stroke_use: 'Використовувати окантовку',
+      settings_player_subs_stroke_use_descr: 'Субтитри будуть обведені чорним кольором для покращення читаності',
+      settings_player_subs_backdrop_use: 'Використовувати підкладку',
+      settings_player_subs_backdrop_use_descr: 'Субтитри відображатимуться на напівпрозорій підкладці для покращення читаності',
+      settings_player_quality: 'Якість відео за замовчуванням',
+      settings_player_quality_descr: 'Переважна якість відео для перегляду',
+      settings_plugins_notice: 'Для застосування плагіна необхідно перезавантажити програму',
+      settings_plugins_add: 'Додати плагін',
+      settings_plugins_add_descr: 'Щоб видалити доданий плагін, утримуйте або натисніть двічі клавішу (OK) на ньому.',
+      settings_plugins_install: 'Встановити плагін',
+      settings_plugins_install_descr: 'Встановити плагін зі списку доступних',
+      settings_server_link: 'Використовувати посилання',
+      settings_server_links: 'Посилання',
+      settings_server_placeholder: 'Наприклад: 192.168.х',
+      settings_server_link_one: 'Основне посилання',
+      settings_server_link_one_descr: 'Вкажіть основне посилання на скрипт TorrServer',
+      settings_server_link_two: 'Додаткове посилання',
+      settings_server_link_two_descr: 'Вкажіть додаткове посилання на скрипт TorrServer',
+      settings_server_additionally: 'Додатково',
+      settings_server_client: 'Вбудований клієнт',
+      settings_server_client_descr: 'Використовувати вбудований JS-клієнт TorrServe, інакше запускається системний.',
+      settings_server_base: 'Зберегти у базу',
+      settings_server_base_descr: 'Торрент буде додано до бази TorrServer',
+      settings_server_preload: 'Використовувати буфер попереднього завантаження',
+      settings_server_preload_descr: 'Чекати на заповнення буфера попереднього завантаження TorrServer перед програванням',
+      settings_server_auth: 'Авторизація',
+      settings_server_password_use: 'Вхід паролем',
       settings_server_login: 'Логін',
-      settings_server_password: '密码',
-      settings_server_not_specified: '未指定',
-      torent_nohash_reasons: '原因',
-      torent_nohash_reason_one: 'TorServer 不要іг zawantage 文件种子',
+      settings_server_password: 'Пароль',
+      settings_server_not_specified: 'Не вказано',
+      torent_nohash_reasons: 'Причини',
+      torent_nohash_reason_one: 'TorServer не зміг завантажити файл торрент',
       torent_nohash_reason_two: 'Відповідь від TorServer',
-      torent_nohash_reason_three: 'Posilannya',
-      torent_nohash_do: 'Shcho robiti?',
-      torent_nohash_do_one: 'Transl.ірте, chi 正确你 nalashtovali Jackett',
-      torent_nohash_do_two: '私人і dzherela 在文件上看不到 possilannya',
-      torent_nohash_do_three: '重新考虑一下，Jackett 也可以抓取文件',
-      torent_nohash_do_four: '写信给我们的电报群: @lampa_group',
-      torent_nohash_do_five: 'Vkazhіть like fільм, like distribution is possibleі photo cієї distributionі',
-      torrent_error_text: 'Not far away nідключитися to TorrServe让我们快速浏览一下可能出现的问题列表 і translіримо all.',
-      torrent_error_step_1: 'Chi 启动 TorrServe',
-      torrent_error_step_2: 'Dynamічна IP-адреса',
-      torrent_error_step_3: '协议和端口',
-      torrent_error_step_4: '防阻塞ірусами',
-      torrent_error_step_5: 'Transl.ірте availableість',
-      torrent_error_step_6: '同样，我不工作є',
-      torrent_error_info_1: '改变主意，TorrServe 正在扩展上运行ї, de inін 插入。',
-      torrent_error_info_2: 'Frequent pardon zmінилася IP-адреса I\'将添加 TorrServe。更改它，scho IP-адреса, yaku 已输入 - {ip}, збігається 我将添加地址，在 yaku 上已安装 TorrServe.',
-      torrent_error_info_3: '对于 nідключення to TorrServe, 你需要ідно 选择协议 http:// на початку та порт :8090 в кінці адреси. Переконайтеся, що після IP-адреси вказано порт, ваша 流地址 - {ip}',
-      torrent_error_info_4: '通常, anti-vірус 或者防火墙可以阻止IP地址后面的访问, 请尝试禁用anti-vірус 那个防火墙。',
-      torrent_error_info_5: '来吧 іншому 附加ї в цій merezhі, відкрийте 到浏览器і 地址 {ip} і 翻译ірте, 可上网-інтерфейс TorrServe.',
-      torrent_error_info_6: 'Yakscho pісля всіх 翻译ірок all one vinikaє pardon nідключення, 尝试重置 TorrServe ta інтернет-адаптер.',
-      torrent_error_info_7: '如果问题不是 virішено, пишіть 在 Telegram 组 @lampa_group 带有文本 (Lampa не підключається 在 TorrServe n 之前ісля всіх 翻译ірок, поточна адреса {ip})',
-      torrent_error_start: 'Rozpochati transірку',
-      torrent_error_nomatrix: 'Impossible nідтвердити versію Matrix',
-      torrent_error_made: 'Viconano',
-      torrent_error_from: 'w',
+      torent_nohash_reason_three: 'Посилання',
+      torent_nohash_do: 'Що робити?',
+      torent_nohash_do_one: 'Перевірте, чи правильно ви налаштували Jackett',
+      torent_nohash_do_two: 'Приватні джерела можуть не видавати посилання на файл',
+      torent_nohash_do_three: 'Переконайтеся, що Jackett теж може завантажити файл',
+      torent_nohash_do_four: 'Написати в нашу телеграму групу: @lampa_group',
+      torent_nohash_do_five: 'Вкажіть який фільм, яка роздача та по можливості фото цієї роздачі',
+      torrent_error_text: 'Не вдалося підключитися до TorrServe. Давайте швидко пройдемося по списку можливих проблем і перевіримо все.',
+      torrent_error_step_1: 'Чи запущений TorrServe',
+      torrent_error_step_2: 'Динамічна IP-адреса',
+      torrent_error_step_3: 'Протокол та порт',
+      torrent_error_step_4: 'Блокування антивірусами',
+      torrent_error_step_5: 'Перевірте доступність',
+      torrent_error_step_6: 'Все одно не працює',
+      torrent_error_info_1: 'Переконайтеся, що TorrServe запущено на пристрої, де він встановлений.',
+      torrent_error_info_2: 'Часта помилка змінилася IP-адреса пристрою з TorrServe. Переконайтеся, що IP-адреса, яку ви ввели - {ip}, збігається з адресою пристрою, на якому встановлено TorrServe.',
+      torrent_error_info_3: 'Для підключення до TorrServe необхідно вказати протокол http:// на початку та порт :8090 в кінці адреси. Переконайтеся, що після IP-адреси вказано порт, ваша поточна адреса - {ip}',
+      torrent_error_info_4: 'Часте явище, антивірус або брандмауер може блокувати доступ за IP-адресою, спробуйте вимкнути антивірус та брандмауер.',
+      torrent_error_info_5: 'На будь-якому іншому пристрої в цій мережі, відкрийте в браузері адресу {ip} і перевірте, чи доступний веб-інтерфейс TorrServe.',
+      torrent_error_info_6: 'Якщо після всіх перевірок все одно виникає помилка підключення, спробуйте перезавантажити TorrServe та інтернет-адаптер.',
+      torrent_error_info_7: 'Якщо проблему не вирішено, пишіть у Telegram-групу @lampa_group з текстом (Lampa не підключається до TorrServe після всіх перевірок, поточна адреса {ip})',
+      torrent_error_start: 'Розпочати перевірку',
+      torrent_error_nomatrix: 'Неможливо підтвердити версію Matrix',
+      torrent_error_made: 'Виконано',
+      torrent_error_from: 'з',
       torrent_error_next: 'Далі',
-      torrent_error_complite: '完整',
-      torrent_error_connect: 'Pardon nідключення',
-      torrent_install_need: '必需ідний TorrServe',
-      torrent_install_text: 'TorrServe – 附录，一种许可є 查看torrent文件中的内容ів 在线і.',
+      torrent_error_complite: 'Завершити',
+      torrent_error_connect: 'Помилка підключення',
+      torrent_install_need: 'Необхідний TorrServe',
+      torrent_install_text: 'TorrServe – додаток, який дозволяє переглядати контент з торрент-файлів в онлайн режимі.',
       torrent_install_contact: 'Telegram-групи',
       torrent_item_bitrate: 'Бітрейт',
-      torrent_item_seeds: '分发',
-      torrent_item_grabs: '下载',
+      torrent_item_seeds: 'Роздають',
+      torrent_item_grabs: 'Качають',
       torrent_item_mb: 'Мбіт/с',
       torrent_serial_episode: 'Серія',
-      torrent_serial_season: '中看到"季',
+      torrent_serial_season: 'Сезон',
       torrent_serial_date: 'Вихід',
-      torrent_get_magnet: '我将填写磁铁消息',
-      torrent_remove_title: 'viluciti',
-      torrent_remove_descr: 'Torrent 将从і 列表',
-      torrent_parser_any_one: 'Be-like',
-      torrent_parser_any_two: 'Be-like',
-      torrent_parser_no_choice: '未选中',
-      torrent_parser_yes: '所以',
+      torrent_get_magnet: 'Запитую magnet посилання',
+      torrent_remove_title: 'вилучити',
+      torrent_remove_descr: 'Торрент буде видалено зі списку',
+      torrent_parser_any_one: 'Будь-яке',
+      torrent_parser_any_two: 'Будь-який',
+      torrent_parser_no_choice: 'Не вибрано',
+      torrent_parser_yes: 'Так',
       torrent_parser_no: 'Ні',
       torrent_parser_quality: 'Якість',
-      torrent_parser_subs: '字幕',
-      torrent_parser_voice: '翻译',
-      torrent_parser_tracker: 'Tracker',
+      torrent_parser_subs: 'Субтитри',
+      torrent_parser_voice: 'Переклад',
+      torrent_parser_tracker: 'Трекер',
       torrent_parser_year: 'Рік',
-      torrent_parser_season: '季',
-      torrent_parser_sort_by_seeders: '按种子数',
-      torrent_parser_sort_by_size: '按 rozmіру',
-      torrent_parser_sort_by_name: '对于名称',
-      torrent_parser_sort_by_tracker: '对于 gerel',
-      torrent_parser_sort_by_date: '按日期і',
-      torrent_parser_sort_by_viewed: '对于一目了然',
-      torrent_parser_voice_dubbing: '配音',
-      torrent_parser_voice_polyphonic: '重声',
-      torrent_parser_voice_two: '双声',
-      torrent_parser_voice_amateur: 'Amatorsky',
-      torrent_parser_reset: '扔掉fільтр',
-      torrent_parser_empty: '别走太远，拿结果ів',
-      torrent_parser_no_hash: '拿不出来 HASH',
-      torrent_parser_added_to_mytorrents: '补充到 «Моїх торрентів»',
-      torrent_parser_add_to_mytorrents: '添加到 «Моїх torrentів»',
-      torrent_parser_label_title: '指定',
-      torrent_parser_label_descr: '指定带有少尉的分布 (看着)',
-      torrent_parser_label_cancel_title: '带徽章',
-      torrent_parser_label_cancel_descr: '吸收ідмітку 来自分布і (看过)',
-      torrent_parser_timeout: 'Hour ochікування 通过',
-      torrent_parser_nofiles: '不要迷路ідповідні 文件',
-      torrent_parser_set_link: 'Vkazhіть 发送解析',
-      torrent_parser_request_error: '请原谅 zapitі',
-      torrent_parser_magnet_error: '我没有走远，无法发送磁铁',
-      about_text: '附录 povnістю bezkoshtovny і 给 vikoristovє 公众ічні 发送订单 інформації 大约在ідео, 新奇，流行і фільми і 等一切可用 інформація vikoristovється 包罗万象ізнавальною metoyu，补充不vikoristovє свої vlasnі 用于扩展的服务器 інформації.',
-      about_channel: '我们的频道',
-      about_group: '组',
-      about_version: 'Versія',
-      about_donate: 'Donat',
-      title_watched: '你惊叹',
-      title_settings: 'Nalashtuvannya',
+      torrent_parser_season: 'Сезон',
+      torrent_parser_sort_by_seeders: 'По роздаючих',
+      torrent_parser_sort_by_size: 'По розміру',
+      torrent_parser_sort_by_name: 'За назвою',
+      torrent_parser_sort_by_tracker: 'За джерелом',
+      torrent_parser_sort_by_date: 'По даті',
+      torrent_parser_sort_by_viewed: 'За переглянутими',
+      torrent_parser_voice_dubbing: 'Дубляж',
+      torrent_parser_voice_polyphonic: 'Багатоголосий',
+      torrent_parser_voice_two: 'Двоголосий',
+      torrent_parser_voice_amateur: 'Аматорський',
+      torrent_parser_reset: 'Скинути фільтр',
+      torrent_parser_empty: 'Не вдалося отримати результатів',
+      torrent_parser_no_hash: 'Неможливо отримати HASH',
+      torrent_parser_added_to_mytorrents: 'додано до «Моїх торрентів»',
+      torrent_parser_add_to_mytorrents: 'Додати до «Моїх торентів»',
+      torrent_parser_label_title: 'Позначити',
+      torrent_parser_label_descr: 'Позначити роздачу з прапором (переглянуто)',
+      torrent_parser_label_cancel_title: 'Зняти позначку',
+      torrent_parser_label_cancel_descr: 'Зняти відмітку з роздачі (переглянуто)',
+      torrent_parser_timeout: 'Час очікування минув',
+      torrent_parser_nofiles: 'Не вдалося вилучити відповідні файли',
+      torrent_parser_set_link: 'Вкажіть посилання для парсингу',
+      torrent_parser_request_error: 'Помилка у запиті',
+      torrent_parser_magnet_error: 'Не вдалося отримати magnet посилання',
+      about_text: 'Додаток повністю безкоштовний і використовує публічні посилання для отримання інформації про відео, новинки, популярні фільми і т.д. Вся доступна інформація використовується виключно з пізнавальною метою, додаток не використовує свої власні сервери для поширення інформації.',
+      about_channel: 'Наш канал',
+      about_group: 'Група',
+      about_version: 'Версія',
+      about_donate: 'Донат',
+      title_watched: 'Ви дивилися',
+      title_settings: 'Налаштування',
       title_collections: 'Добірки',
       title_collections_ivi: 'Добірки на ivi',
       title_collections_okko: 'Добірки на okko',
       title_company: 'Компанія',
-      title_actors: 'Actori',
-      title_actor: 'Actor',
-      title_actress: '女演员',
-      title_person: '人',
-      title_comments: '评论і',
-      title_torrents: '托伦蒂',
-      title_trailers: '预告片',
-      title_watch: '漫威',
-      title_error: '原谅',
-      title_links: '波西兰娜',
-      title_choice: '颤音',
-      title_main: 'Golovna',
-      title_book: '书签',
-      title_like: 'Podobaється',
+      title_actors: 'Актори',
+      title_actor: 'Актор',
+      title_actress: 'Актриса',
+      title_person: 'Персона',
+      title_comments: 'Коментарі',
+      title_torrents: 'Торренти',
+      title_trailers: 'Трейлери',
+      title_watch: 'Дивитись',
+      title_error: 'Помилка',
+      title_links: 'Посилання',
+      title_choice: 'Вибрати',
+      title_main: 'Головна',
+      title_book: 'Закладки',
+      title_like: 'Подобається',
       title_wath: 'Пізніше',
-      title_history: 'Історія revisitів',
-      title_mytorrents: 'Мої torenti',
-      title_last: 'Stay',
+      title_history: 'Історія переглядів',
+      title_mytorrents: 'Мої торенти',
+      title_last: 'Остання',
       title_action: 'Дія',
-      title_producer: 'Director',
-      title_collection: 'Kolektsія',
-      title_recomendations: '建议ії',
+      title_producer: 'Режисер',
+      title_collection: 'Колекція',
+      title_recomendations: 'Рекомендації',
       title_similar: 'Подібні',
-      title_about: '关于附录',
-      title_timetable: '分发',
-      title_relises: '数字і релізи',
-      title_catalog: '目录',
+      title_about: 'Про додаток',
+      title_timetable: 'Розклад',
+      title_relises: 'Цифрові релізи',
+      title_catalog: 'Каталог',
       title_category: 'Категорія',
-      title_parser: '解析器',
-      title_type: '类型',
-      title_rating: '评级',
+      title_parser: 'Парсер',
+      title_type: 'Тип',
+      title_rating: 'Рейтинг',
       title_country: 'Країна',
       title_year: 'Рік',
-      title_genre: '流派',
+      title_genre: 'Жанр',
       title_filter: 'Фільтр',
       title_notice: 'Повідомлення',
-      title_files: 'Filey',
-      title_now_watch: '传染性',
-      title_latest: '停止є 添加',
-      title_continue: '重温',
-      title_recomend_watch: '推荐ємо 奇迹',
+      title_files: 'Файли',
+      title_now_watch: 'Зараз дивляться',
+      title_latest: 'Останнє додавання',
+      title_continue: 'Продовжити перегляд',
+      title_recomend_watch: 'Рекомендуємо подивитись',
       title_new_episodes: 'Нові серії',
-      title_popular: '流行',
-      title_popular_movie: '流行і фільми',
-      title_popular_tv: '流行і серіали',
-      title_new_this_year: '新功能',
-      title_hight_voite: '高度评价',
-      title_new: '新功能',
-      title_trend_day: '今天і 趋势і',
-      title_trend_week: 'U 趋势і for tizhn',
+      title_popular: 'Популярне',
+      title_popular_movie: 'Популярні фільми',
+      title_popular_tv: 'Популярні серіали',
+      title_new_this_year: 'Новинки цього року',
+      title_hight_voite: 'З високим рейтингом',
+      title_new: 'Новинки',
+      title_trend_day: 'Сьогодні у тренді',
+      title_trend_week: 'У тренді за тиждень',
       title_upcoming: 'Дивіться у кінозалах',
-      title_top_movie: 'Top fільми',
-      title_top_tv: 'Top serіали',
-      title_tv_today: 'Todayі in efірі',
-      title_this_week: 'On tsimu tizhnі',
-      title_in_top: 'U topі',
+      title_top_movie: 'Топ фільми',
+      title_top_tv: 'Топ серіали',
+      title_tv_today: 'Сьогодні в ефірі',
+      title_this_week: 'На цьому тижні',
+      title_in_top: 'У топі',
       title_out: 'Вихід',
-      title_out_confirm: '所以，访问',
-      title_continue_two: 'Prodovzhity',
-      company_headquarters: '总部',
-      company_homepage: '网站',
+      title_out_confirm: 'Так, вийти',
+      title_continue_two: 'Продовжити',
+      company_headquarters: 'Штаб',
+      company_homepage: 'Сайт',
       company_country: 'Країна',
-      filter_clarify: '指定',
-      filter_clarify_two: '指定搜索',
-      filter_set_name: '指定名称',
-      filter_sorted: 'Sortuvati',
+      filter_clarify: 'Уточнити',
+      filter_clarify_two: 'Уточнити пошук',
+      filter_set_name: 'Вказати назву',
+      filter_sorted: 'Сортувати',
       filter_filtred: 'Фільтр',
-      filter_any: '是吧',
+      filter_any: 'Будь-який',
       filter_rating_from: 'від',
-      filter_rating_to: 'to',
-      filter_country_uk: '乌克兰їна',
-      filter_country_en: 'US',
+      filter_rating_to: 'до',
+      filter_country_uk: 'Україна',
+      filter_country_en: 'США',
       filter_country_ru: 'Росія',
-      filter_country_ja: '日本ія',
-      filter_country_ko: '韩国',
-      filter_country_az: '阿塞拜疆',
-      filter_country_sq: '阿尔班ія',
+      filter_country_ja: 'Японія',
+      filter_country_ko: 'Корея',
+      filter_country_az: 'Азербайджан',
+      filter_country_sq: 'Албанія',
       filter_country_be: 'Білорусь',
-      filter_country_bg: '保加利亚语ія',
+      filter_country_bg: 'Болгарія',
       filter_country_de: 'Німеччина',
-      filter_country_ka: '货运ія',
+      filter_country_ka: 'Грузія',
       filter_country_da: 'Данія',
-      filter_country_et: '爱斯顿ія',
+      filter_country_et: 'Естонія',
       filter_country_ga: 'Ірландія',
       filter_country_es: 'Іспанія',
       filter_country_it: 'Італія',
-      filter_country_zh: '中国',
-      filter_country_lv: '拉脱维亚ія',
-      filter_country_ne: '尼泊尔',
-      filter_country_no: '挪威ія',
-      filter_country_pl: '波兰',
-      filter_country_ro: '鲁蒙ія',
-      filter_country_sr: '塞尔维亚语ія',
-      filter_country_sk: '斯洛伐克语',
-      filter_country_sl: '斯​​洛文尼亚语ія',
-      filter_country_tg: '塔吉克斯坦',
-      filter_country_tr: 'Turechchina',
-      filter_country_uz: '乌兹别克斯坦',
+      filter_country_zh: 'Китай',
+      filter_country_lv: 'Латвія',
+      filter_country_ne: 'Непал',
+      filter_country_no: 'Норвегія',
+      filter_country_pl: 'Польща',
+      filter_country_ro: 'Румунія',
+      filter_country_sr: 'Сербія',
+      filter_country_sk: 'Словаччина',
+      filter_country_sl: 'Словенія',
+      filter_country_tg: 'Таджикистан',
+      filter_country_tr: 'Туреччина',
+      filter_country_uz: 'Узбекистан',
       filter_country_fi: 'Фінляндія',
-      filter_country_fr: '弗朗茨ія',
-      filter_country_hr: '克罗地亚语ія',
-      filter_country_cs: '捷克共和国іка',
-      filter_country_sv: 'Shvetsія',
-      filter_genre_ac: '动作',
-      filter_genre_ad: '来',
-      filter_genre_mv: '卡通ільм',
-      filter_genre_cm: '喜剧ія',
-      filter_genre_cr: '奶油інал',
-      filter_genre_dc: '纪录片',
-      filter_genre_dr: '戏剧',
+      filter_country_fr: 'Франція',
+      filter_country_hr: 'Хорватія',
+      filter_country_cs: 'Чеська Республіка',
+      filter_country_sv: 'Швеція',
+      filter_genre_ac: 'Бойовик',
+      filter_genre_ad: 'Пригоди',
+      filter_genre_mv: 'Мультфільм',
+      filter_genre_cm: 'Комедія',
+      filter_genre_cr: 'Кримінал',
+      filter_genre_dc: 'Документальний',
+      filter_genre_dr: 'Драма',
       filter_genre_fm: 'Сімейний',
-      filter_genre_fe: '奇幻і',
+      filter_genre_fe: 'Фентезі',
       filter_genre_hi: 'Історія',
-      filter_genre_ho: '贾希',
-      filter_genre_mu: '音乐',
-      filter_genre_de: '侦探',
-      filter_genre_md: '情节剧',
-      filter_genre_fa: '奇幻',
-      filter_genre_tv: '电视ізійний фільм',
-      filter_genre_tr: '惊悚片',
+      filter_genre_ho: 'Жахи',
+      filter_genre_mu: 'Музика',
+      filter_genre_de: 'Детектив',
+      filter_genre_md: 'Мелодрама',
+      filter_genre_fa: 'Фантастика',
+      filter_genre_tv: 'Телевізійний фільм',
+      filter_genre_tr: 'Трилер',
       filter_genre_mi: 'Військовий',
-      filter_genre_ve: '西部',
-      filter_genre_aa: '行动与来',
-      filter_genre_ch: '幼稚',
-      filter_genre_nw: '诺维尼',
-      filter_genre_rs: '真实іті шоу',
-      filter_genre_hf: 'NF 和 Fentezі',
-      filter_genre_op: 'Milna Opera',
-      filter_genre_tc: '脱口秀',
-      filter_genre_mp: 'Війна ta Paulітика',
-      ivi_premieres: 'Prem\'єри фільмів',
-      ivi_best: 'Naikrashі фільми',
-      ivi_popular: '现在流行',
+      filter_genre_ve: 'Вестерн',
+      filter_genre_aa: 'Бойовик та Пригоди',
+      filter_genre_ch: 'Дитячий',
+      filter_genre_nw: 'Новини',
+      filter_genre_rs: 'Реаліті шоу',
+      filter_genre_hf: 'НФ та Фентезі',
+      filter_genre_op: 'Мильна опера',
+      filter_genre_tc: 'Ток шоу',
+      filter_genre_mp: 'Війна та Політика',
+      ivi_premieres: 'Прем\'єри фільмів',
+      ivi_best: 'Найкращі фільми',
+      ivi_popular: 'Популярне зараз',
       ivi_choice: 'Вибір ivi',
-      ivi_new: '新',
-      ivi_foreign: 'Zakordonnі',
+      ivi_new: 'Новинки',
+      ivi_foreign: 'Закордонні',
       ivi_ru: 'Російські',
-      ivi_recomend: '推荐ємо 你回头看',
-      ivi_for_famaly: '太阳卡通ієї Rodini',
-      ivi_triller: 'Trileri-zhakhi',
-      ivi_advance: 'Prygodnitskі 喜剧ії',
-      ivi_detective: 'Screenізації 侦探ів',
-      ivi_crime_comedy: 'Krimінальні 来了ії',
-      ivi_romantic: '浪漫і AMD',
-      ivi_crime_dramas: '奶油інальні AMD',
-      ivi_fantastic_dramas: '神奇і AMD',
-      ivi_military_dramas: 'Військові AMD',
+      ivi_recomend: 'Рекомендуємо вам переглянути',
+      ivi_for_famaly: 'Мультики для всієї родини',
+      ivi_triller: 'Трилери-жахи',
+      ivi_advance: 'Пригодницькі комедії',
+      ivi_detective: 'Екранізації детективів',
+      ivi_crime_comedy: 'Кримінальні комедії',
+      ivi_romantic: 'Романтичні драми',
+      ivi_crime_dramas: 'Кримінальні драми',
+      ivi_fantastic_dramas: 'Фантастичні драми',
+      ivi_military_dramas: 'Військові драми',
       ivi_mistic: 'Містичні фільми',
-      ivi_foreign_series: '扎鲁布іжні серіали',
+      ivi_foreign_series: 'Зарубіжні серіали',
       ivi_historical_series: 'Історичні серіали',
-      okko_top_new: '顶级新奇',
-      okko_comedy_horror: '喜剧ійні фільми жахів',
-      okko_collection_maniacs: 'Фільми 职业人іяків',
-      okko_witches: 'Фільми 职业人ідьом',
-      okko_zombies: 'Фільми 关于僵尸і',
+      okko_top_new: 'Топ-новинки',
+      okko_comedy_horror: 'Комедійні фільми жахів',
+      okko_collection_maniacs: 'Фільми про маніяків',
+      okko_witches: 'Фільми про відьом',
+      okko_zombies: 'Фільми про зомбі',
       okko_ru: 'Російські',
-      okko_horror_serial: '杜哲吓人і',
-      okko_serial_killers: '职业人іяків',
-      okko_humor_serial: '带黑色幽默',
-      okko_legkiye_serialy: '轻松і',
-      okko_comedy_serial: '喜剧ійні',
+      okko_horror_serial: 'Дуже страшні',
+      okko_serial_killers: 'Про маніяків',
+      okko_humor_serial: 'З чорним гумором',
+      okko_legkiye_serialy: 'Легкі',
+      okko_comedy_serial: 'Комедійні',
       okko_ru_tv: 'Російські',
-      empty_title: '空',
-      empty_text: '为了你的fільтром нічого 不知道，澄清іть фільтр.',
-      empty_title_two: '这里空',
-      empty_text_two: '此刻列表为空ій',
-      menu_main: '首页',
+      empty_title: 'Пусто',
+      empty_text: 'За вашим фільтром нічого не знайшлося, уточніть фільтр.',
+      empty_title_two: 'Тут порожньо',
+      empty_text_two: 'На даний момент список порожній',
+      menu_main: 'Головна',
       menu_movies: 'Фільми',
       menu_tv: 'Серіали',
-      menu_catalog: '目录',
+      menu_catalog: 'Каталог',
       menu_filter: 'Фільтр',
       menu_collections: 'Добірки',
       menu_relises: 'Релізи',
       menu_anime: 'Аніме',
-      menu_bookmark: '书签',
-      menu_like: 'Podobaється',
+      menu_bookmark: 'Закладки',
+      menu_like: 'Подобається',
       menu_time: 'Пізніше',
       menu_history: 'Історія',
-      menu_timeline: 'Rozklad',
-      menu_torrents: 'Torrenti',
-      menu_settings: 'Nalashtuvannya',
+      menu_timeline: 'Розклад',
+      menu_torrents: 'Торренти',
+      menu_settings: 'Налаштування',
       menu_about: 'Інформація',
-      menu_console: '控制台',
-      menu_multmovie: 'Multfільми',
-      menu_multtv: 'Multserіали',
-      plugins_catalog_work: 'Robochі plugіни',
-      plugins_catalog_work_descr: 'Plugіни, які 只在灯具上工作і.',
-      plugins_catalog_popular: 'Popularі plugіни mid-coristuvachів',
-      plugins_catalog_popular_descr: 'Installed z nevідомих dzherel 会被错误调用ї 机器人程序.',
-      plugins_online: 'Pereyad online',
-      plugins_check_fail: '离翻译不远ірити pratsezdatnість 插头іна. 但是є, 不代表插件ін 不工作є. 重新安装程序为s\'我，chi，zavantageється plugін.',
-      plugins_need_reload: '要安装插件іна 你需要ідно 重新加载程序',
-      plugins_install: '安装',
-      plugins_install_ready: 'Tsey 插件ін 已安装。',
-      plugins_installed: '安装',
-      plugins_load_from: '已安装 із CUB',
-      plugins_ok_for_check: 'Natisnіть (OK), schob translірити 插件ін',
-      plugins_no_loaded: '当zawantazhennі 程序部分插件інів 不是zavanazhity',
-      time_viewed: '看过去',
-      time_from: 'z',
-      time_reset: '扔时间码',
-      settings_clear_cache: '给缓存і 清除і',
-      settings_user_links: 'Koristuvalnitske posilannya',
-      settings_for_local: 'For local TorrServer',
-      settings_add: 'Add',
-      settings_remove: 'Viluciti',
-      settings_this_value: '更准确地说',
-      settings_added: 'Dodano',
-      settings_removed: 'Vilucheno',
-      settings_param_player_inner: 'Vbudovany',
-      settings_param_player_outside: '调用ішній',
-      settings_param_yes: 'So',
+      menu_console: 'Консоль',
+      menu_multmovie: 'Мультфільми',
+      menu_multtv: 'Мультсеріали',
+      plugins_catalog_work: 'Робочі плагіни',
+      plugins_catalog_work_descr: 'Плагіни, які точно працюють у лампі.',
+      plugins_catalog_popular: 'Популярні плагіни серед користувачів',
+      plugins_catalog_popular_descr: 'Встановлення з невідомих джерел може призвести до некоректної роботи програми.',
+      plugins_online: 'Перегляд онлайн',
+      plugins_check_fail: 'Не вдалося перевірити працездатність плагіна. Однак це не означає, що плагін не працює. Перезавантажте програму для з\'ясування, чи завантажується плагін.',
+      plugins_need_reload: 'Для застосування плагіна необхідно перезавантажити програму',
+      plugins_install: 'Встановити',
+      plugins_install_ready: 'Цей плагін вже встановлено.',
+      plugins_installed: 'Установок',
+      plugins_load_from: 'Завантажено із CUB',
+      plugins_ok_for_check: 'Натисніть (OK), щоб перевірити плагін',
+      plugins_no_loaded: 'При завантаженні програми частина плагінів не вдалося завантажити',
+      time_viewed: 'Переглянуто',
+      time_from: 'з',
+      time_reset: 'Скинути тайм-код',
+      settings_clear_cache: 'Кеш та дані очищені',
+      settings_user_links: 'Користувальницьке посилання',
+      settings_for_local: 'Для локального TorrServer',
+      settings_add: 'Додати',
+      settings_remove: 'Вилучити',
+      settings_this_value: 'поточне значення',
+      settings_added: 'Додано',
+      settings_removed: 'Вилучено',
+      settings_param_player_inner: 'Вбудований',
+      settings_param_player_outside: 'Зовнішній',
+      settings_param_yes: 'Так',
       settings_param_no: 'Ні',
-      settings_param_interface_size_small: 'Menshe',
-      settings_param_interface_size_normal: '正常',
-      settings_param_poster_quality_low: '低',
-      settings_param_poster_quality_average: '中є',
-      settings_param_poster_quality_high: '高',
-      settings_param_parse_directly: '无中',
-      settings_param_parse_api: '通过 API 站点',
-      settings_param_background_complex: '可折叠',
-      settings_param_background_simple: '简单',
-      settings_param_background_image: '图片',
-      settings_param_link_use_one: '基本',
-      settings_param_link_use_two: 'Dodatkov',
-      settings_param_subtitles_size_small: '小і',
-      settings_param_subtitles_size_normal: 'Zvichinі',
-      settings_param_subtitles_size_bigger: '大і',
-      settings_param_screensaver_nature: '自然',
-      settings_param_lang_ru: '俄语',
-      settings_param_lang_uk: 'Ukrїнська',
+      settings_param_interface_size_small: 'Менше',
+      settings_param_interface_size_normal: 'Нормальний',
+      settings_param_poster_quality_low: 'Низьке',
+      settings_param_poster_quality_average: 'Середнє',
+      settings_param_poster_quality_high: 'Висока',
+      settings_param_parse_directly: 'Безпосередньо',
+      settings_param_parse_api: 'Через API сайту',
+      settings_param_background_complex: 'Складний',
+      settings_param_background_simple: 'Простий',
+      settings_param_background_image: 'Картинка',
+      settings_param_link_use_one: 'Основну',
+      settings_param_link_use_two: 'Додаткову',
+      settings_param_subtitles_size_small: 'Маленькі',
+      settings_param_subtitles_size_normal: 'Звичайні',
+      settings_param_subtitles_size_bigger: 'Великі',
+      settings_param_screensaver_nature: 'Природа',
+      settings_param_lang_ru: 'Русский',
+      settings_param_lang_zh: '简体中文',
+      settings_param_lang_uk: 'Українська',
       settings_param_lang_en: 'English',
-      settings_param_torrent_lang_orig: 'Origінал',
-      settings_param_torrent_lang_ru: '俄语',
-      settings_param_player_timecode_again: '重新开始',
-      settings_param_player_timecode_continue: 'Prodovzhiti',
-      settings_param_player_timecode_ask: 'Zapituvati',
-      settings_param_player_scale_method: '打开',
+      settings_param_torrent_lang_orig: 'Оригінал',
+      settings_param_torrent_lang_ru: 'Русский',
+      settings_param_player_timecode_again: 'Почати спочатку',
+      settings_param_player_timecode_continue: 'Продовжити',
+      settings_param_player_timecode_ask: 'Запитувати',
+      settings_param_player_scale_method: 'Розрахувати',
       settings_param_card_view_load: 'Підвантажувати',
-      settings_param_card_view_all: '全部显示',
-      settings_param_navigation_remote: '遥控器',
-      settings_param_navigation_mouse: '泰迪熊遥控器',
-      settings_param_keyboard_lampa: '布多瓦纳',
-      settings_param_keyboard_system: '系统',
-      helper_keyboard: 'Після 点击输入іть кнопку «返回», 要保存',
-      helper_torrents: '修剪键盘ішу (OK), 提示上下文菜单',
-      helper_cleared: 'Успішно підказки 将显示і 再次。',
-      helper_torrents_view: '要删除时间码和快速单击菜单，修剪 (OK).',
-      fav_sync_title: '同步ізація 书签',
-      fav_sync_text: '你想要吗，你的ї 恋爱і 太阳上的书签іх твоїх 附件? <br><br>Zareєструйся 到网站і www.cub.watch, 创建教授іль 登录进入灯具і.',
-      fav_sync_site: '站点',
-      fav_remove_title: '活力 s історії',
-      fav_remove_descr: '查看活力ілену 卡片',
-      fav_clear_title: '清除 історію',
-      fav_clear_descr: '活力太阳і 卡片 s історії',
-      fav_clear_label_title: '清除 mітки',
-      fav_clear_label_descr: '清除mітки pro look',
-      fav_clear_time_title: '清除时间码',
-      fav_clear_time_descr: '晴天і 时间码',
-      fav_label_cleared: 'Відмітки 清除і',
-      fav_time_cleared: '清除时间码і',
-      timetable_empty: '吴乔木ілі відображатимуться give a new serій',
+      settings_param_card_view_all: 'Показати все',
+      settings_param_navigation_remote: 'Пульт',
+      settings_param_navigation_mouse: 'Пульт з мишкою',
+      settings_param_keyboard_lampa: 'Вбудована',
+      settings_param_keyboard_system: 'Системна',
+      helper_keyboard: 'Після введення значення натисніть кнопку «Назад», щоб зберегти',
+      helper_torrents: 'Утримуйте клавішу (OK), щоб викликати контекстне меню',
+      helper_cleared: 'Успішно підказки будуть показані заново.',
+      helper_torrents_view: 'Щоб скинути тайм-код та виклик меню, утримуйте (OK).',
+      fav_sync_title: 'Синхронізація закладок',
+      fav_sync_text: 'Хочеш, щоб твої улюблені закладки були на всіх твоїх пристроях? <br><br>Зареєструйся на сайті www.cub.watch, створи профіль та авторизуйся в лампі.',
+      fav_sync_site: 'Сайт',
+      fav_remove_title: 'Видалити з історії',
+      fav_remove_descr: 'Видалити виділену картку',
+      fav_clear_title: 'Очистити історію',
+      fav_clear_descr: 'Видалити всі картки з історії',
+      fav_clear_label_title: 'Очистити мітки',
+      fav_clear_label_descr: 'Очистити мітки про перегляд',
+      fav_clear_time_title: 'Очистити тайм-коди',
+      fav_clear_time_descr: 'Очистити всі тайм-коди',
+      fav_label_cleared: 'Відмітки очищені',
+      fav_time_cleared: 'Тайм-коди очищені',
+      timetable_empty: 'У цьому розділі відображатимуться дати виходу нових серій',
       player_quality: 'Якість',
       player_tracks: 'Аудіодоріжки',
-      player_disabled: 'Vimkneno',
+      player_disabled: 'Вимкнено',
       player_unknown: 'Невідомо',
-      player_subs: 'Subtitles',
-      player_size_default_title: 'For the lock',
-      player_size_default_descr: 'Rozmір відео for the lock',
-      player_size_cover_title: 'Expand',
-      player_size_cover_descr: 'Expandє відео 全屏',
-      player_size_fill_title: '备份',
-      player_size_fill_descr: 'Помістити відео 全屏',
+      player_subs: 'Субтитри',
+      player_size_default_title: 'За замовчуванням',
+      player_size_default_descr: 'Розмір відео за замовчуванням',
+      player_size_cover_title: 'Розширити',
+      player_size_cover_descr: 'Розширює відео на весь екран',
+      player_size_fill_title: 'Заповнити',
+      player_size_fill_descr: 'Помістити відео на весь екран',
       player_size_115_title: 'Збільшити 115%',
       player_size_115_descr: 'Збільшити відео на 115%',
       player_size_130_title: 'Збільшити 130%',
       player_size_130_descr: 'Збільшити відео на 130%',
-      player_size_v115_title: '垂直і 115%',
+      player_size_v115_title: 'По вертикалі 115%',
       player_size_v115_descr: 'Збільшити відео на 115%',
-      player_size_v130_title: '垂直і 130%',
+      player_size_v130_title: 'По вертикалі 130%',
       player_size_v130_descr: 'Збільшити відео на 130%',
-      player_video_size: 'Rozmір відео',
-      player_playlist: '播放列表',
-      player_error_one: '不解码ідео',
-      player_error_two: 'Відео 未找到或 poshkodzhenno',
-      player_start_from: 'Prodovzhiti poglyadz',
-      player_not_found: 'Плеєр 未找到',
-      player_lauch: '播放游戏єр',
-      broadcast_open: 'Відкрити 卡 іншому 扩展ї',
-      broadcast_play: 'Viberіть 扩展ій, 惊叹什么',
-      card_new_episode: 'Nova s​​erія',
-      card_book_remove: '清理 із закладок',
-      card_book_add: '书签',
-      card_book_descr: 'Дивіться 菜单 (Закладки)',
-      card_like_remove: '清理喜欢',
-      card_like_add: '类似ється',
-      card_like_descr: 'Дивіться 在菜单中 (类似ється)',
-      card_wath_remove: '清理 ptікуваних',
-      card_wath_add: 'Divitisya pізніше',
+      player_video_size: 'Розмір відео',
+      player_playlist: 'Плейлист',
+      player_error_one: 'Не вдалося декодувати відео',
+      player_error_two: 'Відео не знайдено або пошкоджено',
+      player_start_from: 'Продовжити перегляд з',
+      player_not_found: 'Плеєр не знайдено',
+      player_lauch: 'Запустити плеєр',
+      broadcast_open: 'Відкрити картку на іншому пристрої',
+      broadcast_play: 'Виберіть пристрій, на якому дивитися',
+      card_new_episode: 'Нова серія',
+      card_book_remove: 'Прибрати із закладок',
+      card_book_add: 'В закладки',
+      card_book_descr: 'Дивіться у меню (Закладки)',
+      card_like_remove: 'Прибрати з уподобаних',
+      card_like_add: 'Подобається',
+      card_like_descr: 'Дивіться у меню (Подобається)',
+      card_wath_remove: 'Прибрати з очікуваних',
+      card_wath_add: 'Дивитися пізніше',
       card_wath_descr: 'Дивіться в меню (Пізніше)',
-      card_history_remove: '清理 s історії',
-      card_history_add: '添加到 історію',
-      card_history_descr: 'Дивіться 在菜单上 (Історія)',
-      keyboard_listen: 'Кажіть, 我听到...',
-      keyboard_nomic: '不є 访问 mікрофону',
-      notice_new_quality: '新牦牛可用ість',
+      card_history_remove: 'Прибрати з історії',
+      card_history_add: 'Додати в історію',
+      card_history_descr: 'Дивіться у меню (Історія)',
+      keyboard_listen: 'Кажіть, я слухаю...',
+      keyboard_nomic: 'Немає доступу до мікрофону',
+      notice_new_quality: 'Доступна нова якість',
       notice_quality: 'Якість',
-      notice_new_episode: 'Nova s​​erія',
-      notice_none: '你仍然没有є 其他视角ідомлень, 黎明єструйтесь 到站点і <b>www.cub.watch</b>, 新 ser 的 schob 步骤іями ta relізами.',
-      notice_in_quality: '到 yakostі',
-      copy_link: 'Копіювати 发送到ідео',
-      copy_secuses: '发送 ospreyійоване 到交换缓冲区іну',
-      copy_error: 'Clemency nід 小时警察іювання posilannya',
-      account_sync_to_profile: 'Усі 书签将被移动і 到教授ілю',
-      account_sync_secuses: 'Усі 书签 uspішно 移动і',
-      account_profiles: '教授ілі',
-      account_profiles_empty: '不可能拿 prof 的名单ілів',
-      account_authorized: '授权і',
-      account_logged_in: 'Wee uvійшли під обліковий запис',
-      account_login_failed: 'Вхід 不是 vikonano',
-      account_login_wait: 'Очікуємо 区域入口ікового 记录',
-      account_profile_main: 'Zagalniy',
-      account_export_secuses: '导出成功ішно 完成',
-      account_export_fail: 'Pardon nід 导出时间',
+      notice_new_episode: 'Нова серія',
+      notice_none: 'У вас ще немає жодних повідомлень, зареєструйтесь на сайті <b>www.cub.watch</b>, щоб стежити за новими серіями та релізами.',
+      notice_in_quality: 'В якості',
+      copy_link: 'Копіювати посилання на відео',
+      copy_secuses: 'Посилання скопійоване в буфер обміну',
+      copy_error: 'Помилка під час копіювання посилання',
+      account_sync_to_profile: 'Усі закладки будуть перенесені до профілю',
+      account_sync_secuses: 'Усі закладки успішно перенесені',
+      account_profiles: 'Профілі',
+      account_profiles_empty: 'Неможливо отримати список профілів',
+      account_authorized: 'Авторизовані',
+      account_logged_in: 'Ви увійшли під обліковий запис',
+      account_login_failed: 'Вхід не виконано',
+      account_login_wait: 'Очікуємо входу до облікового запису',
+      account_profile_main: 'Загальний',
+      account_export_secuses: 'Експорт успішно завершено',
+      account_export_fail: 'Помилка під час експорту',
       account_import_secuses: 'Імпорт успішно завершено',
-      account_import_fail: 'Pardon at імпорті',
+      account_import_fail: 'Помилка при імпорті',
       account_imported: 'імпортовано',
-      account_reload_after: '5 秒内重新启用',
-      network_noconnect: 'Nemaє підключення to merezhі',
-      network_404: 'Requestedї сторінки not found. [404]',
-      network_401: 'Authorizationія didn\'t go',
-      network_500: 'Intішня server pardon. [500]',
-      network_parsererror: '句法肛门供应із JSON 结束不远。',
-      network_timeout: '请求的时间已经过去。',
-      network_abort: '请求已被中断。',
-      network_error: 'Невідома 请原谅',
-      size_zero: '0 字节',
-      size_byte: '字节',
-      size_kb: 'KB',
-      size_mb: 'MB',
-      size_gb: 'GB',
-      size_tb: 'TB',
-      size_pp: 'PB',
+      account_reload_after: 'перезавантаження через 5 с.',
+      network_noconnect: 'Немає підключення до мережі',
+      network_404: 'Запрошеної сторінки не знайдено. [404]',
+      network_401: 'Авторизація не вдалася',
+      network_500: 'Внутрішня помилка сервера. [500]',
+      network_parsererror: 'Запитаний синтаксичний аналіз JSON завершився невдало.',
+      network_timeout: 'Час запиту минув.',
+      network_abort: 'Запит було перервано.',
+      network_error: 'Невідома помилка',
+      size_zero: '0 Байт',
+      size_byte: 'Байт',
+      size_kb: 'КБ',
+      size_mb: 'МБ',
+      size_gb: 'ГБ',
+      size_tb: 'ТБ',
+      size_pp: 'ПБ',
       speed_bit: 'біт',
       speed_kb: 'Кбіт',
       speed_mb: 'Мбіт',
@@ -19444,51 +20082,52 @@
       speed_tb: 'Тбіт',
       speed_pp: 'Пбіт',
       month_1: 'Січень',
-      month_2: '柳提',
-      month_3: 'Birch',
+      month_2: 'Лютий',
+      month_3: 'Березень',
       month_4: 'Квітень',
-      month_5: 'Traven',
-      month_6: 'Cherven',
-      month_7: 'Lipnya',
-      month_8: 'Serpen',
-      month_9: 'Veresen',
-      month_10: 'Zhovten',
-      month_11: '落叶',
-      month_12: '乳房',
-      day_1: '星期一ілок',
+      month_5: 'Травень',
+      month_6: 'Червень',
+      month_7: 'Липня',
+      month_8: 'Серпень',
+      month_9: 'Вересень',
+      month_10: 'Жовтень',
+      month_11: 'Листопад',
+      month_12: 'Грудень',
+      day_1: 'Понеділок',
       day_2: 'Вівторок',
-      day_3: '星期三',
-      day_4: '星期四',
-      day_5: 'П\'星期五',
-      day_6: '星期六',
+      day_3: 'Середа',
+      day_4: 'Четвер',
+      day_5: 'П\'ятниця',
+      day_6: 'Субота',
       day_7: 'Неділя',
       month_1_e: 'Січня',
-      month_2_e: '激烈',
-      month_3_e: 'Bereznya',
+      month_2_e: 'Лютого',
+      month_3_e: 'Березня',
       month_4_e: 'Квітня',
-      month_5_e: '草',
-      month_6_e: 'Chervnya',
-      month_7_e: 'Lipnya',
-      month_8_e: 'Serpnya',
-      month_9_e: 'Veresnya',
-      month_10_e: 'Zhovtnya',
-      month_11_e: '落叶',
-      month_12_e: '乳房',
-      week_1: '周一',
-      week_2: '周二',
-      week_3: '周三',
-      week_4: '周四',
-      week_5: '周五',
-      week_6: '周六',
-      week_7: '钕'
+      month_5_e: 'Травня',
+      month_6_e: 'Червня',
+      month_7_e: 'Липня',
+      month_8_e: 'Серпня',
+      month_9_e: 'Вересня',
+      month_10_e: 'Жовтня',
+      month_11_e: 'Листопада',
+      month_12_e: 'Грудня',
+      week_1: 'Пн',
+      week_2: 'Вт',
+      week_3: 'Ср',
+      week_4: 'Чт',
+      week_5: 'Пт',
+      week_6: 'Сб',
+      week_7: 'Нд'
     };
 
     var langs = {
+      zh: zh,
       ru: ru,
       uk: uk,
       en: en
     };
-    var lang_default = 'ru';
+    var lang_default = 'zh';
 
     function translate(name, custom_code) {
       name = name + '';
@@ -19516,8 +20155,9 @@
 
     function codes() {
       return {
-        ru: '俄语',
-        uk: 'Ukraїнська',
+        zh: '简体中文',
+        ru: 'Русский',
+        uk: 'Українська',
         en: 'English'
       };
     }
@@ -21236,28 +21876,28 @@
             desc = item.find('.settings-param__descr');
 
         if (code == 0) {
-          name.text('禁用');
-          desc.text('同步');
+          name.text('Отключено');
+          desc.text('Включите синхронизацию');
         }
 
         if (code == 1) {
-          name.text('未授权');
-          desc.text('需要授权 ');
+          name.text('Не авторизованы');
+          desc.text('Необходимо авторизоваться ');
         }
 
         if (code == 2) {
-          name.text('授权失败');
-          desc.text('检查输入的数据并重试');
+          name.text('Авторизация не удалась');
+          desc.text('Проверьте введённые данные и повторите попытку');
         }
 
         if (code == 3) {
-          name.text('已登录');
-          desc.text('您已成功登录');
+          name.text('Вошли');
+          desc.text('Вы успешно авторизовались');
         }
 
         if (code == 4) {
           var time = Utils.parseTime(Storage.get('cloud_time', '2021.01.01'));
-          name.text('已同步');
+          name.text('Синхронизовано');
           desc.text(time.full + ' в ' + time.time);
         }
       }
@@ -21982,8 +22622,8 @@
         Utils.putStyle(['http://lampa.mx/css/app.css'], function () {
           $('link[href="css/app.css"]').remove();
         });
-      } else if (window.location.protocol == 'file:') {
-        Utils.putStyle(['https://yumata.github.io/lampa/css/app.css'], function () {
+      } else if (window.location.protocol == 'file:' || typeof nw !== 'undefined') {
+        Utils.putStyle(['https://yumata.github.io/lampa/css/app.css' + (typeof nw !== 'undefined' ? '?v=' + Math.random() : '')], function () {
           $('link[href="css/app.css"]').remove();
         });
       }
