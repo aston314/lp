@@ -18285,7 +18285,7 @@
       settings_rest_tmdb_prox: '代理 TMDB',
       settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
       settings_rest_screensaver: '屏幕保护程序',
-      settings_rest_screensaver_use: '空闲时显示启动屏保',
+      settings_rest_screensaver_use: '空闲时启动屏保',
       settings_rest_screensaver_type: '屏幕保护类型',
       settings_rest_helper: '提示',
       settings_rest_helper_use: '显示提示',
