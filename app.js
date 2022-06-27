@@ -10899,8 +10899,7 @@
       var mouse_timer;
       $(window).on('mousemove', function () {
         clearTimeout(mouse_timer);
-        mouse_timer = setTimeout(function () {
-          body.toggleClass('no--cursor', true);
+        mouse_timer = setTimeout(function () {//body.toggleClass('no--cursor',true)
         }, 3000);
         body.toggleClass('no--cursor', false);
       });
@@ -18268,7 +18267,7 @@
       full_episode: '剧集',
       full_directing: '导演',
       settings_cub_sync: '同步',
-      settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史、标签和时间码。网站：https://cub.watch',
+      settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
       settings_cub_account: '帐户',
       settings_cub_logged_in_as: '登录身份',
       settings_cub_profile: '个人资料',
@@ -18310,12 +18309,12 @@
       settings_rest_start_descr: '启动时要启动的页面',
       settings_rest_source: '源',
       settings_rest_source_use: '主要来源',
-      settings_rest_source_descr: '从何处获取有关电影的信息',
+      settings_rest_source_descr: '从哪里获取有关电影的信息',
       settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
       settings_rest_tmdb_prox: '代理 TMDB',
       settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
       settings_rest_screensaver: '屏幕保护程序',
-      settings_rest_screensaver_use: '空闲时启动屏保',
+      settings_rest_screensaver_use: '显示启动屏幕空闲时',
       settings_rest_screensaver_type: '屏幕保护类型',
       settings_rest_helper: '提示',
       settings_rest_helper_use: '显示提示',
@@ -18400,11 +18399,11 @@
       torent_nohash_reason_two: '来自 TorServer 的回复',
       torent_nohash_reason_three: 'Link',
       torent_nohash_do: '怎么办？',
-      torent_nohash_do_one: '检查是否正确配置了 Jackett',
+      torent_nohash_do_one: '检查你是否正确配置了 Jackett',
       torent_nohash_do_two: '私人来源可能没有提供文件的链接',
-      torent_nohash_do_three: '确保 Jackett 可以下载文件也是',
+      torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
       torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
-      torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明发行版的照片',
+      torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
       torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
       torrent_error_step_1: 'TorrServe 正在运行',
       torrent_error_step_2: '动态 IP',
@@ -18412,7 +18411,7 @@
       torrent_error_step_4: '防病毒阻止',
       torrent_error_step_5: '检查可用性',
       torrent_error_step_6: '仍然无法工作',
-      torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
+      torrent_error_info_1: '确保您已在安装了 TorrServe 的设备上启动它。',
       torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
       torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
       torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
@@ -18538,7 +18537,7 @@
       title_upcoming: '在电影院观看',
       title_top_movie: '热门电影',
       title_top_tv: '热门系列',
-      title_tv_today: '今天播出',
+      title_tv_today: '今日播出',
       title_this_week: '本周',
       title_in_top: '热门',
       title_out: '退出',
@@ -18623,7 +18622,7 @@
       ivi_foreign: '外国',
       ivi_ru: '俄罗斯人',
       ivi_recomend: '我们推荐你看',
-      ivi_for_famaly: '适合全家的卡通片',
+      ivi_for_famaly: '适合全家的漫画',
       ivi_triller: '恐怖惊悚片',
       ivi_advance: '冒险喜剧',
       ivi_detective: '侦探电影改编',
@@ -18683,7 +18682,7 @@
       plugins_load_from: '从CUB中加载',
       plugins_ok_for_check: '点击(OK)测试插件',
       plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
-      time_viewed: '已查看',
+      time_viewed: '查看',
       time_from: '来自',
       time_reset: '重置时间码',
       settings_clear_cache: '缓存和数据清除',
@@ -20198,7 +20197,7 @@
       if (!langs[code]) code = lang_default;
 
       if (name.indexOf('#{') >= 0) {
-        return name.replace(/#{([a-z_-]+)}/g, function (e, s) {
+        return name.replace(/#{([a-z_0-9-]+)}/g, function (e, s) {
           return langs[code][s] || langs[lang_default][s] || s;
         });
       } else {
