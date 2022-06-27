@@ -6513,6 +6513,13 @@
         });
       } else if (Platform.is('android') && (Storage.field('player') == 'android' || launch_player == 'android')) {
         data.url = data.url.replace('&preload', '&play');
+
+        if (data.playlist && Array.isArray(data.playlist)) {
+          data.playlist.forEach(function (a) {
+            a.url = a.url.replace('&preload', '&play');
+          });
+        }
+
         //Android.openPlayer(data.url, data);
      {
         window.plugins.intentShim.startActivity({
@@ -18676,7 +18683,7 @@
       plugins_load_from: '从CUB中加载',
       plugins_ok_for_check: '点击(OK)测试插件',
       plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
-      time_viewed: '查看',
+      time_viewed: '已查看',
       time_from: '来自',
       time_reset: '重置时间码',
       settings_clear_cache: '缓存和数据清除',
