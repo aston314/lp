@@ -14017,9 +14017,9 @@
       $('body').append(search);
       var keyboard = new create$3({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
+          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
           'uk': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', 'я ч с м и т ь б ю .', '{mic} {RU} {space} {search}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
         }
       });
       keyboard.create();
@@ -17004,13 +17004,13 @@
       var simple = Storage.field('keyboard_type') !== 'lampa';
       var input;
       var _default_layout = {
-        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
-        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
-        'uk': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', '{shift} я ч с м и т ь б ю . : http://', '{space}'],
-        'uk-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ї', 'Ф І В А П Р О Л Д Ж Є', '{shift} Я Ч С М И Т Ь Б Ю . : http://', '{space}'],
-        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} ! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{space}'],
-        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
-        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'Ф Ы В А П Р О Л Д Ж Э', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
+        'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
+        'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
+        'uk': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', '{shift} я ч с м и т ь б ю . : http://', '{space}'],
+        'uk-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ї', 'Ф І В А П Р О Л Д Ж Є', '{shift} Я Ч С М И Т Ь Б Ю . : http://', '{space}'],
+        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} ! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{space}'],
+        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
+        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'Ф Ы В А П Р О Л Д Ж Э', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
       this.listener = start$4();
 
@@ -18710,7 +18710,7 @@
       settings_param_interface_size_small: '较小',
       settings_param_interface_size_normal: '正常',
       settings_param_poster_quality_low: '低',
-      settings_param_poster_quality_average: '平均',
+      settings_param_poster_quality_average: '中',
       settings_param_poster_quality_high: '高',
       settings_param_parse_directly: '直接',
       settings_param_parse_api: '通过网站 API',
@@ -21638,9 +21638,9 @@
     function createKeyboard() {
       keyboard = new create$3({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {UK} {space} {bksp}'],
+          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {UK} {space} {bksp}'],
           'uk': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', 'я ч с м и т ь б ю .', '{mic} {RU} {space} {bksp}'],
-          'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{mic} {EN} {space} {bksp}']
+          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{mic} {EN} {space} {bksp}']
         }
       });
       keyboard.create();
