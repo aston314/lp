@@ -14018,6 +14018,7 @@
       var keyboard = new create$3({
         layout: {
           'default': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {search}'],
+          'uk': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', 'я ч с м и т ь б ю .', '{mic} {RU} {space} {search}'],
           'en': ['1 2 3 4 5 6 7 8 9 0 - {bksp}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{mic} {EN} {space} {search}']
         }
       });
@@ -17003,9 +17004,11 @@
       var simple = Storage.field('keyboard_type') !== 'lampa';
       var input;
       var _default_layout = {
-        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
-        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
-        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{rus} {space} {eng}'],
+        'default': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} q w e r t y u i o p', 'a s d f g h j k l /', '{shift} z x c v b n m , . : http://', '{space}'],
+        'ru-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{UK} Q W E R T Y U I O P', 'A S D F G H J K L /', '{shift} Z X C V B N M , . : http://', '{space}'],
+        'uk': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', '{shift} я ч с м и т ь б ю . : http://', '{space}'],
+        'uk-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} Й Ц У К Е Н Г Ш Щ З Х Ї', 'Ф І В А П Р О Л Д Ж Є', '{shift} Я Ч С М И Т Ь Б Ю . : http://', '{space}'],
+        'abc': ['1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{EN} ! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{space}'],
         'en': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{shift} я ч с м и т ь б ю , . : http://', '{space}'],
         'en-shift': ['{abc} 1 2 3 4 5 6 7 8 9 0 - + = {bksp}', '{RU} Й Ц У К Е Н Г Ш Щ З Х Ъ', 'Ф Ы В А П Р О Л Д Ж Э', '{shift} Я Ч С М И Т Ь Б Ю , . : http://', '{space}']
       };
@@ -17089,10 +17092,11 @@
               '{space}': '&nbsp;',
               '{RU}': '&nbsp;',
               '{EN}': '&nbsp;',
+              '{UK}': '&nbsp;',
               '{abc}': '&nbsp;',
               '{rus}': 'русский',
               '{eng}': 'english',
-              '{search}': 'Найти',
+              '{search}': Lang.translate('search'),
               '{mic}': "<svg viewBox=\"0 0 24 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <rect x=\"5\" width=\"14\" height=\"23\" rx=\"7\" fill=\"currentColor\"/>\n                        <path d=\"M3.39272 18.4429C3.08504 17.6737 2.21209 17.2996 1.44291 17.6073C0.673739 17.915 0.299615 18.7879 0.607285 19.5571L3.39272 18.4429ZM23.3927 19.5571C23.7004 18.7879 23.3263 17.915 22.5571 17.6073C21.7879 17.2996 20.915 17.6737 20.6073 18.4429L23.3927 19.5571ZM0.607285 19.5571C2.85606 25.179 7.44515 27.5 12 27.5V24.5C8.55485 24.5 5.14394 22.821 3.39272 18.4429L0.607285 19.5571ZM12 27.5C16.5549 27.5 21.1439 25.179 23.3927 19.5571L20.6073 18.4429C18.8561 22.821 15.4451 24.5 12 24.5V27.5Z\" fill=\"currentColor\"/>\n                        <rect x=\"10\" y=\"25\" width=\"4\" height=\"6\" rx=\"2\" fill=\"currentColor\"/>\n                        </svg>"
             },
             layout: params.layout || _default_layout,
@@ -17102,7 +17106,7 @@
               });
             },
             onKeyPress: function onKeyPress(button) {
-              if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}") _this._handle(button);else if (button === '{mic}') {
+              if (button === "{shift}" || button === "{abc}" || button === "{EN}" || button === "{RU}" || button === "{rus}" || button === "{eng}" || button === "{UK}" || button === "{uk}") _this._handle(button);else if (button === '{mic}') {
                 if (Platform.is('android')) {
                   Android.voiceStart();
                   window.voiceResult = _this.value.bind(_this);
@@ -17118,6 +17122,12 @@
               }
             }
           });
+          var lang = Storage.get('language', 'ru');
+
+          _keyBord.setOptions({
+            layoutName: lang == 'ru' ? 'default' : lang
+          });
+
           this.speechRecognition();
         }
       };
@@ -17197,8 +17207,8 @@
             layout = 'default';
 
         if (button == '{shift}') {
-          if (current_layout == 'default') layout = 'ru-shift';else if (current_layout == 'ru-shift') layout = 'default';else if (current_layout == 'en') layout = 'en-shift';else if (current_layout == 'en-shift') layout = 'en';
-        } else if (button == '{abc}') layout = 'abc';else if (button == '{EN}' || button == '{eng}') layout = 'en';else if (button == '{RU}' || button == '{rus}') layout = 'default';
+          if (current_layout == 'default') layout = 'ru-shift';else if (current_layout == 'ru-shift') layout = 'default';else if (current_layout == 'en') layout = 'en-shift';else if (current_layout == 'en-shift') layout = 'en';else if (current_layout == 'uk') layout = 'uk-shift';else if (current_layout == 'uk-shift') layout = 'uk';
+        } else if (button == '{abc}') layout = 'abc';else if (button == '{EN}' || button == '{eng}') layout = 'en';else if (button == '{RU}' || button == '{rus}') layout = 'default';else if (button == '{UK}' || button == '{uk}') layout = 'uk';
 
         _keyBord.setOptions({
           layoutName: layout
@@ -18267,7 +18277,7 @@
       full_episode: '剧集',
       full_directing: '导演',
       settings_cub_sync: '同步',
-      settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
+      settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
       settings_cub_account: '帐户',
       settings_cub_logged_in_as: '登录身份',
       settings_cub_profile: '个人资料',
@@ -18309,7 +18319,7 @@
       settings_rest_start_descr: '启动时要启动的页面',
       settings_rest_source: '源',
       settings_rest_source_use: '主要来源',
-      settings_rest_source_descr: '从何处获取有关电影的信息',
+      settings_rest_source_descr: '从哪里获取有关电影的信息',
       settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
       settings_rest_tmdb_prox: '代理 TMDB',
       settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -18356,7 +18366,7 @@
       settings_player_next_episode: '下一集',
       settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
       settings_player_timecode: '时间码',
-      settings_player_timecode_descr: '从上次查看的位置继续',
+      settings_player_timecode_descr: '从上次播放的位置继续',
       settings_player_scale: '缩放方法',
       settings_player_scale_descr: '如何计算视频缩放',
       settings_player_subs: '字幕',
@@ -18404,8 +18414,8 @@
       torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
       torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
       torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-      torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
-      torrent_error_step_1: 'TorrServe 正在运行',
+      torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
+      torrent_error_step_1: 'TorrServe 是否正在运行',
       torrent_error_step_2: '动态 IP',
       torrent_error_step_3: '协议和端口',
       torrent_error_step_4: '防病毒阻止',
@@ -18417,7 +18427,7 @@
       torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
       torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
       torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-      torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
+      torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
       torrent_error_start: '开始验证',
       torrent_error_nomatrix: '验证Matrix版本失败',
       torrent_error_made: '执行',
@@ -18465,7 +18475,7 @@
       torrent_parser_added_to_mytorrents: '添加到“我的种子”',
       torrent_parser_add_to_mytorrents: '添加到“我的种子”',
       torrent_parser_label_title: '标记',
-      torrent_parser_label_descr: '用旗帜标记（查看)',
+      torrent_parser_label_descr: '用旗帜标记（已查看)',
       torrent_parser_label_cancel_title: '取消选中',
       torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
       torrent_parser_timeout: '超时',
@@ -18674,8 +18684,8 @@
       plugins_catalog_popular: '用户中流行的插件',
       plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
       plugins_online: '在线查看',
-      plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-      plugins_need_reload: '要应用插件，需要重新启动应用程序',
+      plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+      plugins_need_reload: '应用插件需要重新启动应用程序',
       plugins_install: '安装',
       plugins_install_ready: '这个插件已经安装了。',
       plugins_installed: '已安装',
@@ -18700,13 +18710,13 @@
       settings_param_interface_size_small: '较小',
       settings_param_interface_size_normal: '正常',
       settings_param_poster_quality_low: '低',
-      settings_param_poster_quality_average: '中',
+      settings_param_poster_quality_average: '平均',
       settings_param_poster_quality_high: '高',
-      settings_param_parse_directly: '直连',
+      settings_param_parse_directly: '直接',
       settings_param_parse_api: '通过网站 API',
       settings_param_background_complex: '复杂',
       settings_param_background_simple: '简单',
-      settings_param_background_image: '图像',
+      settings_param_background_image: '图片',
       settings_param_link_use_one: '主要',
       settings_param_link_use_two: '额外',
       settings_param_subtitles_size_small: '小',
@@ -18778,7 +18788,7 @@
       card_new_episode: '新系列',
       card_book_remove: '从书签中删除',
       card_book_add: '到书签',
-      card_book_descr: '在菜单中查找（书签）',
+      card_book_descr: '查看菜单（书签）',
       card_like_remove: '从收藏夹中删除',
       card_like_add: '喜欢',
       card_like_descr: '查看菜单（喜欢）',
@@ -18875,7 +18885,7 @@
       settings_param_player_hls_app: 'Systemic',
       settings_param_player_hls_js: 'Program',
       settings_player_hls_title: '处理.m3u8流媒体',
-      settings_player_hls_descr: '如果您不知道为什么，请勿触摸此参数。',
+      settings_player_hls_descr: '如果您不知道为什么，请不要修改此参数。',
       notice_none_account: '您还没有任何通知，请为该系列添加书签并等待新剧集的通知。'
     };
 
@@ -21628,7 +21638,8 @@
     function createKeyboard() {
       keyboard = new create$3({
         layout: {
-          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {RU} {space} {bksp}'],
+          'default': ['1 2 3 4 5 6 7 8 9 0 -', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{mic} {UK} {space} {bksp}'],
+          'uk': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', 'я ч с м и т ь б ю .', '{mic} {RU} {space} {bksp}'],
           'en': ['1 2 3 4 5 6 7 8 9 0 -', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'ё я ч с м и т ь б ю .', '{mic} {EN} {space} {bksp}']
         }
       });
