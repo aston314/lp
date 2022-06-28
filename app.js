@@ -18464,8 +18464,8 @@
       torrent_parser_no_hash: '获取HASH失败',
       torrent_parser_added_to_mytorrents: '添加到“我的种子”',
       torrent_parser_add_to_mytorrents: '添加到“我的种子”',
-      torrent_parser_label_title: 'Flag',
-      torrent_parser_label_descr: '用flag标记手（查看)',
+      torrent_parser_label_title: '标记',
+      torrent_parser_label_descr: '用旗帜标记（查看)',
       torrent_parser_label_cancel_title: '取消选中',
       torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
       torrent_parser_timeout: '超时',
@@ -18682,7 +18682,7 @@
       plugins_load_from: '从CUB中加载',
       plugins_ok_for_check: '点击(OK)测试插件',
       plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
-      time_viewed: '已查看',
+      time_viewed: '查看',
       time_from: '来自',
       time_reset: '重置时间码',
       settings_clear_cache: '缓存和数据清除',
@@ -22878,6 +22878,7 @@
                 }
               });
               Storage.set('language', code, true);
+              if (code == 'zh') code = 'zh-CN';
               Storage.set('tmdb_lang', code, true);
             }, function () {
               Controller.toggle('settings_component');
