@@ -17125,7 +17125,7 @@
           var lang = Storage.get('language', 'ru');
 
           _keyBord.setOptions({
-            layoutName: lang == 'ru' ? 'default' : lang
+            layoutName: lang == 'ru' ? 'default' : (lang == 'zh' ? 'en' : lang)
           });
 
           this.speechRecognition();
