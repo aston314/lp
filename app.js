@@ -18874,7 +18874,7 @@
       week_7: 'Sun',
       settings_param_player_hls_app: 'Systemic',
       settings_param_player_hls_js: 'Program',
-      settings_player_hls_title: 'Processing the .m3u8 stream',
+      settings_player_hls_title: '处理.m3u8流媒体',
       settings_player_hls_descr: '如果您不知道为什么，请勿触摸此参数。',
       notice_none_account: '您还没有任何通知，请为该系列添加书签并等待新剧集的通知。'
     };
