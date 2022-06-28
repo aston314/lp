@@ -22878,7 +22878,6 @@
                 }
               });
               Storage.set('language', code, true);
-              if (code == 'zh') code = 'zh-CN';
               Storage.set('tmdb_lang', code, true);
             }, function () {
               Controller.toggle('settings_component');
