@@ -103,6 +103,7 @@
                     }
                 });
                 card.on('hover:enter', function (target, card_data) {
+                    card.find('.card--category').addClass('focus');
                         Lampa.Modal.open({
                             title: '',
                             html: Lampa.Template.get('modal_loading'),
