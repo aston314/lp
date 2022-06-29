@@ -109,9 +109,9 @@
                             size: 'small',
                             mask: true,
                             onBack: function onBack() {
-                            Modal.close();
-                            Api.clear();
-                            Controller.toggle('content');
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
+                                Lampa.Controller.toggle('content');
                             }
                         });
                         network.silent(element.url, function (result) {
