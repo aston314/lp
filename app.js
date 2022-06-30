@@ -1550,14 +1550,7 @@
     function _native(params) {
       var platform = Storage.get('platform', '');
       if (platform == 'webos') go(params);else if (platform == 'tizen') go(params);else if (platform == 'android') {
-        listener.send('go');
-        last_reguest = params;
-        if (params.start) params.start();
-        Android.httpReq(params, {
-          complite: params.complite,
-          error: params.error
-        });
-        need.timeout = 1000 * 60;
+        go(params);
       } else go(params);
     }
   }
@@ -10903,13 +10896,32 @@
 
 
   function relise(oncomplite, onerror) {
-    network$2.silent(Utils.protocol() + 'tmdb.cub.watch?sort=releases&results=200', function (json) {
-      json.results.forEach(function (item) {
-        item.tmdbID = item.id;
-      });
-      oncomplite(json.results);
-    }, onerror);
-  }
+      var postdata = {
+        category_id: "-1",
+        skip: "0",
+        limit: "60",
+        keyword: ""
+    };
+      network$2.silent('https://cmn.yyds.fans/api/posts', function (json) {
+        if(json.status_code === 405){
+          Noty.show('未能刷新数据，请从菜单重新进入。');
+          return false;
+        };
+        json.data.list.forEach(function (item) {
+          var mytitle = item.title.replace('/',' ');
+          if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
+          if(item.category_id !== 3) item.name = mytitle;
+          if(item.category_id == 3) item.tmdbID = item.imdb_id;
+          //item.tmdbID = item.imdb_id;
+          item.original_title = mytitle;
+          item.title = mytitle;
+          item.release_date = item.release_time;
+          item.vote_average = item.imdb_score;
+          item.poster_path = item.cover.replace('l_ratio_poster','s_ratio_poster');
+        });
+        oncomplite(json.data.list);
+      }, onerror,postdata);
+    }
   /**
    * Очистить
    */
@@ -19165,8 +19177,8 @@
     plugins_installed: '已安装',
     plugins_load_from: '从CUB中加载',
     plugins_ok_for_check: '点击(OK)测试插件',
-    plugins_no_loaded: '加载应用程序时，有些插件无法安装已加载',
-    time_viewed: '已查看',
+    plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
+    time_viewed: '查看',
     time_from: '来自',
     time_reset: '重置时间码',
     settings_clear_cache: '缓存和数据清除',
@@ -19198,7 +19210,7 @@
     settings_param_subtitles_size_bigger: '大',
     settings_param_screensaver_nature: '自然',
     settings_param_lang_ru: 'Русский',
-      settings_param_lang_zh: '简体中文',
+    settings_param_lang_zh: '简体中文',
     settings_param_lang_uk: 'Українська',
     settings_param_lang_en: '英语',
     settings_param_torrent_lang_orig: '原始',
@@ -19854,7 +19866,7 @@
     settings_param_subtitles_size_bigger: 'Large',
     settings_param_screensaver_nature: 'Nature',
     settings_param_lang_ru: 'Русский',
-      settings_param_lang_zh: '简体中文',
+    settings_param_lang_zh: '简体中文',
     settings_param_lang_uk: 'Українська',
     settings_param_lang_en: 'English',
     settings_param_torrent_lang_orig: 'Original',
@@ -20510,7 +20522,7 @@
     settings_param_subtitles_size_bigger: 'Великі',
     settings_param_screensaver_nature: 'Природа',
     settings_param_lang_ru: 'Русский',
-      settings_param_lang_zh: '简体中文',
+    settings_param_lang_zh: '简体中文',
     settings_param_lang_uk: 'Українська',
     settings_param_lang_en: 'English',
     settings_param_torrent_lang_orig: 'Оригінал',
@@ -20681,7 +20693,7 @@
 
   var langs = {
     zh: zh,
-      ru: ru,
+    ru: ru,
     uk: uk,
     en: en
   };
@@ -20713,6 +20725,7 @@
 
   function codes() {
     return {
+      zh: '简体中文',
       ru: 'Русский',
       uk: 'Українська',
       en: 'English'
