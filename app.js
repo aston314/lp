@@ -8487,10 +8487,10 @@
       append(Lang.translate('title_now_watch'), 'wath', json);
       VideoQuality.add(json.results);
     }, status.error.bind(status));
-    get$6('trending/moviews/day', params, function (json) {
+    get$6('trending/movie/day', params, function (json) {
       append(Lang.translate('title_trend_day'), 'trend_day', json);
     }, status.error.bind(status));
-    get$6('trending/moviews/week', params, function (json) {
+    get$6('trending/movie/week', params, function (json) {
       append(Lang.translate('title_trend_week'), 'trend_week', json);
     }, status.error.bind(status));
     get$6('movie/upcoming', params, function (json) {
@@ -18763,7 +18763,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录，标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -18836,11 +18836,11 @@
     settings_parser_torlook_type: 'TorLook网站解析方法',
     settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
     settings_parser_scraperapi_link: '链接到站点解析器',
-    settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
+    settings_parser_scraperapi_descr: '在网站 scraperapi.com 注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
     settings_parser_search: '搜索',
-    settings_parser_search_descr: '用什么语言搜索？',
+    settings_parser_search_descr: '用什么语言搜索?',
     settings_parser_in_search: '在搜索中显示种子结果',
-    settings_parser_in_search_descr: '显示搜索结果？',
+    settings_parser_in_search_descr: '显示搜索结果?',
     settings_player_type: '播放器类型',
     settings_player_type_descr: '用哪个播放器',
     settings_player_reset: '重置默认播放器',
@@ -18895,13 +18895,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 正在运行',
+    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 是否正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -19118,7 +19118,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的卡通片',
+    ivi_for_famaly: '适合全家的漫画',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19371,7 +19371,7 @@
     settings_param_player_hls_app: 'Systemic',
     settings_param_player_hls_js: 'Program',
     settings_player_hls_title: '处理.m3u8流媒体',
-    settings_player_hls_descr: '如果您不知道为什么，请勿修改此参数。',
+    settings_player_hls_descr: '如果您不知道为什么，请不要修改此参数。',
     notice_none_account: '你还没有任何通知，收藏该系列并等待新剧集的通知。',
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
