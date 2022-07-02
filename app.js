@@ -20711,6 +20711,12 @@
       return ru;
     }
   });
+
+  Object.defineProperty(langs, 'zh', {
+    get: function get() {
+      return zh;
+    }
+  });
   Object.defineProperty(langs, 'uk', {
     get: function get() {
       return uk;
@@ -20724,6 +20730,11 @@
   Object.defineProperty(keys, 'ru', {
     get: function get() {
       return 'Русский';
+    }
+  });
+  Object.defineProperty(keys, 'zh', {
+    get: function get() {
+      return '简体中文';
     }
   });
   Object.defineProperty(keys, 'uk', {
@@ -20805,6 +20816,7 @@
 
   function codes() {
     var all = {
+      ru: keys.zh,
       ru: keys.ru,
       uk: keys.uk,
       en: keys.en
