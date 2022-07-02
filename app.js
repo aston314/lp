@@ -20711,7 +20711,6 @@
       return ru;
     }
   });
-
   Object.defineProperty(langs, 'zh', {
     get: function get() {
       return zh;
@@ -20816,7 +20815,7 @@
 
   function codes() {
     var all = {
-      ru: keys.zh,
+      zh: keys.zh,
       ru: keys.ru,
       uk: keys.uk,
       en: keys.en
