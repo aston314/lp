@@ -10387,7 +10387,7 @@
         oncomplite(data);
       }
     }, function (a, c) {
-      onerror(network$3.errorDecode(a, c));
+      onerror(Lang.translate('torrent_parser_no_responce'));
     });
   }
 
@@ -10601,7 +10601,7 @@
       });
       oncomplite(json);
     }, function (a, c) {
-      onerror(network$3.errorDecode(a, c));
+      onerror(Lang.translate('torrent_parser_no_responce'));
     });
   }
 
@@ -18619,6 +18619,7 @@
     torrent_parser_set_link: 'Укажите ссылку для парсинга',
     torrent_parser_request_error: 'Ошибка в запросе',
     torrent_parser_magnet_error: 'Не удалось получить magnet ссылку',
+    torrent_parser_no_responce: 'Парсер не отвечает на запрос',
     about_text: 'Приложение полностью бесплатное и использует публичные ссылки для получения информации о видео, новинках, популярных фильмах и т.д. Вся доступная информация используется исключительно в познавательных целях, приложение не использует свои собственные серверы для распространения информации.',
     about_channel: 'Наш канал',
     about_group: 'Группа',
@@ -18817,7 +18818,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从哪里获取有关电影的信息',
+    settings_rest_source_descr: '从何处获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -18860,7 +18861,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -18923,9 +18924,9 @@
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
     torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
-    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
+    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -19130,7 +19131,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的卡通片',
+    ivi_for_famaly: '适合全家的漫画',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19182,8 +19183,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '要应用插件，需要重新启动应用程序',
+    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '应用插件需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '已安装',
@@ -19210,11 +19211,11 @@
     settings_param_poster_quality_low: '低',
     settings_param_poster_quality_average: '中',
     settings_param_poster_quality_high: '高',
-    settings_param_parse_directly: '直连',
+    settings_param_parse_directly: '直接',
     settings_param_parse_api: '通过网站 API',
     settings_param_background_complex: '复杂',
     settings_param_background_simple: '简单',
-    settings_param_background_image: '图像',
+    settings_param_background_image: '图片',
     settings_param_link_use_one: '主要',
     settings_param_link_use_two: '额外',
     settings_param_subtitles_size_small: '小',
@@ -19388,7 +19389,8 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: 'Play this video on another device'
+    player_share_descr: '在另一台设备上播放此视频',
+    torrent_parser_no_responce: 'The parser is not responding to the request'
   };
 
     var en = {
@@ -20044,7 +20046,8 @@
     player_speed_default_title: 'Plain',
     player_video_speed: 'Playback speed',
     player_share_title: 'Share',
-    player_share_descr: 'Play this video on another device'
+    player_share_descr: 'Play this video on another device',
+    torrent_parser_no_responce: 'The parser is not responding to the request'
   };
 
   var uk = {
@@ -20700,7 +20703,8 @@
     player_speed_default_title: 'Звичайна',
     player_video_speed: 'Швидкість відтворення',
     player_share_title: 'Поділиться',
-    player_share_descr: 'Запустити це відео на іншому пристрої'
+    player_share_descr: 'Запустити це відео на іншому пристрої',
+    torrent_parser_no_responce: 'Парсер не відповідає на запит'
   };
 
   var langs = {};
