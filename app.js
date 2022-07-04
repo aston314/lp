@@ -18776,7 +18776,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -18908,13 +18908,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 是否正在运行',
+    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -18926,7 +18926,7 @@
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
     torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -19131,7 +19131,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的漫画',
+    ivi_for_famaly: '适合全家的卡通片',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19183,8 +19183,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '应用插件需要重新启动应用程序',
+    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '要应用插件，需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '已安装',
@@ -19211,11 +19211,11 @@
     settings_param_poster_quality_low: '低',
     settings_param_poster_quality_average: '中',
     settings_param_poster_quality_high: '高',
-    settings_param_parse_directly: '直接',
+    settings_param_parse_directly: '直连',
     settings_param_parse_api: '通过网站 API',
     settings_param_background_complex: '复杂',
     settings_param_background_simple: '简单',
-    settings_param_background_image: '图片',
+    settings_param_background_image: '图像',
     settings_param_link_use_one: '主要',
     settings_param_link_use_two: '额外',
     settings_param_subtitles_size_small: '小',
@@ -19287,7 +19287,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '在菜单中查找（书签）',
+    card_book_descr: '查看菜单（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -22941,6 +22941,7 @@
     /** Start - для orsay одни стили, для других другие */
 
     if (Platform.is('orsay')) {
+      Orsay.init();
       Utils.putStyle(['http://lampa.mx/css/app.css?v1.4.2'], function () {
         $('link[href="css/app.css"]').remove();
       });
@@ -22973,11 +22974,6 @@
     Head.init();
     Menu.init();
     Activity$1.init();
-
-    if (Platform.is('orsay')) {
-      Orsay.init();
-    }
-
     Screensaver.init();
     Cloud.init();
     Account.init();
