@@ -4777,10 +4777,12 @@
       }
 
       rms = Math.sqrt(total / analyser.fftSize);
+      var db = toDb(rms);
       var sm = Storage.get('player_normalization_smooth', 'medium');
       var pw = Storage.get('player_normalization_power', 'hight');
+      if (min === -48) min = db;
+      if (min === -48) min = -40;
       analyser.min_db = smooth(analyser.min_db, min, sm == 'hight' ? 45 : sm == 'medium' ? 25 : 10);
-      var db = toDb(rms);
       var low = (-48 - analyser.min_db) * (pw == 'hight' ? 1 : pw == 'medium' ? 0.75 : 0.5);
       volume.gain.value = Math.max(0.0, Math.min(2, db / low));
 
@@ -4830,7 +4832,7 @@
     };
 
     this.destroy = function () {
-      source.destroy();
+      if (source) source.destroy();
       source = null;
     };
   }
@@ -18826,7 +18828,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -18868,7 +18870,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从何处获取有关电影的信息',
+    settings_rest_source_descr: '从哪里获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -18958,13 +18960,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 正在运行',
+    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 是否正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -18972,9 +18974,9 @@
     torrent_error_step_6: '仍然无法工作',
     torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
-    torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
+    torrent_error_info_3: '要连接到 TorrServe，必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
-    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
+    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
     torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
@@ -19032,7 +19034,7 @@
     torrent_parser_set_link: '指定解析链接',
     torrent_parser_request_error: '请求错误',
     torrent_parser_magnet_error: '获取磁力链接失败',
-    about_text: '应用完全免费，使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，该应用程序不使用自己的服务器分发信息。',
+    about_text: '应用完全免费，使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器分发信息。',
     about_channel: '我们的频道',
     about_group: '组',
     about_version: '版本',
@@ -19181,7 +19183,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的卡通片',
+    ivi_for_famaly: '适合全家的漫画',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19439,10 +19441,10 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放这个视频',
+    player_share_descr: '在另一台设备上播放此视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '规范化能力',
-    player_normalization_smooth_title: '规范化速度',
+    player_normalization_power_title: '标准化功率',
+    player_normalization_smooth_title: '标准化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: 'High'
