@@ -10299,8 +10299,10 @@
     if (Storage.field('parser_torrent_type') == 'jackett') {
       if (Storage.field('jackett_url')) {
         url = Utils.checkHttp(Storage.field('jackett_url'));
-        jackett(params, complite, function () {
-          switch (Storage.field('parser_torrent_type')) {
+        var ignore = params.from_search && !url.match(/\d+\.\d+\.\d+/g);
+        if (ignore) error('');else {
+          jackett(params, complite, function () {
+            switch (Storage.field('parser_torrent_type')) {
         case "1337x":
             x1337(params, complite, error);
             break;
@@ -10314,7 +10316,8 @@
             magnetdl(params, complite, error);
             break;
         };
-        });
+          });
+        }
       } else {
         error(Lang.translate('torrent_parser_set_link') + ': Jackett');
       }
@@ -10800,6 +10803,7 @@
       Parser.get({
         search: decodeURIComponent(params.query),
         other: true,
+        from_search: true,
         movie: {
           genres: [],
           title: decodeURIComponent(params.query),
@@ -18870,7 +18874,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从哪里获取有关电影的信息',
+    settings_rest_source_descr: '从何处获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -18901,11 +18905,11 @@
     settings_parser_torlook_type: 'TorLook网站解析方法',
     settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
     settings_parser_scraperapi_link: '链接到站点解析器',
-    settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
+    settings_parser_scraperapi_descr: '在网站 scraperapi.com 注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
     settings_parser_search: '搜索',
-    settings_parser_search_descr: '用什么语言搜索？',
+    settings_parser_search_descr: '用什么语言搜索?',
     settings_parser_in_search: '在搜索中显示种子结果',
-    settings_parser_in_search_descr: '显示搜索结果？',
+    settings_parser_in_search_descr: '显示搜索结果?',
     settings_player_type: '播放器类型',
     settings_player_type_descr: '用哪个播放器',
     settings_player_reset: '重置默认播放器',
@@ -18960,13 +18964,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 是否正在运行',
+    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -18974,9 +18978,9 @@
     torrent_error_step_6: '仍然无法工作',
     torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
-    torrent_error_info_3: '要连接到 TorrServe，必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
+    torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
-    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
+    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
     torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
@@ -19034,7 +19038,7 @@
     torrent_parser_set_link: '指定解析链接',
     torrent_parser_request_error: '请求错误',
     torrent_parser_magnet_error: '获取磁力链接失败',
-    about_text: '应用完全免费，使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，应用程序不使用自己的服务器分发信息。',
+    about_text: '应用完全免费，使用公共链接获取有关视频、新版本、热门电影等的信息。所有可用信息仅用于教育目的，该应用程序不使用自己的服务器分发信息。',
     about_channel: '我们的频道',
     about_group: '组',
     about_version: '版本',
@@ -19098,7 +19102,7 @@
     title_upcoming: '在电影院观看',
     title_top_movie: '热门电影',
     title_top_tv: '热门系列',
-    title_tv_today: '今天播出',
+    title_tv_today: '今日播出',
     title_this_week: '本周',
     title_in_top: '热门',
     title_out: '退出',
@@ -19339,7 +19343,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '查看菜单（书签）',
+    card_book_descr: '在菜单中查找（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -21581,7 +21585,7 @@
       });
       scroll.height();
       scroll.render().on('mouseover touchstart', function () {
-        if (Controller.enabled().name !== 'items_line') _this.toggle();
+        if (Controller.enabled().name !== 'items_line' && Storage.field('navigation_type') == 'mouse') _this.toggle();
       });
       this.empty();
     };
