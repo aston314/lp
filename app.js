@@ -3128,6 +3128,7 @@
   var tracks = [];
   var subs = [];
   var qualitys = false;
+  var translates = {};
 
   function init$n() {
     html$e = Template.get('player_panel');
@@ -3291,13 +3292,14 @@
       if (tracks.length) {
         tracks.forEach(function (element, p) {
           var name = [];
+          var from = translates.tracks && Arrays.isArray(translates.tracks) && translates.tracks[p] ? translates.tracks[p] : element;
           name.push(p + 1);
-          name.push(element.language || element.name || 'Неизвестно');
-          if (element.label) name.push(element.label);
+          name.push(from.language || from.name || Lang.translate('player_unknown'));
+          if (from.label) name.push(from.label);
 
-          if (element.extra) {
-            if (element.extra.channels) name.push('Каналов: ' + element.extra.channels);
-            if (element.extra.fourCC) name.push('Тип: ' + element.extra.fourCC);
+          if (from.extra) {
+            if (from.extra.channels) name.push('Каналов: ' + from.extra.channels);
+            if (from.extra.fourCC) name.push('Тип: ' + from.extra.fourCC);
           }
 
           element.title = name.join(' / ');
@@ -3339,7 +3341,10 @@
         }
 
         subs.forEach(function (element, p) {
-          if (element.index !== -1) element.title = p + ' / ' + (element.language && element.label ? element.language + ' / ' + element.label : element.language || element.label || Lang.translate('player_unknown'));
+          if (element.index !== -1) {
+            var from = translates.subs && Arrays.isArray(translates.subs) && translates.subs[element.index] ? translates.subs[element.index] : element;
+            element.title = p + ' / ' + (from.language && from.label ? from.language + ' / ' + from.label : from.language || from.label || Lang.translate('player_unknown'));
+          }
         });
         var enabled = Controller.enabled();
         Select.show({
@@ -3819,6 +3824,15 @@
     } else elems$1.episode.toggleClass('hide', true);
   }
   /**
+   * Установить перевод для дорожек и сабов
+   * @param {{subs:[],tracks:[]}} data 
+   */
+
+
+  function setTranslate(data) {
+    if (_typeof(data) == 'object') translates = data;
+  }
+  /**
    * Уничтожить
    */
 
@@ -3828,6 +3842,7 @@
     tracks = [];
     subs = [];
     qualitys = false;
+    translates = {};
     elems$1.peding.css({
       width: 0
     });
@@ -3869,7 +3884,8 @@
     setLevels: setLevels,
     mousemove: mousemove,
     quality: quality,
-    showNextEpisodeName: showNextEpisodeName
+    showNextEpisodeName: showNextEpisodeName,
+    setTranslate: setTranslate
   };
 
   var widgetAPI,
@@ -7027,6 +7043,7 @@
         if (work.timeline) work.timeline.continued = false;
         PlayerPlaylist.url(data.url);
         PlayerPanel.quality(data.quality, data.url);
+        if (data.translate) PlayerPanel.setTranslate(data.translate);
         PlayerVideo.url(data.url);
         PlayerVideo.size(Storage.get('player_size', 'default'));
         PlayerVideo.speed(Storage.get('player_speed', 'default'));
