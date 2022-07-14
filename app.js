@@ -17739,7 +17739,7 @@
         var lang = Storage.get('language', 'ru');
 
         _keyBord.setOptions({
-          layoutName: lang == 'ru' ? 'default' : (lang == 'zh' ? 'en' : lang)
+          layoutName: lang == 'ru' ? 'default' : ['uk', 'en', 'ru'].indexOf(lang) >= 0 ? lang : 'en'
         });
 
         this.speechRecognition();
@@ -18006,6 +18006,183 @@
    */
 
   function init$6() {
+    /**
+     * Добовляем селекторы
+     */
+    select$1('interface_size', {
+      'small': '#{settings_param_interface_size_small}',
+      'normal': '#{settings_param_interface_size_normal}'
+    }, 'normal');
+    select$1('poster_size', {
+      'w200': '#{settings_param_poster_quality_low}',
+      'w300': '#{settings_param_poster_quality_average}',
+      'w500': '#{settings_param_poster_quality_high}'
+    }, 'w200');
+    select$1('parser_torrent_type', {
+      'jackett': 'Jackett',
+      'torlook': 'Torlook',
+    '1337x': '1337x',
+    'rarbg': 'Rarbg',
+    'magnetdl': 'magnetDL'
+    }, 'torlook');
+    select$1('torlook_parse_type', {
+      'native': '#{settings_param_parse_directly}',
+      'site': '#{settings_param_parse_api}'
+    }, 'native');
+    select$1('background_type', {
+      'complex': '#{settings_param_background_complex}',
+      'simple': '#{settings_param_background_simple}',
+      'poster': '#{settings_param_background_image}'
+    }, 'simple');
+    select$1('pages_save_total', {
+      '1': '1',
+      '2': '2',
+      '3': '3',
+      '4': '4',
+      '5': '5'
+    }, '5');
+    select$1('player', {
+      'inner': '#{settings_param_player_inner}'
+    }, 'inner');
+    select$1('torrserver_use_link', {
+      'one': '#{settings_param_link_use_one}',
+      'two': '#{settings_param_link_use_two}'
+    }, 'one');
+    select$1('subtitles_size', {
+      'small': '#{settings_param_subtitles_size_small}',
+      'normal': '#{settings_param_subtitles_size_normal}',
+      'large': '#{settings_param_subtitles_size_bigger}'
+    }, 'normal');
+    select$1('screensaver_type', {
+      'nature': '#{settings_param_screensaver_nature}',
+      'chrome': 'ChromeCast'
+    }, 'nature');
+    select$1('tmdb_lang', Lang.codes(), 'ru');
+    select$1('parse_lang', {
+    'zh-CN': '#{settings_param_lang_zh}',
+    'zh-HK': '繁體中文 - 香港',
+    'zh-TW': '繁體中文 - 臺灣',
+    'en': 'English',
+      'df': '#{settings_param_torrent_lang_orig}',
+      'ru': '#{settings_param_torrent_lang_ru}'
+    }, 'df');
+    select$1('player_timecode', {
+      'again': '#{settings_param_player_timecode_again}',
+      'continue': '#{settings_param_player_timecode_continue}',
+      'ask': '#{settings_param_player_timecode_ask}'
+    }, 'continue');
+    select$1('player_scale_method', {
+      'transform': 'Transform',
+      'calculate': '#{settings_param_player_scale_method}'
+    }, 'transform');
+    select$1('player_hls_method', {
+      'application': '#{settings_param_player_hls_app}',
+      'hlsjs': '#{settings_param_player_hls_js}'
+    }, 'application');
+    select$1('source', {
+      'tmdb': 'TMDB',
+      'ivi': 'IVI',
+      'okko': 'OKKO',
+      'cub': 'CUB'
+    }, 'tmdb');
+    select$1('start_page', {
+      'main': '#{title_main}',
+      'favorite@book': '#{title_book}',
+      'favorite@like': '#{title_like}',
+      'favorite@wath': '#{title_wath}',
+      'favorite@history': '#{title_history}',
+      'mytorrents': '#{title_mytorrents}',
+      'last': '#{title_last}'
+    }, 'last');
+    select$1('scroll_type', {
+      'css': 'CSS',
+      'js': 'Javascript'
+    }, 'css');
+    select$1('card_views_type', {
+      'preload': '#{settings_param_card_view_load}',
+      'view': '#{settings_param_card_view_all}'
+    }, 'preload');
+    select$1('navigation_type', {
+      'controll': '#{settings_param_navigation_remote}',
+      'mouse': '#{settings_param_navigation_mouse}'
+    }, 'mouse');
+    select$1('keyboard_type', {
+      'lampa': '#{settings_param_keyboard_lampa}',
+      'integrate': '#{settings_param_keyboard_system}'
+    }, 'integrate');
+    select$1('time_offset', {
+      'n-10': '-10',
+      'n-9': '-9',
+      'n-8': '-8',
+      'n-7': '-7',
+      'n-6': '-6',
+      'n-5': '-5',
+      'n-4': '-4',
+      'n-3': '-3',
+      'n-2': '-2',
+      'n-1': '-1',
+      'n0': '0',
+      'n1': '1',
+      'n2': '2',
+      'n3': '3',
+      'n4': '4',
+      'n5': '5',
+      'n6': '6',
+      'n7': '7',
+      'n8': '8',
+      'n9': '9',
+      'n10': '10'
+    }, 'n0');
+    select$1('video_quality_default', {
+      '480': '480p',
+      '720': '720p',
+      '1080': '1080p',
+      '1440': '1440p',
+      '2160': '2160p'
+    }, '1080');
+    /**
+     * Добовляем триггеры
+     */
+
+    trigger('animation', true);
+    trigger('background', true);
+    trigger('torrserver_savedb', false);
+    trigger('torrserver_preload', false);
+    trigger('parser_use', false);
+    trigger('cloud_use', false);
+    trigger('account_use', false);
+    trigger('torrserver_auth', false);
+    trigger('mask', true);
+    trigger('playlist_next', true);
+    trigger('internal_torrclient', true);
+    trigger('subtitles_stroke', true);
+    trigger('subtitles_backdrop', false);
+    trigger('screensaver', true);
+    trigger('proxy_tmdb', true);
+    trigger('proxy_other', true);
+    trigger('parse_in_search', false);
+    trigger('subtitles_start', false);
+    trigger('helper', true);
+    trigger('light_version', false);
+    trigger('player_normalization', false);
+    /**
+     * Добовляем поля
+     */
+
+    select$1('jackett_url', '', '');
+    select$1('jackett_key', '', '');
+    select$1('torrserver_url', '', '');
+    select$1('torrserver_url_two', '', '');
+    select$1('torrserver_login', '', '');
+    select$1('torrserver_password', '', '');
+    select$1('parser_website_url', '', '');
+    select$1('torlook_site', '', 'w41.torlook.info');
+    select$1('cloud_token', '', '');
+    select$1('account_email', '', '');
+    select$1('account_password', '', '');
+    select$1('device_name', '', 'Lampa');
+    select$1('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe');
+
     if (Platform.is('tizen')) {
       select$1('player', {
         'inner': '#{settings_param_player_inner}',
@@ -18213,191 +18390,7 @@
   function field$1(name) {
     return Storage.get(name, defaults[name] + '');
   }
-  /**
-   * Добовляем селекторы
-   */
 
-
-  select$1('interface_size', {
-    'small': '#{settings_param_interface_size_small}',
-    'normal': '#{settings_param_interface_size_normal}'
-  }, 'normal');
-  select$1('poster_size', {
-    'w200': '#{settings_param_poster_quality_low}',
-    'w300': '#{settings_param_poster_quality_average}',
-    'w500': '#{settings_param_poster_quality_high}'
-  }, 'w200');
-  select$1('parser_torrent_type', {
-    'jackett': 'Jackett',
-    'torlook': 'Torlook',
-    '1337x': '1337x',
-    'rarbg': 'Rarbg',
-    'magnetdl': 'magnetDL'
-  }, 'torlook');
-  select$1('torlook_parse_type', {
-    'native': '#{settings_param_parse_directly}',
-    'site': '#{settings_param_parse_api}'
-  }, 'native');
-  select$1('background_type', {
-    'complex': '#{settings_param_background_complex}',
-    'simple': '#{settings_param_background_simple}',
-    'poster': '#{settings_param_background_image}'
-  }, 'simple');
-  select$1('pages_save_total', {
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5'
-  }, '5');
-  select$1('player', {
-    'inner': '#{settings_param_player_inner}'
-  }, 'inner');
-  select$1('torrserver_use_link', {
-    'one': '#{settings_param_link_use_one}',
-    'two': '#{settings_param_link_use_two}'
-  }, 'one');
-  select$1('subtitles_size', {
-    'small': '#{settings_param_subtitles_size_small}',
-    'normal': '#{settings_param_subtitles_size_normal}',
-    'large': '#{settings_param_subtitles_size_bigger}'
-  }, 'normal');
-  select$1('screensaver_type', {
-    'nature': '#{settings_param_screensaver_nature}',
-    'chrome': 'ChromeCast'
-  }, 'nature');
-  select$1('tmdb_lang', {
-    'zh-CN': '#{settings_param_lang_zh}',
-    'zh-HK': '繁體中文 - 香港',
-    'zh-TW': '繁體中文 - 臺灣',
-    'ru': '#{settings_param_lang_ru}',
-    'uk': '#{settings_param_lang_uk}',
-    'en': '#{settings_param_lang_en}'
-  }, 'zh-CN');
-  select$1('parse_lang', {
-    'zh-CN': '#{settings_param_lang_zh}',
-    'zh-HK': '繁體中文 - 香港',
-    'zh-TW': '繁體中文 - 臺灣',
-    'en': 'English',
-    'df': '#{settings_param_torrent_lang_orig}',
-    'ru': '#{settings_param_torrent_lang_ru}'
-  }, 'df');
-  select$1('player_timecode', {
-    'again': '#{settings_param_player_timecode_again}',
-    'continue': '#{settings_param_player_timecode_continue}',
-    'ask': '#{settings_param_player_timecode_ask}'
-  }, 'continue');
-  select$1('player_scale_method', {
-    'transform': 'Transform',
-    'calculate': '#{settings_param_player_scale_method}'
-  }, 'transform');
-  select$1('player_hls_method', {
-    'application': '#{settings_param_player_hls_app}',
-    'hlsjs': '#{settings_param_player_hls_js}'
-  }, 'application');
-  select$1('source', {
-    'tmdb': 'TMDB',
-    'ivi': 'IVI',
-    'okko': 'OKKO',
-    'cub': 'CUB'
-  }, 'tmdb');
-  select$1('start_page', {
-    'main': '#{title_main}',
-    'favorite@book': '#{title_book}',
-    'favorite@like': '#{title_like}',
-    'favorite@wath': '#{title_wath}',
-    'favorite@history': '#{title_history}',
-    'mytorrents': '#{title_mytorrents}',
-    'last': '#{title_last}'
-  }, 'last');
-  select$1('scroll_type', {
-    'css': 'CSS',
-    'js': 'Javascript'
-  }, 'css');
-  select$1('card_views_type', {
-    'preload': '#{settings_param_card_view_load}',
-    'view': '#{settings_param_card_view_all}'
-  }, 'preload');
-  select$1('navigation_type', {
-    'controll': '#{settings_param_navigation_remote}',
-    'mouse': '#{settings_param_navigation_mouse}'
-  }, 'mouse');
-  select$1('keyboard_type', {
-    'lampa': '#{settings_param_keyboard_lampa}',
-    'integrate': '#{settings_param_keyboard_system}'
-  }, 'integrate');
-  select$1('time_offset', {
-    'n-10': '-10',
-    'n-9': '-9',
-    'n-8': '-8',
-    'n-7': '-7',
-    'n-6': '-6',
-    'n-5': '-5',
-    'n-4': '-4',
-    'n-3': '-3',
-    'n-2': '-2',
-    'n-1': '-1',
-    'n0': '0',
-    'n1': '1',
-    'n2': '2',
-    'n3': '3',
-    'n4': '4',
-    'n5': '5',
-    'n6': '6',
-    'n7': '7',
-    'n8': '8',
-    'n9': '9',
-    'n10': '10'
-  }, 'n0');
-  select$1('video_quality_default', {
-    '480': '480p',
-    '720': '720p',
-    '1080': '1080p',
-    '1440': '1440p',
-    '2160': '2160p'
-  }, '1080');
-  /**
-   * Добовляем триггеры
-   */
-
-  trigger('animation', true);
-  trigger('background', true);
-  trigger('torrserver_savedb', false);
-  trigger('torrserver_preload', false);
-  trigger('parser_use', false);
-  trigger('cloud_use', false);
-  trigger('account_use', false);
-  trigger('torrserver_auth', false);
-  trigger('mask', true);
-  trigger('playlist_next', true);
-  trigger('internal_torrclient', true);
-  trigger('subtitles_stroke', true);
-  trigger('subtitles_backdrop', false);
-  trigger('screensaver', true);
-  trigger('proxy_tmdb', true);
-  trigger('proxy_other', true);
-  trigger('parse_in_search', false);
-  trigger('subtitles_start', false);
-  trigger('helper', true);
-  trigger('light_version', false);
-  trigger('player_normalization', false);
-  /**
-   * Добовляем поля
-   */
-
-  select$1('jackett_url', '', '');
-  select$1('jackett_key', '', '');
-  select$1('torrserver_url', '', '');
-  select$1('torrserver_url_two', '', '');
-  select$1('torrserver_login', '', '');
-  select$1('torrserver_password', '', '');
-  select$1('parser_website_url', '', '');
-  select$1('torlook_site', '', 'w41.torlook.info');
-  select$1('cloud_token', '', '');
-  select$1('account_email', '', '');
-  select$1('account_password', '', '');
-  select$1('device_name', '', 'Lampa');
-  select$1('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe');
   var Params = {
     listener: listener$2,
     init: init$6,
@@ -18900,7 +18893,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -18942,7 +18935,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从哪里获取有关电影的信息',
+    settings_rest_source_descr: '从何处获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -19132,7 +19125,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史',
+    title_history: '浏览历史记录',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19335,11 +19328,11 @@
     settings_param_poster_quality_low: '低',
     settings_param_poster_quality_average: '中',
     settings_param_poster_quality_high: '高',
-    settings_param_parse_directly: '直接',
+    settings_param_parse_directly: '直连',
     settings_param_parse_api: '通过网站 API',
     settings_param_background_complex: '复杂',
     settings_param_background_simple: '简单',
-    settings_param_background_image: '图片',
+    settings_param_background_image: '图像',
     settings_param_link_use_one: '主要',
     settings_param_link_use_two: '额外',
     settings_param_subtitles_size_small: '小',
@@ -19411,7 +19404,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '查看菜单（书签）',
+    card_book_descr: '在菜单中查找（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -19513,12 +19506,12 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放这个视频',
+    player_share_descr: '在另一台设备上播放此视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '规范化能力',
-    player_normalization_smooth_title: '规范化速度',
+    player_normalization_power_title: '标准化功率',
+    player_normalization_smooth_title: '标准化速度',
     player_normalization_step_low: '低的',
-    player_normalization_step_medium: '平均',
+    player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
     extensions_enable: '打开',
     extensions_disable: '禁用',
@@ -19534,7 +19527,7 @@
     extensions_ready: '此插件已安装',
     extensions_no_info: '无信息',
     extensions_no_name: '无标题',
-    extensions_worked: '工人',
+    extensions_worked: '工作中',
     extensions_no_plugin: '插件未验证',
     extensions_add: '添加插件',
     extensions_from_memory: '安装在内存中',
@@ -21327,7 +21320,7 @@
   });
   Object.defineProperty(keys, 'be', {
     get: function get() {
-      return 'Беларускі';
+      return 'Беларуская';
     }
   });
   /**
@@ -23914,7 +23907,7 @@
           }, function () {
             Controller.toggle('settings_component');
           });
-        }).find('.settings-param__value').text(Lang.translate('settings_param_lang_' + Storage.get('language', 'ru')));
+        }).find('.settings-param__value').text(Lang.translate(Lang.codes()[Storage.get('language', 'ru')]));
       }
     });
     /** End */
