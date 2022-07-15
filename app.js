@@ -18006,183 +18006,6 @@
    */
 
   function init$6() {
-    /**
-     * Добовляем селекторы
-     */
-    select$1('interface_size', {
-      'small': '#{settings_param_interface_size_small}',
-      'normal': '#{settings_param_interface_size_normal}'
-    }, 'normal');
-    select$1('poster_size', {
-      'w200': '#{settings_param_poster_quality_low}',
-      'w300': '#{settings_param_poster_quality_average}',
-      'w500': '#{settings_param_poster_quality_high}'
-    }, 'w200');
-    select$1('parser_torrent_type', {
-      'jackett': 'Jackett',
-      'torlook': 'Torlook',
-    '1337x': '1337x',
-    'rarbg': 'Rarbg',
-    'magnetdl': 'magnetDL'
-    }, 'torlook');
-    select$1('torlook_parse_type', {
-      'native': '#{settings_param_parse_directly}',
-      'site': '#{settings_param_parse_api}'
-    }, 'native');
-    select$1('background_type', {
-      'complex': '#{settings_param_background_complex}',
-      'simple': '#{settings_param_background_simple}',
-      'poster': '#{settings_param_background_image}'
-    }, 'simple');
-    select$1('pages_save_total', {
-      '1': '1',
-      '2': '2',
-      '3': '3',
-      '4': '4',
-      '5': '5'
-    }, '5');
-    select$1('player', {
-      'inner': '#{settings_param_player_inner}'
-    }, 'inner');
-    select$1('torrserver_use_link', {
-      'one': '#{settings_param_link_use_one}',
-      'two': '#{settings_param_link_use_two}'
-    }, 'one');
-    select$1('subtitles_size', {
-      'small': '#{settings_param_subtitles_size_small}',
-      'normal': '#{settings_param_subtitles_size_normal}',
-      'large': '#{settings_param_subtitles_size_bigger}'
-    }, 'normal');
-    select$1('screensaver_type', {
-      'nature': '#{settings_param_screensaver_nature}',
-      'chrome': 'ChromeCast'
-    }, 'nature');
-    select$1('tmdb_lang', Lang.codes(), 'ru');
-    select$1('parse_lang', {
-    'zh-CN': '#{settings_param_lang_zh}',
-    'zh-HK': '繁體中文 - 香港',
-    'zh-TW': '繁體中文 - 臺灣',
-    'en': 'English',
-      'df': '#{settings_param_torrent_lang_orig}',
-      'ru': '#{settings_param_torrent_lang_ru}'
-    }, 'df');
-    select$1('player_timecode', {
-      'again': '#{settings_param_player_timecode_again}',
-      'continue': '#{settings_param_player_timecode_continue}',
-      'ask': '#{settings_param_player_timecode_ask}'
-    }, 'continue');
-    select$1('player_scale_method', {
-      'transform': 'Transform',
-      'calculate': '#{settings_param_player_scale_method}'
-    }, 'transform');
-    select$1('player_hls_method', {
-      'application': '#{settings_param_player_hls_app}',
-      'hlsjs': '#{settings_param_player_hls_js}'
-    }, 'application');
-    select$1('source', {
-      'tmdb': 'TMDB',
-      'ivi': 'IVI',
-      'okko': 'OKKO',
-      'cub': 'CUB'
-    }, 'tmdb');
-    select$1('start_page', {
-      'main': '#{title_main}',
-      'favorite@book': '#{title_book}',
-      'favorite@like': '#{title_like}',
-      'favorite@wath': '#{title_wath}',
-      'favorite@history': '#{title_history}',
-      'mytorrents': '#{title_mytorrents}',
-      'last': '#{title_last}'
-    }, 'last');
-    select$1('scroll_type', {
-      'css': 'CSS',
-      'js': 'Javascript'
-    }, 'css');
-    select$1('card_views_type', {
-      'preload': '#{settings_param_card_view_load}',
-      'view': '#{settings_param_card_view_all}'
-    }, 'preload');
-    select$1('navigation_type', {
-      'controll': '#{settings_param_navigation_remote}',
-      'mouse': '#{settings_param_navigation_mouse}'
-    }, 'mouse');
-    select$1('keyboard_type', {
-      'lampa': '#{settings_param_keyboard_lampa}',
-      'integrate': '#{settings_param_keyboard_system}'
-    }, 'integrate');
-    select$1('time_offset', {
-      'n-10': '-10',
-      'n-9': '-9',
-      'n-8': '-8',
-      'n-7': '-7',
-      'n-6': '-6',
-      'n-5': '-5',
-      'n-4': '-4',
-      'n-3': '-3',
-      'n-2': '-2',
-      'n-1': '-1',
-      'n0': '0',
-      'n1': '1',
-      'n2': '2',
-      'n3': '3',
-      'n4': '4',
-      'n5': '5',
-      'n6': '6',
-      'n7': '7',
-      'n8': '8',
-      'n9': '9',
-      'n10': '10'
-    }, 'n0');
-    select$1('video_quality_default', {
-      '480': '480p',
-      '720': '720p',
-      '1080': '1080p',
-      '1440': '1440p',
-      '2160': '2160p'
-    }, '1080');
-    /**
-     * Добовляем триггеры
-     */
-
-    trigger('animation', true);
-    trigger('background', true);
-    trigger('torrserver_savedb', false);
-    trigger('torrserver_preload', false);
-    trigger('parser_use', false);
-    trigger('cloud_use', false);
-    trigger('account_use', false);
-    trigger('torrserver_auth', false);
-    trigger('mask', true);
-    trigger('playlist_next', true);
-    trigger('internal_torrclient', true);
-    trigger('subtitles_stroke', true);
-    trigger('subtitles_backdrop', false);
-    trigger('screensaver', true);
-    trigger('proxy_tmdb', true);
-    trigger('proxy_other', true);
-    trigger('parse_in_search', false);
-    trigger('subtitles_start', false);
-    trigger('helper', true);
-    trigger('light_version', false);
-    trigger('player_normalization', false);
-    /**
-     * Добовляем поля
-     */
-
-    select$1('jackett_url', '', '');
-    select$1('jackett_key', '', '');
-    select$1('torrserver_url', '', '');
-    select$1('torrserver_url_two', '', '');
-    select$1('torrserver_login', '', '');
-    select$1('torrserver_password', '', '');
-    select$1('parser_website_url', '', '');
-    select$1('torlook_site', '', 'w41.torlook.info');
-    select$1('cloud_token', '', '');
-    select$1('account_email', '', '');
-    select$1('account_password', '', '');
-    select$1('device_name', '', 'Lampa');
-    select$1('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe');
-
     if (Platform.is('tizen')) {
       select$1('player', {
         'inner': '#{settings_param_player_inner}',
@@ -18212,6 +18035,8 @@
         'other': '#{settings_param_player_outside}'
       }, 'inner');
     }
+
+    select$1('tmdb_lang', Lang.codes(), 'ru');
   }
   /**
    * Переключатель
@@ -18390,7 +18215,183 @@
   function field$1(name) {
     return Storage.get(name, defaults[name] + '');
   }
+  /**
+       * Добовляем селекторы
+       */
 
+
+  select$1('interface_size', {
+    'small': '#{settings_param_interface_size_small}',
+    'normal': '#{settings_param_interface_size_normal}'
+  }, 'normal');
+  select$1('poster_size', {
+    'w200': '#{settings_param_poster_quality_low}',
+    'w300': '#{settings_param_poster_quality_average}',
+    'w500': '#{settings_param_poster_quality_high}'
+  }, 'w200');
+  select$1('parser_torrent_type', {
+    'jackett': 'Jackett',
+    'torlook': 'Torlook',
+    '1337x': '1337x',
+    'rarbg': 'Rarbg',
+    'magnetdl': 'magnetDL'
+  }, 'torlook');
+  select$1('torlook_parse_type', {
+    'native': '#{settings_param_parse_directly}',
+    'site': '#{settings_param_parse_api}'
+  }, 'native');
+  select$1('background_type', {
+    'complex': '#{settings_param_background_complex}',
+    'simple': '#{settings_param_background_simple}',
+    'poster': '#{settings_param_background_image}'
+  }, 'simple');
+  select$1('pages_save_total', {
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5'
+  }, '5');
+  select$1('player', {
+    'inner': '#{settings_param_player_inner}'
+  }, 'inner');
+  select$1('torrserver_use_link', {
+    'one': '#{settings_param_link_use_one}',
+    'two': '#{settings_param_link_use_two}'
+  }, 'one');
+  select$1('subtitles_size', {
+    'small': '#{settings_param_subtitles_size_small}',
+    'normal': '#{settings_param_subtitles_size_normal}',
+    'large': '#{settings_param_subtitles_size_bigger}'
+  }, 'normal');
+  select$1('screensaver_type', {
+    'nature': '#{settings_param_screensaver_nature}',
+    'chrome': 'ChromeCast'
+  }, 'nature');
+  select$1('parse_lang', {
+    'zh-CN': '#{settings_param_lang_zh}',
+    'zh-HK': '繁體中文 - 香港',
+    'zh-TW': '繁體中文 - 臺灣',
+    'en': 'English',
+    'df': '#{settings_param_torrent_lang_orig}',
+    'ru': '#{settings_param_torrent_lang_ru}'
+  }, 'df');
+  select$1('player_timecode', {
+    'again': '#{settings_param_player_timecode_again}',
+    'continue': '#{settings_param_player_timecode_continue}',
+    'ask': '#{settings_param_player_timecode_ask}'
+  }, 'continue');
+  select$1('player_scale_method', {
+    'transform': 'Transform',
+    'calculate': '#{settings_param_player_scale_method}'
+  }, 'transform');
+  select$1('player_hls_method', {
+    'application': '#{settings_param_player_hls_app}',
+    'hlsjs': '#{settings_param_player_hls_js}'
+  }, 'application');
+  select$1('source', {
+    'tmdb': 'TMDB',
+    'ivi': 'IVI',
+    'okko': 'OKKO',
+    'cub': 'CUB'
+  }, 'tmdb');
+  select$1('start_page', {
+    'main': '#{title_main}',
+    'favorite@book': '#{title_book}',
+    'favorite@like': '#{title_like}',
+    'favorite@wath': '#{title_wath}',
+    'favorite@history': '#{title_history}',
+    'mytorrents': '#{title_mytorrents}',
+    'last': '#{title_last}'
+  }, 'last');
+  select$1('scroll_type', {
+    'css': 'CSS',
+    'js': 'Javascript'
+  }, 'css');
+  select$1('card_views_type', {
+    'preload': '#{settings_param_card_view_load}',
+    'view': '#{settings_param_card_view_all}'
+  }, 'preload');
+  select$1('navigation_type', {
+    'controll': '#{settings_param_navigation_remote}',
+    'mouse': '#{settings_param_navigation_mouse}'
+  }, 'mouse');
+  select$1('keyboard_type', {
+    'lampa': '#{settings_param_keyboard_lampa}',
+    'integrate': '#{settings_param_keyboard_system}'
+  }, 'integrate');
+  select$1('time_offset', {
+    'n-10': '-10',
+    'n-9': '-9',
+    'n-8': '-8',
+    'n-7': '-7',
+    'n-6': '-6',
+    'n-5': '-5',
+    'n-4': '-4',
+    'n-3': '-3',
+    'n-2': '-2',
+    'n-1': '-1',
+    'n0': '0',
+    'n1': '1',
+    'n2': '2',
+    'n3': '3',
+    'n4': '4',
+    'n5': '5',
+    'n6': '6',
+    'n7': '7',
+    'n8': '8',
+    'n9': '9',
+    'n10': '10'
+  }, 'n0');
+  select$1('video_quality_default', {
+    '480': '480p',
+    '720': '720p',
+    '1080': '1080p',
+    '1440': '1440p',
+    '2160': '2160p'
+  }, '1080');
+  /**
+   * Добовляем триггеры
+   */
+
+  trigger('animation', true);
+  trigger('background', true);
+  trigger('torrserver_savedb', false);
+  trigger('torrserver_preload', false);
+  trigger('parser_use', false);
+  trigger('cloud_use', false);
+  trigger('account_use', false);
+  trigger('torrserver_auth', false);
+  trigger('mask', true);
+  trigger('playlist_next', true);
+  trigger('internal_torrclient', true);
+  trigger('subtitles_stroke', true);
+  trigger('subtitles_backdrop', false);
+  trigger('screensaver', true);
+  trigger('proxy_tmdb', true);
+  trigger('proxy_other', true);
+  trigger('parse_in_search', false);
+  trigger('subtitles_start', false);
+  trigger('helper', true);
+  trigger('light_version', false);
+  trigger('player_normalization', false);
+  /**
+   * Добовляем поля
+   */
+
+  select$1('jackett_url', '', '');
+  select$1('jackett_key', '', '');
+  select$1('torrserver_url', '', '');
+  select$1('torrserver_url_two', '', '');
+  select$1('torrserver_login', '', '');
+  select$1('torrserver_password', '', '');
+  select$1('parser_website_url', '', '');
+  select$1('torlook_site', '', 'w41.torlook.info');
+  select$1('cloud_token', '', '');
+  select$1('account_email', '', '');
+  select$1('account_password', '', '');
+  select$1('device_name', '', 'Lampa');
+  select$1('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe');
   var Params = {
     listener: listener$2,
     init: init$6,
@@ -18935,7 +18936,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从何处获取有关电影的信息',
+    settings_rest_source_descr: '从哪里获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -18978,7 +18979,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -19037,13 +19038,13 @@
     torrent_error_step_4: '防病毒阻止',
     torrent_error_step_5: '检查可用性',
     torrent_error_step_6: '仍然无法工作',
-    torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
+    torrent_error_info_1: '确保您已在安装了 TorrServe 的设备上启动它。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
     torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
     torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -19125,7 +19126,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史记录',
+    title_history: '浏览历史',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19300,8 +19301,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '要应用插件，需要重新启动应用程序',
+    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '应用插件需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '安装ations',
@@ -19404,7 +19405,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '在菜单中查找（书签）',
+    card_book_descr: '查看菜单（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -19516,7 +19517,7 @@
     extensions_enable: '打开',
     extensions_disable: '禁用',
     extensions_check: '检查状态',
-    extensions_install: 'Install',
+    extensions_install: '安装',
     extensions_info: '关于',
     extensions_edit: '编辑',
     extensions_change_name: '更改名称',
@@ -20992,7 +20993,7 @@
     settings_rest_source_descr: 'Адкуль браць інфармацыю пра фільмы',
     settings_rest_tmdb_lang: 'На якой мове адлюстроўваць дадзеныя з TMDB',
     settings_rest_tmdb_prox: 'Праксіраваць TMDB',
-    settings_rest_tmdb_posters: 'Дазвол постэраў TMDB',
+    settings_rest_tmdb_posters: 'Разрозненне постэраў TMDB',
     settings_rest_screensaver: 'Скрынсэйвер',
     settings_rest_screensaver_use: 'Паказваць застаўку пры бяздзейнасці',
     settings_rest_screensaver_type: 'Тып застаўкі',
@@ -21051,10 +21052,10 @@
     settings_player_quality: 'Якасць відэа па змаўчанні',
     settings_player_quality_descr: 'Пераважная якасць відэа для прагляду',
     settings_plugins_notice: 'Для прымянення плагіна неабходна перазагрузіць дадатак',
-    settings_plugins_add: 'Дадаць плягін',
+    settings_plugins_add: 'Дадаць плагін',
     settings_plugins_add_descr: 'Для выдалення дададзенага плагіна ўтрымлівайце ці націсніце двойчы клавішу (OK) на ім',
-    settings_plugins_install: 'Усталяваць убудову',
-    settings_plugins_install_descr: 'Усталяваць убудову са спісу даступных',
+    settings_plugins_install: 'Усталяваць плагін',
+    settings_plugins_install_descr: 'Усталяваць плагін са спісу даступных',
     settings_server_link: 'Выкарыстоўваць спасылку',
     settings_server_links: 'Спасылкі',
     settings_server_placeholder: 'Напрыклад: 192.168.х',
@@ -21158,7 +21159,7 @@
     about_channel: 'Наш канал',
     about_group: 'Група',
     about_version: 'Версія',
-    about_donate: 'Донат',
+    about_donate: 'Данат',
     title_watched: 'Вы глядзелі',
     title_settings: 'Налады',
     title_collections: 'Падборкі',
@@ -21268,7 +21269,7 @@
     filter_country_hr: 'Харватыя',
     filter_country_cs: 'Чэшская Рэспубліка',
     filter_country_sv: 'Швецыя'
-  }, _defineProperty(_lang_choice_title$la, "filter_country_et", 'Эстонія'), _defineProperty(_lang_choice_title$la, "filter_genre_ac", 'Баявік'), _defineProperty(_lang_choice_title$la, "filter_genre_ad", 'Прыгоды'), _defineProperty(_lang_choice_title$la, "filter_genre_mv", 'Мультфільм'), _defineProperty(_lang_choice_title$la, "filter_genre_cm", 'Камедыя'), _defineProperty(_lang_choice_title$la, "filter_genre_cr", 'Крымінал'), _defineProperty(_lang_choice_title$la, "filter_genre_dc", 'Дакументальны'), _defineProperty(_lang_choice_title$la, "filter_genre_dr", 'Драма'), _defineProperty(_lang_choice_title$la, "filter_genre_fm", 'Сямейны'), _defineProperty(_lang_choice_title$la, "filter_genre_fe", 'Фэнтэзі'), _defineProperty(_lang_choice_title$la, "filter_genre_hi", 'Гісторыя'), _defineProperty(_lang_choice_title$la, "filter_genre_ho", 'Жахі'), _defineProperty(_lang_choice_title$la, "filter_genre_mu", 'Музыка'), _defineProperty(_lang_choice_title$la, "filter_genre_de", 'Дэтэктыў'), _defineProperty(_lang_choice_title$la, "filter_genre_md", 'Меладрама'), _defineProperty(_lang_choice_title$la, "filter_genre_fa", 'Фантастыка'), _defineProperty(_lang_choice_title$la, "filter_genre_tv", 'Тэлевізійны фільм'), _defineProperty(_lang_choice_title$la, "filter_genre_tr", 'Трылер'), _defineProperty(_lang_choice_title$la, "filter_genre_mi", 'Ваенны'), _defineProperty(_lang_choice_title$la, "filter_genre_ve", 'Вэстэрн'), _defineProperty(_lang_choice_title$la, "filter_genre_aa", 'Баявік і Прыгоды'), _defineProperty(_lang_choice_title$la, "filter_genre_ch", 'Дзіцячы'), _defineProperty(_lang_choice_title$la, "filter_genre_nw", 'Навіны'), _defineProperty(_lang_choice_title$la, "filter_genre_rs", 'Рэаліці-шоў'), _defineProperty(_lang_choice_title$la, "filter_genre_hf", 'НФ і Фэнтэзі'), _defineProperty(_lang_choice_title$la, "filter_genre_op", 'Мыльная опера'), _defineProperty(_lang_choice_title$la, "filter_genre_tc", 'Ток-шоу'), _defineProperty(_lang_choice_title$la, "filter_genre_mp", 'Вайна і Палітыка'), _defineProperty(_lang_choice_title$la, "ivi_premieres", 'Прэм\'еры фільмаў'), _defineProperty(_lang_choice_title$la, "ivi_best", 'Лепшыя фільмы'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Папулярнае зараз'), _defineProperty(_lang_choice_title$la, "ivi_choice", 'Выбар ivi'), _defineProperty(_lang_choice_title$la, "ivi_new", 'Навінкі'), _defineProperty(_lang_choice_title$la, "ivi_foreign", 'Замежныя'), _defineProperty(_lang_choice_title$la, "ivi_ru", 'Рускія'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Папулярнае зараз'), _defineProperty(_lang_choice_title$la, "ivi_recomend", 'Рэкамендуем вам паглядзець'), _defineProperty(_lang_choice_title$la, "ivi_for_famaly", 'Мульцікі для ўсёй сям\'і'), _defineProperty(_lang_choice_title$la, "ivi_triller", 'Трылеры-жахі'), _defineProperty(_lang_choice_title$la, "ivi_advance", 'Прыгодніцкія камедыі'), _defineProperty(_lang_choice_title$la, "ivi_detective", 'Экранізацыі дэтэктываў'), _defineProperty(_lang_choice_title$la, "ivi_crime_comedy", 'Крымінальныя камедыі'), _defineProperty(_lang_choice_title$la, "ivi_romantic", 'Рамантычныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_crime_dramas", 'Крымінальныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_fantastic_dramas", 'Фантастычныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_military_dramas", 'Ваенныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_mistic", 'Містычныя фільмы'), _defineProperty(_lang_choice_title$la, "ivi_foreign_series", 'Замежныя серыялы'), _defineProperty(_lang_choice_title$la, "ivi_historical_series", 'Гістарычныя серыялы'), _defineProperty(_lang_choice_title$la, "okko_top_new", 'Топ-навінкі'), _defineProperty(_lang_choice_title$la, "okko_comedy_horror", 'Камедыйныя фільмы жахаў'), _defineProperty(_lang_choice_title$la, "okko_collection_maniacs", 'Фільмы пра маньякаў'), _defineProperty(_lang_choice_title$la, "okko_witches", 'Фільмы пра ведзьмаў'), _defineProperty(_lang_choice_title$la, "okko_zombies", 'Фільмы пра зомбі'), _defineProperty(_lang_choice_title$la, "okko_ru", 'Рускія'), _defineProperty(_lang_choice_title$la, "okko_horror_serial", 'Вельмі страшныя'), _defineProperty(_lang_choice_title$la, "okko_serial_killers", 'Пра маньякаў'), _defineProperty(_lang_choice_title$la, "okko_humor_serial", 'З чорным гумарам'), _defineProperty(_lang_choice_title$la, "okko_legkiye_serialy", 'Лёгкія'), _defineProperty(_lang_choice_title$la, "okko_comedy_serial", 'Камедыйныя'), _defineProperty(_lang_choice_title$la, "okko_ru_tv", 'Рускія'), _defineProperty(_lang_choice_title$la, "empty_title", 'Пуста'), _defineProperty(_lang_choice_title$la, "empty_text", 'Па вашым фільтры нічога не знайшлося, удакладніце фільтр.'), _defineProperty(_lang_choice_title$la, "empty_title_two", 'Тут пуста'), _defineProperty(_lang_choice_title$la, "empty_text_two", 'На дадзены момант спіс пусты'), _defineProperty(_lang_choice_title$la, "menu_main", 'Галоўная'), _defineProperty(_lang_choice_title$la, "menu_movies", 'Фільмы'), _defineProperty(_lang_choice_title$la, "menu_tv", 'Серыялы'), _defineProperty(_lang_choice_title$la, "menu_catalog", 'Каталог'), _defineProperty(_lang_choice_title$la, "menu_filter", 'Фільтр'), _defineProperty(_lang_choice_title$la, "menu_collections", 'Падборкі'), _defineProperty(_lang_choice_title$la, "menu_relises", 'Рэлізы'), _defineProperty(_lang_choice_title$la, "menu_anime", 'Анімэ'), _defineProperty(_lang_choice_title$la, "menu_bookmark", 'Закладкі'), _defineProperty(_lang_choice_title$la, "menu_like", 'Падабаецца'), _defineProperty(_lang_choice_title$la, "menu_time", 'Пазней'), _defineProperty(_lang_choice_title$la, "menu_history", 'Гісторыя'), _defineProperty(_lang_choice_title$la, "menu_timeline", 'Расклад'), _defineProperty(_lang_choice_title$la, "menu_torrents", 'Тарэнты'), _defineProperty(_lang_choice_title$la, "menu_settings", 'Налады'), _defineProperty(_lang_choice_title$la, "menu_about", 'Інфармацыя'), _defineProperty(_lang_choice_title$la, "menu_console", 'Кансоль'), _defineProperty(_lang_choice_title$la, "menu_multmovie", 'Мультфільмы'), _defineProperty(_lang_choice_title$la, "menu_multtv", 'Мультсерыялы'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work", 'Працоўныя плагіны'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work_descr", 'Плагіны, якія сапраўды працуюць у лямпе.'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular", 'Папулярныя плагіны сярод карыстальнікаў'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular_descr", 'Усталяванне з невядомых крыніц можа прывесці да некарэктнай працы прыкладання.'), _defineProperty(_lang_choice_title$la, "plugins_online", 'Прагляд анлайн'), _defineProperty(_lang_choice_title$la, "plugins_check_fail", 'Немагчыма праверыць працаздольнасць плагіна. Аднак гэта не азначае, што плягін не працуе. Перазагрузіце прыкладанне для высвятлення, ці загружаецца плягін.'), _defineProperty(_lang_choice_title$la, "plugins_need_reload", 'Для прымянення плагіна неабходна перазагрузіць дадатак'), _defineProperty(_lang_choice_title$la, "plugins_install", 'Усталяваць'), _defineProperty(_lang_choice_title$la, "plugins_install_ready", 'Гэтая плягін ужо ўсталяваны.'), _defineProperty(_lang_choice_title$la, "plugins_installed", 'Усталёвак'), _defineProperty(_lang_choice_title$la, "plugins_load_from", 'Загружана з CUB'), _defineProperty(_lang_choice_title$la, "plugins_ok_for_check", 'Націсніце (OK) для праверкі плагіна'), _defineProperty(_lang_choice_title$la, "plugins_no_loaded", 'Пры загрузцы прыкладання, частка плагінаў не атрымалася загрузіць'), _defineProperty(_lang_choice_title$la, "time_viewed", 'Прагледжана'), _defineProperty(_lang_choice_title$la, "time_from", 'з'), _defineProperty(_lang_choice_title$la, "time_reset", 'Скінуць тайм-код'), _defineProperty(_lang_choice_title$la, "settings_clear_cache", 'Кэш і дадзеныя ачышчаны'), _defineProperty(_lang_choice_title$la, "settings_user_links", 'Карыстацкая спасылка'), _defineProperty(_lang_choice_title$la, "settings_for_local", 'Для лакальнага TorrServer'), _defineProperty(_lang_choice_title$la, "settings_add", 'Дадаць'), _defineProperty(_lang_choice_title$la, "settings_remove", 'Выдаліць'), _defineProperty(_lang_choice_title$la, "settings_this_value", 'бягучае значэнне'), _defineProperty(_lang_choice_title$la, "settings_added", 'Дададзена'), _defineProperty(_lang_choice_title$la, "settings_removed", 'Выдалена'), _defineProperty(_lang_choice_title$la, "settings_param_player_inner", 'Убудаваны'), _defineProperty(_lang_choice_title$la, "settings_param_player_outside", 'Вонкавы'), _defineProperty(_lang_choice_title$la, "settings_param_yes", 'Так'), _defineProperty(_lang_choice_title$la, "settings_param_no", 'Не'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_small", 'Менш'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_normal", 'Нармальны'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_low", 'Нізкае'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_average", 'Сярэдняе'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_high", 'Высокае'), _defineProperty(_lang_choice_title$la, "settings_param_parse_directly", 'Напрамую'), _defineProperty(_lang_choice_title$la, "settings_param_parse_api", 'Праз API сайта'), _defineProperty(_lang_choice_title$la, "settings_param_background_complex", 'Складаны'), _defineProperty(_lang_choice_title$la, "settings_param_background_simple", 'Просты'), _defineProperty(_lang_choice_title$la, "settings_param_background_image", 'Малюначак'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_one", 'Асноўную'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_two", 'Дадатковую'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_small", 'Маленькія'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_normal", 'Звычайныя'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_bigger", 'Вялікія'), _defineProperty(_lang_choice_title$la, "settings_param_screensaver_nature", 'Прырода'), _defineProperty(_lang_choice_title$la, "settings_param_lang_ru", 'Рускі'), _defineProperty(_lang_choice_title$la, "settings_param_lang_uk", 'Українська'), _defineProperty(_lang_choice_title$la, "settings_param_lang_en", 'English'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_orig", 'Арыгінал'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_ru", 'Рускі'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_again", 'Пачаць з пачатку'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_continue", 'Працягнуць'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_ask", 'Пытаць'), _defineProperty(_lang_choice_title$la, "settings_param_player_scale_method", 'Разлічыць'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_load", 'Падгружаць'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_all", 'Паказаць усё'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_remote", 'Пульт'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_mouse", 'Пульт з мышкай'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_lampa", 'Убудаваная'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_system", 'Сістэмная'), _defineProperty(_lang_choice_title$la, "helper_keyboard", 'Пасля ўводу значэння націсніце кнопку "Назад" для захавання'), _defineProperty(_lang_choice_title$la, "helper_torrents", 'Утрымлівайце клавішу (ОК) для выкліку кантэкстнага меню'), _defineProperty(_lang_choice_title$la, "helper_cleared", 'Паспяхова, падказкі будуць паказаны нанава.'), _defineProperty(_lang_choice_title$la, "helper_torrents_view", 'Для скіду тайм-кода і выкліку меню ўтрымлівайце клавішу (ОК)'), _defineProperty(_lang_choice_title$la, "fav_sync_title", 'Сінхранізацыя закладак'), _defineProperty(_lang_choice_title$la, "fav_sync_text", 'Хочаш, каб твае любімыя закладкі былі на ўсіх тваіх прыладах? <br><br>Зарэгіструйся на сайце www.cub.watch, ствары профіль і аўтарызуйся ў лямпе.'), _defineProperty(_lang_choice_title$la, "fav_sync_site", 'Сайт'), _defineProperty(_lang_choice_title$la, "fav_remove_title", 'Выдаліць з гісторыі'), _defineProperty(_lang_choice_title$la, "fav_remove_descr", 'Выдаліць выдзеленую картку'), _defineProperty(_lang_choice_title$la, "fav_clear_title", 'Ачысціць гісторыю'), _defineProperty(_lang_choice_title$la, "fav_clear_descr", 'Выдаліць усе карткі з гісторыі'), _defineProperty(_lang_choice_title$la, "fav_clear_label_title", 'Ачысціць пазнакі'), _defineProperty(_lang_choice_title$la, "fav_clear_label_descr", 'Ачысціць пазнакі аб праглядах'), _defineProperty(_lang_choice_title$la, "fav_clear_time_title", 'Ачысціць тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_clear_time_descr", 'Ачысціць усе тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_label_cleared", 'Пазнакі ачышчаны'), _defineProperty(_lang_choice_title$la, "fav_time_cleared", 'Тайм-коды ачышчаны'), _defineProperty(_lang_choice_title$la, "timetable_empty", 'У гэтым раздзеле будуць адлюстроўвацца даты выхаду новых серый'), _defineProperty(_lang_choice_title$la, "player_quality", 'Якасць'), _defineProperty(_lang_choice_title$la, "player_tracks", 'Аўдыёдарожкі'), _defineProperty(_lang_choice_title$la, "player_disabled", 'Адключана'), _defineProperty(_lang_choice_title$la, "player_unknown", 'Невядома'), _defineProperty(_lang_choice_title$la, "player_subs", 'Субтытры'), _defineProperty(_lang_choice_title$la, "player_size_default_title", 'Па змаўчанні'), _defineProperty(_lang_choice_title$la, "player_size_default_descr", 'Памер відэа па змаўчанні'), _defineProperty(_lang_choice_title$la, "player_size_cover_title", 'Пашырыць'), _defineProperty(_lang_choice_title$la, "player_size_cover_descr", 'Пашырае відэа на ўвесь экран'), _defineProperty(_lang_choice_title$la, "player_size_fill_title", 'Запоўніць'), _defineProperty(_lang_choice_title$la, "player_size_fill_descr", 'Змясціць відэа на ўвесь экран'), _defineProperty(_lang_choice_title$la, "player_size_s115_title", 'Павялічыць 115%'), _defineProperty(_lang_choice_title$la, "player_size_s115_descr", 'Павялічыць відэа на 115%'), _defineProperty(_lang_choice_title$la, "player_size_s130_title", 'Павялічыць 130%'), _defineProperty(_lang_choice_title$la, "player_size_s130_descr", 'Павялічыць відэа на 130%'), _defineProperty(_lang_choice_title$la, "player_size_v115_title", 'Па вертыкалі 115%'), _defineProperty(_lang_choice_title$la, "player_size_v115_descr", 'Павялічыць відэа на 115%'), _defineProperty(_lang_choice_title$la, "player_size_v130_title", 'Па вертыкалі 130%'), _defineProperty(_lang_choice_title$la, "player_size_v130_descr", 'Павялічыць відэа на 130%'), _defineProperty(_lang_choice_title$la, "player_video_size", 'Памер відэа'), _defineProperty(_lang_choice_title$la, "player_playlist", 'Плэйліст'), _defineProperty(_lang_choice_title$la, "player_error_one", 'Не атрымалася дэкадаваць відэа'), _defineProperty(_lang_choice_title$la, "player_error_two", 'Відэа не знойдзена ці пашкоджана'), _defineProperty(_lang_choice_title$la, "player_start_from", 'Працягнуць прагляд з'), _defineProperty(_lang_choice_title$la, "player_not_found", 'Плэер не знойдзены'), _defineProperty(_lang_choice_title$la, "player_lauch", 'Запусціць плэер'), _defineProperty(_lang_choice_title$la, "player_speed_default_title", 'Звычайная'), _defineProperty(_lang_choice_title$la, "player_video_speed", 'Хуткасць прайгравання'), _defineProperty(_lang_choice_title$la, "player_share_title", 'Падзеліцца'), _defineProperty(_lang_choice_title$la, "player_share_descr", 'Запусціць гэтае відэа на іншай прыладзе'), _defineProperty(_lang_choice_title$la, "player_normalization_power_title", 'Сіла нармалізацыі'), _defineProperty(_lang_choice_title$la, "player_normalization_smooth_title", 'Хуткасць нармалізацыі'), _defineProperty(_lang_choice_title$la, "player_normalization_step_low", 'Нізкае'), _defineProperty(_lang_choice_title$la, "player_normalization_step_medium", 'Сярэдняе'), _defineProperty(_lang_choice_title$la, "player_normalization_step_hight", 'Высокае'), _defineProperty(_lang_choice_title$la, "broadcast_open", 'Адкрыць картку на іншай прыладзе'), _defineProperty(_lang_choice_title$la, "broadcast_play", 'Абярыце прыладу на якой глядзець'), _defineProperty(_lang_choice_title$la, "card_new_episode", 'Новая серыя'), _defineProperty(_lang_choice_title$la, "card_book_remove", 'Прыбраць з закладак'), _defineProperty(_lang_choice_title$la, "card_book_add", 'У закладкі'), _defineProperty(_lang_choice_title$la, "card_book_descr", 'Глядзіце ў меню (Закладкі)'), _defineProperty(_lang_choice_title$la, "card_like_remove", 'Прыбраць з упадабаных'), _defineProperty(_lang_choice_title$la, "card_like_add", 'Падабаецца'), _defineProperty(_lang_choice_title$la, "card_like_descr", 'Глядзіце ў меню (Падабаецца)'), _defineProperty(_lang_choice_title$la, "card_wath_remove", 'Прыбраць з чаканых'), _defineProperty(_lang_choice_title$la, "card_wath_add", 'Глядзець пазней'), _defineProperty(_lang_choice_title$la, "card_wath_descr", 'Глядзіце ў меню (Пазней)'), _defineProperty(_lang_choice_title$la, "card_history_remove", 'Прыбраць з гісторыі'), _defineProperty(_lang_choice_title$la, "card_history_add", 'Дадаць у гісторыю'), _defineProperty(_lang_choice_title$la, "card_history_descr", 'Глядзіце ў меню (Гісторыя)'), _defineProperty(_lang_choice_title$la, "keyboard_listen", 'Гаварыце, я слухаю...'), _defineProperty(_lang_choice_title$la, "keyboard_nomic", 'Няма доступу да мікрафона'), _defineProperty(_lang_choice_title$la, "notice_new_quality", 'Даступна новая якасць'), _defineProperty(_lang_choice_title$la, "notice_quality", 'Якасць'), _defineProperty(_lang_choice_title$la, "notice_new_episode", 'Новая серыя'), _defineProperty(_lang_choice_title$la, "notice_none", 'У вас яшчэ няма ніякіх апавяшчэнняў, зарэгіструйцеся на сайце <b>www.cub.watch</b>, каб сачыць за новымі серыямі і рэлізамі.'), _defineProperty(_lang_choice_title$la, "notice_in_quality", 'У якасці'), _defineProperty(_lang_choice_title$la, "copy_link", 'Капіяваць спасылку на відэа'), _defineProperty(_lang_choice_title$la, "copy_secuses", 'Спасылка скапіявана ў буфер абмену'), _defineProperty(_lang_choice_title$la, "copy_error", 'Памылка пры капіраванні спасылкі'), _defineProperty(_lang_choice_title$la, "account_sync_to_profile", 'Усе закладкі будуць перанесеныя ў профіль'), _defineProperty(_lang_choice_title$la, "account_sync_secuses", 'Усе закладкі паспяхова перанесены'), _defineProperty(_lang_choice_title$la, "account_profiles", 'Профілі'), _defineProperty(_lang_choice_title$la, "account_profiles_empty", 'Немагчыма атрымаць спіс профіляў'), _defineProperty(_lang_choice_title$la, "account_authorized", 'Аўтарызаваны'), _defineProperty(_lang_choice_title$la, "account_logged_in", 'Вы ўвайшлі пад акаўнтам'), _defineProperty(_lang_choice_title$la, "account_login_failed", 'Уваход не выкананы'), _defineProperty(_lang_choice_title$la, "account_login_wait", 'Чакаем уваходу ў акаўнт'), _defineProperty(_lang_choice_title$la, "account_profile_main", 'агульны'), _defineProperty(_lang_choice_title$la, "account_export_secuses", 'Экспарт паспяхова завершаны'), _defineProperty(_lang_choice_title$la, "account_export_fail", 'Памылка пры экспарце'), _defineProperty(_lang_choice_title$la, "account_import_secuses", 'Імпарт паспяхова завершаны'), _defineProperty(_lang_choice_title$la, "account_import_fail", 'Памылка пры імпарце'), _defineProperty(_lang_choice_title$la, "account_imported", 'імпартавана'), _defineProperty(_lang_choice_title$la, "account_reload_after", 'перазагрузка праз 5 сек.'), _defineProperty(_lang_choice_title$la, "network_noconnect", 'Няма падлучэння да сеткі'), _defineProperty(_lang_choice_title$la, "network_404", 'Запытаная старонка не знойдзена. [404]'), _defineProperty(_lang_choice_title$la, "network_401", 'Аўтарызацыя не ўдалася'), _defineProperty(_lang_choice_title$la, "network_500", 'Унутраная памылка сервера. [500]'), _defineProperty(_lang_choice_title$la, "network_parsererror", 'Запытаны сінтаксічны аналіз JSON завяршыўся няўдала.'), _defineProperty(_lang_choice_title$la, "network_timeout", 'Час запыту скончыўся.'), _defineProperty(_lang_choice_title$la, "network_abort", 'Запыт быў перарваны.'), _defineProperty(_lang_choice_title$la, "network_error", 'Невядомая памылка'), _defineProperty(_lang_choice_title$la, "size_zero", '0 Байт'), _defineProperty(_lang_choice_title$la, "size_byte", 'Байт'), _defineProperty(_lang_choice_title$la, "size_kb", 'КБ'), _defineProperty(_lang_choice_title$la, "size_mb", 'МБ'), _defineProperty(_lang_choice_title$la, "size_gb", 'ГБ'), _defineProperty(_lang_choice_title$la, "size_tb", 'ТБ'), _defineProperty(_lang_choice_title$la, "size_pp", 'ПБ'), _defineProperty(_lang_choice_title$la, "speed_bit", 'біт'), _defineProperty(_lang_choice_title$la, "speed_kb", 'Кбіт'), _defineProperty(_lang_choice_title$la, "speed_mb", 'Мбіт'), _defineProperty(_lang_choice_title$la, "speed_gb", 'Гбіт'), _defineProperty(_lang_choice_title$la, "speed_tb", 'Тбіт'), _defineProperty(_lang_choice_title$la, "speed_pp", 'Пбіт'), _defineProperty(_lang_choice_title$la, "month_1", 'Студзень'), _defineProperty(_lang_choice_title$la, "month_2", 'Люты'), _defineProperty(_lang_choice_title$la, "month_3", 'Сакавік'), _defineProperty(_lang_choice_title$la, "month_4", 'Красавік'), _defineProperty(_lang_choice_title$la, "month_5", 'Май'), _defineProperty(_lang_choice_title$la, "month_6", 'Чэрвень'), _defineProperty(_lang_choice_title$la, "month_7", 'Ліпень'), _defineProperty(_lang_choice_title$la, "month_8", 'Жнівень'), _defineProperty(_lang_choice_title$la, "month_9", 'Верасень'), _defineProperty(_lang_choice_title$la, "month_10", 'Кастрычнік'), _defineProperty(_lang_choice_title$la, "month_11", 'Лістапад'), _defineProperty(_lang_choice_title$la, "month_12", 'Снежань'), _defineProperty(_lang_choice_title$la, "day_1", 'Панядзелак'), _defineProperty(_lang_choice_title$la, "day_2", 'Аўторак'), _defineProperty(_lang_choice_title$la, "day_3", 'Серада'), _defineProperty(_lang_choice_title$la, "day_4", 'Чацвер'), _defineProperty(_lang_choice_title$la, "day_5", 'Пятніца'), _defineProperty(_lang_choice_title$la, "day_6", 'Субота'), _defineProperty(_lang_choice_title$la, "day_7", 'Нядзеля'), _defineProperty(_lang_choice_title$la, "month_1_e", 'Студзеня'), _defineProperty(_lang_choice_title$la, "month_2_e", 'Лютага'), _defineProperty(_lang_choice_title$la, "month_3_e", 'Сакавіка'), _defineProperty(_lang_choice_title$la, "month_4_e", 'Красавіка'), _defineProperty(_lang_choice_title$la, "month_5_e", 'Мая'), _defineProperty(_lang_choice_title$la, "month_6_e", 'Чэрвеня'), _defineProperty(_lang_choice_title$la, "month_7_e", 'Ліпеня'), _defineProperty(_lang_choice_title$la, "month_8_e", 'Жніўня'), _defineProperty(_lang_choice_title$la, "month_9_e", 'Верасня'), _defineProperty(_lang_choice_title$la, "month_10_e", 'Кастрычніка'), _defineProperty(_lang_choice_title$la, "month_11_e", 'Лістапада'), _defineProperty(_lang_choice_title$la, "month_12_e", 'Снежня'), _defineProperty(_lang_choice_title$la, "week_1", 'Пн'), _defineProperty(_lang_choice_title$la, "week_2", 'Аў'), _defineProperty(_lang_choice_title$la, "week_3", 'Ср'), _defineProperty(_lang_choice_title$la, "week_4", 'Чц'), _defineProperty(_lang_choice_title$la, "week_5", 'Пт'), _defineProperty(_lang_choice_title$la, "week_6", 'Сб'), _defineProperty(_lang_choice_title$la, "week_7", 'Нд'), _defineProperty(_lang_choice_title$la, "settings_param_player_hls_app", 'Сістэмны'), _defineProperty(_lang_choice_title$la, "settings_param_player_hls_js", 'Праграмны'), _defineProperty(_lang_choice_title$la, "settings_player_hls_title", 'Апрацоўка патоку .m3u8'), _defineProperty(_lang_choice_title$la, "settings_player_hls_descr", 'Не чапайце гэты параметр калі не ведаеце навошта ён.'), _defineProperty(_lang_choice_title$la, "notice_none_account", 'У вас яшчэ няма ніякіх апавяшчэнняў, дадайце серыялы ў закладкі і чакайце апавяшчэння аб новых серый.'), _lang_choice_title$la);
+  }, _defineProperty(_lang_choice_title$la, "filter_country_et", 'Эстонія'), _defineProperty(_lang_choice_title$la, "filter_genre_ac", 'Баявік'), _defineProperty(_lang_choice_title$la, "filter_genre_ad", 'Прыгоды'), _defineProperty(_lang_choice_title$la, "filter_genre_mv", 'Мультфільм'), _defineProperty(_lang_choice_title$la, "filter_genre_cm", 'Камедыя'), _defineProperty(_lang_choice_title$la, "filter_genre_cr", 'Крымінал'), _defineProperty(_lang_choice_title$la, "filter_genre_dc", 'Дакументальны'), _defineProperty(_lang_choice_title$la, "filter_genre_dr", 'Драма'), _defineProperty(_lang_choice_title$la, "filter_genre_fm", 'Сямейны'), _defineProperty(_lang_choice_title$la, "filter_genre_fe", 'Фэнтэзі'), _defineProperty(_lang_choice_title$la, "filter_genre_hi", 'Гісторыя'), _defineProperty(_lang_choice_title$la, "filter_genre_ho", 'Жахі'), _defineProperty(_lang_choice_title$la, "filter_genre_mu", 'Музыка'), _defineProperty(_lang_choice_title$la, "filter_genre_de", 'Дэтэктыў'), _defineProperty(_lang_choice_title$la, "filter_genre_md", 'Меладрама'), _defineProperty(_lang_choice_title$la, "filter_genre_fa", 'Фантастыка'), _defineProperty(_lang_choice_title$la, "filter_genre_tv", 'Тэлевізійны фільм'), _defineProperty(_lang_choice_title$la, "filter_genre_tr", 'Трылер'), _defineProperty(_lang_choice_title$la, "filter_genre_mi", 'Ваенны'), _defineProperty(_lang_choice_title$la, "filter_genre_ve", 'Вэстэрн'), _defineProperty(_lang_choice_title$la, "filter_genre_aa", 'Баявік і Прыгоды'), _defineProperty(_lang_choice_title$la, "filter_genre_ch", 'Дзіцячы'), _defineProperty(_lang_choice_title$la, "filter_genre_nw", 'Навіны'), _defineProperty(_lang_choice_title$la, "filter_genre_rs", 'Рэаліці-шоў'), _defineProperty(_lang_choice_title$la, "filter_genre_hf", 'НФ і Фэнтэзі'), _defineProperty(_lang_choice_title$la, "filter_genre_op", 'Мыльная опера'), _defineProperty(_lang_choice_title$la, "filter_genre_tc", 'Ток-шоу'), _defineProperty(_lang_choice_title$la, "filter_genre_mp", 'Вайна і Палітыка'), _defineProperty(_lang_choice_title$la, "ivi_premieres", 'Прэм\'еры фільмаў'), _defineProperty(_lang_choice_title$la, "ivi_best", 'Лепшыя фільмы'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Папулярнае зараз'), _defineProperty(_lang_choice_title$la, "ivi_choice", 'Выбар ivi'), _defineProperty(_lang_choice_title$la, "ivi_new", 'Навінкі'), _defineProperty(_lang_choice_title$la, "ivi_foreign", 'Замежныя'), _defineProperty(_lang_choice_title$la, "ivi_ru", 'Рускія'), _defineProperty(_lang_choice_title$la, "ivi_popular", 'Папулярнае зараз'), _defineProperty(_lang_choice_title$la, "ivi_recomend", 'Рэкамендуем вам паглядзець'), _defineProperty(_lang_choice_title$la, "ivi_for_famaly", 'Мульцікі для ўсёй сям\'і'), _defineProperty(_lang_choice_title$la, "ivi_triller", 'Трылеры-жахі'), _defineProperty(_lang_choice_title$la, "ivi_advance", 'Прыгодніцкія камедыі'), _defineProperty(_lang_choice_title$la, "ivi_detective", 'Экранізацыі дэтэктываў'), _defineProperty(_lang_choice_title$la, "ivi_crime_comedy", 'Крымінальныя камедыі'), _defineProperty(_lang_choice_title$la, "ivi_romantic", 'Рамантычныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_crime_dramas", 'Крымінальныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_fantastic_dramas", 'Фантастычныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_military_dramas", 'Ваенныя драмы'), _defineProperty(_lang_choice_title$la, "ivi_mistic", 'Містычныя фільмы'), _defineProperty(_lang_choice_title$la, "ivi_foreign_series", 'Замежныя серыялы'), _defineProperty(_lang_choice_title$la, "ivi_historical_series", 'Гістарычныя серыялы'), _defineProperty(_lang_choice_title$la, "okko_top_new", 'Топ-навінкі'), _defineProperty(_lang_choice_title$la, "okko_comedy_horror", 'Камедыйныя фільмы жахаў'), _defineProperty(_lang_choice_title$la, "okko_collection_maniacs", 'Фільмы пра маньякаў'), _defineProperty(_lang_choice_title$la, "okko_witches", 'Фільмы пра ведзьмаў'), _defineProperty(_lang_choice_title$la, "okko_zombies", 'Фільмы пра зомбі'), _defineProperty(_lang_choice_title$la, "okko_ru", 'Рускія'), _defineProperty(_lang_choice_title$la, "okko_horror_serial", 'Вельмі страшныя'), _defineProperty(_lang_choice_title$la, "okko_serial_killers", 'Пра маньякаў'), _defineProperty(_lang_choice_title$la, "okko_humor_serial", 'З чорным гумарам'), _defineProperty(_lang_choice_title$la, "okko_legkiye_serialy", 'Лёгкія'), _defineProperty(_lang_choice_title$la, "okko_comedy_serial", 'Камедыйныя'), _defineProperty(_lang_choice_title$la, "okko_ru_tv", 'Рускія'), _defineProperty(_lang_choice_title$la, "empty_title", 'Пуста'), _defineProperty(_lang_choice_title$la, "empty_text", 'Па вашым фільтры нічога не знайшлося, удакладніце фільтр.'), _defineProperty(_lang_choice_title$la, "empty_title_two", 'Тут пуста'), _defineProperty(_lang_choice_title$la, "empty_text_two", 'На дадзены момант спіс пусты'), _defineProperty(_lang_choice_title$la, "menu_main", 'Галоўная'), _defineProperty(_lang_choice_title$la, "menu_movies", 'Фільмы'), _defineProperty(_lang_choice_title$la, "menu_tv", 'Серыялы'), _defineProperty(_lang_choice_title$la, "menu_catalog", 'Каталог'), _defineProperty(_lang_choice_title$la, "menu_filter", 'Фільтр'), _defineProperty(_lang_choice_title$la, "menu_collections", 'Падборкі'), _defineProperty(_lang_choice_title$la, "menu_relises", 'Рэлізы'), _defineProperty(_lang_choice_title$la, "menu_anime", 'Анімэ'), _defineProperty(_lang_choice_title$la, "menu_bookmark", 'Закладкі'), _defineProperty(_lang_choice_title$la, "menu_like", 'Падабаецца'), _defineProperty(_lang_choice_title$la, "menu_time", 'Пазней'), _defineProperty(_lang_choice_title$la, "menu_history", 'Гісторыя'), _defineProperty(_lang_choice_title$la, "menu_timeline", 'Расклад'), _defineProperty(_lang_choice_title$la, "menu_torrents", 'Торэнты'), _defineProperty(_lang_choice_title$la, "menu_settings", 'Налады'), _defineProperty(_lang_choice_title$la, "menu_about", 'Інфармацыя'), _defineProperty(_lang_choice_title$la, "menu_console", 'Кансоль'), _defineProperty(_lang_choice_title$la, "menu_multmovie", 'Мультфільмы'), _defineProperty(_lang_choice_title$la, "menu_multtv", 'Мультсерыялы'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work", 'Працаздольныя плагіны'), _defineProperty(_lang_choice_title$la, "plugins_catalog_work_descr", 'Плагіны, якія сапраўды працуюць у лямпе.'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular", 'Папулярныя плагіны сярод карыстальнікаў'), _defineProperty(_lang_choice_title$la, "plugins_catalog_popular_descr", 'Усталяванне з невядомых крыніц можа прывесці да некарэктнай працы прыкладання.'), _defineProperty(_lang_choice_title$la, "plugins_online", 'Прагляд анлайн'), _defineProperty(_lang_choice_title$la, "plugins_check_fail", 'Немагчыма праверыць працаздольнасць плагіна. Аднак гэта не азначае, што плягін не працуе. Перазагрузіце прыкладанне для высвятлення, ці загружаецца плягін.'), _defineProperty(_lang_choice_title$la, "plugins_need_reload", 'Для прымянення плагіна неабходна перазагрузіць дадатак'), _defineProperty(_lang_choice_title$la, "plugins_install", 'Усталяваць'), _defineProperty(_lang_choice_title$la, "plugins_install_ready", 'Гэты плагін ужо ўсталяваны.'), _defineProperty(_lang_choice_title$la, "plugins_installed", 'Усталёвак'), _defineProperty(_lang_choice_title$la, "plugins_load_from", 'Загружана з CUB'), _defineProperty(_lang_choice_title$la, "plugins_ok_for_check", 'Націсніце (OK) для праверкі плагіна'), _defineProperty(_lang_choice_title$la, "plugins_no_loaded", 'Пры загрузцы прыкладання, частка плагінаў не атрымалася загрузіць'), _defineProperty(_lang_choice_title$la, "time_viewed", 'Прагледжана'), _defineProperty(_lang_choice_title$la, "time_from", 'з'), _defineProperty(_lang_choice_title$la, "time_reset", 'Скінуць тайм-код'), _defineProperty(_lang_choice_title$la, "settings_clear_cache", 'Кэш і дадзеныя ачышчаны'), _defineProperty(_lang_choice_title$la, "settings_user_links", 'Карыстацкая спасылка'), _defineProperty(_lang_choice_title$la, "settings_for_local", 'Для лакальнага TorrServer'), _defineProperty(_lang_choice_title$la, "settings_add", 'Дадаць'), _defineProperty(_lang_choice_title$la, "settings_remove", 'Выдаліць'), _defineProperty(_lang_choice_title$la, "settings_this_value", 'бягучае значэнне'), _defineProperty(_lang_choice_title$la, "settings_added", 'Дададзена'), _defineProperty(_lang_choice_title$la, "settings_removed", 'Выдалена'), _defineProperty(_lang_choice_title$la, "settings_param_player_inner", 'Убудаваны'), _defineProperty(_lang_choice_title$la, "settings_param_player_outside", 'Вонкавы'), _defineProperty(_lang_choice_title$la, "settings_param_yes", 'Так'), _defineProperty(_lang_choice_title$la, "settings_param_no", 'Не'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_small", 'Менш'), _defineProperty(_lang_choice_title$la, "settings_param_interface_size_normal", 'Нармальны'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_low", 'Нізкае'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_average", 'Сярэдняе'), _defineProperty(_lang_choice_title$la, "settings_param_poster_quality_high", 'Высокае'), _defineProperty(_lang_choice_title$la, "settings_param_parse_directly", 'Напрамую'), _defineProperty(_lang_choice_title$la, "settings_param_parse_api", 'Праз API сайта'), _defineProperty(_lang_choice_title$la, "settings_param_background_complex", 'Складаны'), _defineProperty(_lang_choice_title$la, "settings_param_background_simple", 'Просты'), _defineProperty(_lang_choice_title$la, "settings_param_background_image", 'Малюнак'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_one", 'Асноўную'), _defineProperty(_lang_choice_title$la, "settings_param_link_use_two", 'Дадатковую'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_small", 'Маленькія'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_normal", 'Звычайныя'), _defineProperty(_lang_choice_title$la, "settings_param_subtitles_size_bigger", 'Вялікія'), _defineProperty(_lang_choice_title$la, "settings_param_screensaver_nature", 'Прырода'), _defineProperty(_lang_choice_title$la, "settings_param_lang_ru", 'Рускі'), _defineProperty(_lang_choice_title$la, "settings_param_lang_uk", 'Українська'), _defineProperty(_lang_choice_title$la, "settings_param_lang_en", 'English'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_orig", 'Арыгінал'), _defineProperty(_lang_choice_title$la, "settings_param_torrent_lang_ru", 'Рускі'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_again", 'Пачаць з пачатку'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_continue", 'Працягнуць'), _defineProperty(_lang_choice_title$la, "settings_param_player_timecode_ask", 'Пытаць'), _defineProperty(_lang_choice_title$la, "settings_param_player_scale_method", 'Разлічыць'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_load", 'Падгружаць'), _defineProperty(_lang_choice_title$la, "settings_param_card_view_all", 'Паказаць усё'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_remote", 'Пульт'), _defineProperty(_lang_choice_title$la, "settings_param_navigation_mouse", 'Пульт з мышкай'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_lampa", 'Убудаваная'), _defineProperty(_lang_choice_title$la, "settings_param_keyboard_system", 'Сістэмная'), _defineProperty(_lang_choice_title$la, "helper_keyboard", 'Пасля ўводу значэння націсніце кнопку "Назад" для захавання'), _defineProperty(_lang_choice_title$la, "helper_torrents", 'Утрымлівайце клавішу (ОК) для выкліку кантэкстнага меню'), _defineProperty(_lang_choice_title$la, "helper_cleared", 'Паспяхова, падказкі будуць паказаны нанава.'), _defineProperty(_lang_choice_title$la, "helper_torrents_view", 'Для скіду тайм-кода і выкліку меню ўтрымлівайце клавішу (ОК)'), _defineProperty(_lang_choice_title$la, "fav_sync_title", 'Сінхранізацыя закладак'), _defineProperty(_lang_choice_title$la, "fav_sync_text", 'Хочаш, каб твае любімыя закладкі былі на ўсіх тваіх прыладах? <br><br>Зарэгіструйся на сайце www.cub.watch, ствары профіль і аўтарызуйся ў лямпе.'), _defineProperty(_lang_choice_title$la, "fav_sync_site", 'Сайт'), _defineProperty(_lang_choice_title$la, "fav_remove_title", 'Выдаліць з гісторыі'), _defineProperty(_lang_choice_title$la, "fav_remove_descr", 'Выдаліць выдзеленую картку'), _defineProperty(_lang_choice_title$la, "fav_clear_title", 'Ачысціць гісторыю'), _defineProperty(_lang_choice_title$la, "fav_clear_descr", 'Выдаліць усе карткі з гісторыі'), _defineProperty(_lang_choice_title$la, "fav_clear_label_title", 'Ачысціць пазнакі'), _defineProperty(_lang_choice_title$la, "fav_clear_label_descr", 'Ачысціць пазнакі аб праглядах'), _defineProperty(_lang_choice_title$la, "fav_clear_time_title", 'Ачысціць тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_clear_time_descr", 'Ачысціць усе тайм-коды'), _defineProperty(_lang_choice_title$la, "fav_label_cleared", 'Пазнакі ачышчаны'), _defineProperty(_lang_choice_title$la, "fav_time_cleared", 'Тайм-коды ачышчаны'), _defineProperty(_lang_choice_title$la, "timetable_empty", 'У гэтым раздзеле будуць адлюстроўвацца даты выхаду новых серый'), _defineProperty(_lang_choice_title$la, "player_quality", 'Якасць'), _defineProperty(_lang_choice_title$la, "player_tracks", 'Аўдыёдарожкі'), _defineProperty(_lang_choice_title$la, "player_disabled", 'Адключана'), _defineProperty(_lang_choice_title$la, "player_unknown", 'Невядома'), _defineProperty(_lang_choice_title$la, "player_subs", 'Субтытры'), _defineProperty(_lang_choice_title$la, "player_size_default_title", 'Па змаўчанні'), _defineProperty(_lang_choice_title$la, "player_size_default_descr", 'Памер відэа па змаўчанні'), _defineProperty(_lang_choice_title$la, "player_size_cover_title", 'Пашырыць'), _defineProperty(_lang_choice_title$la, "player_size_cover_descr", 'Пашырае відэа на ўвесь экран'), _defineProperty(_lang_choice_title$la, "player_size_fill_title", 'Запоўніць'), _defineProperty(_lang_choice_title$la, "player_size_fill_descr", 'Змясціць відэа на ўвесь экран'), _defineProperty(_lang_choice_title$la, "player_size_s115_title", 'Павялічыць 115%'), _defineProperty(_lang_choice_title$la, "player_size_s115_descr", 'Павялічыць відэа на 115%'), _defineProperty(_lang_choice_title$la, "player_size_s130_title", 'Павялічыць 130%'), _defineProperty(_lang_choice_title$la, "player_size_s130_descr", 'Павялічыць відэа на 130%'), _defineProperty(_lang_choice_title$la, "player_size_v115_title", 'Па вертыкалі 115%'), _defineProperty(_lang_choice_title$la, "player_size_v115_descr", 'Павялічыць відэа на 115%'), _defineProperty(_lang_choice_title$la, "player_size_v130_title", 'Па вертыкалі 130%'), _defineProperty(_lang_choice_title$la, "player_size_v130_descr", 'Павялічыць відэа на 130%'), _defineProperty(_lang_choice_title$la, "player_video_size", 'Памер відэа'), _defineProperty(_lang_choice_title$la, "player_playlist", 'Плэйліст'), _defineProperty(_lang_choice_title$la, "player_error_one", 'Не атрымалася дэкадаваць відэа'), _defineProperty(_lang_choice_title$la, "player_error_two", 'Відэа не знойдзена ці пашкоджана'), _defineProperty(_lang_choice_title$la, "player_start_from", 'Працягнуць прагляд з'), _defineProperty(_lang_choice_title$la, "player_not_found", 'Плэер не знойдзены'), _defineProperty(_lang_choice_title$la, "player_lauch", 'Запусціць плэер'), _defineProperty(_lang_choice_title$la, "player_speed_default_title", 'Звычайная'), _defineProperty(_lang_choice_title$la, "player_video_speed", 'Хуткасць прайгравання'), _defineProperty(_lang_choice_title$la, "player_share_title", 'Падзеліцца'), _defineProperty(_lang_choice_title$la, "player_share_descr", 'Запусціць гэтае відэа на іншай прыладзе'), _defineProperty(_lang_choice_title$la, "player_normalization_power_title", 'Сіла нармалізацыі'), _defineProperty(_lang_choice_title$la, "player_normalization_smooth_title", 'Хуткасць нармалізацыі'), _defineProperty(_lang_choice_title$la, "player_normalization_step_low", 'Нізкае'), _defineProperty(_lang_choice_title$la, "player_normalization_step_medium", 'Сярэдняе'), _defineProperty(_lang_choice_title$la, "player_normalization_step_hight", 'Высокае'), _defineProperty(_lang_choice_title$la, "broadcast_open", 'Адкрыць картку на іншай прыладзе'), _defineProperty(_lang_choice_title$la, "broadcast_play", 'Абярыце прыладу на якой глядзець'), _defineProperty(_lang_choice_title$la, "card_new_episode", 'Новая серыя'), _defineProperty(_lang_choice_title$la, "card_book_remove", 'Прыбраць з закладак'), _defineProperty(_lang_choice_title$la, "card_book_add", 'У закладкі'), _defineProperty(_lang_choice_title$la, "card_book_descr", 'Глядзіце ў меню (Закладкі)'), _defineProperty(_lang_choice_title$la, "card_like_remove", 'Прыбраць з упадабаных'), _defineProperty(_lang_choice_title$la, "card_like_add", 'Падабаецца'), _defineProperty(_lang_choice_title$la, "card_like_descr", 'Глядзіце ў меню (Падабаецца)'), _defineProperty(_lang_choice_title$la, "card_wath_remove", 'Прыбраць з чаканых'), _defineProperty(_lang_choice_title$la, "card_wath_add", 'Глядзець пазней'), _defineProperty(_lang_choice_title$la, "card_wath_descr", 'Глядзіце ў меню (Пазней)'), _defineProperty(_lang_choice_title$la, "card_history_remove", 'Прыбраць з гісторыі'), _defineProperty(_lang_choice_title$la, "card_history_add", 'Дадаць у гісторыю'), _defineProperty(_lang_choice_title$la, "card_history_descr", 'Глядзіце ў меню (Гісторыя)'), _defineProperty(_lang_choice_title$la, "keyboard_listen", 'Гаварыце, я слухаю...'), _defineProperty(_lang_choice_title$la, "keyboard_nomic", 'Няма доступу да мікрафона'), _defineProperty(_lang_choice_title$la, "notice_new_quality", 'Даступна новая якасць'), _defineProperty(_lang_choice_title$la, "notice_quality", 'Якасць'), _defineProperty(_lang_choice_title$la, "notice_new_episode", 'Новая серыя'), _defineProperty(_lang_choice_title$la, "notice_none", 'У вас яшчэ няма ніякіх апавяшчэнняў, зарэгіструйцеся на сайце <b>www.cub.watch</b>, каб сачыць за новымі серыямі і рэлізамі.'), _defineProperty(_lang_choice_title$la, "notice_in_quality", 'У якасці'), _defineProperty(_lang_choice_title$la, "copy_link", 'Капіяваць спасылку на відэа'), _defineProperty(_lang_choice_title$la, "copy_secuses", 'Спасылка скапіявана ў буфер абмену'), _defineProperty(_lang_choice_title$la, "copy_error", 'Памылка пры капіраванні спасылкі'), _defineProperty(_lang_choice_title$la, "account_sync_to_profile", 'Усе закладкі будуць перанесеныя ў профіль'), _defineProperty(_lang_choice_title$la, "account_sync_secuses", 'Усе закладкі паспяхова перанесены'), _defineProperty(_lang_choice_title$la, "account_profiles", 'Профілі'), _defineProperty(_lang_choice_title$la, "account_profiles_empty", 'Немагчыма атрымаць спіс профіляў'), _defineProperty(_lang_choice_title$la, "account_authorized", 'Аўтарызаваны'), _defineProperty(_lang_choice_title$la, "account_logged_in", 'Вы ўвайшлі пад акаўнтам'), _defineProperty(_lang_choice_title$la, "account_login_failed", 'Уваход не выкананы'), _defineProperty(_lang_choice_title$la, "account_login_wait", 'Чакаем уваходу ў акаўнт'), _defineProperty(_lang_choice_title$la, "account_profile_main", 'агульны'), _defineProperty(_lang_choice_title$la, "account_export_secuses", 'Экспарт паспяхова завершаны'), _defineProperty(_lang_choice_title$la, "account_export_fail", 'Памылка пры экспарце'), _defineProperty(_lang_choice_title$la, "account_import_secuses", 'Імпарт паспяхова завершаны'), _defineProperty(_lang_choice_title$la, "account_import_fail", 'Памылка пры імпарце'), _defineProperty(_lang_choice_title$la, "account_imported", 'імпартавана'), _defineProperty(_lang_choice_title$la, "account_reload_after", 'перазагрузка праз 5 сек.'), _defineProperty(_lang_choice_title$la, "network_noconnect", 'Няма падлучэння да сеткі'), _defineProperty(_lang_choice_title$la, "network_404", 'Запытаная старонка не знойдзена. [404]'), _defineProperty(_lang_choice_title$la, "network_401", 'Аўтарызацыя не ўдалася'), _defineProperty(_lang_choice_title$la, "network_500", 'Унутраная памылка сервера. [500]'), _defineProperty(_lang_choice_title$la, "network_parsererror", 'Запытаны сінтаксічны аналіз JSON завяршыўся няўдала.'), _defineProperty(_lang_choice_title$la, "network_timeout", 'Час запыту скончыўся.'), _defineProperty(_lang_choice_title$la, "network_abort", 'Запыт быў перарваны.'), _defineProperty(_lang_choice_title$la, "network_error", 'Невядомая памылка'), _defineProperty(_lang_choice_title$la, "size_zero", '0 Байт'), _defineProperty(_lang_choice_title$la, "size_byte", 'Байт'), _defineProperty(_lang_choice_title$la, "size_kb", 'КБ'), _defineProperty(_lang_choice_title$la, "size_mb", 'МБ'), _defineProperty(_lang_choice_title$la, "size_gb", 'ГБ'), _defineProperty(_lang_choice_title$la, "size_tb", 'ТБ'), _defineProperty(_lang_choice_title$la, "size_pp", 'ПБ'), _defineProperty(_lang_choice_title$la, "speed_bit", 'біт'), _defineProperty(_lang_choice_title$la, "speed_kb", 'Кбіт'), _defineProperty(_lang_choice_title$la, "speed_mb", 'Мбіт'), _defineProperty(_lang_choice_title$la, "speed_gb", 'Гбіт'), _defineProperty(_lang_choice_title$la, "speed_tb", 'Тбіт'), _defineProperty(_lang_choice_title$la, "speed_pp", 'Пбіт'), _defineProperty(_lang_choice_title$la, "month_1", 'Студзень'), _defineProperty(_lang_choice_title$la, "month_2", 'Люты'), _defineProperty(_lang_choice_title$la, "month_3", 'Сакавік'), _defineProperty(_lang_choice_title$la, "month_4", 'Красавік'), _defineProperty(_lang_choice_title$la, "month_5", 'Май'), _defineProperty(_lang_choice_title$la, "month_6", 'Чэрвень'), _defineProperty(_lang_choice_title$la, "month_7", 'Ліпень'), _defineProperty(_lang_choice_title$la, "month_8", 'Жнівень'), _defineProperty(_lang_choice_title$la, "month_9", 'Верасень'), _defineProperty(_lang_choice_title$la, "month_10", 'Кастрычнік'), _defineProperty(_lang_choice_title$la, "month_11", 'Лістапад'), _defineProperty(_lang_choice_title$la, "month_12", 'Снежань'), _defineProperty(_lang_choice_title$la, "day_1", 'Панядзелак'), _defineProperty(_lang_choice_title$la, "day_2", 'Аўторак'), _defineProperty(_lang_choice_title$la, "day_3", 'Серада'), _defineProperty(_lang_choice_title$la, "day_4", 'Чацвер'), _defineProperty(_lang_choice_title$la, "day_5", 'Пятніца'), _defineProperty(_lang_choice_title$la, "day_6", 'Субота'), _defineProperty(_lang_choice_title$la, "day_7", 'Нядзеля'), _defineProperty(_lang_choice_title$la, "month_1_e", 'Студзеня'), _defineProperty(_lang_choice_title$la, "month_2_e", 'Лютага'), _defineProperty(_lang_choice_title$la, "month_3_e", 'Сакавіка'), _defineProperty(_lang_choice_title$la, "month_4_e", 'Красавіка'), _defineProperty(_lang_choice_title$la, "month_5_e", 'Мая'), _defineProperty(_lang_choice_title$la, "month_6_e", 'Чэрвеня'), _defineProperty(_lang_choice_title$la, "month_7_e", 'Ліпеня'), _defineProperty(_lang_choice_title$la, "month_8_e", 'Жніўня'), _defineProperty(_lang_choice_title$la, "month_9_e", 'Верасня'), _defineProperty(_lang_choice_title$la, "month_10_e", 'Кастрычніка'), _defineProperty(_lang_choice_title$la, "month_11_e", 'Лістапада'), _defineProperty(_lang_choice_title$la, "month_12_e", 'Снежня'), _defineProperty(_lang_choice_title$la, "week_1", 'Пн'), _defineProperty(_lang_choice_title$la, "week_2", 'Аў'), _defineProperty(_lang_choice_title$la, "week_3", 'Ср'), _defineProperty(_lang_choice_title$la, "week_4", 'Чц'), _defineProperty(_lang_choice_title$la, "week_5", 'Пт'), _defineProperty(_lang_choice_title$la, "week_6", 'Сб'), _defineProperty(_lang_choice_title$la, "week_7", 'Нд'), _defineProperty(_lang_choice_title$la, "settings_param_player_hls_app", 'Сістэмны'), _defineProperty(_lang_choice_title$la, "settings_param_player_hls_js", 'Праграмны'), _defineProperty(_lang_choice_title$la, "settings_player_hls_title", 'Апрацоўка патоку .m3u8'), _defineProperty(_lang_choice_title$la, "settings_player_hls_descr", 'Не чапайце гэты параметр калі не ведаеце навошта ён.'), _defineProperty(_lang_choice_title$la, "notice_none_account", 'У вас яшчэ няма ніякіх апавяшчэнняў, дадайце серыялы ў закладкі і чакайце апавяшчэння аб новых серыях.'), _defineProperty(_lang_choice_title$la, "extensions_enable", 'Уключыць'), _defineProperty(_lang_choice_title$la, "extensions_disable", 'Адключыць'), _defineProperty(_lang_choice_title$la, "extensions_check", 'Праверыць статус'), _defineProperty(_lang_choice_title$la, "extensions_install", 'Усталяваць'), _defineProperty(_lang_choice_title$la, "extensions_info", 'Інфармацыя'), _defineProperty(_lang_choice_title$la, "extensions_edit", 'рэдагаваць'), _defineProperty(_lang_choice_title$la, "extensions_change_name", 'Змяніць назву'), _defineProperty(_lang_choice_title$la, "extensions_change_link", 'Змяніць спасылку'), _defineProperty(_lang_choice_title$la, "extensions_remove", 'Выдаліць'), _defineProperty(_lang_choice_title$la, "extensions_set_name", 'Увядзіце назву плагіна'), _defineProperty(_lang_choice_title$la, "extensions_set_url", 'Увядзіце адрас плагіна'), _defineProperty(_lang_choice_title$la, "extensions_ready", 'Гэты плагін ужо ўсталяваны'), _defineProperty(_lang_choice_title$la, "extensions_no_info", 'Без інфармацыі'), _defineProperty(_lang_choice_title$la, "extensions_no_name", 'Без назвы'), _defineProperty(_lang_choice_title$la, "extensions_worked", 'Працаздольны'), _defineProperty(_lang_choice_title$la, "extensions_no_plugin", 'Плагін не пацверджаны '), _defineProperty(_lang_choice_title$la, "extensions_add", 'Дадаць плагін'), _defineProperty(_lang_choice_title$la, "extensions_from_memory", 'Устаноўленыя ў памяць '), _defineProperty(_lang_choice_title$la, "extensions_from_cub", 'Устаноўленыя з CUB'), _defineProperty(_lang_choice_title$la, "extensions_from_popular", 'Папулярныя плагіны'), _defineProperty(_lang_choice_title$la, "extensions_from_lib", 'Бібліятэка плагінаў'), _defineProperty(_lang_choice_title$la, "extensions_from_connected", 'Падлучаныя плагіны'), _lang_choice_title$la);
 
   var langs = {};
   var keys = {};
