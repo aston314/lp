@@ -984,6 +984,7 @@
                                     }, { Referer: doreg.referer }, function (response) {
                                         // prints 200
                                         console.log(response.status);
+                                        console.log(response);
                                         //Lampa.Noty.show(response.status);
                                         try {
                                             //console.log(response.data);
