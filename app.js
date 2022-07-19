@@ -1734,6 +1734,7 @@
   }
 
   function checkHttp(url) {
+    url = url + '';
     url = url.replace(/https:\/\//, '');
     url = url.replace(/http:\/\//, '');
     url = protocol() + url;
@@ -19077,7 +19078,7 @@
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
     torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -19125,7 +19126,7 @@
     torrent_parser_added_to_mytorrents: '添加到“我的种子”',
     torrent_parser_add_to_mytorrents: '添加到“我的种子”',
     torrent_parser_label_title: '标记',
-    torrent_parser_label_descr: '用旗帜标记（已查看)',
+    torrent_parser_label_descr: '用旗帜标记（查看)',
     torrent_parser_label_cancel_title: '取消选中',
     torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
     torrent_parser_timeout: '超时',
@@ -19159,7 +19160,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史',
+    title_history: '浏览历史记录',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19197,7 +19198,7 @@
     title_upcoming: '在电影院观看',
     title_top_movie: '热门电影',
     title_top_tv: '热门系列',
-    title_tv_today: '今天播出',
+    title_tv_today: '今日播出',
     title_this_week: '本周',
     title_in_top: '热门',
     title_out: '退出',
@@ -19334,8 +19335,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '应用插件需要重新启动应用程序',
+    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '要应用插件，需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '安装ations',
@@ -23397,7 +23398,7 @@
   }
 
   function save() {
-    onsole.log('Plugins', 'save:', _loaded);
+    console.log('Plugins', 'save:', _loaded);
     Storage.set('plugins', _loaded);
   }
   /**
