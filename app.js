@@ -2165,7 +2165,6 @@
       html.remove();
       body = null;
       content = null;
-      html = null;
     };
   }
 
@@ -17667,7 +17666,7 @@
 
       if (simple) {
         input = $('<input type="text" class="simple-keyboard-input selector" placeholder="' + Lang.translate('search_input') + '..." />');
-        var last_value = '';
+        var last_value;
         var time_blur = 0;
         var time_focus = 0;
         var stated, ended;
@@ -18890,7 +18889,7 @@
 
   var zh = {
     lang_choice_title: '欢迎',
-    lang_choice_subtitle: '选择你的语言。',
+    lang_choice_subtitle: '选择您的语言。',
     more: '更多',
     show_more: '显示更多',
     more_results: '显示更多结果',
@@ -18928,7 +18927,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录，标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -18990,7 +18989,7 @@
     settings_rest_cache: '清除缓存',
     settings_rest_cache_descr: '所有设置和数据将被清除',
     settings_parser_use: '使用解析器',
-    settings_parser_use_descr: '在此，您同意接受所有使用责任用于查看 种子和在线内容的公共链接。',
+    settings_parser_use_descr: '特此，您同意接受所有使用责任用于查看 种子和在线内容的公共链接。',
     settings_parser_type: '种子的解析器类型',
     settings_parser_jackett_placeholder: '例如：192.168.x',
     settings_parser_jackett_link: '链接',
@@ -19013,7 +19012,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -19078,7 +19077,7 @@
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
     torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -19160,7 +19159,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史记录',
+    title_history: '浏览历史',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19198,7 +19197,7 @@
     title_upcoming: '在电影院观看',
     title_top_movie: '热门电影',
     title_top_tv: '热门系列',
-    title_tv_today: '今日播出',
+    title_tv_today: '今天播出',
     title_this_week: '本周',
     title_in_top: '热门',
     title_out: '退出',
@@ -19283,7 +19282,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的漫画',
+    ivi_for_famaly: '适合全家的卡通片',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19541,10 +19540,10 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放此视频',
+    player_share_descr: '在另一台设备上播放这个视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '标准化功率',
-    player_normalization_smooth_title: '标准化速度',
+    player_normalization_power_title: '规范化能力',
+    player_normalization_smooth_title: '规范化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
