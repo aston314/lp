@@ -456,7 +456,7 @@ Lampa.Lang.AddTranslation('zh',{
     plugins_ok_for_check: '点击(OK)测试插件',
     plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
     time_viewed: '看至',
-    time_from: '来自',
+    time_from: '片长',
     time_reset: '重置时间码',
     settings_clear_cache: '缓存和数据清除',
     settings_user_links: '自定义链接',
