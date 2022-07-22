@@ -15346,7 +15346,7 @@
 
         _this.activity.toggle();
       }, function (text) {
-        _this.empty('Ответ: ' + text);
+        _this.empty(' ' + text);
       });
 
       filter.onSearch = function (value) {
