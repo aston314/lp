@@ -16677,7 +16677,11 @@
 
   function create$5(object) {
     if (component[object.component]) {
-      return new component[object.component](object);
+      try {
+        return new component[object.component](object);
+      } catch (e) {
+        return new component.nocomponent(object);
+      }
     } else {
       return new component.nocomponent(object);
     }
@@ -16953,8 +16957,10 @@
 
 
     this.create = function () {
-      component.create(body);
-      body.append(component.render());
+      try {
+        component.create(body);
+        body.append(component.render());
+      } catch (e) {}
     };
     /**
      * Показывает загрузку
@@ -18935,7 +18941,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -19020,7 +19026,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -19054,8 +19060,8 @@
     settings_server_client: '内置客户端',
     settings_server_client_descr: '使用内置的TorrServe JS客户端，否则系统启动。',
     settings_server_base: '保存到数据库',
-    settings_server_base_descr: 'torrent 将被添加到 TorrServer 数据库',
-    settings_server_preload: '使用预取缓冲区',
+    settings_server_base_descr: 'torrent 将被添加到 TorrServer 数据库中',
+    settings_server_preload: '使用预加载缓冲区',
     settings_server_preload_descr: '播放前等待TorrServer的预加载缓冲区填满',
     settings_server_auth: '授权',
     settings_server_password_use: '密码登录',
@@ -19081,9 +19087,9 @@
     torrent_error_step_6: '仍然无法工作',
     torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
-    torrent_error_info_3: '要连接到 TorrServe，必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
+    torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
-    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
+    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
     torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
@@ -19167,7 +19173,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史',
+    title_history: '浏览历史记录',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19342,8 +19348,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '应用插件需要重新启动应用程序',
+    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '要应用插件，需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '安装ations',
@@ -19543,15 +19549,15 @@
     settings_param_player_hls_app: 'Systemic',
     settings_param_player_hls_js: 'Program',
     settings_player_hls_title: '处理.m3u8流媒体',
-    settings_player_hls_descr: '如果您不知道为什么，请勿修改此参数。',
+    settings_player_hls_descr: '如果您不知道为什么，请不要修改此参数。',
     notice_none_account: '你还没有任何通知，收藏该系列并等待新剧集的通知。',
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放此视频',
+    player_share_descr: '在另一台设备上播放这个视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '标准化功率',
-    player_normalization_smooth_title: '标准化速度',
+    player_normalization_power_title: '规范化能力',
+    player_normalization_smooth_title: '规范化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
