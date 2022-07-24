@@ -7963,6 +7963,31 @@
     }
   }
 
+  function subscribeToTranslation() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var call = arguments.length > 1 ? arguments[1] : undefined;
+    var error = arguments.length > 2 ? arguments[2] : undefined;
+    var account = Storage.get('account', '{}');
+
+    if (account.token && params.voice) {
+      network$9.timeout(5000);
+      network$9.silent(api + 'notifications/add', function () {
+        if (call) call();
+      }, function () {
+        if (error) error();
+      }, {
+        voice: params.voice,
+        data: JSON.stringify(params.card),
+        episode: params.episode,
+        season: params.season
+      }, {
+        headers: {
+          token: account.token
+        }
+      });
+    } else if (error) error();
+  }
+
   var Account = {
     init: init$i,
     working: working,
@@ -7978,7 +8003,8 @@
     update: update$5,
     network: network$9,
     backup: backup,
-    extensions: extensions
+    extensions: extensions,
+    subscribeToTranslation: subscribeToTranslation
   };
 
   var data$5 = {};
@@ -18903,7 +18929,7 @@
 
   var zh = {
     lang_choice_title: '欢迎',
-    lang_choice_subtitle: '选择你的语言。',
+    lang_choice_subtitle: '选择您的语言。',
     more: '更多',
     show_more: '显示更多',
     more_results: '显示更多结果',
@@ -18941,7 +18967,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -19014,11 +19040,11 @@
     settings_parser_torlook_type: 'TorLook网站解析方法',
     settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
     settings_parser_scraperapi_link: '链接到站点解析器',
-    settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
+    settings_parser_scraperapi_descr: '在网站 scraperapi.com 注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
     settings_parser_search: '搜索',
-    settings_parser_search_descr: '用什么语言搜索？',
+    settings_parser_search_descr: '用什么语言搜索?',
     settings_parser_in_search: '在搜索中显示种子结果',
-    settings_parser_in_search_descr: '显示搜索结果？',
+    settings_parser_in_search_descr: '显示搜索结果?',
     settings_player_type: '播放器类型',
     settings_player_type_descr: '用哪个播放器',
     settings_player_reset: '重置默认播放器',
@@ -19026,7 +19052,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -19060,8 +19086,8 @@
     settings_server_client: '内置客户端',
     settings_server_client_descr: '使用内置的TorrServe JS客户端，否则系统启动。',
     settings_server_base: '保存到数据库',
-    settings_server_base_descr: 'torrent 将被添加到 TorrServer 数据库中',
-    settings_server_preload: '使用预加载缓冲区',
+    settings_server_base_descr: 'torrent 将被添加到 TorrServer 数据库',
+    settings_server_preload: '使用预取缓冲区',
     settings_server_preload_descr: '播放前等待TorrServer的预加载缓冲区填满',
     settings_server_auth: '授权',
     settings_server_password_use: '密码登录',
@@ -19073,13 +19099,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 正在运行',
+    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 是否正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -19173,7 +19199,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史记录',
+    title_history: '浏览历史',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -19348,8 +19374,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '要应用插件，需要重新启动应用程序',
+    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '应用插件需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '安装ations',
@@ -19554,10 +19580,10 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放这个视频',
+    player_share_descr: '在另一台设备上播放此视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '规范化能力',
-    player_normalization_smooth_title: '规范化速度',
+    player_normalization_power_title: '标准化功率',
+    player_normalization_smooth_title: '标准化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
