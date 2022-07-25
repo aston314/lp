@@ -4905,7 +4905,6 @@
   var hls;
   var webos_wait = {};
   var normalization;
-  var piped = false;
 
   function init$m() {
     html$f = Template.get('player_video');
@@ -5103,7 +5102,6 @@
       scale();
       if (neeed_speed) speed(neeed_speed);
       loaded$1();
-      if (piped) enterToPIP();
     }); // для страховки
 
 
@@ -5728,8 +5726,7 @@
   }
 
   function togglePictureInPicture() {
-    piped = !piped;
-    if (piped) enterToPIP();else exitFromPIP();
+    if (document.pictureInPictureElement) exitFromPIP();else enterToPIP();
   }
   /**
    * Уничтожить
@@ -18929,7 +18926,7 @@
 
   var zh = {
     lang_choice_title: '欢迎',
-    lang_choice_subtitle: '选择您的语言。',
+    lang_choice_subtitle: '选择你的语言。',
     more: '更多',
     show_more: '显示更多',
     more_results: '显示更多结果',
@@ -19040,11 +19037,11 @@
     settings_parser_torlook_type: 'TorLook网站解析方法',
     settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
     settings_parser_scraperapi_link: '链接到站点解析器',
-    settings_parser_scraperapi_descr: '在网站 scraperapi.com 注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
+    settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
     settings_parser_search: '搜索',
-    settings_parser_search_descr: '用什么语言搜索?',
+    settings_parser_search_descr: '用什么语言搜索？',
     settings_parser_in_search: '在搜索中显示种子结果',
-    settings_parser_in_search_descr: '显示搜索结果?',
+    settings_parser_in_search_descr: '显示搜索结果？',
     settings_player_type: '播放器类型',
     settings_player_type_descr: '用哪个播放器',
     settings_player_reset: '重置默认播放器',
@@ -19104,8 +19101,8 @@
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
     torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 是否正在运行',
+    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -19322,7 +19319,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的卡通片',
+    ivi_for_famaly: '适合全家的漫画',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -19374,8 +19371,8 @@
     plugins_catalog_popular: '用户中流行的插件',
     plugins_catalog_popular_descr: '从未知来源安装可能导致应用程序无法正常工作。',
     plugins_online: '在线查看',
-    plugins_check_fail: '无法测试插件的功能。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
-    plugins_need_reload: '应用插件需要重新启动应用程序',
+    plugins_check_fail: '插件功能测试失败。但这并不代表插件不起作用。重新加载应用程序看看插件是否在加载。',
+    plugins_need_reload: '要应用插件，需要重新启动应用程序',
     plugins_install: '安装',
     plugins_install_ready: '这个插件已经安装了。',
     plugins_installed: '安装ations',
@@ -23869,6 +23866,7 @@
 
   function startApp() {
     if (window.appready) return;
+    var start_time = Date.now();
     /** Стартуем */
 
     Lampa.Listener.send('app', {
@@ -23913,8 +23911,9 @@
     if (!Storage.get('parse_lang')) Storage.set('parse_lang', 'df');
     /** Выход из приложения */
 
+    console.log('started');
     Activity$1.listener.follow('backward', function (event) {
-      if (event.count == 1) {
+      if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
         var enabled = Controller.enabled();
         Select.show({
           title: Lang.translate('title_out'),
