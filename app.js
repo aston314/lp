@@ -3328,8 +3328,8 @@
           if (from.label) name.push(from.label);
 
           if (from.extra) {
-            if (from.extra.channels) name.push('Каналов: ' + from.extra.channels);
-            if (from.extra.fourCC) name.push('Тип: ' + from.extra.fourCC);
+            if (from.extra.channels) name.push(from.extra.channels + ' Ch');
+            if (from.extra.fourCC) name.push(from.extra.fourCC);
           }
 
           element.title = name.join(' / ');
@@ -19006,7 +19006,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从何处获取有关电影的信息',
+    settings_rest_source_descr: '从哪里获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -19096,13 +19096,13 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
-    torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
+    torent_nohash_do_three: '确保 Jackett 可以下载文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
-    torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明该发行版的照片',
-    torrent_error_text: '无法连接到 TorrServe。让我们快速浏览可能的问题列表并检查所有内容。',
-    torrent_error_step_1: 'TorrServe 正在运行',
+    torent_nohash_do_five: '指定哪部电影，哪个发行版，如果可能，请注明发行版的照片',
+    torrent_error_text: '连接到 TorrServe 失败。让我们快速浏览可能的问题列表并检查所有内容。',
+    torrent_error_step_1: 'TorrServe 是否正在运行',
     torrent_error_step_2: '动态 IP',
     torrent_error_step_3: '协议和端口',
     torrent_error_step_4: '防病毒阻止',
@@ -19110,9 +19110,9 @@
     torrent_error_step_6: '仍然无法工作',
     torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
-    torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
+    torrent_error_info_3: '要连接到 TorrServe，必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
-    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
+    torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe Web 界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
     torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
     torrent_error_start: '开始验证',
@@ -19577,10 +19577,10 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放此视频',
+    player_share_descr: '在另一台设备上播放这个视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '标准化功率',
-    player_normalization_smooth_title: '标准化速度',
+    player_normalization_power_title: '规范化能力',
+    player_normalization_smooth_title: '规范化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
