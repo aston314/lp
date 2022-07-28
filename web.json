@@ -5,36 +5,44 @@
         "show": "portrait",
         "category": [
             {
-                "title": "首页",
-                "url": "https://www.libvio.me"
+                "title": "最近更新",
+                "url": "https://www.libvio.me",
+                "quantity": ":lt(12)"
             },
             {
                 "title": "电影",
-                "url": "https://www.libvio.me/type/1.html"
+                "url": "https://www.libvio.me/type/1.html",
+                "quantity": ""
             },
             {
                 "title": "剧集",
-                "url": "https://www.libvio.me/type/2.html"
+                "url": "https://www.libvio.me/type/2.html",
+                "quantity": ""
             },
             {
                 "title": "日韩剧",
-                "url": "https://www.libvio.me/type/15.html"
+                "url": "https://www.libvio.me/type/15.html",
+                "quantity": ""
             },
             {
                 "title": "国产剧",
-                "url": "https://www.libvio.me/type/13.html"
+                "url": "https://www.libvio.me/type/13.html",
+                "quantity": ""
             },
             {
                 "title": "欧美剧",
-                "url": "https://www.libvio.me/type/16.html"
+                "url": "https://www.libvio.me/type/16.html",
+                "quantity": ""
             },
             {
                 "title": "港台剧",
-                "url": "https://www.libvio.me/type/14.html"
+                "url": "https://www.libvio.me/type/14.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://www.libvio.me/type/4.html"
+                "url": "https://www.libvio.me/type/4.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -72,36 +80,44 @@
         "show": "portrait",
         "category": [
             {
-                "title": "首页",
-                "url": "https://www.wanmeikk.film"
+                "title": "最近更新",
+                "url": "https://www.wanmeikk.film",
+                "quantity": ":lt(15)"
             },
             {
                 "title": "电影",
-                "url": "https://www.wanmeikk.film/category/1.html"
+                "url": "https://www.wanmeikk.film/category/1.html",
+                "quantity": ""
             },
             {
                 "title": "韩剧",
-                "url": "https://www.wanmeikk.film/category/3.html"
+                "url": "https://www.wanmeikk.film/category/3.html",
+                "quantity": ""
             },
             {
                 "title": "国产剧",
-                "url": "https://www.wanmeikk.film/category/5.html"
+                "url": "https://www.wanmeikk.film/category/5.html",
+                "quantity": ""
             },
             {
                 "title": "欧美剧",
-                "url": "https://www.wanmeikk.film/category/2.html"
+                "url": "https://www.wanmeikk.film/category/2.html",
+                "quantity": ""
             },
             {
                 "title": "日剧",
-                "url": "https://www.wanmeikk.film/category/4.html"
+                "url": "https://www.wanmeikk.film/category/4.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://www.wanmeikk.film/category/6.html"
+                "url": "https://www.wanmeikk.film/category/6.html",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "https://www.wanmeikk.film/category/7.html"
+                "url": "https://www.wanmeikk.film/category/7.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -140,31 +156,38 @@
         "category": [
             {
                 "title": "首页",
-                "url": "https://zxzj.vip"
+                "url": "https://zxzj.vip",
+                "quantity": ":gt(11)"
             },
             {
                 "title": "电影",
-                "url": "https://zxzj.vip/list/1.html"
+                "url": "https://zxzj.vip/list/1.html",
+                "quantity": ""
             },
             {
                 "title": "美剧",
-                "url": "https://zxzj.vip/list/2.html"
+                "url": "https://zxzj.vip/list/2.html",
+                "quantity": ""
             },
             {
                 "title": "韩剧",
-                "url": "https://zxzj.vip/list/3.html"
+                "url": "https://zxzj.vip/list/3.html",
+                "quantity": ""
             },
             {
                 "title": "日剧",
-                "url": "https://zxzj.vip/list/4.html"
+                "url": "https://zxzj.vip/list/4.html",
+                "quantity": ""
             },
             {
                 "title": "泰剧",
-                "url": "https://zxzj.vip/list/5.html"
+                "url": "https://zxzj.vip/list/5.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://zxzj.vip/list/6.html"
+                "url": "https://zxzj.vip/list/6.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -203,19 +226,23 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://www.7xiady.cc/type/dianying"
+                "url": "https://www.7xiady.cc/type/dianying",
+                "quantity": ""
             },
             {
                 "title": "连续剧",
-                "url": "https://www.7xiady.cc/type/lianxuju"
+                "url": "https://www.7xiady.cc/type/lianxuju",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://www.7xiady.cc/type/dongman"
+                "url": "https://www.7xiady.cc/type/dongman",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "https://www.7xiady.cc/type/zongyi"
+                "url": "https://www.7xiady.cc/type/zongyi",
+                "quantity": ""
             }
         ],
         "list": {
@@ -254,35 +281,43 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://www.olevod.com/index.php/vod/show/id/1.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/1.html",
+                "quantity": ""
             },
             {
                 "title": "电视剧",
-                "url": "https://www.olevod.com/index.php/vod/show/id/2.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/2.html",
+                "quantity": ""
             },
             {
                 "title": "国产剧",
-                "url": "https://olevod.com/index.php/vod/show/id/202.html"
+                "url": "https://olevod.com/index.php/vod/show/id/202.html",
+                "quantity": ""
             },
             {
                 "title": "日韩剧",
-                "url": "https://www.olevod.com/index.php/vod/show/id/204.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/204.html",
+                "quantity": ""
             },
             {
                 "title": "欧美剧",
-                "url": "https://www.olevod.com/index.php/vod/show/id/201.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/201.html",
+                "quantity": ""
             },
             {
                 "title": "港台剧",
-                "url": "https://www.olevod.com/index.php/vod/show/id/203.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/203.html",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "https://www.olevod.com/index.php/vod/show/id/3.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/3.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://www.olevod.com/index.php/vod/show/id/4.html"
+                "url": "https://www.olevod.com/index.php/vod/show/id/4.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -321,27 +356,33 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://ddrk.me/category/movie/"
+                "url": "https://ddrk.me/category/movie/",
+                "quantity": ""
             },
             {
                 "title": "剧集",
-                "url": "https://ddrk.me/category/airing/"
+                "url": "https://ddrk.me/category/airing/",
+                "quantity": ""
             },
             {
                 "title": "欧美剧",
-                "url": "https://ddrk.me/category/drama/western-drama/"
+                "url": "https://ddrk.me/category/drama/western-drama/",
+                "quantity": ""
             },
             {
                 "title": "韩剧",
-                "url": "https://ddrk.me/category/drama/kr-drama/"
+                "url": "https://ddrk.me/category/drama/kr-drama/",
+                "quantity": ""
             },
             {
                 "title": "日剧",
-                "url": "https://ddrk.me/category/drama/jp-drama/"
+                "url": "https://ddrk.me/category/drama/jp-drama/",
+                "quantity": ""
             },
             {
                 "title": "动画",
-                "url": "https://ddrk.me/category/anime/"
+                "url": "https://ddrk.me/category/anime/",
+                "quantity": ""
             }
         ],
         "list": {
@@ -380,35 +421,43 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://www.czspp.com/zuixindianying"
+                "url": "https://www.czspp.com/zuixindianying",
+                "quantity": ""
             },
             {
                 "title": "电视剧",
-                "url": "https://www.czspp.com/dsj"
+                "url": "https://www.czspp.com/dsj",
+                "quantity": ""
             },
             {
                 "title": "美剧",
-                "url": "https://www.czspp.com/meijutt"
+                "url": "https://www.czspp.com/meijutt",
+                "quantity": ""
             },
             {
                 "title": "韩剧",
-                "url": "https://www.czspp.com/hanjutv"
+                "url": "https://www.czspp.com/hanjutv",
+                "quantity": ""
             },
             {
                 "title": "国产剧",
-                "url": "https://www.czspp.com/gcj"
+                "url": "https://www.czspp.com/gcj",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://www.czspp.com/dm"
+                "url": "https://www.czspp.com/dm",
+                "quantity": ""
             },
             {
                 "title": "番剧",
-                "url": "https://www.czspp.com/fanju"
+                "url": "https://www.czspp.com/fanju",
+                "quantity": ""
             },
             {
                 "title": "豆瓣电影Top250",
-                "url": "https://www.czspp.com/gaofenyingshi"
+                "url": "https://www.czspp.com/gaofenyingshi",
+                "quantity": ""
             }
         ],
         "list": {
@@ -447,19 +496,23 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://cokemv.me/vodshow/5-----------.html"
+                "url": "https://cokemv.me/vodshow/5-----------.html",
+                "quantity": ""
             },
             {
                 "title": "电视剧",
-                "url": "https://cokemv.me/vodshow/2-----------.html"
+                "url": "https://cokemv.me/vodshow/2-----------.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://cokemv.me/vodshow/4-----------.html"
+                "url": "https://cokemv.me/vodshow/4-----------.html",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "https://cokemv.me/vodshow/3-----------.html"
+                "url": "https://cokemv.me/vodshow/3-----------.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -498,27 +551,33 @@
         "category": [
             {
                 "title": "电影",
-                "url": "http://www.lezhutv.com/type/1-1.html"
+                "url": "http://www.lezhutv.com/type/1-1.html",
+                "quantity": ""
             },
             {
                 "title": "连续剧",
-                "url": "http://www.lezhutv.com/type/2-1.html"
+                "url": "http://www.lezhutv.com/type/2-1.html",
+                "quantity": ""
             },
             {
                 "title": "韩剧",
-                "url": "http://www.lezhutv.com/type/14-1.html"
+                "url": "http://www.lezhutv.com/type/14-1.html",
+                "quantity": ""
             },
             {
                 "title": "美剧",
-                "url": "http://www.lezhutv.com/type/15-1.html"
+                "url": "http://www.lezhutv.com/type/15-1.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "http://www.lezhutv.com/type/4-1.html"
+                "url": "http://www.lezhutv.com/type/4-1.html",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "http://www.lezhutv.com/type/3-1.html"
+                "url": "http://www.lezhutv.com/type/3-1.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -557,23 +616,28 @@
         "category": [
             {
                 "title": "电影",
-                "url": "https://auete.com/Movie/index.html"
+                "url": "https://auete.com/Movie/index.html",
+                "quantity": ""
             },
             {
                 "title": "电视剧",
-                "url": "https://auete.com/Tv/index.html"
+                "url": "https://auete.com/Tv/index.html",
+                "quantity": ""
             },
             {
                 "title": "综艺",
-                "url": "https://auete.com/Zy/index.html"
+                "url": "https://auete.com/Zy/index.html",
+                "quantity": ""
             },
             {
                 "title": "动漫",
-                "url": "https://auete.com/Dm/index.html"
+                "url": "https://auete.com/Dm/index.html",
+                "quantity": ""
             },
             {
                 "title": "其他",
-                "url": "https://auete.com/qita/index.html"
+                "url": "https://auete.com/qita/index.html",
+                "quantity": ""
             }
         ],
         "list": {
@@ -612,11 +676,13 @@
         "category": [
             {
                 "title": "最近更新",
-                "url": "https://jable.tv/latest-updates/"
+                "url": "https://jable.tv/latest-updates/",
+                "quantity": ""
             },
             {
                 "title": "全新上市",
-                "url": "https://jable.tv/new-release/"
+                "url": "https://jable.tv/new-release/",
+                "quantity": ""
             }
         ],
         "list": {
@@ -655,23 +721,28 @@
         "category": [
             {
                 "title": "热门电影",
-                "url": "https://yts.mx/browse-movies/0/all/all/0/featured/0/all"
+                "url": "https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+                "quantity": ""
             },
             {
                 "title": "今年电影",
-                "url": "https://yts.mx/browse-movies/0/all/all/0/latest/2022/all"
+                "url": "https://yts.mx/browse-movies/0/all/all/0/latest/2022/all",
+                "quantity": ""
             },
             {
                 "title": "今日趋势",
-                "url": "https://yts.mx/trending-movies"
+                "url": "https://yts.mx/trending-movies",
+                "quantity": ""
             },
             {
                 "title": "更新电影",
-                "url": "https://yts.mx/browse-movies"
+                "url": "https://yts.mx/browse-movies",
+                "quantity": ""
             },
             {
                 "title": "4K电影",
-                "url": "https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all"
+                "url": "https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all",
+                "quantity": ""
             }
         ],
         "list": {
