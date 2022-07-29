@@ -861,7 +861,82 @@
             }
         },
         "search": {
-            "url": "https://www.wuguiyy.com/search/-------------/?wd=#msearchword-&submit="
+            "url": "https://www.wuguiyy.com/search/-------------/?wd=#msearchword&submit="
+        }
+    },
+    {
+        "title": "达达龟",
+        "link": "https://www.dadagui.me",
+        "show": "portrait",
+        "category": [
+            {
+                "title": "电影",
+                "url": "https://www.dadagui.me/vodtype/1.html",
+                "quantity": ""
+            },
+            {
+                "title": "连续剧",
+                "url": "https://www.dadagui.me/vodtype/2.html",
+                "quantity": ""
+            },
+            {
+                "title": "欧美剧",
+                "url": "https://www.dadagui.me/vodshow/15-----------.html",
+                "quantity": ""
+            },
+            {
+                "title": "国产剧",
+                "url": "https://www.dadagui.me/vodshow/13-----------.html",
+                "quantity": ""
+            },
+            {
+                "title": "日韩剧",
+                "url": "https://www.dadagui.me/vodshow/14-----------.html",
+                "quantity": ""
+            },
+            {
+                "title": "港台剧",
+                "url": "https://www.dadagui.me/vodshow/16-----------.html",
+                "quantity": ""
+            },
+            {
+                "title": "动漫",
+                "url": "https://www.dadagui.me/vodtype/4.html",
+                "quantity": ""
+            },
+            {
+                "title": "综艺",
+                "url": "https://www.dadagui.me/vodtype/3.html",
+                "quantity": ""
+            }
+        ],
+        "list": {
+            "page": {
+                "selector": "ul.stui-page__item"
+            },
+            "videoscontainer": {
+                "selector": ".stui-vodlist__box",
+                "attrName": "",
+                "filter": ""
+            },
+            "title": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "title",
+                "filter": ""
+            },
+            "thumb": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "data-original",
+                "filter": ""
+            },
+            "link": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "href",
+                "filter": ""
+            }
+        },
+        "search": {
+            "url": "https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
         }
     }
 ]
