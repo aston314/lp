@@ -225,6 +225,11 @@
         "show": "portrait",
         "category": [
             {
+                "title": "首页",
+                "url": "https://www.7xiady.cc",
+                "quantity": ":gt(11)"
+            },
+            {
                 "title": "电影",
                 "url": "https://www.7xiady.cc/type/dianying",
                 "quantity": ""
