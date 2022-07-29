@@ -773,5 +773,80 @@
         "search": {
             "url": "https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
         }
+    },
+    {
+        "title": "乌龟影视",
+        "link": "https://www.wuguiyy.com",
+        "show": "portrait",
+        "category": [
+            {
+                "title": "电影",
+                "url": "https://www.wuguiyy.com/show/dianying-----------/",
+                "quantity": ""
+            },
+            {
+                "title": "连续剧",
+                "url": "https://www.wuguiyy.com/show/lianxuju-----------/",
+                "quantity": ""
+            },
+            {
+                "title": "欧美剧",
+                "url": "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
+                "quantity": ""
+            },
+            {
+                "title": "国产剧",
+                "url": "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
+                "quantity": ""
+            },
+            {
+                "title": "日韩剧",
+                "url": "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
+                "quantity": ""
+            },
+            {
+                "title": "港台剧",
+                "url": "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
+                "quantity": ""
+            },
+            {
+                "title": "动漫",
+                "url": "https://www.wuguiyy.com/show/dongman-----------/",
+                "quantity": ""
+            },
+            {
+                "title": "综艺",
+                "url": "https://www.wuguiyy.com/show/zongyi-----------/",
+                "quantity": ""
+            }
+        ],
+        "list": {
+            "page": {
+                "selector": "ul.stui-page"
+            },
+            "videoscontainer": {
+                "selector": ".stui-vodlist__box",
+                "attrName": "",
+                "filter": ""
+            },
+            "title": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "title",
+                "filter": ""
+            },
+            "thumb": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "data-original",
+                "filter": ""
+            },
+            "link": {
+                "selector": "a.stui-vodlist__thumb",
+                "attrName": "href",
+                "filter": ""
+            }
+        },
+        "search": {
+            "url": "https://www.wuguiyy.com/search/-------------/?wd=#msearchword-&submit="
+        }
     }
 ]
