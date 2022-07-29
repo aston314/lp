@@ -550,6 +550,11 @@
         "show": "portrait",
         "category": [
             {
+                "title": "首页",
+                "url": "http://www.lezhutv.com",
+                "quantity": ":gt(8)"
+            },
+            {
                 "title": "电影",
                 "url": "http://www.lezhutv.com/type/1-1.html",
                 "quantity": ""
