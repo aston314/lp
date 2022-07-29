@@ -427,7 +427,7 @@
             {
                 "title": "最近更新",
                 "url": "https://www.czspp.com",
-                "quantity": ":gt(3):lt(2)"
+                "quantity": ":gt(3)"
             },
             {
                 "title": "电影",
