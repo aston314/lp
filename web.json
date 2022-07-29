@@ -360,6 +360,11 @@
         "show": "portrait",
         "category": [
             {
+                "title": "首页",
+                "url": "https://ddrk.me",
+                "quantity": ""
+            },
+            {
                 "title": "电影",
                 "url": "https://ddrk.me/category/movie/",
                 "quantity": ""
