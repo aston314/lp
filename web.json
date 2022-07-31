@@ -827,7 +827,7 @@
     "title": "乌龟影视",
     "link": "https://www.wuguiyy.com",
     "show": "portrait",
-    "next": "search",
+    "next": "detail",
     "category": [
       {
         "title": "电影",
@@ -891,6 +891,23 @@
       },
       "link": {
         "selector": "a.stui-vodlist__thumb",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
