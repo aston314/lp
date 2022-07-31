@@ -2123,8 +2123,6 @@
 
     this.destroy = function () {
       html.remove();
-      body = null;
-      content = null;
     };
   }
 
@@ -5841,6 +5839,10 @@
   function toggle$8(status) {
     html$e.toggleClass('info--visible', status);
   }
+
+  function loading$1() {
+    elems.size.text(Lang.translate('loading') + '...');
+  }
   /**
    * Уничтожить
    */
@@ -5866,6 +5868,7 @@
     render: render$a,
     set: set$2,
     toggle: toggle$8,
+    loading: loading$1,
     destroy: destroy$5
   };
 
@@ -6567,6 +6570,7 @@
   var launch_player;
   var timer_ask;
   var timer_save;
+  var wait_for_loading_url = false;
   var preloader = {
     wait: false
   };
@@ -6784,15 +6788,25 @@
     /** Событие на переключение серии */
 
     PlayerPlaylist.listener.follow('select', function (e) {
-      var params = PlayerVideo.saveParams();
-      destroy$3();
-      play$1(e.item);
-      PlayerVideo.setParams(params);
-      if (e.item.url.indexOf(Torserver.ip()) > -1) PlayerInfo.set('stat', e.item.url);
-      PlayerPanel.showNextEpisodeName({
-        playlist: e.playlist,
-        position: e.position
-      });
+      var type = _typeof(e.item.url);
+
+      var call = function call() {
+        var params = PlayerVideo.saveParams();
+        destroy$3();
+        play$1(e.item);
+        PlayerVideo.setParams(params);
+        if (e.item.url.indexOf(Torserver.ip()) > -1) PlayerInfo.set('stat', e.item.url);
+        PlayerPanel.showNextEpisodeName({
+          playlist: e.playlist,
+          position: e.position
+        });
+      };
+
+      if (type == 'string') call();else if (type == 'function' && !wait_for_loading_url) {
+        PlayerInfo.loading();
+        wait_for_loading_url = true;
+        e.item.url(call);
+      }
     });
     /** Установить название следующей серии */
 
@@ -6903,6 +6917,7 @@
     work = false;
     preloader.wait = false;
     preloader.call = null;
+    wait_for_loading_url = false;
     viewing.time = 0;
     viewing.difference = 0;
     viewing.current = 0;
