@@ -13700,6 +13700,7 @@
     var list = [];
 
     for (var key in sources) {
+      console.log('Api', 'discovery check:', key, sources[key].discovery ? true : false, _typeof(sources[key].discovery));
       if (sources[key].discovery) list.push(sources[key].discovery());
     }
 
@@ -19717,7 +19718,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：书签同步，浏览历史记录、标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -19759,7 +19760,7 @@
     settings_rest_start_descr: '启动时要启动的页面',
     settings_rest_source: '源',
     settings_rest_source_use: '主要来源',
-    settings_rest_source_descr: '从哪里获取有关电影的信息',
+    settings_rest_source_descr: '从何处获取有关电影的信息',
     settings_rest_tmdb_lang: '从 TMDB 显示数据的语言',
     settings_rest_tmdb_prox: '代理 TMDB',
     settings_rest_tmdb_posters: 'TMDB 海报的分辨率',
@@ -19790,11 +19791,11 @@
     settings_parser_torlook_type: 'TorLook网站解析方法',
     settings_parser_scraperapi_placeholder: '例如：scraperapi.com',
     settings_parser_scraperapi_link: '链接到站点解析器',
-    settings_parser_scraperapi_descr: '在网站 scraperapi.com 上注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
+    settings_parser_scraperapi_descr: '在网站 scraperapi.com 注册，输入链接 api.scraperapi.com?api_key=...&url={q}<br>W41.torlook.info 将发送到 {q}',
     settings_parser_search: '搜索',
-    settings_parser_search_descr: '用什么语言搜索？',
+    settings_parser_search_descr: '用什么语言搜索?',
     settings_parser_in_search: '在搜索中显示种子结果',
-    settings_parser_in_search_descr: '显示搜索结果？',
+    settings_parser_in_search_descr: '显示搜索结果?',
     settings_player_type: '播放器类型',
     settings_player_type_descr: '用哪个播放器',
     settings_player_reset: '重置默认播放器',
@@ -19802,7 +19803,7 @@
     settings_player_path: '播放器路径',
     settings_player_path_descr: '指定播放器.exe的路径',
     settings_player_normalization: '声音标准化',
-    settings_player_normalization_descr: '将声音标准化为一级，降低响亮的声音并增强安静的',
+    settings_player_normalization_descr: '将声音标准化到一级，降低响亮的声音并增强安静的',
     settings_player_next_episode: '下一集',
     settings_player_next_episode_descr: '当前一集结束后自动切换到下一个系列',
     settings_player_timecode: '时间码',
@@ -19849,7 +19850,7 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
@@ -19861,13 +19862,13 @@
     torrent_error_step_4: '防病毒阻止',
     torrent_error_step_5: '检查可用性',
     torrent_error_step_6: '仍然无法工作',
-    torrent_error_info_1: '确保您已在安装了 TorrServe 的设备上启动它。',
+    torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
     torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
     torrent_error_info_5: '在同一网络上的任何其他设备上，在浏览器中打开 {ip} 地址并检查 TorrServe 网络界面是否可用。',
     torrent_error_info_6: '如果在所有检查后仍然出现连接错误，请尝试重新启动 TorrServe 和 Internet 适配器。',
-    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址为{ip})',
+    torrent_error_info_7: '如果问题仍然存在，请使用文本写入 Telegram 组@lampa_group（Lampa 在所有检查后未连接到 TorrServe ,当前地址是{ip})',
     torrent_error_start: '开始验证',
     torrent_error_nomatrix: '验证Matrix版本失败',
     torrent_error_made: '执行',
@@ -20072,7 +20073,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的漫画',
+    ivi_for_famaly: '适合全家的卡通片',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -20228,7 +20229,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '查看菜单（书签）',
+    card_book_descr: '在菜单中查找（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -20325,15 +20326,15 @@
     settings_param_player_hls_app: 'Systemic',
     settings_param_player_hls_js: 'Program',
     settings_player_hls_title: '处理.m3u8流媒体',
-    settings_player_hls_descr: '如果您不知道为什么，请勿修改此参数。',
+    settings_player_hls_descr: '如果您不知道为什么，请不要修改此参数。',
     notice_none_account: '你还没有任何通知，收藏该系列并等待新剧集的通知。',
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放此视频',
+    player_share_descr: '在另一台设备上播放这个视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '标准化功率',
-    player_normalization_smooth_title: '标准化速度',
+    player_normalization_power_title: '规范化能力',
+    player_normalization_smooth_title: '规范化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
@@ -24181,11 +24182,11 @@
 
     if (Platform.is('orsay')) {
       Orsay.init();
-      Utils.putStyle(['http://lampa.mx/css/app.css?v1.4.8'], function () {
+      Utils.putStyle(['http://lampa.mx/css/app.css?v1.4.9'], function () {
         $('link[href="css/app.css"]').remove();
       });
     } else if (window.location.protocol == 'file:' || typeof nw !== 'undefined') {
-      Utils.putStyle(['https://yumata.github.io/lampa/css/app.css?v1.4.8'], function () {
+      Utils.putStyle(['https://yumata.github.io/lampa/css/app.css?v1.4.9'], function () {
         $('link[href="css/app.css"]').remove();
       });
     }
