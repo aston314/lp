@@ -226,7 +226,7 @@
     "title": "秋霞电影",
     "link": "https://www.7xiady.cc",
     "show": "portrait",
-    "next": "search",
+    "next": "detail",
     "category": [
       {
         "title": "首页",
@@ -275,6 +275,24 @@
       },
       "link": {
         "selector": "a.stui-vodlist__thumb",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    ,
+    "detail": {
+      "videoscontainer": {
+        "selector": ".stui-content__playlist",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
