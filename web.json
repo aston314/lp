@@ -1010,7 +1010,7 @@
     }
   },
   {
-    "title": "tvbox.one",
+    "title": "tvboxone",
     "link": "https://www.tvbox.one/",
     "show": "landscape",
     "next": "detail",
@@ -1026,13 +1026,13 @@
         "selector": ""
       },
       "videoscontainer": {
-        "selector": "li.ex34.post",
+        "selector": "ul#infinite-articles li > a",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": ".article-title.entry-title",
-        "attrName": "text",
+        "selector": "img",
+        "attrName": "alt",
         "filter": ""
       },
       "thumb": {
@@ -1041,7 +1041,7 @@
         "filter": ""
       },
       "link": {
-        "selector": "a",
+        "selector": "",
         "attrName": "href",
         "filter": ""
       }
@@ -1055,7 +1055,7 @@
       "title": {
         "selector": "span",
         "attrName": "text",
-        "filter": ""
+        "filter": ": (.*)"
       },
       "link": {
         "selector": "",
