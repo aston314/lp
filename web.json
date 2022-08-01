@@ -504,7 +504,7 @@
         "selector": "div.pagenavi_txt"
       },
       "videoscontainer": {
-        "selector": "div.bt_img.mi_ne_kd > ul > li > a",
+        "selector": "div.bt_img > ul > li > a",
         "attrName": "",
         "filter": ""
       },
