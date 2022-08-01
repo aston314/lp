@@ -279,7 +279,6 @@
         "filter": ""
       }
     },
-    ,
     "detail": {
       "videoscontainer": {
         "selector": ".stui-content__playlist",
