@@ -356,7 +356,7 @@
   var Manifest = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.4.9',
+    css_version: '1.5.2',
     app_version: '1.4.5'
   };
 
@@ -24274,7 +24274,7 @@
     if (!Storage.get('parse_lang')) Storage.set('parse_lang', 'df');
     /** Выход из приложения */
 
-    console.log('started');
+    console.log('Screen', 'size:', window.innerWidth, window.innerHeight);
     Activity$1.listener.follow('backward', function (event) {
       if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
         var enabled = Controller.enabled();
