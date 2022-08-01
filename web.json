@@ -1008,5 +1008,63 @@
     "search": {
       "url": "https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
     }
+  },
+  {
+    "title": "tvbox.one",
+    "link": "https://www.tvbox.one/",
+    "show": "landscape",
+    "next": "detail",
+    "category": [
+      {
+        "title": "最新更新",
+        "url": "https://www.tvbox.one/page/1",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": ""
+      },
+      "videoscontainer": {
+        "selector": "li.ex34.post",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": ".article-title.entry-title",
+        "attrName": "text",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "img",
+        "attrName": "src",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "div.su-button-center",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "text",
+        "filter": ": (.+?)"
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.tvbox.one/?s=#msearchword"
+    }
   }
 ]
