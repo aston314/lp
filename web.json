@@ -281,7 +281,7 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": ".stui-content__playlist",
+        "selector": ".stui-content__playlist li",
         "attrName": "",
         "filter": ""
       },
