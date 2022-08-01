@@ -504,7 +504,7 @@
         "selector": "div.pagenavi_txt"
       },
       "videoscontainer": {
-        "selector": "div.bt_img > ul > li > a",
+        "selector": "div.bt_img > ul > li",
         "attrName": "",
         "filter": ""
       },
@@ -519,7 +519,7 @@
         "filter": ""
       },
       "link": {
-        "selector": "",
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
