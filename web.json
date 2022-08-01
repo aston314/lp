@@ -1048,17 +1048,17 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": "a.su-button",
+        "selector": ".su-button-center",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": "span",
+        "selector": "a",
         "attrName": "text",
         "filter": ": (.*)"
       },
       "link": {
-        "selector": "",
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
