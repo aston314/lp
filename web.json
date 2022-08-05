@@ -1106,7 +1106,7 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": "h3 + p:has(a)",
+        "selector": ".entry-content  p:has(a)",
         "attrName": "",
         "filter": ""
       },
