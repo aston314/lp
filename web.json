@@ -1066,5 +1066,63 @@
     "search": {
       "url": "https://www.tvbox.one/?s=#msearchword"
     }
+  },
+  {
+    "title": "Ahhhhfs",
+    "link": "https://www.ahhhhfs.com/",
+    "show": "landscape",
+    "next": "detail",
+    "category": [
+      {
+        "title": "影视",
+        "url": "https://www.ahhhhfs.com/welfare/movie/",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": ""
+      },
+      "videoscontainer": {
+        "selector": "article.post",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "title",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "img",
+        "attrName": "src",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "main#main p:nth-child(15)",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
+    }
   }
 ]
