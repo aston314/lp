@@ -1095,7 +1095,7 @@
       },
       "thumb": {
         "selector": "img",
-        "attrName": "src",
+        "attrName": "data-src",
         "filter": ""
       },
       "link": {
