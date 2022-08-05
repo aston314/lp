@@ -1106,7 +1106,7 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": ".entry-content.u-text-format > p:nth-of-type(9)",
+        "selector": "h3 + p:has(a)",
         "attrName": "",
         "filter": ""
       },
