@@ -1106,7 +1106,7 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": ".entry-content  p:has(a)",
+        "selector": ".entry-content p a:gt(0):lt(1)",
         "attrName": "",
         "filter": ""
       },
@@ -1116,7 +1116,7 @@
         "filter": ""
       },
       "link": {
-        "selector": "a",
+        "selector": "",
         "attrName": "href",
         "filter": ""
       }
