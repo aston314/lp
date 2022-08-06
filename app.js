@@ -10645,20 +10645,6 @@
         this.card.find('.card__age').remove();
       }
 
-      if (data.check_new_episode && Account.working()) {
-        var notices = Storage.get('account_notice', []).filter(function (n) {
-          return n.card_id == data.id;
-        });
-
-        if (notices.length) {
-          var notice = notices[0];
-
-          if (Utils.parseTime(notice.date).full == Utils.parseTime(Date.now()).full) {
-            this.card.find('.card__view').append('<div class="card__new-episode"><div>' + Lang.translate('card_new_episode') + '</div></div>');
-          }
-        }
-      }
-
       this.card.data('update', this.update.bind(this));
       this.update();
     };
@@ -10694,7 +10680,7 @@
 
     this.update = function () {
       var quality = VideoQuality.get(data);
-      this.card.find('.card__quality,.card-watched').remove();
+      this.card.find('.card__quality,.card-watched,.card__new-episode').remove();
 
       if (quality) {
         this.card.find('.card__view').append('<div class="card__quality"><div>' + quality + '</div></div>');
@@ -10702,6 +10688,20 @@
 
       this.watched_checked = false;
       this.favorite();
+
+      if (Account.working()) {
+        var notices = Storage.get('account_notice', []).filter(function (n) {
+          return n.card_id == data.id;
+        });
+
+        if (notices.length) {
+          var notice = notices[0];
+
+          if (Utils.parseTime(notice.date).full == Utils.parseTime(Date.now()).full) {
+            this.card.find('.card__view').append('<div class="card__new-episode"><div>' + Lang.translate('card_new_episode') + '</div></div>');
+          }
+        }
+      }
     };
     /**
      * Какие серии просмотрено
@@ -19734,7 +19734,7 @@
 
   var zh = {
     lang_choice_title: '欢迎',
-    lang_choice_subtitle: '选择您的语言。',
+    lang_choice_subtitle: '选择你的语言。',
     more: '更多',
     show_more: '显示更多',
     more_results: '显示更多结果',
@@ -19772,7 +19772,7 @@
     full_episode: '剧集',
     full_directing: '导演',
     settings_cub_sync: '同步',
-    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史，标签和时间码。网站：https://cub.watch',
+    settings_cub_sync_descr: '与 CUB 服务同步：同步您的书签、浏览历史、标签和时间码。网站：https://cub.watch',
     settings_cub_account: '帐户',
     settings_cub_logged_in_as: '登录身份',
     settings_cub_profile: '个人资料',
@@ -19904,7 +19904,7 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
@@ -19970,7 +19970,7 @@
     torrent_parser_added_to_mytorrents: '添加到“我的种子”',
     torrent_parser_add_to_mytorrents: '添加到“我的种子”',
     torrent_parser_label_title: '标记',
-    torrent_parser_label_descr: '用旗帜标记（已查看)',
+    torrent_parser_label_descr: '用旗帜标记（查看)',
     torrent_parser_label_cancel_title: '取消选中',
     torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
     torrent_parser_timeout: '超时',
@@ -20042,7 +20042,7 @@
     title_upcoming: '在电影院观看',
     title_top_movie: '热门电影',
     title_top_tv: '热门系列',
-    title_tv_today: '今天播出',
+    title_tv_today: '今日播出',
     title_this_week: '本周',
     title_in_top: '热门',
     title_out: '退出',
@@ -20380,7 +20380,7 @@
     settings_param_player_hls_app: 'Systemic',
     settings_param_player_hls_js: 'Program',
     settings_player_hls_title: '处理.m3u8流媒体',
-    settings_player_hls_descr: '如果您不知道为什么，请不要修改此参数。',
+    settings_player_hls_descr: '如果您不知道为什么，请勿修改此参数。',
     notice_none_account: '你还没有任何通知，收藏该系列并等待新剧集的通知。',
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
