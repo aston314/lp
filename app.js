@@ -356,7 +356,7 @@
   var Manifest = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.5.3',
+    css_version: '1.5.4',
     app_version: '1.4.5'
   };
 
@@ -2151,6 +2151,8 @@
       Storage.set('platform', 'android');
     } else if (typeof nw !== 'undefined') {
       Storage.set('platform', 'nw');
+    } else if (navigator.userAgent.toLowerCase().indexOf("netcast") > -1) {
+      Storage.set('platform', 'netcast');
     } else if (navigator.userAgent.toLowerCase().indexOf("windows nt") > -1) {
       Storage.set('platform', 'browser');
     } else if (navigator.userAgent.toLowerCase().indexOf("maple") > -1) {
@@ -2188,7 +2190,7 @@
 
 
   function any$1() {
-    return is('tizen') || is('webos') || is('android') || is('nw') ? true : false;
+    return is('tizen') || is('webos') || is('android') || is('nw') || is('netcast') ? true : false;
   }
   /**
    * Если это именно телек
@@ -2197,7 +2199,7 @@
 
 
   function tv() {
-    return is('tizen') || is('webos') || is('orsay') ? true : false;
+    return is('tizen') || is('webos') || is('orsay') || is('netcast') ? true : false;
   }
 
   function version(name) {
@@ -11059,7 +11061,10 @@
 
     if (imageData) {
       imageData = processImageDataRGBA(imageData, topX, topY, width, height, radius);
-      canvas.getContext('2d').putImageData(imageData, topX, topY);
+
+      try {
+        canvas.getContext('2d').putImageData(imageData, topX, topY);
+      } catch (e) {}
     }
   }
   /**
@@ -11074,7 +11079,7 @@
 
 
   function processImageDataRGBA(imageData, topX, topY, width, height, radius) {
-    var pixels = imageData.data;
+    var pixels = imageData ? imageData.data : [];
     var div = 2 * radius + 1; // const w4 = width << 2;
 
     var widthMinus1 = width - 1;
@@ -11323,7 +11328,10 @@
     radius |= 0;
     var imageData = getImageDataFromCanvas(canvas, topX, topY, width, height);
     imageData = processImageDataRGB(imageData, topX, topY, width, height, radius);
-    canvas.getContext('2d').putImageData(imageData, topX, topY);
+
+    try {
+      canvas.getContext('2d').putImageData(imageData, topX, topY);
+    } catch (e) {}
   }
   /**
    * @param {ImageData} imageData
@@ -11337,7 +11345,7 @@
 
 
   function processImageDataRGB(imageData, topX, topY, width, height, radius) {
-    var pixels = imageData.data;
+    var pixels = imageData ? imageData.data : [];
     var div = 2 * radius + 1; // const w4 = width << 2;
 
     var widthMinus1 = width - 1;
@@ -11743,7 +11751,11 @@
     ctx.drawImage(img, -(nw - canvas.width) / 2, -(nh - canvas.height) / 2, nw, nh);
     Blur.canvasRGB(canvas, 0, 0, canvas.width, canvas.height, 80);
     var nimg = new Image();
-    nimg.src = canvas.toDataURL();
+
+    try {
+      nimg.src = canvas.toDataURL();
+    } catch (e) {}
+
     return nimg;
   }
 
@@ -24229,7 +24241,7 @@
 
   function startApp() {
     if (window.appready) return;
-    var start_time = Date.now();
+    var start_time = 0;
     /** Стартуем */
 
     Lampa.Listener.send('app', {
@@ -24278,6 +24290,8 @@
     console.log('App', 'screen size:', window.innerWidth + 'px / ' + window.innerHeight + 'px');
     console.log('App', 'user agent:', navigator.userAgent);
     Activity$1.listener.follow('backward', function (event) {
+      if (!start_time) start_time = Date.now();
+
       if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
         var enabled = Controller.enabled();
         Select.show({
