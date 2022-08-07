@@ -8373,6 +8373,11 @@
 
   function init$g() {
     data$3 = Storage.cache('quality_scan', 300, []);
+    data$3.filter(function (elem) {
+      return !elem.title;
+    }).forEach(function (elem) {
+      Arrays.remove(data$3, elem);
+    });
     setInterval(extract$2, 30 * 1000);
   }
   /**
@@ -8389,7 +8394,7 @@
         return a.id == elem.id;
       });
 
-      if (!id.length) {
+      if (!id.length && elem.title && typeof elem.id == 'number') {
         data$3.push({
           id: elem.id,
           title: elem.title,
@@ -8471,17 +8476,17 @@
     if (ids.length) {
       object$2 = ids[0];
 
-      if (object$2.imdb_id) {
-        req(object$2.imdb_id);
-      } else {
-        var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
-        network$8.silent('http://' + dom + 'movie/' + object$2.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
-          req(ttid.imdb_id, object$2.title);
-        }, function () {
-          network$8.silent('http://' + dom + 'tv/' + object$2.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
+      if (object$2.title) {
+        if (object$2.imdb_id) {
+          req(object$2.imdb_id);
+        } else {
+          var dom = Storage.field('proxy_tmdb') ? 'apitmdb.cub.watch/3/' : 'api.themoviedb.org/3/';
+          network$8.silent('http://' + dom + 'movie/' + object$2.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru', function (ttid) {
             req(ttid.imdb_id, object$2.title);
           }, save$4);
-        });
+        }
+      } else {
+        Arrays.remove(data$3, object$2);
       }
     } else {
       data$3.forEach(function (a) {
@@ -18380,7 +18385,7 @@
       'sim': ['{MIC} {ABC} 1 2 3 4 5 6 7 8 9 0 {BKSP}', '{LANG} - + _ : ( ) [ ] . / {SPACE}'],
       'en': ['{MIC} q w e r t y u i o p {BKSP}', '{LANG} a s d f g h j k l', '{SIM} z x c v b n m . {SPACE}'],
       'uk': ['{MIC} й ц у к е н г ш щ з х ї {BKSP}', '{LANG} ф і в а п р о л д ж є', '{SIM} я ч с м и т ь б ю . {SPACE}'],
-      'default': ['{MIC} й ц у к е н г ш щ з х ъ {BKSP}', '{LANG} ф ы в а п р о л д ж э', '{SIM} я ч с м и т ь б ю . {SPACE}']
+      'default': ['{MIC} й ц у к е н г ш щ з х ъ {BKSP}', '{LANG} ё ф ы в а п р о л д ж э', '{SIM} я ч с м и т ь б ю . {SPACE}']
     },
     clarify: {
       'en': ['1 2 3 4 5 6 7 8 9 0 - {BKSP}', 'q w e r t y u i o p', 'a s d f g h j k l', 'z x c v b n m .', '{MIC} {LANG} {SPACE} {SEARCH}'],
@@ -18388,10 +18393,10 @@
       'default': ['1 2 3 4 5 6 7 8 9 0 - {BKSP}', 'й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', 'я ч с м и т ь б ю .', '{MIC} {LANG} {SPACE} {SEARCH}']
     },
     "default": {
-      'en': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} q w e r t y u i o p', 'a s d f g h j k l /', '{SHIFT} z x c v b n m , . : http://', '{SPACE}'],
-      'uk': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є', '{SHIFT} я ч с м и т ь б ю . : http://', '{SPACE}'],
+      'en': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} q w e r t y u i o p', 'a s d f g h j k l / {ENTER}', '{SHIFT} z x c v b n m , . : http://', '{SPACE}'],
+      'uk': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} й ц у к е н г ш щ з х ї', 'ф і в а п р о л д ж є {ENTER}', '{SHIFT} я ч с м и т ь б ю . : http://', '{SPACE}'],
       'sim': ['{ABC} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} ! @ # $ % ^ & * ( ) [ ]', '- _ = + \\ | [ ] { }', '; : \' " , . < > / ?', '{SPACE}'],
-      'default': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э', '{SHIFT} я ч с м и т ь б ю , . : http://', '{SPACE}']
+      'default': ['{SIM} 1 2 3 4 5 6 7 8 9 0 - + = {BKSP}', '{LANG} й ц у к е н г ш щ з х ъ', 'ф ы в а п р о л д ж э {ENTER}', '{SHIFT} я ч с м и т ь б ю , . : http://', '{SPACE}']
     }
   };
 
@@ -18424,6 +18429,7 @@
     var simple = Storage.field('keyboard_type') !== 'lampa';
     var input;
     var last_value;
+    var height = window.innerHeight;
     this.listener = start$4();
 
     this.create = function () {
@@ -18467,24 +18473,24 @@
 
           if (e.keyCode == 13 || e.keyCode == 65376) _this.listener.send('enter');
 
-          if (e.keyCode == 37 && cart == 0) {
+          if (e.keyCode == 37 && cart == 0 && height == window.innerHeight) {
             if (stated) input.blur(), _this.listener.send('left');
             stated = true;
             ended = false;
           }
 
-          if (e.keyCode == 39 && cart >= valu.length) {
+          if (e.keyCode == 39 && cart >= valu.length && height == window.innerHeight) {
             if (ended) input.blur(), _this.listener.send('right');
             ended = true;
             stated = false;
           }
 
           if (e.keyCode == 40) {
-            input.blur(), _this.listener.send('down');
+            if (height == window.innerHeight) input.blur(), _this.listener.send('down');
           }
 
           if (e.keyCode == 38) {
-            input.blur(), _this.listener.send('up');
+            if (height == window.innerHeight) input.blur(), _this.listener.send('up');
           }
         });
         input.on('hover:focus', function () {
@@ -18552,6 +18558,7 @@
                   items: items,
                   onSelect: function onSelect(item) {
                     Select.hide();
+                    Storage.set('keyboard_default_lang', item.value);
                     var shifted = _keyBord.options.layoutName.split('-')[1] == 'shift';
                     var new_layout = item.value + (shifted ? '-shift' : '');
 
@@ -18582,7 +18589,7 @@
             }
           }
         });
-        var lang = Storage.get('language', 'ru');
+        var lang = Storage.get('keyboard_default_lang', Storage.get('language', 'ru'));
 
         _keyBord.setOptions({
           layoutName: lang == 'ru' ? 'default' : Arrays.getKeys(layout).indexOf(lang) >= 0 ? lang : layout.en ? 'en' : 'default'
@@ -22708,6 +22715,7 @@
       if (a.checked) genres.push(a.id);
     });
     if (cat == 'multmovie' || cat == 'multtv' && genres.indexOf(16) == -1) genres.push(16);
+    if (cat == 'movie') query.push('without_genres=16');
 
     if (genres.length) {
       query.push('with_genres=' + genres.join(','));
@@ -24524,7 +24532,7 @@
 
     setInterval(function () {
       if (!Player.opened()) lets_card_update();
-    }, 1000 * 60 * 5);
+    }, 1000 * 60);
     Player.listener.follow('destroy', lets_card_update);
     /** End */
   }
