@@ -10731,6 +10731,8 @@
           }
         }
       }
+
+      if (this.card.hasClass('focus')) this.watched();
     };
     /**
      * Какие серии просмотрено
@@ -17937,6 +17939,19 @@
     return activites;
   }
   /**
+   * Получить рендеры всех активностей
+   * @returns {array}
+   */
+
+
+  function renderLayers() {
+    var result = [];
+    all().forEach(function (item) {
+      result.push(item.activity.render());
+    });
+    return result;
+  }
+  /**
    * Обработать событие назад
    */
 
@@ -17970,7 +17985,14 @@
     previous_tree = activites.slice(-1)[0];
 
     if (previous_tree) {
-      if (previous_tree.activity) start$1(previous_tree);else {
+      if (previous_tree.activity) {
+        start$1(previous_tree);
+        Lampa.Listener.send('activity', {
+          component: previous_tree.component,
+          type: 'archive',
+          object: previous_tree
+        });
+      } else {
         create$1(previous_tree);
         start$1(previous_tree);
       }
@@ -18139,7 +18161,8 @@
     replace: replace,
     active: active$1,
     all: all,
-    extractObject: extractObject
+    extractObject: extractObject,
+    renderLayers: renderLayers
   };
 
   var listener$3 = start$4();
@@ -24561,9 +24584,11 @@
     var lets_card_update = function lets_card_update() {
       if (last_card_update < Date.now() - 1000 * 60 * 5) {
         last_card_update = Date.now();
-        $('.card').each(function () {
-          var update = $(this).data('update');
-          if (typeof update == 'function') update();
+        Activity$1.renderLayers().forEach(function (layer) {
+          $('.card', layer).each(function () {
+            var update = $(this).data('update');
+            if (typeof update == 'function') update();
+          });
         });
       }
     };
