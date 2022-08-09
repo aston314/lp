@@ -17947,7 +17947,7 @@
   function renderLayers() {
     var result = [];
     all().forEach(function (item) {
-      result.push(item.activity.render());
+      if (item.activity) result.push(item.activity.render());
     });
     return result;
   }
@@ -19972,7 +19972,7 @@
     torent_nohash_reason_two: '来自 TorServer 的回复',
     torent_nohash_reason_three: '链接',
     torent_nohash_do: '怎么办？',
-    torent_nohash_do_one: '检查你是否正确配置了 Jackett',
+    torent_nohash_do_one: '检查是否正确配置了 Jackett',
     torent_nohash_do_two: '私人来源可能没有提供文件的链接',
     torent_nohash_do_three: '确保 Jackett 可以下载该文件也是',
     torent_nohash_do_four: '写信给我们的电报群组：@lampa_group',
@@ -19984,7 +19984,7 @@
     torrent_error_step_4: '防病毒阻止',
     torrent_error_step_5: '检查可用性',
     torrent_error_step_6: '仍然无法工作',
-    torrent_error_info_1: '确保您已在安装了 TorrServe 的设备上启动它。',
+    torrent_error_info_1: '确保您已在安装 TorrServe 的设备上启动。',
     torrent_error_info_2: '一个常见的错误，带有 TorrServe 的设备的 IP 地址已更改。确保您输入的 IP 地址 - {ip} - 与安装了 TorrServe 的设备的地址匹配。',
     torrent_error_info_3: '要连接到 TorrServe,必须指定协议 http:// 开头，端口 :8090 结尾。确保IP地址后面有一个端口，你当前的地址是{ip}',
     torrent_error_info_4: '频繁出现，杀毒或防火墙可以通过 IP 地址阻止访问，尝试禁用防病毒和防火墙。',
@@ -20038,7 +20038,7 @@
     torrent_parser_added_to_mytorrents: '添加到“我的种子”',
     torrent_parser_add_to_mytorrents: '添加到“我的种子”',
     torrent_parser_label_title: '标记',
-    torrent_parser_label_descr: '用旗帜标记（已查看)',
+    torrent_parser_label_descr: '用旗帜标记（查看)',
     torrent_parser_label_cancel_title: '取消选中',
     torrent_parser_label_cancel_descr: '从分发中删除标记（已查看）',
     torrent_parser_timeout: '超时',
@@ -20072,7 +20072,7 @@
     title_book: '书签',
     title_like: '喜欢',
     title_wath: '稍后',
-    title_history: '浏览历史',
+    title_history: '浏览历史记录',
     title_mytorrents: '我的种子',
     title_last: '最后',
     title_action: '动作',
@@ -20110,7 +20110,7 @@
     title_upcoming: '在电影院观看',
     title_top_movie: '热门电影',
     title_top_tv: '热门系列',
-    title_tv_today: '今日播出',
+    title_tv_today: '今天播出',
     title_this_week: '本周',
     title_in_top: '热门',
     title_out: '退出',
@@ -20195,7 +20195,7 @@
     ivi_foreign: '外国',
     ivi_ru: '俄罗斯人',
     ivi_recomend: '我们推荐你看',
-    ivi_for_famaly: '适合全家的漫画',
+    ivi_for_famaly: '适合全家的卡通片',
     ivi_triller: '恐怖惊悚片',
     ivi_advance: '冒险喜剧',
     ivi_detective: '侦探电影改编',
@@ -20351,7 +20351,7 @@
     card_new_episode: '新系列',
     card_book_remove: '从书签中删除',
     card_book_add: '到书签',
-    card_book_descr: '查看菜单（书签）',
+    card_book_descr: '在菜单中查找（书签）',
     card_like_remove: '从收藏夹中删除',
     card_like_add: '喜欢',
     card_like_descr: '查看菜单（喜欢）',
@@ -20453,10 +20453,10 @@
     player_speed_default_title: '普通',
     player_video_speed: '播放速度',
     player_share_title: '分享',
-    player_share_descr: '在另一台设备上播放此视频',
+    player_share_descr: '在另一台设备上播放这个视频',
     torrent_parser_no_responce: '解析器没有响应请求',
-    player_normalization_power_title: '标准化功率',
-    player_normalization_smooth_title: '标准化速度',
+    player_normalization_power_title: '规范化能力',
+    player_normalization_smooth_title: '规范化速度',
     player_normalization_step_low: '低的',
     player_normalization_step_medium: '中',
     player_normalization_step_hight: '高',
@@ -24598,6 +24598,12 @@
     }, 1000 * 60);
     Player.listener.follow('destroy', function () {
       setTimeout(lets_card_update, 1000);
+    });
+    Lampa.Listener.follow('activity', function (e) {
+      if (e.type == 'archive' && e.object.activity) {
+        var update = $('.card.focus', e.object.activity.render()).eq(0).data('update');
+        if (typeof update == 'function') update();
+      }
     });
     /** End */
   }
