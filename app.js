@@ -22293,7 +22293,7 @@
   });
   Object.defineProperty(keys, 'zh', {
     get: function get() {
-      return '欢迎';
+      return '简体中文';
     }
   });
   /**
