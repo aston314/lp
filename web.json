@@ -1142,7 +1142,7 @@
         "selector": ""
       },
       "videoscontainer": {
-        "selector": "ul.item.play",
+        "selector": "ul.item.play.d-touch.active.hot",
         "attrName": "",
         "filter": ""
       },
