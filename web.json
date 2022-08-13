@@ -1124,5 +1124,63 @@
     "search": {
       "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
     }
+  },
+  {
+    "title": "JRKAN直播",
+    "link": "http://jrkankan.com/",
+    "show": "portrait",
+    "next": "detail",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://play.sportsteam666.com/",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": ""
+      },
+      "videoscontainer": {
+        "selector": "ul.item.play",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "strong.name",
+        "attrName": "text",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "span.avatar img",
+        "attrName": "src",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a.item.ok",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "a.item.ok.me",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
+    }
   }
 ]
