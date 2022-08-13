@@ -1175,7 +1175,7 @@
       },
       "link": {
         "selector": "",
-        "attrName": "href",
+        "attrName": "data-play",
         "filter": ""
       }
     },
