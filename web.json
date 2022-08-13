@@ -1147,7 +1147,7 @@
         "filter": ""
       },
       "title": {
-        "selector": "",
+        "selector": "li:lt(7)",
         "attrName": "text",
         "filter": ""
       },
