@@ -1127,13 +1127,13 @@
   },
   {
     "title": "JRKAN直播",
-    "link": "http://jrkankan.com/",
+    "link": "http://play.sportsteam666.com/",
     "show": "portrait",
     "next": "detail",
     "category": [
       {
         "title": "首页",
-        "url": "http://play.sportsteam666.com/",
+        "url": "http://jrkankan.com/",
         "quantity": ""
       }
     ],
