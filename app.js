@@ -2533,7 +2533,7 @@
 
   var html$i;
   var body$3;
-  var listener$g = start$4();
+  var listener$h = start$4();
   var last$4 = '';
 
   var _main;
@@ -2559,7 +2559,7 @@
 
         _main.update();
 
-        listener$g.send('open', {
+        listener$h.send('open', {
           name: 'main',
           body: _main.render()
         });
@@ -2601,7 +2601,7 @@
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var comp = new Component$1(name, params);
     body$3.empty().append(comp.render());
-    listener$g.send('open', {
+    listener$h.send('open', {
       name: name,
       body: comp.render(),
       params: params
@@ -2632,7 +2632,7 @@
   }
 
   var Settings = {
-    listener: listener$g,
+    listener: listener$h,
     init: init$s,
     render: render$e,
     update: update$9,
@@ -3147,7 +3147,7 @@
   }
 
   var html$g;
-  var listener$f = start$4();
+  var listener$g = start$4();
   var state;
   var elems$1;
   var condition = {};
@@ -3226,39 +3226,39 @@
     html$g.find('.selector').on('hover:focus', function (e) {
     });
     html$g.find('.player-panel__playpause').on('hover:enter', function (e) {
-      listener$f.send('playpause', {});
+      listener$g.send('playpause', {});
     });
     html$g.find('.player-panel__next').on('hover:enter', function (e) {
-      listener$f.send('next', {});
+      listener$g.send('next', {});
     });
     html$g.find('.player-panel__prev').on('hover:enter', function (e) {
-      listener$f.send('prev', {});
+      listener$g.send('prev', {});
     });
     html$g.find('.player-panel__rprev').on('hover:enter', function (e) {
-      listener$f.send('rprev', {});
+      listener$g.send('rprev', {});
     });
     html$g.find('.player-panel__rnext').on('hover:enter', function (e) {
-      listener$f.send('rnext', {});
+      listener$g.send('rnext', {});
     });
     html$g.find('.player-panel__playlist').on('hover:enter', function (e) {
-      listener$f.send('playlist', {});
+      listener$g.send('playlist', {});
     });
     html$g.find('.player-panel__tstart').on('hover:enter', function (e) {
-      listener$f.send('to_start', {});
+      listener$g.send('to_start', {});
     });
     html$g.find('.player-panel__tend').on('hover:enter', function (e) {
-      listener$f.send('to_end', {});
+      listener$g.send('to_end', {});
     });
     html$g.find('.player-panel__fullscreen').on('hover:enter', function (e) {
-      listener$f.send('fullscreen', {});
+      listener$g.send('fullscreen', {});
     });
     html$g.find('.player-panel__settings').on('hover:enter', settings);
     html$g.find('.player-panel__pip').on('hover:enter', function () {
-      listener$f.send('pip', {});
+      listener$g.send('pip', {});
     }).toggleClass('hide', Platform.tv());
     elems$1.timeline.attr('data-controller', 'player_rewind');
     elems$1.timeline.on('mousemove', function (e) {
-      listener$f.send('mouse_rewind', {
+      listener$g.send('mouse_rewind', {
         method: 'move',
         time: elems$1.time,
         percent: percent(e)
@@ -3266,7 +3266,7 @@
     }).on('mouseout', function () {
       elems$1.time.addClass('hide');
     }).on('click', function (e) {
-      listener$f.send('mouse_rewind', {
+      listener$g.send('mouse_rewind', {
         method: 'click',
         time: elems$1.time,
         percent: percent(e)
@@ -3302,7 +3302,7 @@
           onSelect: function onSelect(a) {
             elems$1.quality.text(a.title);
             a.enabled = true;
-            if (!Arrays.isArray(qualitys)) listener$f.send('quality', {
+            if (!Arrays.isArray(qualitys)) listener$g.send('quality', {
               name: a.title,
               url: a.url
             });
@@ -3387,7 +3387,7 @@
             });
             a.mode = 'showing';
             a.selected = true;
-            listener$f.send('subsview', {
+            listener$g.send('subsview', {
               status: a.index > -1
             });
             Controller.toggle(enabled.name);
@@ -3440,7 +3440,7 @@
 
         if (a.method == 'share') {
           Controller.toggle('player_panel');
-          listener$f.send('share', {});
+          listener$g.send('share', {});
         }
       },
       onBack: function onBack() {
@@ -3531,7 +3531,7 @@
       items: items,
       nohide: true,
       onSelect: function onSelect(a) {
-        listener$f.send('size', {
+        listener$g.send('size', {
           size: a.value
         });
       },
@@ -3597,7 +3597,7 @@
       nohide: true,
       onSelect: function onSelect(a) {
         Storage.set('player_speed', a.value);
-        listener$f.send('speed', {
+        listener$g.send('speed', {
           speed: a.value
         });
       },
@@ -3622,10 +3622,10 @@
         toggleButtons();
       },
       right: function right() {
-        listener$f.send('rnext', {});
+        listener$g.send('rnext', {});
       },
       left: function left() {
-        listener$f.send('rprev', {});
+        listener$g.send('rprev', {});
       },
       gone: function gone() {
         html$g.find('.selector').removeClass('focus');
@@ -3650,7 +3650,7 @@
         Navigator.move('left');
       },
       down: function down() {
-        listener$f.send('playlist', {});
+        listener$g.send('playlist', {});
       },
       gone: function gone() {
         html$g.find('.selector').removeClass('focus');
@@ -3716,7 +3716,7 @@
 
 
   function _visible(status) {
-    listener$f.send('visible', {
+    listener$g.send('visible', {
       status: status
     });
     html$g.toggleClass('panel--visible', status);
@@ -3900,7 +3900,7 @@
 
   var PlayerPanel = {
     init: init$q,
-    listener: listener$f,
+    listener: listener$g,
     render: render$c,
     toggle: toggle$a,
     show: show$7,
@@ -3971,14 +3971,14 @@
   };
 
   var enabled$2 = false;
-  var listener$e = start$4();
+  var listener$f = start$4();
   var lastdown = 0;
   var timer$6;
   var longpress;
 
   function toggle$9(new_status) {
     enabled$2 = new_status;
-    listener$e.send('toggle', {
+    listener$f.send('toggle', {
       status: enabled$2
     });
   }
@@ -4015,7 +4015,7 @@
         timer$6 = setTimeout(function () {
           if (isEnter(lastdown)) {
             longpress = true;
-            listener$e.send('longdown', {});
+            listener$f.send('longdown', {});
             Controller["long"]();
           }
         }, 800);
@@ -4024,7 +4024,7 @@
     window.addEventListener("keyup", function (e) {
       clearTimeout(timer$6);
       timer$6 = null;
-      listener$e.send('keyup', {
+      listener$f.send('keyup', {
         code: keyCode(e),
         enabled: enabled$2,
         event: e
@@ -4036,7 +4036,7 @@
     });
     window.addEventListener("keydown", function (e) {
       var keycode = keyCode(e);
-      listener$e.send('keydown', {
+      listener$f.send('keydown', {
         code: keycode,
         enabled: enabled$2,
         event: e
@@ -4143,7 +4143,7 @@
   }
 
   var Keypad = {
-    listener: listener$e,
+    listener: listener$f,
     init: init$o,
     enable: enable$2,
     disable: disable$1
@@ -4151,7 +4151,7 @@
 
   var subparams;
 
-  var listener$d = function listener(e) {
+  var listener$e = function listener(e) {
     if (e.code == 405) getWebosmediaId(setSubtitleColor);
     if (e.code == 406) getWebosmediaId(setSubtitleBackgroundColor);
     if (e.code == 403) getWebosmediaId(setSubtitleFontSize);
@@ -4160,7 +4160,7 @@
     if (e.code == 57) getWebosmediaId(setSubtitleCharacterOpacity);
   };
 
-  Keypad.listener.follow('keydown', listener$d);
+  Keypad.listener.follow('keydown', listener$e);
 
   function luna$1(params, call, fail) {
     if (call) params.onSuccess = call;
@@ -4883,7 +4883,7 @@
     };
   }
 
-  var listener$c = start$4();
+  var listener$d = start$4();
   var html$f;
   var display;
   var paused;
@@ -4924,10 +4924,10 @@
      * Специально для вебось
      */
 
-    listener$c.follow('webos_subs', function (data) {
+    listener$d.follow('webos_subs', function (data) {
       webos_wait.subs = convertToArray(data.subs);
     });
-    listener$c.follow('webos_tracks', function (data) {
+    listener$d.follow('webos_tracks', function (data) {
       webos_wait.tracks = convertToArray(data.tracks);
     });
   }
@@ -5003,7 +5003,7 @@
 
 
     _video.addEventListener('ended', function () {
-      listener$c.send('ended', {});
+      listener$d.send('ended', {});
     }); // что-то пошло не так
 
 
@@ -5013,15 +5013,15 @@
 
       if (msg.indexOf('EMPTY SRC') == -1) {
         if (error.code == 3) {
-          listener$c.send('error', {
+          listener$d.send('error', {
             error: Lang.translate('player_error_one')
           });
         } else if (error.code == 4) {
-          listener$c.send('error', {
+          listener$d.send('error', {
             error: Lang.translate('player_error_two')
           });
         } else if (typeof error.code !== 'undefined') {
-          listener$c.send('error', {
+          listener$d.send('error', {
             error: 'code [' + error.code + '] details [' + msg + ']'
           });
         }
@@ -5031,7 +5031,7 @@
 
     _video.addEventListener('progress', function (e) {
       if (e.percent) {
-        listener$c.send('progress', {
+        listener$d.send('progress', {
           down: e.percent
         });
       } else {
@@ -5041,7 +5041,7 @@
           for (var i = 0; i < _video.buffered.length; i++) {
             if (_video.buffered.start(_video.buffered.length - 1 - i) < _video.currentTime) {
               var down = Math.max(0, Math.min(100, _video.buffered.end(_video.buffered.length - 1 - i) / duration * 100)) + "%";
-              listener$c.send('progress', {
+              listener$d.send('progress', {
                 down: down
               });
               break;
@@ -5053,16 +5053,16 @@
 
 
     _video.addEventListener('canplay', function () {
-      listener$c.send('canplay', {});
+      listener$d.send('canplay', {});
     }); // сколько прошло
 
 
     _video.addEventListener('timeupdate', function () {
-      listener$c.send('timeupdate', {
+      listener$d.send('timeupdate', {
         duration: _video.duration,
         current: _video.currentTime
       });
-      listener$c.send('videosize', {
+      listener$d.send('videosize', {
         width: _video.videoWidth,
         height: _video.videoHeight
       });
@@ -5095,7 +5095,7 @@
 
 
     _video.addEventListener('loadedmetadata', function (e) {
-      listener$c.send('videosize', {
+      listener$d.send('videosize', {
         width: _video.videoWidth,
         height: _video.videoHeight
       });
@@ -5300,7 +5300,7 @@
         console.log('WebOS', 'enable track by default');
       }
 
-      listener$c.send('tracks', {
+      listener$d.send('tracks', {
         tracks: tracks
       });
     }
@@ -5332,7 +5332,7 @@
         subsview(true);
       }
 
-      listener$c.send('subs', {
+      listener$d.send('subs', {
         subs: subs
       });
     }
@@ -5364,7 +5364,7 @@
         current_level = hls.levels[params$1.level].title;
       }
 
-      listener$c.send('levels', {
+      listener$d.send('levels', {
         levels: hls.levels,
         current: current_level
       });
@@ -5475,7 +5475,7 @@
         url$5(src);
         _video.customSubs = sub;
         webos.repet(_video);
-        listener$c.send('reset_continue', {});
+        listener$d.send('reset_continue', {});
       };
 
       webos.start();
@@ -5577,7 +5577,7 @@
     }
 
     paused.addClass('hide');
-    listener$c.send('play', {});
+    listener$d.send('play', {});
   }
   /**
    * Пауза
@@ -5600,7 +5600,7 @@
     }
 
     paused.removeClass('hide');
-    listener$c.send('pause', {});
+    listener$d.send('pause', {});
   }
   /**
    * Играем или пауза
@@ -5612,10 +5612,10 @@
 
     if (_video.paused) {
       play$2();
-      listener$c.send('play', {});
+      listener$d.send('play', {});
     } else {
       pause();
-      listener$c.send('pause', {});
+      listener$d.send('pause', {});
     }
   }
   /**
@@ -5647,11 +5647,11 @@
     pause();
     if (rewind_position == 0) _video.currentTime = 0;else if (rewind_position == _video.duration) _video.currentTime = _video.duration;
     timer$5.rewind = Date.now();
-    listener$c.send('timeupdate', {
+    listener$d.send('timeupdate', {
       duration: _video.duration,
       current: rewind_position
     });
-    listener$c.send('rewind', {});
+    listener$d.send('rewind', {});
     rewindEnd(immediately);
   }
   /**
@@ -5781,7 +5781,7 @@
 
   var PlayerVideo = {
     init: init$n,
-    listener: listener$c,
+    listener: listener$d,
     url: url$5,
     render: render$b,
     destroy: destroy$6,
@@ -5805,7 +5805,7 @@
   };
 
   var html$e;
-  var listener$b = start$4();
+  var listener$c = start$4();
   var network$c = new create$q();
   var elems;
   var error$1, stat_timer;
@@ -5860,7 +5860,7 @@
       network$c.silent(url.replace('preload', 'stat').replace('play', 'stat'), function (data) {
         elems.stat.text((data.active_peers || 0) + ' / ' + (data.total_peers || 0) + ' • ' + (data.connected_seeders || 0) + ' seeds');
         elems.speed.text(data.download_speed ? Utils.bytesToSize(data.download_speed * 8, true) + (Storage.get('language') == 'en' ? '' : '/c') : '0.0');
-        listener$b.send('stat', {
+        listener$c.send('stat', {
           data: data
         });
       });
@@ -5903,7 +5903,7 @@
 
   var PlayerInfo = {
     init: init$m,
-    listener: listener$b,
+    listener: listener$c,
     render: render$a,
     set: set$2,
     toggle: toggle$8,
@@ -5911,7 +5911,7 @@
     destroy: destroy$5
   };
 
-  var listener$a = start$4();
+  var listener$b = start$4();
   var current = '';
   var playlist$1 = [];
   var position$1 = 0;
@@ -5927,7 +5927,7 @@
       items: playlist$1,
       onSelect: function onSelect(a) {
         Controller.toggle(enabled.name);
-        listener$a.send('select', {
+        listener$b.send('select', {
           playlist: playlist$1,
           item: a,
           position: position$1
@@ -5958,7 +5958,7 @@
     active$3();
 
     if (position$1 > 0) {
-      listener$a.send('select', {
+      listener$b.send('select', {
         playlist: playlist$1,
         position: position$1 - 1,
         item: playlist$1[position$1 - 1]
@@ -5974,7 +5974,7 @@
     active$3();
 
     if (position$1 < playlist$1.length - 1) {
-      listener$a.send('select', {
+      listener$b.send('select', {
         playlist: playlist$1,
         position: position$1 + 1,
         item: playlist$1[position$1 + 1]
@@ -5992,7 +5992,7 @@
     playlist$1.forEach(function (l, i) {
       if (l.url == current) position$1 = i;
     });
-    listener$a.send('set', {
+    listener$b.send('set', {
       playlist: playlist$1,
       position: position$1
     });
@@ -6017,7 +6017,7 @@
   }
 
   var PlayerPlaylist = {
-    listener: listener$a,
+    listener: listener$b,
     show: show$6,
     url: url$4,
     get: get$d,
@@ -6026,7 +6026,7 @@
     next: next
   };
 
-  var listener$9 = start$4();
+  var listener$a = start$4();
   var enabled$1 = false;
   var worked = false;
   var chrome = false;
@@ -6041,7 +6041,7 @@
   function toggle$7(is_enabled) {
     enabled$1 = is_enabled;
     if (enabled$1) resetTimer();else clearTimeout(timer$4.wait);
-    listener$9.send('toggle', {
+    listener$a.send('toggle', {
       status: enabled$1
     });
   }
@@ -6170,7 +6170,7 @@
   }
 
   var Screensaver = {
-    listener: listener$9,
+    listener: listener$a,
     init: init$l,
     enable: enable$1,
     render: render$9,
@@ -6519,7 +6519,7 @@
   };
 
   var timer$3;
-  var listener$8;
+  var listener$9;
   /**
    * Открыть окно
    * @param {{type:string, object:{}}} params 
@@ -6534,7 +6534,7 @@
     var list = temp.find('.broadcast__devices');
     if (!text) temp.find('.about').remove();
 
-    listener$8 = function listener(e) {
+    listener$9 = function listener(e) {
       if (e.method == 'devices') {
         var devices = e.data.filter(function (d) {
           return !(d.name == 'CUB' || d.device_id == Socket.uid());
@@ -6579,11 +6579,11 @@
         Controller.toggle(enabled);
       }
     });
-    listener$8({
+    listener$9({
       method: 'devices',
       data: Socket.devices()
     });
-    Socket.listener.follow('message', listener$8);
+    Socket.listener.follow('message', listener$9);
   }
   /**
    * Закрыть окно
@@ -6591,10 +6591,10 @@
 
 
   function close$3() {
-    Socket.listener.remove('message', listener$8);
+    Socket.listener.remove('message', listener$9);
     clearInterval(timer$3);
     Modal.close();
-    listener$8 = null;
+    listener$9 = null;
   }
 
   var Broadcast = {
@@ -6602,7 +6602,7 @@
   };
 
   var html$b;
-  var listener$7 = start$4();
+  var listener$8 = start$4();
   var network$a = new create$q();
   var callback$2;
   var work = false;
@@ -6966,7 +6966,7 @@
     PlayerPanel.destroy();
     PlayerInfo.destroy();
     html$b.detach();
-    listener$7.send('destroy', {});
+    listener$8.send('destroy', {});
   }
   /**
    * Запустить webos плеер
@@ -7109,7 +7109,7 @@
 
     var lauch = function lauch() {
       preload(data, function () {
-        listener$7.send('start', data);
+        listener$8.send('start', data);
         work = data;
         if (work.timeline) work.timeline.continued = false;
         PlayerPlaylist.url(data.url);
@@ -7126,7 +7126,7 @@
         Controller.updateSelects();
         ask();
         saveTimeLoop();
-        listener$7.send('ready', data);
+        listener$8.send('ready', data);
       });
     };
 
@@ -7245,7 +7245,7 @@
 
   var Player = {
     init: init$k,
-    listener: listener$7,
+    listener: listener$8,
     play: play$1,
     playlist: playlist,
     render: render$8,
@@ -7367,7 +7367,7 @@
   var _uid = Utils.uid();
 
   var _devices = [];
-  var listener$6 = start$4();
+  var listener$7 = start$4();
 
   function connect$1() {
     clearInterval(ping);
@@ -7414,7 +7414,7 @@
         Player.playlist(result.data.object.playlist);
       }
 
-      listener$6.send('message', result);
+      listener$7.send('message', result);
     });
   }
 
@@ -7429,7 +7429,7 @@
   }
 
   var Socket = {
-    listener: listener$6,
+    listener: listener$7,
     init: connect$1,
     send: send,
     uid: function uid() {
@@ -7443,6 +7443,7 @@
   var body$2;
   var network$9 = new create$q();
   var api$1 = Utils.protocol() + 'cub.watch/api/';
+  var listener$6 = start$4();
   var notice_load = {
     time: 0,
     data: []
@@ -7757,6 +7758,7 @@
             account.profile = a;
             Storage.set('account', account);
             if (body$2) body$2.find('.settings--account-user-profile .settings-param__value').text(a.name);
+            notice_load.time = 0;
             Controller.toggle(controller);
             update$5();
           },
@@ -7809,6 +7811,10 @@
     bookmarks = rows.reverse().map(function (elem) {
       elem.data = JSON.parse(elem.data);
       return elem;
+    });
+    listener$6.send('update_bookmarks', {
+      rows: rows,
+      bookmarks: bookmarks
     });
   }
   /**
@@ -8004,6 +8010,7 @@
   }
 
   var Account = {
+    listener: listener$6,
     init: init$j,
     working: working,
     get: get$c,
@@ -15551,6 +15558,24 @@
     var last;
     var waitload;
     var timer_offer;
+    var need_update = false;
+    var time_update = Date.now();
+
+    var update = function update(e) {
+      need_update = true;
+
+      _this.again();
+    };
+
+    this.again = function () {
+      if (Lampa.Activity.active().activity == this.activity && need_update && time_update < Date.now() - 1000) {
+        time_update = Date.now();
+        setTimeout(function () {
+          object.page = 1;
+          Activity$1.replace(object);
+        }, 0);
+      }
+    };
 
     this.create = function () {
       this.activity.loader(true);
@@ -15565,6 +15590,7 @@
 
     this.display = function () {
       Api.favorite(object, this.build.bind(this), this.empty.bind(this));
+      Account.listener.follow('update_bookmarks', update);
     };
 
     this.offer = function () {
@@ -15756,10 +15782,14 @@
     };
 
     this.start = function () {
+      var _this4 = this;
+
       Controller.add('content', {
         toggle: function toggle() {
           Controller.collectionSet(scroll.render());
           Controller.collectionFocus(last || false, scroll.render());
+
+          _this4.again();
         },
         left: function left() {
           if (Navigator.canmove('left')) Navigator.move('left');else Controller.toggle('menu');
@@ -15803,6 +15833,7 @@
       html.remove();
       body.remove();
       clearTimeout(timer_offer);
+      Account.listener.remove(update);
       network = null;
       items = null;
       html = null;
@@ -17692,7 +17723,7 @@
     });
     html$6.find('.full-screen').on('hover:enter', function () {
       Utils.toggleFullscreen();
-    }).toggleClass('hide', Platform.tv());
+    }).toggleClass('hide', Platform.any());
     Controller.add('head', {
       toggle: function toggle() {
         Controller.collectionSet(html$6);
