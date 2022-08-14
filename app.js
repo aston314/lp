@@ -1747,9 +1747,10 @@
   }
 
   function checkHttp(url) {
-    url = url + '';
-    url = url.replace(/https:\/\//, '');
-    url = url.replace(/http:\/\//, '');
+    url = url + ''; //url = url.replace(/https:\/\//,'')
+    //url = url.replace(/http:\/\//,'')
+
+    if (url.indexOf("http://") == 0 || url.indexOf("https://") == 0) return url;
     url = protocol() + url;
     return url;
   }
@@ -8401,12 +8402,12 @@
 
   function api(url) {
     var base = Utils.protocol() + 'api.themoviedb.org/3/' + url;
-    return Storage.field('proxy_tmdb') && Storage.get('tmdb_proxy_api', '') ? proxy('tmdb_proxy_api') + base : base;
+    return Storage.field('proxy_tmdb') && Storage.get('tmdb_proxy_api', '') ? proxy('tmdb_proxy_api') + '/' + base : base;
   }
 
   function image(url) {
     var base = Utils.protocol() + 'image.tmdb.org/' + url;
-    return Storage.field('proxy_tmdb') && Storage.get('tmdb_proxy_image', '') ? proxy('tmdb_proxy_image') + base : base;
+    return Storage.field('proxy_tmdb') && Storage.get('tmdb_proxy_image', '') ? proxy('tmdb_proxy_image') + '/' + base : base;
   }
 
   function key() {
