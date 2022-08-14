@@ -874,7 +874,7 @@
       "title": {
         "selector": "a",
         "attrName": "title",
-        "filter": "([^ ]+)"
+        "filter": "([^\\s]+)\\s.*"
       },
       "thumb": {
         "selector": "img",
