@@ -7864,7 +7864,8 @@
           call([]);
         }, false, {
           headers: {
-            token: account.token
+            token: account.token,
+            profile: account.profile.id
           }
         });
       } else call(notice_load.data);
