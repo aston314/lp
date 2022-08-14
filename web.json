@@ -841,6 +841,74 @@
     }
   },
   {
+    "title": "音范丝",
+    "link": "https://www.yinfans.me",
+    "show": "portrait",
+    "next": "detail",
+    "category": [
+      {
+        "title": "首页",
+        "url": "https://www.yinfans.me",
+        "quantity": ""
+      },
+      {
+        "title": "蓝光原盘",
+        "url": "https://www.yinfans.me/topic/bluray-movi",
+        "quantity": ""
+      },
+      {
+        "title": "4K",
+        "url": "https://www.yinfans.me/topic/4k",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": ".pagination"
+      },
+      "videoscontainer": {
+        "selector": ".thumbnail",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "title",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "a",
+        "attrName": "src",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "table > tbody > tr > td > a",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "span",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.yinfans.me/?s=#msearchword"
+    }
+  },
+  {
     "title": "乌龟影视",
     "link": "https://www.wuguiyy.com",
     "show": "portrait",
