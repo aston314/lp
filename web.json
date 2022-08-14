@@ -877,7 +877,7 @@
         "filter": ""
       },
       "thumb": {
-        "selector": "",
+        "selector": "img",
         "attrName": "src",
         "filter": ""
       },
