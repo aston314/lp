@@ -867,22 +867,22 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": ".thumbnail",
+        "selector": "a.zoom",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": "a",
+        "selector": "",
         "attrName": "title",
         "filter": ""
       },
       "thumb": {
-        "selector": "a",
+        "selector": "",
         "attrName": "src",
         "filter": ""
       },
       "link": {
-        "selector": "a",
+        "selector": "",
         "attrName": "href",
         "filter": ""
       }
