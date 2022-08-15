@@ -7094,9 +7094,7 @@
 
 
   function saveTimeLoop() {
-    if (work.timeline) {
-      timer_save = setInterval(saveTimeView, 1000 * 60 * 2);
-    }
+    if (work.timeline) ;
   }
   /**
    * Запустить плеер
@@ -10747,7 +10745,7 @@
 
 
     this.update = function () {
-      var quality = VideoQuality.get(data);
+      var quality = !data.first_air_date ? VideoQuality.get(data) : false;
       this.card.find('.card__quality,.card-watched,.card__new-episode').remove();
 
       if (quality) {
@@ -15562,9 +15560,11 @@
     var time_update = Date.now();
 
     var update = function update(e) {
-      need_update = true;
+      if (e.name == 'account') {
+        need_update = true;
 
-      _this.again();
+        _this.again();
+      }
     };
 
     this.again = function () {
@@ -15590,7 +15590,7 @@
 
     this.display = function () {
       Api.favorite(object, this.build.bind(this), this.empty.bind(this));
-      Account.listener.follow('update_bookmarks', update);
+      Storage.listener.follow('change', update); //Account.listener.follow('update_bookmarks',update)
     };
 
     this.offer = function () {
@@ -15833,7 +15833,8 @@
       html.remove();
       body.remove();
       clearTimeout(timer_offer);
-      Account.listener.remove(update);
+      Storage.listener.remove('change', update); //Account.listener.remove('update_bookmarks',update)
+
       network = null;
       items = null;
       html = null;
@@ -17723,7 +17724,7 @@
     });
     html$6.find('.full-screen').on('hover:enter', function () {
       Utils.toggleFullscreen();
-    }).toggleClass('hide', Platform.any());
+    }).toggleClass('hide', Platform.tv() || Platform.is('android'));
     Controller.add('head', {
       toggle: function toggle() {
         Controller.collectionSet(html$6);
