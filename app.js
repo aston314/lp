@@ -356,7 +356,7 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.5.9',
+    css_version: '1.6.1',
     app_version: '1.4.7'
   };
   Object.defineProperty(object$3, 'app_digital', {
@@ -7494,7 +7494,7 @@
           viewed.push(a);
         }
       });
-      Storage.set(key, viewed);
+      localStorage.setItem(key, JSON.stringify(viewed));
       this.data = viewed;
     };
 
@@ -24240,7 +24240,7 @@
       puts.forEach(function (url) {
         var encode = url;
         encode = encode.replace(/\{storage_(\w+|\d+|_|-)\}/g, function (match, key) {
-          return encodeURIComponent(Base64.encode(Storage.get(key, '')));
+          return encodeURIComponent(Base64.encode(localStorage.getItem(key)));
         });
         include.push(encode);
         original[encode] = url;
