@@ -1043,7 +1043,8 @@
     _utf8_decode: function _utf8_decode(utftext) {
       var string = "";
       var i = 0;
-      var c = c1 = c2 = 0;
+      var c = 0;
+      var c2 = 0;
 
       while (i < utftext.length) {
         c = utftext.charCodeAt(i);
@@ -7490,7 +7491,7 @@
       var data = Arrays.decodeJson(object.data, []);
       var viewed = Storage.cache(key, 10000, []);
       data.forEach(function (a) {
-        if (viewed.indexOf(a.id) == -1) {
+        if (viewed.indexOf(a) == -1) {
           viewed.push(a);
         }
       });
@@ -24239,9 +24240,14 @@
       var include = [];
       puts.forEach(function (url) {
         var encode = url;
-        encode = encode.replace(/\{storage_(\w+|\d+|_|-)\}/g, function (match, key) {
-          return encodeURIComponent(Base64.encode(localStorage.getItem(key)));
-        });
+
+        if (!/[0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}/.test(encode)) {
+          encode = encode.replace(/\{storage_(\w+|\d+|_|-)\}/g, function (match, key) {
+            return encodeURIComponent(Base64.encode(localStorage.getItem(key) || ''));
+          });
+          encode = Utils.addUrlComponent(encode, 'email=' + encodeURIComponent(Base64.encode(localStorage.getItem('account_email') || '')));
+        }
+
         include.push(encode);
         original[encode] = url;
       });
@@ -24567,7 +24573,8 @@
     Iframe: Iframe,
     Parser: Parser,
     Manifest: object$3,
-    TMDB: TMDB$1
+    TMDB: TMDB$1,
+    Base64: Base64
   };
 
   function prepareApp() {
