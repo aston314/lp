@@ -356,7 +356,7 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.6.3',
+    css_version: '1.6.4',
     app_version: '1.4.7'
   };
   Object.defineProperty(object$3, 'app_digital', {
@@ -14716,7 +14716,7 @@
     this.loadBackground = function () {
       var background = data.movie.backdrop_path ? Api.img(data.movie.backdrop_path, 'original') : '';
 
-      if (window.innerWidth > 991 && background && !Storage.field('light_version') && Storage.field('background_type') !== 'poster') {
+      if (window.innerWidth > 790 && background && !Storage.field('light_version') && Storage.field('background_type') !== 'poster') {
         load_images.background = html.find('.full-start__background')[0] || {};
 
         load_images.background.onload = function (e) {
