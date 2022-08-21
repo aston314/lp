@@ -690,8 +690,9 @@ Lampa.Lang.AddTranslation('zh',{
     settings_rest_tmdb_api_descr: '获取数据',
     settings_rest_tmdb_image_descr: '获取图像',
     title_subscribe: '订阅',
-    subscribe_success: '您已订阅成功',
+    subscribe_success: '你已经订阅成功',
     subscribe_error: '订阅错误',
-    subscribe_already: '您已订阅',
-    subscribe_account: 'You are not authorized'
+    subscribe_already: '你已经订阅',
+    subscribe_account: '你没有被授权',
+    title_subscribes: 'Subscriptions'
   });
