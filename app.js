@@ -8900,10 +8900,12 @@
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
-    var show = ['movie'].indexOf(params.url) > -1 && !params.genres;
+    var show = ['movie', 'tv'].indexOf(params.url) > -1 && !params.genres;
+    var quality = ['movie'].indexOf(params.url) > -1 && !params.genres;
     var books = show ? Favorite.continues(params.url) : [];
     var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
     var status = new status$1(12);  
+    console.log(params);
 
     status.onComplite = function () {
       var fulldata = [];
@@ -9012,11 +9014,11 @@
 
       get$8(params.url + '/now_playing', params, function (json) {
       append(Lang.translate('title_now_watch'), 'wath', json);
-      if (show) VideoQuality.add(json.results);
+      if (quality) VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$8(params.url + '/popular', params, function (json) {
       append(Lang.translate('title_popular'), 'popular', json);
-      if (show) VideoQuality.add(json.results);
+      if (quality) VideoQuality.add(json.results);
     }, status.error.bind(status));
     var date = new Date();
     var nparams = Arrays.clone(params);
@@ -10499,7 +10501,8 @@
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
     var total = 6;
     if (params.url !== 'tv') total--;
-    var show = ['movie'].indexOf(params.url) > -1;
+    var show = ['movie', 'tv'].indexOf(params.url) > -1 && !params.genres;
+    var quality = ['movie'].indexOf(params.url) > -1 && !params.genres;
     var books = show ? Favorite.continues(params.url) : [];
     var recomend = show ? Arrays.shuffle(Recomends.get(params.url)).slice(0, 19) : [];
     var status = new status$1(total);
@@ -10531,7 +10534,7 @@
 
     get$7('?cat=' + params.url + '&sort=now_playing', params, function (json) {
       append(Lang.translate('title_now_watch'), 's1', json);
-      if (show) VideoQuality.add(json.results);
+      if (quality) VideoQuality.add(json.results);
     }, status.error.bind(status));
 
     if (params.url == 'tv') {
@@ -10542,7 +10545,7 @@
 
     get$7('?cat=' + params.url + '&sort=top', params, function (json) {
       append(Lang.translate('title_popular'), 's3', json);
-      if (show) VideoQuality.add(json.results);
+      if (quality) VideoQuality.add(json.results);
     }, status.error.bind(status));
     get$7('?cat=' + params.url + '&sort=latest', params, function (json) {
       append(Lang.translate('title_latest'), 's4', json);
@@ -13904,7 +13907,7 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
     network$3.timeout(1000 * Storage.field('parse_timeout'));
-    var u = url + '/api/v2.0/indexers/status:healthy/results?apikey=' + Storage.field('jackett_key') + '&Query=' + encodeURIComponent(params.search);
+    var u = url + '/api/v2.0/indexers/all/results?apikey=' + Storage.field('jackett_key') + '&Query=' + encodeURIComponent(params.search);
     var genres = params.movie.genres.map(function (a) {
       return a.name;
     });
