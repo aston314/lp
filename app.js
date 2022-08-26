@@ -1222,8 +1222,7 @@
   function checkVersion(needVersion) {
     if (Storage.field('platform') == 'android') {
       try {
-        var current = AndroidJS.appVersion().split('-');
-        var versionCode = current.pop();
+        var versionCode = 16;
 
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;
