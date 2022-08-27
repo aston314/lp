@@ -378,43 +378,43 @@
   },
   {
     "title": "低端影视",
-    "link": "https://ddrk.me",
+    "link": "https://ddys.tv",
     "show": "portrait",
     "next": "search",
     "category": [
       {
         "title": "首页",
-        "url": "https://ddrk.me",
+        "url": "https://ddys.tv",
         "quantity": ""
       },
       {
         "title": "电影",
-        "url": "https://ddrk.me/category/movie/",
+        "url": "https://ddys.tv/category/movie/",
         "quantity": ""
       },
       {
         "title": "剧集",
-        "url": "https://ddrk.me/category/airing/",
+        "url": "https://ddys.tv/category/airing/",
         "quantity": ""
       },
       {
         "title": "欧美剧",
-        "url": "https://ddrk.me/category/drama/western-drama/",
+        "url": "https://ddys.tv/category/drama/western-drama/",
         "quantity": ""
       },
       {
         "title": "韩剧",
-        "url": "https://ddrk.me/category/drama/kr-drama/",
+        "url": "https://ddys.tv/category/drama/kr-drama/",
         "quantity": ""
       },
       {
         "title": "日剧",
-        "url": "https://ddrk.me/category/drama/jp-drama/",
+        "url": "https://ddys.tv/category/drama/jp-drama/",
         "quantity": ""
       },
       {
         "title": "动画",
-        "url": "https://ddrk.me/category/anime/",
+        "url": "https://ddys.tv/category/anime/",
         "quantity": ""
       }
     ],
