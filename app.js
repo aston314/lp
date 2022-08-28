@@ -7706,8 +7706,8 @@
     }, {
       key: "send",
       value: function send(id, value) {
-        if (this.field !== 'online_view' && !Account.hasPremium()) return;
-        console.log('StorageWorker', 'send:', this.field, id, value);
+        if (this.field !== 'online_view' && !Account.hasPremium()) return; //console.log('StorageWorker','send:',this.field, id,value)
+
         Socket.send('storage', {
           params: {
             id: id,
