@@ -455,7 +455,7 @@ Lampa.Lang.AddTranslation('zh',{
     plugins_load_from: '从CUB中加载',
     plugins_ok_for_check: '点击(OK)测试插件',
     plugins_no_loaded: '加载应用时，有些插件无法安装已加载',
-    time_viewed: '看至',
+    time_viewed: '已查看',
     time_from: '片长',
     time_reset: '重置时间码',
     settings_clear_cache: '缓存和数据清除',
@@ -703,5 +703,6 @@ Lampa.Lang.AddTranslation('zh',{
     account_create: '使用CUB帐户发现更多机会。在<span class="account- modal__site">www.cub.watch</span> 并获得同步您的书签、时间码和其他 CUB 帐户功能的权限。',
     account_premium: '使用 CUB 高级帐户发现更多功能。增加限制并访问该服务的其他功能.',
     account_premium_more: '了解有关 CUB Premium 的更多信息',
-    account_limited: 'You have reached the maximum limit. Increase the limit with a CUB Premium account. Learn more at <span class="account-modal__site">www.cub.watch/premium</span>'
+    account_limited: '您已达到最大限额。使用 CUB Premium 帐户提高限额。请访问 <span class="account-modal__site">www.cub.watch/premium </span>',
+    settings_rest_tmdb_prox_auto: 'Enable proxy automatically'
   });
