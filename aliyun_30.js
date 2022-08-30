@@ -142,7 +142,7 @@
                                         if (object.title == '阿里云盘播放') {
                                             $(".files__title").text(file_id_json.file_infos[0].file_name);
                                             if (object.movie.img = './img/img_broken.svg') {
-                                                $(".full-start__poster").before('<div class="broadcast__scan"><div></div></div>');
+                                                $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
                                                 var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
                                                 network.silent('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]), function (json) {
                                                     if (json.length > 0) $(".full-start__img").attr('src', json[0].cover_url);
