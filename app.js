@@ -356,7 +356,7 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.6.7',
+    css_version: '1.6.8',
     app_version: '1.5.1'
   };
   Object.defineProperty(object$3, 'app_digital', {
@@ -433,7 +433,7 @@
     };
   }
 
-  function start$4() {
+  function start$5() {
     return new subscribe();
   }
 
@@ -1361,7 +1361,7 @@
   };
 
   function create$q() {
-    var listener = start$4();
+    var listener = start$5();
     var _calls = [];
 
     var _last;
@@ -2718,7 +2718,7 @@
 
   var html$i;
   var body$3;
-  var listener$h = start$4();
+  var listener$h = start$5();
   var last$4 = '';
 
   var _main;
@@ -2900,10 +2900,10 @@
     bind$3();
     $('body').toggleClass('selectbox--open', true);
     html$h.find('.selectbox__body').addClass('layer--wheight').data('mheight', html$h.find('.selectbox__head'));
-    toggle$b();
+    toggle$c();
   }
 
-  function toggle$b() {
+  function toggle$c() {
     Controller.add('select', {
       toggle: function toggle() {
         var selected = scroll$3.render().find('.selected');
@@ -2947,7 +2947,7 @@
     var stream_url, loaded;
     var object = $('<object class="player-video_video" type="application/avplayer"</object>');
     var video = object[0];
-    var listener = start$4();
+    var listener = start$5();
     var change_scale_later;
     var change_speed_later;
     object.width(window.innerWidth);
@@ -3255,7 +3255,7 @@
 
           listener.send('canplay');
           listener.send('playing');
-          listener.send('loadedmetadata');
+          listener.send('loadeddata');
         }, function (e) {
           listener.send('error', {
             error: 'code [' + e.code + '] ' + e.message
@@ -3332,11 +3332,11 @@
   }
 
   var html$g;
-  var listener$g = start$4();
+  var listener$g = start$5();
   var state;
   var elems$1;
   var condition = {};
-  var timer$7 = {};
+  var timer$8 = {};
   var tracks = [];
   var subs = [];
   var qualitys = false;
@@ -3366,8 +3366,8 @@
       state: 'start',
       transitions: {
         start: function start() {
-          clearTimeout(timer$7.hide);
-          clearTimeout(timer$7.rewind);
+          clearTimeout(timer$8.hide);
+          clearTimeout(timer$8.rewind);
           this.dispath('canplay');
         },
         canplay: function canplay() {
@@ -3379,12 +3379,12 @@
         rewind: function rewind() {
           var _this = this;
 
-          clearTimeout(timer$7.rewind);
+          clearTimeout(timer$8.rewind);
 
           if (condition.rewind) {
             _visible(true);
 
-            timer$7.rewind = setTimeout(function () {
+            timer$8.rewind = setTimeout(function () {
               condition.rewind = false;
 
               _this.dispath('mousemove');
@@ -3401,8 +3401,8 @@
           this.dispath('hide');
         },
         hide: function hide() {
-          clearTimeout(timer$7.hide);
-          timer$7.hide = setTimeout(function () {
+          clearTimeout(timer$8.hide);
+          timer$8.hide = setTimeout(function () {
             _visible(false);
           }, 3000);
         }
@@ -3945,7 +3945,7 @@
    */
 
 
-  function toggle$a() {
+  function toggle$b() {
     condition.visible = true;
     state.start();
     toggleRewind();
@@ -4088,7 +4088,7 @@
     init: init$q,
     listener: listener$g,
     render: render$d,
-    toggle: toggle$a,
+    toggle: toggle$b,
     show: show$7,
     destroy: destroy$7,
     hide: hide,
@@ -4157,12 +4157,12 @@
   };
 
   var enabled$2 = false;
-  var listener$f = start$4();
+  var listener$f = start$5();
   var lastdown = 0;
-  var timer$6;
+  var timer$7;
   var longpress;
 
-  function toggle$9(new_status) {
+  function toggle$a(new_status) {
     enabled$2 = new_status;
     listener$f.send('toggle', {
       status: enabled$2
@@ -4170,11 +4170,11 @@
   }
 
   function enable$2() {
-    toggle$9(true);
+    toggle$a(true);
   }
 
   function disable$1() {
-    toggle$9(false);
+    toggle$a(false);
   }
 
   function isEnter(keycode) {
@@ -4197,8 +4197,8 @@
     window.addEventListener("keydown", function (e) {
       lastdown = keyCode(e);
 
-      if (!timer$6) {
-        timer$6 = setTimeout(function () {
+      if (!timer$7) {
+        timer$7 = setTimeout(function () {
           if (isEnter(lastdown)) {
             longpress = true;
             listener$f.send('longdown', {});
@@ -4208,8 +4208,8 @@
       }
     });
     window.addEventListener("keyup", function (e) {
-      clearTimeout(timer$6);
-      timer$6 = null;
+      clearTimeout(timer$7);
+      timer$7 = null;
       listener$f.send('keyup', {
         code: keyCode(e),
         enabled: enabled$2,
@@ -4890,7 +4890,7 @@
   function CustomSubs() {
     var parsed;
     var network = new create$q();
-    this.listener = start$4();
+    this.listener = start$5();
     /**
      * Загрузить
      * @param {string} url 
@@ -5069,12 +5069,12 @@
     };
   }
 
-  var listener$d = start$4();
+  var listener$d = start$5();
   var html$f;
   var display;
   var paused;
   var subtitles$1;
-  var timer$5 = {};
+  var timer$6 = {};
   var params$1 = {};
   var rewind_position = 0;
   var rewind_force = 0;
@@ -5179,12 +5179,12 @@
   function bind$2() {
     // ждем загрузки
     _video.addEventListener("waiting", function () {
-      loader(true);
+      loader$1(true);
     }); // начали играть
 
 
     _video.addEventListener("playing", function () {
-      loader(false);
+      loader$1(false);
     }); // видео закончилось
 
 
@@ -5280,7 +5280,7 @@
     }); //получены первые данные
 
 
-    _video.addEventListener('loadedmetadata', function (e) {
+    _video.addEventListener('loadeddata', function (e) {
       listener$d.send('videosize', {
         width: _video.videoWidth,
         height: _video.videoHeight
@@ -5679,7 +5679,7 @@
    */
 
 
-  function loader(status) {
+  function loader$1(status) {
     wait = status;
     html$f.toggleClass('video--load', status);
   }
@@ -5690,7 +5690,7 @@
 
 
   function url$5(src) {
-    loader(true);
+    loader$1(true);
 
     if (hls) {
       hls.destroy();
@@ -5811,8 +5811,8 @@
 
 
   function rewindEnd(immediately) {
-    clearTimeout(timer$5.rewind_call);
-    timer$5.rewind_call = setTimeout(function () {
+    clearTimeout(timer$6.rewind_call);
+    timer$6.rewind_call = setTimeout(function () {
       _video.currentTime = rewind_position;
       rewind_position = 0;
       rewind_force = 0;
@@ -5832,7 +5832,7 @@
     rewind_position = Math.max(0, Math.min(position_time, _video.duration));
     pause();
     if (rewind_position == 0) _video.currentTime = 0;else if (rewind_position == _video.duration) _video.currentTime = _video.duration;
-    timer$5.rewind = Date.now();
+    timer$6.rewind = Date.now();
     listener$d.send('timeupdate', {
       duration: _video.duration,
       current: rewind_position
@@ -5851,7 +5851,7 @@
     if (_video.duration) {
       var time = Date.now(),
           step = _video.duration / (30 * 60),
-          mini = time - (timer$5.rewind || 0) > 50 ? 20 : 60;
+          mini = time - (timer$6.rewind || 0) > 50 ? 20 : 60;
 
       if (rewind_position == 0) {
         rewind_force = Math.min(mini, custom_step || 30 * step);
@@ -5958,7 +5958,7 @@
     }
 
     display.empty();
-    loader(false);
+    loader$1(false);
   }
 
   function render$c() {
@@ -5991,7 +5991,7 @@
   };
 
   var html$e;
-  var listener$c = start$4();
+  var listener$c = start$5();
   var network$d = new create$q();
   var elems;
   var error$1, stat_timer;
@@ -6061,7 +6061,7 @@
    */
 
 
-  function toggle$8(status) {
+  function toggle$9(status) {
     html$e.toggleClass('info--visible', status);
   }
 
@@ -6092,12 +6092,12 @@
     listener: listener$c,
     render: render$b,
     set: set$2,
-    toggle: toggle$8,
+    toggle: toggle$9,
     loading: loading$1,
     destroy: destroy$5
   };
 
-  var listener$b = start$4();
+  var listener$b = start$5();
   var current = '';
   var playlist$1 = [];
   var position$1 = 0;
@@ -6212,39 +6212,39 @@
     next: next
   };
 
-  var listener$a = start$4();
+  var listener$a = start$5();
   var enabled$1 = false;
   var worked = false;
   var chrome = false;
   var img$3;
   var html$d;
   var movies = [];
-  var timer$4 = {};
+  var timer$5 = {};
   var position = 0;
   var slides$1 = 'one';
   var direct = ['lt', 'rt', 'br', 'lb', 'ct'];
 
-  function toggle$7(is_enabled) {
+  function toggle$8(is_enabled) {
     enabled$1 = is_enabled;
-    if (enabled$1) resetTimer();else clearTimeout(timer$4.wait);
+    if (enabled$1) resetTimer();else clearTimeout(timer$5.wait);
     listener$a.send('toggle', {
       status: enabled$1
     });
   }
 
   function enable$1() {
-    toggle$7(true);
+    toggle$8(true);
   }
 
   function disable() {
-    toggle$7(false);
+    toggle$8(false);
   }
 
   function resetTimer() {
     if (!enabled$1) return;
-    clearTimeout(timer$4.wait);
+    clearTimeout(timer$5.wait);
     if (!Storage.field('screensaver')) return;
-    timer$4.wait = setTimeout(function () {
+    timer$5.wait = setTimeout(function () {
       if (Storage.field('screensaver_type') == 'nature') startSlideshow();else startChrome();
     }, 300 * 1000); //300 * 1000 = 5 минут
   }
@@ -6264,10 +6264,10 @@
     html$d.fadeIn(300);
     Utils.time(html$d);
     nextSlide();
-    timer$4.work = setInterval(function () {
+    timer$5.work = setInterval(function () {
       nextSlide();
     }, 30000);
-    timer$4.start = setTimeout(function () {
+    timer$5.start = setTimeout(function () {
       html$d.addClass('visible');
     }, 5000);
   }
@@ -6314,8 +6314,8 @@
     html$d.fadeOut(300, function () {
       html$d.removeClass('visible');
     });
-    clearInterval(timer$4.work);
-    clearTimeout(timer$4.start);
+    clearInterval(timer$5.work);
+    clearTimeout(timer$5.start);
     movies = [];
 
     if (chrome) {
@@ -6389,7 +6389,7 @@
     bind$1(params.html);
     scroll$2.append(params.html);
     $('body').append(html$c);
-    toggle$6();
+    toggle$7();
   }
 
   function bind$1(where) {
@@ -6412,7 +6412,7 @@
     }
   }
 
-  function toggle$6() {
+  function toggle$7() {
     Controller.add('modal', {
       invisible: true,
       toggle: function toggle() {
@@ -6443,7 +6443,7 @@
     scroll$2.clear();
     scroll$2.append(new_html);
     bind$1(new_html);
-    toggle$6();
+    toggle$7();
   }
 
   function title$1(tit) {
@@ -6470,7 +6470,7 @@
     close: close$4,
     update: update$7,
     title: title$1,
-    toggle: toggle$6,
+    toggle: toggle$7,
     render: render$9
   };
 
@@ -6709,7 +6709,7 @@
     error: error
   };
 
-  var timer$3;
+  var timer$4;
   var listener$9;
   /**
    * Открыть окно
@@ -6783,7 +6783,7 @@
 
   function close$3() {
     Socket.listener.remove('message', listener$9);
-    clearInterval(timer$3);
+    clearInterval(timer$4);
     Modal.close();
     listener$9 = null;
   }
@@ -6793,7 +6793,7 @@
   };
 
   var html$b;
-  var listener$8 = start$4();
+  var listener$8 = start$5();
   var network$b = new create$q();
   var callback$2;
   var work = false;
@@ -7065,7 +7065,7 @@
    */
 
 
-  function toggle$5() {
+  function toggle$6() {
     Controller.add('player', {
       invisible: true,
       toggle: function toggle() {
@@ -7252,13 +7252,13 @@
           }],
           onBack: function onBack() {
             work.timeline.continued = true;
-            toggle$5();
+            toggle$6();
             clearTimeout(timer_ask);
           },
           onSelect: function onSelect(a) {
             work.timeline.waiting_for_user = false;
             if (!a.yes) work.timeline.continued = true;
-            toggle$5();
+            toggle$6();
             clearTimeout(timer_ask);
           }
         });
@@ -7266,7 +7266,7 @@
         timer_ask = setTimeout(function () {
           work.timeline.continued = true;
           Select.hide();
-          toggle$5();
+          toggle$6();
         }, 8000);
       }
     }
@@ -7312,7 +7312,7 @@
         if (data.subtitles) PlayerVideo.customSubs(data.subtitles);
         PlayerInfo.set('name', data.title);
         if (!preloader.call) $('body').append(html$b);
-        toggle$5();
+        toggle$6();
         PlayerPanel.show(true);
         Controller.updateSelects();
         ask();
@@ -7558,7 +7558,7 @@
   var _uid = Utils.uid();
 
   var _devices = [];
-  var listener$7 = start$4();
+  var listener$7 = start$5();
 
   function connect$1() {
     clearInterval(ping);
@@ -7972,14 +7972,14 @@
     where.find('.notice--icon').toggleClass('active', any(notice));
   }
 
-  function start$3(html) {
+  function start$4(html) {
     where = html;
     getNotice(icon);
   }
 
   var Notice = {
     open: open$3,
-    start: start$3,
+    start: start$4,
     init: init$j
   };
 
@@ -10304,7 +10304,7 @@
     h: [],
     d: true
   };
-  var timer$2;
+  var timer$3;
   var timer_resize;
   var timer_change;
   /**
@@ -10495,8 +10495,8 @@
     if (url == src || Storage.field('light_version')) return;
     bokeh.d = true;
     if (url) src = url;
-    clearTimeout(timer$2);
-    timer$2 = setTimeout(function () {
+    clearTimeout(timer$3);
+    timer$3 = setTimeout(function () {
       if (url) load$2();else draw(false, false, true);
     }, 1000);
   }
@@ -10510,7 +10510,7 @@
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     if (Storage.field('light_version')) return;
     if (url) src = url;
-    clearTimeout(timer$2);
+    clearTimeout(timer$3);
     bokeh.d = false;
     if (url) load$2();else draw(false, false, true);
   }
@@ -10736,7 +10736,7 @@
         items = [],
         active = 0,
         query;
-    this.listener = start$4();
+    this.listener = start$5();
 
     this.create = function () {
       this.empty();
@@ -10919,7 +10919,7 @@
     var scroll, last, active;
     var html = $('<div></div>'),
         results = [];
-    this.listener = start$4();
+    this.listener = start$5();
 
     this.create = function () {
       scroll = new create$p({
@@ -11043,7 +11043,7 @@
     var scroll,
         last,
         keys = [];
-    this.listener = start$4();
+    this.listener = start$5();
 
     this.create = function () {
       var _this = this;
@@ -11150,10 +11150,10 @@
     params = use_params;
     $('body').toggleClass('ambience--enable', true);
     create$f();
-    toggle$4();
+    toggle$5();
   }
 
-  function toggle$4() {
+  function toggle$5() {
     Controller.add('search', {
       invisible: true,
       toggle: function toggle() {
@@ -11376,10 +11376,52 @@
     init: init$d
   };
 
+  var callback_cancel, controller_enabled, loader, timer$2;
+
+  function start$3(on_cancel) {
+    callback_cancel = on_cancel;
+    controller_enabled = Controller.enabled().name;
+    loader = $("<div class=\"loading-layer\">\n        <div class=\"loading-layer__box\">\n            <div class=\"loading-layer__text\">".concat(Lang.translate('loading'), "</div>\n            <div class=\"loading-layer__ico\"></div>\n        </div>\n    </div>"));
+    loader.on('click', cancel);
+    clearTimeout(timer$2);
+    timer$2 = setTimeout(function () {
+      $('body').append(loader);
+    }, 500);
+    toggle$4();
+  }
+
+  function toggle$4() {
+    Controller.add('loading', {
+      invisible: true,
+      toggle: function toggle() {},
+      back: cancel,
+      up: cancel,
+      down: cancel,
+      left: cancel,
+      right: cancel
+    });
+    Controller.toggle('loading');
+  }
+
+  function cancel() {
+    if (callback_cancel) callback_cancel();
+  }
+
+  function stop() {
+    if (loader) loader.remove();
+    clearTimeout(timer$2);
+    if (controller_enabled) Controller.toggle(controller_enabled);
+  }
+
+  var Loading = {
+    start: start$3,
+    stop: stop
+  };
+
   var body$2;
   var network$7 = new create$q();
   var api = Utils.protocol() + 'cub.watch/api/';
-  var listener$6 = start$4();
+  var listener$6 = start$5();
   var notice_load = {
     time: 0,
     data: []
@@ -11742,20 +11784,28 @@
 
   function showProfiles(controller) {
     var account = Storage.get('account', '{}');
+    Loading.start(function () {
+      network$7.clear();
+      Loading.stop();
+    });
     network$7.clear();
     network$7.silent(api + 'profiles/all', function (result) {
+      Loading.stop();
+
       if (result.secuses) {
+        var items = Arrays.clone(result.profiles);
         Select.show({
           title: Lang.translate('account_profiles'),
-          items: result.profiles.map(function (elem) {
+          items: items.map(function (elem, index) {
             elem.title = elem.name;
             elem.template = 'selectbox_icon';
             elem.icon = '<img src="https://cub.watch/img/profiles/' + elem.icon + '.png" />';
+            elem.index = index;
             elem.selected = account.profile.id == elem.id;
             return elem;
           }),
           onSelect: function onSelect(a) {
-            account.profile = a;
+            account.profile = result.profiles[a.index];
             Storage.set('account', account);
             if (body$2) body$2.find('.settings--account-user-profile .settings-param__value').text(a.name);
             notice_load.time = 0;
@@ -11770,6 +11820,7 @@
         Noty.show(result.text);
       }
     }, function () {
+      Loading.stop();
       Noty.show(Lang.translate('account_profiles_empty'));
     }, false, {
       headers: {
@@ -12098,7 +12149,7 @@
   };
 
   var data$1 = {};
-  var listener$5 = start$4();
+  var listener$5 = start$5();
 
   function save$3() {
     Storage.set('favorite', data$1);
@@ -15277,6 +15328,12 @@
       Socket.send('callback', params);
     };
 
+    this.cancel = function (method) {
+      if (ids[method]) {
+        evokes[ids[method]] = function () {};
+      }
+    };
+
     this.destroy = function () {
       Socket.listener.remove('message', callback);
 
@@ -15464,11 +15521,17 @@
 
       var button = html.find('.icon--subscribe');
       button.on('hover:enter', function () {
+        Loading.start(function () {
+          event.cancel('translations');
+          Loading.stop();
+        });
         event.call('translations', {
           card_id: data.movie.id,
           imdb_id: data.movie.imdb_id,
           season: Utils.countSeasons(data.movie)
         }, function (result) {
+          Loading.stop();
+
           if (!result.result) {
             result.result = {
               voice: {},
@@ -18617,7 +18680,7 @@
     get: get$3
   };
 
-  var listener$4 = start$4();
+  var listener$4 = start$5();
   var activites = [];
   var callback = false;
   var fullout = false;
@@ -19104,7 +19167,7 @@
     renderLayers: renderLayers
   };
 
-  var listener$3 = start$4();
+  var listener$3 = start$5();
   var active;
   var active_name = '';
   var controlls = {};
@@ -19429,7 +19492,7 @@
     var input;
     var last_value;
     var height = window.innerHeight;
-    this.listener = start$4();
+    this.listener = start$5();
 
     this.create = function () {
       var _this = this;
@@ -19883,7 +19946,7 @@
 
   var values = {};
   var defaults = {};
-  var listener$2 = start$4();
+  var listener$2 = start$5();
   /**
    * Запуск
    */
@@ -20313,7 +20376,7 @@
     trigger: trigger
   };
 
-  var listener$1 = start$4();
+  var listener$1 = start$5();
 
   function get$1(name, empty) {
     var value = window.localStorage.getItem(name) || empty || '';
@@ -24601,7 +24664,7 @@
   var last_controller;
   var last_hover;
   var main_scroll;
-  var listener = start$4();
+  var listener = start$5();
   var network = new create$q();
   var opened = false;
 
@@ -25307,9 +25370,9 @@
   };
 
   window.Lampa = {
-    Listener: start$4(),
+    Listener: start$5(),
     Lang: Lang,
-    Subscribe: start$4,
+    Subscribe: start$5,
     Storage: Storage,
     Platform: Platform,
     Utils: Utils,
@@ -25368,7 +25431,8 @@
     Parser: Parser,
     Manifest: object$3,
     TMDB: TMDB$1,
-    Base64: Base64
+    Base64: Base64,
+    Loading: Loading
   };
 
   function prepareApp() {
