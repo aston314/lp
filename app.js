@@ -16692,14 +16692,27 @@
         };
 
         card.onEnter = function (target, card_data) {
-          Activity$1.push({
-            url: card_data.url,
-            component: 'full',
-            id: element.id,
-            method: card_data.name ? 'tv' : 'movie',
-            card: element,
-            source: card_data.source || 'tmdb'
-          });
+          if (!/^[0-9]+.?[0-9]*/.test(element.id) && object.type == 'history') {
+                Activity$1.push({
+                    url: '',
+                    title: '在线观看',
+                    component: 'online_mod',
+                    search: element.title,
+                    search_one: element.title,
+                    search_two: element.title,
+                    movie: element,
+                    page: 1
+                });
+            } else {
+                Activity$1.push({
+                    url: card_data.url,
+                    component: 'full',
+                    id: element.id,
+                    method: card_data.name ? 'tv' : 'movie',
+                    card: element,
+                    source: card_data.source || 'tmdb'
+                });
+            };
         };
 
         if (object.type == 'history') {
