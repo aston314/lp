@@ -1,0 +1,887 @@
+[
+  {
+    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221225932/1.m3u8?servicetype=1",
+    "name": "央视 CCTV-12HD",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV12.png"
+  },
+  {
+    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221227086/1.m3u8?servicetype=1",
+    "name": "央视 CCTV-14HD",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV14.png"
+  },
+  {
+    "video": "http://117.148.179.155/PLTV/88888888/224/3221231468/index.m3u8",
+    "name": "央视 CCTV1",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png"
+  },
+  {
+    "video": "http://117.148.179.156/TVOD/88888888/224/3221232362/index.m3u8",
+    "name": "央视 CCTV2",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png"
+  },
+  {
+    "video": "http://117.148.179.140/TVOD/88888888/224/3221231528/index.m3u8",
+    "name": "央视 CCTV3",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png"
+  },
+  {
+    "video": "http://117.148.179.162/TVOD/88888888/224/3221231615/index.m3u8",
+    "name": "央视 CCTV4",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV4.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221226998/index.m3u8?servicetype=1",
+    "name": "央视 CCTV4K",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-5-HD-265-8M/G_CCTV-5-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV5",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png"
+  },
+  {
+    "video": "http://117.148.179.136/PLTV/88888888/224/3221231459/index.m3u8",
+    "name": "央视 CCTV5+",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png"
+  },
+  {
+    "video": "http://117.148.179.153/TVOD/88888888/224/3221231724/index.m3u8",
+    "name": "央视 CCTV6",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png"
+  },
+  {
+    "video": "http://117.148.179.160/TVOD/88888888/224/3221231633/index.m3u8",
+    "name": "央视 CCTV7",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV7.png"
+  },
+  {
+    "video": "http://111.20.33.93/TVOD/88888893/224/3221226391/index.m3u8",
+    "name": "央视 CCTV8",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV8.png"
+  },
+  {
+    "video": "http://117.148.179.162/TVOD/88888888/224/3221231697/index.m3u8",
+    "name": "央视 CCTV9",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV9.png"
+  },
+  {
+    "video": "http://117.148.179.175/TVOD/88888888/224/3221231666/index.m3u8",
+    "name": "央视 CCTV10",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV10.png"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225628/index.m3u8",
+    "name": "央视 CCTV11",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV11.png"
+  },
+  {
+    "video": "http://117.148.179.150/TVOD/88888888/224/3221231660/index.m3u8",
+    "name": "央视 CCTV12",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV12.png"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225638/index.m3u8",
+    "name": "央视 CCTV13",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV13.png"
+  },
+  {
+    "video": "http://117.148.179.182/TVOD/88888888/224/3221231648/index.m3u8",
+    "name": "央视 CCTV14",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV14.png"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225641/index.m3u8",
+    "name": "央视 CCTV15",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV15.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-16-CQ/G_CCTV-16-CQ.m3u8",
+    "name": "央视 CCTV16",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
+  },
+  {
+    "video": "http://39.135.138.60:18890/TVOD/88888910/224/3221226230/index.m3u8",
+    "name": "央视 CCTV16奥林匹克",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
+  },
+  {
+    "video": "http://117.148.179.167/TVOD/88888888/224/3221231772/index.m3u8",
+    "name": "央视 CCTV17",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png"
+  },
+  {
+    "video": "http://183.207.248.135/ott.js.chinamobile.com/PLTV/3/224/3221227030/index.m3u8",
+    "name": "地方 CCTV发现之旅",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVfaxianzhilv.png"
+  },
+  {
+    "video": "http://117.169.120.140:8080/live/ningxiastv/.m3u8",
+    "name": "卫视 宁夏卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
+  },
+  {
+    "video": "http://117.169.120.140:8080/live/hdhubeistv/.m3u8",
+    "name": "卫视 湖北卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/hubei.png"
+  },
+  {
+    "video": "http://117.169.120.140:8080/live/hdtianjinstv/.m3u8",
+    "name": "卫视 天津卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/tianjin.png"
+  },
+  {
+    "video": "http://117.148.179.141/TVOD/88888888/224/3221231964/index.m3u8",
+    "name": "卫视 江西卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangxi.png"
+  },
+  {
+    "video": "http://117.169.120.140:8080/live/jilinstv/.m3u8",
+    "name": "卫视 吉林卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jilin.png"
+  },
+  {
+    "video": "http://117.169.120.140:8080/live/gansustv/.m3u8",
+    "name": "卫视 甘肃卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/gansu.png"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225696/index.m3u8",
+    "name": "卫视 辽宁卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/liaoning.png"
+  },
+  {
+    "video": "http://117.148.179.175/PLTV/88888888/224/3221231447/index.m3u8",
+    "name": "卫视 江苏卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangsu.png"
+  },
+  {
+    "video": "http://117.148.179.162/TVOD/88888888/224/3221231520/index.m3u8",
+    "name": "卫视 黑龙江卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/heilongjiang.png"
+  },
+  {
+    "video": "http://117.148.179.159/TVOD/88888888/224/3221231502/index.m3u8",
+    "name": "卫视 广东卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangdong.png"
+  },
+  {
+    "video": "http://117.148.179.160/TVOD/88888888/224/3221231738/index.m3u8",
+    "name": "卫视 东方卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongfang.png"
+  },
+  {
+    "video": "http://117.148.179.168/TVOD/88888888/224/3221231732/index.m3u8",
+    "name": "卫视 北京卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijing.png"
+  },
+  {
+    "video": "http://117.148.179.137/TVOD/88888888/224/3221227909/index.m3u8",
+    "name": "卫视 山东卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shandong.png"
+  },
+  {
+    "video": "http://117.148.179.142/TVOD/88888888/224/3221231885/index.m3u8",
+    "name": "卫视 四川卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/sichuan.png"
+  },
+  {
+    "video": "http://117.148.179.172/TVOD/88888888/224/3221231729/index.m3u8",
+    "name": "卫视 湖南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/hunan.png"
+  },
+  {
+    "video": "http://117.148.179.177/TVOD/88888888/224/3221230215/index.m3u8",
+    "name": "卫视 安徽卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/anhui.png"
+  },
+  {
+    "video": "http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225657/index.m3u8",
+    "name": "卫视 东南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongnan.png"
+  },
+  {
+    "video": "http://39.134.65.179/PLTV/88888888/224/3221225888/1.m3u8",
+    "name": "卫视 贵州卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/guizhou.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-qhtv-h264.m3u8",
+    "name": "卫视 青海卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/qinghai.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225731/index.m3u8",
+    "name": "卫视 广西卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangxi.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hzgq-hbwsgq1-h264.m3u8",
+    "name": "卫视 河北卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/hebei.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-xjtv-h264.m3u8",
+    "name": "卫视 新疆卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/xinjiang.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-shanxitv-h264.m3u8",
+    "name": "卫视 陕西卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shanxi.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-xztv-h264.m3u8",
+    "name": "卫视 西藏卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
+  },
+  {
+    "video": "http://117.148.179.136/TVOD/88888888/224/3221231567/index.m3u8",
+    "name": "卫视 浙江卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/zhejiang.png"
+  },
+  {
+    "video": "http://183.207.249.139/ott.js.chinamobile.com/PLTV/3/224/3221227555/index.m3u8",
+    "name": "卫视 深圳卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shenzhen.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227095/index.m3u8?servicetype=1",
+    "name": "卫视 河南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/henan.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-lytv-h264.m3u8",
+    "name": "卫视 海南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
+  },
+  {
+    "video": "http://117.169.120.132:8080/live/chongqingstv/playlist.m3u8",
+    "name": "卫视 重庆卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/chongqing.png"
+  },
+  {
+    "video": "http://liveflash.sxrtv.com/live/sxwshd.m3u8",
+    "name": "卫视 山西卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shanxi_.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221226781/index.m3u8?servicetype=1",
+    "name": "卫视 厦门卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/xiamen.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hzgq-ssws-h264.m3u8",
+    "name": "卫视 三沙卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/sansha.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-bttv-h264.m3u8",
+    "name": "卫视 兵团卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/bingtuan.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_KANGBA/G_KANGBA.m3u8",
+    "name": "卫视 康巴卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/kangba.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-nmgtv-h264.m3u8",
+    "name": "卫视 内蒙古卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/neimeng.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hzgq-ynwsgq-h264.m3u8",
+    "name": "卫视 云南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/yunnan.png"
+  },
+  {
+    "video": "http://111.63.117.13:6060/030000001000/G_NEIMENGGU/G_NEIMENGGU.m3u8",
+    "name": "卫视 内蒙卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/neimeng.png"
+  },
+  {
+    "video": "http://111.63.117.13:6060/030000001000/LYWS/LYWS.m3u8",
+    "name": "卫视 旅游卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225659/index.m3u8",
+    "name": "卫视 东方卫视蓝光",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongfang.png"
+  },
+  {
+    "video": "http://39.134.66.66/PLTV/88888888/224/3221225665/index.m3u8",
+    "name": "卫视 天津卫视蓝光",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/tianjin.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
+    "name": "卫视 西藏卫视高清",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
+    "name": "卫视 宁夏卫视超清",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
+  },
+  {
+    "video": "http://117.148.179.159/PLTV/88888888/224/3221231718/index.m3u8",
+    "name": "地方 四海钓鱼",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/BAMC4.jpg"
+  },
+  {
+    "video": "http://111.20.33.93/TVOD/88888893/224/3221226465/index.m3u8",
+    "name": "地方 CHC动作电影",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CHC1.jpg"
+  },
+  {
+    "video": "http://playtv-live.ifeng.com:80/live/06OLEEWQKN4.m3u8",
+    "name": "港澳台 凤凰资讯",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png"
+  },
+  {
+    "video": "http://111.20.33.93/TVOD/88888893/224/3221226462/index.m3u8",
+    "name": "地方 CHC家庭影院",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CHC2.jpg"
+  },
+  {
+    "video": "http://39.135.138.59:18890/PLTV/88888910/224/3221225655/index.m3u8",
+    "name": "上海 纪实人文",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shanghaijishi.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221226937/index.m3u8?servicetype=1",
+    "name": "地方 金鹰纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jinyingjishi.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225675/index.m3u8",
+    "name": "北京 北京纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijingjishi.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221225946/index.m3u8?servicetype=1",
+    "name": "上海 上海纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shanghaijishi.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225655/index.m3u8",
+    "name": "上海 纪实人文(备)",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shanghaijishi.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/zsxw_fhd.m3u8",
+    "name": "港澳台 中视新闻",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/中视新闻.png"
+  },
+  {
+    "video": "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/xwzhhd/4000000/mnf.m3u8",
+    "name": "上海 上海新闻综合频道",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/shangshixinwen.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_QUANJISHI/G_QUANJISHI.m3u8",
+    "name": "上海 全纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/quanjishi.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_YOUXIFY/G_YOUXIFY.m3u8",
+    "name": "上海 游戏风云",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/youxifengyun.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_JIAJIA/G_JIAJIA.m3u8",
+    "name": "地方 嘉佳卡通",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/jiajiakt.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_SHENGHUOSS/G_SHENGHUOSS.m3u8",
+    "name": "上海 生活时尚",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/shenghuoshishang.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s10/index.m3u8",
+    "name": "北京 卡酷少儿",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/kaku.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/HD-15M-2160P-jshuanxiaojc/HD-15M-2160P-jshuanxiaojc.m3u8",
+    "name": "上海 欢笑剧场",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/huanxiao.png"
+  },
+  {
+    "video": "http://117.148.179.160/TVOD/88888888/224/3221231619/index.m3u8",
+    "name": "地方 高尔夫网球",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CCTVPAYFEE13.jpg"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-bjjs-h264.m3u8",
+    "name": "北京 北京纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijingjishi.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_JINYING/G_JINYING.m3u8",
+    "name": "卫视 金鹰卡通",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/jinyingkatong.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_FAXIANZL/G_FAXIANZL.m3u8",
+    "name": "地方 发现之旅",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVfaxianzhilv.png"
+  },
+  {
+    "video": "http://125.210.152.19:9090/live/hszx-CETV-4-h264.m3u8",
+    "name": "地方 中国教育4",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育4台.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_LAOGUSHI/G_LAOGUSHI.m3u8",
+    "name": "地方 老故事",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVlaogushi.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_YITANCQ/G_YITANCQ.m3u8",
+    "name": "地方 弈坛春秋",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/BAMC10.jpg"
+  },
+  {
+    "video": "http://117.148.179.172/TVOD/88888888/224/3221231540/index.m3u8",
+    "name": "地方 第一剧场",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVdiyijuchang.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_JINGJU/G_JINGJU.m3u8",
+    "name": "地方 京视剧场",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/BAMC8.jpg"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227222/index.m3u8?servicetype=1",
+    "name": "港澳台 凤凰中文",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/fenghuangzhongwen.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221226940/index.m3u8?servicetype=1",
+    "name": "地方 快乐垂钓",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/KUAILECHUIDIAO.jpg"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221225944/index.m3u8?servicetype=1",
+    "name": "北京 北京冬奥纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijingjishi.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227067/index.m3u8?servicetype=1",
+    "name": "地方 中国教育1",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育1台.png"
+  },
+  {
+    "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227186/index.m3u8?servicetype=1",
+    "name": "上海 SiTV极速汽车",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/jisuqiche.png"
+  },
+  {
+    "video": "http://117.148.179.162/TVOD/88888888/224/3221231604/index.m3u8",
+    "name": "地方 风云剧场",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTBfengyun.png"
+  },
+  {
+    "video": "http://117.148.179.137/TVOD/88888888/224/3221231547/index.m3u8",
+    "name": "地方 风云足球",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVfengyunzuqiu.png"
+  },
+  {
+    "video": "http://117.148.179.156/TVOD/88888888/224/3221231537/index.m3u8",
+    "name": "地方 世界地理",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVshijiedili.png"
+  },
+  {
+    "video": "http://117.148.179.158/TVOD/88888888/224/3221231544/index.m3u8",
+    "name": "地方 怀旧剧场",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CCTVPAYFEE7.jpg"
+  },
+  {
+    "video": "http://117.148.179.147/TVOD/88888888/224/3221231561/index.m3u8",
+    "name": "地方 央视精品",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVwenhuajingpin.png"
+  },
+  {
+    "video": "http://117.148.179.156/TVOD/88888888/224/3221231714/index.m3u8",
+    "name": "地方 教育1台HD",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育1台.png"
+  },
+  {
+    "video": "http://117.148.179.167/TVOD/88888888/224/3221231616/index.m3u8",
+    "name": "地方 央视台球",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTVtaiqiu.png"
+  },
+  {
+    "video": "http://117.148.179.149/TVOD/88888888/224/3221231552/index.m3u8",
+    "name": "地方 教育1台",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育1台.png"
+  },
+  {
+    "video": "http://117.148.179.136/TVOD/88888888/224/3221231543/index.m3u8",
+    "name": "地方 教育3台",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育3台.png"
+  },
+  {
+    "video": "http://117.148.179.162/TVOD/88888888/224/3221231607/index.m3u8",
+    "name": "地方 教育2台",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育2台.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s9/index.m3u8",
+    "name": "北京 北京新闻",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV新闻.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s7/index.m3u8",
+    "name": "北京 北京生活",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV生活.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s3/index.m3u8",
+    "name": "北京 北京科教",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV科教.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s6/index.m3u8",
+    "name": "北京 冬奥纪实",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijingjishi.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s2/index.m3u8",
+    "name": "北京 北京文艺",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV文艺.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s5/index.m3u8",
+    "name": "北京 北京财经",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV财经.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s4/index.m3u8",
+    "name": "北京 北京影视",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV影视.png"
+  },
+  {
+    "video": "http://111.6.126.218/hsplay-360.v.btime.com/live_btime/btv_sn_20170706_s8/index.m3u8",
+    "name": "北京 北京青年",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/BTV青年.png"
+  },
+  {
+    "video": "http://61.163.111.46/tvcdn.stream3.hndt.com/tv/6b32da00ac754c8a8f2e310b22d11fb3_transios/playlist.m3u8?wsApp=HLS&wsMonitor=0",
+    "name": "地方 梨园",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CCTVPAYFEE20.jpg"
+  },
+  {
+    "video": "http://39.136.48.21:8089/PLTV/88888888/224/3221226018/index.m3u8",
+    "name": "地方 山东农科",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_nongke.png"
+  },
+  {
+    "video": "http://39.136.48.23:8089/PLTV/88888888/224/3221226345/index.m3u8",
+    "name": "地方 欧美影院",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/OMYY.jpg"
+  },
+  {
+    "video": "http://119.164.216.162:9901/tsfile/live/1002_1.m3u8",
+    "name": "地方 山东体育",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_tiyu.png"
+  },
+  {
+    "video": "http://119.164.216.162:9901/tsfile/live/1001_1.m3u8",
+    "name": "地方 山东综艺",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_zongyi.png"
+  },
+  {
+    "video": "http://119.164.216.162:9901/tsfile/live/1003_1.m3u8",
+    "name": "地方 山东齐鲁",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_qilu.png"
+  },
+  {
+    "video": "http://119.164.216.162:9901/tsfile/live/1007_1.m3u8",
+    "name": "地方 山东生活",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_shenghuo.png"
+  },
+  {
+    "video": "http://111.63.117.13:6060/030000001000/G_YOUMAN/G_YOUMAN.m3u8",
+    "name": "地方 优漫卡通",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/youman.png"
+  },
+  {
+    "video": "http://119.164.216.162:9901/tsfile/live/1006_1.m3u8",
+    "name": "地方 山东少儿",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/sd_shaoer.png"
+  },
+  {
+    "video": "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/dycjhd/2300000/mnf.m3u8",
+    "name": "上海 第一财经",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/diyicaijing.png"
+  },
+  {
+    "video": "http://hw-m-l.cztv.com/channels/lantian/channel09/1080p.m3u8?k=1a7559a51eeb880b021619a07f463ac4&t=1577153787",
+    "name": "地方 留学世界",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CCTVPAYFEE24.jpg"
+  },
+  {
+    "video": "http://117.148.179.179/PLTV/88888888/224/3221229310/index.m3u8",
+    "name": "港澳台 杭州明珠",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/TVB明珠台.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/tsxw_fhd.m3u8",
+    "name": "港澳台 台视新闻",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/台视新闻.png"
+  },
+  {
+    "video": "http://182.151.211.171:808/hls/52/index.m3u8",
+    "name": "四川 四川新闻频道",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/sctv4.png"
+  },
+  {
+    "video": "http://182.151.211.171:808/hls/56/index.m3u8",
+    "name": "四川 四川科教频道",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/sctv8.png"
+  },
+  {
+    "video": "http://182.151.211.171:808/hls/51/index.m3u8",
+    "name": "四川 四川文化旅游",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/sctv2.png"
+  },
+  {
+    "video": "http://182.151.211.171:808/hls/53/index.m3u8",
+    "name": "四川 四川影视文艺",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/sctv5.png"
+  },
+  {
+    "video": "http://182.151.211.171:808/hls/50/index.m3u8",
+    "name": "四川 四川经济频道",
+    "picture": "http://epg.51zmt.top:8000/tb1/sheng/sctv3.png"
+  },
+  {
+    "video": "http://183.207.255.188/live/program/live/xsjhd/4000000/mnf.m3u8",
+    "name": "上海 新视觉",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/xinshijue.png"
+  },
+  {
+    "video": "http://183.207.255.188/live/program/live/mlyyhd/4000000/mnf.m3u8",
+    "name": "上海 魅力足球",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/meilizuqiu.png"
+  },
+  {
+    "video": "http://39.134.18.82/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226463/index.m3u8",
+    "name": "地方 CHC高清电影",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/CHC3.jpg"
+  },
+  {
+    "video": "http://111.11.123.49:6610/000000001000/6000000002000032344/1.m3u8?Contentid=6000000002000032344&livemode=1&stbId=3&channel-id=wasusyt",
+    "name": "地方 求索科学",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/QSKX.png"
+  },
+  {
+    "video": "http://111.11.123.49:6610/000000001000/6000000002000032052/1.m3u8?Contentid=6000000002000032052&livemode=1&stbId=3&channel-id=wasusyt",
+    "name": "地方 求索纪录",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/QSJL.png"
+  },
+  {
+    "video": "http://live-hls-web-aje.getaj.net/AJE/01.m3u8",
+    "name": "港澳台 AL Jazeera FHD",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/aljazeera.png"
+  },
+  {
+    "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live072&nid=129",
+    "name": "港澳台 TVBS新闻台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png"
+  },
+  {
+    "video": "http://111.11.123.49:6610/000000001000/6000000002000010046/1.m3u8?Contentid=6000000002000010046&livemode=1&stbId=3&channel-id=wasusyt",
+    "name": "地方 求索动物",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/QSDW.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/slinews_fhd.m3u8",
+    "name": "港澳台 三立iNews",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/SETInews.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/dscjxw_fhd.m3u8",
+    "name": "港澳台 东森财经新闻台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCFinancialNews.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/msxw_fhd.m3u8",
+    "name": "港澳台 民视新闻台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/FTVNews.png"
+  },
+  {
+    "video": "http://seb.sason.top/sc/dsxw_fhd.m3u8",
+    "name": "港澳台 东森新闻台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCNews.png"
+  },
+  {
+    "video": "http://111.11.123.49:6610/000000001000/6000000006000150630/1.m3u8?Contentid=6000000006000150630&livemode=1&stbId=3&channel-id=wasusyt",
+    "name": "港澳台 iHOT爱历史",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/HistoryChannel.png"
+  },
+  {
+    "video": "http://58.99.33.16:1935/liveedge17/live_122_3.stream/chunklist.m3u8",
+    "name": "港澳台 智林体育",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/智林体育台.png"
+  },
+  {
+    "video": "http://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8",
+    "name": "港澳台 France24",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/france24.png"
+  },
+  {
+    "video": "http://streamipcf.akamaized.net/live/_definst_/live_720/key_b1500.m3u8",
+    "name": "港澳台 原住民电视",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/yuanzhumin.png"
+  },
+  {
+    "video": "http://f24hls-i.akamaihd.net/hls/live/221147/F24_EN_HI_HLS/master.m3u8",
+    "name": "港澳台 France24 FHD",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/france24.png"
+  },
+  {
+    "video": "http://103.199.161.254/Content/bbcworld/Live/Channel(BBCworld)/index.m3u8",
+    "name": "港澳台 BBC World News HD",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/BBCWORLDNEWSASIA.png"
+  },
+  {
+    "video": "http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
+    "name": "港澳台 ArirangTV",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/ArirangTV.png"
+  },
+  {
+    "video": "http://cms-wowza.lunabyte.io/wbrz-live-1/_definst_/smil:wbrz-live.smil/playlist.m3u8",
+    "name": "港澳台 ABC 2 Baton Rouge LA (WB",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/abcaus.png"
+  },
+  {
+    "video": "http://211.73.19.201/live/AB167E56-808C-81D4-6471-76DC400D5192.m3u8?fmt=x264_1200K_ts&cpid=admin&size=1920X1080",
+    "name": "港澳台 生命电视台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/shengming.png"
+  },
+  {
+    "video": "http://livedoc.cgtn.com/1000d/prog_index.m3u8",
+    "name": "港澳台 CGTN Documentary",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CGTNDoc.png"
+  },
+  {
+    "video": "http://liveru.cgtn.com/1000r/prog_index.m3u8",
+    "name": "央视 CGTN Русский",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/cgtn.png"
+  },
+  {
+    "video": "http://content.uplynk.com/channel/e56ba52a1b9d45ad8c8a033fd83fe480.m3u8",
+    "name": "港澳台 FOX",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/FOXHD.png"
+  },
+  {
+    "video": "http://livees.cgtn.com/1000e/prog_index.m3u8",
+    "name": "央视 西班牙中国环球电视网CGTN",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/cgtn.png"
+  },
+  {
+    "video": "http://content.uplynk.com/channel/328d1434fb51476cb6567c74d5b2cc70.m3u8",
+    "name": "港澳台 MTV",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/mtvlivehd.png"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/hhxdhd/4000000/mnf.m3u8",
+    "name": "上海 哈哈炫动",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/xuandong.png"
+  },
+  {
+    "video": "http://liveproduseast.akamaized.net/us/Channel-USTV-AWS-virginia-1/Source-USTV-1000-1_live.m3u8",
+    "name": "港澳台 Bloomberg TV",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/BloombergTV.png"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/4000000/mnf.m3u8",
+    "name": "上海 五星体育",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/wuxingtiyu.png"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/xfchd/4000000/mnf.m3u8",
+    "name": "上海 幸福彩",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/xingfucai.png"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ylpdhd/4000000/mnf.m3u8",
+    "name": "上海 上海都市",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/shanghaidushi.jpg"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/jsqchd/4000000/mnf.m3u8",
+    "name": "上海 极速汽车",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/jisuqiche.png"
+  },
+  {
+    "video": "http://mobile.ccdntech.com/transcoder/_definst_/vod164_Live/live/playlist.m3u8",
+    "name": "港澳台 唯心频道",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/weixin.png"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/jbtyhd/2300000/mnf.m3u8",
+    "name": "上海 劲爆体育",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/jinbaotiyu.jpg"
+  },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/wypdhd/4000000/mnf.m3u8",
+    "name": "上海 上视外语",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/shanghaiwaiyu.png"
+  },
+  {
+    "video": "http://lb.streaming.sk/fashiontv/stream/chunklist_w1906011378.m3u8",
+    "name": "港澳台 Fashion TV (SK)",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/faguoshishang.png"
+  },
+  {
+    "video": "http://lb.streaming.sk/fashiontv/stream/chunklist_w1702070444.m3u8",
+    "name": "港澳台 FTV-捷克&斯洛伐克",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/faguoshishang.png"
+  },
+  {
+    "video": "http://lb.streaming.sk/fashiontv/stream/chunklist.m3u8",
+    "name": "港澳台 法国时尚",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/faguoshishang.png"
+  },
+  {
+    "video": "http://static.france24.com/live/F24_AR_LO_HLS/live_web.m3u8",
+    "name": "港澳台 法国France 24",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/france24.png"
+  },
+  {
+    "video": "http://player.tvnet.lv/stream/amlst:61659/chunklist_w1822312625_b528000_pd892000.m3u8",
+    "name": "港澳台 拉脱维亚TV Net",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/tvN.png"
+  },
+  {
+    "video": "http://s1.media-planet.sk:80/live/novezamky/BratuMarian.m3u8",
+    "name": "港澳台 斯洛伐克TVNZ",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/tvN.png"
+  },
+  {
+    "video": "http://117.148.179.155/TVOD/88888888/224/3221231613/index.m3u8",
+    "name": "地方 教育4台",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/中国教育4台.png"
+  },
+  {
+    "video": "http://www.dalitv.com.tw:4568/live/dali/index.m3u8",
+    "name": "港澳台 大立电视台",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/DaliTV.png"
+  },
+  {
+    "video": "http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
+    "name": "港澳台 ArirangTV FHD",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/ArirangTV.png"
+  },
+  {
+    "video": "http://livecdn.fptplay.net/hda1/babyfirst_vhls.smil/chunklist_b5000000.m3u8",
+    "name": "港澳台 Baby First HD",
+    "picture": "http://epg.51zmt.top:8000/tb1/gt/BabyFirst.png"
+  }
+]
