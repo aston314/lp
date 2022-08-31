@@ -7,27 +7,27 @@
   {
     "video": "http://112.25.47.24/gitv_live/G_DONGFANG-HD-265-8M/G_DONGFANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 东方卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/dongfang.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongfang.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_JIANGSU-HD-265-8M/G_JIANGSU-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 江苏卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/jiangsu.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangsu.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_ZHEJIANG-HD-265-8M/G_ZHEJIANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 浙江卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/zhejiang.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/zhejiang.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_SHENZHEN-HD-265-8M/G_SHENZHEN-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 深圳卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/shenzhen.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shenzhen.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_GUANGDONG-HD-265-8M/G_GUANGDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 广东卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/guangdong.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangdong.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_HUBEI-HD-265-8M/G_HUBEI-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
@@ -47,7 +47,7 @@
   {
     "video": "http://112.25.47.24/gitv_live/G_BEIJING-HD-265-8M/G_BEIJING-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 北京卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/beijing.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijing.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_SHANDONG-HD-265-8M/G_SHANDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
@@ -62,7 +62,7 @@
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
     "name": "卫视 宁夏卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/ningxia.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225698/index.m3u8",
@@ -157,17 +157,12 @@
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225722/index.m3u8",
     "name": "卫视 旅游卫视",
-    "picture": "http://n.ysyz.top:99/buyaolian/lvyou.png"
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
     "name": "卫视 西藏卫视高清",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
-  },
-  {
-    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
-    "name": "卫视 宁夏卫视超清",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/xizang.png"
   },
   {
     "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/xsjhd/2300000/mnf.m3u8",
