@@ -328,7 +328,7 @@
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live019&nid=211",
     "name": "港澳台 东森财经新闻台",
-    "picture": ""
+    "picture": "http://www.tvyan.com/uploads/dianshi/ebccj.jpg"
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=litv-ftv13&nid=31",
@@ -344,10 +344,5 @@
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv052&nid=34",
     "name": "港澳台 华视新闻",
     "picture": "https://s11.mogucdn.com/mlcdn/fe720b/190311_120e2g9eg598aa86454b66ekg16b6_240x149.jpg"
-  },
-  {
-    "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv075&nid=268",
-    "name": "港澳台 镜新闻",
-    "picture": ""
   }
 ]
