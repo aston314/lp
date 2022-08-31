@@ -7845,6 +7845,8 @@
 
   var Workers = {
     online_view: WorkerArray,
+    torrents_view: WorkerArray,
+    search_history: WorkerArray,
     timetable: WorkerFilterID,
     recomends_list: WorkerFilterID,
     quality_scan: WorkerFilterID,
