@@ -95,14 +95,69 @@
     "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/live/ningxiastv/.m3u8",
-    "name": "卫视 宁夏卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
+    "video": "http://112.25.47.24/gitv_live/G_HUNAN-HD-265-8M/G_HUNAN-HD-265-8M.m3u8",
+    "name": "卫视 湖南卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/hunan.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_DONGFANG-HD-265-8M/G_DONGFANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 东方卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongfang.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_JIANGSU-HD-265-8M/G_JIANGSU-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 江苏卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangsu.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_ZHEJIANG-HD-265-8M/G_ZHEJIANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 浙江卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/zhejiang.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_SHENZHEN-HD-265-8M/G_SHENZHEN-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 深圳卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shenzhen.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_GUANGDONG-HD-265-8M/G_GUANGDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 广东卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangdong.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_HUBEI-HD-265-8M/G_HUBEI-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "卫视 湖北卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/hubei.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_LIAONING-HD-265-8M/G_LIAONING-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 辽宁卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/liaoning.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_HEILONGJIANG-HD-265-8M/G_HEILONGJIANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 黑龙江卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/heilongjiang.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_BEIJING-HD-265-8M/G_BEIJING-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 北京卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijing.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_SHANDONG-HD-265-8M/G_SHANDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 山东卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/shandong.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_ANHUI-HD-265-8M/G_ANHUI-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "卫视 安徽卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/anhui.png"
+  },
+  {
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
+    "name": "卫视 宁夏卫视",
+    "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
   },
   {
     "video": "http://hwrr.jx.chinamobile.com:8080/live/hdtianjinstv/.m3u8",
@@ -125,54 +180,9 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/gansu.png"
   },
   {
-    "video": "http://112.25.47.24/gitv_live/G_LIAONING-HD-265-8M/G_LIAONING-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 辽宁卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/liaoning.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_JIANGSU-HD-265-8M/G_JIANGSU-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 江苏卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangsu.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_HEILONGJIANG-HD-265-8M/G_HEILONGJIANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 黑龙江卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/heilongjiang.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_GUANGDONG-HD-265-8M/G_GUANGDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 广东卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangdong.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_DONGFANG-HD-265-8M/G_DONGFANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 东方卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongfang.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_BEIJING-HD-265-8M/G_BEIJING-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 北京卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/beijing.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_SHANDONG-HD-265-8M/G_SHANDONG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 山东卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/shandong.png"
-  },
-  {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225733/index.m3u8",
     "name": "卫视 四川卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/sichuan.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_HUNAN-HD-265-8M/G_HUNAN-HD-265-8M.m3u8",
-    "name": "卫视 湖南卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/hunan.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_ANHUI-HD-265-8M/G_ANHUI-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 安徽卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/anhui.png"
   },
   {
     "video": "http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225657/index.m3u8",
@@ -213,16 +223,6 @@
     "video": "http://125.210.152.19:9090/live/hszx-xztv-h264.m3u8",
     "name": "卫视 西藏卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_ZHEJIANG-HD-265-8M/G_ZHEJIANG-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 浙江卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/zhejiang.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_SHENZHEN-HD-265-8M/G_SHENZHEN-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "卫视 深圳卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/shenzhen.png"
   },
   {
     "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227095/index.m3u8?servicetype=1",
