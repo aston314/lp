@@ -92,32 +92,32 @@
   {
     "video": "http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225657/index.m3u8",
     "name": "卫视 东南卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/dongnan.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/dongnan.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225728/index.m3u8",
     "name": "卫视 贵州卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/guizhou.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/guizhou.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225727/index.m3u8",
     "name": "卫视 青海卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/qinghai.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/qinghai.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225731/index.m3u8",
     "name": "卫视 广西卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/guangxi.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/guangxi.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225732/index.m3u8",
     "name": "卫视 河北卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/hebei.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/hebei.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225725/index.m3u8",
     "name": "卫视 新疆卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/xinjiang.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/xinjiang.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225729/index.m3u8",
@@ -127,12 +127,7 @@
   {
     "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227095/index.m3u8?servicetype=1",
     "name": "卫视 河南卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/henan.png"
-  },
-  {
-    "video": "http://125.210.152.19:9090/live/hszx-lytv-h264.m3u8",
-    "name": "卫视 海南卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/henan.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225692/index.m3u8",
@@ -147,12 +142,12 @@
   {
     "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221226781/index.m3u8?servicetype=1",
     "name": "卫视 厦门卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/xiamen.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/xiamen.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225664/index.m3u8",
     "name": "卫视 云南卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/yunnan.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/yunnan.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225667/index.m3u8",
@@ -162,7 +157,7 @@
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225722/index.m3u8",
     "name": "卫视 旅游卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/lvyou.png"
   },
   {
     "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
