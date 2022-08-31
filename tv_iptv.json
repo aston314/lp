@@ -1,100 +1,5 @@
 [
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-1-HD-265-8M/G_CCTV-1-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV1",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-2-HD-265-8M/G_CCTV-2-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV2",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-3-HD-265-8M/G_CCTV-3-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV3",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-4-HD-265-8M/G_CCTV-4-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV4",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV4.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-5-HD-265-8M/G_CCTV-5-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV5",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-5PLUS-MD/G_CCTV-5PLUS-MD.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV5+",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-6-HD-265-8M/G_CCTV-6-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV6",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-7-HQ/G_CCTV-7-HQ.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV7",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV7.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-8-HD-265-8M/G_CCTV-8-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
-    "name": "央视 CCTV8",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV8.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-9-HD-265-5M/G_CCTV-9-HD-265-5M.m3u8",
-    "name": "央视 CCTV9",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV9.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-10-HQ/G_CCTV-10-HQ.m3u8",
-    "name": "央视 CCTV10",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV10.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-11-HQ/G_CCTV-11-HQ.m3u8",
-    "name": "央视 CCTV11",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV11.png"
-  },
-  {
-    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221225932/1.m3u8?servicetype=1",
-    "name": "央视 CCTV12",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV12.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-13-HQ/G_CCTV-13-HQ.m3u8",
-    "name": "央视 CCTV13",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV13.png"
-  },
-  {
-    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221227086/1.m3u8?servicetype=1",
-    "name": "央视 CCTV14",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV14.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-15/G_CCTV-15.m3u8",
-    "name": "央视 CCTV15",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV15.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-16-CQ/G_CCTV-16-CQ.m3u8",
-    "name": "央视 CCTV16",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-16-CQ/G_CCTV-16-CQ.m3u8",
-    "name": "央视 CCTV16奥林匹克",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_CCTV-17-HD/G_CCTV-17-HD.m3u8",
-    "name": "央视 CCTV17",
-    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png"
-  },
-  {
+    {
     "video": "http://112.25.47.24/gitv_live/G_HUNAN-HD-265-8M/G_HUNAN-HD-265-8M.m3u8",
     "name": "卫视 湖南卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/hunan.png"
@@ -220,11 +125,6 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/shanxi.png"
   },
   {
-    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
-    "name": "卫视 西藏卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
-  },
-  {
     "video": "http://39.135.55.105:6610/PLTV/88888888/224/3221227095/index.m3u8?servicetype=1",
     "name": "卫视 河南卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/henan.png"
@@ -283,8 +183,102 @@
     "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/4000000/mnf.m3u8",
     "name": "上海 五星体育",
     "picture": "http://www.weishizaixian.com/res/2021/06-29/c3bc69ba20246f8d5a4adff646f92bb9.jpg"
-  }
-  ,
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-1-HD-265-8M/G_CCTV-1-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV1",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-2-HD-265-8M/G_CCTV-2-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV2",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-3-HD-265-8M/G_CCTV-3-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV3",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-4-HD-265-8M/G_CCTV-4-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV4",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV4.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-5-HD-265-8M/G_CCTV-5-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV5",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-5PLUS-MD/G_CCTV-5PLUS-MD.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV5+",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-6-HD-265-8M/G_CCTV-6-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV6",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-7-HQ/G_CCTV-7-HQ.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV7",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV7.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-8-HD-265-8M/G_CCTV-8-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
+    "name": "央视 CCTV8",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV8.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-9-HD-265-5M/G_CCTV-9-HD-265-5M.m3u8",
+    "name": "央视 CCTV9",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV9.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-10-HQ/G_CCTV-10-HQ.m3u8",
+    "name": "央视 CCTV10",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV10.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-11-HQ/G_CCTV-11-HQ.m3u8",
+    "name": "央视 CCTV11",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV11.png"
+  },
+  {
+    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221225932/1.m3u8?servicetype=1",
+    "name": "央视 CCTV12",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV12.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-13-HQ/G_CCTV-13-HQ.m3u8",
+    "name": "央视 CCTV13",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV13.png"
+  },
+  {
+    "video": "http://39.135.49.209:6610/PLTV/88888888/224/3221227086/1.m3u8?servicetype=1",
+    "name": "央视 CCTV14",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV14.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-15/G_CCTV-15.m3u8",
+    "name": "央视 CCTV15",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV15.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-16-CQ/G_CCTV-16-CQ.m3u8",
+    "name": "央视 CCTV16",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-16-CQ/G_CCTV-16-CQ.m3u8",
+    "name": "央视 CCTV16奥林匹克",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png"
+  },
+  {
+    "video": "http://112.25.47.24/gitv_live/G_CCTV-17-HD/G_CCTV-17-HD.m3u8",
+    "name": "央视 CCTV17",
+    "picture": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png"
+  },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live072&nid=129",
     "name": "港澳台 TVBS新闻台",
