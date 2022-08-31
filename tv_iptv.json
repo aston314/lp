@@ -297,57 +297,57 @@
   {
     "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/xsjhd/2300000/mnf.m3u8",
     "name": "上海 新视觉",
-    "picture": "http://epg.51zmt.top:8000/tb1/qt/xinshijue.png"
+    "picture": ""
   },
   {
     "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/4000000/mnf.m3u8",
     "name": "上海 五星体育",
-    "picture": "http://epg.51zmt.top:8000/tb1/qt/wuxingtiyu.png"
+    "picture": ""
   }
   ,
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live072&nid=129",
     "name": "港澳台 TVBS新闻台",
-    "picture": "https://obs.line-scdn.net/0hTGyPjr1yC2hEKSBeaUJ0P35_CAd3RRhrIB9aawdHVVw8HUw9eU0WWWZ6V188Hkw2KhpDDmYoEFk5EBk7fkwW/w1200"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv009&nid=30",
     "name": "港澳台 中天新闻",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv074&nid=33",
     "name": "港澳台 中视新闻",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live089&nid=229",
     "name": "港澳台 三立iNews",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/SETInews.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live019&nid=211",
     "name": "港澳台 东森财经新闻台",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCFinancialNews.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=litv-ftv13&nid=31",
     "name": "港澳台 民视新闻台",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/FTVNews.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live114&nid=234",
     "name": "港澳台 东森新闻台",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCNews.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv052&nid=34",
     "name": "港澳台 华视新闻",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCNews.png"
+    "picture": ""
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv075&nid=268",
     "name": "港澳台 镜新闻",
-    "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCNews.png"
+    "picture": ""
   }
 ]
