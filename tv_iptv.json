@@ -325,10 +325,16 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
   },
   {
-    "video": "http://183.207.255.188/live/program/live/xsjhd/4000000/mnf.m3u8",
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/xsjhd/2300000/mnf.m3u8",
     "name": "上海 新视觉",
     "picture": "http://epg.51zmt.top:8000/tb1/qt/xinshijue.png"
   },
+  {
+    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/4000000/mnf.m3u8",
+    "name": "上海 五星体育",
+    "picture": "http://epg.51zmt.top:8000/tb1/qt/wuxingtiyu.png"
+  }
+  ,
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live072&nid=129",
     "name": "港澳台 TVBS新闻台",
@@ -373,10 +379,5 @@
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv075&nid=268",
     "name": "港澳台 镜新闻",
     "picture": "http://epg.51zmt.top:8000/tb1/gt/EBCNews.png"
-  },
-  {
-    "video": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/4000000/mnf.m3u8",
-    "name": "上海 五星体育",
-    "picture": "http://epg.51zmt.top:8000/tb1/qt/wuxingtiyu.png"
   }
 ]
