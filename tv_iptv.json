@@ -160,22 +160,22 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/ningxia.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/live/hdtianjinstv/.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225698/index.m3u8",
     "name": "卫视 天津卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/tianjin.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hzgq-jxwsgq-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225705/index.m3u8",
     "name": "卫视 江西卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/jiangxi.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/live/jilinstv/.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225680/index.m3u8",
     "name": "卫视 吉林卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/jilin.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/live/gansustv/.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225724/index.m3u8",
     "name": "卫视 甘肃卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/gansu.png"
   },
@@ -200,27 +200,27 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/qinghai.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/PLTV/88888910/224/3221225731/index.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225731/index.m3u8",
     "name": "卫视 广西卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/guangxi.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hzgq-hbwsgq1-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225732/index.m3u8",
     "name": "卫视 河北卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/hebei.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hszx-xjtv-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225725/index.m3u8",
     "name": "卫视 新疆卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/xinjiang.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hszx-shanxitv-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225729/index.m3u8",
     "name": "卫视 陕西卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/shanxi.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hszx-xztv-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
     "name": "卫视 西藏卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/xizang.png"
   },
@@ -235,12 +235,12 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
   },
   {
-    "video": "http://hwrr.jx.chinamobile.com:8080/live/chongqingstv/playlist.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225692/index.m3u8",
     "name": "卫视 重庆卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/chongqing.png"
   },
   {
-    "video": "http://liveflash.sxrtv.com/live/sxwshd.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225730/index.m3u8",
     "name": "卫视 山西卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/shanxi_.png"
   },
@@ -250,37 +250,17 @@
     "picture": "http://epg.51zmt.top:8000/tb1/ws/xiamen.png"
   },
   {
-    "video": "http://125.210.152.19:9090/live/hzgq-ssws-h264.m3u8",
-    "name": "卫视 三沙卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/sansha.png"
-  },
-  {
-    "video": "http://125.210.152.19:9090/live/hszx-bttv-h264.m3u8",
-    "name": "卫视 兵团卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/bingtuan.png"
-  },
-  {
-    "video": "http://112.25.47.24/gitv_live/G_KANGBA/G_KANGBA.m3u8",
-    "name": "卫视 康巴卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/kangba.png"
-  },
-  {
-    "video": "http://125.210.152.19:9090/live/hszx-nmgtv-h264.m3u8",
-    "name": "卫视 内蒙古卫视",
-    "picture": "http://epg.51zmt.top:8000/tb1/ws/neimeng.png"
-  },
-  {
-    "video": "http://125.210.152.19:9090/live/hzgq-ynwsgq-h264.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225664/index.m3u8",
     "name": "卫视 云南卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/yunnan.png"
   },
   {
-    "video": "http://111.63.117.13:6060/030000001000/G_NEIMENGGU/G_NEIMENGGU.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225667/index.m3u8",
     "name": "卫视 内蒙卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/neimeng.png"
   },
   {
-    "video": "http://111.63.117.13:6060/030000001000/LYWS/LYWS.m3u8",
+    "video": "http://39.134.115.163:8080/PLTV/88888910/224/3221225722/index.m3u8",
     "name": "卫视 旅游卫视",
     "picture": "http://epg.51zmt.top:8000/tb1/ws/lvyou.png"
   },
