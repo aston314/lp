@@ -2430,7 +2430,7 @@
     if (name == 'app') {
       return object$3.app_version;
     } else if (name == 'android') {
-      return AndroidJS.appVersion();
+      return '1.3.3';
     } else {
       return '';
     }
