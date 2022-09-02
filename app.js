@@ -7037,7 +7037,7 @@
         destroy$3();
         play$1(e.item);
         PlayerVideo.setParams(params);
-        if (e.item.url.indexOf(Torserver.ip()) > -1) PlayerInfo.set('stat', e.item.url);
+        if (Torserver.ip() && e.item.url.indexOf(Torserver.ip()) > -1) PlayerInfo.set('stat', e.item.url);
         PlayerPanel.showNextEpisodeName({
           playlist: e.playlist,
           position: e.position
@@ -7228,7 +7228,7 @@
 
 
   function preload(data, call) {
-    if (data.url.indexOf(Torserver.ip()) > -1 && data.url.indexOf('&preload') > -1) {
+    if (Torserver.ip() && data.url.indexOf(Torserver.ip()) > -1 && data.url.indexOf('&preload') > -1) {
       preloader.wait = true;
       PlayerInfo.set('name', data.title);
       $('body').append(html$b);
@@ -7719,13 +7719,17 @@
       value: function send(id, value) {
         if (this.field !== 'online_view' && !Account.hasPremium()) return; //console.log('StorageWorker','send:',this.field, id,value)
 
-        Socket.send('storage', {
-          params: {
-            id: id,
-            name: this.field,
-            value: value
-          }
-        });
+        var str = JSON.stringify(value);
+
+        if (str.length < 10000) {
+          Socket.send('storage', {
+            params: {
+              id: id,
+              name: this.field,
+              value: value
+            }
+          });
+        }
       }
     }, {
       key: "save",
@@ -8254,7 +8258,7 @@
         if (!id.length) {
           data$3.push({
             id: elem.id,
-            tv: elem.number_of_seasons
+            tv: elem.number_of_seasons || elem.seasons
           });
         }
       }
@@ -8989,6 +8993,25 @@
       type: 'wath'
     }));
   }
+
+  function filter(episodes) {
+    var filtred = [];
+    var fileds = ['air_date', 'season_number', 'episode_number', 'name', 'still_path'];
+    episodes.forEach(function (episode) {
+      var item = {};
+      fileds.forEach(function (field) {
+        if (typeof episode[field] !== 'undefined') item[field] = episode[field];
+      });
+      filtred.push(item);
+    });
+    filtred = filtred.filter(function (episode) {
+      var create = new Date(episode.air_date);
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return create.getTime() >= today.getTime() ? true : false;
+    });
+    return filtred;
+  }
   /**
    * Парсим карточку
    */
@@ -8997,7 +9020,7 @@
   function parse() {
     if (Favorite.check(object$1).any) {
       TMDB.get('tv/' + object$1.id + '/season/' + object$1.season, {}, function (ep) {
-        object$1.episodes = ep.episodes;
+        object$1.episodes = filter(ep.episodes);
         save$5();
       }, save$5);
     } else {
