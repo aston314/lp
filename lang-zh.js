@@ -705,5 +705,9 @@ Lampa.Lang.AddTranslation('zh',{
     account_premium: '使用 CUB 高级帐户发现更多功能。增加限制和访问权限到服务的额外功能。',
     account_premium_more: '了解有关 CUB Premium 的更多信息',
     account_limited: '您已达到最大限制。使用 CUB Premium 帐户增加限制。了解更多信息，请访问 <span class="account-modal__site">www .cub.watch/premium</span>',
-    settings_rest_tmdb_prox_auto: 'Enable proxy automatically'
+    settings_rest_tmdb_prox_auto: '自动启用代理',
+    settings_rest_card_quality: '质量标记',
+    settings_rest_card_quality_descr: '在卡片上显示质量标记',
+    settings_rest_card_episodes: '剧集标记',
+    settings_rest_card_episodes_descr: 'Display episode markers on cards'
   });
