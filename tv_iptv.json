@@ -300,6 +300,11 @@
     "picture": "http://www.tvniu.com/tvimg/img/etnews.jpg"
   },
   {
+    "video": "http://50.7.220.74:8278/ettvnews/playlist.m3u8?tid=m208c21bf386611408694&ct=17874&tsum=d1b4de373c886cd8015974fa8c5d6d12",
+    "name": "港澳台 东森Live",
+    "picture": "http://www.tvniu.com/tvimg/img/etnews.jpg"
+  },
+  {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv052&nid=34",
     "name": "港澳台 华视新闻",
     "picture": "https://s11.mogucdn.com/mlcdn/fe720b/190311_120e2g9eg598aa86454b66ekg16b6_240x149.jpg"
@@ -308,31 +313,6 @@
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv075&nid=268",
     "name": "港澳台 镜新闻",
     "picture": "https://piceltaott-elta.cdn.hinet.net/upload/channel/915_pic_20220503151817.png"
-  },
-  {
-    "video": "https://t18.iptv200.com/live/tvb/index.m3u8?session=w1z9xubpti8j256uplw1947g2bhd6g2k",
-    "name": "港澳台 TVB翡翠台",
-    "picture": "https://www.nettvpro.live/uploads/18/1-1P322210400B3.jpg"
-  },
-  {
-    "video": "https://cdn.hklive.tv/xxxx/82/index.m3u8",
-    "name": "港澳台 TVB J2台",
-    "picture": "https://www.nettvpro.live/uploads/18/1-1P40ZG422936.jpg"
-  },
-  {
-    "video": "https://cdn.hklive.tv/xxxx/83/index.m3u8",
-    "name": "港澳台 TVB無線新聞",
-    "picture": "https://www.nettvpro.live/uploads/18/1-1P40ZG925S9.jpg"
-  },
-  {
-    "video": "https://cdn.hklive.tv/xxxx/84/index.m3u8",
-    "name": "港澳台 TVB明珠台",
-    "picture": "https://www.nettvpro.live/uploads/allimg/18/1-1P3111915460-L.jpg"
-  },
-  {
-    "video": "https://cdn.hklive.tv/xxxx/85/index.m3u8",
-    "name": "港澳台 TVB無線財經",
-    "picture": "https://www.nettvpro.live/uploads/18/1-1P322210400B3.jpg"
   },
   {
     "video": "https://playtv-live.ifeng.com/live/06OLEEWQKN4_tv1.m3u8",
