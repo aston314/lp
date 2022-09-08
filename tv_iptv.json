@@ -187,7 +187,7 @@
   {
     "video": "http://112.25.47.24/gitv_live/G_CCTV-3-HD-265-8M/G_CCTV-3-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
     "name": "央视 CCTV3",
-    "picture": "http://n.ysyz.top:99/buyaolian/cctv.png"
+    "picture": "http://n.ysyz.top:99/buyaolian/cctv3.png"
   },
   {
     "video": "http://112.25.47.24/gitv_live/G_CCTV-4-HD-265-8M/G_CCTV-4-HD-265-8M.m3u8?p=GITV&area=JS_CMCC_CP",
@@ -267,7 +267,7 @@
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-live072&nid=129",
     "name": "港澳台 TVBS新闻台",
-    "picture": "https://www.nettvpro.live/uploads/18/1-1P506204425640.jpg"
+    "picture": "https://cors.eu.org/https://www.nettvpro.live/uploads/18/1-1P506204425640.jpg"
   },
   {
     "video": "http://for40255.sytes.net:8099/tv/iptv/live_4gtv.php?vid=4gtv-4gtv009&nid=30",
