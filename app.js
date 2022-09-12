@@ -356,7 +356,7 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.6.9',
+    css_version: '1.7.0',
     app_version: '1.5.1'
   };
   Object.defineProperty(object$3, 'app_digital', {
@@ -5937,6 +5937,7 @@
     neeed_sacle = false;
     paused.addClass('hide');
     if (webos) webos.destroy();
+    $('> div', subtitles$1).empty();
     webos = null;
     webos_wait = {};
     var hls_destoyed = false;
@@ -6921,7 +6922,7 @@
     /** Сбросить (продолжить) */
 
     PlayerVideo.listener.follow('reset_continue', function (e) {
-      if (work && work.timeline) work.timeline.continued = false;
+      if (work && work.timeline && !work.timeline.continued_bloc) work.timeline.continued = false;
     });
     /** Перемотка мышкой */
 
@@ -7014,7 +7015,11 @@
     PlayerPanel.listener.follow('quality', function (e) {
       PlayerVideo.destroy(true);
       PlayerVideo.url(e.url);
-      if (work && work.timeline) work.timeline.continued = false;
+
+      if (work && work.timeline) {
+        work.timeline.continued = false;
+        work.timeline.continued_bloc = false;
+      }
     });
     /** Нажали на кнопку (отправить) */
 
@@ -7264,12 +7269,18 @@
           }],
           onBack: function onBack() {
             work.timeline.continued = true;
+            work.timeline.continued_bloc = true;
             toggle$6();
             clearTimeout(timer_ask);
           },
           onSelect: function onSelect(a) {
             work.timeline.waiting_for_user = false;
-            if (!a.yes) work.timeline.continued = true;
+
+            if (!a.yes) {
+              work.timeline.continued = true;
+              work.timeline.continued_bloc = true;
+            }
+
             toggle$6();
             clearTimeout(timer_ask);
           }
@@ -7277,6 +7288,7 @@
         clearTimeout(timer_ask);
         timer_ask = setTimeout(function () {
           work.timeline.continued = true;
+          work.timeline.continued_bloc = true;
           Select.hide();
           toggle$6();
         }, 8000);
@@ -8942,7 +8954,7 @@
     setInterval(extract$1, 1000 * 60 * 2);
     setInterval(favorites, 1000 * 60 * 10);
     Favorite.listener.follow('add,added', function (e) {
-      if (e.card.number_of_seasons) update$5(e.card);
+      if (e.card.number_of_seasons && e.where !== 'history') update$5(e.card);
     });
     Favorite.listener.follow('remove', function (e) {
       if (e.card.number_of_seasons && e.method == 'id') {
@@ -9089,7 +9101,7 @@
 
 
   function update$5(elem) {
-    if (elem.number_of_seasons && Favorite.check(elem).any) {
+    if (elem.number_of_seasons && Favorite.check(elem).any && typeof elem.id == 'number') {
       var id = data$2.filter(function (a) {
         return a.id == elem.id;
       });
@@ -9373,7 +9385,7 @@
 
     this.visible = function () {
       if (this.visibled) return;
-      if (data.poster_path) this.img.src = Api.img(data.poster_path);else if (data.poster) this.img.src = data.poster;else if (data.img) this.img.src = data.img;else this.img.src = './img/img_broken.svg';
+      if (params.card_wide && data.backdrop_path) this.img.src = Api.img(data.backdrop_path, 'w500');else if (data.poster_path) this.img.src = Api.img(data.poster_path);else if (data.poster) this.img.src = data.poster;else if (data.img) this.img.src = data.img;else this.img.src = './img/img_broken.svg';
       this.visibled = true;
     };
     /**
@@ -15320,6 +15332,7 @@
   }
 
   function play(id) {
+    if (typeof YT == 'undefined') return;
     create$c(id);
     Controller.add('youtube', {
       invisible: true,
@@ -15528,7 +15541,7 @@
                 Player.playlist([a]);
               } else if (Platform.is('android')) {
                 openYoutube(a.id);
-              } else if (typeof YouTube !== 'undefined') YouTube.play(a.id);
+              } else YouTube.play(a.id);
             },
             onBack: function onBack() {
               Controller.toggle('full_start');
@@ -16703,8 +16716,10 @@
       if (Lampa.Activity.active().activity == this.activity && need_update && time_update < Date.now() - 1000) {
         time_update = Date.now();
         setTimeout(function () {
-          object.page = 1;
-          Activity$1.replace(object);
+          if (!$('body').hasClass('settings--open')) {
+            object.page = 1;
+            Activity$1.replace(object);
+          }
         }, 0);
       }
     };
@@ -18797,7 +18812,7 @@
           Controller.toggle('head');
         },
         back: function back() {
-          Activity.backward();
+          backward();
         }
       });
       Controller.toggle('content');
@@ -24878,6 +24893,7 @@
       item.find('.extensions__item-author').text(plug.author || (params.type == 'plugins' ? '@cub' : '@lampa'));
       item.find('.extensions__item-descr').text(plug.descr || plug.url || plug.link);
       item.find('.extensions__item-disabled').toggleClass('hide', Boolean(plug.status));
+      if (plug.premium) item.find('.extensions__item-author').prepend('<span class="extensions__item-premium">CUB Premium</span>');
     };
 
     this.check = function () {
@@ -25499,7 +25515,8 @@
     Manifest: object$3,
     TMDB: TMDB$1,
     Base64: Base64,
-    Loading: Loading
+    Loading: Loading,
+    YouTube: YouTube
   };
 
   function prepareApp() {
