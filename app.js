@@ -9233,7 +9233,7 @@
 
 
     this.update = function () {
-      var quality = !data.first_air_date && Storage.field('card_quality') ? VideoQuality.get(data) : false;
+      var quality = data.quality || (!data.first_air_date && Storage.field('card_quality') ? VideoQuality.get(data) : false);
       this.card.find('.card__quality,.card-watched,.card__new-episode').remove();
 
       if (quality) {
@@ -10706,7 +10706,7 @@
         if (_this2.onEnter) _this2.onEnter();
 
         if (_this2.onMore) {
-          _this2.onMore();
+          _this2.onMore(data);
         } else {
           Activity$1.push({
             url: data.url,
@@ -15179,6 +15179,7 @@
       item.onDown = this.down.bind(this);
       item.onUp = this.up.bind(this);
       item.onBack = this.back.bind(this);
+      if (this.onMore) item.onMore = this.onMore.bind(this);
 
       if (info) {
         item.onFocus = info.update;
@@ -16334,12 +16335,16 @@
       if (object.page < 15 && object.page < total_pages) {
         waitload = true;
         object.page++;
-        Api.list(object, function (result) {
+        this.nextPageReuest(object, function (result) {
           _this.append(result, true);
 
-          waitload = false; //Controller.enable('content')
+          waitload = false;
         }, function () {});
       }
+    };
+
+    this.nextPageReuest = function (object, resolve, reject) {
+      Api.list(object, resolve.bind(this), reject.bind(this));
     };
 
     this.append = function (data, append) {
