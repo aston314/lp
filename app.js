@@ -16815,7 +16815,7 @@
 
         card.onEnter = function (target, card_data) {
           if (!/^[0-9]+.?[0-9]*/.test(element.id) && object.type == 'history') {
-                    if (/^https://www.aliyundrive.com/s/[a-zA-Zd]+/i.test(element.url)) {
+                    if (/^https:\/\/www\.aliyundrive\.com\/s\/[a-zA-Z\d]+/i.test(element.url)) {
                         Lampa.Activity.push({
                             url: element.url,
                             title: '阿里云盘播放',
