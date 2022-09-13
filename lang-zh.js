@@ -585,7 +585,7 @@ Lampa.Lang.AddTranslation('zh',{
     account_import_secuses: '导入成功',
     account_import_fail: '导入错误',
     account_imported: '导入',
-    account_reload_after: '5 秒后重新启动',
+    account_reload_after: '5 秒后重启',
     network_noconnect: '无网络连接',
     network_404: '未找到请求的页面。[404]',
     network_401: '授权失败',
