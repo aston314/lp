@@ -16815,17 +16815,28 @@
 
         card.onEnter = function (target, card_data) {
           if (!/^[0-9]+.?[0-9]*/.test(element.id) && object.type == 'history') {
-                Activity$1.push({
-                    url: '',
-                    title: '在线观看',
-                    component: 'online_mod',
-                    search: element.title,
-                    search_one: element.title,
-                    search_two: element.title,
-                    movie: element,
-                    page: 1
-                });
-            } else {
+                    if (/^https://www.aliyundrive.com/s/[a-zA-Zd]+/i.test(element.url)) {
+                        Lampa.Activity.push({
+                            url: element.url,
+                            title: '阿里云盘播放',
+                            component: 'yunpan2',
+                            movie: element,
+                            page: 1
+                        });
+                    }
+                    else {
+                        Activity$1.push({
+                            url: '',
+                            title: '在线观看',
+                            component: 'online_mod',
+                            search: element.title,
+                            search_one: element.title,
+                            search_two: element.title,
+                            movie: element,
+                            page: 1
+                        });
+                    };
+                } else {
                 Activity$1.push({
                     url: card_data.url,
                     component: 'full',
