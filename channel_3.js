@@ -484,6 +484,9 @@
             title: '阿里云盘发布频道',
             url: 'https://tx.me/s/Aliyundrive_Share_Channel'
         },{
+            title: '阿里云盘发布频道2',
+            url: 'https://tx.me/s/shareAliyun'
+        }, {
             title: '阿里云盘盘',
             url: 'https://tx.me/s/yunpanpan'
         }, {
