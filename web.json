@@ -289,7 +289,7 @@
         "selector": "div.pagenavi_txt"
       },
       "videoscontainer": {
-        "selector": "div.bt_img.mi_ne_kd.mrb > ul > li",
+        "selector": "div.bt_img.mi_ne_kd > ul > li",
         "attrName": "",
         "filter": ""
       },
