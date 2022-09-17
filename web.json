@@ -231,7 +231,7 @@
       {
         "title": "最近更新",
         "url": "https://www.subaibaiys.com",
-        "quantity": ":lt(15)"
+        "quantity": ":lt(16)"
       },
       {
         "title": "电影",
