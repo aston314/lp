@@ -853,7 +853,7 @@
       },
       {
         "title": "蓝光原盘",
-        "url": "https://www.yinfans.me/topic/bluray-movi",
+        "url": "https://www.yinfans.me/topic/bluray-movie",
         "quantity": ""
       },
       {
@@ -889,7 +889,7 @@
     },
     "detail": {
       "videoscontainer": {
-        "selector": "table > tbody > tr > td > a",
+        "selector": "table#cili > tbody > tr > td > a",
         "attrName": "",
         "filter": ""
       },
