@@ -289,18 +289,18 @@
         "selector": "div.pagenavi_txt"
       },
       "videoscontainer": {
-        "selector": ".bt_img.mi_ne_kd.mrb",
+        "selector": "div.bt_img.mi_ne_kd.mrb > ul > li",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": ".thumb.lazy",
+        "selector": "a > img",
         "attrName": "alt",
         "filter": ""
       },
       "thumb": {
-        "selector": ".thumb.lazy",
-        "attrName": "src",
+        "selector": "a > img",
+        "attrName": "data-original",
         "filter": ""
       },
       "link": {
