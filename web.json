@@ -1369,7 +1369,7 @@
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": "a.tgme_widget_message_photo_wrap",
+        "selector": "div.tgme_widget_message_bubble > a",
         "attrName": "style",
         "filter": "url\\('(.+?)'\\)"
       },
