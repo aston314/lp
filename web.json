@@ -1341,5 +1341,46 @@
     "search": {
       "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
     }
+  },
+  {
+    "title": "阿里云盘发布频道",
+    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+    "show": "portrait",
+    "next": "search",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": ".tgme_widget_message_centered.js-messages_more_wrap"
+      },
+      "videoscontainer": {
+        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": ".tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "([^\\s]+)"
+      },
+      "thumb": {
+        "selector": ".tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
+      },
+      "link": {
+        "selector": ".tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+)"
+      }
+    },
+    "search": {
+      "url": "https://www.subaibaiys.com/grabble?q=#msearchword"
+    }
   }
 ]
