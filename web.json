@@ -1356,7 +1356,7 @@
     ],
     "list": {
       "page": {
-        "selector": ".tgme_widget_message_centered.js-messages_more_wrap"
+        "selector": "div.tgme_widget_message_centered.js-messages_more_wrap"
       },
       "videoscontainer": {
         "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
@@ -1364,17 +1364,17 @@
         "filter": ""
       },
       "title": {
-        "selector": ".tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_text.js-message_text",
         "attrName": "text",
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": ".tgme_widget_message_photo_wrap",
+        "selector": "div.tgme_widget_message_photo_wrap",
         "attrName": "style",
         "filter": "url\\('(.+?)'\\)"
       },
       "link": {
-        "selector": ".tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_text.js-message_text",
         "attrName": "text",
         "filter": "https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+)"
       }
