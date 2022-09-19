@@ -1365,7 +1365,7 @@
     "title": "阿里云盘发布频道",
     "link": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
     "show": "portrait",
-    "next": "search",
+    "next": "aliyundrive",
     "datasort": "reverse",
     "category": [
       {
@@ -1376,7 +1376,7 @@
     ],
     "list": {
       "page": {
-        "selector": ".tme_messages_more.js-messages_more"
+        "selector": "a.tme_messages_more.js-messages_more"
       },
       "videoscontainer": {
         "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
