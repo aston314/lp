@@ -1366,7 +1366,7 @@
       "title": {
         "selector": "div.tgme_widget_message_text.js-message_text",
         "attrName": "html",
-        "filter": "([^<br>]+)"
+        "filter": "(.+?)<br>"
       },
       "thumb": {
         "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
