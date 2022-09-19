@@ -1185,6 +1185,174 @@
     }
   },
   {
+    "title": "阿里云盘发布频道",
+    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+    "show": "portrait",
+    "next": "aliyundrive",
+    "datasort": "reverse",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "a.tme_messages_more.js-messages_more"
+      },
+      "videoscontainer": {
+        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "html",
+        "filter": "(.+?)<br>"
+      },
+      "thumb": {
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
+      },
+      "link": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+      }
+    },
+    "search": {
+      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
+    }
+  },
+  {
+    "title": "阿里云盘发布频道2",
+    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
+    "show": "portrait",
+    "next": "aliyundrive",
+    "datasort": "reverse",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "a.tme_messages_more.js-messages_more"
+      },
+      "videoscontainer": {
+        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "html",
+        "filter": "(.+?)<br>"
+      },
+      "thumb": {
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
+      },
+      "link": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+      }
+    },
+    "search": {
+      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/hareAliyun?q=#msearchword"
+    }
+  },
+  {
+    "title": "阿里云盘盘",
+    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
+    "show": "portrait",
+    "next": "aliyundrive",
+    "datasort": "reverse",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "a.tme_messages_more.js-messages_more"
+      },
+      "videoscontainer": {
+        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "html",
+        "filter": "(.+?)<br>"
+      },
+      "thumb": {
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
+      },
+      "link": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+      }
+    },
+    "search": {
+      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan?q=#msearchword"
+    }
+  },
+  {
+    "title": "肯德基电影院",
+    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
+    "show": "portrait",
+    "next": "aliyundrive",
+    "datasort": "reverse",
+    "category": [
+      {
+        "title": "首页",
+        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "a.tme_messages_more.js-messages_more"
+      },
+      "videoscontainer": {
+        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "html",
+        "filter": "(.+?)<br>"
+      },
+      "thumb": {
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
+      },
+      "link": {
+        "selector": "div.tgme_widget_message_text.js-message_text",
+        "attrName": "text",
+        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+      }
+    },
+    "search": {
+      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB?q=#msearchword"
+    }
+  },
+  {
     "title": "tvbox",
     "link": "https://www.tvbox.one/",
     "show": "landscape",
@@ -1359,48 +1527,6 @@
     },
     "search": {
       "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
-    }
-  },
-  {
-    "title": "阿里云盘发布频道",
-    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
-    "show": "portrait",
-    "next": "aliyundrive",
-    "datasort": "reverse",
-    "category": [
-      {
-        "title": "首页",
-        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
-        "quantity": ""
-      }
-    ],
-    "list": {
-      "page": {
-        "selector": "a.tme_messages_more.js-messages_more"
-      },
-      "videoscontainer": {
-        "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
-        "attrName": "",
-        "filter": ""
-      },
-      "title": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
-        "attrName": "html",
-        "filter": "(.+?)<br>"
-      },
-      "thumb": {
-        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-        "attrName": "style",
-        "filter": "url\\('(.+?)'\\)"
-      },
-      "link": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
-        "attrName": "text",
-        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
-      }
-    },
-    "search": {
-      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
     }
   }
 ]
