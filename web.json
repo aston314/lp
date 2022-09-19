@@ -1365,8 +1365,8 @@
       },
       "title": {
         "selector": "div.tgme_widget_message_text.js-message_text",
-        "attrName": "text",
-        "filter": "([^\\s]+)"
+        "attrName": "html",
+        "filter": "([^<br>]+)"
       },
       "thumb": {
         "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
@@ -1376,7 +1376,7 @@
       "link": {
         "selector": "div.tgme_widget_message_text.js-message_text",
         "attrName": "text",
-        "filter": "https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+)"
+        "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
       }
     },
     "search": {
