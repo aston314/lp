@@ -1376,7 +1376,7 @@
     ],
     "list": {
       "page": {
-        "selector": "div.tgme_widget_message_centered.js-messages_more_wrap"
+        "selector": ".tme_messages_more.js-messages_more"
       },
       "videoscontainer": {
         "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
