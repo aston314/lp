@@ -1212,9 +1212,9 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble",
-        "attrName": "html",
-        "filter": "url\\('(^http|https.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
@@ -1254,9 +1254,9 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble",
-        "attrName": "html",
-        "filter": "url\\('(^http|https.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
@@ -1296,9 +1296,9 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble",
-        "attrName": "html",
-        "filter": "url\\('(^http|https.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
@@ -1338,9 +1338,9 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble",
-        "attrName": "html",
-        "filter": "url\\('(^http|https.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "attrName": "style",
+        "filter": "url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
