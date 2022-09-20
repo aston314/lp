@@ -1212,12 +1212,12 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-        "attrName": "style",
-        "filter": "url\\('(.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble",
+        "attrName": "html",
+        "filter": "url\\('(^http|https.+?)'\\)"
       },
       "link": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_bubble",
         "attrName": "text",
         "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
       }
@@ -1254,12 +1254,12 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-        "attrName": "style",
-        "filter": "url\\('(.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble",
+        "attrName": "html",
+        "filter": "url\\('(^http|https.+?)'\\)"
       },
       "link": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_bubble",
         "attrName": "text",
         "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
       }
@@ -1296,12 +1296,12 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-        "attrName": "style",
-        "filter": "url\\('(.+?)'\\)"
+        "selector": "div.tgme_widget_message_bubble",
+        "attrName": "html",
+        "filter": "url\\('(^http|https.+?)'\\)"
       },
       "link": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_bubble",
         "attrName": "text",
         "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
       }
