@@ -1338,12 +1338,12 @@
         "filter": "(.+?)<br>"
       },
       "thumb": {
-        "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+        "selector": "div.tgme_widget_message_bubble",
         "attrName": "style",
         "filter": "url\\('(.+?)'\\)"
       },
       "link": {
-        "selector": "div.tgme_widget_message_text.js-message_text",
+        "selector": "div.tgme_widget_message_bubble",
         "attrName": "text",
         "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
       }
