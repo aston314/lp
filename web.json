@@ -1340,7 +1340,7 @@
       "thumb": {
         "selector": "div.tgme_widget_message_bubble",
         "attrName": "style",
-        "filter": "url\\('(.+?)'\\)"
+        "filter": "image:url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
