@@ -1339,8 +1339,8 @@
       },
       "thumb": {
         "selector": "div.tgme_widget_message_bubble",
-        "attrName": "style",
-        "filter": "image:url\\('(.+?)'\\)"
+        "attrName": "html",
+        "filter": "url\\('(.+?)'\\)"
       },
       "link": {
         "selector": "div.tgme_widget_message_bubble",
