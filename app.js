@@ -19425,7 +19425,7 @@
 
       if (event.name == 'light_version') {
         activites.forEach(function (activity) {
-          activity.activity.refresh();
+          if (activity.activity) activity.activity.refresh();
         });
       }
     });
