@@ -1051,7 +1051,7 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img",
+        "selector": "ul.post-loop > li > div.item-img",
         "attrName": "",
         "filter": ""
       },
