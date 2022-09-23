@@ -1051,7 +1051,7 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": ".item-img",
+        "selector": ".sec-panel-body",
         "attrName": "",
         "filter": ""
       },
