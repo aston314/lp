@@ -1056,17 +1056,17 @@
         "filter": ""
       },
       "title": {
-        "selector": ".item-img-inner",
+        "selector": "a.item-img-inner",
         "attrName": "title",
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": ".attachment-default",
+        "selector": "img.attachment-default",
         "attrName": "src",
         "filter": ""
       },
       "link": {
-        "selector": ".item-img-inner",
+        "selector": "a.item-img-inner",
         "attrName": "href",
         "filter": ""
       }
