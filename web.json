@@ -1051,12 +1051,12 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": ".item-img-inner",
+        "selector": ".item-img",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": "",
+        "selector": "a",
         "attrName": "title",
         "filter": "([^\\s]+)"
       },
@@ -1066,7 +1066,7 @@
         "filter": ""
       },
       "link": {
-        "selector": "",
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
