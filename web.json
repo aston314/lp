@@ -1051,22 +1051,22 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": ".sec-panel-body",
+        "selector": ".sec-panel-body > ul",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner",
+        "selector": ".item-img-inner",
         "attrName": "title",
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner > img",
+        "selector": ".attachment-default",
         "attrName": "src",
         "filter": ""
       },
       "link": {
-        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner",
+        "selector": ".item-img-inner",
         "attrName": "href",
         "filter": ""
       }
