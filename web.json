@@ -1051,22 +1051,22 @@
         "selector": ".pagination"
       },
       "videoscontainer": {
-        "selector": ".sec-panel-body > ul",
+        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img",
         "attrName": "",
         "filter": ""
       },
       "title": {
-        "selector": "a.item-img-inner",
+        "selector": "a",
         "attrName": "title",
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": "img.attachment-default",
+        "selector": "img",
         "attrName": "src",
         "filter": ""
       },
       "link": {
-        "selector": "a.item-img-inner",
+        "selector": "a",
         "attrName": "href",
         "filter": ""
       }
