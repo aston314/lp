@@ -1056,17 +1056,17 @@
         "filter": ""
       },
       "title": {
-        "selector": "a",
+        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner",
         "attrName": "title",
         "filter": "([^\\s]+)"
       },
       "thumb": {
-        "selector": "img",
+        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner > img",
         "attrName": "src",
         "filter": ""
       },
       "link": {
-        "selector": "a",
+        "selector": "ul.post-loop.post-loop-default.cols-0 > li > div.item-img > a.item-img-inner",
         "attrName": "href",
         "filter": ""
       }
