@@ -1204,6 +1204,7 @@
   };
 
   var reqCallback = {};
+  var timeCallback = {};
 
   function exit$1() {
     if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
@@ -1277,6 +1278,12 @@
   }
 
   function openPlayer(link, data) {
+    if (checkVersion(98)) {
+      if (data.timeline) {
+        timeCallback[data.timeline.hash] = data;
+      }
+    }
+
     if (checkVersion(10)) cordova.InAppBrowser.open(link, '_system');else $('<a href="' + link + '"><a/>')[0].click();
   }
 
@@ -1319,12 +1326,20 @@
     }
   }
 
-  function voiceStart() {
-    if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+  function timeCall(timeline) {
+    var hash = timeline.hash;
+
+    if (timeCallback[hash]) {
+      timeCallback[hash].timeline.handler(timeline.percent, timeline.time, timeline.duration);
+      timeCallback[hash].timeline.percent = timeline.percent;
+      timeCallback[hash].timeline.duration = timeline.duration;
+      timeCallback[hash].timeline.time = timeline.time;
+      delete timeCallback[hash];
+    }
   }
 
-  function showInput(inputText) {
-    //if (checkVersion(27)) AndroidJS.showInput(inputText);
+  function voiceStart() {
+    if (checkVersion(25)) AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
   }
 
   function updateChannel(where) {
@@ -1359,7 +1374,7 @@
     httpReq: httpReq,
     voiceStart: voiceStart,
     httpCall: httpCall,
-    showInput: showInput,
+    timeCall: timeCall,
     updateChannel: updateChannel
   };
 
