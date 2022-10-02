@@ -1278,7 +1278,7 @@
   }
 
   function openPlayer(link, data) {
-    if (checkVersion(98)) {
+    if (checkVersion(98, true)) {
       if (data.timeline) {
         timeCallback[data.timeline.hash] = data;
       }
@@ -1347,6 +1347,8 @@
   }
 
   function checkVersion(needVersion) {
+    var silent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
     if (Storage.field('platform') == 'android') {
       try {
         var versionCode = 16;
@@ -1354,7 +1356,7 @@
         if (parseInt(versionCode, 10) >= needVersion) {
           return true;
         } else {
-          //Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
+          if (!silent) Lampa.Noty.show("Обновите приложение.<br>Требуется версия: " + needVersion + "<br>Текущая версия: " + versionCode);
           return false;
         }
       } catch (e) {
