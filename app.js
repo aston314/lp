@@ -19097,6 +19097,7 @@
       try {
         return new component$1[object.component](object);
       } catch (e) {
+        console.log('Component', 'create error', e.stack);
         return new component$1.nocomponent(object);
       }
     } else {
@@ -26072,6 +26073,15 @@
 
   function append(title, data) {
     var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    if (params.type == 'extensions') {
+      data = data.filter(function (p) {
+        if (!p.platform) return true;else {
+          return Platform.is(p.platform);
+        }
+      });
+    }
+
     var block = Template$1.get('extensions_block', {
       title: title
     });
