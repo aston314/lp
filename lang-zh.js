@@ -906,5 +906,8 @@ Lampa.Lang.AddTranslation('zh',{
     extensions_from_cub: '从 CUB 安装',
     extensions_from_popular: '流行插件',
     extensions_from_lib: '插件库',
-    extensions_from_connected: 'Connected plugins'
+    extensions_from_connected: '已连接插件',
+    settings_webos_launcher: '应用程序启动',
+    settings_webos_launcher_add_device: '作为入门应用程序安装',
+    settings_webos_launcher_remove_device: 'Remove from starter spplications'
   });
