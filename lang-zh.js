@@ -909,5 +909,6 @@ Lampa.Lang.AddTranslation('zh',{
     extensions_from_connected: '已连接插件',
     settings_webos_launcher: '应用程序启动',
     settings_webos_launcher_add_device: '作为入门应用程序安装',
-    settings_webos_launcher_remove_device: 'Remove from starter spplications'
+    settings_webos_launcher_remove_device: '从入门应用程序中删除',
+    player_normalization: 'Normalization'
   });
