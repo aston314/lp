@@ -356,8 +356,8 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.7.3',
-    app_version: '1.5.3'
+    css_version: '1.7.8',
+    app_version: '1.5.4'
   };
   Object.defineProperty(object$3, 'app_digital', {
     get: function get() {
@@ -3847,6 +3847,10 @@
       onBack: settings
     });
   }
+
+  function isTV() {
+    return $('body > .player').hasClass('tv');
+  }
   /**
    * Добавить контроллеры
    */
@@ -3881,10 +3885,10 @@
     Controller.add('player_panel', {
       toggle: function toggle() {
         Controller.collectionSet(render$d());
-        Controller.collectionFocus(last_panel_focus ? last_panel_focus : $('.player-panel__playpause', html$g)[0], render$d());
+        Controller.collectionFocus(last_panel_focus ? last_panel_focus : $(isTV() ? '.player-panel__next' : '.player-panel__playpause', html$g)[0], render$d());
       },
       up: function up() {
-        toggleRewind();
+        isTV() ? Controller.toggle('player') : toggleRewind();
       },
       right: function right() {
         Navigator.move('right');
@@ -3988,7 +3992,7 @@
 
 
   function toggleRewind() {
-    Controller.toggle('player_rewind');
+    Controller.toggle(isTV() ? 'player_panel' : 'player_rewind');
   }
   /**
    * Переключить на контроллер кнопки
@@ -6274,7 +6278,7 @@
   var listener$b = start$5();
   var current = '';
   var playlist$1 = [];
-  var position$1 = 0;
+  var _position = 0;
   /**
    * Показать плейлист
    */
@@ -6290,7 +6294,7 @@
         listener$b.send('select', {
           playlist: playlist$1,
           item: a,
-          position: position$1
+          position: _position
         });
       },
       onBack: function onBack() {
@@ -6306,7 +6310,7 @@
   function active$3() {
     playlist$1.forEach(function (element) {
       element.selected = element.url == current;
-      if (element.selected) position$1 = playlist$1.indexOf(element);
+      if (element.selected) _position = playlist$1.indexOf(element);
     });
   }
   /**
@@ -6317,11 +6321,11 @@
   function prev() {
     active$3();
 
-    if (position$1 > 0) {
+    if (_position > 0) {
       listener$b.send('select', {
         playlist: playlist$1,
-        position: position$1 - 1,
-        item: playlist$1[position$1 - 1]
+        position: _position - 1,
+        item: playlist$1[_position - 1]
       });
     }
   }
@@ -6333,11 +6337,11 @@
   function next() {
     active$3();
 
-    if (position$1 < playlist$1.length - 1) {
+    if (_position < playlist$1.length - 1) {
       listener$b.send('select', {
         playlist: playlist$1,
-        position: position$1 + 1,
-        item: playlist$1[position$1 + 1]
+        position: _position + 1,
+        item: playlist$1[_position + 1]
       });
     }
   }
@@ -6350,11 +6354,11 @@
   function set$1(p) {
     playlist$1 = p;
     playlist$1.forEach(function (l, i) {
-      if (l.url == current) position$1 = i;
+      if (l.url == current) _position = i;
     });
     listener$b.send('set', {
       playlist: playlist$1,
-      position: position$1
+      position: _position
     });
   }
   /**
@@ -6378,12 +6382,16 @@
 
   var PlayerPlaylist = {
     listener: listener$b,
+    active: active$3,
     show: show$6,
     url: url$4,
     get: get$d,
     set: set$1,
     prev: prev,
-    next: next
+    next: next,
+    position: function position() {
+      return _position;
+    }
   };
 
   var listener$a = start$5();
@@ -7211,6 +7219,8 @@
     /** Событие на переключение серии */
 
     PlayerPlaylist.listener.follow('select', function (e) {
+      console.log('select', e);
+
       var type = _typeof(e.item.url);
 
       var call = function call() {
@@ -7218,10 +7228,12 @@
         destroy$3();
         play$1(e.item);
         PlayerVideo.setParams(params);
+        if (e.item.callback) e.item.callback();
         if (Torserver.ip() && e.item.url.indexOf(Torserver.ip()) > -1) PlayerInfo.set('stat', e.item.url);
+        PlayerPlaylist.active();
         PlayerPanel.showNextEpisodeName({
-          playlist: e.playlist,
-          position: e.position
+          playlist: PlayerPlaylist.get(),
+          position: PlayerPlaylist.position()
         });
       };
 
@@ -7500,6 +7512,7 @@
 
     var lauch = function lauch() {
       preload(data, function () {
+        html$b.toggleClass('tv', data.tv ? true : false);
         listener$8.send('start', data);
         work = data;
         if (work.timeline) work.timeline.continued = false;
@@ -7762,7 +7775,7 @@
     clearInterval(ping);
 
     try {
-      socket = new WebSocket('wss://cub.watch:8020');
+      socket = new WebSocket('wss://cub.watch:8020'); //socket = new WebSocket('ws://192.168.0.120:8020')
     } catch (e) {
       console.log('Socket', 'not work');
       return;
@@ -28046,7 +28059,8 @@
     Base64: Base64,
     Loading: Loading,
     YouTube: YouTube,
-    WebOSLauncher: WebOSLauncher
+    WebOSLauncher: WebOSLauncher,
+    Event: Event
   };
 
   function prepareApp() {
