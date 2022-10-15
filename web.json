@@ -405,42 +405,42 @@
     "category": [
       {
         "title": "电影",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/1.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/1.html",
         "quantity": ""
       },
       {
         "title": "电视剧",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/2.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/2.html",
         "quantity": ""
       },
       {
         "title": "国产剧",
-        "url": "https://olevod.com/index.php/vod/show/id/202.html",
+        "url": "https://proxy.cub.watch/cdn/https://olevod.com/index.php/vod/show/id/202.html",
         "quantity": ""
       },
       {
         "title": "日韩剧",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/204.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/204.html",
         "quantity": ""
       },
       {
         "title": "欧美剧",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/201.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/201.html",
         "quantity": ""
       },
       {
         "title": "港台剧",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/203.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/203.html",
         "quantity": ""
       },
       {
         "title": "综艺",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/3.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/3.html",
         "quantity": ""
       },
       {
         "title": "动漫",
-        "url": "https://www.olehdtv.com/index.php/vod/show/id/4.html",
+        "url": "https://proxy.cub.watch/cdn/https://www.oulevod.tv/index.php/vod/show/id/4.html",
         "quantity": ""
       }
     ],
@@ -470,7 +470,7 @@
       }
     },
     "search": {
-      "url": "https://www.olehdtv.com/index.php/vod/search.html?wd=#msearchword&submit="
+      "url": "https://www.oulevod.tv/index.php/vod/search.html?wd=#msearchword&submit="
     }
   },
   {
