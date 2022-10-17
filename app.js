@@ -17775,7 +17775,6 @@
       var _this = this;
 
       this.activity.loader(true);
-      Background.immediately(Utils.cardImgBackground(object.movie));
       Parser.get(object, function (data) {
         results = data;
 
@@ -18331,6 +18330,8 @@
     };
 
     this.start = function () {
+      if (Lampa.Activity.active().activity !== this.activity) return;
+      Background.immediately(Utils.cardImgBackground(object.movie));
       Controller.add('content', {
         toggle: function toggle() {
           Controller.collectionSet(scroll.render(), files.render());
