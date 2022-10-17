@@ -803,7 +803,7 @@ Lampa.Lang.AddTranslation('zh',{
     notice_new_episode: '新系列',
     notice_none: '您还没有任何通知，请在 <b>www.cub.watch</b> 注册以关注新剧集和发布。',
     notice_in_quality: '作为',
-    notice_none_account: '你还没有任何通知，收藏该系列并等待新剧集的通知。',
+    notice_none_account: '您还没有任何通知，收藏该系列并等待新剧集的通知。',
     copy_link: '复制视频链接',
     copy_secuses: '链接复制到剪贴板',
     copy_error: '复制链接时出错',
