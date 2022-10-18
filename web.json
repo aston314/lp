@@ -1186,14 +1186,14 @@
   },
   {
     "title": "阿里云盘发布频道",
-    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+    "link": "https://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
     "show": "portrait",
     "next": "aliyundrive",
     "datasort": "reverse",
     "category": [
       {
         "title": "频道首页",
-        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
+        "url": "https://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel",
         "quantity": ""
       }
     ],
@@ -1223,19 +1223,19 @@
       }
     },
     "search": {
-      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
+      "url": "https://proxy.cub.watch/cdn/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
     }
   },
   {
     "title": "阿里云盘发布频道2",
-    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
+    "link": "https://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
     "show": "portrait",
     "next": "aliyundrive",
     "datasort": "reverse",
     "category": [
       {
         "title": "频道首页",
-        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
+        "url": "https://proxy.cub.watch/cdn/https://tx.me/s/shareAliyun",
         "quantity": ""
       }
     ],
@@ -1265,19 +1265,19 @@
       }
     },
     "search": {
-      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/hareAliyun?q=#msearchword"
+      "url": "https://proxy.cub.watch/cdn/https://tx.me/s/hareAliyun?q=#msearchword"
     }
   },
   {
     "title": "阿里云盘盘",
-    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
+    "link": "https://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
     "show": "portrait",
     "next": "aliyundrive",
     "datasort": "reverse",
     "category": [
       {
         "title": "频道首页",
-        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
+        "url": "https://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan",
         "quantity": ""
       }
     ],
@@ -1307,19 +1307,19 @@
       }
     },
     "search": {
-      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan?q=#msearchword"
+      "url": "https://proxy.cub.watch/cdn/https://tx.me/s/yunpanpan?q=#msearchword"
     }
   },
   {
     "title": "肯德基电影院",
-    "link": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
+    "link": "https://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
     "show": "portrait",
     "next": "aliyundrive",
     "datasort": "reverse",
     "category": [
       {
         "title": "频道首页",
-        "url": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
+        "url": "https://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB",
         "quantity": ""
       }
     ],
@@ -1349,7 +1349,7 @@
       }
     },
     "search": {
-      "url": "http://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB?q=#msearchword"
+      "url": "https://proxy.cub.watch/cdn/https://tx.me/s/XiangxiuNB?q=#msearchword"
     }
   },
   {
