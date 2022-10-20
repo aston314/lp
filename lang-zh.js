@@ -21,7 +21,7 @@ Lampa.Lang.AddTranslation('zh',{
     search_start_typing: '开始输入搜索文本。',
     search_searching: '搜索中...',
     search_start: '开始搜索',
-    search_nofound: '无根据您的要求找到了。',
+    search_nofound: '无根据您的要求找到的。',
     full_genre: '类型',
     full_production: '制作',
     full_date_of_release: '发布日期',
