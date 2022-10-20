@@ -1861,7 +1861,7 @@
     }
 
     function _native(params) {
-      if (Platform.is('android')) android_go(params);else go(params);
+      if (Platform.is('android')) go(params);else go(params);
     }
   }
 
