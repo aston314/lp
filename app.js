@@ -7640,6 +7640,7 @@
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           title: data.path || data.title,
+          forcename: data.title || data.path,
           position: data.timeline ? data.timeline.time || -1 : -1,
           type : "video/*",
           //com.brouken.player
@@ -7651,8 +7652,7 @@
           //vimu
           startfrom: data.timeline ? data.timeline.time || -1 : -1,
           forcedirect: true,
-          forceresume: true,
-          extras: intentExtra
+          forceresume: true
         }, function() {
         }, function() {
           console.log("Failed to open video URL via Android Intent");
@@ -28288,6 +28288,7 @@
               if (Platform.is('android')) navigator.app.exitApp(); //пока не используем, нужно разобраться почему вызывается активити при загрузке главной
 
               if (Platform.is('orsay')) Orsay.exit();
+              if (Platform.is('netcast')) window.NetCastBack();
             } else {
               Controller.toggle(enabled.name);
             }
