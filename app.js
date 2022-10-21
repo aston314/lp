@@ -7647,6 +7647,20 @@
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
+
+        window.plugins.intentShim.startActivityForResult(
+            {
+                action: net.gtvbox.videoplayer.result,
+            },
+            function(intent)
+            {
+                console.log(intent)
+            },
+            function()
+            {
+            
+            }
+        );
       };
     } else if (Platform.desktop() && Storage.field('player') == 'other') {
       var path = Storage.field('player_nw_path');
