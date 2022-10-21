@@ -1853,15 +1853,49 @@
       };
 
       params.timeout = need.timeout;
-      Android.httpReq(params, {
-        complite: secuses,
-        error: error
-      });
+      if (window.cordovaFetch) {
+        var url = params.url;
+        var data = params.post_data;
+        var dataType = params.dataType || 'json';
+
+        var fecth_method;
+        data !== false ? fecth_method = 'POST' : fecth_method = 'GET';
+
+        var para_fetch = {};
+        para_fetch.method = fecth_method;
+        if (params.headers) {
+            para_fetch.headers = params.headers;
+        };
+        if (data !== false) {
+            para_fetch.body = data;
+        };
+        cordovaFetch.setTimeout = 60;
+        cordovaFetch(url, para_fetch)
+            .then(function (response) {
+                if (dataType == 'json') {
+                    return response.json();
+                } else if (dataType == 'text') {
+                    return response.text();
+                };
+            }).then(function (responseData) {
+                secuses(responseData)
+            }).catch(function (err) {
+                error({
+                    status: 404
+                }, '');
+                console.error(err)
+            });
+      } else {
+          Android.httpReq(params, {
+              complite: secuses,
+              error: error
+          });
+      };
       need.timeout = 1000 * 60;
     }
 
     function _native(params) {
-      if (Platform.is('android')) go(params);else go(params);
+      if (Platform.is('android')) android_go(params);else go(params);
     }
   }
 
