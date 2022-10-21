@@ -7625,7 +7625,7 @@
      {
        var intentExtra = {
           forcename: data.title || data.path,
-          position: data.timeline ? data.timeline.time || -1 : -1,
+          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           //com.brouken.player
           return_result: true,
           //mxplayer
@@ -7633,7 +7633,7 @@
           //vlc
           from_start: true,
           //vimu
-          startfrom: data.timeline ? data.timeline.time || -1 : -1,
+          startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
           forceresume: true,
         };
@@ -7641,19 +7641,7 @@
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           title: data.path || data.title,
-          forcename: data.title || data.path,
-          position: data.timeline ? data.timeline.time || -1 : -1,
-          type : "video/*",
-          //com.brouken.player
-          return_result: true,
-          //mxplayer
-          sticky: true,
-          //vlc
-          from_start: true,
-          //vimu
-          startfrom: data.timeline ? data.timeline.time || -1 : -1,
-          forcedirect: true,
-          forceresume: true,
+          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           extras: intentExtra
         }, function() {
         }, function() {
