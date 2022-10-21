@@ -686,7 +686,7 @@ Lampa.Lang.AddTranslation('zh',{
     time_viewed: 'Viewed',
     time_from: 'from',
     time_reset: 'Reset timecode',
-    settings_clear_cache: '缓存和数据清空',
+    settings_clear_cache: '缓存和数据被清除',
     settings_user_links: '自定义链接',
     settings_for_local: '对于本地 TorrServer',
     settings_add: '添加',
