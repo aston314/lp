@@ -7624,14 +7624,16 @@
       //Android.openPlayer(data.url, data);
      {
       var intentExtra = {
-          position: data.timeline ? data.timeline.time || -1 : -1,
+          title: data.title || data.path,
+          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           //com.brouken.player
           return_result: true,
           //mxplayer
           sticky: true,
           //vlc
-          from_start: true,
+          from_start: false,
           //vimu
+          forcename: data.title || data.path,
           startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
           forceresume: true,
@@ -7639,9 +7641,7 @@
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
-          title: data.path || data.title,
-          forcename: data.path || data.title,
-          position: data.timeline ? data.timeline.time || -1 : -1,
+          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
