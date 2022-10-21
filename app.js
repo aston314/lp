@@ -7636,7 +7636,7 @@
           forcedirect: true,
           forceresume: true,
         };
-        window.plugins.intentShim.startActivity({
+        window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           title: data.path || data.title,
