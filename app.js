@@ -7566,6 +7566,34 @@
    */
 
 
+  function resultPlayer(json , data) {
+    if (json.extras.requestCode == 1) {
+      var hash;
+      if (data.timeline){
+        hash = data.timeline.hash;
+      } else {
+        return;
+      };
+      
+      var new_result = {};
+      new_result.hash = hash;
+
+      var time = json.extras.position / 1000;
+      new_result.time = time;
+
+      var duration = json.extras.duration / 1000;
+      new_result.duration = duration;
+
+      var percent;
+      (duration > 0) ? percent = (time * 100 / duration) : percent = 100;
+      new_result.percent = percent;
+      Timeline.update(new_result);
+      console.log(new_result)
+    } else {
+      return;
+    }
+  }
+
   function saveTimeLoop() {
     if (work.timeline) {
       timer_save = setInterval(saveTimeView, 1000 * 60 * 2);
@@ -7646,6 +7674,7 @@
           extras: intentExtra
         }, function(itent) {
           console.log(itent)
+          resultPlayer(itent , data);
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
