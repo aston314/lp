@@ -7642,6 +7642,16 @@
           title: data.path || data.title,
           position: data.timeline ? data.timeline.time || -1 : -1,
           type : "video/*",
+          //com.brouken.player
+          return_result: true,
+          //mxplayer
+          sticky: true,
+          //vlc
+          from_start: true,
+          //vimu
+          startfrom: data.timeline ? data.timeline.time || -1 : -1,
+          forcedirect: true,
+          forceresume: true,
           extras: intentExtra
         }, function() {
         }, function() {
