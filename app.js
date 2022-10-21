@@ -7631,7 +7631,7 @@
           //mxplayer
           sticky: true,
           //vlc
-          from_start: true,
+          from_start: false,
           //vimu
           startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
@@ -15093,7 +15093,7 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
     network$3.timeout(1000 * Storage.field('parse_timeout'));
-    var s = 'http://proxy.cub.watch/cdn/https://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
+    var s = 'http://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
     var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
     var u = Storage.get('native') || Storage.field('torlook_parse_type') == 'native' ? s + encodeURIComponent(q) : url.replace('{q}', encodeURIComponent(s + encodeURIComponent(q)));
     network$3["native"](u, function (json) {
