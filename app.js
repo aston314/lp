@@ -7623,12 +7623,26 @@
 
       //Android.openPlayer(data.url, data);
      {
+       var intentExtra = {
+          position: data.timeline ? data.timeline.time || -1 : -1,
+          //com.brouken.player
+          return_result: true,
+          //mxplayer
+          sticky: true,
+          //vlc
+          from_start: true,
+          //vimu
+          startfrom: data.timeline ? data.timeline.time || -1 : -1,
+          forcedirect: true,
+          forceresume: true,
+        };
         window.plugins.intentShim.startActivity({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           title: data.path || data.title,
           position: data.timeline ? data.timeline.time || -1 : -1,
-          type : "video/*"
+          type : "video/*",
+          extras: intentExtra
         }, function() {
         }, function() {
           console.log("Failed to open video URL via Android Intent");
