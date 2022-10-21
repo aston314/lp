@@ -7641,7 +7641,7 @@
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           title: data.path || data.title,
-          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+          type : "video/*",
           extras: intentExtra
         }, function() {
         }, function() {
