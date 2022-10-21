@@ -7624,6 +7624,7 @@
       //Android.openPlayer(data.url, data);
      {
        var intentExtra = {
+          forcename: data.title || data.path,
           position: data.timeline ? data.timeline.time || -1 : -1,
           //com.brouken.player
           return_result: true,
@@ -7652,7 +7653,8 @@
           //vimu
           startfrom: data.timeline ? data.timeline.time || -1 : -1,
           forcedirect: true,
-          forceresume: true
+          forceresume: true,
+          extras: intentExtra
         }, function() {
         }, function() {
           console.log("Failed to open video URL via Android Intent");
