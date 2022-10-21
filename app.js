@@ -7632,7 +7632,7 @@
           //vlc
           from_start: true,
           //vimu
-          startfrom: data.timeline ? data.timeline.time || -1 : -1,
+          startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
           forceresume: true,
         };
@@ -7644,7 +7644,8 @@
           position: data.timeline ? data.timeline.time || -1 : -1,
           type : "video/*",
           extras: intentExtra
-        }, function() {
+        }, function(itent) {
+          console.log(itent)
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
