@@ -7623,44 +7623,49 @@
 
       //Android.openPlayer(data.url, data);
      {
-       var intentExtra = {
-          forcename: data.title || data.path,
-          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+       {
+        var intentExtra = {
+          position: data.timeline ? data.timeline.time || -1 : -1,
           //com.brouken.player
           return_result: true,
           //mxplayer
           sticky: true,
           //vlc
-          from_start: false,
+          from_start: true,
           //vimu
-          startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+          startfrom: data.timeline ? data.timeline.time || -1 : -1,
           forcedirect: true,
           forceresume: true,
         };
-        window.plugins.intentShim.startActivity({
-          action : window.plugins.intentShim.ACTION_VIEW,
-          url : data.url,
-          title: data.path || data.title,
-          type : "video/*",
-          extras: intentExtra
-        }, function() {
-        }, function() {
-          console.log("Failed to open video URL via Android Intent");
-        });
+        // window.plugins.intentShim.startActivity({
+        //   action : window.plugins.intentShim.ACTION_VIEW,
+        //   url : data.url,
+        //   title: data.path || data.title,
+        //   forcename: data.path || data.title,
+        //   position: data.timeline ? data.timeline.time || -1 : -1,
+        //   type : "video/*",
+        //   extras: intentExtra
+        // }, function() {
+        // }, function() {
+        //   console.log("Failed to open video URL via Android Intent");
+        // });
 
         window.plugins.intentShim.startActivityForResult(
-            {
-                action: net.gtvbox.videoplayer.result,
-            },
-            function(intent)
-            {
-                console.log(intent)
-            },
-            function()
-            {
-            
-            }
-        );
+          {
+            action: window.plugins.intentShim.ACTION_VIEW,
+            url: data.url,
+            title: data.path || data.title,
+            forcename: data.path || data.title,
+            position: data.timeline ? data.timeline.time || -1 : -1,
+            type: "video/*",
+            extras: intentExtra
+          },
+          function (intent) {
+            console.log('Picked contact: ' + intent);
+          },
+          function () {
+            console.log("StartActivityForResult failure");
+          });
       };
     } else if (Platform.desktop() && Storage.field('player') == 'other') {
       var path = Storage.field('player_nw_path');
