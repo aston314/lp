@@ -7680,6 +7680,7 @@
           forcedirect: true,
           forceresume: false,
         };
+        console.log(data.timeline)
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
