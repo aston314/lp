@@ -7669,7 +7669,7 @@
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
-          //position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
