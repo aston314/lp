@@ -7574,9 +7574,13 @@
       } else {
         return;
       };
+      console.log(json.action)
       if (json.action == 'org.videolan.vlc.player.result') {
+        console.log(json.action)
         time = json.extras.extra_position / 1000;
         duration = json.extra_.duration / 1000;
+        console.log(time)
+        console.log(duration)
       } else {
         time = json.extras.position / 1000;
         duration = json.extras.duration / 1000;
@@ -7587,7 +7591,7 @@
       new_result.time = time;
       new_result.duration = duration;
       new_result.percent = percent;
-      Timeline.update(new_result);
+      if (time) {Timeline.update(new_result)};
       console.log(new_result)
     } else {
       return;
