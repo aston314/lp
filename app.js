@@ -7667,10 +7667,10 @@
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
-          //com.brouken.player
+          //just player
           return_result: true,
           //mxplayer
-          sticky: true,
+          sticky: false,
           //vlc
           from_start: false,
           //vimu
@@ -7683,7 +7683,6 @@
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
-          sticky: true,
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
