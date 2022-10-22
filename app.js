@@ -7665,7 +7665,6 @@
 
       //Android.openPlayer(data.url, data);
      {
-      console.log(data.timeline)
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
