@@ -7566,26 +7566,26 @@
    */
 
 
-  function resultPlayer(json , data) {
+  function resultPlayer(json, data) {
     if (json.extras.requestCode == 1) {
-      var hash;
-      if (data.timeline){
+      var hash, time, duration, percent;
+      if (data.timeline) {
         hash = data.timeline.hash;
       } else {
         return;
       };
-      
+      // if (json.action == 'org.videolan.vlc.player.result') {
+      //   time = json.extras.extra_position / 1000;
+      //   duration = json.extra_.duration / 1000;
+      // } else {
+      time = (json.extras.position || json.extras.extra_position) / 1000;
+      duration = (json.extras.duration || json.extra_.duration) / 1000;
+      //};
+      (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
       var new_result = {};
       new_result.hash = hash;
-
-      var time = json.extras.position / 1000;
       new_result.time = time;
-
-      var duration = json.extras.duration / 1000;
       new_result.duration = duration;
-
-      var percent;
-      (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
       new_result.percent = percent;
       Timeline.update(new_result);
       console.log(new_result)
