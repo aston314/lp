@@ -7683,6 +7683,7 @@
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+          sticky: true,
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
