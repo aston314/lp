@@ -7678,7 +7678,7 @@
           forcename: data.title || data.path,
           startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
-          forceresume: true,
+          forceresume: false,
         };
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
