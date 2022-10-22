@@ -7567,31 +7567,31 @@
 
 
   function resultPlayer(json, data) {
-    if (json.extras.requestCode == 1) {
+    // if (json.extras.requestCode == 1) {
       var hash, time, duration, percent;
       if (data.timeline) {
         hash = data.timeline.hash;
       } else {
         return;
       };
-      if (json.action == 'org.videolan.vlc.player.result') {
-        time = json.extras.extra_position / 1000;
-        duration = json.extra_.duration / 1000;
-      } else {
-        time = json.extras.position / 1000;
-        duration = json.extras.duration / 1000;
-      };
+      // if (json.action == 'org.videolan.vlc.player.result') {
+      //   time = json.extras.extra_position / 1000;
+      //   duration = json.extra_duration / 1000;
+      // } else {
+        time = (json.extras.position || json.extras.extra_position) / 1000;
+        duration = (json.extras.duration || json.extra_duration) / 1000;
+      // };
       (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
       var new_result = {};
       new_result.hash = hash;
       new_result.time = time;
       new_result.duration = duration;
       new_result.percent = percent;
-      Timeline.update(new_result);
+      if (time) Timeline.update(new_result);
       console.log(new_result)
-    } else {
-      return;
-    }
+    // } else {
+    //   return;
+    // }
   }
 
   function saveTimeLoop() {
