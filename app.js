@@ -7588,7 +7588,7 @@
       (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
       new_result.percent = percent;
       Timeline.update(new_result);
-      //console.log(new_result)
+      console.log(new_result)
     } else {
       return;
     }
@@ -7664,16 +7664,16 @@
           forcename: data.title || data.path,
           startfrom: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           forcedirect: true,
-          forceresume: true,
+          forceresume: false,
         };
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
-          position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
+          //position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
-          //console.log(itent)
+          console.log(itent)
           resultPlayer(itent , data);
         }, function() {
           console.log("Failed to open video URL via Android Intent");
