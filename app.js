@@ -7574,13 +7574,13 @@
       } else {
         return;
       };
-      // if (json.action == 'org.videolan.vlc.player.result') {
-      //   time = json.extras.extra_position / 1000;
-      //   duration = json.extra_.duration / 1000;
-      // } else {
-      time = (json.extras.position || json.extras.extra_position) / 1000;
-      duration = (json.extras.duration || json.extra_.duration) / 1000;
-      //};
+      if (json.action == 'org.videolan.vlc.player.result') {
+        time = json.extras.extra_position / 1000;
+        duration = json.extra_.duration / 1000;
+      } else {
+        time = json.extras.position / 1000;
+        duration = json.extras.duration / 1000;
+      };
       (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
       var new_result = {};
       new_result.hash = hash;
