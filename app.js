@@ -7686,7 +7686,7 @@
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
-          //console.log(itent)
+          console.log(itent)
           resultPlayer(itent , data);
         }, function() {
           console.log("Failed to open video URL via Android Intent");
