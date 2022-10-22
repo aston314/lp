@@ -1711,7 +1711,9 @@
     };
 
     function errorDecode(jqXHR, exception) {
+      if (!Arrays.isObject(jqXHR)) return Lang.translate('network_error');
       var msg = '';
+      var txt = jqXHR.responseText || jqXHR.message || jqXHR.status || '';
 
       if (jqXHR.status === 0 && exception !== 'timeout') {
         msg = Lang.translate('network_noconnect');
@@ -1730,7 +1732,7 @@
       } else if (exception === 'custom') {
         msg = jqXHR.responseText;
       } else {
-        msg = Lang.translate('network_error') + ': ' + jqXHR.responseText;
+        msg = Lang.translate('network_error') + (txt ? ': ' + txt : '');
       }
 
       return msg;
@@ -4896,6 +4898,17 @@
       if (this.callback) this.callback();
       this.callback = false;
     };
+
+    this.speed = function (v) {
+      luna({
+        method: 'setPlayRate',
+        parameters: {
+          'mediaId': media_id,
+          'playRate': v,
+          'audioOutput': true
+        }
+      });
+    };
     /**
      * Создаем новое видео
      * @param {object} new_video 
@@ -6124,7 +6137,7 @@
   function speed(value) {
     neeed_speed = value;
     var fv = value == 'default' ? 1 : parseFloat(value);
-    if (_video.speed) _video.speed(fv);else _video.playbackRate = fv;
+    if (_video.speed) _video.speed(fv);else if (webos) webos.speed(fv);else _video.playbackRate = fv;
   }
   /**
    * Перемотка на позицию 
