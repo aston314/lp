@@ -7665,6 +7665,7 @@
 
       //Android.openPlayer(data.url, data);
      {
+      console.log(data.timeline)
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
@@ -7680,7 +7681,6 @@
           forcedirect: true,
           forceresume: false,
         };
-        console.log(data.timeline)
         window.plugins.intentShim.startActivityForResult({
           action : window.plugins.intentShim.ACTION_VIEW,
           url : data.url,
