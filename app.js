@@ -7603,7 +7603,6 @@
     new_result.duration = duration;
     new_result.percent = percent;
     if (time) Timeline.update(new_result);
-    Controller.toggle('content');
     console.log(new_result)
     // } else {
     //   return;
