@@ -7601,7 +7601,6 @@
     new_result.duration = duration;
     new_result.percent = percent;
     if (time) Timeline.update(new_result);
-    console.log(time)
     console.log(new_result)
     // } else {
     //   return;
@@ -7664,7 +7663,8 @@
       }
 
       //Android.openPlayer(data.url, data);
-     {
+     //{
+       console.log(data)
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
@@ -7692,7 +7692,8 @@
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
-      };
+      //};
+      
     } else if (Platform.desktop() && Storage.field('player') == 'other') {
       var path = Storage.field('player_nw_path');
 
