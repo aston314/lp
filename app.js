@@ -7592,7 +7592,9 @@
     //   duration = json.extra_duration / 1000;
     // } else {
     time = (json.extras.position || json.extras.extra_position) / 1000;
+    if (time) time = parseInt(time);
     duration = (json.extras.duration || json.extras.extra_duration) / 1000;
+    if (duration) duration = parseInt(duration);
     // };
     (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
     var new_result = {};
