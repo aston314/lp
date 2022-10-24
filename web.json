@@ -211,12 +211,12 @@
         "filter": ""
       },
       "thumb": {
-        "selector": "a.stui-vodlist__thumb",
+        "selector": "a.myui-vodlist__thumb",
         "attrName": "data-original",
         "filter": ""
       },
       "link": {
-        "selector": "a.stui-vodlist__thumb",
+        "selector": "a.myui-vodlist__thumb",
         "attrName": "href",
         "filter": ""
       }
