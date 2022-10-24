@@ -7592,11 +7592,11 @@
     //   duration = json.extra_duration / 1000;
     // } else {
     time = (json.extras.position || json.extras.extra_position) / 1000;
-    //if (time) time = parseInt(time);
+    //if (time) time = Math.round(time);
     duration = (json.extras.duration || json.extras.extra_duration) / 1000;
     //if (duration) duration = parseInt(duration);
     // };
-    (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
+    (duration > 0) ? percent = Math.round(time * 100 / duration) : percent = 100;
     var new_result = {};
     new_result.hash = hash;
     new_result.time = time;
@@ -7691,6 +7691,25 @@
         }, function(itent) {
           console.log(itent)
           resultPlayer(itent , data);
+          var time, duration, percent;
+          time = (itent.extras.position || itent.extras.extra_position) / 1000;
+          duration = (itent.extras.duration || itent.extras.extra_duration) / 1000;
+          (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
+          if (time) {
+            data = {
+              url: data.url,
+              title: data.title,
+              subtitles: data.subtitles,
+              timeline: {
+                duration: duration,
+                hash: data.timeline.hash,
+                percent: percent,
+                time: time
+              }
+            };
+          } else {
+            //data = data;
+          };
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
