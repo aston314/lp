@@ -201,7 +201,7 @@
         "selector": "ul.myui-page"
       },
       "videoscontainer": {
-        "selector": "div.myui-panel_bd > ul > li > div",
+        "selector": "ul.myui-vodlist > li > div.myui-vodlist__box",
         "attrName": "",
         "filter": ""
       },
