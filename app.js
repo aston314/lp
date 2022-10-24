@@ -7666,7 +7666,12 @@
 
       //Android.openPlayer(data.url, data);
      //{
-       console.log(data)
+      console.log(data)
+      if (checkVersion(98, true)) {
+      if (data.timeline) {
+        timeCallback[data.timeline.hash] = data;
+      }
+      }
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
