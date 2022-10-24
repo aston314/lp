@@ -7712,13 +7712,12 @@
                 time: time
               }
             };
-            console.log(data)
-          var new_result = {};
-          new_result.hash = data.timeline.hash;
-          new_result.time = time;
-          new_result.duration = duration;
-          new_result.percent = percent;
-          Timeline.update(new_result);
+            var new_result = {};
+            new_result.hash = data.timeline.hash;
+            new_result.time = time;
+            new_result.duration = duration;
+            new_result.percent = percent;
+            Timeline.update(new_result);
           };
         //resultPlayer(itent , data);
         }, function() {
