@@ -7695,7 +7695,7 @@
           extras: intentExtra
         }, function(itent) {
           //console.log(itent)
-          resultPlayer(itent , data);
+          
           var time, duration, percent;
           time = (itent.extras.position || itent.extras.extra_position) / 1000;
           duration = (itent.extras.duration || itent.extras.extra_duration) / 1000;
@@ -7713,6 +7713,7 @@
               }
             };
           };
+        resultPlayer(itent , data);
         }, function() {
           console.log("Failed to open video URL via Android Intent");
         });
