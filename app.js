@@ -7603,7 +7603,7 @@
     new_result.duration = duration;
     new_result.percent = percent;
     if (time) Timeline.update(new_result);
-    console.log(new_result)
+    //console.log(new_result)
     // } else {
     //   return;
     // }
@@ -7689,7 +7689,7 @@
           type : "video/*",
           extras: intentExtra
         }, function(itent) {
-          console.log(itent)
+          //console.log(itent)
           resultPlayer(itent , data);
           var time, duration, percent;
           time = (itent.extras.position || itent.extras.extra_position) / 1000;
@@ -7707,8 +7707,6 @@
                 time: time
               }
             };
-          } else {
-            //data = data;
           };
         }, function() {
           console.log("Failed to open video URL via Android Intent");
