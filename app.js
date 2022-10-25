@@ -7667,11 +7667,11 @@
       //Android.openPlayer(data.url, data);
      //{
       console.log(data)
-      ///if (checkVersion(98, true)) {
-      //if (data.timeline) {
-        //timeCallback[data.timeline.hash] = data;
-      //}
-      //}
+      if (checkVersion(98, true)) {
+      if (data.timeline) {
+        timeCallback[data.timeline.hash] = data;
+      }
+      }
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
@@ -7700,7 +7700,18 @@
           time = (itent.extras.position || itent.extras.extra_position) / 1000;
           duration = (itent.extras.duration || itent.extras.extra_duration) / 1000;
           (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
-          
+            if (time) {
+            data = {
+              url: data.url,
+              title: data.title,
+              subtitles: data.subtitles,
+              timeline: {
+                duration: duration,
+                hash: data.timeline.hash,
+                percent: percent,
+                time: time
+              }
+            };
             var new_result = {};
             new_result.hash = data.timeline.hash;
             new_result.time = time;
