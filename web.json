@@ -700,63 +700,6 @@
     }
   },
   {
-    "title": "COKEMV影视",
-    "link": "https://cokemv.me",
-    "show": "portrait",
-    "next": "search",
-    "datasort": "",
-    "category": [
-      {
-        "title": "电影",
-        "url": "https://cokemv.me/vodshow/1-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "电视剧",
-        "url": "https://cokemv.me/vodshow/2-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "动漫",
-        "url": "https://cokemv.me/vodshow/3-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "综艺",
-        "url": "https://cokemv.me/vodshow/29-----------.html",
-        "quantity": ""
-      }
-    ],
-    "list": {
-      "page": {
-        "selector": "#page"
-      },
-      "videoscontainer": {
-        "selector": "div.module-items.module-poster-items-base > a",
-        "attrName": "",
-        "filter": ""
-      },
-      "title": {
-        "selector": "img.lazy.lazyload",
-        "attrName": "alt",
-        "filter": ""
-      },
-      "thumb": {
-        "selector": "img.lazy.lazyload",
-        "attrName": "data-original",
-        "filter": ""
-      },
-      "link": {
-        "selector": "",
-        "attrName": "href",
-        "filter": ""
-      }
-    },
-    "search": {
-      "url": "https://cokemv.me/vodsearch/-------------.html?wd=#msearchword"
-    }
-  },
-  {
     "title": "乐猪TV",
     "link": "http://www.lezhutv.com",
     "show": "portrait",
@@ -888,6 +831,177 @@
     },
     "search": {
       "url": "https://auete.com/search.php?searchword=#msearchword"
+    }
+  },
+  {
+    "title": "乌龟影视",
+    "link": "https://www.wuguiyy.com",
+    "show": "portrait",
+    "next": "detail",
+    "datasort": "",
+    "category": [
+      {
+        "title": "电影",
+        "url": "https://www.wuguiyy.com/show/dianying-----------/",
+        "quantity": ""
+      },
+      {
+        "title": "连续剧",
+        "url": "https://www.wuguiyy.com/show/lianxuju-----------/",
+        "quantity": ""
+      },
+      {
+        "title": "欧美剧",
+        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
+        "quantity": ""
+      },
+      {
+        "title": "国产剧",
+        "url": "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
+        "quantity": ""
+      },
+      {
+        "title": "日韩剧",
+        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
+        "quantity": ""
+      },
+      {
+        "title": "港台剧",
+        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
+        "quantity": ""
+      },
+      {
+        "title": "动漫",
+        "url": "https://www.wuguiyy.com/show/dongman-----------/",
+        "quantity": ""
+      },
+      {
+        "title": "综艺",
+        "url": "https://www.wuguiyy.com/show/zongyi-----------/",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "ul.stui-page"
+      },
+      "videoscontainer": {
+        "selector": ".stui-vodlist__box",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "title",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "data-original",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "detail": {
+      "videoscontainer": {
+        "selector": "div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a",
+        "attrName": "text",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.wuguiyy.com/search/-------------/?wd=#msearchword&submit="
+    }
+  },
+  {
+    "title": "达达龟",
+    "link": "https://www.dadagui.me",
+    "show": "portrait",
+    "next": "search",
+    "datasort": "",
+    "category": [
+      {
+        "title": "电影",
+        "url": "https://www.dadagui.me/vodtype/1.html",
+        "quantity": ""
+      },
+      {
+        "title": "连续剧",
+        "url": "https://www.dadagui.me/vodtype/2.html",
+        "quantity": ""
+      },
+      {
+        "title": "欧美剧",
+        "url": "https://www.dadagui.me/vodshow/15-----------.html",
+        "quantity": ""
+      },
+      {
+        "title": "国产剧",
+        "url": "https://www.dadagui.me/vodshow/13-----------.html",
+        "quantity": ""
+      },
+      {
+        "title": "日韩剧",
+        "url": "https://www.dadagui.me/vodshow/14-----------.html",
+        "quantity": ""
+      },
+      {
+        "title": "港台剧",
+        "url": "https://www.dadagui.me/vodshow/16-----------.html",
+        "quantity": ""
+      },
+      {
+        "title": "动漫",
+        "url": "https://www.dadagui.me/vodtype/4.html",
+        "quantity": ""
+      },
+      {
+        "title": "综艺",
+        "url": "https://www.dadagui.me/vodtype/3.html",
+        "quantity": ""
+      }
+    ],
+    "list": {
+      "page": {
+        "selector": "ul.stui-page__item"
+      },
+      "videoscontainer": {
+        "selector": ".stui-vodlist__box",
+        "attrName": "",
+        "filter": ""
+      },
+      "title": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "title",
+        "filter": ""
+      },
+      "thumb": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "data-original",
+        "filter": ""
+      },
+      "link": {
+        "selector": "a.stui-vodlist__thumb",
+        "attrName": "href",
+        "filter": ""
+      }
+    },
+    "search": {
+      "url": "https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
     }
   },
   {
@@ -1083,177 +1197,6 @@
     },
     "search": {
       "url": "https://www.yinfans.me/?s=#msearchword"
-    }
-  },
-  {
-    "title": "乌龟影视",
-    "link": "https://www.wuguiyy.com",
-    "show": "portrait",
-    "next": "detail",
-    "datasort": "",
-    "category": [
-      {
-        "title": "电影",
-        "url": "https://www.wuguiyy.com/show/dianying-----------/",
-        "quantity": ""
-      },
-      {
-        "title": "连续剧",
-        "url": "https://www.wuguiyy.com/show/lianxuju-----------/",
-        "quantity": ""
-      },
-      {
-        "title": "欧美剧",
-        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
-        "quantity": ""
-      },
-      {
-        "title": "国产剧",
-        "url": "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
-        "quantity": ""
-      },
-      {
-        "title": "日韩剧",
-        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
-        "quantity": ""
-      },
-      {
-        "title": "港台剧",
-        "url": "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
-        "quantity": ""
-      },
-      {
-        "title": "动漫",
-        "url": "https://www.wuguiyy.com/show/dongman-----------/",
-        "quantity": ""
-      },
-      {
-        "title": "综艺",
-        "url": "https://www.wuguiyy.com/show/zongyi-----------/",
-        "quantity": ""
-      }
-    ],
-    "list": {
-      "page": {
-        "selector": "ul.stui-page"
-      },
-      "videoscontainer": {
-        "selector": ".stui-vodlist__box",
-        "attrName": "",
-        "filter": ""
-      },
-      "title": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "title",
-        "filter": ""
-      },
-      "thumb": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "data-original",
-        "filter": ""
-      },
-      "link": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "href",
-        "filter": ""
-      }
-    },
-    "detail": {
-      "videoscontainer": {
-        "selector": "div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li",
-        "attrName": "",
-        "filter": ""
-      },
-      "title": {
-        "selector": "a",
-        "attrName": "text",
-        "filter": ""
-      },
-      "link": {
-        "selector": "a",
-        "attrName": "href",
-        "filter": ""
-      }
-    },
-    "search": {
-      "url": "https://www.wuguiyy.com/search/-------------/?wd=#msearchword&submit="
-    }
-  },
-  {
-    "title": "达达龟",
-    "link": "https://www.dadagui.me",
-    "show": "portrait",
-    "next": "search",
-    "datasort": "",
-    "category": [
-      {
-        "title": "电影",
-        "url": "https://www.dadagui.me/vodtype/1.html",
-        "quantity": ""
-      },
-      {
-        "title": "连续剧",
-        "url": "https://www.dadagui.me/vodtype/2.html",
-        "quantity": ""
-      },
-      {
-        "title": "欧美剧",
-        "url": "https://www.dadagui.me/vodshow/15-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "国产剧",
-        "url": "https://www.dadagui.me/vodshow/13-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "日韩剧",
-        "url": "https://www.dadagui.me/vodshow/14-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "港台剧",
-        "url": "https://www.dadagui.me/vodshow/16-----------.html",
-        "quantity": ""
-      },
-      {
-        "title": "动漫",
-        "url": "https://www.dadagui.me/vodtype/4.html",
-        "quantity": ""
-      },
-      {
-        "title": "综艺",
-        "url": "https://www.dadagui.me/vodtype/3.html",
-        "quantity": ""
-      }
-    ],
-    "list": {
-      "page": {
-        "selector": "ul.stui-page__item"
-      },
-      "videoscontainer": {
-        "selector": ".stui-vodlist__box",
-        "attrName": "",
-        "filter": ""
-      },
-      "title": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "title",
-        "filter": ""
-      },
-      "thumb": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "data-original",
-        "filter": ""
-      },
-      "link": {
-        "selector": "a.stui-vodlist__thumb",
-        "attrName": "href",
-        "filter": ""
-      }
-    },
-    "search": {
-      "url": "https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
     }
   },
   {
