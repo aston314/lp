@@ -7694,7 +7694,7 @@
           time = (itent.extras.position || itent.extras.extra_position) / 1000;
           duration = (itent.extras.duration || itent.extras.extra_duration) / 1000;
           (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
-            if (time) {
+            if (time && data.timeline.hash) {
             var new_result = {};
             new_result.hash = data.timeline.hash;
             new_result.time = time;
@@ -7709,9 +7709,9 @@
             //console.log(data.timeline)
             Timeline.update(new_result);
             
-            var enabled = Controller.enabled().name;
+            //var enabled = Controller.enabled().name;
             //console.log(enabled)
-            Controller.toggle(enabled);
+            //Controller.toggle(enabled);
             if (isWorked()) stopSlideshow();
           };
           
