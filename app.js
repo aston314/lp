@@ -7702,6 +7702,10 @@
             new_result.percent = percent;
             
             data.timeline.handler(percent, time, duration);
+            data.timeline.time =time;
+            data.timeline.duration = duration;
+            data.timeline.percent = percent;
+            
             console.log(data.timeline)
             Timeline.update(new_result);
             
