@@ -7712,6 +7712,7 @@
             var enabled = Controller.enabled().name;
             //console.log(enabled)
             Controller.toggle(enabled);
+            if (isWorked()) stopSlideshow();
           };
           
         //resultPlayer(itent , data);
