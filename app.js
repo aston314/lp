@@ -7700,9 +7700,10 @@
             new_result.time = time;
             new_result.duration = duration;
             new_result.percent = percent;
-            console.log(data.timeline)
+            
             data.timeline.handler(percent, time, duration);
             Timeline.update(new_result);
+            console.log(data.timeline)
             var enabled = Controller.enabled().name;
             //console.log(enabled)
             Controller.toggle(enabled);
