@@ -7694,7 +7694,7 @@
           time = (itent.extras.position || itent.extras.extra_position) / 1000;
           duration = (itent.extras.duration || itent.extras.extra_duration) / 1000;
           (duration > 0) ? percent = parseInt(time * 100 / duration) : percent = 100;
-            if (time && data.timeline.hash) {
+            if (time && data.timeline.hash !== undefined ) {
             var new_result = {};
             new_result.hash = data.timeline.hash;
             new_result.time = time;
@@ -7712,9 +7712,8 @@
             //var enabled = Controller.enabled().name;
             //console.log(enabled)
             //Controller.toggle(enabled);
-            if (isWorked()) stopSlideshow();
           };
-          
+          if (isWorked()) stopSlideshow();
         //resultPlayer(itent , data);
         }, function() {
           console.log("Failed to open video URL via Android Intent");
