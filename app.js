@@ -7700,7 +7700,9 @@
             new_result.time = time;
             new_result.duration = duration;
             new_result.percent = percent;
-            data.timeline.handler(percent, time, duration);
+            //data.timeline.handler(percent, time, duration);
+            console.log(work.timeline)
+            if (work.timeline && work.timeline.handler) work.timeline.handler(percent, time, duration);
             Timeline.update(new_result);
             var enabled = Controller.enabled().name;
             //console.log(enabled)
