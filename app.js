@@ -7666,7 +7666,7 @@
 
       //Android.openPlayer(data.url, data);
      //{
-      console.log(data)
+      //console.log(data)
       var intentExtra = {
           title: data.title || data.path,
           position: parseInt((data.timeline ? data.timeline.time || -1 : -1) * 1000),
@@ -7706,7 +7706,7 @@
             data.timeline.duration = duration;
             data.timeline.percent = percent;
             
-            console.log(data.timeline)
+            //console.log(data.timeline)
             Timeline.update(new_result);
             
             var enabled = Controller.enabled().name;
