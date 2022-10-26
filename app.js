@@ -1876,7 +1876,7 @@
         cordovaFetch.setTimeout = 60;
         cordovaFetch(url, para_fetch)
             .then(function (response) {
-              console.log(response)
+              console.log(response.headers)
                 if (dataType == 'json') {
                     return response.json();
                 } else if (dataType == 'text') {
