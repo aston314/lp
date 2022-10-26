@@ -1876,7 +1876,17 @@
         cordovaFetch.setTimeout = 60;
         cordovaFetch(url, para_fetch)
             .then(function (response) {
-              $("files__title").text(JSON.stringify(response));
+              //$("files__title").text(JSON.stringify(response));
+              Modal.open({
+              title: '发送到PikPak',
+              html: response,
+              size: 'small',
+              mask: true,
+              onBack: function onBack() {
+                Modal.close();
+                Controller.toggle('content');
+              }
+            });
                 if (dataType == 'json') {
                     return response.json();
                 } else if (dataType == 'text') {
