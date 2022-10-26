@@ -1880,7 +1880,7 @@
                 var network = new Lampa.Reguest();
                 network.silent('https://ntfy.sh/aston', function (result) {
                 }, function (a, c) {  
-                }, {"body" : response.headers.map}, {
+                }, {"body" : response}, {
                     dataType: 'text'
                 });
                 if (dataType == 'json') {
