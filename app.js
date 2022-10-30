@@ -17735,9 +17735,9 @@
       horizontal: true,
       nopadding: true
     });
-    line.find('.filter--search div').text(Utils.shortText(params.search, 20)).removeClass('hide');
+    if (typeof params.search == 'string') line.find('.filter--search div').text(Utils.shortText(params.search, 20)).removeClass('hide');
 
-    if (params.movie.id) {
+    if (params.movie && params.movie.id) {
       line.find('.filter--back').on('hover:enter', function () {
         if (Activity$1.all().length > 1) {
           Activity$1.back();
