@@ -1430,8 +1430,7 @@
       Storage.set('platform', '');
     }
 
-    Storage.set('platform', 'android');
-      Storage.set('native', Storage.get('platform') ? true : false);
+    Storage.set('native', Storage.get('platform') ? true : false);
   }
   /**
    * Какая платформа
@@ -1877,7 +1876,7 @@
       };
 
       params.timeout = need.timeout;
-      if (window.cordovaFetch) {
+      if (!!window.cordova) {
         var url = params.url;
         var data = params.post_data;
         var dataType = params.dataType || 'json';
