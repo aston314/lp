@@ -14598,7 +14598,7 @@
     if (movie) SERVER.movie = movie;
 
     if (!Storage.field('internal_torrclient')) {
-      openTorrent(SERVER);
+      Android.openTorrent(SERVER);
       if (movie && movie.id) Favorite.add('history', movie, 100);
       if (callback$1) callback$1();
     } else if (Torserver.url()) {
@@ -14613,7 +14613,7 @@
     if (movie) SERVER.movie = movie;
 
     if (!Storage.field('internal_torrclient')) {
-      playHash(SERVER);
+      Android.playHash(SERVER);
       if (callback$1) callback$1();
     } else if (Torserver.url()) {
       loading();
@@ -16019,7 +16019,7 @@
                 Player.play(a);
                 Player.playlist([a]);
               } else if (Platform.is('android')) {
-                openYoutube(a.id);
+                Android.openYoutube(a.id);
               } else YouTube.play(a.id);
             },
             onBack: function onBack() {
@@ -21896,7 +21896,7 @@
     search_start_typing: 'Start typing search text.',
     search_searching: 'Search in progress...',
     search_start: 'To start searching',
-    search_nofound: '按照您的要求，没有找到相关结果。',
+    search_nofound: 'Nothing was found according to your request.',
     full_genre: 'Genre',
     full_production: 'Production',
     full_date_of_release: 'date of release',
@@ -24233,7 +24233,7 @@
     search_start_typing: '开始输入搜索文本。',
     search_searching: '搜索中...',
     search_start: '开始搜索',
-    search_nofound: '按照您的要求，没有找到相关结果。',
+    search_nofound: 'Nothing was found according to your request.',
     full_genre: '类型',
     full_production: '出品公司',
     full_date_of_release: '发布日期',
