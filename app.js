@@ -1369,7 +1369,7 @@
   function checkVersion(needVersion) {
     var silent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-    if (Storage.field('platform') == 'android') {
+    if (typeof AndroidJS !== 'undefined' || !!window.cordova) {
       try {
         var versionCode = 16;
 
