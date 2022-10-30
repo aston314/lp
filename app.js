@@ -7615,36 +7615,6 @@
    */
 
 
-  function resultPlayer(json, data) {
-    // if (json.extras.requestCode == 1) {
-    var hash, time, duration, percent;
-    if (data.timeline) {
-      hash = data.timeline.hash;
-    } else {
-      return;
-    };
-    // if (json.action == 'org.videolan.vlc.player.result') {
-    //   time = json.extras.extra_position / 1000;
-    //   duration = json.extra_duration / 1000;
-    // } else {
-    time = (json.extras.position || json.extras.extra_position) / 1000;
-    //if (time) time = Math.round(time);
-    duration = (json.extras.duration || json.extras.extra_duration) / 1000;
-    //if (duration) duration = parseInt(duration);
-    // };
-    (duration > 0) ? percent = Math.round(time * 100 / duration) : percent = 100;
-    var new_result = {};
-    new_result.hash = hash;
-    new_result.time = time;
-    new_result.duration = duration;
-    new_result.percent = percent;
-    if (time) Timeline.update(new_result);
-    //console.log(new_result)
-    // } else {
-    //   return;
-    // }
-  }
-
   function saveTimeLoop() {
     if (work.timeline) {
       timer_save = setInterval(saveTimeView, 1000 * 60 * 2);
@@ -15743,32 +15713,13 @@
 
 
   function relise(oncomplite, onerror) {
-      var postdata = {
-        category_id: "-1",
-        skip: "0",
-        limit: "60",
-        keyword: ""
-    };
-      network$2.silent('https://cmn.yyds.fans/api/posts', function (json) {
-        if(json.status_code === 405){
-          Noty.show('未能刷新数据，请从菜单重新进入。');
-          return false;
-        };
-        json.data.list.forEach(function (item) {
-          var mytitle = item.title.replace('/',' ');
-          if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0];
-          if(item.category_id !== 3) item.name = mytitle;
-          if(item.category_id == 3) item.tmdbID = item.imdb_id;
-          //item.tmdbID = item.imdb_id;
-          item.original_title = mytitle;
-          item.title = mytitle;
-          item.release_date = item.release_time;
-          item.vote_average = item.imdb_score;
-          item.poster_path = item.cover.replace('l_ratio_poster','s_ratio_poster');
-        });
-        oncomplite(json.data.list);
-      }, onerror,postdata);
-    }
+    network$2.silent(Utils.protocol() + 'tmdb.cub.watch?sort=releases&results=200', function (json) {
+      json.results.forEach(function (item) {
+        item.tmdbID = item.id;
+      });
+      oncomplite(json.results);
+    }, onerror);
+  }
   /**
    * Очистить
    */
@@ -17735,7 +17686,7 @@
       horizontal: true,
       nopadding: true
     });
-    if (typeof params.search == 'string') line.find('.filter--search div').text(Utils.shortText(params.search, 20)).removeClass('hide');
+    if (typeof params.search == 'string') line.find('.filter--search div').text(params.search ? Utils.shortText(params.search, 20) :'').removeClass('hide');
 
     if (params.movie && params.movie.id) {
       line.find('.filter--back').on('hover:enter', function () {
