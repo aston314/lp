@@ -1359,7 +1359,7 @@
   }
 
   function voiceStart() {
-    if (checkVersion(25)) !!window.cordova ? null : AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+    if (checkVersion(25)) !!window.cordova ? null : AndroidJS.voiceStart();else Lampa.Noty.show("仅适用于 Android TV");
   }
 
   function updateChannel(where) {
