@@ -1227,7 +1227,7 @@
   var timeCallback = {};
 
   function exit$1() {
-    if (checkVersion(1)) navigator.app.exitApp();else $('<a href="lampa://exit"></a>')[0].click();
+    if (checkVersion(1)) !!window.cordova ? navigator.app.exitApp() : AndroidJS.exit();else $('<a href="lampa://exit"></a>')[0].click();
   }
 
   function playHash(SERVER) {
@@ -28460,7 +28460,7 @@
               Controller.toggle(enabled.name);
               if (Platform.is('tizen')) tizen.application.getCurrentApplication().exit();
               if (Platform.is('webos')) window.close();
-              if (Platform.is('android')) navigator.app.exitApp(); //пока не используем, нужно разобраться почему вызывается активити при загрузке главной
+              if (Platform.is('android')) !!window.cordova ? navigator.app.exitApp() : Android.exit(); //пока не используем, нужно разобраться почему вызывается активити при загрузке главной
 
               if (Platform.is('orsay')) Orsay.exit();
               if (Platform.is('netcast')) window.NetCastBack();
