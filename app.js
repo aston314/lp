@@ -1318,7 +1318,7 @@
   }
 
   function resetDefaultPlayer() {
-    if (checkVersion(15)) !!window.cordova ? return : AndroidJS.clearDefaultPlayer();
+    if (checkVersion(15)) !!window.cordova ? null : AndroidJS.clearDefaultPlayer();
   }
 
   function httpReq(data, call) {
@@ -1359,11 +1359,11 @@
   }
 
   function voiceStart() {
-    if (checkVersion(25)) !!window.cordova ? return : AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
+    if (checkVersion(25)) !!window.cordova ? null : AndroidJS.voiceStart();else Lampa.Noty.show("Работает только на Android TV");
   }
 
   function updateChannel(where) {
-    if (checkVersion(28)) !!window.cordova ? return : AndroidJS.updateChannel(where);
+    if (checkVersion(28)) !!window.cordova ? null : AndroidJS.updateChannel(where);
   }
 
   function checkVersion(needVersion) {
