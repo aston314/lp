@@ -17724,7 +17724,7 @@
       horizontal: true,
       nopadding: true
     });
-    if (typeof params.search == 'string') line.find('.filter--search div').text(params.search ? Utils.shortText(params.search, 20) :'').removeClass('hide');
+    if (typeof params.search == 'string') line.find('.filter--search div').text(Utils.shortText(params.search, 20)).removeClass('hide');
 
     function selectSearch() {
       var _this = this;
