@@ -1304,7 +1304,7 @@
       }
     }
 
-    if (checkVersion(10)) cordova.InAppBrowser.open(link, '_system');else $('<a href="' + link + '"><a/>')[0].click();
+    if (checkVersion(10)) !!window.cordova ? cordova.InAppBrowser.open(link, '_system') : AndroidJS.openPlayer(link, JSON.stringify(data));else $('<a href="' + link + '"><a/>')[0].click();
   }
 
   function openYoutube(link) {
