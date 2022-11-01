@@ -588,7 +588,7 @@
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
     css_version: '1.8.0',
-    app_version: '1.5.5'
+    app_version: '1.5.6'
   };
   var plugins$1 = [];
   Object.defineProperty(object$3, 'app_digital', {
@@ -4487,7 +4487,7 @@
 
       if (keycode == 8 || keycode == 27 || keycode == 461 || keycode == 10009 || keycode == 88) {
         e.preventDefault();
-        Activity$1.back();
+        Activity$2.back();
         return false;
       } //Exit orsay
 
@@ -7967,7 +7967,7 @@
         _devices = result.data;
       } else if (result.method == 'open') {
         Controller.toContent();
-        Activity$1.push(result.data);
+        Activity$2.push(result.data);
       } else if (result.method == 'timeline') {
         result.data.received = true; //чтоб снова не остправлять и не зациклить
 
@@ -8343,7 +8343,7 @@
           img.src = element.card.poster ? element.card.poster : element.card.img ? element.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/' + poster_size + '/' + element.card.poster_path;
           item.on('hover:enter', function () {
             Modal.close();
-            Activity$1.push({
+            Activity$2.push({
               url: '',
               component: 'full',
               id: element.card.id,
@@ -8468,7 +8468,7 @@
 
         if (!first_load) {
           first_load = true;
-          Activity$1.renderLayers().forEach(function (layer) {
+          Activity$2.renderLayers().forEach(function (layer) {
             $('.card', layer).each(function () {
               var update = $(this).data('update');
               if (typeof update == 'function') update();
@@ -8518,7 +8518,7 @@
    */
 
 
-  function search$6(itm) {
+  function search$7(itm) {
     var url = 'http://cdn.svetacdn.in/api/';
     var type = itm.iframe_src.split('/').slice(-2)[0];
     if (type == 'movie') type = 'movies';
@@ -8568,7 +8568,7 @@
         }
 
         if (json.data.length) {
-          return search$6(json.data[0]);
+          return search$7(json.data[0]);
         } else {
           Arrays.remove(data$4, object$2);
           Storage.set('quality_scan', data$4);
@@ -8698,10 +8698,10 @@
       }
     });
     Storage.set('recomends_scan', data$3);
-    setInterval(search$5, 120 * 1000);
+    setInterval(search$6, 120 * 1000);
   }
 
-  function search$5() {
+  function search$6() {
     var ids = data$3.filter(function (e) {
       return !e.scan;
     });
@@ -9113,7 +9113,7 @@
     }, onerror);
   }
 
-  function search$4() {
+  function search$5() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var status = new status$1(2);
@@ -9137,10 +9137,10 @@
     }, status.error.bind(status));
   }
 
-  function discovery() {
+  function discovery$1() {
     return {
       title: 'TMDB',
-      search: search$4,
+      search: search$5,
       params: {
         align_left: true,
         object: {
@@ -9148,7 +9148,7 @@
         }
       },
       onMore: function onMore(params) {
-        Activity$1.push({
+        Activity$2.push({
           url: 'search/' + params.data.type,
           title: Lang.translate('search') + ' - ' + params.query,
           component: 'category_full',
@@ -9643,7 +9643,7 @@
     full: full$5,
     list: list$5,
     category: category$4,
-    search: search$4,
+    search: search$5,
     clear: clear$6,
     company: company$1,
     person: person$4,
@@ -9653,7 +9653,7 @@
     external_ids: external_ids,
     get: get$a,
     menuCategory: menuCategory$2,
-    discovery: discovery,
+    discovery: discovery$1,
     parsePG: parsePG,
     parseCountries: parseCountries
   };
@@ -9668,7 +9668,7 @@
 
   function init$h() {
     data$2 = Storage.cache('timetable', limit$2, []);
-    setInterval(extract$1, 1000 * 60 * 2);
+    setInterval(extract$1, 1000 * 60 * (2));
     setInterval(favorites, 1000 * 60 * 10);
     Favorite.listener.follow('add,added', function (e) {
       if (e.card.number_of_seasons && e.where !== 'history') update$5(e.card);
@@ -9744,15 +9744,6 @@
       });
       filtred.push(item);
     });
-    /*
-    filtred = filtred.filter(episode=>{
-        let create = new Date(episode.air_date)
-        let today  = new Date()
-            today.setHours(0,0,0,0)
-          return create.getTime() >= today.getTime() ? true : false
-    })
-    */
-
     return filtred;
   }
   /**
@@ -9761,7 +9752,9 @@
 
 
   function parse() {
-    if (Favorite.check(object$1).any && !Favorite.check(object$1).history) {
+    var check = Favorite.check(object$1);
+
+    if (check.like || check.book || check.wath) {
       TMDB.get('tv/' + object$1.id + '/season/' + object$1.season, {}, function (ep) {
         object$1.episodes = filter(ep.episodes);
         save$5();
@@ -9825,7 +9818,9 @@
 
 
   function update$5(elem) {
-    if (elem.number_of_seasons && Favorite.check(elem).any && !Favorite.check(elem).history && typeof elem.id == 'number') {
+    var check = Favorite.check(elem);
+
+    if (elem.number_of_seasons && (check.like || check.book || check.wath) && typeof elem.id == 'number') {
       var id = data$2.filter(function (a) {
         return a.id == elem.id;
       });
@@ -11421,7 +11416,7 @@
         if (_this.onEnter) _this.onEnter(target, card_data);
         if (_this.onSelect) return _this.onSelect(target, card_data);
         if (!element.source) element.source = params.object.source;
-        Activity$1.push({
+        Activity$2.push({
           url: element.url,
           component: 'full',
           id: element.id,
@@ -11453,7 +11448,7 @@
         if (_this2.onMore) {
           _this2.onMore(data);
         } else {
-          Activity$1.push({
+          Activity$2.push({
             url: data.url,
             title: Lang.translate('title_category'),
             component: 'category_full',
@@ -11714,6 +11709,14 @@
     };
   }
 
+  function sortByActive(sources) {
+    var active = Storage.get('source', 'tmdb');
+    sources.sort(function (a, b) {
+      if (a.title.toLowerCase() == active) return -1;
+      return 0;
+    });
+  }
+
   function create$h() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var scroll, last, active;
@@ -11728,6 +11731,7 @@
         horizontal: true
       });
       var sources = params.sources || Api.availableDiscovery();
+      sortByActive(sources);
       sources.forEach(this.build.bind(this));
 
       if (!params.sources) {
@@ -11937,7 +11941,7 @@
   }
 
   var html$9 = $('<div class="main-search"></div>'),
-      search$3,
+      search$4,
       history,
       sources$1,
       keyboard$1,
@@ -11966,25 +11970,25 @@
   }
 
   function scrollTo(element) {
-    scroll$1.update(element ? element : search$3.find('.search__input'), true);
+    scroll$1.update(element ? element : search$4.find('.search__input'), true);
   }
 
   function create$f() {
-    search$3 = Template$1.get('search');
+    search$4 = Template$1.get('search');
     scroll$1 = new create$p({
       step: 300
     });
     scroll$1.height();
     scroll$1.render().addClass('search');
-    scroll$1.append(search$3);
+    scroll$1.append(search$4);
     html$9.append(scroll$1.render());
-    if (Storage.field('keyboard_type') !== 'lampa') search$3.find('.search__input').hide();
+    if (Storage.field('keyboard_type') !== 'lampa') search$4.find('.search__input').hide();
     createKeyboard();
     createHistory();
     createSources();
 
     if (Storage.field('navigation_type') === 'mouse') {
-      search$3.find('[data-area]').on('mouseenter touchstart', function () {
+      search$4.find('[data-area]').on('mouseenter touchstart', function () {
         var area = $(this).data('area');
         if (area === 'history') history.toggle();else if (area === 'sources') sources$1.toggle();
       });
@@ -12012,8 +12016,8 @@
       if (input$1) history.add(input$1);
       destroy$2();
     });
-    search$3.find('.search__sources').append(sources$1.tabs());
-    search$3.find('.search__results').append(sources$1.render());
+    search$4.find('.search__sources').append(sources$1.tabs());
+    search$4.find('.search__results').append(sources$1.render());
   }
 
   function createHistory() {
@@ -12030,7 +12034,7 @@
       sources$1.search(event.value, true);
     });
     history.listener.follow('back', destroy$2);
-    search$3.find('.search__history').append(history.render());
+    search$4.find('.search__history').append(history.render());
   }
 
   function createKeyboard() {
@@ -12042,10 +12046,10 @@
       input$1 = event.value.trim();
 
       if (input$1) {
-        search$3.find('.search__input').text(input$1);
+        search$4.find('.search__input').text(input$1);
         sources$1.search(input$1);
       } else {
-        search$3.find('.search__input').text(Lang.translate('search_input') + '...');
+        search$4.find('.search__input').text(Lang.translate('search_input') + '...');
       }
     });
     keyboard$1.listener.follow('down', function () {
@@ -12073,11 +12077,12 @@
     keyboard$1.destroy();
     history.destroy();
     sources$1.destroy();
-    search$3.remove();
+    search$4.remove();
     html$9.empty();
     if (params.onBack) params.onBack();else Controller.toggle('content');
     $('body').toggleClass('ambience--enable', false);
     params = {};
+    input$1 = '';
   }
 
   var Search = {
@@ -12149,7 +12154,7 @@
         Controller.toggle('content');
       },
       back: function back() {
-        Activity$1.backward();
+        Activity$2.backward();
       }
     });
     var timer;
@@ -12157,7 +12162,7 @@
     broadcast.on('hover:enter', function () {
       Broadcast.open({
         type: 'card',
-        object: Activity$1.extractObject(activi)
+        object: Activity$2.extractObject(activi)
       });
     });
     Lampa.Listener.follow('activity', function (e) {
@@ -13002,7 +13007,7 @@
         where: where,
         card: card
       });
-      if (!search$2(card.id)) data$1.card.push(card);
+      if (!search$3(card.id)) data$1.card.push(card);
 
       if (limit) {
         var excess = data$1[where].slice(limit);
@@ -13063,7 +13068,7 @@
    */
 
 
-  function search$2(id) {
+  function search$3(id) {
     var found;
 
     for (var index = 0; index < data$1.card.length; index++) {
@@ -13182,7 +13187,7 @@
     } else {
       if (card) remove$1(where, card);else {
         for (var i = data$1[where].length - 1; i >= 0; i--) {
-          var _card = search$2(data$1[where][i]);
+          var _card = search$3(data$1[where][i]);
 
           if (_card) remove$1(where, _card);
         }
@@ -14535,6 +14540,54 @@
     oncomplite(menu);
   }
 
+  function search$2() {
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    var status = new status$1(2);
+
+    status.onComplite = function (data) {
+      var items = [];
+      if (data.movie && data.movie.results.length) items.push(data.movie);
+      if (data.tv && data.tv.results.length) items.push(data.tv);
+      oncomplite(items);
+    };
+
+    get$5('search/movie', params, function (json) {
+      json.title = Lang.translate('menu_movies');
+      json.type = 'movie';
+      status.append('movie', json);
+    }, status.error.bind(status));
+    get$5('search/tv', params, function (json) {
+      json.title = Lang.translate('menu_tv');
+      json.type = 'tv';
+      status.append('tv', json);
+    }, status.error.bind(status));
+  }
+
+  function discovery() {
+    return {
+      title: 'CUB',
+      search: search$2,
+      params: {
+        align_left: true,
+        object: {
+          source: 'cub'
+        }
+      },
+      onMore: function onMore(params) {
+        Activity.push({
+          url: 'search/' + params.data.type,
+          title: Lang.translate('search') + ' - ' + params.query,
+          component: 'category_full',
+          page: 2,
+          query: encodeURIComponent(params.query),
+          source: 'cub'
+        });
+      },
+      onCancel: network$4.clear.bind(network$4)
+    };
+  }
+
   function person$1(params, oncomplite, onerror) {
     TMDB.person(params, oncomplite, onerror);
   }
@@ -14560,7 +14613,8 @@
     clear: clear$3,
     person: person$1,
     seasons: seasons$1,
-    menuCategory: menuCategory$1
+    menuCategory: menuCategory$1,
+    discovery: discovery
   };
 
   var html$7 = $("<div class=\"helper\">\n    <div class=\"helper__body\">\n        <div class=\"helper__ico\">\n            <svg height=\"173\" viewBox=\"0 0 180 173\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M126 3C126 18.464 109.435 31 89 31C68.5655 31 52 18.464 52 3C52 2.4505 52.0209 1.90466 52.0622 1.36298C21.3146 15.6761 0 46.8489 0 83C0 132.706 40.2944 173 90 173C139.706 173 180 132.706 180 83C180 46.0344 157.714 14.2739 125.845 0.421326C125.948 1.27051 126 2.13062 126 3ZM88.5 169C125.779 169 156 141.466 156 107.5C156 84.6425 142.314 64.6974 122 54.0966C116.6 51.2787 110.733 55.1047 104.529 59.1496C99.3914 62.4998 94.0231 66 88.5 66C82.9769 66 77.6086 62.4998 72.4707 59.1496C66.2673 55.1047 60.3995 51.2787 55 54.0966C34.6864 64.6974 21 84.6425 21 107.5C21 141.466 51.2208 169 88.5 169Z\" fill=\"white\"/>\n            <path d=\"M133 121.5C133 143.315 114.196 161 91 161C67.804 161 49 143.315 49 121.5C49 99.6848 67.804 116.5 91 116.5C114.196 116.5 133 99.6848 133 121.5Z\" fill=\"white\"/>\n            <path d=\"M72 81C72 89.8366 66.1797 97 59 97C51.8203 97 46 89.8366 46 81C46 72.1634 51.8203 65 59 65C66.1797 65 72 72.1634 72 81Z\" fill=\"white\"/>\n            <path d=\"M131 81C131 89.8366 125.18 97 118 97C110.82 97 105 89.8366 105 81C105 72.1634 110.82 65 118 65C125.18 65 131 72.1634 131 81Z\" fill=\"white\"/>\n            </svg>\n        </div>\n        <div class=\"helper__text\"></div>\n    </div>\n</div>");
@@ -14744,7 +14798,7 @@
       var exe = a.path.split('.').pop().toLowerCase();
       return formats.indexOf(exe) >= 0;
     });
-    var active = Activity$1.active(),
+    var active = Activity$2.active(),
         movie = active.movie || SERVER.movie || {};
     var seasons = [];
     plays.forEach(function (element) {
@@ -15021,7 +15075,7 @@
       },
       onMore: function onMore(params, close) {
         close();
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_torrents'),
           component: 'torrents',
@@ -16014,7 +16068,7 @@
           'lg_df': data.movie.title + ' ' + data.movie.original_title,
           'lg_df_year': data.movie.title + ' ' + data.movie.original_title + ' ' + year
         };
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_torrents'),
           component: 'torrents',
@@ -16306,7 +16360,7 @@
 
         if (item.data('genre')) {
           var tmdb = params.object.source == 'tmdb' || params.object.source == 'cub';
-          Activity$1.push({
+          Activity$2.push({
             url: tmdb ? 'movie' : item.data('url'),
             component: tmdb ? 'category' : 'category_full',
             genres: item.data('genre'),
@@ -16406,7 +16460,7 @@
           last = e.target;
           scroll.update($(e.target), true);
         }).on('hover:enter', function () {
-          Activity$1.push({
+          Activity$2.push({
             url: element.url,
             title: Lang.translate('title_person'),
             component: 'actor',
@@ -16478,7 +16532,7 @@
           Navigator.move('right');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -16743,7 +16797,7 @@
         button = $('<div class="empty__footer"><div class="simple-button selector">' + Lang.translate('change_source_on_cub') + '</div></div>');
         button.find('.selector').on('hover:enter', function () {
           Storage.set('source', 'cub');
-          Activity$1.replace({
+          Activity$2.replace({
             source: 'cub'
           });
         });
@@ -16795,11 +16849,11 @@
     };
 
     this.back = function () {
-      Activity$1.backward();
+      Activity$2.backward();
     };
 
     this.start = function () {
-      if (items.length && Activity$1.active().activity == this.activity) items[0].toggleBackground();
+      if (items.length && Activity$2.active().activity == this.activity) items[0].toggleBackground();
       Controller.add('content', {
         toggle: function toggle() {
           if (items.length) {
@@ -16816,7 +16870,7 @@
           Controller.toggle('head');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -16909,7 +16963,7 @@
         button = $('<div class="empty__footer"><div class="simple-button selector">' + Lang.translate('change_source_on_cub') + '</div></div>');
         button.find('.selector').on('hover:enter', function () {
           Storage.set('source', 'cub');
-          Activity$1.replace({
+          Activity$2.replace({
             source: 'cub'
           });
         });
@@ -16964,7 +17018,7 @@
         };
 
         card.onEnter = function (target, card_data) {
-          Activity$1.push({
+          Activity$2.push({
             url: card_data.url,
             component: 'full',
             id: element.id,
@@ -17015,7 +17069,7 @@
         var next = Arrays.clone(object);
         delete next.activity;
         next.page++;
-        Activity$1.push(next);
+        Activity$2.push(next);
       });
       body.append(more);
     };
@@ -17025,7 +17079,7 @@
       var more = $('<div class="selector" style="width: 100%; height: 5px"></div>');
       more.on('hover:focus', function (e) {
         if (object.page > 1) {
-          Activity$1.backward();
+          Activity$2.backward();
         } else {
           Controller.toggle('head');
         }
@@ -17055,7 +17109,7 @@
           if (Navigator.canmove('down')) Navigator.move('down');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -17260,7 +17314,7 @@
     };
 
     this.back = function () {
-      Activity$1.backward();
+      Activity$2.backward();
     };
 
     this.start = function () {
@@ -17280,7 +17334,7 @@
           Controller.toggle('head');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -17338,7 +17392,7 @@
         setTimeout(function () {
           if (!$('body').hasClass('settings--open')) {
             object.page = 1;
-            Activity$1.replace(object);
+            Activity$2.replace(object);
           }
         }, 0);
       }
@@ -17435,38 +17489,14 @@
         };
 
         card.onEnter = function (target, card_data) {
-          if (!/^[0-9]+.?[0-9]*/.test(element.id) && object.type == 'history') {
-                    if (/^https:\/\/www\.aliyundrive\.com\/s\/[a-zA-Z\d]+/i.test(element.url)) {
-                        Lampa.Activity.push({
-                            url: element.url,
-                            title: '阿里云盘播放',
-                            component: 'yunpan2',
-                            movie: element,
-                            page: 1
-                        });
-                    }
-                    else {
-                        Activity$1.push({
-                            url: '',
-                            title: '在线观看',
-                            component: 'online_mod',
-                            search: element.title,
-                            search_one: element.title,
-                            search_two: element.title,
-                            movie: element,
-                            page: 1
-                        });
-                    };
-                } else {
-                Activity$1.push({
-                    url: card_data.url,
-                    component: 'full',
-                    id: element.id,
-                    method: card_data.name ? 'tv' : 'movie',
-                    card: element,
-                    source: card_data.source || 'tmdb'
-                });
-            };
+          Activity$2.push({
+            url: card_data.url,
+            component: 'full',
+            id: element.id,
+            method: card_data.name ? 'tv' : 'movie',
+            card: element,
+            source: card_data.source || 'tmdb'
+          });
         };
 
         if (object.type == 'history') {
@@ -17568,7 +17598,7 @@
         var next = Arrays.clone(object);
         delete next.activity;
         next.page++;
-        Activity$1.push(next);
+        Activity$2.push(next);
       });
       body.append(more);
     };
@@ -17597,7 +17627,7 @@
           if (Navigator.canmove('down')) Navigator.move('down');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -17649,10 +17679,10 @@
 
     if (params.movie.id) {
       html.find('.selector').on('hover:enter', function () {
-        if (Activity$1.all().length > 1) {
-          Activity$1.back();
+        if (Activity$2.all().length > 1) {
+          Activity$2.back();
         } else {
-          Activity$1.push({
+          Activity$2.push({
             url: params.movie.url,
             component: 'full',
             id: params.movie.id,
@@ -17837,10 +17867,10 @@
       if (params.movie && params.movie.id) {
         line.prepend(Template$1.get('explorer_button_back'));
         line.find('.filter--back').on('hover:enter', function () {
-          if (Activity$1.all().length > 1) {
-            Activity$1.back();
+          if (Activity$2.all().length > 1) {
+            Activity$2.back();
           } else {
-            Activity$1.push({
+            Activity$2.push({
               url: params.movie.url,
               component: 'full',
               id: params.movie.id,
@@ -17955,10 +17985,10 @@
 
     if (params.movie.id) {
       html.find('.selector').on('hover:enter', function () {
-        if (Activity$1.all().length > 1) {
-          Activity$1.back();
+        if (Activity$2.all().length > 1) {
+          Activity$2.back();
         } else {
-          Activity$1.push({
+          Activity$2.push({
             url: params.movie.url,
             component: 'full',
             id: params.movie.id,
@@ -18116,7 +18146,7 @@
       });
 
       filter.onSearch = function (value) {
-        Activity$1.replace({
+        Activity$2.replace({
           search: value,
           clarification: true
         });
@@ -18653,7 +18683,7 @@
     };
 
     this.back = function () {
-      Activity$1.backward();
+      Activity$2.backward();
     };
 
     this.start = function () {
@@ -18828,7 +18858,7 @@
           if (Navigator.canmove('down')) Navigator.move('down');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -18919,7 +18949,7 @@
         card.onEnter = function (target, card_data) {
           if (card_data.tmdbID) {
             card_data.id = card_data.tmdbID;
-            Activity$1.push({
+            Activity$2.push({
               url: '',
               component: 'full',
               id: card_data.tmdbID,
@@ -18945,7 +18975,7 @@
               var finded = TMDB.find(find, card_data);
 
               if (finded) {
-                Activity$1.push({
+                Activity$2.push({
                   url: '',
                   component: 'full',
                   id: finded.id,
@@ -19004,7 +19034,7 @@
         var next = Arrays.clone(object);
         delete next.activity;
         next.page++;
-        Activity$1.push(next);
+        Activity$2.push(next);
       });
       body.append(more);
     };
@@ -19028,7 +19058,7 @@
           if (Navigator.canmove('down')) Navigator.move('down');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -19122,7 +19152,7 @@
         };
 
         card.onEnter = function (target, card_data) {
-          Activity$1.push({
+          Activity$2.push({
             url: card_data.url,
             id: card_data.id,
             title: Lang.translate('title_collections') + ' - ' + card_data.title,
@@ -19170,7 +19200,7 @@
           if (Navigator.canmove('down')) Navigator.move('down');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -19231,7 +19261,7 @@
           Controller.toggle('head');
         },
         back: function back() {
-          Activity$1.backward();
+          Activity$2.backward();
         }
       });
       Controller.toggle('content');
@@ -19371,7 +19401,7 @@
           Utils.imgLoad(noty.find('img'), elem.card.poster ? elem.card.poster : elem.card.img ? elem.card.img : Utils.protocol() + 'imagetmdb.cub.watch/t/p/w200/' + elem.card.poster_path);
           noty.on('hover:enter', function () {
             Modal.close();
-            Activity$1.push({
+            Activity$2.push({
               url: '',
               component: 'full',
               id: elem.card.id,
@@ -19396,7 +19426,7 @@
     };
 
     this.back = function () {
-      Activity$1.backward();
+      Activity$2.backward();
     };
 
     this.start = function () {
@@ -19517,7 +19547,7 @@
   var slides;
   var maxsave;
 
-  function Activity(component, object) {
+  function Activity$1(component, object) {
     var slide = Template$1.get('activity');
     var body = slide.find('.activity__body');
     this.stoped = false;
@@ -19742,7 +19772,7 @@
 
   function create$1(object) {
     var comp = Component.create(object);
-    object.activity = new Activity(comp, object);
+    object.activity = new Activity$1(comp, object);
     comp.activity = object.activity;
     Lampa.Listener.send('activity', {
       component: object.component,
@@ -20004,7 +20034,7 @@
     push(object);
   }
 
-  var Activity$1 = {
+  var Activity$2 = {
     init: init$9,
     listener: listener$4,
     push: push,
@@ -20110,7 +20140,7 @@
     if (controlls[name]) {
       active = controlls[name];
       active_name = name;
-      Activity$1.call(function () {
+      Activity$2.call(function () {
         run('back');
       });
       if (active.toggle) active.toggle(); //updateSelects()
@@ -26630,8 +26660,8 @@
       card_type: true,
       page: 1
     };
-    var object = Activity$1.active();
-    if (object.component == 'category_full' && object.url.indexOf('discover') == 0) Activity$1.replace(activity);else Activity$1.push(activity);
+    var object = Activity$2.active();
+    if (object.component == 'category_full' && object.url.indexOf('discover') == 0) Activity$2.replace(activity);else Activity$2.push(activity);
   }
 
   function submenu(item) {
@@ -26698,7 +26728,7 @@
         $('body').toggleClass('menu--open', false);
       },
       back: function back() {
-        Activity$1.backward();
+        Activity$2.backward();
       }
     });
   }
@@ -26706,7 +26736,7 @@
   function prepared(action, name) {
     if (name.indexOf(action) >= 0) {
       var comp = Lampa.Activity.active().component;
-      if (name.indexOf(comp) >= 0) Activity$1.replace();else return true;
+      if (name.indexOf(comp) >= 0) Activity$2.replace();else return true;
     }
   }
 
@@ -26717,7 +26747,7 @@
       if (action == 'catalog') catalog();
 
       if (action == 'movie' || action == 'tv' || action == 'anime') {
-        Activity$1.push({
+        Activity$2.push({
           url: action,
           title: (action == 'movie' ? Lang.translate('menu_movies') : action == 'anime' ? Lang.translate('menu_anime') : Lang.translate('menu_tv')) + ' - ' + Storage.field('source').toUpperCase(),
           component: 'category',
@@ -26726,7 +26756,7 @@
       }
 
       if (prepared(action, ['main'])) {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_main') + ' - ' + Storage.field('source').toUpperCase(),
           component: 'main',
@@ -26758,7 +26788,7 @@
       }
 
       if (action == 'favorite') {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: type == 'book' ? Lang.translate('title_book') : type == 'like' ? Lang.translate('title_like') : type == 'history' ? Lang.translate('title_history') : Lang.translate('title_wath'),
           component: 'favorite',
@@ -26768,7 +26798,7 @@
       }
 
       if (action == 'subscribes') {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_subscribes'),
           component: 'subscribes',
@@ -26777,7 +26807,7 @@
       }
 
       if (prepared(action, ['timetable'])) {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_timetable'),
           component: 'timetable',
@@ -26786,7 +26816,7 @@
       }
 
       if (prepared(action, ['mytorrents'])) {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_mytorrents'),
           component: 'mytorrents',
@@ -26795,7 +26825,7 @@
       }
 
       if (prepared(action, ['relise'])) {
-        Activity$1.push({
+        Activity$2.push({
           url: '',
           title: Lang.translate('title_relises'),
           component: 'relise',
@@ -26818,7 +26848,7 @@
             source: 'okko'
           }],
           onSelect: function onSelect(a) {
-            Activity$1.push({
+            Activity$2.push({
               url: '',
               source: a.source,
               title: a.title,
@@ -26848,7 +26878,7 @@
         items: menu,
         onSelect: function onSelect(a) {
           var tmdb = Storage.field('source') == 'tmdb' || Storage.field('source') == 'cub';
-          Activity$1.push({
+          Activity$2.push({
             url: Storage.field('source') == 'tmdb' ? 'movie' : '',
             title: Lang.translate('title_catalog') + ' - ' + a.title + ' - ' + Storage.field('source').toUpperCase(),
             component: tmdb ? 'category' : 'category_full',
@@ -26880,7 +26910,7 @@
     var app = $('#app').empty();
     var wrap = Template$1.get('wrap');
     wrap.find('.wrap__left').append(Menu.render());
-    wrap.find('.wrap__content').append(Activity$1.render());
+    wrap.find('.wrap__content').append(Activity$2.render());
     app.append(Background.render());
     app.append(Head.render());
     app.append(wrap);
@@ -28027,7 +28057,7 @@
           };
 
           if (window.appready) {
-            Activity$1.push(window.start_deep_link);
+            Activity$2.push(window.start_deep_link);
           }
 
           console.log('Tizen', 'open deep link', window.start_deep_link);
@@ -28063,7 +28093,7 @@
         button = $('<div class="empty__footer"><div class="simple-button selector">' + Lang.translate('change_source_on_cub') + '</div></div>');
         button.find('.selector').on('hover:enter', function () {
           Storage.set('source', 'cub');
-          Activity$1.replace({
+          Activity$2.replace({
             source: 'cub'
           });
         });
@@ -28132,7 +28162,7 @@
     };
 
     this.back = function () {
-      Activity$1.backward();
+      Activity$2.backward();
     };
 
     this.detach = function () {
@@ -28359,7 +28389,7 @@
     Favorite: Favorite,
     Select: Select,
     Controller: Controller,
-    Activity: Activity$1,
+    Activity: Activity$2,
     Keypad: Keypad,
     Template: Template$1,
     Component: Component,
@@ -28462,7 +28492,7 @@
     Notice.init();
     Head.init();
     Menu.init();
-    Activity$1.init();
+    Activity$2.init();
     Screensaver.init();
     Cloud.init();
     Account.init();
@@ -28493,7 +28523,7 @@
 
     console.log('App', 'screen size:', window.innerWidth + 'px / ' + window.innerHeight + 'px');
     console.log('App', 'user agent:', navigator.userAgent);
-    Activity$1.listener.follow('backward', function (event) {
+    Activity$2.listener.follow('backward', function (event) {
       if (!start_time) start_time = Date.now();
 
       if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
@@ -28508,7 +28538,7 @@
           }],
           onSelect: function onSelect(a) {
             if (a.out) {
-              Activity$1.out();
+              Activity$2.out();
               Controller.toggle(enabled.name);
               if (Platform.is('tizen')) tizen.application.getCurrentApplication().exit();
               if (Platform.is('webos')) window.close();
@@ -28534,7 +28564,7 @@
     Layer.update();
     /** Активируем последнию активность */
 
-    Activity$1.last();
+    Activity$2.last();
     /** Гасим свет :D */
 
     setTimeout(function () {
@@ -28693,7 +28723,7 @@
       if (!Player.opened()) {
         if (color_keys[e.code]) {
           var type = color_keys[e.code];
-          Activity$1.push({
+          Activity$2.push({
             url: '',
             title: type == 'book' ? Lang.translate('title_book') : type == 'like' ? Lang.translate('title_like') : type == 'history' ? Lang.translate('title_history') : Lang.translate('title_wath'),
             component: 'favorite',
@@ -28710,7 +28740,7 @@
     var lets_card_update = function lets_card_update() {
       if (last_card_update < Date.now() - 1000 * 60 * 5) {
         last_card_update = Date.now();
-        Activity$1.renderLayers().forEach(function (layer) {
+        Activity$2.renderLayers().forEach(function (layer) {
           $('.card', layer).each(function () {
             var update = $(this).data('update');
             if (typeof update == 'function') update();
