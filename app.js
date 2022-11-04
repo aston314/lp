@@ -587,7 +587,7 @@
   var object$3 = {
     author: 'Yumata',
     github: 'https://github.com/yumata/lampa-source',
-    css_version: '1.8.1',
+    css_version: '1.8.2',
     app_version: '1.5.7'
   };
   var plugins$1 = [];
@@ -4358,6 +4358,7 @@
       keycode = e.which;
     }
 
+    if (window.god_enabled && Lampa.Platform.is('nw')) Lampa.Noty.show('Keycode: ' + keycode + '; time: ' + Date.now());
     return keycode;
   }
 
@@ -15263,7 +15264,7 @@
     var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
     var onerror = arguments.length > 2 ? arguments[2] : undefined;
     network$3.timeout(1000 * Storage.field('parse_timeout'));
-    var s = 'http://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
+    var s = (Platform.is('browser') ? 'http' : 'https') + '://api.torlook.info/api.php?key=4JuCSML44FoEsmqK&s=';
     var q = (params.search + '').replace(/( )/g, "+").toLowerCase();
     var u = s + encodeURIComponent(q);
     network$3["native"](u, function (json) {
