@@ -4358,7 +4358,6 @@
       keycode = e.which;
     }
 
-    if (window.god_enabled && Lampa.Platform.is('nw')) Lampa.Noty.show('Keycode: ' + keycode + '; time: ' + Date.now());
     return keycode;
   }
 
