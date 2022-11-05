@@ -327,15 +327,15 @@
       var catalogs = [
       {
         title: '今日趋势种子',
-        url: 'https://raw.githubusercontents.com/aston314/lampa/main/1337x1.json'
+        url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x1.json'
       },
       {
         title: '今日热门种子',
-        url: 'https://raw.githubusercontents.com/aston314/lampa/main/1337x3.json'
+        url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x3.json'
       },
       {
         title: '本周热门种子',
-        url: 'https://raw.githubusercontents.com/aston314/lampa/main/1337x2.json'
+        url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x2.json'
       }];
 
 
