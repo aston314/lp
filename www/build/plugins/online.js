@@ -511,7 +511,9 @@
       var get_links_wait = false;
       var rslt = [];
       var proxy_url;
-      var proxy = 'https://proxy.cub.watch/cdn/'
+      //var proxy = 'https://proxy.cub.watch/cdn/'
+      var proxy = 'https://cors.eu.org/'
+      
       
 
       //var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
@@ -1417,7 +1419,7 @@
         //console.log(kinopoisk_id)
         //console.log(select_title.replace(/第(.+)季/, '').trim());
         var url;
-        parseFloat(kinopoisk_id)? url = cors_https + 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + kinopoisk_id : url = cors_https + 'http://47.242.89.48/video/xiaoshu.php/list?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&wd=' + encodeURIComponent(object.movie.title);
+        parseFloat(kinopoisk_id)? url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + kinopoisk_id : url = 'http://47.242.89.48/video/xiaoshu.php/list?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&wd=' + encodeURIComponent(object.movie.title);
         
         //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
           if (parseFloat(kinopoisk_id)) {
@@ -1445,7 +1447,7 @@
                           //parse(json);
                           if (json.data.list.length == 1) {
                               var id = json.data.list[0].vod_id;
-                              url = cors_https + 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + id ;
+                              url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + id ;
                               network.silent(url, function (json) {
                                   if (json) {
                                       if (json.data.length == 0) {
@@ -1626,7 +1628,7 @@
             choice.last_viewed = item_id;
             if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
 
-            var url = cors_https + 'http://47.242.89.48/video/xiaoshu.php?action=config&app=analysis2&code=8ff57a4df664974eca05970c7dadfc8e&url=' + element.file;
+            var url = 'http://47.242.89.48/video/xiaoshu.php?action=config&app=analysis2&code=8ff57a4df664974eca05970c7dadfc8e&url=' + element.file;
             network.silent(url, function (json) {
               if (json) {
                 if (json.code !== 200 ) {
@@ -3451,7 +3453,8 @@
         object = _object;
         select_title = object.movie.title;
         //doreg = rule;
-        var url1 = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/')+'https://tx.me/s/'+ tg_channel_name +'?q=#msearchword';
+        //Lampa.Utils.checkHttp('proxy.cub.watch/cdn/')+
+        var url1 = 'https://cors.eu.org/https://tx.me/s/'+ tg_channel_name +'?q=#msearchword';
         url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
   
         network.clear();
