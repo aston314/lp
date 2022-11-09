@@ -3738,22 +3738,29 @@
   
       var sname = [];
       var _this5 = this;
-      doregjson.rule.forEach(function (elem) {
+      
+      if (doregjson.rule !== 'undefined') {
+        doregjson.rule.forEach(function (elem) {
           sources[elem.name] = new web(_this5, object, elem);
           sname.push(elem.name);
-      });
-      
+        });
+      };
+
       var tg_sname = [];
-      doregjson.tg_channel.forEach(function (elem) {
+      if (doregjson.tg_channel !== 'undefined') {
+        doregjson.tg_channel.forEach(function (elem) {
           sources[elem.channel_name] = new tg_share_channel(_this5, object, elem.channel_uri);
           tg_sname.push(elem.channel_name);
-      });
+        });
+      };
 
       var resource_sname = [];
-      doregjson.resource_site.forEach(function (elem) {
+      if (doregjson.resource_site !== 'undefined') {
+        doregjson.resource_site.forEach(function (elem) {
           sources[elem.site_name] = new resource_site(_this5, object, elem.site_search_url, elem.site_detail_url);
           resource_sname.push(elem.site_name);
-      });
+        });
+      };
 
       var last;
       var last_filter;
