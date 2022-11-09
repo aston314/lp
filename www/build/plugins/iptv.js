@@ -1,3 +1,8 @@
+/*
+// https://ss-iptv.com/ru/operators/catchup
+// niklabs.com/catchup-settings/
+// http://example.com/iptv/00000000000000/9201/index.m3u8?utc=1666796400&lutc=1666826200
+*/
 ;(function () {
     'use strict';
     var plugin = {
@@ -9,6 +14,7 @@
     var curListId = -1;
     var defaultGroup = 'Other';
     var catalog = {};
+    var UID = '';
 
     var chNumber = '';
     var chTimeout = null;
@@ -111,6 +117,39 @@
         return value;
     }
 
+    function unixtime() {
+        return Math.floor(new Date().getTime()/1000);
+    }
+
+    var utils = {
+        uid: function() {return UID},
+        timestamp: unixtime,
+        token: function() {return generateSigForString(Lampa.Storage.field('account_email').toLowerCase())}
+    };
+
+    //utils.md5()
+    !function(n){"use strict";function t(n,t){var r=(65535&n)+(65535&t);return(n>>16)+(t>>16)+(r>>16)<<16|65535&r}function r(n,t){return n<<t|n>>>32-t}function e(n,e,o,u,c,f){return t(r(t(t(e,n),t(u,f)),c),o)}function o(n,t,r,o,u,c,f){return e(t&r|~t&o,n,t,u,c,f)}function u(n,t,r,o,u,c,f){return e(t&o|r&~o,n,t,u,c,f)}function c(n,t,r,o,u,c,f){return e(t^r^o,n,t,u,c,f)}function f(n,t,r,o,u,c,f){return e(r^(t|~o),n,t,u,c,f)}function i(n,r){n[r>>5]|=128<<r%32,n[14+(r+64>>>9<<4)]=r;var e,i,a,d,h,l=1732584193,g=-271733879,v=-1732584194,m=271733878;for(e=0;e<n.length;e+=16)i=l,a=g,d=v,h=m,g=f(g=f(g=f(g=f(g=c(g=c(g=c(g=c(g=u(g=u(g=u(g=u(g=o(g=o(g=o(g=o(g,v=o(v,m=o(m,l=o(l,g,v,m,n[e],7,-680876936),g,v,n[e+1],12,-389564586),l,g,n[e+2],17,606105819),m,l,n[e+3],22,-1044525330),v=o(v,m=o(m,l=o(l,g,v,m,n[e+4],7,-176418897),g,v,n[e+5],12,1200080426),l,g,n[e+6],17,-1473231341),m,l,n[e+7],22,-45705983),v=o(v,m=o(m,l=o(l,g,v,m,n[e+8],7,1770035416),g,v,n[e+9],12,-1958414417),l,g,n[e+10],17,-42063),m,l,n[e+11],22,-1990404162),v=o(v,m=o(m,l=o(l,g,v,m,n[e+12],7,1804603682),g,v,n[e+13],12,-40341101),l,g,n[e+14],17,-1502002290),m,l,n[e+15],22,1236535329),v=u(v,m=u(m,l=u(l,g,v,m,n[e+1],5,-165796510),g,v,n[e+6],9,-1069501632),l,g,n[e+11],14,643717713),m,l,n[e],20,-373897302),v=u(v,m=u(m,l=u(l,g,v,m,n[e+5],5,-701558691),g,v,n[e+10],9,38016083),l,g,n[e+15],14,-660478335),m,l,n[e+4],20,-405537848),v=u(v,m=u(m,l=u(l,g,v,m,n[e+9],5,568446438),g,v,n[e+14],9,-1019803690),l,g,n[e+3],14,-187363961),m,l,n[e+8],20,1163531501),v=u(v,m=u(m,l=u(l,g,v,m,n[e+13],5,-1444681467),g,v,n[e+2],9,-51403784),l,g,n[e+7],14,1735328473),m,l,n[e+12],20,-1926607734),v=c(v,m=c(m,l=c(l,g,v,m,n[e+5],4,-378558),g,v,n[e+8],11,-2022574463),l,g,n[e+11],16,1839030562),m,l,n[e+14],23,-35309556),v=c(v,m=c(m,l=c(l,g,v,m,n[e+1],4,-1530992060),g,v,n[e+4],11,1272893353),l,g,n[e+7],16,-155497632),m,l,n[e+10],23,-1094730640),v=c(v,m=c(m,l=c(l,g,v,m,n[e+13],4,681279174),g,v,n[e],11,-358537222),l,g,n[e+3],16,-722521979),m,l,n[e+6],23,76029189),v=c(v,m=c(m,l=c(l,g,v,m,n[e+9],4,-640364487),g,v,n[e+12],11,-421815835),l,g,n[e+15],16,530742520),m,l,n[e+2],23,-995338651),v=f(v,m=f(m,l=f(l,g,v,m,n[e],6,-198630844),g,v,n[e+7],10,1126891415),l,g,n[e+14],15,-1416354905),m,l,n[e+5],21,-57434055),v=f(v,m=f(m,l=f(l,g,v,m,n[e+12],6,1700485571),g,v,n[e+3],10,-1894986606),l,g,n[e+10],15,-1051523),m,l,n[e+1],21,-2054922799),v=f(v,m=f(m,l=f(l,g,v,m,n[e+8],6,1873313359),g,v,n[e+15],10,-30611744),l,g,n[e+6],15,-1560198380),m,l,n[e+13],21,1309151649),v=f(v,m=f(m,l=f(l,g,v,m,n[e+4],6,-145523070),g,v,n[e+11],10,-1120210379),l,g,n[e+2],15,718787259),m,l,n[e+9],21,-343485551),l=t(l,i),g=t(g,a),v=t(v,d),m=t(m,h);return[l,g,v,m]}function a(n){var t,r="",e=32*n.length;for(t=0;t<e;t+=8)r+=String.fromCharCode(n[t>>5]>>>t%32&255);return r}function d(n){var t,r=[];for(r[(n.length>>2)-1]=void 0,t=0;t<r.length;t+=1)r[t]=0;var e=8*n.length;for(t=0;t<e;t+=8)r[t>>5]|=(255&n.charCodeAt(t/8))<<t%32;return r}function h(n){return a(i(d(n),8*n.length))}function l(n,t){var r,e,o=d(n),u=[],c=[];for(u[15]=c[15]=void 0,o.length>16&&(o=i(o,8*n.length)),r=0;r<16;r+=1)u[r]=909522486^o[r],c[r]=1549556828^o[r];return e=i(u.concat(d(t)),512+8*t.length),a(i(c.concat(e),640))}function g(n){var t,r,e="";for(r=0;r<n.length;r+=1)t=n.charCodeAt(r),e+="0123456789abcdef".charAt(t>>>4&15)+"0123456789abcdef".charAt(15&t);return e}function v(n){return unescape(encodeURIComponent(n))}function m(n){return h(v(n))}function p(n){return g(m(n))}function s(n,t){return l(v(n),v(t))}function C(n,t){return g(s(n,t))}function A(n,t,r){return t?r?s(t,n):C(t,n):r?m(n):p(n)}"function"==typeof define&&define.amd?define(function(){return A}):"object"==typeof module&&module.exports?module.exports=A:n.md5=A}(utils);
+
+    function generateSigForString(string) {
+        var sigTime = unixtime();
+        return sigTime + ':' + utils.md5((string || '') + sigTime + utils.uid());
+    }
+
+    function prepareUrl(url) {
+        var m = [], val = '';
+        while (!!(m = url.match(/\$\{(\(([a-zA-Z\d]+)\))?([^${}]+)}/))) {
+            if (!!m[2] && typeof utils[m[2]] === "function") {
+                val = encodeURIComponent(utils[m[2]](m[3]));
+            } else if (m[3] in utils) {
+                val = encodeURIComponent(typeof utils[m[3]] === "function" ? utils[m[3]]() : utils[m[3]]);
+            } else {
+                val = m[1];
+            }
+            url = url.replace(m[0], val);
+        }
+        return url;
+    }
+
 
     /* ***********************************
      * Управление плеером клавишами пульта
@@ -169,8 +208,8 @@
             if (typeof arguments[3] === "number") timeout = arguments[3];
         }
         if (!bulkCnt || bulkCnt < 1) bulkCnt = 1;
-        if (typeof queueEndCallback !== 'function') queueEndCallback = function (){};
-        if (typeof queueStepCallback !== 'function') queueStepCallback = function (){};
+        if (typeof queueEndCallback !== 'function') queueEndCallback = emptyFn;
+        if (typeof queueStepCallback !== 'function') queueStepCallback = emptyFn;
         var context = this;
         var queue = [];
         var interval;
@@ -201,7 +240,7 @@
     }
 
     //Стиль
-    Lampa.Template.add(plugin.component + '_style', '<style>#app > div.wrap.layer--height.layer--width > div.wrap__content.layer--height.layer--width > div > div > div.activity.layer--width.activity--active > div.activity__body > div > div.scroll.scroll--mask.scroll--over.layer--wheight > div > div > div > div.card.selector.card--collection.card--loaded.focus > div.card__view > img{box-shadow: 0 0 0 0.4em #fff10d!important;}</style>');
+    Lampa.Template.add(plugin.component + '_style', '<style>.' + plugin.component + '.category-full .card__icons {top:0.3em;right:0.3em;justify-content:right;}</style>');
     $('body').append(Lampa.Template.get(plugin.component + '_style', {}, true));
 
     function pluginPage(object) {
@@ -209,6 +248,7 @@
             catalog = {};
             curListId = object.id;
         }
+        var favorite = getStorage('favorite' + object.id, '[]');
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
             mask: true,
@@ -233,7 +273,10 @@
             if (Object.keys(catalog).length) {
                 _this.build(
                     !catalog[object.currentGroup]
-                        ? (lists[object.id].groups.length && catalog[lists[object.id].groups[0].key] ? catalog[lists[object.id].groups[0].key]['channels'] : [])
+                        ? (lists[object.id].groups.length > 1 && catalog[lists[object.id].groups[1].key]
+                            ? catalog[lists[object.id].groups[1].key]['channels']
+                            : []
+                        )
                         : catalog[object.currentGroup]['channels']
                 );
             } else if(!lists[object.id] || !object.url) {
@@ -241,7 +284,7 @@
                 return;
             } else {
                 network.native(
-                    object.url,
+                    prepareUrl(object.url),
                     function (data) {
                         if (typeof data != 'string'
                             || data.substr(0, 7).toUpperCase() !== "#EXTM3U"
@@ -249,8 +292,16 @@
                             emptyResult();
                             return;
                         }
-                        catalog = {};
-                        lists[object.id].groups = [];
+                        catalog = {
+                            '': {
+                                title: langGet('favorites'),
+                                channels: []
+                            }
+                        };
+                        lists[object.id].groups = [{
+                            title: langGet('favorites'),
+                            key: ''
+                        }];
                         var l = data.split(/\r?\n/);
                         var cnt = 0, i = 1, chNum = 0, m, mm, defGroup = defaultGroup;
                         while (i < l.length) {
@@ -302,16 +353,37 @@
                                     });
                                 }
                                 if (!channel['tvg-logo'] && channel['Title'] !== "Ch " + chNum) {
-                                    channel['tvg-logo'] = 'http://test.rootu.top/picon/'
+                                    channel['tvg-logo'] = 'http://epg.rootu.top/picon/'
                                         + encodeURIComponent(channel['Title']) + '.png';
                                 }
                                 catalog[channel.Group].channels.push(channel);
+                                var favI = favorite.indexOf(favID(channel.Title));
+                                if (favI !== -1) {
+                                    catalog[''].channels[favI] = channel;
+                                }
+                            }
+                        }
+                        for (i = 0; i < lists[object.id].groups.length; i++) {
+                            var group = lists[object.id].groups[i];
+                            group.title += ' [' + catalog[group.key].channels.length + ']';
+                        }
+                        for (i = 0; i < favorite.length; i++) {
+                            if (!catalog[''].channels[i]) {
+                                catalog[''].channels[i] = {
+                                    ChNum: -1,
+                                    Title: "#" + favorite[i],
+                                    isYouTube: false,
+                                    Url: 'http://epg.rootu.top/empty/_.m3u8',
+                                    Group: '',
+                                    Options: {},
+                                    'tvg-logo': 'http://epg.rootu.top/empty/_.gif'
+                                };
                             }
                         }
                         _this.build(
                             !catalog[object.currentGroup]
-                                ? (lists[object.id].groups.length && !!catalog[lists[object.id].groups[0].key]
-                                    ? catalog[lists[object.id].groups[0].key]['channels']
+                                ? (lists[object.id].groups.length > 1 && !!catalog[lists[object.id].groups[1].key]
+                                    ? catalog[lists[object.id].groups[1].key]['channels']
                                     : []
                                 )
                                 : catalog[object.currentGroup]['channels']
@@ -354,16 +426,20 @@
                         channel['tvg-logo'] = '';
                     };
                     img.src = channel['tvg-logo'] || './img/img_broken.svg';
+                    var favIcon = $('<div class="card__icon icon--book hide"></div>');
+                    card.find('.card__icons-inner').append(favIcon);
+                    if (object.currentGroup !== '' && favorite.indexOf(favID(channel.Title)) !== -1) {
+                        favIcon.toggleClass('hide', false);
+                    }
                     card.on('hover:focus', function () {
                         last = card[0];
                         scroll.update(card, true);
-                        info.find('.info__title').text(channel['Group']);
+                        // info.find('.info__title').text(channel['Group']);
                         info.find('.info__title-original').text(channel.Title);
-                    });
-                    card.on('hover:enter', function () {
+                    }).on('hover:enter', function () {
                         var video = {
                             title: channel.Title,
-                            url: channel.Url,
+                            url: prepareUrl(channel.Url),
                             plugin: plugin.component,
                             tv: true
                         };
@@ -373,14 +449,15 @@
                         data.forEach(function (elem) {
                             // Изменяем порядок для внешнего плейлиста (плейлист начинается с текущего элемента)
                             var j = i < chI ? data.length - chI + i : i - chI;
+                            var videoUrl = i === chI ? video.url : prepareUrl(elem.Url);
                             playlistForExtrnalPlayer[j] = {
                                 title: elem.Title,
-                                url: elem.Url,
+                                url: videoUrl,
                                 tv: true
                             };
                             playlist.push({
                                 title: ++i + '. ' + elem.Title,
-                                url: elem.Url,
+                                url: videoUrl,
                                 plugin: plugin.component,
                                 tv: true
                             });
@@ -388,8 +465,83 @@
                         video['playlist'] = playlistForExtrnalPlayer;
                         Lampa.Player.play(video);
                         Lampa.Player.playlist(playlist);
+                    }).on('hover:long', function () {
+                        var favI = favorite.indexOf(favID(channel.Title));
+                        var isFavoriteGroup = object.currentGroup === '';
+                        var menu = [
+                            {
+                                title: favI === -1 ? langGet('favorites_add') : langGet('favorites_del'),
+                                favToggle: true
+                            }
+                        ];
+                        if (isFavoriteGroup && favorite.length) {
+                            if (favI !== 0) {
+                                menu.push({
+                                    title: langGet('favorites_move_top'),
+                                    favMove: true,
+                                    i: 0
+                                });
+                                menu.push({
+                                    title: langGet('favorites_move_up'),
+                                    favMove: true,
+                                    i: favI-1
+                                });
+                            }
+                            if ((favI + 1) !== favorite.length) {
+                                menu.push({
+                                    title: langGet('favorites_move_down'),
+                                    favMove: true,
+                                    i: favI+1
+                                });
+                                menu.push({
+                                    title: langGet('favorites_move_end'),
+                                    favMove: true,
+                                    i: favorite.length-1
+                                });
+                            }
+                            menu.push({
+                                title: langGet('favorites_clear'),
+                                favClear: true
+                            });
+                        }
+                        Lampa.Select.show({
+                            title: Lampa.Lang.translate('title_action'),
+                            items: menu,
+                            onSelect: function(sel) {
+                                var favGroup = lists[object.id].groups[0];
+                                if (!!sel.favToggle) {
+                                    if (favI === -1) {
+                                        favI = favorite.length
+                                        favorite[favI] = favID(channel.Title);
+                                        catalog[favGroup.key].channels[favI] = channel;
+                                    } else {
+                                        favorite.splice(favI,1);
+                                        catalog[favGroup.key].channels.splice(favI,1);
+                                    }
+                                } else if (!!sel.favClear) {
+                                    favorite = [];
+                                    catalog[favGroup.key].channels = [];
+                                } else if (!!sel.favMove) {
+                                    favorite.splice(favI,1);
+                                    favorite.splice(sel.i, 0, favID(channel.Title));
+                                    catalog[favGroup.key].channels.splice(favI,1);
+                                    catalog[favGroup.key].channels.splice(sel.i, 0, channel);
+                                }
+                                setStorage('favorite' + object.id, favorite);
+                                favGroup.title = catalog[favGroup.key].title
+                                    + ' [' + catalog[favGroup.key].channels.length + ']';
+                                if (isFavoriteGroup) {
+                                    Lampa.Activity.replace(Lampa.Arrays.clone(lists[object.id].activity));
+                                } else {
+                                    favIcon.toggleClass('hide', favorite.indexOf(favID(channel.Title)) === -1);
+                                    Lampa.Controller.toggle('content');
+                                }
+                            },
+                            onBack: function() {
+                                Lampa.Controller.toggle('content');
+                            }
+                        });
                     });
-                    // items.push(card);
                     body.append(card);
                 },
                 {
@@ -413,16 +565,24 @@
             info.find('.view--category').on('hover:enter hover:click', function () {
                 _this2.selectGroup();
             });
-            scroll.render().addClass('layer--wheight').data('mheight', info);
+            info.find('.info__title').text(!catalog[object.currentGroup] ? '' : catalog[object.currentGroup].title);
+            info.find('.info__title-original').text('');
             html.append(info.append());
-            html.append(scroll.render());
-            this.append(data);
-            scroll.append(body);
             // this.activity.loader(false);
             // this.activity.toggle();
-            if (!!data) {
+            if (data.length) {
+                scroll.render().addClass('layer--wheight').data('mheight', info);
+                html.append(scroll.render());
+                this.append(data);
+                scroll.append(body);
                 setStorage('last_catalog' + object.id, object.currentGroup);
                 lists[object.id].activity.currentGroup = object.currentGroup;
+            } else {
+                var empty = new Lampa.Empty();
+                html.append(empty.render());
+                this.start = empty.start;
+                this.activity.loader(false);
+                this.activity.toggle();
             }
         };
         this.selectGroup = function () {
@@ -496,6 +656,7 @@
             if (info) info.remove();
             html.remove();
             body.remove();
+            favorite = null;
             network = null;
             html = null;
             body = null;
@@ -603,9 +764,102 @@
             zh: '分类'
         }
     );
+    langAdd('uid',
+        {
+            ru: 'UID',
+            uk: 'UID',
+            be: 'UID',
+            en: 'UID',
+            zh: 'UID'
+        }
+    );
+    langAdd('unique_id',
+        {
+            ru: 'уникальный идентификатор (нужен для некоторых ссылок на плейлисты)',
+            uk: 'унікальний ідентифікатор (необхідний для деяких посилань на списки відтворення)',
+            be: 'унікальны ідэнтыфікатар (неабходны для некаторых спасылак на спіс прайгравання)',
+            en: 'unique identifier (needed for some playlist links)',
+            zh: '唯一 ID（某些播放列表链接需要）'
+        }
+    );
+    langAdd('favorites',
+        {
+            ru: 'Избранное',
+            uk: 'Вибране',
+            be: 'Выбранае',
+            en: 'Favorites',
+            zh: '收藏夹'
+        }
+    );
+    langAdd('favorites_add',
+        {
+            ru: 'Добавить в избранное',
+            uk: 'Додати в обране',
+            be: 'Дадаць у абранае',
+            en: 'Add to favorites',
+            zh: '添加到收藏夹'
+        }
+    );
+    langAdd('favorites_del',
+        {
+            ru: 'Удалить из избранного',
+            uk: 'Видалити з вибраного',
+            be: 'Выдаліць з абранага',
+            en: 'Remove from favorites',
+            zh: '从收藏夹中删除'
+        }
+    );
+    langAdd('favorites_clear',
+        {
+            ru: 'Очистить избранное',
+            uk: 'Очистити вибране',
+            be: 'Ачысціць выбранае',
+            en: 'Clear favorites',
+            zh: '清除收藏夹'
+        }
+    );
+    langAdd('favorites_move_top',
+        {
+            ru: 'В начало списка',
+            uk: 'На початок списку',
+            be: 'Да пачатку спісу',
+            en: 'To the top of the list',
+            zh: '到列表顶部'
+        }
+    );
+    langAdd('favorites_move_up',
+        {
+            ru: 'Сдвинуть вверх',
+            uk: 'Зрушити вгору',
+            be: 'Ссунуць уверх',
+            en: 'Move up',
+            zh: '提升'
+        }
+    );
+    langAdd('favorites_move_down',
+        {
+            ru: 'Сдвинуть вниз',
+            uk: 'Зрушити вниз',
+            be: 'Ссунуць уніз',
+            en: 'Move down',
+            zh: '下移'
+        }
+    );
+    langAdd('favorites_move_end',
+        {
+            ru: 'В конец списка',
+            uk: 'В кінець списку',
+            be: 'У канец спісу',
+            en: 'To the end of the list',
+            zh: '到列表末尾'
+        }
+    );
 
     Lampa.Lang.add(langData);
 
+    function favID(title) {
+        return title.toLowerCase().replace(/[\s!-\/:-@\[-`{-~]+/g, '')
+    }
     function getStorage(name, defaultValue) {
         return Lampa.Storage.get(plugin.component + '_' + name, defaultValue);
     }
@@ -714,6 +968,13 @@
     // Готовим настройки
     Lampa.SettingsApi.addComponent(plugin);
     for (var i=0; i <= lists.length; i++) i = configurePlaylist(i);
+    UID = getStorage('uid', '');
+    if (!UID) {
+        UID = (Math.random() + 1).toString(36).substring(2).toUpperCase().replace(/(.{4})/g, '$1-');
+        setStorage('uid', UID);
+    }
+    addSettings('title', {title: langGet('uid')});
+    addSettings('static', {title: UID, description: langGet('unique_id')});
     //~ Готовим настройки
 
     function pluginStart() {
