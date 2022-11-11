@@ -480,7 +480,7 @@
                     if (file.indexOf('/play/sm.html') !== -1) {
                       file = 'https://play.sportsteam365.com/play/' + file.match(/\?id=(.+?)&/)[1] + '.html';
                       if (!!window.cordova) {
-                      var videocontainer = '.sub_player';
+                      var videocontainer = '.sub_box';
                       var iabRef = cordova.InAppBrowser.open(file, "_blank", "location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
                       iabRef.addEventListener('loadstop', function () {
                         iabRef.insertCSS({ code: '.dplayer-web-fullscreen-fix1{background-color: black;position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
@@ -489,6 +489,9 @@
                         iabRef.executeScript({
                           code: '\
                         document.body.classList.add("dplayer-web-fullscreen-fix1");\
+                        jQuery(".loc_banner.only-app").remove(); \
+                        jQuery(".sub_head.loc_match").remove(); \
+                        jQuery(".loc_gq.loading").remove(); \
                         jQuery("div:not('+ videocontainer + ')").hide();  \
                         jQuery("'+ videocontainer + '").appendTo("body"); \
                         '});
