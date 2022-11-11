@@ -18,6 +18,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: 'div.stui-pannel_bd.col-pd',
+          videoparse: 'browser',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -36,6 +38,8 @@
           link_folder: 'detail',
           //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
           detail_url_selector: 'div > div:nth-child(2) > ul',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -53,6 +57,8 @@
           search_html_selector: '',
           link_folder: 'video',
           detail_url_selector: '.play-item.cont.active',
+          videoparse: 'browser',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -70,6 +76,8 @@
           search_html_selector: 'dl > dd > p:nth-child(1) > strong',
           link_folder: '',
           detail_url_selector: '.player.ckp:first-child',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_data']
         },
@@ -87,6 +95,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: 'div.play-item.cont.active',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -104,6 +114,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: '.stui-pannel_bd.col-pd.clearfix',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_data']
         },
@@ -120,6 +132,8 @@
         //   first_page_json: '-1-1.html',
         //   search_html_selector: '',
         //   link_folder : 'play',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer : false,
         //   js_execute_key : ['maccms','player_aaaa']
         // },
@@ -136,6 +150,8 @@
         //   first_page_json: '-1-1.html',
         //   search_html_selector: '',
         //   link_folder : 'vodplay',
+        //   videoparse: 'default',
+        ///  videocontainer: '.MacPlayer',
         //   use_referer : false,
         //   js_execute_key : ['maccms','player_aaaa']
         // },
@@ -154,6 +170,8 @@
           link_folder: '',
           detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
           detail_url_selector: '#player_list',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: [';var vfrom=']
         },
@@ -171,6 +189,8 @@
           search_html_selector: '',
           link_folder: 'index.php/vod/detail/id',
           detail_url_selector: 'div.playlist_full',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -188,6 +208,8 @@
         //   search_html_selector: '',
         //   link_folder: 'index.php/vod/detail/id',
         //   detail_url_selector: 'div.playlist_notfull:eq(0)',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer: false,
         //   js_execute_key: ['maccms', 'player_aaaa']
         // },
@@ -205,6 +227,8 @@
         //   search_html_selector: '',
         //   link_folder : 'vodplay',
         //   detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer : false,
         //  js_execute_key : ['maccms','player_aaaa']
         // },
@@ -222,6 +246,8 @@
         //   search_html_selector: '',
         //   link_folder : 'video',
         //   detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer : false,
         //  js_execute_key : ['maccms','player_aaaa']
         // },
@@ -239,6 +265,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: 'div:nth-child(3) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -256,23 +284,27 @@
           search_html_selector: '',
           link_folder: 'vodplay',
           detail_url_selector: 'div#play-box div.play-item.cont.active > ul',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
-        //   {
+        // {
         //   name : '大师兄',
         //   websitelink : 'https://dsxys.com/',
         //   listlink : true,
         //   use_proxy: false,
         //   search_url : 'https://dsxys.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         //   search_json : true,
-        //   node_json : '',
-        //   name_json : '',
-        //   id_json : '',
+        //   node_json: 'list',
+        //   name_json: 'name',
+        //   id_json: 'id',
         //   first_page_json: '-1-1.html',
         //   search_html_selector: '',
         //   link_folder : 'p',
         //   detail_url_selector : 'div.player-list',
+        //   videoparse: 'browser',
+        //   videocontainer: '.player-box-main',
         //   use_referer : false,
         //   js_execute_key : ['maccms','player_aaaa']
         // },
@@ -290,6 +322,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: 'ul.stui-play__list',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -307,6 +341,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -324,6 +360,8 @@
           search_html_selector: '',
           link_folder: 'play',
           detail_url_selector: 'div.scroll-content',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -341,6 +379,8 @@
           search_html_selector: 'h3.dytit',
           link_folder: '',
           detail_url_selector: 'div.paly_list_btn',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -358,6 +398,8 @@
           search_html_selector: 'h3.dytit',
           link_folder: '',
           detail_url_selector: 'div.paly_list_btn',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: []
         },
@@ -375,6 +417,8 @@
         //   search_html_selector: '',
         //   link_folder: 'voddetail',
         //   detail_url_selector: 'div.tab-content.myui-panel_bd',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer: false,
         //   js_execute_key: ['maccms', 'player_data']
         // },
@@ -392,6 +436,8 @@
         //   search_html_selector: '',
         //   link_folder: 'voddetail',
         //   detail_url_selector: '.module-play-list:eq(0)',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer: false,
         //   js_execute_key: ['maccms', 'player_aaaa']
         // },
@@ -409,6 +455,8 @@
           search_html_selector: '',
           link_folder: 'vodplay',
           detail_url_selector: '.module-play-list:eq(0)',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
@@ -426,6 +474,8 @@
           search_html_selector: '',
           link_folder: 'vodplay',
           detail_url_selector: 'ul.myui-content__list',
+          videoparse: 'default',
+          videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_data']
         },
@@ -443,6 +493,8 @@
         //   search_html_selector: '',
         //   link_folder: 'vodplay',
         //   detail_url_selector: '.hl-plays-list',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
         //   use_referer: false,
         //   js_execute_key: ['maccms', 'player_aaaa']
         // },
@@ -471,7 +523,7 @@
       ],
       "resource_site": [
         {
-          site_name: '1080资源库',
+          site_name: '采集网1080',
           site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
           site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
         },
@@ -918,168 +970,186 @@
             if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
 
             if (element.file) {
+              var videocontainer = doreg.videocontainer;
               (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-              network.silent(proxy_url + element.file, function (str) {
-                if (str) {
+              if (!!window.cordova && doreg.videoparse == 'browser') {
+                var iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
+                iabRef.addEventListener('loadstop', function () {
+                  iabRef.insertCSS({ code: '.dplayer-web-fullscreen-fix1{background-color: black;position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
+                  //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
+                  //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
+                  iabRef.executeScript({
+                    code: '\
+                  document.body.classList.add("dplayer-web-fullscreen-fix1");\
+                  jQuery("div:not('+ videocontainer + ')").hide();  \
+                  jQuery("'+ videocontainer + '").appendTo("body"); \
+                  '});
 
-                  var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
-                  czspp = czspp ? czspp[0] : null;
-                  if (czspp) {
-                    $(".noty").hide();
-                    czspp = czspp.replace('eval', 'var doczspp = ');
-                    
-                    $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
-                      .done(function () {
-                        window.eval(czspp);
-                        if (typeof doczspp !== 'undefined') {
-                          //console.log(doczspp);
-                          var v = doczspp.match(/url: "(.*?)"/);
-                          v = v ? v[1] : '';
-                          //console.log(v)
-                          if (v) {
-                            var playlist = [];
-                            var first = {
-                              url: v,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          };
-                        } else {
-                          $(".noty").show();
-                          Lampa.Noty.show('无法检索链接');
-                        };
-                      });
-                  };
-                  //console.log(czspp);
-                  $(".noty").hide();
-                  var MacPlayer_, file_ = [], a;
-                  var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                  var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
-                  var b;
-                  doreg.js_execute_key.forEach(function (s, index) {
-                    b = fuzzyQuery(d, s);
-                    a = b.length > 0 ? b[0].replace(/<.+?>/g, '') : '1';
-                    window.eval('function base64decode(str){ return atob(str); };' + a);
-                  });
+                  iabRef.show();
+                });
+              } else {
+                network.silent(proxy_url + element.file, function (str) {
+                  if (str) {
 
-                  if (typeof now !== 'undefined') {
-                    var playlist = [];
-                    var first = {
-                      url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
-                      timeline: view,
-                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: element.subtitles
-                    };
-                    Lampa.Player.play(first);
-                    playlist.push(first);
-                    Lampa.Player.playlist(playlist);
-                  };
+                    var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
+                    czspp = czspp ? czspp[0] : null;
+                    if (czspp) {
+                      $(".noty").hide();
+                      czspp = czspp.replace('eval', 'var doczspp = ');
 
-                  var script_arr = [
-                    '/static/js/playerconfig.js',
-                    '/static/js/player.js'
-                  ];
-
-                  $.getMultiScripts(script_arr, proxy_url + url).done(function () {
-                    // all scripts loaded
-                    //console.log(MacPlayer)
-                    //$(".noty").hide();
-                    $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
-                      .done(function () {
-                        //$(".noty").show();
-                        //console.log($(MacPlayer.Html).attr('src'))
-                        MacPlayer_ = $(MacPlayer.Html).attr('src');
-                        MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
-                        
-                        var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
-                        //console.log(MacPlayer_)
-
-                        //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
-                        if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                          file1 = MacPlayer.PlayUrl;
-                        };
-                        file_.push(file1);
-                        //console.log(file_);
-                        var file = file_[0];
-                        //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
-                        if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                          if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
-                            var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
-                            var playlist = [];
-                            var first = {
-                              url: ikan_url,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          } else {
-                            var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-                            if (!doreg.use_referer) {
-                              //console.log(MacPlayer_)
-                              //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                              network.silent(MacPlayer_, function (str) {
-                                doparse(element, view, url1_, MacPlayer_, str);
-                              }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                              }, false, {
-                                dataType: 'text'
-                              });
-                            } else {
-                              if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
-                                $(".noty").show();
-                                Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
+                      $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
+                        .done(function () {
+                          window.eval(czspp);
+                          if (typeof doczspp !== 'undefined') {
+                            //console.log(doczspp);
+                            var v = doczspp.match(/url: "(.*?)"/);
+                            v = v ? v[1] : '';
+                            //console.log(v)
+                            if (v) {
+                              var playlist = [];
+                              var first = {
+                                url: v,
+                                timeline: view,
+                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                subtitles: element.subtitles
                               };
-
-                              //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
-                              network["native"](MacPlayer_, function (str) {
-                                doparse(element, view, url1_, MacPlayer_, str);
-                              }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                              }, false, {
-                                dataType: 'text',
-                                headers: {
-                                  'Referer': url + '/',
-                                }
-                              });
-                              //};
+                              Lampa.Player.play(first);
+                              playlist.push(first);
+                              Lampa.Player.playlist(playlist);
                             };
-                          }
-                        } else {
-                          if (file) {
-                            if (/if101\.tv/.test(file)) file = proxy + file;
-                            var playlist = [];
-                            var first = {
-                              url: file,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-
                           } else {
                             $(".noty").show();
                             Lampa.Noty.show('无法检索链接');
-                          }
-                        }
-                      });
-                  });
-                } else component.emptyForQuery(select_title);
+                          };
+                        });
+                    };
+                    //console.log(czspp);
+                    $(".noty").hide();
+                    var MacPlayer_, file_ = [], a;
+                    var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                    var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
+                    var b;
+                    doreg.js_execute_key.forEach(function (s, index) {
+                      b = fuzzyQuery(d, s);
+                      a = b.length > 0 ? b[0].replace(/<.+?>/g, '') : '1';
+                      window.eval('function base64decode(str){ return atob(str); };' + a);
+                    });
 
-                component.loading(false);
-              }, function (a, c) {
-                component.empty(network.errorDecode(a, c));
-              }, false, {
-                dataType: 'text'
-              });
+                    if (typeof now !== 'undefined') {
+                      var playlist = [];
+                      var first = {
+                        url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
+                        timeline: view,
+                        title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                        subtitles: element.subtitles
+                      };
+                      Lampa.Player.play(first);
+                      playlist.push(first);
+                      Lampa.Player.playlist(playlist);
+                    };
+
+                    var script_arr = [
+                      '/static/js/playerconfig.js',
+                      '/static/js/player.js'
+                    ];
+
+                    $.getMultiScripts(script_arr, proxy_url + url).done(function () {
+                      // all scripts loaded
+                      //console.log(MacPlayer)
+                      //$(".noty").hide();
+                      $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
+                        .done(function () {
+                          //$(".noty").show();
+                          //console.log($(MacPlayer.Html).attr('src'))
+                          MacPlayer_ = $(MacPlayer.Html).attr('src');
+                          MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
+
+                          var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
+                          //console.log(MacPlayer_)
+
+                          //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
+                          if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                            file1 = MacPlayer.PlayUrl;
+                          };
+                          file_.push(file1);
+                          //console.log(file_);
+                          var file = file_[0];
+                          //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
+                          if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                            if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
+                              var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
+                              var playlist = [];
+                              var first = {
+                                url: ikan_url,
+                                timeline: view,
+                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                subtitles: element.subtitles
+                              };
+                              Lampa.Player.play(first);
+                              playlist.push(first);
+                              Lampa.Player.playlist(playlist);
+                            } else {
+                              var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
+                              if (!doreg.use_referer) {
+                                //console.log(MacPlayer_)
+                                //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                                network.silent(MacPlayer_, function (str) {
+                                  doparse(element, view, url1_, MacPlayer_, str);
+                                }, function (a, c) {
+                                  Lampa.Noty.show(network.errorDecode(a, c));
+                                }, false, {
+                                  dataType: 'text'
+                                });
+                              } else {
+                                if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
+                                  $(".noty").show();
+                                  Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
+                                };
+
+                                //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
+                                network["native"](MacPlayer_, function (str) {
+                                  doparse(element, view, url1_, MacPlayer_, str);
+                                }, function (a, c) {
+                                  Lampa.Noty.show(network.errorDecode(a, c));
+                                }, false, {
+                                  dataType: 'text',
+                                  headers: {
+                                    'Referer': url + '/',
+                                  }
+                                });
+                                //};
+                              };
+                            }
+                          } else {
+                            if (file) {
+                              if (/if101\.tv/.test(file)) file = proxy + file;
+                              var playlist = [];
+                              var first = {
+                                url: file,
+                                timeline: view,
+                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                subtitles: element.subtitles
+                              };
+                              Lampa.Player.play(first);
+                              playlist.push(first);
+                              Lampa.Player.playlist(playlist);
+
+                            } else {
+                              $(".noty").show();
+                              Lampa.Noty.show('无法检索链接');
+                            }
+                          }
+                        });
+                    });
+                  } else component.emptyForQuery(select_title);
+
+                  component.loading(false);
+                }, function (a, c) {
+                  component.empty(network.errorDecode(a, c));
+                }, false, {
+                  dataType: 'text'
+                });
+              };
 
               if (viewed.indexOf(hash_file) == -1) {
                 viewed.push(hash_file);
