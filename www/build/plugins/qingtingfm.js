@@ -402,7 +402,7 @@
       
       function addSettingsXztiao() {
         var ico = '<svg width="24px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="radioIconTitle" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"> <title id="radioIconTitle">Radio</title> <path d="M5.44972845 6C2.18342385 9.2663046 2.18342385 14.7336954 5.44972845 18M8.59918369 8C6.46693877 10.1322449 6.46693877 13.8677551 8.59918369 16M18.5502716 18C21.8165761 14.7336954 21.8165761 9.2663046 18.5502716 6M15.4008163 16C17.5330612 13.8677551 17.5330612 10.1322449 15.4008163 8"/> <circle cx="12" cy="12" r="1"/> </svg>';
-        var menu_item = $('<li class="menu__item selector focus" data-action="qingtingfm"><div class="menu__ico">' + ico + '</div><div class="menu__text">蜻蜓</div></li>');
+        var menu_item = $('<li class="menu__item selector focus" data-action="qingting"><div class="menu__ico">' + ico + '</div><div class="menu__text">蜻蜓</div></li>');
         menu_item.on('hover:enter', function () {
           Lampa.Select.show({
             title: '蜻蜓FM',
