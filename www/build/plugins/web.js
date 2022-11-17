@@ -1687,8 +1687,8 @@
         menu_item.on('hover:enter', function () {
             listNavigation();
         });
-        //$('.menu .menu__list').eq(0).append(menu_item);
-        $('.menu .menu__list .menu__item.selector').eq(0).after(menu_item);
+        $('.menu .menu__list').eq(0).append(menu_item);
+        //$('.menu .menu__list .menu__item.selector').eq(0).after(menu_item);
     }
 
     if (window.appready) addSettingsWeb()
