@@ -796,7 +796,8 @@
           page: 1
         });
       });
-      $('*[data-type="book"]').before(menu_item);
+      $('.menu .menu__list').eq(0).append(menu_item);
+      //$('*[data-type="book"]').before(menu_item);
     }
 
     if (window.appready) addSettingsPikpak()
