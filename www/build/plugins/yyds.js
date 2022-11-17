@@ -401,7 +401,7 @@
 
       function addSettingsYyds() {
         var ico = '<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.091 6c2.261 0 4.1 1.918 4.1 4.273 0 .163-.014.348-.044.581l-.247 1.913c-.052.398.223.78.634.784l1.98.012c1.15.007 2.087 1.002 2.087 2.218 0 1.224-.942 2.22-2.1 2.22H5C3.566 18 2.4 16.774 2.4 15.266c0-1.096.623-2.082 1.588-2.514l.781-.349c.276-.124.61-.517.619-.93l.019-.857c.014-.642.505-1.164 1.092-1.164.038 0 .113.007.248.042l1.247.317c.318.08.727-.079.876-.371l.604-1.177C10.192 6.868 11.578 6 13.091 6m0-2.4c-2.497 0-4.663 1.448-5.752 3.569a3.401 3.401 0 0 0-.839-.115c-1.904 0-3.448 1.565-3.492 3.509A5.136 5.136 0 0 0 0 15.266C0 18.102 2.238 20.4 5 20.4h14.5c2.485 0 4.5-2.069 4.5-4.62 0-2.542-2-4.602-4.474-4.618.037-.292.064-.587.064-.889.001-3.685-2.909-6.673-6.499-6.673z\" fill=\"white\"/></svg>';
-        var menu_item = $('<li class="menu__item selector focus" data-action="yyds"><div class="menu__ico">' + ico + '</div><div class="menu__text">云盘</div></li>');
+        var menu_item = $('<li class="menu__item selector focus" data-action="yyds"><div class="menu__ico">' + ico + '</div><div class="menu__text">YYDS</div></li>');
         menu_item.on('hover:enter', function () {
           Lampa.Select.show({
             title: 'YYDS.FAN',
