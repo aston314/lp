@@ -626,8 +626,8 @@
                     }
                 });
             });
-            //$('.menu .menu__list').eq(0).append(menu_item);
-            $('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
+            $('.menu .menu__list').eq(0).append(menu_item);
+            //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
         }
 
         if (window.appready) addSettingsTG()
