@@ -572,7 +572,7 @@
 
         function addSettingsDounan() {
             var ico = '<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" fill="none"><path d="M0.268 0.383v1.005h9.464V0.383H0.268zm0.822 2.052v3.925h7.818V2.436H1.091zm1.133 1.003h5.564v1.918H2.224V3.438zm0.691 3.088 -1.047 0.392a13.664 13.664 0 0 1 1.047 1.705H0v0.994h10v-0.994h-2.782a11.159 11.159 0 0 0 0.959 -1.705l-1.138 -0.392a12.48 12.48 0 0 1 -1.032 2.096H4.028c-0.328 -0.818 -0.698 -1.518 -1.113 -2.096z" fill="#fff"/></svg>';
-            var menu_item = $('<li class="menu__item selector focus" data-action="yyds"><div class="menu__ico">' + ico + '</div><div class="menu__text">豆瓣</div></li>');
+            var menu_item = $('<li class="menu__item selector focus" data-action="douban"><div class="menu__ico">' + ico + '</div><div class="menu__text">豆瓣</div></li>');
             menu_item.on('hover:enter', function () {
                 Lampa.Select.show({
                     title: '豆瓣',
