@@ -782,7 +782,7 @@
         Lampa.Settings.main().update()
       };
       var ico = '<svg width=\"22\" height=\"22\" viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15 14.25a3.587 3.587 0 0 1-1.196 1.636c-.534.4-1.162.614-1.804.614-.642 0-1.27-.214-1.804-.614s-.95-.97-1.196-1.636m2.083-10.187-6.75 5.223a1.503 1.503 0 0 0-.583 1.188v8.274a1.5 1.5 0 0 0 1.5 1.502h13.5c.828 0 1.5-.672 1.5-1.502v-8.274a1.5 1.5 0 0 0-.583-1.188l-6.75-5.223a1.499 1.499 0 0 0-1.834 0Z\" stroke=\"#fff\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>';
-      var menu_item = $('<li class="menu__item selector focus" data-action="mypikpak"><div class="menu__ico">' + ico + '</div><div class="menu__text">PikPak</div></li>');
+      var menu_item = $('<li class="menu__item selector focus" data-action="pikpak"><div class="menu__ico">' + ico + '</div><div class="menu__text">PikPak</div></li>');
       var element = {};
       element.img = './img/img_broken.svg';
       element.original_title = '';
@@ -815,7 +815,7 @@
       // };
       
       // var ico = '<svg width=\"22\" height=\"22\" viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15 14.25a3.587 3.587 0 0 1-1.196 1.636c-.534.4-1.162.614-1.804.614-.642 0-1.27-.214-1.804-.614s-.95-.97-1.196-1.636m2.083-10.187-6.75 5.223a1.503 1.503 0 0 0-.583 1.188v8.274a1.5 1.5 0 0 0 1.5 1.502h13.5c.828 0 1.5-.672 1.5-1.502v-8.274a1.5 1.5 0 0 0-.583-1.188l-6.75-5.223a1.499 1.499 0 0 0-1.834 0Z\" stroke=\"#fff\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>';
-      // var menu_item = $('<li class="menu__item selector focus" data-action="mypikpak"><div class="menu__ico">' + ico + '</div><div class="menu__text">PikPak</div></li>');
+      // var menu_item = $('<li class="menu__item selector focus" data-action="pikpak"><div class="menu__ico">' + ico + '</div><div class="menu__text">PikPak</div></li>');
       // var element = {};
       // element.img = './img/img_broken.svg';
       // element.original_title = '';
