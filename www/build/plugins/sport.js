@@ -344,7 +344,7 @@
             html = null;
             body = null;
             info = null;
-            doubanitem = null;
+            //doubanitem = null;
         };
     }
 
