@@ -159,13 +159,15 @@
                     element.original_title = '';
                     element.title = mytitle;
                     //element.img = object.movie.img;
-                    Lampa.Activity.push({
-                        url: element.url,
-                        title: '阿里云盘播放',
-                        component: 'yunpan2',
-                        movie: element,
-                        page: 1
-                    });
+                    var playlist = [{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225633/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225751/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225752/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225753/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225754/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225755/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8',tv:true},{title:'CCTV-5HD',url:'http://39.134.115.163:8080/PLTV/88888910/224/3221225633/index.m3u8',tv:true},{title:'CCTV-5+HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225649/index.m3u8',tv:true},{title:'CCTV-5+HD',url:'http://39.135.138.58:18890/PLTV/88888888/224/3221225706/index.m3u8',tv:true},{title:'CCTV-5+HD',url:'http://39.134.115.163:8080/PLTV/88888910/224/3221225649/index.m3u8',tv:true}];
+                    
+                    var video = {
+                        title: element.title,
+                        url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8',
+                        tv: true
+                    };
+                    Lampa.Player.play(video);
+                    Lampa.Player.playlist(playlist);
                 });
                 body.append(card);
                 items.push(card);
