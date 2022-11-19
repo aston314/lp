@@ -93,7 +93,7 @@
                         url: '',
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: $('.col-md-4.text-right+.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('.col-md-4.text-right+.col-xs-1 img',html).attr('src'),
-                        quantity: ' ',
+                        quantity: $('.game-type',html).text(),
                         year: '',
                         rate:$('.col-md-1.category-game-time',html).text().replace(/\n/g,''),
                         episodes_info: $('.pay-btn',html).text().trim() == '暂无' ? '未开始' : $('.pay-btn',html).text(),
@@ -145,8 +145,9 @@
 
                     scroll.update(card, true);
                     info.find('.info__title').text(element.title);
-                    info.find('.info__title-original').text(element.episodes_info);
+                    info.find('.info__title-original').text(element.quantity);
                     info.find('.info__rate span').text(element.rate);
+                    info.find('.info__create').text(element.episodes_info);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
@@ -349,6 +350,9 @@
     }
 
     var catalogs = [{
+        title: '首页',
+        url: 'http://www.88kanqiu.top/'
+    },{
         title: '世界杯',
         url: 'http://www.88kanqiu.top/match/3/live'
     },{
