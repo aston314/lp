@@ -164,7 +164,7 @@
                     
                     var video = {
                         title: element.title,
-                        url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8',
+                        url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8',
                         tv: true
                     };
                     Lampa.Player.play(video);
