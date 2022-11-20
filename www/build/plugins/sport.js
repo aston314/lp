@@ -16,15 +16,45 @@
         var waitload;
 
         this.create = function () {
-            console.log(object.url)
+            //console.log(object.url)
             var _this = this;
 
             this.activity.loader(true);
 
             network.silent(object.url, function (str) {
                 //this.build.bind(this)
-                var data = _this.card(str);
-                _this.build(data);
+                if (object.type == 'live') {
+                    console.log($('.embed-responsive-item', str).attr('src'))
+                    //worked = true;
+                    var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
+                    console.log(chrome)
+                    chrome.find('.live-chrome__overlay').on('click', function () {
+                    //stopSlideshow();
+                    if (chrome) {
+                        chrome.remove();
+                        chrome = false;
+                    }
+                    });
+                    
+                    $('body').append(chrome);
+                    
+                    Lampa.Controller.add('iframe', {
+                        toggle: function toggle() {},
+                        back: close$1
+                      });
+                      Lampa.Controller.toggle('iframe');
+                } else {
+                    var data = _this.card(str);
+                    _this.build(data);
+                };
+
+                function close$1() {
+                    //html$3.removeClass('iframe--loaded');
+                    //html$3.detach();
+                    //html$3.find('iframe').attr('src', '');
+                    if (object.onBack) object.onBack();
+                  }
+                
                 // var empty = new Lampa.Empty();
                 // html.append(empty.render());
                 // _this.start = empty.start;
@@ -90,7 +120,7 @@
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: '',
+                        url: $('.pay-btn',html).text().trim() == '暂无' ? '未开' : 'http://www.88kanqiu.top' + $('.pay-btn a.btn',html).attr('href'),
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: $('.col-md-4.text-right+.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('.col-md-4.text-right+.col-xs-1 img',html).attr('src'),
                         quantity: $('.game-type',html).text(),
@@ -154,22 +184,59 @@
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
+                //console.log(element.url)
+                //console.log((element.episodes_info.trim().indexOf('直播中') !== -1))
+                if (element.episodes_info.trim() == '直播中'){
                 card.on('hover:enter', function (target, card_data) {
-                    //console.log(element)
-                    //element.img = element.cover;
-                    element.original_title = '';
-                    element.title = mytitle;
-                    //element.img = object.movie.img;
-                    var playlist = [{ title: 'CCTV-5FHD', url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225751/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225752/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225753/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225754/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225755/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225649/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225706/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225649/index.m3u8', tv: true }];
+                    var sources = [];
+
+                    network.silent(element.url, function (str) {
+                        $('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                            sources.push({
+                                title:  $(this).text(),
+                                url: 'http://www.88kanqiu.top' + $(this).attr('href'),
+                            });
+                    });
+
+                    Lampa.Select.show({
+                        title: '直播源',
+                        items: sources,
+                        onSelect: function onSelect(a) {
+                            Lampa.Activity.push({
+                                url: a.url,
+                                title: '赛事 - ' + a.title,
+                                component: 'worldcup',
+                                type: 'live',
+                                page: 1
+                            });
+                        },
+                        onBack: function onBack() {
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
+
+                    }, function (a, c) {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }, false, {
+                        dataType: 'text'
+                    });
+
+                    // //console.log(element)
+                    // //element.img = element.cover;
+                    // element.original_title = '';
+                    // element.title = mytitle;
+                    // //element.img = object.movie.img;
+                    // var playlist = [{ title: 'CCTV-5FHD', url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225751/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225752/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225753/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225754/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225755/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225649/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225706/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225649/index.m3u8', tv: true }];
                     
-                    var video = {
-                        title: element.title,
-                        url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8',
-                        tv: true
-                    };
-                    Lampa.Player.play(video);
-                    Lampa.Player.playlist(playlist);
+                    // var video = {
+                    //     title: element.title,
+                    //     url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8',
+                    //     tv: true
+                    // };
+                    // Lampa.Player.play(video);
+                    // Lampa.Player.playlist(playlist);
                 });
+                }
                 body.append(card);
                 items.push(card);
             });
