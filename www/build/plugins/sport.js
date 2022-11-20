@@ -25,6 +25,11 @@
                 //this.build.bind(this)
                 if (object.type == 'live') {
                     //console.log($('.embed-responsive-item', str).attr('src'))
+                    var empty = new Lampa.Empty({
+                        descr: object.title.replace('直播源 - ',''),
+                        title: object.content
+                    });
+                    html.append(empty.render());
                     _this.activity.loader(false);
                     // //worked = true;
                     // var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
@@ -206,9 +211,10 @@
                         onSelect: function onSelect(a) {
                             Lampa.Activity.push({
                                 url: a.url,
-                                title: '赛事 - ' + a.title,
+                                title: '直播源 - ' + a.title,
                                 component: 'worldcup',
                                 type: 'live',
+                                content: element.title,
                                 page: 1
                             });
                         },
@@ -247,7 +253,7 @@
         this.build = function (data) {
             var _this2 = this;
             //info = Lampa.Template.get('info');style="height:5em"
-            Lampa.Template.add('button_category', "<style>@media screen and (max-width: 2560px) {.card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div><div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+            Lampa.Template.add('button_category', "<style>@media screen and (max-width: 2560px) {.card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  </div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
@@ -442,7 +448,22 @@
     },{
         title: '法甲',
         url: 'http://www.88kanqiu.top/match/15/live'
-    },   ];
+    },{
+        title: '中超',
+        url: 'http://www.88kanqiu.top/match/17/live'
+    },{
+        title: '欧冠',
+        url: 'http://www.88kanqiu.top/match/12/live'
+    },{
+        title: 'CBA',
+        url: 'http://www.88kanqiu.top/match/2/live'
+    }, {
+        title: '网球',
+        url: 'http://www.88kanqiu.top/match/29/live'
+    },{
+        title: '斯诺克',
+        url: 'http://www.88kanqiu.top/match/30/live'
+    },     ];
 
     function startworldcup() {
         window.plugin_wc_ready = true;
