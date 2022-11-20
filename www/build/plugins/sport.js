@@ -24,36 +24,38 @@
             network.silent(object.url, function (str) {
                 //this.build.bind(this)
                 if (object.type == 'live') {
-                    console.log($('.embed-responsive-item', str).attr('src'))
-                    //worked = true;
-                    var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
-                    console.log(chrome)
-                    chrome.find('.live-chrome__overlay').on('click', function () {
-                    //stopSlideshow();
-                    if (chrome) {
-                        chrome.remove();
-                        chrome = false;
-                    }
-                    });
+                    //console.log($('.embed-responsive-item', str).attr('src'))
+                    _this.activity.loader(false);
+                    // //worked = true;
+                    // var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
+                    // console.log(chrome)
+                    // chrome.find('.live-chrome__overlay').on('click', function () {
+                    // //stopSlideshow();
+                    // if (chrome) {
+                    //     chrome.remove();
+                    //     chrome = false;
+                    // }
+                    // });
                     
-                    $('body').append(chrome);
-                    
-                    Lampa.Controller.add('iframe', {
-                        toggle: function toggle() {},
-                        back: close$1
+                    // $('body').append(chrome);
+
+                    // Lampa.Controller.add('iframe', {
+                    //     toggle: function toggle() {},
+                    //     back: close$1
+                    //   });
+                    //   Lampa.Controller.toggle('iframe');
+                    Lampa.Iframe.show({
+                        url: $('.embed-responsive-item', str).attr('src'),
+                        onBack: function onBack() {
+                          Lampa.Controller.toggle('content');
+                        }
                       });
-                      Lampa.Controller.toggle('iframe');
+                      $('.iframe__body iframe').removeClass('iframe__window');
+                      $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
                 } else {
                     var data = _this.card(str);
                     _this.build(data);
                 };
-
-                function close$1() {
-                    //html$3.removeClass('iframe--loaded');
-                    //html$3.detach();
-                    //html$3.find('iframe').attr('src', '');
-                    if (object.onBack) object.onBack();
-                  }
                 
                 // var empty = new Lampa.Empty();
                 // html.append(empty.render());
