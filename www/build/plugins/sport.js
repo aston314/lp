@@ -29,7 +29,29 @@
                         descr: object.title.replace('直播源 - ',''),
                         title: object.content
                     });
+                    
                     html.append(empty.render());
+                    $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">切换直播源</div></div>');
+                    $(".empty__footer").on('hover:enter hover:click', function () {
+                        Lampa.Select.show({
+                            title: '直播源',
+                            items: object.source,
+                            onSelect: function onSelect(a) {
+                                Lampa.Activity.push({
+                                    url: a.url,
+                                    title: '直播源 - ' + a.title,
+                                    component: 'worldcup',
+                                    type: 'live',
+                                    content: object.title,
+                                    source: object.source,
+                                    page: 1
+                                });
+                            },
+                            onBack: function onBack() {
+                                Lampa.Controller.toggle('content');
+                            }
+                        });
+                    });
                     _this.activity.loader(false);
                     // //worked = true;
                     // var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
@@ -215,6 +237,7 @@
                                 component: 'worldcup',
                                 type: 'live',
                                 content: element.title,
+                                source: sources,
                                 page: 1
                             });
                         },
