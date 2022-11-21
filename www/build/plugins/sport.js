@@ -29,31 +29,26 @@
                         descr: object.title.replace('直播源 - ',''),
                         title: object.content
                     });
-                    
                     html.append(empty.render());
-                    // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">切换直播源</div></div>');
-                    // $(".empty__footer").on('hover:enter hover:click', function () {
-                    //     Lampa.Select.show({
-                    //         title: '直播源',
-                    //         items: object.source,
-                    //         onSelect: function onSelect(a) {
-                    //             Lampa.Activity.push({
-                    //                 url: a.url,
-                    //                 title: '直播源 - ' + a.title,
-                    //                 component: 'worldcup',
-                    //                 type: 'live',
-                    //                 content: object.title,
-                    //                 source: object.source,
-                    //                 page: 1
-                    //             });
-                    //         },
-                    //         onBack: function onBack() {
-                    //             Lampa.Controller.toggle('content');
-                    //         }
-                    //     });
-                    // });
                     _this.activity.loader(false);
+                    // //worked = true;
+                    // var chrome = $('<div class="screensaver-chrome"><iframe referrerPolicy="no-referrer" allowfullscreen src="'+$('.embed-responsive-item', str).attr('src')+'" class="screensaver-chrome__iframe"></iframe><div class="live-chrome__overlay"></div></div>');
+                    // console.log(chrome)
+                    // chrome.find('.live-chrome__overlay').on('click', function () {
+                    // //stopSlideshow();
+                    // if (chrome) {
+                    //     chrome.remove();
+                    //     chrome = false;
+                    // }
+                    // });
+                    
+                    // $('body').append(chrome);
 
+                    // Lampa.Controller.add('iframe', {
+                    //     toggle: function toggle() {},
+                    //     back: close$1
+                    //   });
+                    //   Lampa.Controller.toggle('iframe');
                     Lampa.Iframe.show({
                         url: $('.embed-responsive-item', str).attr('src'),
                         onBack: function onBack() {
@@ -109,7 +104,14 @@
             var page;
 
             str = str.replace(/\n/g, '');
+            // var h =  $(v+object.quantity, str);
+            // //console.log(h)
+            // total_pages = $(p, str).find('a').length;
+
             var host = object.url.indexOf('http') == -1 ? '' : object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+            // //console.log($(p, str).find('a').last().attr('href'))
+            // // :last-child
+            // //page = $(p, str).find('a').last().attr('href').indexOf('http') == -1 ? host+$(p, str).find('a').last().attr('href') : $(p, str).find('a').last().attr('href');
             page = $('.page-link', str).attr('href') ? $('.page-link', str).attr('href').match(/[0-9]+(?=[^0-9]*$)(.*)/) : null;
 
             if (page) {
@@ -120,10 +122,13 @@
 
             $('.list-group-item', str).each(function (i, html) {
                     card.push({
+                        //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: $('.text-right',html).length == 1 ? $('.text-right',html).text().replace(/\n/g,'') + ' VS ' + $('.text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
                         original_title: '',
                         title_org: '',
+                        //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
                         url: $('.pay-btn',html).text().trim() == '暂无' ? '未开' : 'http://www.88kanqiu.top' + $('.pay-btn a.btn',html).attr('href'),
+                        //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: $('.col-md-4.text-right+.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('.col-md-4.text-right+.col-xs-1 img',html).attr('src'),
                         quantity: $('.game-type',html).text(),
                         year: '',
@@ -199,7 +204,6 @@
                                 url: 'http://www.88kanqiu.top' + $(this).attr('href'),
                             });
                     });
-                    
 
                     Lampa.Select.show({
                         title: '直播源',
@@ -211,7 +215,6 @@
                                 component: 'worldcup',
                                 type: 'live',
                                 content: element.title,
-                                source: sources,
                                 page: 1
                             });
                         },
