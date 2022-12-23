@@ -50,7 +50,8 @@
                     //   });
                     //   Lampa.Controller.toggle('iframe');
                     Lampa.Iframe.show({
-                        url: $('.embed-responsive-item', str).attr('src'),
+                        //url: $('.embed-responsive-item', str).attr('src'),
+                        url: object.url,
                         onBack: function onBack() {
                           Lampa.Controller.toggle('content');
                         }
@@ -197,11 +198,12 @@
                 card.on('hover:enter', function (target, card_data) {
                     var sources = [];
 
-                    network.silent(element.url, function (str) {
-                        $('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                    network.silent(element.url+'-url', function (str) {
+                        //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                        str.forEach(function (element) {
                             sources.push({
-                                title:  $(this).text(),
-                                url: 'http://www.88kanqiu.top' + $(this).attr('href'),
+                                title:  element.name,
+                                url: element.url,
                             });
                     });
 
@@ -226,7 +228,7 @@
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
                     }, false, {
-                        dataType: 'text'
+                        dataType: 'json'
                     });
 
                     // //console.log(element)
@@ -427,9 +429,6 @@
     var catalogs = [{
         title: '首页',
         url: 'http://www.88kanqiu.top/'
-    },{
-        title: '世界杯',
-        url: 'http://www.88kanqiu.top/match/3/live'
     },{
         title: 'NBA',
         url: 'http://www.88kanqiu.top/match/1/live'
