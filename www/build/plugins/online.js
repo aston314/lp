@@ -3084,13 +3084,13 @@
         object = _object;
         select_title = object.movie.title;
         doreg = rule;
-        var url1 = 'https://t-rex.tzfile.com/wp-admin/admin-ajax.php';
+        var url1 = 'http://172.83.156.153/?s=#msearchword&type=post';
         url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
 
         network.clear();
         network.timeout(1000 * 15);
         network.silent(url1, function (json) {
-          if (json.length > 0) {
+          if ($('.post-info > h2 > a', json).length > 0) {
             parse(json);
           } else component.emptyForQuery(select_title);
   
@@ -3101,7 +3101,7 @@
           action: 'ajax_search',
           text: object.movie.title
         }, {
-          dataType: 'json',
+          dataType: 'text',
         });
       };
   
@@ -3154,26 +3154,29 @@
       };
   
       function parse(json) {
-          // var str = json.replace(/\n/g, '');
-          // var h =  $('div.news_text > a', str);
-          // $(h).each(function (i, html) {
+        var str = json.replace(/\n/g, '');
+        var h = $('.post-info > h2 > a', str);
+        //console.log(h)
         rslt = [];
-        json.forEach(function (a) {
+        $(h).each(function (i, html) {
+
+          //console.log(html)
+          //json.forEach(function (a) {
           rslt.push({
-            file: a.url,
+            file: html.href,
             quality: '霸王龙压制组',
             //quality: $('p',html).text().replace(/文件夹/,'目录'),
-            title: a.title,
+            title: html.text,
             season: '',
             episode: '',
             info: ''
           });
+          //});
         });
-          //});  
-  
-          append(filtred());
-          //rslt = [];
-  
+
+        append(filtred());
+        rslt = [];
+
       }
       /**
        * Построить фильтр
