@@ -1,28 +1,28 @@
-//04.11.2022 - 去除无用解析器
+//2023.1.12 - 删除一些不能用的网站
 
 (function () {
     'use strict';
     var extract_rule = {
       "rule": [
-        {
-          name: '完美看看',
-          websitelink: 'https://www.wanmeikk.film/',
-          listlink: true,
-          use_proxy: false,
-          search_url: 'https://www.wanmeikk.film/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-          search_json: true,
-          node_json: 'list',
-          name_json: 'name',
-          id_json: 'id',
-          first_page_json: '-1-1.html',
-          search_html_selector: '',
-          link_folder: 'play',
-          detail_url_selector: 'div.stui-pannel_bd.col-pd',
-          videoparse: 'browser',
-          videocontainer: '.MacPlayer',
-          use_referer: false,
-          js_execute_key: ['maccms', 'player_aaaa']
-        },
+        // {
+        //   name: '完美看看',
+        //   websitelink: 'https://www.wanmeikk.film/',
+        //   listlink: true,
+        //   use_proxy: false,
+        //   search_url: 'https://www.wanmeikk.film/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        //   search_json: true,
+        //   node_json: 'list',
+        //   name_json: 'name',
+        //   id_json: 'id',
+        //   first_page_json: '-1-1.html',
+        //   search_html_selector: '',
+        //   link_folder: 'play',
+        //   detail_url_selector: 'div.stui-pannel_bd.col-pd',
+        //   videoparse: 'browser',
+        //   videocontainer: '.MacPlayer',
+        //   use_referer: false,
+        //   js_execute_key: ['maccms', 'player_aaaa']
+        // },
         {
           name: 'LIBVIO',
           websitelink: 'https://www.libvio.me',
@@ -43,25 +43,25 @@
           use_referer: true,
           js_execute_key: ['maccms', 'player_aaaa']
         },
-        {
-          name: '在线之家',
-          websitelink: 'https://zxzj.vip',
-          listlink: true,
-          use_proxy: false,
-          search_url: 'https://zxzj.vip/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-          search_json: true,
-          node_json: 'list',
-          name_json: 'name',
-          id_json: 'id',
-          first_page_json: '-1-1.html',
-          search_html_selector: '',
-          link_folder: 'video',
-          detail_url_selector: '.play-item.cont.active',
-          videoparse: 'browser',
-          videocontainer: '.MacPlayer',
-          use_referer: true,
-          js_execute_key: ['maccms', 'player_aaaa']
-        },
+        // {
+        //   name: '在线之家',
+        //   websitelink: 'https://zxzj.vip',
+        //   listlink: true,
+        //   use_proxy: false,
+        //   search_url: 'https://zxzj.vip/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        //   search_json: true,
+        //   node_json: 'list',
+        //   name_json: 'name',
+        //   id_json: 'id',
+        //   first_page_json: '-1-1.html',
+        //   search_html_selector: '',
+        //   link_folder: 'video',
+        //   detail_url_selector: '.play-item.cont.active',
+        //   videoparse: 'browser',
+        //   videocontainer: '.MacPlayer',
+        //   use_referer: true,
+        //   js_execute_key: ['maccms', 'player_aaaa']
+        // },
         {
           name: '凌云影视',
           websitelink: 'https://www.lingyun.in',
@@ -75,31 +75,31 @@
           first_page_json: '',
           search_html_selector: 'dl > dd > p:nth-child(1) > strong',
           link_folder: '',
-          detail_url_selector: '.player.ckp:first-child',
+          detail_url_selector: '.player.ckp',
           videoparse: 'default',
           videocontainer: '.MacPlayer',
           use_referer: true,
           js_execute_key: ['maccms', 'player_data']
         },
-        {
-          name: '剧白白',
-          websitelink: 'https://www.jubaibai.cc',
-          listlink: true,
-          use_proxy: false,
-          search_url: 'https://www.jubaibai.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-          search_json: true,
-          node_json: 'list',
-          name_json: 'name',
-          id_json: 'id',
-          first_page_json: '-1-1.html',
-          search_html_selector: '',
-          link_folder: 'play',
-          detail_url_selector: 'div.play-item.cont.active',
-          videoparse: 'default',
-          videocontainer: '.MacPlayer',
-          use_referer: true,
-          js_execute_key: ['maccms', 'player_aaaa']
-        },
+        // {
+        //   name: '剧白白',
+        //   websitelink: 'https://www.jubaibai.cc',
+        //   listlink: true,
+        //   use_proxy: false,
+        //   search_url: 'https://www.jubaibai.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        //   search_json: true,
+        //   node_json: 'list',
+        //   name_json: 'name',
+        //   id_json: 'id',
+        //   first_page_json: '-1-1.html',
+        //   search_html_selector: '',
+        //   link_folder: 'play',
+        //   detail_url_selector: 'div.play-item.cont.active',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
+        //   use_referer: true,
+        //   js_execute_key: ['maccms', 'player_aaaa']
+        // },
         {
           name: '秋霞电影',
           websitelink: 'https://www.7xiady.cc',
@@ -113,11 +113,11 @@
           first_page_json: '-1-1.html',
           search_html_selector: '',
           link_folder: 'play',
-          detail_url_selector: '.stui-pannel_bd.col-pd.clearfix',
+          detail_url_selector: '.stui-pannel_bd.col-pd.clearfix:eq(0)',
           videoparse: 'default',
           videocontainer: '.MacPlayer',
           use_referer: false,
-          js_execute_key: ['maccms', 'player_data']
+          js_execute_key: ['maccms', 'player_aaaa']
         },
         // {
         //   name : '乐猪TV',
@@ -365,44 +365,44 @@
           use_referer: false,
           js_execute_key: ['maccms', 'player_aaaa']
         },
-        {
-          name: '厂长资源',
-          websitelink: 'https://www.czspp.com',
-          listlink: false,
-          use_proxy: false,
-          search_url: 'https://www.czspp.com/xssearch?q=#msearchword',
-          search_json: false,
-          node_json: '',
-          name_json: '',
-          id_json: '',
-          first_page_json: '',
-          search_html_selector: 'h3.dytit',
-          link_folder: '',
-          detail_url_selector: 'div.paly_list_btn',
-          videoparse: 'default',
-          videocontainer: '.MacPlayer',
-          use_referer: true,
-          js_execute_key: ['maccms', 'player_aaaa']
-        },
-        {
-          name: '素白白',
-          websitelink: 'https://www.subaibaiys.com',
-          listlink: false,
-          use_proxy: false,
-          search_url: 'https://www.subaibaiys.com/grabble?q=#msearchword',
-          search_json: false,
-          node_json: '',
-          name_json: '',
-          id_json: '',
-          first_page_json: '',
-          search_html_selector: 'h3.dytit',
-          link_folder: '',
-          detail_url_selector: 'div.paly_list_btn',
-          videoparse: 'default',
-          videocontainer: '.MacPlayer',
-          use_referer: true,
-          js_execute_key: []
-        },
+        // {
+        //   name: '厂长资源',
+        //   websitelink: 'https://www.czspp.com',
+        //   listlink: false,
+        //   use_proxy: false,
+        //   search_url: 'https://www.czspp.com/xssearch?q=#msearchword',
+        //   search_json: false,
+        //   node_json: '',
+        //   name_json: '',
+        //   id_json: '',
+        //   first_page_json: '',
+        //   search_html_selector: 'h3.dytit',
+        //   link_folder: '',
+        //   detail_url_selector: 'div.paly_list_btn',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
+        //   use_referer: true,
+        //   js_execute_key: ['maccms', 'player_aaaa']
+        // },
+        // {
+        //   name: '素白白',
+        //   websitelink: 'https://www.subaibaiys.com',
+        //   listlink: false,
+        //   use_proxy: false,
+        //   search_url: 'https://www.subaibaiys.com/grabble?q=#msearchword',
+        //   search_json: false,
+        //   node_json: '',
+        //   name_json: '',
+        //   id_json: '',
+        //   first_page_json: '',
+        //   search_html_selector: 'h3.dytit',
+        //   link_folder: '',
+        //   detail_url_selector: 'div.paly_list_btn',
+        //   videoparse: 'default',
+        //   videocontainer: '.MacPlayer',
+        //   use_referer: true,
+        //   js_execute_key: []
+        // },
         // {
         //   name: '独播库',
         //   websitelink: 'https://u.duboku.io',
@@ -505,9 +505,13 @@
           channel_uri: 'Aliyundrive_Share_Channel'
         },
         {
-          channel_name: 'TG-阿里云盘盘',
-          channel_uri: 'yunpanpan'
+          channel_name: 'TG-阿里云盘发布频道2',
+          channel_uri: 'shareAliyun'
         },
+        // {
+        //   channel_name: 'TG-阿里云盘盘',
+        //   channel_uri: 'yunpanpan'
+        // },
         {
           channel_name: 'TG-阿里云盘4K影视',
           channel_uri: 'Aliyun_4K_Movies'
@@ -520,6 +524,10 @@
           channel_name: 'TG-肯德基电影院',
           channel_uri: 'XiangxiuNB'
         },
+        {
+          channel_name: 'TG-全网云盘资源社',
+          channel_uri: 'quanziyuanshe'
+        },
       ],
       "resource_site": [
         {
@@ -527,11 +535,11 @@
           site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
           site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
         },
-        {
-          site_name: '多多资源网',
-          site_search_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-          site_detail_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=detail&ids=#id'
-        },
+        // {
+        //   site_name: '多多资源网',
+        //   site_search_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        //   site_detail_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=detail&ids=#id'
+        // },
       ]
     };
     var doreg = {};
@@ -971,22 +979,49 @@
 
             if (element.file) {
               var videocontainer = doreg.videocontainer;
-              (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-              if (!!window.cordova && doreg.videoparse == 'browser') {
-                var iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
-                iabRef.addEventListener('loadstop', function () {
-                  iabRef.insertCSS({ code: '.dplayer-web-fullscreen-fix1{background-color: black;position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
-                  //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
-                  //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
-                  iabRef.executeScript({
-                    code: '\
+              var iabRef = null;
+              function playershow() {
+                iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix1{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
+                //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
+                //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
+                iabRef.executeScript({
+                  code: '\
                   document.body.classList.add("dplayer-web-fullscreen-fix1");\
                   jQuery("div:not('+ videocontainer + ')").hide();  \
                   jQuery("'+ videocontainer + '").appendTo("body"); \
+                  jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
                   '});
+                  //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
+                  //simulate(jQuery("'+ videocontainer + '"), "click");\
+                  //jQuery("body > :not('+ videocontainer + ')").hide();\
+                  //jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
+                  //jQuery("'+ videocontainer + '").attr("tbaindex", "0"); \
+                  //jQuery("'+ videocontainer + '").attr("tabindex",-1).focus();\
 
-                  iabRef.show();
-                });
+                // iabRef.executeScript(
+                //   {
+                //     file: "https://cdn.jsdelivr.net/gh/aston314/lampa/lib/simulate.js"
+                //     //webURL works fine with 'file'
+                //   }, function () {
+                //     iabRef.executeScript(
+                //       {
+                //         code: '(function() { simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 }); })()'
+                //       }, function () {
+                //         alert('摇控器支持脚本');
+                //       });
+                //   });
+
+                iabRef.show();
+              };
+              function iabClose(event) {
+                iabRef.removeEventListener('loadstop', playershow);
+                iabRef.removeEventListener('exit', iabClose);
+              };
+              (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
+              if (!!window.cordova && doreg.videoparse == 'browser') {
+                iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
+                iabRef.addEventListener('loadstop', playershow);
+                iabRef.addEventListener('exit', iabClose);
               } else {
                 network.silent(proxy_url + element.file, function (str) {
                   if (str) {
