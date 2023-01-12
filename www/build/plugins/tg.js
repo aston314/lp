@@ -597,9 +597,12 @@
     {
         title: '肯德基电影院',
         url: 'https://tx.me/s/XiangxiuNB'
-    },{
+    }, {
         title: '全网云盘资源社',
         url: 'https://tx.me/s/quanziyuanshe'
+    }, {
+        title: '阿里(高品质)影视',
+        url: 'https://tx.me/s/alyp_1'
     },];
 
     function startTG() {
