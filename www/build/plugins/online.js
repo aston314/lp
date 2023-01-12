@@ -528,6 +528,10 @@
           channel_name: 'TG-全网云盘资源社',
           channel_uri: 'quanziyuanshe'
         },
+        {
+          channel_name: 'TG-阿里(高品质)影视',
+          channel_uri: 'alyp_1'
+        },
       ],
       "resource_site": [
         {
