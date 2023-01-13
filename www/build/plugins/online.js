@@ -3291,6 +3291,244 @@
       }
     }
   
+    function xiaoyaalist(component, _object, rule) {
+      var alistip = 'http://192.168.2.1:8678';
+      var network = new Lampa.Reguest();
+      var extract = {};
+      var object = _object;
+      var select_title = '';
+      var filter_items = {};
+      var choice = {
+        season: 0,
+        voice: 0,
+        last_viewed: ''
+      };
+        var resp;
+        var search_videos;
+        var find_videos;
+        var rslt    = [];
+      
+      /**
+       * Поиск
+       * @param {Object} _object 
+       */
+  
+      this.search = function (_object, kinopoisk_id) {
+        object = _object;
+        select_title = object.movie.title;
+        doreg = rule;
+        var url1 = alistip+'/search?box=#msearchword&url=';
+        url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+
+        network.clear();
+        network.timeout(1000 * 15);
+        network.silent(url1, function (json) {
+          //console.log($("[style^='width'] a", json))
+          if ($("[style^='width'] a", json).length > 0) {
+            parse(json);
+          } else component.emptyForQuery(select_title);
+  
+          component.loading(false);
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'text',
+        });
+      };
+  
+      this.extendChoice = function (saved) {
+        Lampa.Arrays.extend(choice, saved, true);
+      };
+
+      this.extendChoice_ = function (saved) {
+        Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      };
+      /**
+       * Сброс фильтра
+       */
+  
+  
+      this.reset = function () {
+        component.reset();
+        choice = {
+          season: 0,
+          voice: 0
+        };
+        filter();
+        append(filtred());
+        component.saveChoice(choice);
+      };
+      /**
+       * Применить фильтр
+       * @param {*} type 
+       * @param {*} a 
+       * @param {*} b 
+       */
+  
+  
+      this.filter = function (type, a, b) {
+        choice[a.stype] = b.index;
+        component.reset();
+        filter();
+        append(filtred());
+        component.saveChoice(choice);
+      };
+      /**
+       * Уничтожить
+       */
+  
+  
+      this.destroy = function () {
+        network.clear();
+        extract = null;
+        rslt = null;
+      };
+  
+      function parse(json) {
+        var str = json.replace(/\n/g, '');
+        var h = $("[style^='width'] a", str);
+        //console.log(h)
+        rslt = [];
+        $(h).each(function (i, html) {
+
+          //console.log(html)
+          //json.forEach(function (a) {
+          rslt.push({
+            file: html.href,
+            quality: '小雅的Alist',
+            //quality: $('p',html).text().replace(/文件夹/,'目录'),
+            title: html.text,
+            season: '',
+            episode: '',
+            info: '',
+            search_title: select_title
+          });
+          //});
+        });
+
+        append(filtred());
+        rslt = [];
+
+      }
+      /**
+       * Построить фильтр
+       */
+  
+  
+      function filter() {
+        filter_items = {
+          season: [],
+          voice: [],
+          quality: []
+        };
+  
+        if (extract.playlist) {
+          if (extract.playlist.seasons) {
+            extract.playlist.seasons.forEach(function (season) {
+              filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+            });
+          }
+        }
+  
+        if (!filter_items.season[choice.season]) choice.season = 0;
+        component.filter(filter_items, choice);
+      }
+      /**
+       * Отфильтровать файлы
+       * @returns array
+       */
+  
+  
+      function filtred() {
+  
+        return rslt;
+      }
+      /**
+       * Показать файлы
+       */
+  
+  
+      function append(items) {
+        var _this = this;
+        component.reset();
+        var viewed = Lampa.Storage.cache('online_view', 5000, []);
+        items.forEach(function (element, item_id) {
+          var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+          var view = Lampa.Timeline.view(hash);
+          var item = Lampa.Template.get('online_mod_folder', element);
+          var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+          element.timeline = view;
+          item.append(Lampa.Timeline.render(view));
+  
+          if (Lampa.Timeline.details) {
+            item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+          }
+  
+          if (viewed.indexOf(hash_file) !== -1) item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+          item.on('hover:enter', function () {
+            object.movie.id = object.url;
+            choice.last_viewed = item_id;
+            if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+            component.activity.loader(true);
+            
+            element.img = object.movie.img;
+              element.original_title = '';
+              Lampa.Activity.push({
+                url: alistip+'/'+element.title,
+                title: 'Alist - '+ element.search_title,
+                component: 'alist',
+                movie: element,
+                page: 1
+              });
+
+            // if (element.file) {
+            //   network.silent(element.file, function (json) {
+            //     if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+            //      var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+            //       element.img = object.movie.img;
+            //       element.original_title = '';
+            //       Lampa.Activity.push({
+            //         url: link,
+            //         title: '阿里云盘播放',
+            //         component: 'yunpan2',
+            //         movie: element,
+            //         page: 1
+            //       });
+            //     } else component.emptyForQuery(select_title);
+  
+            //     component.loading(false);
+            //   }, function (a, c) {
+            //     component.empty(network.errorDecode(a, c));
+            //   }, false, {
+            //     dataType: 'text',
+            //   });
+            //   component.loading(false);
+              
+            //   if (viewed.indexOf(hash_file) == -1) {
+            //     viewed.push(hash_file);
+            //     item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+            //     Lampa.Storage.set('online_view', viewed);
+            //   }
+            // } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+          });
+          component.append(item);
+          component.contextmenu({
+            item: item,
+            view: view,
+            viewed: viewed,
+            choice: choice,
+            hash_file: hash_file,
+            file: function file(call) {
+              call({
+                file: element.file
+              });
+            }
+          });
+        });
+        component.start(true);
+      }
+    }
+
     function alipansou(component, _object, rule) {
       var network = new Lampa.Reguest();
       var extract = {};
@@ -3846,6 +4084,7 @@
         易搜: new yiso(this, object),
         猫狸盘搜: new alipansou(this, object),
         霸王龙压制组: new trex(this, object),
+        小雅的Alist: new xiaoyaalist(this, object),
       };
   
       var sname = [];
@@ -3884,7 +4123,7 @@
         source: Lampa.Lang.translate('settings_rest_source')
       };
       //, 'videocdn', 'rezka', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'hdvb', 'videoapi'
-      var filter_sources = ['找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', '无名资源']; // шаловливые ручки
+      var filter_sources = ['找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组','小雅的Alist', '无名资源']; // шаловливые ручки
       filter_sources = resource_sname.concat(filter_sources);
       filter_sources = tg_sname.concat(filter_sources);
       filter_sources = sname.concat(filter_sources);
@@ -4543,6 +4782,7 @@
         sources.易搜.destroy();
         sources.霸王龙压制组.destroy();
         sources.猫狸盘搜.destroy();
+        sources.小雅的Alist.destroy();
         doregjson.resource_site.forEach(function (elem) {
           sources[elem.site_name].destroy();
         });
