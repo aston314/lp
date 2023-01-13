@@ -453,6 +453,10 @@
                     var result = arr[0] + "//" + arr[2];
 
                     file = encodeURI(object.url.replace(result, result + '/d') + '/' + element.translation)
+                    file = object.url+ '/' + element.translation
+                    
+                    var r = ('' + file).match(/^(https?:)?\/\/[^/]+/i);
+                    //console.log(r[0])
                     // $.ajax({
                     //   url: file,
                     //   type: 'GET',
@@ -468,17 +472,38 @@
                 
                     //   }
                     // });
+                    $.ajax({
+                      url: r[0]+'/api/fs/get',
+                      type: 'POST',
+                      async: false,
+                      data: {
+                        "path": file.replace(r[0]+'/',''),
+                        "password": ""
+                      },
+                      dataType: 'json',
+                      success: function success(j) {
+                          if (j.message == "success") {
+                            var playlist = [];
+                            var first = {
+                              url: j.data.raw_url,
+                              timeline: view,
+                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                            };
+                            Lampa.Player.play(first);
+          
+                            playlist.push(first);
+                            Lampa.Player.playlist(playlist);
+                          } else {
+                              Lampa.Noty.show('获取Alsit播放地址失败。');
+                          }
+                      },
+                      error: function error() {
+                          Lampa.Noty.show('获取Alsit播放地址失败。');
+                      }
+                  });
+                    //console.log(file)
                   };
-                  var playlist = [];
-                  var first = {
-                    url: file,
-                    timeline: view,
-                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
-                  };
-                  Lampa.Player.play(first);
-
-                  playlist.push(first);
-                  Lampa.Player.playlist(playlist);
+                  
                 } else {
                   Lampa.Noty.show('无法检索链接');
                 }
