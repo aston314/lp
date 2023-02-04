@@ -8691,165 +8691,172 @@
       return typeof t1 === 'string' && typeof t2 === 'string' && t1.toLowerCase().replace(/—/g, '-') === t2.toLowerCase().replace(/—/g, '-');
     };
 
+    // this.find = function () {
+    //   var _this2 = this;
+
+    //   var query = object.search || object.movie.title;
+    //   var search_date = object.search_date || object.movie.release_date || object.movie.first_air_date || object.movie.last_air_date || '0000';
+    //   var search_year = parseInt((search_date + '').slice(0, 4));
+    //   var orig = object.movie.original_title || object.movie.original_name;
+
+    //   var display = function display(items) {
+    //     if (items && items.length) {
+    //       var is_sure = false;
+
+    //       if (object.movie.imdb_id) {
+    //         var tmp = items.filter(function (elem) {
+    //           return (elem.imdb_id || elem.imdbId) == object.movie.imdb_id;
+    //         });
+
+    //         if (tmp.length) {
+    //           items = tmp;
+    //           is_sure = true;
+    //         }
+    //       }
+
+    //       var cards = items.filter(function (c) {
+    //         var year = c.start_date || c.year || '0000';
+    //         c.tmp_year = parseInt((year + '').slice(0, 4));
+    //         return !c.tmp_year || !search_year || c.tmp_year > search_year - 2 && c.tmp_year < search_year + 2;
+    //       });
+
+    //       if (orig) {
+    //         var _tmp = cards.filter(function (elem) {
+    //           return _this2.equalTitle(elem.orig_title || elem.nameOriginal || elem.en_title || elem.nameEn || elem.ru_title || elem.nameRu, orig);
+    //         });
+
+    //         if (_tmp.length) {
+    //           cards = _tmp;
+    //           is_sure = true;
+    //         }
+    //       }
+
+    //       if (query) {
+    //         var _tmp2 = cards.filter(function (elem) {
+    //           return _this2.equalTitle(elem.title || elem.ru_title || elem.nameRu || elem.en_title || elem.nameEn || elem.orig_title || elem.nameOriginal, query);
+    //         });
+
+    //         if (_tmp2.length) {
+    //           cards = _tmp2;
+    //           is_sure = true;
+    //         }
+    //       }
+
+    //       if (cards.length > 1 && search_year) {
+    //         var _tmp3 = cards.filter(function (c) {
+    //           return c.tmp_year == search_year;
+    //         });
+
+    //         if (_tmp3.length) cards = _tmp3;
+    //       }
+
+    //       if (cards.length == 1 && is_sure) {
+    //         _this2.extendChoice();
+
+    //         sources[balanser].search(object, cards[0].kp_id || cards[0].kinopoiskId || cards[0].filmId, cards);
+    //       } else {
+    //         _this2.similars(items);
+
+    //         _this2.loading(false);
+    //       }
+    //     } else _this2.emptyForQuery(query);
+    //   };
+
+    //   var vcdn_search = function vcdn_search() {
+    //     var url;
+
+    //     if (balanser == 'videoapi') {
+    //       url = _this2.proxy('videoapi') + 'http://5100.svetacdn.in/api/short';
+    //       url = Lampa.Utils.addUrlComponent(url, 'api_token=qR0taraBKvEZULgjoIRj69AJ7O6Pgl9O');
+    //     } else {
+    //       var prox = _this2.proxy('videocdn');
+
+    //       url = prox ? prox + 'https://videocdn.tv/api/short' : 'http://cdn.svetacdn.in/api/short';
+    //       url = Lampa.Utils.addUrlComponent(url, 'api_token=3i40G5TSECmLF77oAqnEgbx61ZWaOYaE');
+    //     }
+
+    //     var url_by_title = Lampa.Utils.addUrlComponent(url, 'title=' + encodeURIComponent(query));
+    //     if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url, 'imdb_id=' + encodeURIComponent(object.movie.imdb_id));else url = url_by_title;
+    //     network.clear();
+    //     network.timeout(1000 * 15);
+    //     network.silent(url, function (json) {
+    //       if (json.data && json.data.length) display(json.data);else if (object.movie.imdb_id) {
+    //         network.clear();
+    //         network.timeout(1000 * 15);
+    //         network.silent(url_by_title, function (json) {
+    //           if (json.data && json.data.length) display(json.data);else display([]);
+    //         }, function (a, c) {
+    //           _this2.empty(network.errorDecode(a, c));
+    //         });
+    //       } else display([]);
+    //     }, function (a, c) {
+    //       _this2.empty(network.errorDecode(a, c));
+    //     });
+    //   };
+
+    //   var kp_search = function kp_search() {
+    //     var url = _this2.proxy('kp') + 'https://kinopoiskapiunofficial.tech/api/';
+    //     var url_by_title = Lampa.Utils.addUrlComponent(url + 'v2.1/films/search-by-keyword', 'keyword=' + encodeURIComponent(_this2.cleanTitle(query)));
+    //     if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url + 'v2.2/films', 'imdbId=' + encodeURIComponent(object.movie.imdb_id));else url = url_by_title;
+    //     network.clear();
+    //     network.timeout(1000 * 15);
+    //     network.silent(url, function (json) {
+    //       if (json.items && json.items.length) display(json.items);else if (json.films && json.films.length) display(json.films);else if (object.movie.imdb_id) {
+    //         network.clear();
+    //         network.timeout(1000 * 15);
+    //         network.silent(url_by_title, function (json) {
+    //           if (json.items && json.items.length) display(json.items);else if (json.films && json.films.length) display(json.films);else vcdn_search();
+    //         }, function (a, c) {
+    //           vcdn_search();
+    //         }, false, {
+    //           headers: {
+    //             'X-API-KEY': '2d55adfd-019d-4567-bbf7-67d503f61b5a'
+    //           }
+    //         });
+    //       } else vcdn_search();
+    //     }, function (a, c) {
+    //       vcdn_search();
+    //     }, false, {
+    //       headers: {
+    //         'X-API-KEY': '2d55adfd-019d-4567-bbf7-67d503f61b5a'
+    //       }
+    //     });
+    //   };
+
+    //   var letgo = function letgo() {
+    //     if (['rezka2', 'kinobase', 'filmix', 'cdnmovies'].indexOf(balanser) >= 0) {
+    //       _this2.extendChoice();
+
+    //       sources[balanser].search(object);
+    //     } else {
+    //       if (balanser == 'videocdn' || balanser == 'videoapi' || Lampa.Storage.field('online_mod_skip_kp_search') === true) vcdn_search();else kp_search();
+    //     }
+    //   };
+
+    //   if (object.movie.kinopoisk_id && ['rezka', 'collaps', 'hdvb'].indexOf(balanser) >= 0) {
+    //     this.extendChoice();
+    //     sources[balanser].search(object, object.movie.kinopoisk_id);
+    //   } else if (!object.movie.imdb_id && (object.movie.source == 'tmdb' || object.movie.source == 'cub') && ['videocdn', 'videoapi', 'cdnmovies'].indexOf(balanser) >= 0) {
+    //     var tmdburl = (object.movie.name ? 'tv' : 'movie') + '/' + object.movie.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru';
+    //     var baseurl = typeof Lampa.TMDB !== 'undefined' ? Lampa.TMDB.api(tmdburl) : 'http://api.themoviedb.org/3/' + tmdburl;
+    //     network.clear();
+    //     network.timeout(1000 * 15);
+    //     network.silent(baseurl, function (ttid) {
+    //       object.movie.imdb_id = ttid.imdb_id;
+    //       letgo();
+    //     }, function (a, c) {
+    //       _this2.empty(network.errorDecode(a, c));
+    //     });
+    //   } else {
+    //     letgo();
+    //   }
+    // };
+    
     this.find = function () {
-      var _this2 = this;
-
-      var query = object.search || object.movie.title;
-      var search_date = object.search_date || object.movie.release_date || object.movie.first_air_date || object.movie.last_air_date || '0000';
-      var search_year = parseInt((search_date + '').slice(0, 4));
-      var orig = object.movie.original_title || object.movie.original_name;
-
-      var display = function display(items) {
-        if (items && items.length) {
-          var is_sure = false;
-
-          if (object.movie.imdb_id) {
-            var tmp = items.filter(function (elem) {
-              return (elem.imdb_id || elem.imdbId) == object.movie.imdb_id;
-            });
-
-            if (tmp.length) {
-              items = tmp;
-              is_sure = true;
-            }
-          }
-
-          var cards = items.filter(function (c) {
-            var year = c.start_date || c.year || '0000';
-            c.tmp_year = parseInt((year + '').slice(0, 4));
-            return !c.tmp_year || !search_year || c.tmp_year > search_year - 2 && c.tmp_year < search_year + 2;
-          });
-
-          if (orig) {
-            var _tmp = cards.filter(function (elem) {
-              return _this2.equalTitle(elem.orig_title || elem.nameOriginal || elem.en_title || elem.nameEn || elem.ru_title || elem.nameRu, orig);
-            });
-
-            if (_tmp.length) {
-              cards = _tmp;
-              is_sure = true;
-            }
-          }
-
-          if (query) {
-            var _tmp2 = cards.filter(function (elem) {
-              return _this2.equalTitle(elem.title || elem.ru_title || elem.nameRu || elem.en_title || elem.nameEn || elem.orig_title || elem.nameOriginal, query);
-            });
-
-            if (_tmp2.length) {
-              cards = _tmp2;
-              is_sure = true;
-            }
-          }
-
-          if (cards.length > 1 && search_year) {
-            var _tmp3 = cards.filter(function (c) {
-              return c.tmp_year == search_year;
-            });
-
-            if (_tmp3.length) cards = _tmp3;
-          }
-
-          if (cards.length == 1 && is_sure) {
-            _this2.extendChoice();
-
-            sources[balanser].search(object, cards[0].kp_id || cards[0].kinopoiskId || cards[0].filmId, cards);
-          } else {
-            _this2.similars(items);
-
-            _this2.loading(false);
-          }
-        } else _this2.emptyForQuery(query);
-      };
-
-      var vcdn_search = function vcdn_search() {
-        var url;
-
-        if (balanser == 'videoapi') {
-          url = _this2.proxy('videoapi') + 'http://5100.svetacdn.in/api/short';
-          url = Lampa.Utils.addUrlComponent(url, 'api_token=qR0taraBKvEZULgjoIRj69AJ7O6Pgl9O');
-        } else {
-          var prox = _this2.proxy('videocdn');
-
-          url = prox ? prox + 'https://videocdn.tv/api/short' : 'http://cdn.svetacdn.in/api/short';
-          url = Lampa.Utils.addUrlComponent(url, 'api_token=3i40G5TSECmLF77oAqnEgbx61ZWaOYaE');
-        }
-
-        var url_by_title = Lampa.Utils.addUrlComponent(url, 'title=' + encodeURIComponent(query));
-        if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url, 'imdb_id=' + encodeURIComponent(object.movie.imdb_id));else url = url_by_title;
-        network.clear();
-        network.timeout(1000 * 15);
-        network.silent(url, function (json) {
-          if (json.data && json.data.length) display(json.data);else if (object.movie.imdb_id) {
-            network.clear();
-            network.timeout(1000 * 15);
-            network.silent(url_by_title, function (json) {
-              if (json.data && json.data.length) display(json.data);else display([]);
-            }, function (a, c) {
-              _this2.empty(network.errorDecode(a, c));
-            });
-          } else display([]);
-        }, function (a, c) {
-          _this2.empty(network.errorDecode(a, c));
-        });
-      };
-
-      var kp_search = function kp_search() {
-        var url = _this2.proxy('kp') + 'https://kinopoiskapiunofficial.tech/api/';
-        var url_by_title = Lampa.Utils.addUrlComponent(url + 'v2.1/films/search-by-keyword', 'keyword=' + encodeURIComponent(_this2.cleanTitle(query)));
-        if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url + 'v2.2/films', 'imdbId=' + encodeURIComponent(object.movie.imdb_id));else url = url_by_title;
-        network.clear();
-        network.timeout(1000 * 15);
-        network.silent(url, function (json) {
-          if (json.items && json.items.length) display(json.items);else if (json.films && json.films.length) display(json.films);else if (object.movie.imdb_id) {
-            network.clear();
-            network.timeout(1000 * 15);
-            network.silent(url_by_title, function (json) {
-              if (json.items && json.items.length) display(json.items);else if (json.films && json.films.length) display(json.films);else vcdn_search();
-            }, function (a, c) {
-              vcdn_search();
-            }, false, {
-              headers: {
-                'X-API-KEY': '2d55adfd-019d-4567-bbf7-67d503f61b5a'
-              }
-            });
-          } else vcdn_search();
-        }, function (a, c) {
-          vcdn_search();
-        }, false, {
-          headers: {
-            'X-API-KEY': '2d55adfd-019d-4567-bbf7-67d503f61b5a'
-          }
-        });
-      };
-
-      var letgo = function letgo() {
-        if (['rezka2', 'kinobase', 'filmix', 'cdnmovies'].indexOf(balanser) >= 0) {
-          _this2.extendChoice();
-
-          sources[balanser].search(object);
-        } else {
-          if (balanser == 'videocdn' || balanser == 'videoapi' || Lampa.Storage.field('online_mod_skip_kp_search') === true) vcdn_search();else kp_search();
-        }
-      };
-
-      if (object.movie.kinopoisk_id && ['rezka', 'collaps', 'hdvb'].indexOf(balanser) >= 0) {
-        this.extendChoice();
-        sources[balanser].search(object, object.movie.kinopoisk_id);
-      } else if (!object.movie.imdb_id && (object.movie.source == 'tmdb' || object.movie.source == 'cub') && ['videocdn', 'videoapi', 'cdnmovies'].indexOf(balanser) >= 0) {
-        var tmdburl = (object.movie.name ? 'tv' : 'movie') + '/' + object.movie.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru';
-        var baseurl = typeof Lampa.TMDB !== 'undefined' ? Lampa.TMDB.api(tmdburl) : 'http://api.themoviedb.org/3/' + tmdburl;
-        network.clear();
-        network.timeout(1000 * 15);
-        network.silent(baseurl, function (ttid) {
-          object.movie.imdb_id = ttid.imdb_id;
-          letgo();
-        }, function (a, c) {
-          _this2.empty(network.errorDecode(a, c));
-        });
-      } else {
-        letgo();
-      }
+        var _this2 = this;
+        var query = object.search || object.movie.title;
+        //_this2.extendChoice_();
+        sources[balanser].search(object, encodeURIComponent(_this2.cleanTitle(query)), '');
     };
 
     this.parsePlaylist = function (str) {
