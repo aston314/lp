@@ -4220,7 +4220,7 @@
       this.find = function () {
         var _this2 = this;
         var query = object.search || object.movie.title;
-        _this2.extendChoice_();
+        //_this2.extendChoice_();
         sources[balanser].search(object, encodeURIComponent(_this2.cleanTitle(query)), '');
       };
   
