@@ -4295,11 +4295,11 @@
         var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
         var save = data[selected_id || object.movie.id || object.movie.url] || {};
         extended = true;
-        sources[balanser].extendChoice(save);
+        //sources[balanser].extendChoice(save);
 
         var data_ = Lampa.Storage.cache('online_mod_first_order_'+ balanser, 500, {});
         var save_ = data_[selected_id || object.movie.id || object.movie.url] || {};
-        sources[balanser].extendChoice_(save_);
+        //sources[balanser].extendChoice_(save_);
       };
 
       this.extendChoice = function () {
