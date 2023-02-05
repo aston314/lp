@@ -3552,8 +3552,9 @@
       network.clear();
       network.timeout(1000 * 15);
       network.silent(url1, function (json) {
-        //console.log($("[style^='width'] a", json))
-        if ($("div:nth-child(2) a", json).length > 0) {
+        //console.log($("a", json))
+        //console.log($("a", json).length)
+        if ($("a", json).length > 2) {
           parse(json);
         } else component.emptyForQuery(select_title);
 
@@ -3615,25 +3616,30 @@
 
     function parse(json) {
       var str = json.replace(/\n/g, '');
-      var h = $("div:nth-child(2) a", str);
+      var h = $("a", str);
       //console.log(h)
       rslt = [];
       $(h).each(function (i, html) {
 
         //console.log(html)
         //json.forEach(function (a) {
-        rslt.push({
-          file: html.href,
-          quality: '小雅的Alist',
-          //quality: $('p',html).text().replace(/文件夹/,'目录'),
-          title: html.text,
-          season: '',
-          episode: '',
-          info: '',
-          search_title: select_title
-        });
+            //console.log(html.text)
+        //if ((html.text != '') || (html.text !='关注小雅的tg频道')){
+            rslt.push({
+            file: html.href,
+            quality: '小雅的Alist',
+            //quality: $('p',html).text().replace(/文件夹/,'目录'),
+            title: html.text,
+            season: '',
+            episode: '',
+            info: '',
+            search_title: select_title
+            });
+        //}
         //});
       });
+      //删除前两个数组
+      rslt.splice(0,2);
 
       append(filtred());
       rslt = [];
@@ -8825,7 +8831,7 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['BYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组','小雅的Alist', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist','BYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     filter_sources = sname.concat(filter_sources);
