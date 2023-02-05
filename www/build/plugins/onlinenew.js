@@ -3291,8 +3291,237 @@
     }
   }
 
+  function byd(component, _object, rule) {
+    var network = new Lampa.Reguest();
+    var extract = {};
+    var object = _object;
+    var select_title = '';
+    var filter_items = {};
+    var choice = {
+      season: 0,
+      voice: 0,
+      last_viewed: ''
+    };
+      var resp;
+      var search_videos;
+      var find_videos;
+      var rslt    = [];
+    
+    /**
+     * Поиск
+     * @param {Object} _object 
+     */
+
+    this.search = function (_object, kinopoisk_id) {
+      object = _object;
+      select_title = object.movie.title;
+      doreg = rule;
+      var url1 = 'http://www.dydhhy.com/?s=#msearchword';
+      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+
+      network.clear();
+      network.timeout(1000 * 15);
+      network.silent(url1, function (json) {
+        if ($('h2.entry-title a', json).length > 0) {
+          parse(json);
+        } else component.emptyForQuery(select_title);
+
+        component.loading(false);
+      }, function (a, c) {
+        component.empty(network.errorDecode(a, c));
+      }, {
+        action: 'ajax_search',
+        text: object.movie.title
+      }, {
+        dataType: 'text',
+      });
+    };
+
+    this.extendChoice = function (saved) {
+      Lampa.Arrays.extend(choice, saved, true);
+    };
+
+    this.extendChoice_ = function (saved) {
+      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+    };
+    /**
+     * Сброс фильтра
+     */
+
+
+    this.reset = function () {
+      component.reset();
+      choice = {
+        season: 0,
+        voice: 0
+      };
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Применить фильтр
+     * @param {*} type 
+     * @param {*} a 
+     * @param {*} b 
+     */
+
+
+    this.filter = function (type, a, b) {
+      choice[a.stype] = b.index;
+      component.reset();
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Уничтожить
+     */
+
+
+    this.destroy = function () {
+      network.clear();
+      extract = null;
+      rslt = null;
+    };
+
+    function parse(json) {
+      var str = json.replace(/\n/g, '');
+      var h = $('h2.entry-title a', str);
+      //console.log(h)
+      rslt = [];
+      $(h).each(function (i, html) {
+
+        //console.log(html)
+        //json.forEach(function (a) {
+        rslt.push({
+          file: html.href,
+          quality: 'BYD',
+          //quality: $('p',html).text().replace(/文件夹/,'目录'),
+          title: html.text,
+          season: '',
+          episode: '',
+          info: ''
+        });
+        //});
+      });
+
+      append(filtred());
+      rslt = [];
+
+    }
+    /**
+     * Построить фильтр
+     */
+
+
+    function filter() {
+      filter_items = {
+        season: [],
+        voice: [],
+        quality: []
+      };
+
+      if (extract.playlist) {
+        if (extract.playlist.seasons) {
+          extract.playlist.seasons.forEach(function (season) {
+            filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+          });
+        }
+      }
+
+      if (!filter_items.season[choice.season]) choice.season = 0;
+      component.filter(filter_items, choice);
+    }
+    /**
+     * Отфильтровать файлы
+     * @returns array
+     */
+
+
+    function filtred() {
+
+      return rslt;
+    }
+    /**
+     * Показать файлы
+     */
+
+
+    function append(items) {
+      var _this = this;
+      component.reset();
+      var viewed = Lampa.Storage.cache('online_view', 5000, []);
+      items.forEach(function (element, item_id) {
+        var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+        var view = Lampa.Timeline.view(hash);
+        var item = Lampa.Template.get('online_mod_folder', element);
+        var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+        element.timeline = view;
+        item.append(Lampa.Timeline.render(view));
+
+        if (Lampa.Timeline.details) {
+          item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+        }
+
+        if (viewed.indexOf(hash_file) !== -1) item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        item.on('hover:enter', function () {
+          object.movie.id = object.url;
+          choice.last_viewed = item_id;
+          if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+          component.activity.loader(true);
+
+          if (element.file) {
+            network.silent(element.file, function (json) {
+              if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+               var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+                element.img = object.movie.img;
+                element.original_title = '';
+                Lampa.Activity.push({
+                  url: link,
+                  title: '阿里云盘播放',
+                  component: 'yunpan2',
+                  movie: element,
+                  page: 1
+                });
+              } else component.emptyForQuery(select_title);
+
+              component.loading(false);
+            }, function (a, c) {
+              component.empty(network.errorDecode(a, c));
+            }, false, {
+              dataType: 'text',
+            });
+            component.loading(false);
+            
+            if (viewed.indexOf(hash_file) == -1) {
+              viewed.push(hash_file);
+              item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+              Lampa.Storage.set('online_view', viewed);
+            }
+          } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+        });
+        component.append(item);
+        component.contextmenu({
+          item: item,
+          view: view,
+          viewed: viewed,
+          choice: choice,
+          hash_file: hash_file,
+          file: function file(call) {
+            call({
+              file: element.file
+            });
+          }
+        });
+      });
+      component.start(true);
+    }
+  }
+
   function xiaoyaalist(component, _object, rule) {
-    var alistip = 'http://192.168.2.1:8678';
+    // var alistip = 'http://192.168.2.1:8678';
+    var alistip = 'http://alist.xiaoya.pro';
     var network = new Lampa.Reguest();
     var extract = {};
     var object = _object;
@@ -3324,7 +3553,7 @@
       network.timeout(1000 * 15);
       network.silent(url1, function (json) {
         //console.log($("[style^='width'] a", json))
-        if ($("[style^='width'] a", json).length > 0) {
+        if ($("div:nth-child(2) a", json).length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
 
@@ -3386,7 +3615,7 @@
 
     function parse(json) {
       var str = json.replace(/\n/g, '');
-      var h = $("[style^='width'] a", str);
+      var h = $("div:nth-child(2) a", str);
       //console.log(h)
       rslt = [];
       $(h).each(function (i, html) {
@@ -8547,6 +8776,7 @@
       猫狸盘搜: new alipansou(this, object),
       霸王龙压制组: new trex(this, object),
       小雅的Alist: new xiaoyaalist(this, object),
+      BYD: new byd(this, object),
     };
 
 
@@ -8595,7 +8825,7 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组','小雅的Alist', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['BYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组','小雅的Alist', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     filter_sources = sname.concat(filter_sources);
@@ -8851,7 +9081,7 @@
     //     letgo();
     //   }
     // };
-    
+
     this.find = function () {
         var _this2 = this;
         var query = object.search || object.movie.title;
@@ -9358,6 +9588,7 @@
       sources.霸王龙压制组.destroy();
       sources.猫狸盘搜.destroy();
       sources.小雅的Alist.destroy();
+      sources.BYD.destroy();
       doregjson.resource_site.forEach(function (elem) {
         sources[elem.site_name].destroy();
       });
@@ -9657,7 +9888,7 @@
     Lampa.Template.add('online_mod_folder', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div style=\"position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em\">\n                <svg style=\"height: 2.4em; width:  2.4em;\" viewBox=\"0 0 128 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect y=\"20\" width=\"128\" height=\"92\" rx=\"13\" fill=\"white\"/>\n                    <path d=\"M29.9963 8H98.0037C96.0446 3.3021 91.4079 0 86 0H42C36.5921 0 31.9555 3.3021 29.9963 8Z\" fill=\"white\" fill-opacity=\"0.23\"/>\n                    <rect x=\"11\" y=\"8\" width=\"106\" height=\"76\" rx=\"13\" fill=\"white\" fill-opacity=\"0.51\"/>\n                </svg>\n            </div>\n            <div class=\"online__title\" style=\"padding-left: 2.1em;\">{title}</div>\n            <div class=\"online__quality\" style=\"padding-left: 3.4em;\">{quality}{info}</div>\n        </div>\n    </div>");
   }
 
-  var button = "<div class=\"full-start__button selector view--online_mod\" data-subtitle=\"online_mod 18.01.2023\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 244 260\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M242,88v170H10V88h41l-38,38h37.1l38-38h38.4l-38,38h38.4l38-38h38.3l-38,38H204L242,88L242,88z M228.9,2l8,37.7l0,0 L191.2,10L228.9,2z M160.6,56l-45.8-29.7l38-8.1l45.8,29.7L160.6,56z M84.5,72.1L38.8,42.4l38-8.1l45.8,29.7L84.5,72.1z M10,88 L2,50.2L47.8,80L10,88z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>#{online_mod_title}</span>\n    </div>"; // нужна заглушка, а то при страте лампы говорит пусто
+  var button = "<div class=\"full-start__button selector view--online_mod\" data-subtitle=\"online_mod 05.02.2023\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 244 260\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M242,88v170H10V88h41l-38,38h37.1l38-38h38.4l-38,38h38.4l38-38h38.3l-38,38H204L242,88L242,88z M228.9,2l8,37.7l0,0 L191.2,10L228.9,2z M160.6,56l-45.8-29.7l38-8.1l45.8,29.7L160.6,56z M84.5,72.1L38.8,42.4l38-8.1l45.8,29.7L84.5,72.1z M10,88 L2,50.2L47.8,80L10,88z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>#{online_mod_title}</span>\n    </div>"; // нужна заглушка, а то при страте лампы говорит пусто
 
   Lampa.Component.add('online_mod', component); //то же самое
 
