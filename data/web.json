@@ -299,44 +299,44 @@
   },
   {
     "title": "在线之家",
-    "link": "https://www.zxzj.vip",
+    "link": "https://www.zxzj.org",
     "show": "portrait",
     "next": "search",
     "datasort": "",
     "category": [
       {
         "title": "首页",
-        "url": "https://zxzj.vip",
+        "url": "https://zxzj.org",
         "quantity": ":gt(11)"
       },
       {
         "title": "电影",
-        "url": "https://zxzj.vip/list/1.html",
+        "url": "https://zxzj.org/list/1.html",
         "quantity": ""
       },
       {
         "title": "美剧",
-        "url": "https://zxzj.vip/list/2.html",
+        "url": "https://zxzj.org/list/2.html",
         "quantity": ""
       },
       {
         "title": "韩剧",
-        "url": "https://zxzj.vip/list/3.html",
+        "url": "https://zxzj.org/list/3.html",
         "quantity": ""
       },
       {
         "title": "日剧",
-        "url": "https://zxzj.vip/list/4.html",
+        "url": "https://zxzj.org/list/4.html",
         "quantity": ""
       },
       {
         "title": "泰剧",
-        "url": "https://zxzj.vip/list/5.html",
+        "url": "https://zxzj.org/list/5.html",
         "quantity": ""
       },
       {
         "title": "动漫",
-        "url": "https://zxzj.vip/list/6.html",
+        "url": "https://zxzj.org/list/6.html",
         "quantity": ""
       }
     ],
@@ -366,7 +366,7 @@
       }
     },
     "search": {
-      "url": "https://zxzj.vip/vodsearch/-------------.html?wd=#msearchword&submit="
+      "url": "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
     }
   },
   {
