@@ -216,25 +216,58 @@
                     //     movie: element,
                     //     page: 1
                     // });
-                    network.silent(element.url, function (json) {
-                        if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-                         var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
-                          //element.img = object.element.img;
-                          //element.original_title = '';
-                          Lampa.Activity.push({
-                            url: link,
-                            title: '阿里云盘播放',
-                            component: 'yunpan2',
-                            movie: element,
-                            page: 1
-                          });
-                        } else Lampa.Noty.show('没有找到对应的阿里云盘资源');
-          
-                      }, function (a, c) {
+                    // network.silent(element.url, function (json) {
+                    //     if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+                    //         var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+                    //         //element.img = object.element.img;
+                    //         //element.original_title = '';
+                    //         Lampa.Activity.push({
+                    //             url: link,
+                    //             title: '阿里云盘播放',
+                    //             component: 'yunpan2',
+                    //             movie: element,
+                    //             page: 1
+                    //         });
+                    //     } else Lampa.Noty.show('没有找到对应的阿里云盘资源');
+
+                    // }, function (a, c) {
+                    //     Lampa.Noty.show(network.errorDecode(a, c));
+                    // }, false, {
+                    //     dataType: 'text',
+                    // });
+                    var sources = [];
+
+                    network.silent(element.url, function (str) {
+                        //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                            $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
+                            sources.push({
+                                title:  '阿里云盘 - 资源'+(i+1),
+                                url: html.href,
+                            });
+                    });
+
+                    Lampa.Select.show({
+                        title: '阿里云盘',
+                        items: sources,
+                        onSelect: function onSelect(a) {
+                            Lampa.Activity.push({
+                                url: a.url,
+                                title: '阿里云盘播放',
+                                component: 'yunpan2',
+                                movie: element,
+                                page: 1
+                            });
+                        },
+                        onBack: function onBack() {
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
+
+                    }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
-                      }, false, {
-                        dataType: 'text',
-                      });
+                    }, false, {
+                        dataType: 'text'
+                    });
                 });
                 body.append(card);
                 items.push(card);
