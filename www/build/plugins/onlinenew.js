@@ -3472,26 +3472,63 @@
           component.activity.loader(true);
 
           if (element.file) {
-            network.silent(element.file, function (json) {
-              if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-               var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
-                element.img = object.movie.img;
-                element.original_title = '';
-                Lampa.Activity.push({
-                  url: link,
-                  title: '阿里云盘播放',
-                  component: 'yunpan2',
-                  movie: element,
-                  page: 1
-                });
-              } else component.emptyForQuery(select_title);
+            // network.silent(element.file, function (json) {
+            //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+            //    var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+            //     element.img = object.movie.img;
+            //     element.original_title = '';
+            //     Lampa.Activity.push({
+            //       url: link,
+            //       title: '阿里云盘播放',
+            //       component: 'yunpan2',
+            //       movie: element,
+            //       page: 1
+            //     });
+            //   } else component.emptyForQuery(select_title);
 
-              component.loading(false);
-            }, function (a, c) {
-              component.empty(network.errorDecode(a, c));
-            }, false, {
-              dataType: 'text',
-            });
+            //   component.loading(false);
+            // }, function (a, c) {
+            //   component.empty(network.errorDecode(a, c));
+            // }, false, {
+            //   dataType: 'text',
+            // });
+
+            var sources = [];
+
+                    network.silent(element.file, function (str) {
+                        //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                            $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
+                            sources.push({
+                                title:  '阿里云盘 - 资源'+(i+1),
+                                url: html.href,
+                            });
+                    });
+
+                    Lampa.Select.show({
+                        title: '阿里云盘',
+                        items: sources,
+                        onSelect: function onSelect(a) {
+                            element.img = object.movie.img;
+                            element.original_title = '';
+                            Lampa.Activity.push({
+                                url: a.url,
+                                title: '阿里云盘播放',
+                                component: 'yunpan2',
+                                movie: element,
+                                page: 1
+                            });
+                        },
+                        onBack: function onBack() {
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
+
+                    }, function (a, c) {
+                        component.empty(network.errorDecode(a, c));
+                    }, false, {
+                        dataType: 'text'
+                    });
+
             component.loading(false);
             
             if (viewed.indexOf(hash_file) == -1) {
