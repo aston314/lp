@@ -2,204 +2,204 @@
     'use strict';
     var catalogs;
     var inner_catalogs = [
-        {
-            title: "完美看看",
-            link: "https://www.wanmeikk.film",
-            show: "portrait",
-            next:"search",
-            datasort: "",
-            category: [{
-                title: "最近更新",
-                url: "https://www.wanmeikk.film",
-                quantity: ':lt(15)'
-            },
-            {
-                title: "电影",
-                url: "https://www.wanmeikk.film/category/1.html",
-                quantity: ''
-            },
-            {
-                title: "韩剧",
-                url: "https://www.wanmeikk.film/category/3.html",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://www.wanmeikk.film/category/5.html",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://www.wanmeikk.film/category/2.html",
-                quantity: ''
-            },
-            {
-                title: "日剧",
-                url: "https://www.wanmeikk.film/category/4.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://www.wanmeikk.film/category/6.html",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "https://www.wanmeikk.film/category/7.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.stui-page"
-                },
-                videoscontainer: {
-                    selector: ".stui-vodlist__box",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://www.wanmeikk.film/so/-------------.html?wd=#msearchword&submit="
-            }
-        },
-        {
-            title: "LIBVIO",
-            link: "https://www.libvio.me",
-            show: "portrait",
-            next:"search",
-            datasort: "",
-            category: [{
-                title: '最近更新',
-                url: 'https://www.libvio.me',
-                quantity: ':lt(12)'
-            }, {
-                title: '电影',
-                url: 'https://www.libvio.me/type/1.html',
-                quantity: ''
-            }, {
-                title: '剧集',
-                url: 'https://www.libvio.me/type/2.html',
-                quantity: ''
-            }, {
-                title: '日韩剧',
-                url: 'https://www.libvio.me/type/15.html',
-                quantity: ''
-            }, {
-                title: '国产剧',
-                url: 'https://www.libvio.me/type/13.html',
-                quantity: ''
-            }, {
-                title: '欧美剧',
-                url: 'https://www.libvio.me/type/16.html',
-                quantity: ''
-            }, {
-                title: '港台剧',
-                url: 'https://www.libvio.me/type/14.html',
-                quantity: ''
-            }, {
-                title: '动漫',
-                url: 'https://www.libvio.me/type/4.html',
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "div.stui-pannel__ft"
-                },
-                videoscontainer: {
-                    selector: ".stui-vodlist__box",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            detail:{
-                videoscontainer:{
-                   selector:'div > div:nth-child(2) > ul > li',
-                   attrName:'',
-                   filter:''
-                },
-                title:{
-                   selector:'a',
-                   attrName:'text',
-                   filter:''
-                },
-                link:{
-                   selector:'a',
-                   attrName:'href',
-                   filter:''
-                }
-            },
-            search: {
-                url: 'https://www.libvio.me/search/-------------.html?wd=#msearchword&submit='
-            }
-        },
+        // {
+        //     title: "完美看看",
+        //     link: "https://www.wanmeikk.film",
+        //     show: "portrait",
+        //     next:"search",
+        //     datasort: "",
+        //     category: [{
+        //         title: "最近更新",
+        //         url: "https://www.wanmeikk.film",
+        //         quantity: ':lt(15)'
+        //     },
+        //     {
+        //         title: "电影",
+        //         url: "https://www.wanmeikk.film/category/1.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "韩剧",
+        //         url: "https://www.wanmeikk.film/category/3.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "国产剧",
+        //         url: "https://www.wanmeikk.film/category/5.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://www.wanmeikk.film/category/2.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日剧",
+        //         url: "https://www.wanmeikk.film/category/4.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://www.wanmeikk.film/category/6.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "综艺",
+        //         url: "https://www.wanmeikk.film/category/7.html",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.stui-page"
+        //         },
+        //         videoscontainer: {
+        //             selector: ".stui-vodlist__box",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://www.wanmeikk.film/so/-------------.html?wd=#msearchword&submit="
+        //     }
+        // },
+        // {
+        //     title: "LIBVIO",
+        //     link: "https://www.libvio.me",
+        //     show: "portrait",
+        //     next:"search",
+        //     datasort: "",
+        //     category: [{
+        //         title: '最近更新',
+        //         url: 'https://www.libvio.me',
+        //         quantity: ':lt(12)'
+        //     }, {
+        //         title: '电影',
+        //         url: 'https://www.libvio.me/type/1.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '剧集',
+        //         url: 'https://www.libvio.me/type/2.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '日韩剧',
+        //         url: 'https://www.libvio.me/type/15.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '国产剧',
+        //         url: 'https://www.libvio.me/type/13.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '欧美剧',
+        //         url: 'https://www.libvio.me/type/16.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '港台剧',
+        //         url: 'https://www.libvio.me/type/14.html',
+        //         quantity: ''
+        //     }, {
+        //         title: '动漫',
+        //         url: 'https://www.libvio.me/type/4.html',
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "div.stui-pannel__ft"
+        //         },
+        //         videoscontainer: {
+        //             selector: ".stui-vodlist__box",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     detail:{
+        //         videoscontainer:{
+        //            selector:'div > div:nth-child(2) > ul > li',
+        //            attrName:'',
+        //            filter:''
+        //         },
+        //         title:{
+        //            selector:'a',
+        //            attrName:'text',
+        //            filter:''
+        //         },
+        //         link:{
+        //            selector:'a',
+        //            attrName:'href',
+        //            filter:''
+        //         }
+        //     },
+        //     search: {
+        //         url: 'https://www.libvio.me/search/-------------.html?wd=#msearchword&submit='
+        //     }
+        // },
         {
             title: "在线之家",
-            link: "https://www.zxzj.vip",
+            link: "https://www.zxzj.org",
             show: "portrait",
             next:"search",
             datasort: "",
             category: [{
                 title: "首页",
-                url: "https://zxzj.vip",
+                url: "https://zxzj.org",
                 quantity: ':gt(11)'
             }, {
                 title: "电影",
-                url: "https://zxzj.vip/list/1.html",
+                url: "https://zxzj.org/list/1.html",
                 quantity: ''
             },
             {
                 title: "美剧",
-                url: "https://zxzj.vip/list/2.html",
+                url: "https://zxzj.org/list/2.html",
                 quantity: ''
             },
             {
                 title: "韩剧",
-                url: "https://zxzj.vip/list/3.html",
+                url: "https://zxzj.org/list/3.html",
                 quantity: ''
             },
             {
                 title: "日剧",
-                url: "https://zxzj.vip/list/4.html",
+                url: "https://zxzj.org/list/4.html",
                 quantity: ''
             },
             {
                 title: "泰剧",
-                url: "https://zxzj.vip/list/5.html",
+                url: "https://zxzj.org/list/5.html",
                 quantity: ''
             },
             {
                 title: "动漫",
-                url: "https://zxzj.vip/list/6.html",
+                url: "https://zxzj.org/list/6.html",
                 quantity: ''
             }],
             list: {
@@ -228,7 +228,7 @@
                 }
             },
             search: {
-                url: "https://zxzj.vip/vodsearch/-------------.html?wd=#msearchword&submit="
+                url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
             }
         },
         {
@@ -286,146 +286,146 @@
                 url: "https://www.7xiady.cc/search/#msearchword----------1---/"
             }
         },
-        {
-            title: "欧乐影院",
-            link: "https://www.olehdtv.com",
-            show: "portrait",
-            next:"search",
-            datasort: "",
-            category: [{
-                title: "电影",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/1.html",
-                quantity: ''
-            },
-            {
-                title: "电视剧",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/2.html",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://olevod.com/index.php/vod/show/id/202.html",
-                quantity: ''
-            },
-            {
-                title: "日韩剧",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/204.html",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/201.html",
-                quantity: ''
-            },
-            {
-                title: "港台剧",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/203.html",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/3.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://www.olehdtv.com/index.php/vod/show/id/4.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.page.text_center"
-                },
-                videoscontainer: {
-                    selector: "ul.vodlist li",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://www.olehdtv.com/index.php/vod/search.html?wd=#msearchword&submit="
-            }
-        },
-        {
-            title: "低端影视",
-            link: "https://ddys.tv",
-            show: "portrait",
-            next:"search",
-            datasort: "",
-            category: [{
-                title: "电影",
-                url: "https://ddys.tv/category/movie/",
-                quantity: ''
-            },
-            {
-                title: "剧集",
-                url: "https://ddys.tv/category/airing/",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://ddys.tv/category/drama/western-drama/",
-                quantity: ''
-            },
-            {
-                title: "韩剧",
-                url: "https://ddys.tv/category/drama/kr-drama/",
-                quantity: ''
-            },
-            {
-                title: "日剧",
-                url: "https://ddys.tv/category/drama/jp-drama/",
-                quantity: ''
-            },
-            {
-                title: "动画",
-                url: "https://ddys.tv/category/anime/",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: ".nav-links"
-                },
-                videoscontainer: {
-                    selector: "div.post-box-container",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "h2 > a",
-                    attrName: "text",
-                    filter: "(.+?) \\("
-                },
-                thumb: {
-                    selector: "div.post-box-image",
-                    attrName: "style",
-                    filter: "url\\((.+?)\\)"
-                },
-                link: {
-                    selector: "h2 > a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: ""
-            }
-        },
+        // {
+        //     title: "欧乐影院",
+        //     link: "https://www.olehdtv.com",
+        //     show: "portrait",
+        //     next:"search",
+        //     datasort: "",
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/1.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "电视剧",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/2.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "国产剧",
+        //         url: "https://olevod.com/index.php/vod/show/id/202.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日韩剧",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/204.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/201.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "港台剧",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/203.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "综艺",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/3.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://www.olehdtv.com/index.php/vod/show/id/4.html",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.page.text_center"
+        //         },
+        //         videoscontainer: {
+        //             selector: "ul.vodlist li",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://www.olehdtv.com/index.php/vod/search.html?wd=#msearchword&submit="
+        //     }
+        // },
+        // {
+        //     title: "低端影视",
+        //     link: "https://ddys.tv",
+        //     show: "portrait",
+        //     next:"search",
+        //     datasort: "",
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://ddys.tv/category/movie/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "剧集",
+        //         url: "https://ddys.tv/category/airing/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://ddys.tv/category/drama/western-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "韩剧",
+        //         url: "https://ddys.tv/category/drama/kr-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日剧",
+        //         url: "https://ddys.tv/category/drama/jp-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动画",
+        //         url: "https://ddys.tv/category/anime/",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: ".nav-links"
+        //         },
+        //         videoscontainer: {
+        //             selector: "div.post-box-container",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "h2 > a",
+        //             attrName: "text",
+        //             filter: "(.+?) \\("
+        //         },
+        //         thumb: {
+        //             selector: "div.post-box-image",
+        //             attrName: "style",
+        //             filter: "url\\((.+?)\\)"
+        //         },
+        //         link: {
+        //             selector: "h2 > a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: ""
+        //     }
+        // },
         {
             title: "厂长资源",
             next:"search",
@@ -727,7 +727,7 @@
         //     }
         // },
         {
-            title: "YTS.MX",
+            title: "YTS.MX - 磁力下载",
             link: "https://yts.mx",
             show: "portrait",
             next:"detail",
@@ -803,98 +803,98 @@
                 url: "https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
             }
         },
-        {
-            title: "乌龟影视",
-            link: "https://www.wuguiyy.com",
-            show: "portrait",
-            next:"detail",
-            datasort: "",
-            category: [{
-                title: "电影",
-                url: "https://www.wuguiyy.com/show/dianying-----------/",
-                quantity: ''
-            },
-            {
-                title: "连续剧",
-                url: "https://www.wuguiyy.com/show/lianxuju-----------/",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
-                quantity: ''
-            },
-            {
-                title: "日韩剧",
-                url: "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
-                quantity: ''
-            },
-            {
-                title: "港台剧",
-                url: "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://www.wuguiyy.com/show/dongman-----------/",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "https://www.wuguiyy.com/show/zongyi-----------/",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.stui-page"
-                },
-                videoscontainer: {
-                    selector: ".stui-vodlist__box",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            detail:{
-                videoscontainer:{
-                   selector:'div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
-                   attrName:'',
-                   filter:''
-                },
-                title:{
-                   selector:'a',
-                   attrName:'text',
-                   filter:''
-                },
-                link:{
-                   selector:'a',
-                   attrName:'href',
-                   filter:''
-                }
-            },
-            search: {
-                url: "https://www.wuguiyy.com/search/-------------/?wd=#msearchword-&submit="
-            }
-        }
+        // {
+        //     title: "乌龟影视",
+        //     link: "https://www.wuguiyy.com",
+        //     show: "portrait",
+        //     next:"detail",
+        //     datasort: "",
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://www.wuguiyy.com/show/dianying-----------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "连续剧",
+        //         url: "https://www.wuguiyy.com/show/lianxuju-----------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "国产剧",
+        //         url: "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日韩剧",
+        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "港台剧",
+        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://www.wuguiyy.com/show/dongman-----------/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "综艺",
+        //         url: "https://www.wuguiyy.com/show/zongyi-----------/",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.stui-page"
+        //         },
+        //         videoscontainer: {
+        //             selector: ".stui-vodlist__box",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     detail:{
+        //         videoscontainer:{
+        //            selector:'div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
+        //            attrName:'',
+        //            filter:''
+        //         },
+        //         title:{
+        //            selector:'a',
+        //            attrName:'text',
+        //            filter:''
+        //         },
+        //         link:{
+        //            selector:'a',
+        //            attrName:'href',
+        //            filter:''
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://www.wuguiyy.com/search/-------------/?wd=#msearchword-&submit="
+        //     }
+        // }
     ];
     if (Lampa.Storage.get('json_use')) {
         $.ajax({
@@ -962,8 +962,8 @@
                         descr: '哦，无法获取该网站内容。'
                     });
                     html.append(empty.render());
-                    $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">点击这里选择其他网站</div></div>');
-                    $(".empty__footer").on('hover:enter hover:click', function () {
+                    $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                    $(".empty__footer").on('click hover:enter', function () {
                         _this.selectGroup();
                     });
                     _this.start = empty.start;
