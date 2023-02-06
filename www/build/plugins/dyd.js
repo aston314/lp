@@ -695,7 +695,7 @@
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
-                            title: 'DYD- ' + a.title,
+                            title: 'DYD - ' + a.title,
                             component: 'dyd',
                             page: 1
                         });
