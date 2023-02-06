@@ -3291,7 +3291,7 @@
     }
   }
 
-  function byd(component, _object, rule) {
+  function dyd(component, _object, rule) {
     var network = new Lampa.Reguest();
     var extract = {};
     var object = _object;
@@ -3396,7 +3396,7 @@
         //json.forEach(function (a) {
         rslt.push({
           file: html.href,
-          quality: 'BYD',
+          quality: 'DYD',
           //quality: $('p',html).text().replace(/文件夹/,'目录'),
           title: html.text,
           season: '',
@@ -8782,7 +8782,7 @@
       猫狸盘搜: new alipansou(this, object),
       霸王龙压制组: new trex(this, object),
       小雅的Alist: new xiaoyaalist(this, object),
-      BYD: new byd(this, object),
+      DYD: new dyd(this, object),
     };
 
 
@@ -8831,13 +8831,14 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['小雅的Alist','BYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist','DYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
-    filter_sources = sname.concat(filter_sources);
+    //不要网站资源 
+    //filter_sources = sname.concat(filter_sources);
 
     if (filter_sources.indexOf(balanser) == -1) {
-      balanser = 'filmix';
+      balanser = '小雅的Alist';
       Lampa.Storage.set('online_mod_balanser', balanser);
     }
 
@@ -9594,7 +9595,7 @@
       sources.霸王龙压制组.destroy();
       sources.猫狸盘搜.destroy();
       sources.小雅的Alist.destroy();
-      sources.BYD.destroy();
+      sources.DYD.destroy();
       doregjson.resource_site.forEach(function (elem) {
         sources[elem.site_name].destroy();
       });
