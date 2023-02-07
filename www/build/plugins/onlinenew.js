@@ -3557,8 +3557,8 @@
   }
 
   function xiaoyaalist(component, _object, rule) {
-    // var alistip = 'http://192.168.2.1:8678';
-    var alistip = 'http://alist.xiaoya.pro';
+    var alistip = 'http://192.168.2.1:8678';
+    //var alistip = 'http://alist.xiaoya.pro';
     var network = new Lampa.Reguest();
     var extract = {};
     var object = _object;
