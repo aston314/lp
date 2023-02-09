@@ -3088,13 +3088,13 @@
       object = _object;
       select_title = object.movie.title;
       doreg = rule;
-      var url1 = 'http://172.83.156.153/?s=#msearchword&type=post';
+      var url1 = 'https://t-rex.tzfile.com/?s=#msearchword&type=post';
       url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
       network.silent(url1, function (json) {
-        if ($('.post-info > h2 > a', json).length > 0) {
+        if ($('div.placeholder > a', json).length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
 
@@ -3159,7 +3159,7 @@
 
     function parse(json) {
       var str = json.replace(/\n/g, '');
-      var h = $('.post-info > h2 > a', str);
+      var h = $('div.placeholder > a', str);
       //console.log(h)
       rslt = [];
       $(h).each(function (i, html) {
@@ -3170,7 +3170,7 @@
           file: html.href,
           quality: '霸王龙压制组',
           //quality: $('p',html).text().replace(/文件夹/,'目录'),
-          title: html.text,
+          title: html.title,
           season: '',
           episode: '',
           info: ''
@@ -3180,6 +3180,231 @@
 
       append(filtred());
       rslt = [];
+
+    }
+    /**
+     * Построить фильтр
+     */
+
+
+    function filter() {
+      filter_items = {
+        season: [],
+        voice: [],
+        quality: []
+      };
+
+      if (extract.playlist) {
+        if (extract.playlist.seasons) {
+          extract.playlist.seasons.forEach(function (season) {
+            filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+          });
+        }
+      }
+
+      if (!filter_items.season[choice.season]) choice.season = 0;
+      component.filter(filter_items, choice);
+    }
+    /**
+     * Отфильтровать файлы
+     * @returns array
+     */
+
+
+    function filtred() {
+
+      return rslt;
+    }
+    /**
+     * Показать файлы
+     */
+
+
+    function append(items) {
+      var _this = this;
+      component.reset();
+      var viewed = Lampa.Storage.cache('online_view', 5000, []);
+      items.forEach(function (element, item_id) {
+        var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+        var view = Lampa.Timeline.view(hash);
+        var item = Lampa.Template.get('online_mod_folder', element);
+        var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+        element.timeline = view;
+        item.append(Lampa.Timeline.render(view));
+
+        if (Lampa.Timeline.details) {
+          item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+        }
+
+        if (viewed.indexOf(hash_file) !== -1) item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        item.on('hover:enter', function () {
+          object.movie.id = object.url;
+          choice.last_viewed = item_id;
+          if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+          component.activity.loader(true);
+
+          if (element.file) {
+            network.silent(element.file, function (json) {
+              if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+               var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+                element.img = object.movie.img;
+                element.original_title = '';
+                Lampa.Activity.push({
+                  url: link,
+                  title: '阿里云盘播放',
+                  component: 'yunpan2',
+                  movie: element,
+                  page: 1
+                });
+              } else component.emptyForQuery(select_title);
+
+              component.loading(false);
+            }, function (a, c) {
+              component.empty(network.errorDecode(a, c));
+            }, false, {
+              dataType: 'text',
+            });
+            component.loading(false);
+            
+            if (viewed.indexOf(hash_file) == -1) {
+              viewed.push(hash_file);
+              item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+              Lampa.Storage.set('online_view', viewed);
+            }
+          } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+        });
+        component.append(item);
+        component.contextmenu({
+          item: item,
+          view: view,
+          viewed: viewed,
+          choice: choice,
+          hash_file: hash_file,
+          file: function file(call) {
+            call({
+              file: element.file
+            });
+          }
+        });
+      });
+      component.start(true);
+    }
+  }
+
+  function trex_(component, _object, rule) {
+    var network = new Lampa.Reguest();
+    var extract = {};
+    var object = _object;
+    var select_title = '';
+    var filter_items = {};
+    var choice = {
+      season: 0,
+      voice: 0,
+      last_viewed: ''
+    };
+      var resp;
+      var search_videos;
+      var find_videos;
+      var rslt    = [];
+    
+    /**
+     * Поиск
+     * @param {Object} _object 
+     */
+
+    this.search = function (_object, kinopoisk_id) {
+      object = _object;
+      select_title = object.movie.title;
+      doreg = rule;
+      var url1 = 'https://t-rex.tzfile.com/wp-admin/admin-ajax.php';
+      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+
+      network.clear();
+      network.timeout(1000 * 15);
+      network.silent(url1, function (json) {
+        if (json.length > 0) {
+          parse(json);
+        } else component.emptyForQuery(select_title);
+
+        component.loading(false);
+      }, function (a, c) {
+        component.empty(network.errorDecode(a, c));
+      }, {
+        action: 'ajax_search',
+        text: object.movie.title
+      }, {
+        dataType: 'json',
+      });
+    };
+
+    this.extendChoice = function (saved) {
+      Lampa.Arrays.extend(choice, saved, true);
+    };
+
+    this.extendChoice_ = function (saved) {
+      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+    };
+    /**
+     * Сброс фильтра
+     */
+
+
+    this.reset = function () {
+      component.reset();
+      choice = {
+        season: 0,
+        voice: 0
+      };
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Применить фильтр
+     * @param {*} type 
+     * @param {*} a 
+     * @param {*} b 
+     */
+
+
+    this.filter = function (type, a, b) {
+      choice[a.stype] = b.index;
+      component.reset();
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Уничтожить
+     */
+
+
+    this.destroy = function () {
+      network.clear();
+      extract = null;
+      rslt = null;
+    };
+
+    function parse(json) {
+        // var str = json.replace(/\n/g, '');
+        // var h =  $('div.news_text > a', str);
+        // $(h).each(function (i, html) {
+      rslt = [];
+      json.forEach(function (a) {
+        rslt.push({
+          file: a.url,
+          quality: '霸王龙压制组',
+          //quality: $('p',html).text().replace(/文件夹/,'目录'),
+          title: a.title,
+          season: '',
+          episode: '',
+          info: ''
+        });
+      });
+        //});  
+
+        append(filtred());
+        //rslt = [];
 
     }
     /**
@@ -8812,7 +9037,7 @@
       filmix: new filmix(this, object),
       hdvb: new hdvb(this, object),
       videoapi: new videoapi(this, object),
-      无名资源: new noname(this, object),
+    //   无名资源: new noname(this, object),
       找资源: new zhaoziyuan(this, object),
       小纸条: new xiaozhitiao(this, object),
       易搜: new yiso(this, object),
@@ -8868,7 +9093,7 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['小雅的Alist','DYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', '无名资源','videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist','DYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -9625,7 +9850,7 @@
       sources.filmix.destroy();
       sources.hdvb.destroy();
       sources.videoapi.destroy();
-      sources.无名资源.destroy();
+    //   sources.无名资源.destroy();
       sources.找资源.destroy();
       sources.小纸条.destroy();
       sources.易搜.destroy();
