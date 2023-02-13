@@ -448,11 +448,11 @@
               
                 if (file) {
                   //_this4.start();
-                  if (file.indexOf('aliyundrive') !== -1) {
+                  //if (file.indexOf('aliyundrive') !== -1) {
                     var arr = object.url.split("/");
                     var result = arr[0] + "//" + arr[2];
 
-                    file = encodeURI(object.url.replace(result, result + '/d') + '/' + element.translation)
+                    var file1 = encodeURI(object.url.replace(result, result + '/d') + '/' + element.translation)
                     file = object.url+ '/' + element.translation
                     
                     var r = ('' + file).match(/^(https?:)?\/\/[^/]+/i);
@@ -494,7 +494,17 @@
                             playlist.push(first);
                             Lampa.Player.playlist(playlist);
                           } else {
-                              Lampa.Noty.show('获取Alsit播放地址失败。');
+                              //Lampa.Noty.show('获取Alsit播放地址失败。');
+                              var playlist = [];
+                              var first = {
+                                url: file1,
+                                timeline: view,
+                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                              };
+                              Lampa.Player.play(first);
+            
+                              playlist.push(first);
+                              Lampa.Player.playlist(playlist);
                           }
                       },
                       error: function error() {
@@ -502,7 +512,7 @@
                       }
                   });
                     //console.log(file)
-                  };
+                  //};
                   
                 } else {
                   Lampa.Noty.show('无法检索链接');
