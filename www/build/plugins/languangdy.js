@@ -300,6 +300,7 @@
                                   SERVER.object.poster = element.picture;
                                   Lampa.Android.openTorrent(SERVER);
                                 };
+                                Lampa.Controller.toggle('content');
                         },
                         onBack: function onBack() {
                             Lampa.Controller.toggle('content');
