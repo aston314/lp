@@ -997,7 +997,7 @@
                         dataType: 'text',
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'User-Agent': UC_UA
+                            'User-Agent': MOBILE_UA
                         }
                     });
                 } else {
@@ -1067,7 +1067,7 @@
                     dataType: 'text',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'User-Agent': UC_UA
+                        'User-Agent': MOBILE_UA
                     }
                 });
             } else {
