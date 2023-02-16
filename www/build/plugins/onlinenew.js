@@ -2,6 +2,13 @@
 
 (function () {
   'use strict';
+
+  var MOBILE_UA="Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+  var PC_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+  var UA="Mozilla/5.0";
+  var UC_UA="Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+  var IOS_UA="Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
+  
   var extract_rule = {
     "rule": [
       // {
@@ -3093,7 +3100,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if ($('div.placeholder > a', json).length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -3106,6 +3113,10 @@
         text: object.movie.title
       }, {
         dataType: 'text',
+        headers: {
+          'Referer': 'https://t-rex.tzfile.com/',
+          'User-Agent': UC_UA
+        }
       });
     };
 
@@ -9093,7 +9104,7 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['小雅的Alist','DYD','找资源', '小纸条', '猫狸盘搜', '易搜', '霸王龙压制组', 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD','找资源', '小纸条', '猫狸盘搜', '易搜', 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
