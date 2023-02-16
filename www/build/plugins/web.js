@@ -1,6 +1,13 @@
 (function () {
     'use strict';
     var catalogs;
+
+    var MOBILE_UA="Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+    var PC_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+    var UA="Mozilla/5.0";
+    var UC_UA="Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+    var IOS_UA="Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
+    
     var inner_catalogs = [
         // {
         //     title: "完美看看",
@@ -8,7 +15,8 @@
         //     show: "portrait",
         //     next:"search",
         //     datasort: "",
-        //     category: [{
+        //     use_referer: false,
+        //    category: [{
         //         title: "最近更新",
         //         url: "https://www.wanmeikk.film",
         //         quantity: ':lt(15)'
@@ -77,97 +85,99 @@
         //         url: "https://www.wanmeikk.film/so/-------------.html?wd=#msearchword&submit="
         //     }
         // },
-        // {
-        //     title: "LIBVIO",
-        //     link: "https://www.libvio.me",
-        //     show: "portrait",
-        //     next:"search",
-        //     datasort: "",
-        //     category: [{
-        //         title: '最近更新',
-        //         url: 'https://www.libvio.me',
-        //         quantity: ':lt(12)'
-        //     }, {
-        //         title: '电影',
-        //         url: 'https://www.libvio.me/type/1.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '剧集',
-        //         url: 'https://www.libvio.me/type/2.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '日韩剧',
-        //         url: 'https://www.libvio.me/type/15.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '国产剧',
-        //         url: 'https://www.libvio.me/type/13.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '欧美剧',
-        //         url: 'https://www.libvio.me/type/16.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '港台剧',
-        //         url: 'https://www.libvio.me/type/14.html',
-        //         quantity: ''
-        //     }, {
-        //         title: '动漫',
-        //         url: 'https://www.libvio.me/type/4.html',
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "div.stui-pannel__ft"
-        //         },
-        //         videoscontainer: {
-        //             selector: ".stui-vodlist__box",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     detail:{
-        //         videoscontainer:{
-        //            selector:'div > div:nth-child(2) > ul > li',
-        //            attrName:'',
-        //            filter:''
-        //         },
-        //         title:{
-        //            selector:'a',
-        //            attrName:'text',
-        //            filter:''
-        //         },
-        //         link:{
-        //            selector:'a',
-        //            attrName:'href',
-        //            filter:''
-        //         }
-        //     },
-        //     search: {
-        //         url: 'https://www.libvio.me/search/-------------.html?wd=#msearchword&submit='
-        //     }
-        // },
+        {
+            title: "LIBVIO",
+            link: "https://www.libvio.me",
+            show: "portrait",
+            next:"search",
+            datasort: "",
+            use_referer: true,
+            category: [{
+                title: '最近更新',
+                url: 'https://www.libvio.me',
+                quantity: ':lt(12)'
+            }, {
+                title: '电影',
+                url: 'https://www.libvio.me/type/1.html',
+                quantity: ''
+            }, {
+                title: '剧集',
+                url: 'https://www.libvio.me/type/2.html',
+                quantity: ''
+            }, {
+                title: '日韩剧',
+                url: 'https://www.libvio.me/type/15.html',
+                quantity: ''
+            }, {
+                title: '国产剧',
+                url: 'https://www.libvio.me/type/13.html',
+                quantity: ''
+            }, {
+                title: '欧美剧',
+                url: 'https://www.libvio.me/type/16.html',
+                quantity: ''
+            }, {
+                title: '港台剧',
+                url: 'https://www.libvio.me/type/14.html',
+                quantity: ''
+            }, {
+                title: '动漫',
+                url: 'https://www.libvio.me/type/4.html',
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "div.stui-pannel__ft"
+                },
+                videoscontainer: {
+                    selector: ".stui-vodlist__box",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "title",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            detail:{
+                videoscontainer:{
+                   selector:'div > div:nth-child(2) > ul > li',
+                   attrName:'',
+                   filter:''
+                },
+                title:{
+                   selector:'a',
+                   attrName:'text',
+                   filter:''
+                },
+                link:{
+                   selector:'a',
+                   attrName:'href',
+                   filter:''
+                }
+            },
+            search: {
+                url: 'https://www.libvio.me/search/-------------.html?wd=#msearchword&submit='
+            }
+        },
         {
             title: "在线之家",
             link: "https://www.zxzj.org",
             show: "portrait",
             next:"search",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "首页",
                 url: "https://zxzj.org",
@@ -237,6 +247,7 @@
             show: "portrait",
             next:"search",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "电影",
                 url: "https://www.7xiady.cc/type/dianying",
@@ -292,7 +303,8 @@
         //     show: "portrait",
         //     next:"search",
         //     datasort: "",
-        //     category: [{
+        //     use_referer: false,
+        //    category: [{
         //         title: "电影",
         //         url: "https://www.olehdtv.com/index.php/vod/show/id/1.html",
         //         quantity: ''
@@ -361,77 +373,79 @@
         //         url: "https://www.olehdtv.com/index.php/vod/search.html?wd=#msearchword&submit="
         //     }
         // },
-        // {
-        //     title: "低端影视",
-        //     link: "https://ddys.tv",
-        //     show: "portrait",
-        //     next:"search",
-        //     datasort: "",
-        //     category: [{
-        //         title: "电影",
-        //         url: "https://ddys.tv/category/movie/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "剧集",
-        //         url: "https://ddys.tv/category/airing/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://ddys.tv/category/drama/western-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "韩剧",
-        //         url: "https://ddys.tv/category/drama/kr-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日剧",
-        //         url: "https://ddys.tv/category/drama/jp-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动画",
-        //         url: "https://ddys.tv/category/anime/",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: ".nav-links"
-        //         },
-        //         videoscontainer: {
-        //             selector: "div.post-box-container",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "h2 > a",
-        //             attrName: "text",
-        //             filter: "(.+?) \\("
-        //         },
-        //         thumb: {
-        //             selector: "div.post-box-image",
-        //             attrName: "style",
-        //             filter: "url\\((.+?)\\)"
-        //         },
-        //         link: {
-        //             selector: "h2 > a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: ""
-        //     }
-        // },
+        {
+            title: "低端影视",
+            link: "https://ddys.one",
+            show: "portrait",
+            next:"search",
+            datasort: "",
+            use_referer: true,
+           category: [{
+                title: "电影",
+                url: "https://ddys.one/category/movie/",
+                quantity: ''
+            },
+            {
+                title: "剧集",
+                url: "https://ddys.one/category/airing/",
+                quantity: ''
+            },
+            {
+                title: "欧美剧",
+                url: "https://ddys.one/category/drama/western-drama/",
+                quantity: ''
+            },
+            {
+                title: "韩剧",
+                url: "https://ddys.one/category/drama/kr-drama/",
+                quantity: ''
+            },
+            {
+                title: "日剧",
+                url: "https://ddys.one/category/drama/jp-drama/",
+                quantity: ''
+            },
+            {
+                title: "动画",
+                url: "https://ddys.one/category/anime/",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: ".nav-links"
+                },
+                videoscontainer: {
+                    selector: "div.post-box-container",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "h2 > a",
+                    attrName: "text",
+                    filter: "(.+?) \\("
+                },
+                thumb: {
+                    selector: "div.post-box-image",
+                    attrName: "style",
+                    filter: "url\\((.+?)\\)"
+                },
+                link: {
+                    selector: "h2 > a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: ""
+            }
+        },
         {
             title: "厂长资源",
             next:"search",
             link: "https://www.czspp.com",
             show: "portrait",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "电影",
                 url: "https://www.czspp.com/zuixindianying",
@@ -507,7 +521,8 @@
         //     show: "portrait",
         //     next:"search",
         //     datasort: "",
-        //     category: [{
+        //     use_referer: false,
+        //    category: [{
         //         title: "电影",
         //         url: "https://cokemv.me/vodshow/1-----------.html",
         //         quantity: ''
@@ -562,6 +577,7 @@
             show: "portrait",
             next:"search",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "电影",
                 url: "http://www.lezhutv.com/type/1-1.html",
@@ -627,6 +643,7 @@
             show: "portrait",
             next:"search",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "电影",
                 url: "https://auete.com/Movie/index.html",
@@ -687,7 +704,8 @@
         //     show: "landscape",
         //     next:"play",
         //     datasort: "",
-        //     category: [{
+        //     use_referer: false,
+        //    category: [{
         //         title: "最近更新",
         //         url: "https://jable.tv/latest-updates/",
         //         quantity: ''
@@ -732,6 +750,7 @@
             show: "portrait",
             next:"detail",
             datasort: "",
+            use_referer: false,
             category: [{
                 title: "热门电影",
                 url: "https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
@@ -809,7 +828,8 @@
         //     show: "portrait",
         //     next:"detail",
         //     datasort: "",
-        //     category: [{
+        //     use_referer: false,
+        //    category: [{
         //         title: "电影",
         //         url: "https://www.wuguiyy.com/show/dianying-----------/",
         //         quantity: ''
@@ -919,6 +939,8 @@
     function filtred_ (json) {
         catalogs = json;
     };
+
+    console.log(catalogs)
     
     function collection(object) {
         //console.log(catalogs);
@@ -950,29 +972,60 @@
             //console.log(object.cards);
             if ((object.page == 1) || object.cards || (!object.card && !Lampa.Storage.field('light_version') && object.card_cat)) {
                 this.activity.loader(true);
-                network["native"](cors + object.url, function (str) {
-                    var data = _this.card(str);
-                    _this.build(data);
-                }, function (a, c) {
-                    //_this.selectGroup();
-                    // $(".noty:hidden").show();
-                    // _this.activity.loader(false);
-                    // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                    var empty = new Lampa.Empty({
-                        descr: '哦，无法获取该网站内容。'
+                if (object.use_referer){
+                    network["native"](cors + object.url, function (str) {
+                        var data = _this.card(str);
+                        _this.build(data);
+                    }, function (a, c) {
+                        //_this.selectGroup();
+                        // $(".noty:hidden").show();
+                        // _this.activity.loader(false);
+                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
+                        var empty = new Lampa.Empty({
+                            descr: '哦，无法获取该网站内容。'
+                        });
+                        html.append(empty.render());
+                        $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                        $(".empty__footer").on('click hover:enter', function () {
+                            _this.selectGroup();
+                        });
+                        _this.start = empty.start;
+                        _this.activity.loader(false);
+                        _this.activity.toggle();
+                        return;
+                    }, false, {
+                        dataType: 'text',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'User-Agent': UC_UA
+                        }
                     });
-                    html.append(empty.render());
-                    $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                    $(".empty__footer").on('click hover:enter', function () {
-                        _this.selectGroup();
+                } else {
+                    network["native"](cors + object.url, function (str) {
+                        var data = _this.card(str);
+                        _this.build(data);
+                    }, function (a, c) {
+                        //_this.selectGroup();
+                        // $(".noty:hidden").show();
+                        // _this.activity.loader(false);
+                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
+                        var empty = new Lampa.Empty({
+                            descr: '哦，无法获取该网站内容。'
+                        });
+                        html.append(empty.render());
+                        $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                        $(".empty__footer").on('click hover:enter', function () {
+                            _this.selectGroup();
+                        });
+                        _this.start = empty.start;
+                        _this.activity.loader(false);
+                        _this.activity.toggle();
+                        return;
+                    }, false, {
+                        dataType: 'text'
                     });
-                    _this.start = empty.start;
-                    _this.activity.loader(false);
-                    _this.activity.toggle();
-                    return;
-                }, false, {
-                    dataType: 'text'
-                });
+                };
+                
             } else _this.build(object.data);
             return this.render();
         };
@@ -999,18 +1052,38 @@
                 page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0],'') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
             }
             //console.log(page);
-            network["native"](cors + page, function (result) {
-                var data = _this2.card(result);
-                object.data = data;
-                _this2.append(data);
-                if (data.card.length) waitload = false;
-                Lampa.Controller.toggle('content');
-                _this2.activity.loader(false);
-            }, function (a, c) {
-                Lampa.Noty.show(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'text'
-            });
+            //console.log(object)
+            if (object.use_referer){
+                network["native"](cors + page, function (result) {
+                    var data = _this2.card(result);
+                    object.data = data;
+                    _this2.append(data);
+                    if (data.card.length) waitload = false;
+                    Lampa.Controller.toggle('content');
+                    _this2.activity.loader(false);
+                }, function (a, c) {
+                    Lampa.Noty.show(network.errorDecode(a, c));
+                }, false, {
+                    dataType: 'text',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent': UC_UA
+                    }
+                });
+            } else {
+                network["native"](cors + page, function (result) {
+                    var data = _this2.card(result);
+                    object.data = data;
+                    _this2.append(data);
+                    if (data.card.length) waitload = false;
+                    Lampa.Controller.toggle('content');
+                    _this2.activity.loader(false);
+                }, function (a, c) {
+                    Lampa.Noty.show(network.errorDecode(a, c));
+                }, false, {
+                    dataType: 'text'
+                });
+            };
         };
     
         this.append = function (data) {
@@ -1200,6 +1273,7 @@
                             next: object.next,
                             search: object.search,
                             detail: object.detail,
+                            use_referer: object.use_referer,
                             page: 1
                         });
                     }
@@ -1221,6 +1295,7 @@
             }
         };
         this.selectGroup = function () {
+            //console.log(catalogs)
             Lampa.Select.show({
                 title: '网站',
                 items: catalogs,
@@ -1237,6 +1312,7 @@
                         next: a.next,
                         search: a.search.url,
                         detail: a.detail,
+                        use_referer: a.use_referer,
                         page: 1
                     });
                 },
@@ -1645,6 +1721,7 @@
                         next: catalogs1[0].next,
                         search: catalogs1[0].search.url,
                         detail: catalogs1[0].detail,
+                        use_referer: catalogs1[0].use_referer,
                         page: 1
                     });
                 },
