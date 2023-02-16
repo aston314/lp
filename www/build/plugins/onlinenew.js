@@ -3252,7 +3252,7 @@
           component.activity.loader(true);
 
           if (element.file) {
-            network.silent(element.file, function (json) {
+            network["native"](element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                 element.img = object.movie.img;
@@ -3271,6 +3271,10 @@
               component.empty(network.errorDecode(a, c));
             }, false, {
               dataType: 'text',
+              headers: {
+                'Referer': 'https://t-rex.tzfile.com/',
+                'User-Agent': UC_UA
+              }
             });
             component.loading(false);
             
