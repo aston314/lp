@@ -64,7 +64,7 @@
         search_html_selector: '',
         link_folder: 'video',
         detail_url_selector: '.play-item.cont.active',
-        videoparse: 'browser',
+        videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
