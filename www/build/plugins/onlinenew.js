@@ -3095,7 +3095,7 @@
       object = _object;
       select_title = object.movie.title;
       doreg = rule;
-      var url1 = 'https://t-rex.tzfile.com/?s=#msearchword&type=post';
+      var url1 = 'https://t-rex.tzfile.com/?s=#msearchword';
       url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
 
       network.clear();
@@ -3108,13 +3108,11 @@
         component.loading(false);
       }, function (a, c) {
         component.empty(network.errorDecode(a, c));
-      }, {
-        action: 'ajax_search',
-        text: object.movie.title
-      }, {
+      }, false, {
         dataType: 'text',
         headers: {
-          'Referer': 'https://t-rex.tzfile.com/'
+          'Referer': 'https://t-rex.tzfile.com/',
+          'User-Agent': UC_UA
         }
       });
     };
