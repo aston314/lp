@@ -1989,9 +1989,9 @@
 
       if (!filter_items.season[choice.season]) choice.season = 0;
       //console.log('component.order' + component.order)
-      component.order.forEach(function (i){
-                  filter_items.order.push(i.title);
-              });
+      // component.order.forEach(function (i){
+      //             filter_items.order.push(i.title);
+      //         });
       component.filter(filter_items, choice);
     }
     /**
@@ -2005,8 +2005,8 @@
       var mapResult = rslt.map(function (item, index, array) {
         return item;
       });
-      return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
-      //return rslt;
+      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return mapResult;
     }
     /**
      * Показать файлы
