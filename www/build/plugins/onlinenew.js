@@ -30,47 +30,47 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      {
-        name: 'LIBVIO',
-        websitelink: 'https://www.libvio.me',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://www.libvio.me/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-        search_json: true,
-        node_json: 'list',
-        name_json: 'name',
-        id_json: 'id',
-        first_page_json: '.html',
-        search_html_selector: '',
-        link_folder: 'detail',
-        //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-        detail_url_selector: 'div > div:nth-child(2) > ul',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: true,
-        js_execute_key: ['maccms', 'player_aaaa']
-      },
       // {
-      //   name: '在线之家',
-      //   websitelink: 'https://zxzj.vip',
+      //   name: '网站-LIBVIO',
+      //   websitelink: 'https://www.libvio.me',
       //   listlink: true,
       //   use_proxy: false,
-      //   search_url: 'https://zxzj.vip/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+      //   search_url: 'https://www.libvio.me/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
       //   search_json: true,
       //   node_json: 'list',
       //   name_json: 'name',
       //   id_json: 'id',
-      //   first_page_json: '-1-1.html',
+      //   first_page_json: '.html',
       //   search_html_selector: '',
-      //   link_folder: 'video',
-      //   detail_url_selector: '.play-item.cont.active',
-      //   videoparse: 'browser',
+      //   link_folder: 'detail',
+      //   //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
+      //   detail_url_selector: 'div > div:nth-child(2) > ul',
+      //   videoparse: 'default',
       //   videocontainer: '.MacPlayer',
       //   use_referer: true,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
       {
-        name: '凌云影视',
+        name: '网站-在线之家',
+        websitelink: 'https://www.zxzj.org',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'https://www.zxzj.org/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '-1-1.html',
+        search_html_selector: '',
+        link_folder: 'video',
+        detail_url_selector: '.play-item.cont.active',
+        videoparse: 'browser',
+        videocontainer: '.MacPlayer',
+        use_referer: true,
+        js_execute_key: ['maccms', 'player_aaaa']
+      },
+      {
+        name: '网站-凌云影视',
         websitelink: 'https://www.lingyun.in',
         listlink: true,
         use_proxy: false,
@@ -108,7 +108,7 @@
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
       {
-        name: '秋霞电影',
+        name: '网站-秋霞电影',
         websitelink: 'https://www.7xiady.cc',
         listlink: true,
         use_proxy: false,
@@ -163,7 +163,7 @@
       //   js_execute_key : ['maccms','player_aaaa']
       // },
       {
-        name: 'AUETE影视',
+        name: '网站-AUETE影视',
         websitelink: 'https://auete.com',
         listlink: true,
         use_proxy: false,
@@ -182,25 +182,25 @@
         use_referer: false,
         js_execute_key: [';var vfrom=']
       },
-      {
-        name: '欧乐影视',
-        websitelink: 'https://www.olehdtv.com/',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://www.olehdtv.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-        search_json: true,
-        node_json: 'list',
-        name_json: 'name',
-        id_json: 'id',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder: 'index.php/vod/detail/id',
-        detail_url_selector: 'div.playlist_full',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: false,
-        js_execute_key: ['maccms', 'player_aaaa']
-      },
+      // {
+      //   name: '网站-欧乐影视',
+      //   websitelink: 'https://www.olevod.com/',
+      //   listlink: true,
+      //   use_proxy: false,
+      //   search_url: 'https://www.olevod.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+      //   search_json: true,
+      //   node_json: 'list',
+      //   name_json: 'name',
+      //   id_json: 'id',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder: 'index.php/vod/detail/id',
+      //   detail_url_selector: 'div.playlist_full',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: false,
+      //   js_execute_key: ['maccms', 'player_aaaa']
+      // },
       // {
       //   name: '追剧喵',
       //   websitelink: 'https://zjmiao.com/',
@@ -259,7 +259,7 @@
       //  js_execute_key : ['maccms','player_aaaa']
       // },
       {
-        name: '乌龟影院',
+        name: '网站-乌龟影院',
         websitelink: 'https://www.wuguiyy.com',
         listlink: true,
         use_proxy: false,
@@ -278,7 +278,7 @@
         js_execute_key: ['maccms', 'player_aaaa']
       },
       {
-        name: '达达龟',
+        name: '网站-达达龟',
         websitelink: 'https://www.dadagui.me/',
         listlink: true,
         use_proxy: false,
@@ -316,7 +316,7 @@
       //   js_execute_key : ['maccms','player_aaaa']
       // },
       {
-        name: '神马影院',
+        name: '网站-神马影院',
         websitelink: 'https://www.smdyy.cc',
         listlink: true,
         use_proxy: false,
@@ -335,7 +335,7 @@
         js_execute_key: ['maccms', 'player_aaaa']
       },
       {
-        name: 'voflix HD',
+        name: '网站-voflix HD',
         websitelink: 'https://www.voflix.com',
         listlink: true,
         use_proxy: false,
@@ -354,7 +354,7 @@
         js_execute_key: ['maccms', 'player_aaaa']
       },
       {
-        name: '剧荒TV',
+        name: '网站-剧荒TV',
         websitelink: 'https://juhuang.tv',
         listlink: true,
         use_proxy: false,
@@ -449,7 +449,7 @@
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
       {
-        name: '鸭奈飞',
+        name: '网站-鸭奈飞',
         websitelink: 'https://netflix.mom',
         listlink: true,
         use_proxy: false,
@@ -468,7 +468,7 @@
         js_execute_key: ['maccms', 'player_aaaa']
       },
       {
-        name: '爱看',
+        name: '网站-爱看',
         websitelink: 'https://ikan6.vip',
         listlink: true,
         use_proxy: false,
@@ -798,9 +798,9 @@
 
       if (!filter_items.season[choice.season]) choice.season = 0;
       //console.log('component.order' + component.order)
-      component.order.forEach(function (i){
-                  filter_items.order.push(i.title);
-              });
+      // component.order.forEach(function (i){
+      //             filter_items.order.push(i.title);
+      //         });
       component.filter(filter_items, choice);
     }
     /**
@@ -814,8 +814,8 @@
       var mapResult = rslt.map(function (item, index, array) {
         return item;
       });
-      return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
-      //return rslt;
+      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return mapResult;
     }
     /**
      * Показать файлы
@@ -9109,7 +9109,7 @@
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
-    //filter_sources = sname.concat(filter_sources);
+    filter_sources = sname.concat(filter_sources);
 
     if (filter_sources.indexOf(balanser) == -1) {
       balanser = '小雅的Alist';
