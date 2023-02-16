@@ -950,7 +950,7 @@
             //console.log(object.cards);
             if ((object.page == 1) || object.cards || (!object.card && !Lampa.Storage.field('light_version') && object.card_cat)) {
                 this.activity.loader(true);
-                network.silent(cors + object.url, function (str) {
+                network["native"](cors + object.url, function (str) {
                     var data = _this.card(str);
                     _this.build(data);
                 }, function (a, c) {
@@ -999,7 +999,7 @@
                 page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0],'') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
             }
             //console.log(page);
-            network.silent(cors + page, function (result) {
+            network["native"](cors + page, function (result) {
                 var data = _this2.card(result);
                 object.data = data;
                 _this2.append(data);
