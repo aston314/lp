@@ -982,11 +982,13 @@
                         // _this.activity.loader(false);
                         // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
                         var empty = new Lampa.Empty({
-                            descr: '哦，无法获取该网站内容。'
+                            descr: '哦，无法获取 '+  object.title +' 的内容。'
                         });
                         html.append(empty.render());
                         $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        $(".empty__footer").on('click hover:enter', function () {
+                        //console.log(object)
+                        empty.render().find('.simple-button').on('hover:enter', function () {
+                        //$(".empty__footer").on('hover:enter hover:click', function () {
                             _this.selectGroup();
                         });
                         _this.start = empty.start;
@@ -1010,11 +1012,12 @@
                         // _this.activity.loader(false);
                         // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
                         var empty = new Lampa.Empty({
-                            descr: '哦，无法获取该网站内容。'
+                            descr: '哦，无法获取 '+  object.title +' 的内容。'
                         });
                         html.append(empty.render());
                         $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        $(".empty__footer").on('click hover:enter', function () {
+                        empty.render().find('.simple-button').on('hover:enter', function () {
+                        //$(".empty__footer").on('hover:enter hover:click', function () {
                             _this.selectGroup();
                         });
                         _this.start = empty.start;
@@ -1515,7 +1518,10 @@
                           ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)) :'';     
                     };
                     
+                    
                     ii = catalogs1[0].list.thumb.filter !== '' ? (ii.match(new RegExp(catalogs1[0].list.thumb.filter)) ? ii.match(new RegExp(catalogs1[0].list.thumb.filter))[1] : './img/img_broken.svg') : ii;
+                    
+                    if (ii.startsWith('/')) ii = catalogs1[0].link + ii;
                     
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
