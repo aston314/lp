@@ -94,7 +94,7 @@
             use_referer: true,
             category: [{
                 title: '最近更新',
-                url: 'https://www.libvio.me',
+                url: 'https://www.libvio.me/',
                 quantity: ':lt(12)'
             }, {
                 title: '电影',
@@ -940,7 +940,7 @@
         catalogs = json;
     };
 
-    console.log(catalogs)
+    //console.log(catalogs)
     
     function collection(object) {
         //console.log(catalogs);
