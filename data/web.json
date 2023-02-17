@@ -246,73 +246,73 @@
       }
    },
    {
-      "title":"低端影视",
-      "link":"https://ddys.one",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
-         {
-            "title":"电影",
-            "url":"https://ddys.one/category/movie/",
-            "quantity":""
-         },
-         {
-            "title":"剧集",
-            "url":"https://ddys.one/category/airing/",
-            "quantity":""
-         },
-         {
-            "title":"欧美剧",
-            "url":"https://ddys.one/category/drama/western-drama/",
-            "quantity":""
-         },
-         {
-            "title":"韩剧",
-            "url":"https://ddys.one/category/drama/kr-drama/",
-            "quantity":""
-         },
-         {
-            "title":"日剧",
-            "url":"https://ddys.one/category/drama/jp-drama/",
-            "quantity":""
-         },
-         {
-            "title":"动画",
-            "url":"https://ddys.one/category/anime/",
-            "quantity":""
-         }
+      "title": "低端影视",
+      "link": "https://ddys.one",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "category": [
+          {
+              "title": "电影",
+              "url": "https://ddys.one/category/movie/",
+              "quantity": ""
+          },
+          {
+              "title": "剧集",
+              "url": "https://ddys.one/category/airing/",
+              "quantity": ""
+          },
+          {
+              "title": "欧美剧",
+              "url": "https://ddys.one/category/drama/western-drama/",
+              "quantity": ""
+          },
+          {
+              "title": "韩剧",
+              "url": "https://ddys.one/category/drama/kr-drama/",
+              "quantity": ""
+          },
+          {
+              "title": "日剧",
+              "url": "https://ddys.one/category/drama/jp-drama/",
+              "quantity": ""
+          },
+          {
+              "title": "动画",
+              "url": "https://ddys.one/category/anime/",
+              "quantity": ""
+          }
       ],
-      "list":{
-         "page":{
-            "selector":".nav-links"
-         },
-         "videoscontainer":{
-            "selector":"div.post-box-container",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"h2 > a",
-            "attrName":"text",
-            "filter":"(.+?) \\("
-         },
-         "thumb":{
-            "selector":"div.post-box-image",
-            "attrName":"style",
-            "filter":"url\\((.+?)\\)"
-         },
-         "link":{
-            "selector":"h2 > a",
-            "attrName":"href",
-            "filter":""
-         }
+      "list": {
+          "page": {
+              "selector": ".nav-links"
+          },
+          "videoscontainer": {
+              "selector": "div.post-box-container",
+              "attrName": "",
+              "filter": ""
+          },
+          "title": {
+              "selector": "h2 > a",
+              "attrName": "text",
+              "filter": "(.+?) \\("
+          },
+          "thumb": {
+              "selector": "",
+              "attrName": "html",
+              "filter": "[\"|(](/.+?.jpg)"
+          },
+          "link": {
+              "selector": "h2 > a",
+              "attrName": "href",
+              "filter": ""
+          }
       },
-      "search":{
-         "url":""
+      "search": {
+          "url": ""
       }
-   },
+  },
    {
       "title":"在线之家",
       "link":"https://www.zxzj.org",
