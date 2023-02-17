@@ -103,26 +103,30 @@
                   };
                   var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token));
                   //console.log(get_list)
-                  get_list.items.forEach(function (item, index) {
-                    //setTimeout(function() {
-                    if (item.category == "video" || item.type == "folder") {
-                      listlink.data[0].media.push({
-                        translation_id: item.file_id,
-                        max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size): '文件夹',
-                        title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                        type: item.type,
-                        drive_id: item.drive_id,
-                        file_id: item.file_id,
-                        share_id: item.share_id
-                        //iframe_src : matches[0],
-                        //translation : mytranslation
-                      });
-                    };
-                    //}, 66 * index);
-                  });
-                  results = listlink.data;
-                  //console.log(results[0].translations.length);
-                  _this.build();
+                  if (get_list.message && get_list.message == 'invalid X-Device-Id') {
+                    Lampa.Noty.show('阿里云盘访问错误：invalid X-Device-Id');
+                  } else {
+                    get_list.items.forEach(function (item, index) {
+                      //setTimeout(function() {
+                      if (item.category == "video" || item.type == "folder") {
+                        listlink.data[0].media.push({
+                          translation_id: item.file_id,
+                          max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                          title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                          type: item.type,
+                          drive_id: item.drive_id,
+                          file_id: item.file_id,
+                          share_id: item.share_id
+                          //iframe_src : matches[0],
+                          //translation : mytranslation
+                        });
+                      };
+                      //}, 66 * index);
+                    });
+                    results = listlink.data;
+                    //console.log(results[0].translations.length);
+                    _this.build();
+                  };
 
                   _this.activity.loader(false);
 
