@@ -87,42 +87,42 @@
         // },
         {
             title: "LIBVIO",
-            link: "https://www.libvio.me",
+            link: "https://libvio.fun",
             show: "portrait",
             next:"search",
             datasort: "",
             use_referer: true,
             category: [{
                 title: '最近更新',
-                url: 'https://www.libvio.me/',
+                url: 'https://libvio.fun/',
                 quantity: ':lt(12)'
             }, {
                 title: '电影',
-                url: 'https://www.libvio.me/type/1.html',
+                url: 'https://libvio.fun/type/1.html',
                 quantity: ''
             }, {
                 title: '剧集',
-                url: 'https://www.libvio.me/type/2.html',
+                url: 'https://libvio.fun/type/2.html',
                 quantity: ''
             }, {
                 title: '日韩剧',
-                url: 'https://www.libvio.me/type/15.html',
+                url: 'https://libvio.fun/type/15.html',
                 quantity: ''
             }, {
                 title: '国产剧',
-                url: 'https://www.libvio.me/type/13.html',
+                url: 'https://libvio.fun/type/13.html',
                 quantity: ''
             }, {
                 title: '欧美剧',
-                url: 'https://www.libvio.me/type/16.html',
+                url: 'https://libvio.fun/type/16.html',
                 quantity: ''
             }, {
                 title: '港台剧',
-                url: 'https://www.libvio.me/type/14.html',
+                url: 'https://libvio.fun/type/14.html',
                 quantity: ''
             }, {
                 title: '动漫',
-                url: 'https://www.libvio.me/type/4.html',
+                url: 'https://libvio.fun/type/4.html',
                 quantity: ''
             }],
             list: {
@@ -168,7 +168,7 @@
                 }
             },
             search: {
-                url: 'https://www.libvio.me/search/-------------.html?wd=#msearchword&submit='
+                url: 'https://libvio.fun/search/-------------.html?wd=#msearchword&submit='
             }
         },
         {
@@ -297,82 +297,82 @@
                 url: "https://www.7xiady.cc/search/#msearchword----------1---/"
             }
         },
-        // {
-        //     title: "欧乐影院",
-        //     link: "https://www.olehdtv.com",
-        //     show: "portrait",
-        //     next:"search",
-        //     datasort: "",
-        //     use_referer: false,
-        //    category: [{
-        //         title: "电影",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/1.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "电视剧",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/2.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "国产剧",
-        //         url: "https://olevod.com/index.php/vod/show/id/202.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日韩剧",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/204.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/201.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "港台剧",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/203.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/3.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://www.olehdtv.com/index.php/vod/show/id/4.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.page.text_center"
-        //         },
-        //         videoscontainer: {
-        //             selector: "ul.vodlist li",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://www.olehdtv.com/index.php/vod/search.html?wd=#msearchword&submit="
-        //     }
-        // },
+        {
+            title: "欧乐影院",
+            link: "www.olevod.com",
+            show: "portrait",
+            next:"detail",
+            datasort: "",
+            use_referer: false,
+           category: [{
+                title: "电影",
+                url: "www.olevod.com/index.php/vod/show/id/1.html",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "www.olevod.com/index.php/vod/show/id/2.html",
+                quantity: ''
+            },
+            {
+                title: "国产剧",
+                url: "https://olevod.com/index.php/vod/show/id/202.html",
+                quantity: ''
+            },
+            {
+                title: "日韩剧",
+                url: "www.olevod.com/index.php/vod/show/id/204.html",
+                quantity: ''
+            },
+            {
+                title: "欧美剧",
+                url: "www.olevod.com/index.php/vod/show/id/201.html",
+                quantity: ''
+            },
+            {
+                title: "港台剧",
+                url: "www.olevod.com/index.php/vod/show/id/203.html",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "www.olevod.com/index.php/vod/show/id/3.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "www.olevod.com/index.php/vod/show/id/4.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.page.text_center"
+                },
+                videoscontainer: {
+                    selector: "ul.vodlist li",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "a",
+                    attrName: "title",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "a",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
+            }
+        },
         {
             title: "低端影视",
             link: "https://ddys.one",
