@@ -172,6 +172,82 @@
             }
         },
         {
+            title: "欧乐影院",
+            link: "https://www.olevod.com",
+            show: "portrait",
+            next:"search",
+            datasort: "",
+            use_referer: false,
+           category: [{
+                title: "电影",
+                url: "https://www.olevod.com/index.php/vod/show/id/1.html",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "https://www.olevod.com/index.php/vod/show/id/2.html",
+                quantity: ''
+            },
+            {
+                title: "国产剧",
+                url: "https://olevod.com/index.php/vod/show/id/202.html",
+                quantity: ''
+            },
+            {
+                title: "日韩剧",
+                url: "https://www.olevod.com/index.php/vod/show/id/204.html",
+                quantity: ''
+            },
+            {
+                title: "欧美剧",
+                url: "https://www.olevod.com/index.php/vod/show/id/201.html",
+                quantity: ''
+            },
+            {
+                title: "港台剧",
+                url: "https://www.olevod.com/index.php/vod/show/id/203.html",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "https://www.olevod.com/index.php/vod/show/id/3.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://www.olevod.com/index.php/vod/show/id/4.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.page.text_center"
+                },
+                videoscontainer: {
+                    selector: "ul.vodlist li",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "a",
+                    attrName: "title",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "a",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
+            }
+        },
+        {
             title: "在线之家",
             link: "https://www.zxzj.org",
             show: "portrait",
@@ -298,82 +374,6 @@
             }
         },
         {
-            title: "欧乐影院",
-            link: "www.olevod.com",
-            show: "portrait",
-            next:"detail",
-            datasort: "",
-            use_referer: false,
-           category: [{
-                title: "电影",
-                url: "www.olevod.com/index.php/vod/show/id/1.html",
-                quantity: ''
-            },
-            {
-                title: "电视剧",
-                url: "www.olevod.com/index.php/vod/show/id/2.html",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://olevod.com/index.php/vod/show/id/202.html",
-                quantity: ''
-            },
-            {
-                title: "日韩剧",
-                url: "www.olevod.com/index.php/vod/show/id/204.html",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "www.olevod.com/index.php/vod/show/id/201.html",
-                quantity: ''
-            },
-            {
-                title: "港台剧",
-                url: "www.olevod.com/index.php/vod/show/id/203.html",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "www.olevod.com/index.php/vod/show/id/3.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "www.olevod.com/index.php/vod/show/id/4.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.page.text_center"
-                },
-                videoscontainer: {
-                    selector: "ul.vodlist li",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
-            }
-        },
-        {
             title: "低端影视",
             link: "https://ddys.one",
             show: "portrait",
@@ -425,9 +425,9 @@
                     filter: "(.+?) \\("
                 },
                 thumb: {
-                    selector: "div.post-box-image",
-                    attrName: "style",
-                    filter: "url\\((.+?)\\)"
+                    selector: "",
+                    attrName: "html",
+                    filter: '["|\(](\/.+?.jpg)'
                 },
                 link: {
                     selector: "h2 > a",
@@ -1520,8 +1520,8 @@
                     
                     
                     ii = catalogs1[0].list.thumb.filter !== '' ? (ii.match(new RegExp(catalogs1[0].list.thumb.filter)) ? ii.match(new RegExp(catalogs1[0].list.thumb.filter))[1] : './img/img_broken.svg') : ii;
-                    
-                    if (ii.startsWith('/')) ii = catalogs1[0].link + ii;
+                    //console.log(ii)
+                    if (ii !== undefined && ii.startsWith('/')) ii = catalogs1[0].link + ii;
                     
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
