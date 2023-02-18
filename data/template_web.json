@@ -1,0 +1,280 @@
+{
+  "title": "LAMPA网站规则生成器",
+  "type": "object",
+  "required": [
+    "title",
+    "link",
+    "show",
+    "use_referer",
+    "next",
+    "datasort"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "#网站名称 用来作标记",
+      "default": "",
+      "options": {
+        "inputAttributes": {
+          "placeholder": "在线之家"
+        }
+      }
+    },
+    "link": {
+      "type": "string",
+      "format": "url",
+      "description": "#网站网址，如果爬取链接是相对地址用这个补全，有时需要加/灵活运用",
+      "default": "",
+      "options": {
+        "inputAttributes": {
+          "placeholder": "https://www.zxzjtv.org"
+        }
+      }
+    },
+    "show": {
+      "type": "string",
+      "description": "#列表中的图片显示方式： portrait 竖屏， landscape 横屏",
+      "default": "",
+      "enum": [
+        "portrait",
+        "landscape"
+      ]
+    },
+    "next": {
+      "type": "string",
+      "description": "#点击链接后的后续方式： search 为进行播放源选择， detail 详细页， play 直接播放， aliyundrive 打开阿里云链接",
+      "default": "",
+      "enum": [
+        "search",
+        "detail",
+        "play",
+        "aliyundrive"
+      ]
+    },
+    "datasort": {
+      "type": "string",
+      "description": "#列表排序顺序： 留空为原始顺序， reverse 为倒序",
+      "default": "",
+      "enum": [
+        "",
+        "reverse"
+      ]
+    },
+    "use_referer": {
+      "type": "boolean",
+      "description": "#是否带referer访问网站，true是带，false不带",
+      "default": "",
+      "enum": [
+        false,
+        true
+      ]
+    },
+    "category": {
+      "type": "array",
+      "format": "table",
+      "title": "1.添加分类",
+      "items": {
+        "type": "object",
+        "title": "导航分类",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "#右侧导航显示名称"
+          },
+          "url": {
+            "type": "string",
+            "description": "#网站分类的导航链接，须是http开头的全链接"
+          },
+          "quantity": {
+            "type": "string",
+            "description": "#显示的数量 这里放一个CCS 选择器来表示"
+          }
+        }
+      },
+      "default": [
+        {
+          "title": "电影",
+          "url": "https://zxzj.org/list/1.html"
+        }
+      ]
+    },
+    "list": {
+      "type": "object",
+      "title": "2.取得列表",
+      "properties": {
+        "videoscontainer": {
+          "type": "object",
+          "title": "列表CSS",
+          "required": [
+            "filter"
+          ],
+          "properties": {
+            "selector": {
+              "type": "string",
+              "description": "#Class筛选，标题的选择器如果为空则调用container的自身，支持CSS和XPATH语法，下同",
+              "default": ""
+            },
+            "attrName": {
+              "type": "string",
+              "description": "#属性筛选，attrName为需要获取的内容属性如果是text属性写成text即可，下同",
+              "default": ""
+            },
+            "filter": {
+              "type": "string",
+              "format": "regex",
+              "description": "#filter为java的正则表达式用来对爬取内容进行二次筛选，下同。关于java的正则可用http://www.regexplanet.com/simple/previous.html进行测试。",
+              "default": ""
+            }
+          }
+        },
+        "title": {
+          "type": "object",
+          "title": "标题CSS",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "",
+              "description": "#标题CSS选择器"
+            },
+            "attrName": {
+              "type": "string",
+              "default": "title",
+              "description": "#属性筛选，较常用的是 title 或 text"
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        },
+        "thumb": {
+          "type": "object",
+          "title": "图片CSS",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "",
+              "description": "#图片CSS选择器"
+            },
+            "attrName": {
+              "type": "string",
+              "default": "data-original",
+              "description": "#属性筛选，较常用的是 data-original 或 src"
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        },
+        "link": {
+          "type": "object",
+          "title": "链接CSS",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "",
+              "description": "#链接CSS选择器"
+            },
+            "attrName": {
+              "type": "string",
+              "default": "href",
+              "description": "#属性筛选，较常用的是 href"
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        },
+        "page": {
+          "type": "object",
+          "title": "分页",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": "",
+              "description": "#分页CSS选择器"
+            }
+          }
+        }
+      }
+    },
+    "detail": {
+      "type": "object",
+      "title": "3.具体页面内容列表",
+      "properties": {
+        "videoscontainer": {
+          "type": "object",
+          "title": "播放列表",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": ""
+            },
+            "attrName": {
+              "type": "string",
+              "default": ""
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        },
+        "title": {
+          "type": "object",
+          "title": "标题CSS",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": ""
+            },
+            "attrName": {
+              "type": "string",
+              "default": "title",
+              "description": "#属性筛选，较常用的是 title 或 text"
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        },
+        "link": {
+          "type": "object",
+          "title": "链接CSS",
+          "properties": {
+            "selector": {
+              "type": "string",
+              "default": ""
+            },
+            "attrName": {
+              "type": "string",
+              "default": "href",
+              "description": "#属性筛选，较常用的是 href"
+            },
+            "filter": {
+              "type": "string",
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "type": "object",
+      "title": "4.搜索",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": "搜索链接 形如 https://libvio.fun/search/-------------.html?wd=#msearchword&submit=,#msearchword为关键词模板"
+        }
+      }
+    }
+  }
+}
