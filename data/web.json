@@ -1345,5 +1345,80 @@
       "search":{
          "url":"https://www.ahhhhfs.com/?cat=16&s=#msearchword"
       }
-   }
+   },
+   {
+  "title": "网站-凌云影视",
+  "link": "https://www.lyys8.com",
+  "show": "portrait",
+  "next": "search",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "电影",
+      "url": "https://www.lyys8.com/channel/movie.html",
+      "quantity": ""
+    },
+    {
+      "title": "剧集",
+      "url": "https://www.lyys8.com/channel/tv.html",
+      "quantity": ""
+    },
+    {
+      "title": "综艺",
+      "url": "https://www.lyys8.com/channel/variety.html",
+      "quantity": ""
+    },
+    {
+      "title": "动漫",
+      "url": "https://www.lyys8.com/channel/cartoon.html",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "div.li-img",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "a",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "data-src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "a",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ".pages"
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": "https://www.lyys8.com/s.html?wd=#msearchword"
+  }
+}
 ]
