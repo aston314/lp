@@ -1352,7 +1352,7 @@
   "show": "portrait",
   "next": "search",
   "datasort": "",
-  "use_referer": false,
+  "use_referer": true,
   "category": [
     {
       "title": "电影",
