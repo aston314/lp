@@ -1348,30 +1348,30 @@
    },
    {
   "title": "凌云影视",
-  "link": "https://www.lyys8.com",
+  "link": "https://www.lingyun.in",
   "show": "portrait",
   "next": "search",
   "datasort": "",
-  "use_referer": true,
+  "use_referer": false,
   "category": [
     {
       "title": "电影",
-      "url": "https://www.lyys8.com/channel/movie.html",
+      "url": "https://www.lingyun.in/channel/movie.html",
       "quantity": ""
     },
     {
       "title": "剧集",
-      "url": "https://www.lyys8.com/channel/tv.html",
+      "url": "https://www.lingyun.in/channel/tv.html",
       "quantity": ""
     },
     {
       "title": "综艺",
-      "url": "https://www.lyys8.com/channel/variety.html",
+      "url": "https://www.lingyun.in/channel/variety.html",
       "quantity": ""
     },
     {
       "title": "动漫",
-      "url": "https://www.lyys8.com/channel/cartoon.html",
+      "url": "https://www.lingyun.in/channel/cartoon.html",
       "quantity": ""
     }
   ],
@@ -1418,7 +1418,7 @@
     }
   },
   "search": {
-    "url": "https://www.lyys8.com/s.html?wd=#msearchword"
+    "url": "https://www.lingyun.in/s.html?wd=#msearchword"
   }
 }
 ]
