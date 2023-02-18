@@ -1347,12 +1347,12 @@
       }
    },
    {
-  "title": "网站-凌云影视",
+  "title": "凌云影视",
   "link": "https://www.lyys8.com",
   "show": "portrait",
   "next": "search",
   "datasort": "",
-  "use_referer": false,
+  "use_referer": true,
   "category": [
     {
       "title": "电影",
