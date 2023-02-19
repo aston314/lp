@@ -1430,6 +1430,11 @@
   "use_referer": true,
   "category": [
     {
+      "title": "首页",
+      "url": "https://t-rex.tzfile.com",
+      "quantity": ""
+    },
+    {
       "title": "电影",
       "url": "https://t-rex.tzfile.com/movies",
       "quantity": ""
