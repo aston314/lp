@@ -183,7 +183,7 @@
               data.forEach(function (elem) {
                   playlist.push({
                     title: elem.title,
-                    url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
+                    url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
                     tv: true
                   });
               });
