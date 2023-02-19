@@ -174,7 +174,8 @@
           card.on('hover:enter', function (target, card_data) {
             var video = {
                 title: element.title,
-                url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
+                //url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
+                url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
                 tv: true
             };
             var playlist = [];
@@ -183,6 +184,7 @@
               data.forEach(function (elem) {
                   playlist.push({
                     title: elem.title,
+                    //url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
                     url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
                     tv: true
                   });
