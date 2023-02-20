@@ -69,19 +69,13 @@
             //if (object.page < 300) {
                 waitload = true;
                 object.page++;
-                network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
+                network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
                     _this2.append(result);
                     
                     object.type == 'list' ? datatye = result.subjects : datatye = result ;
                     if (datatye.length) waitload = false;
                     Lampa.Controller.enable('content');
-                }, false, postdata, {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': 'https://movie.douban.com/',
-                        'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36'
-                    }
-                });
+                }, false, postdata);
             //}
         };
 
