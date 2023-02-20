@@ -69,13 +69,15 @@
             //if (object.page < 300) {
                 waitload = true;
                 object.page++;
+                //var u = new URLSearchParams(postdata).toString();
+                //console.log(u);
                 network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
                     _this2.append(result);
                     
                     object.type == 'list' ? datatye = result.subjects : datatye = result ;
                     if (datatye.length) waitload = false;
                     Lampa.Controller.enable('content');
-                }, false, postdata);
+                }, false);
             //}
         };
 
