@@ -1523,6 +1523,14 @@
                     //console.log(ii)
                     if (ii !== undefined && ii.startsWith('/')) ii = catalogs1[0].link + ii;
                     
+                    if (Lampa.Storage.field('douban_img_proxy')){
+                        //console.log(ii.indexOf('://'))
+                        //豆瓣图片域名
+                        if (ii.indexOf('doubanio.com') !== -1 && ii.indexOf('://') == 5){
+                            ii = 'https://images.weserv.nl/?url=' + ii.replace('https://','')
+                        };
+                    };
+                    
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: tt.replace(/(<([^>]+)>)/ig, '').replace(/4K|资源标题：|资源名称：|名称：/,'').replace(/第(.+)季/, '').trim(),
@@ -1756,8 +1764,9 @@
 
     if (!window.plugin_web_ready) startWEB();
     Lampa.Params.trigger('json_use', false);
+    Lampa.Params.trigger('douban_img_proxy', false);
     Lampa.Params.select('web_rule_json', '', '');
-    Lampa.Template.add('settings_mod_web', "<div>\n <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"json_use\">\n        <div class=\"settings-param__name\">使用外部网站配置</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">默认使用内置的网站配置</div>\n    </div>\n\n  <div class=\"settings-param selector\" data-name=\"web_rule_json\" data-type=\"input\" placeholder=\"例如：http://www.xx.com/x.json\">\n        <div class=\"settings-param__name\">配置地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__status\"></div><div class=\"settings-param__descr\">JSON文件地址</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"mod_web_clear_data\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除已选网站</div>\n        <div class=\"settings-param__status\"></div>\n<div class=\"settings-param__descr\">当已选网站不能访问时使用，以免出错</div>    </div>\n</div>");
+    Lampa.Template.add('settings_mod_web', "<div>\n <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"json_use\">\n        <div class=\"settings-param__name\">使用外部网站配置</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">默认使用内置的网站配置</div>\n    </div>\n\n  <div class=\"settings-param selector\" data-name=\"web_rule_json\" data-type=\"input\" placeholder=\"例如：http://www.xx.com/x.json\">\n        <div class=\"settings-param__name\">配置地址</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__status\"></div><div class=\"settings-param__descr\">JSON文件地址</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"mod_web_clear_data\" data-static=\"true\">\n        <div class=\"settings-param__name\">清除已选网站</div>\n        <div class=\"settings-param__status\"></div>\n<div class=\"settings-param__descr\">当已选网站不能访问时使用，以免出错</div>    </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"douban_img_proxy\"><div class=\"settings-param__name\">豆瓣海报图片代理</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">豆瓣海报不能正常显示时使用</div></div>\n</div>");
     
     function addSettingsWeb() {
         if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_web"]').length) {
