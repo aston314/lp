@@ -1,5 +1,65 @@
 [
    {
+  "title": "24看球网",
+  "link": "https://www.24kanqiu.com",
+  "show": "portrait",
+  "next": "play",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "https://www.24kanqiu.com/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": ".listDec a",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": ".home_team",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ""
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": ".liveshow",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": ".toLive",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": ".toLive",
+      "attrName": "data-url",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": ""
+  }
+},
+   {
       "title":"乐猪TV",
       "link":"http://www.lezhutv.com",
       "show":"portrait",
