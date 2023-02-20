@@ -94,6 +94,13 @@
           img.onerror = function (e) {
             img.src = './img/img_broken.svg';
           };
+          if (Lampa.Storage.field('douban_img_proxy')){
+            //console.log(ii.indexOf('://'))
+            //豆瓣图片域名
+            if (element.cover.indexOf('doubanio.com') !== -1 && element.cover.indexOf('://') == 5){
+              element.cover = 'https://images.weserv.nl/?url=' + element.cover.replace('https://','')
+            };
+          };
           card.find('.card__img').attr('src', element.cover.replace('l_ratio_poster','s_ratio_poster'));
           if (element.subtitle){
             card.find('.card__view').append('<div class="card__quality"></div>');
