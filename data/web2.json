@@ -25,7 +25,7 @@
       "filter": ""
     },
     "thumb": {
-      "selector": ".home_team",
+      "selector": ".home_team img",
       "attrName": "src",
       "filter": ""
     },
@@ -40,17 +40,17 @@
   },
   "detail": {
     "videoscontainer": {
-      "selector": ".liveshow",
+      "selector": "a[data-url]",
       "attrName": "",
       "filter": ""
     },
     "title": {
-      "selector": ".toLive",
+      "selector": "",
       "attrName": "text",
       "filter": ""
     },
     "link": {
-      "selector": ".toLive",
+      "selector": "",
       "attrName": "data-url",
       "filter": ""
     }
