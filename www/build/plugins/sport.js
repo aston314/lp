@@ -21,7 +21,7 @@
 
             this.activity.loader(true);
 
-            network.silent(object.url, function (str) {
+            network.native(object.url, function (str) {
                 //this.build.bind(this)
                 if (object.type == 'live') {
                     //console.log($('.embed-responsive-item', str).attr('src'))
