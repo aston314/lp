@@ -40,7 +40,7 @@
 
             this.activity.loader(true);
 
-            network["native"](object.url, this.build.bind(this), function () {
+            network.silent(object.url, this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
