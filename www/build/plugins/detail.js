@@ -504,7 +504,16 @@
                               Lampa.Player.playlist([video]);
                           } else {
                               //Lampa.Modal.close();
-                              Lampa.Noty.show('没有找到对应影片。');
+                              //Lampa.Noty.show('没有找到对应影片。');
+                              Lampa.Iframe.show({
+                                //url: $('.embed-responsive-item', str).attr('src'),
+                                url: file,
+                                onBack: function onBack() {
+                                  Lampa.Controller.toggle('content');
+                                }
+                              });
+                              $('.iframe__body iframe').removeClass('iframe__window');
+                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
                               //Lampa.Controller.toggle('content');
                           };
                       }, function (a, c) {
@@ -514,6 +523,17 @@
                       });
                       //Lampa.Noty.show('无法检索链接');
                   }
+
+
+                  // Lampa.Iframe.show({
+                  //   //url: $('.embed-responsive-item', str).attr('src'),
+                  //   url: file,
+                  //   onBack: function onBack() {
+                  //     Lampa.Controller.toggle('content');
+                  //   }
+                  // });
+                  // $('.iframe__body iframe').removeClass('iframe__window');
+                  // $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
               }
               //jrkan && file.indexOf('https://play.sportsteam365.com') == -1
               if (viewed.indexOf(hash_file) == -1) {
