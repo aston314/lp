@@ -246,6 +246,116 @@
       }
    },
    {
+  "title": "霸王龙压制组",
+  "link": "https://t-rex.tzfile.com",
+  "show": "portrait",
+  "next": "search",
+  "datasort": "",
+  "use_referer": true,
+  "category": [
+    {
+      "title": "首页",
+      "url": "https://t-rex.tzfile.com",
+      "quantity": ""
+    },
+    {
+      "title": "电影",
+      "url": "https://t-rex.tzfile.com/movies",
+      "quantity": ""
+    },
+    {
+      "title": "美剧",
+      "url": "https://t-rex.tzfile.com/meiju",
+      "quantity": ""
+    },
+    {
+      "title": "韩剧",
+      "url": "https://t-rex.tzfile.com/hanju",
+      "quantity": ""
+    },
+    {
+      "title": "日剧",
+      "url": "https://t-rex.tzfile.com/riju",
+      "quantity": ""
+    },
+    {
+      "title": "英剧",
+      "url": "https://t-rex.tzfile.com/yingju",
+      "quantity": ""
+    },
+    {
+      "title": "泰剧",
+      "url": "https://t-rex.tzfile.com/taiju",
+      "quantity": ""
+    },
+    {
+      "title": "动画",
+      "url": "https://t-rex.tzfile.com/animation",
+      "quantity": ""
+    },
+    {
+      "title": "纪录片",
+      "url": "https://t-rex.tzfile.com/faction",
+      "quantity": ""
+    },
+    {
+      "title": "真人秀综艺",
+      "url": "https://t-rex.tzfile.com/show",
+      "quantity": ""
+    },
+    {
+      "title": "其他剧",
+      "url": "https://t-rex.tzfile.com/qitaju",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "div.placeholder",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "a",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "data-src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "a",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ".pagination"
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": "https://t-rex.tzfile.com/?s=#msearchword"
+  }
+},
+   {
       "title": "低端影视",
       "link": "https://ddys.one",
       "show": "portrait",
@@ -1347,117 +1457,7 @@
       }
    },
 {
-  "title": "霸王龙压制组",
-  "link": "https://t-rex.tzfile.com",
-  "show": "portrait",
-  "next": "search",
-  "datasort": "",
-  "use_referer": true,
-  "category": [
-    {
-      "title": "首页",
-      "url": "https://t-rex.tzfile.com",
-      "quantity": ""
-    },
-    {
-      "title": "电影",
-      "url": "https://t-rex.tzfile.com/movies",
-      "quantity": ""
-    },
-    {
-      "title": "美剧",
-      "url": "https://t-rex.tzfile.com/meiju",
-      "quantity": ""
-    },
-    {
-      "title": "韩剧",
-      "url": "https://t-rex.tzfile.com/hanju",
-      "quantity": ""
-    },
-    {
-      "title": "日剧",
-      "url": "https://t-rex.tzfile.com/riju",
-      "quantity": ""
-    },
-    {
-      "title": "英剧",
-      "url": "https://t-rex.tzfile.com/yingju",
-      "quantity": ""
-    },
-    {
-      "title": "泰剧",
-      "url": "https://t-rex.tzfile.com/taiju",
-      "quantity": ""
-    },
-    {
-      "title": "动画",
-      "url": "https://t-rex.tzfile.com/animation",
-      "quantity": ""
-    },
-    {
-      "title": "纪录片",
-      "url": "https://t-rex.tzfile.com/faction",
-      "quantity": ""
-    },
-    {
-      "title": "真人秀综艺",
-      "url": "https://t-rex.tzfile.com/show",
-      "quantity": ""
-    },
-    {
-      "title": "其他剧",
-      "url": "https://t-rex.tzfile.com/qitaju",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "div.placeholder",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "a",
-      "attrName": "title",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": "img",
-      "attrName": "data-src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "a",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ".pagination"
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "title",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": "https://t-rex.tzfile.com/?s=#msearchword"
-  }
-},
-{
-  "title": "体育-24看球网",
+  "title": "体育 - 24看球网",
   "link": "https://www.24kanqiu.com",
   "show": "minilandscape",
   "next": "detail",
