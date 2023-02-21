@@ -211,14 +211,23 @@
                         title: '直播源',
                         items: sources,
                         onSelect: function onSelect(a) {
-                            Lampa.Activity.push({
+                            // Lampa.Activity.push({
+                            //     url: a.url,
+                            //     title: '直播源 - ' + a.title,
+                            //     component: 'worldcup',
+                            //     type: 'live',
+                            //     content: element.title,
+                            //     page: 1
+                            // });
+                            Lampa.Iframe.show({
+                                //url: $('.embed-responsive-item', str).attr('src'),
                                 url: a.url,
-                                title: '直播源 - ' + a.title,
-                                component: 'worldcup',
-                                type: 'live',
-                                content: element.title,
-                                page: 1
-                            });
+                                onBack: function onBack() {
+                                  Lampa.Controller.toggle('content');
+                                }
+                              });
+                              $('.iframe__body iframe').removeClass('iframe__window');
+                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
                         },
                         onBack: function onBack() {
                             Lampa.Controller.toggle('content');
