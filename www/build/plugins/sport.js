@@ -1,5 +1,10 @@
 (function () {
     'use strict';
+    var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+    var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+    var UA = "Mozilla/5.0";
+    var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+    var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
 
     function WC(object) {
         var network = new Lampa.Reguest();
@@ -73,7 +78,10 @@
             }, function (a, c) {
                 Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
-                dataType: 'text'
+                dataType: 'text',
+                headers: {
+                    'User-Agent': PC_UA
+                }
             });
             return this.render();
         };
@@ -124,16 +132,16 @@
             $('.list-group-item', str).each(function (i, html) {
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
-                        title: $('div.vertical-center .text-right',html).length == 1 ? $('div.vertical-center .text-right',html).text().replace(/\n/g,'') + ' VS ' + $('div.vertical-center .text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
+                        title: $('.text-right',html).length == 1 ? $('.text-right',html).text().replace(/\n/g,'') + ' VS ' + $('.text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: $('div.vertical-center .pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + $('a.btn[target=\'_blank\']',html).attr('href'),
+                        url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + $('a.btn[target=\'_blank\']',html).attr('href'),
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: $('div.vertical-center div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.vertical-center div.text-right + div.col-xs-1 img',html).attr('src'),
-                        quantity: $('div.vertical-center .game-type',html).text(),
+                        img: $('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src'),
+                        quantity: $('.game-type',html).text(),
                         year: '',
-                        rate:$('div.vertical-center .category-game-time',html).text().replace(/\n/g,''),
+                        rate:$('.category-game-time',html).text().replace(/\n/g,''),
                         episodes_info: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开始' : $('.pay-btn',html).text(),
                         update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                         score: '',//$('span.pic-tag', html).text()
