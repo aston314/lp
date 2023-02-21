@@ -128,13 +128,13 @@
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: $('.pay-btn',html).text().trim() == '暂无' ? '未开' : 'http://www.88kanqiu.top' + $('.pay-btn a.btn',html).attr('href'),
+                        url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + $('a.btn[target=\'_blank\']',html).attr('href'),
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: $('.col-md-4.text-right+.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('.col-md-4.text-right+.col-xs-1 img',html).attr('src'),
+                        img: $('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src'),
                         quantity: $('.game-type',html).text(),
                         year: '',
-                        rate:$('.col-md-1.category-game-time',html).text().replace(/\n/g,''),
-                        episodes_info: $('.pay-btn',html).text().trim() == '暂无' ? '未开始' : $('.pay-btn',html).text(),
+                        rate:$('.category-game-time',html).text().replace(/\n/g,''),
+                        episodes_info: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开始' : $('.pay-btn',html).text(),
                         update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                         score: '',//$('span.pic-tag', html).text()
                     });
