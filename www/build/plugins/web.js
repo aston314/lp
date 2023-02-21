@@ -963,8 +963,6 @@
             s_name = '';
         }
 
-        console.log(object.show == 'minilandscape')
-
         //console.log(object)
         var items = [];
         var html = $('<div></div>');
