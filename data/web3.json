@@ -2,7 +2,7 @@
    {
   "title": "24看球网",
   "link": "https://www.24kanqiu.com",
-  "show": "portrait",
+  "show": "minilandscape",
   "next": "detail",
   "datasort": "",
   "use_referer": false,
