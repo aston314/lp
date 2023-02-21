@@ -998,9 +998,6 @@
               iabRef.executeScript({
                 code: '\
                 document.body.classList.add("dplayer-web-fullscreen-fix1");\
-                jQuery("div:not('+ videocontainer + ')").hide();  \
-                jQuery("'+ videocontainer + '").appendTo("body"); \
-                jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
                 '});
                 //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
                 //simulate(jQuery("'+ videocontainer + '"), "click");\
