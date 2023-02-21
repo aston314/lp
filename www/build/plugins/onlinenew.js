@@ -353,25 +353,25 @@
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
       },
-      {
-        name: '网站-剧荒TV',
-        websitelink: 'https://juhuang.tv',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://so.juhuang.tv/soapi.php?wd=#msearchword',
-        search_json: true,
-        node_json: 'list',
-        name_json: 'vod_name',
-        id_json: 'vod_id',
-        first_page_json: '_play_1_1.html',
-        search_html_selector: '',
-        link_folder: 'play',
-        detail_url_selector: 'div.scroll-content',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: false,
-        js_execute_key: ['maccms', 'player_aaaa']
-      },
+      // {
+      //   name: '网站-剧荒TV',
+      //   websitelink: 'https://juhuang.tv',
+      //   listlink: true,
+      //   use_proxy: false,
+      //   search_url: 'https://so.juhuang.tv/soapi.php?wd=#msearchword',
+      //   search_json: true,
+      //   node_json: 'list',
+      //   name_json: 'vod_name',
+      //   id_json: 'vod_id',
+      //   first_page_json: '_play_1_1.html',
+      //   search_html_selector: '',
+      //   link_folder: 'play',
+      //   detail_url_selector: 'div.scroll-content',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: false,
+      //   js_execute_key: ['maccms', 'player_aaaa']
+      // },
       // {
       //   name: '厂长资源',
       //   websitelink: 'https://www.czspp.com',
@@ -448,25 +448,25 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      {
-        name: '网站-鸭奈飞',
-        websitelink: 'https://netflix.mom',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://netflix.mom/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-        search_json: true,
-        node_json: 'list',
-        name_json: 'name',
-        id_json: 'id',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder: 'vodplay',
-        detail_url_selector: '.module-play-list:eq(0)',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: false,
-        js_execute_key: ['maccms', 'player_aaaa']
-      },
+      // {
+      //   name: '网站-鸭奈飞',
+      //   websitelink: 'https://netflix.mom',
+      //   listlink: true,
+      //   use_proxy: false,
+      //   search_url: 'https://netflix.mom/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+      //   search_json: true,
+      //   node_json: 'list',
+      //   name_json: 'name',
+      //   id_json: 'id',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder: 'vodplay',
+      //   detail_url_selector: '.module-play-list:eq(0)',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: false,
+      //   js_execute_key: ['maccms', 'player_aaaa']
+      // },
       {
         name: '网站-爱看',
         websitelink: 'https://ikan6.vip',
@@ -1037,38 +1037,38 @@
               network.silent(proxy_url + element.file, function (str) {
                 if (str) {
 
-                  var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
-                  czspp = czspp ? czspp[0] : null;
-                  if (czspp) {
-                    $(".noty").hide();
-                    czspp = czspp.replace('eval', 'var doczspp = ');
+                  // var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
+                  // czspp = czspp ? czspp[0] : null;
+                  // if (czspp) {
+                  //   $(".noty").hide();
+                  //   czspp = czspp.replace('eval', 'var doczspp = ');
 
-                    $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
-                      .done(function () {
-                        window.eval(czspp);
-                        if (typeof doczspp !== 'undefined') {
-                          //console.log(doczspp);
-                          var v = doczspp.match(/url: "(.*?)"/);
-                          v = v ? v[1] : '';
-                          //console.log(v)
-                          if (v) {
-                            var playlist = [];
-                            var first = {
-                              url: v,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          };
-                        } else {
-                          $(".noty").show();
-                          Lampa.Noty.show('无法检索链接');
-                        };
-                      });
-                  };
+                  //   $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
+                  //     .done(function () {
+                  //       window.eval(czspp);
+                  //       if (typeof doczspp !== 'undefined') {
+                  //         //console.log(doczspp);
+                  //         var v = doczspp.match(/url: "(.*?)"/);
+                  //         v = v ? v[1] : '';
+                  //         //console.log(v)
+                  //         if (v) {
+                  //           var playlist = [];
+                  //           var first = {
+                  //             url: v,
+                  //             timeline: view,
+                  //             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  //             subtitles: element.subtitles
+                  //           };
+                  //           Lampa.Player.play(first);
+                  //           playlist.push(first);
+                  //           Lampa.Player.playlist(playlist);
+                  //         };
+                  //       } else {
+                  //         $(".noty").show();
+                  //         Lampa.Noty.show('无法检索链接');
+                  //       };
+                  //     });
+                  // };
                   //console.log(czspp);
                   $(".noty").hide();
                   var MacPlayer_, file_ = [], a;
@@ -1081,18 +1081,18 @@
                     window.eval('function base64decode(str){ return atob(str); };' + a);
                   });
 
-                  if (typeof now !== 'undefined') {
-                    var playlist = [];
-                    var first = {
-                      url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
-                      timeline: view,
-                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: element.subtitles
-                    };
-                    Lampa.Player.play(first);
-                    playlist.push(first);
-                    Lampa.Player.playlist(playlist);
-                  };
+                  // if (typeof now !== 'undefined') {
+                  //   var playlist = [];
+                  //   var first = {
+                  //     url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
+                  //     timeline: view,
+                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  //     subtitles: element.subtitles
+                  //   };
+                  //   Lampa.Player.play(first);
+                  //   playlist.push(first);
+                  //   Lampa.Player.playlist(playlist);
+                  // };
 
                   var script_arr = [
                     '/static/js/playerconfig.js',
@@ -1111,6 +1111,7 @@
                         MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
 
                         var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
+                        
                         //console.log(MacPlayer_)
 
                         //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
@@ -1122,30 +1123,42 @@
                         var file = file_[0];
                         //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
                         if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                          if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
-                            var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
-                            var playlist = [];
-                            var first = {
-                              url: ikan_url,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          } else {
+                          // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
+                          //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
+                          //   var playlist = [];
+                          //   var first = {
+                          //     url: ikan_url,
+                          //     timeline: view,
+                          //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                          //     subtitles: element.subtitles
+                          //   };
+                          //   Lampa.Player.play(first);
+                          //   playlist.push(first);
+                          //   Lampa.Player.playlist(playlist);
+                          // } else {
                             var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
                             if (!doreg.use_referer) {
                               //console.log(MacPlayer_)
                               //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                              network.silent(MacPlayer_, function (str) {
-                                doparse(element, view, url1_, MacPlayer_, str);
-                              }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                              }, false, {
-                                dataType: 'text'
+                              //分析页面
+                              // network.silent(MacPlayer_, function (str) {
+                              //   doparse(element, view, url1_, MacPlayer_, str);
+                              // }, function (a, c) {
+                              //   Lampa.Noty.show(network.errorDecode(a, c));
+                              // }, false, {
+                              //   dataType: 'text'
+                              // });
+                              // 用户iframe打开页面
+                              Lampa.Iframe.show({
+                                //url: $('.embed-responsive-item', str).attr('src'),
+                                url: MacPlayer_,
+                                onBack: function onBack() {
+                                  Lampa.Controller.toggle('content');
+                                }
                               });
+                              $('.iframe__body iframe').removeClass('iframe__window');
+                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+
                             } else {
                               if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
                                 $(".noty").show();
@@ -1165,10 +1178,10 @@
                               });
                               //};
                             };
-                          }
+                          // }
                         } else {
                           if (file) {
-                            if (/if101\.tv/.test(file)) file = proxy + file;
+                            // if (/if101\.tv/.test(file)) file = proxy + file;
                             var playlist = [];
                             var first = {
                               url: file,
