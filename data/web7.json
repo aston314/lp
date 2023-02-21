@@ -9,13 +9,13 @@
   "category": [
     {
       "title": "首页",
-      "url": "https://www.24kanqiu.com",
+      "url": "https://www.24kanqiu.com/e/extend/list/list.php?page=1",
       "quantity": ""
     }
   ],
   "list": {
     "videoscontainer": {
-      "selector": ".listDec a",
+      "selector": ".detail a",
       "attrName": "",
       "filter": ""
     },
