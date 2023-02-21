@@ -122,6 +122,7 @@
             };
 
             $('.list-group-item', str).each(function (i, html) {
+                console.log(html)
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: $('.text-right',html).length == 1 ? $('.text-right',html).text().replace(/\n/g,'') + ' VS ' + $('.text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
