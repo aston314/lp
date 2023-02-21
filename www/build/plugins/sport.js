@@ -124,16 +124,16 @@
             $('.list-group-item', str).each(function (i, html) {
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
-                        title: $('.text-right',html).length == 1 ? $('.text-right',html).text().replace(/\n/g,'') + ' VS ' + $('.text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
+                        title: $('div.vertical-center .text-right',html).length == 1 ? $('div.vertical-center .text-right',html).text().replace(/\n/g,'') + ' VS ' + $('div.vertical-center .text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + $('a.btn[target=\'_blank\']',html).attr('href'),
+                        url: $('div.vertical-center .pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + $('a.btn[target=\'_blank\']',html).attr('href'),
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: $('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src'),
-                        quantity: $('.game-type',html).text(),
+                        img: $('div.vertical-center div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.vertical-center div.text-right + div.col-xs-1 img',html).attr('src'),
+                        quantity: $('div.vertical-center .game-type',html).text(),
                         year: '',
-                        rate:$('.category-game-time',html).text().replace(/\n/g,''),
+                        rate:$('div.vertical-center .category-game-time',html).text().replace(/\n/g,''),
                         episodes_info: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开始' : $('.pay-btn',html).text(),
                         update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                         score: '',//$('span.pic-tag', html).text()
