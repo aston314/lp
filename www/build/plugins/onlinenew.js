@@ -121,7 +121,7 @@
         search_html_selector: '',
         link_folder: 'play',
         detail_url_selector: '.stui-pannel_bd.col-pd.clearfix:eq(0)',
-        videoparse: 'default',
+        videoparse: 'browser',
         videocontainer: '.MacPlayer',
         use_referer: false,
         js_execute_key: ['maccms', 'player_aaaa']
