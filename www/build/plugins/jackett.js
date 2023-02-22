@@ -21,8 +21,8 @@ Lampa.SettingsApi.addParam({
      default: 'no_parser'
     },
     field: {
-     name: '公共Jackett服务',
-     description: '从列表中选择一个种子解析器'
+     name: 'Jackett服务器',
+     description: '点击选择一个种子解析器'
     },
     onChange: function (value) {
      if (value == 'no_parser') Lampa.Storage.set('jackett_url', '')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', false)&Lampa.Storage.set('parse_lang', 'lg');
