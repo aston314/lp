@@ -50,25 +50,25 @@
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
       },
-      // {
-      //   name: '网站-在线之家',
-      //   websitelink: 'https://www.zxzj.org',
-      //   listlink: true,
-      //   use_proxy: false,
-      //   search_url: 'https://www.zxzj.org/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-      //   search_json: true,
-      //   node_json: 'list',
-      //   name_json: 'name',
-      //   id_json: 'id',
-      //   first_page_json: '-1-1.html',
-      //   search_html_selector: '',
-      //   link_folder: 'video',
-      //   detail_url_selector: '.play-item.cont.active',
-      //   videoparse: 'browser',
-      //   videocontainer: '.MacPlayer',
-      //   use_referer: true,
-      //   js_execute_key: ['maccms', 'player_aaaa']
-      // },
+      {
+        name: '网站-在线之家',
+        websitelink: 'https://www.zxzj.org',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'https://www.zxzj.org/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '-1-1.html',
+        search_html_selector: '',
+        link_folder: 'video',
+        detail_url_selector: '.play-item.cont.active',
+        videoparse: 'browser',
+        videocontainer: '.MacPlayer',
+        use_referer: true,
+        js_execute_key: ['maccms', 'player_aaaa']
+      },
       {
         name: '网站-凌云影视',
         websitelink: 'https://www.lingyun.in',
@@ -992,15 +992,12 @@
             var videocontainer = doreg.videocontainer;
             var iabRef = null;
             function playershow() {
-              iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix1{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
+              iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
               //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
               //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
               iabRef.executeScript({
                 code: '\
                 document.body.classList.add("dplayer-web-fullscreen-fix1");\
-                jQuery("div:not('+ videocontainer + ')").hide();  \
-                jQuery("'+ videocontainer + '").appendTo("body"); \
-                jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
                 '});
                 //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
                 //simulate(jQuery("'+ videocontainer + '"), "click");\
