@@ -1042,8 +1042,6 @@
             function iabClose(event) {
               iabRef.removeEventListener('loadstop', playershow);
               iabRef.removeEventListener('exit', iabClose);
-              Lampa.Modal.close();
-              Lampa.Api.clear();
               Lampa.Controller.toggle('content');
             };
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
@@ -1052,6 +1050,8 @@
               //iabRef.addEventListener('loadstop', playershow);
               iabRef.addEventListener('loadstop', function() {
                 playershow();
+                Lampa.Modal.close();
+                Lampa.Api.clear();
               });
               iabRef.addEventListener('loadstart', function() {
                 loadingshow();
