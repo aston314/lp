@@ -33,11 +33,12 @@
     },
     "show": {
       "type": "string",
-      "description": "#列表中的图片显示方式： portrait 竖屏， landscape 横屏",
+      "description": "#列表中的图片显示方式： portrait 竖屏， landscape 横屏，minilandscape 小横屏",
       "default": "",
       "enum": [
         "portrait",
-        "landscape"
+        "landscape",
+        "minilandscape"
       ]
     },
     "next": {
@@ -93,8 +94,8 @@
       },
       "default": [
         {
-          "title": "电影",
-          "url": "https://zxzj.org/list/1.html"
+          "title": "",
+          "url": ""
         }
       ]
     },
