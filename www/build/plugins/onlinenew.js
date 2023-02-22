@@ -126,24 +126,24 @@
         use_referer: false,
         js_execute_key: ['maccms', 'player_aaaa']
       },
-      {
-        name : '网站-乐猪TV[!]',
-        websitelink : 'http://www.lezhutv.com/',
-        listlink : true,
-        use_proxy: false,
-        search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
-        search_json : false,
-        node_json : '',
-        name_json : '',
-        id_json : '',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder : 'play',
-        videoparse: 'browser',
-        videocontainer: '.MacPlayer',
-        use_referer : false,
-        js_execute_key : ['maccms','player_aaaa']
-      },
+      // {
+      //   name : '网站-乐猪TV[!]',
+      //   websitelink : 'http://www.lezhutv.com/',
+      //   listlink : true,
+      //   use_proxy: false,
+      //   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
+      //   search_json : false,
+      //   node_json : '',
+      //   name_json : '',
+      //   id_json : '',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder : 'play',
+      //   videoparse: 'browser',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer : false,
+      //   js_execute_key : ['maccms','player_aaaa']
+      // },
       // {
       //   name : '9亿看看',
       //   websitelink : 'https://www.9eguoyu.com',
@@ -162,26 +162,26 @@
       //   use_referer : false,
       //   js_execute_key : ['maccms','player_aaaa']
       // },
-      {
-        name: '网站-AUETE影视[!]',
-        websitelink: 'https://auete.com',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://auete.com/aueteso.php?searchword=#msearchword',
-        search_json: false,
-        node_json: 'list',
-        name_json: 'name',
-        id_json: 'id',
-        first_page_json: '',
-        search_html_selector: '.subject.break-all',
-        link_folder: '',
-        detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
-        detail_url_selector: '#player_list',
-        videoparse: 'browser',
-        videocontainer: '.MacPlayer',
-        use_referer: false,
-        js_execute_key: [';var vfrom=']
-      },
+      // {
+      //   name: '网站-AUETE影视[!]',
+      //   websitelink: 'https://auete.com',
+      //   listlink: true,
+      //   use_proxy: false,
+      //   search_url: 'https://auete.com/aueteso.php?searchword=#msearchword',
+      //   search_json: false,
+      //   node_json: 'list',
+      //   name_json: 'name',
+      //   id_json: 'id',
+      //   first_page_json: '',
+      //   search_html_selector: '.subject.break-all',
+      //   link_folder: '',
+      //   detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
+      //   detail_url_selector: '#player_list',
+      //   videoparse: 'browser',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: false,
+      //   js_execute_key: [';var vfrom=']
+      // },
       // {
       //   name: '网站-欧乐影视',
       //   websitelink: 'https://www.olevod.com/',
@@ -468,7 +468,7 @@
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
       {
-        name: '网站-爱看',
+        name: '网站-爱看[!]',
         websitelink: 'https://ikan6.vip',
         listlink: true,
         use_proxy: false,
@@ -481,7 +481,7 @@
         search_html_selector: '',
         link_folder: 'vodplay',
         detail_url_selector: 'ul.myui-content__list',
-        videoparse: 'default',
+        videoparse: 'browser',
         videocontainer: '.MacPlayer',
         use_referer: true,
         js_execute_key: ['maccms', 'player_data']
@@ -1042,6 +1042,8 @@
             function iabClose(event) {
               iabRef.removeEventListener('loadstop', playershow);
               iabRef.removeEventListener('exit', iabClose);
+              Lampa.Modal.close();
+              Lampa.Api.clear();
               Lampa.Controller.toggle('content');
             };
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
