@@ -3,12 +3,12 @@
 (function () {
   'use strict';
 
-  var MOBILE_UA="Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
-  var PC_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
-  var UA="Mozilla/5.0";
-  var UC_UA="Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
-  var IOS_UA="Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
-  
+  var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+  var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+  var UA = "Mozilla/5.0";
+  var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+  var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
+
   var extract_rule = {
     "rule": [
       // {
@@ -584,8 +584,8 @@
     var proxy_url;
     //var proxy = 'https://proxy.cub.watch/cdn/'
     var proxy = 'https://cors.eu.org/'
-    
-    
+
+
 
     //var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
     //     //var url = 'https://cdn.jsdelivr.net/gh/aston314/lampa@main/online_rule.json';
@@ -593,34 +593,34 @@
     //     var xhr = new XMLHttpRequest();
     //     xhr.open('GET', url, true);
     //     xhr.send();
-            
+
     //     xhr.onload = function() {
     //     var results_json = xhr.responseText;
     //     doregjson = $.parseJSON(results_json);
     // }
     //doregjson = $.parseJSON(getRemote(url));
     //doregjson = extract_rule;
-    
+
     /**
      * Поиск
      * @param {Object} _object 
      */
     function getRemote(remote_url) {
-        return $.ajax({
-           type: "GET",
-           url: remote_url,
-           async: false
-        }).responseText;
-    }; 
+      return $.ajax({
+        type: "GET",
+        url: remote_url,
+        async: false
+      }).responseText;
+    };
 
     function fuzzyQuery(list, keyWord) {
-        var arr = [];
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].indexOf(keyWord) >= 0) {
-                arr.push(list[i]);
-            }
+      var arr = [];
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].indexOf(keyWord) >= 0) {
+          arr.push(list[i]);
         }
-        return arr;
+      }
+      return arr;
     };
 
     function getValues(obj, key) {
@@ -640,16 +640,16 @@
       select_title = object.movie.title;
       doreg = rule;
       get_links_wait = true;
-      var url1 = doreg.search_url.replace('#msearchword',encodeURIComponent(object.movie.title.replace(/第(.+)季/, '')));
+      var url1 = doreg.search_url.replace('#msearchword', encodeURIComponent(object.movie.title.replace(/第(.+)季/, '')));
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-      
+
       network.clear();
-      network.timeout(1000*15);
+      network.timeout(1000 * 15);
       network.silent(proxy_url + url1, function (str) {
-        
+
         var parsedData = doreg.search_json ? JSON.parse(str) : str;
-        
-        var searchresult = doreg.search_json ? (parsedData.code === 999 ? 0 :(parsedData[doreg.node_json] ? parsedData[doreg.node_json].length : 0)) : $(doreg.search_html_selector, parsedData).find('a').length;
+
+        var searchresult = doreg.search_json ? (parsedData.code === 999 ? 0 : (parsedData[doreg.node_json] ? parsedData[doreg.node_json].length : 0)) : $(doreg.search_html_selector, parsedData).find('a').length;
 
         if (searchresult > 0) {
           parse(parsedData);
@@ -668,7 +668,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -750,7 +750,7 @@
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
       network.silent(proxy_url + link, function (data) {
 
-        var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g,''));
+        var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
         rslt = [];
         $(math).find('a').each(function (i, a) {
           rslt.push({
@@ -762,13 +762,13 @@
             info: ''
           });
         });
-                filter();
+        filter();
         append(filtred());
         setTimeout(function () {
           get_links_wait = false;
           component.render().find('.broadcast__scan').remove();
         }, 1000);
-        
+
         //rslt = [];
         $(math).remove();
       }, function (a, c) {
@@ -787,7 +787,7 @@
         quality: [],
         order: []
       };
-      
+
       if (extract.playlist) {
         if (extract.playlist.seasons) {
           extract.playlist.seasons.forEach(function (season) {
@@ -848,15 +848,15 @@
       var url1_ = url1_;
       var MacPlayer_ = url;
       var str = data;
-      
+
       //var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
       var re = /<script.*?src="(.*?)"/gm;
       //re = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
-      var match, aa = [], setting_js = false ,setting_link;
+      var match, aa = [], setting_js = false, setting_link;
       while (match = re.exec(str)) {
-        var cc = match[1].slice(0,2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0,1) !== '/' &&  match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0]+'/'+match[1] : match[1]);
+        var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
         //cc = match[1].slice(0,1) !== '/' &&  match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0]+'/'+match[1] : match[1];
-        
+
         if (!/DPlayer|jquery|setting|-player|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff|hls|flv/.test(cc)) {
           aa.push(cc);
         }
@@ -895,7 +895,7 @@
         if (setting_js) {
           //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
           var s_js = getRemote(setting_link);
-          
+
           var b_js = s_js.match(/\.post|GET|POST/);
           var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
           var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
@@ -991,20 +991,37 @@
           if (element.file) {
             var videocontainer = doreg.videocontainer;
             var iabRef = null;
+            function loadingshow() {
+              Lampa.Modal.open({
+                title: '',
+                html: Lampa.Template.get('modal_loading'),
+                size: 'small',
+                mask: true,
+                onBack: function onBack() {
+                  Lampa.Modal.close();
+                  Lampa.Api.clear();
+                  Lampa.Controller.toggle('content');
+                }
+              });
+            };
+
             function playershow() {
-              iabRef.insertCSS({ code: 'body {background-color: black;}' });
+              iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix1{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
               //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
               //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
               iabRef.executeScript({
                 code: '\
                 document.body.classList.add("dplayer-web-fullscreen-fix1");\
+                jQuery("div:not('+ videocontainer + ')").hide();  \
+                jQuery("'+ videocontainer + '").appendTo("body"); \
+                jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
                 '});
-                //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
-                //simulate(jQuery("'+ videocontainer + '"), "click");\
-                //jQuery("body > :not('+ videocontainer + ')").hide();\
-                //jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
-                //jQuery("'+ videocontainer + '").attr("tbaindex", "0"); \
-                //jQuery("'+ videocontainer + '").attr("tabindex",-1).focus();\
+              //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
+              //simulate(jQuery("'+ videocontainer + '"), "click");\
+              //jQuery("body > :not('+ videocontainer + ')").hide();\
+              //jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
+              //jQuery("'+ videocontainer + '").attr("tbaindex", "0"); \
+              //jQuery("'+ videocontainer + '").attr("tabindex",-1).focus();\
 
               // iabRef.executeScript(
               //   {
@@ -1024,11 +1041,19 @@
             function iabClose(event) {
               iabRef.removeEventListener('loadstop', playershow);
               iabRef.removeEventListener('exit', iabClose);
+              Lampa.Modal.close();
+              Lampa.Api.clear();
             };
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (!!window.cordova && doreg.videoparse == 'browser') {
               iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
-              iabRef.addEventListener('loadstop', playershow);
+              //iabRef.addEventListener('loadstop', playershow);
+              iabRef.addEventListener('loadstop', function() {
+                playershow();
+              });
+              iabRef.addEventListener('loadstart', function() {
+                loadingshow();
+              });
               iabRef.addEventListener('exit', iabClose);
             } else {
               network.silent(proxy_url + element.file, function (str) {
@@ -1108,7 +1133,7 @@
                         MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
 
                         var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
-                        
+
                         //console.log(MacPlayer_)
 
                         //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
@@ -1133,48 +1158,48 @@
                           //   playlist.push(first);
                           //   Lampa.Player.playlist(playlist);
                           // } else {
-                            var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-                            if (!doreg.use_referer) {
-                              //console.log(MacPlayer_)
-                              //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                              //分析页面
-                              // network.silent(MacPlayer_, function (str) {
-                              //   doparse(element, view, url1_, MacPlayer_, str);
-                              // }, function (a, c) {
-                              //   Lampa.Noty.show(network.errorDecode(a, c));
-                              // }, false, {
-                              //   dataType: 'text'
-                              // });
-                              // 用户iframe打开页面
-                              Lampa.Iframe.show({
-                                //url: $('.embed-responsive-item', str).attr('src'),
-                                url: MacPlayer_,
-                                onBack: function onBack() {
-                                  Lampa.Controller.toggle('content');
-                                }
-                              });
-                              $('.iframe__body iframe').removeClass('iframe__window');
-                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                          var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
+                          if (!doreg.use_referer) {
+                            //console.log(MacPlayer_)
+                            //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                            //分析页面
+                            // network.silent(MacPlayer_, function (str) {
+                            //   doparse(element, view, url1_, MacPlayer_, str);
+                            // }, function (a, c) {
+                            //   Lampa.Noty.show(network.errorDecode(a, c));
+                            // }, false, {
+                            //   dataType: 'text'
+                            // });
+                            // 用户iframe打开页面
+                            Lampa.Iframe.show({
+                              //url: $('.embed-responsive-item', str).attr('src'),
+                              url: MacPlayer_,
+                              onBack: function onBack() {
+                                Lampa.Controller.toggle('content');
+                              }
+                            });
+                            $('.iframe__body iframe').removeClass('iframe__window');
+                            $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
 
-                            } else {
-                              if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
-                                $(".noty").show();
-                                Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
-                              };
-
-                              //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
-                              network["native"](MacPlayer_, function (str) {
-                                doparse(element, view, url1_, MacPlayer_, str);
-                              }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                              }, false, {
-                                dataType: 'text',
-                                headers: {
-                                  'Referer': url + '/',
-                                }
-                              });
-                              //};
+                          } else {
+                            if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
+                              $(".noty").show();
+                              Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
                             };
+
+                            //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
+                            network["native"](MacPlayer_, function (str) {
+                              doparse(element, view, url1_, MacPlayer_, str);
+                            }, function (a, c) {
+                              Lampa.Noty.show(network.errorDecode(a, c));
+                            }, false, {
+                              dataType: 'text',
+                              headers: {
+                                'Referer': url + '/',
+                              }
+                            });
+                            //};
+                          };
                           // }
                         } else {
                           if (file) {
@@ -1245,31 +1270,31 @@
     };
     var sj = +new Date;
     var rslt = [];
-    
+
     /**
      * Поиск
      * @param {Object} _object 
      */
 
     function getdetail(url) {
-        //component.reset();
-        //Lampa.Noty.show('酷云线路只能在安卓上观看。');
-        network["native"](url, function (json) {
-          if (json.msg == '非法请求' || json.data.episodes.length == 0) {
-            component.emptyForQuery(select_title)
-          } else {
-            parse(json);
-          };
-          component.loading(false);
-        }, function (a, c) {
-          Lampa.Noty.show(network.errorDecode(a, c));
-        }, false, {
-          dataType: 'json',
-          headers: {
-            'User-Agent': 'okhttp/3.12.0',
-          }
-        });
-      
+      //component.reset();
+      //Lampa.Noty.show('酷云线路只能在安卓上观看。');
+      network["native"](url, function (json) {
+        if (json.msg == '非法请求' || json.data.episodes.length == 0) {
+          component.emptyForQuery(select_title)
+        } else {
+          parse(json);
+        };
+        component.loading(false);
+      }, function (a, c) {
+        Lampa.Noty.show(network.errorDecode(a, c));
+      }, false, {
+        dataType: 'json',
+        headers: {
+          'User-Agent': 'okhttp/3.12.0',
+        }
+      });
+
     };
 
     this.search = function (_object, kinopoisk_id) {
@@ -1283,49 +1308,49 @@
       // var cors_https = /https/.test(cors) ? cors : '';
       var url;
       kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + kinopoisk_id + 'devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj : url = 'https://api.kunyu77.com/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
-      
-      //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
-        if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
-            getdetail(url);
-        } else {
-            network.silent(url, function (json) {
-                if (json) {
-                    //console.log(json.data.length)
-                    if (json.data.length !== 0) {
-                        //parse(json);
-                        if (json.data.length == 1) {
-                            var id = json.data[0].id;
-                            url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + id + '&devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj;
-                            getdetail(url);
-                        } else {
-                            _this.wait_similars = true;
-                            var similars = [];
-                            json.data.forEach(function (l) {
-                                similars.push({
-                                    is_similars: true,
-                                    title: l.videoName,
-                                    link: '',
-                                    filmId: l.id,
-                                    year: l.year,
-                                    episodes_count: l.msg
-                                });
-                            });
-                            component.similars(similars);
-                        }
-                    } else component.emptyForQuery(select_title);
-                } else component.emptyForQuery(select_title);
 
-                component.loading(false);
-            }, function (a, c) {
-                if (network.errorDecode(a, c).indexOf('很抱歉') !== -1) {
-                    component.empty('需要将User-Agent需改为：Dalvik，才能访问酷云。');
-                } else {
-                    component.empty(network.errorDecode(a, c));
-                }
-            }, false, {
-                dataType: 'json',
-            });
-        };     
+      //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
+      if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
+        getdetail(url);
+      } else {
+        network.silent(url, function (json) {
+          if (json) {
+            //console.log(json.data.length)
+            if (json.data.length !== 0) {
+              //parse(json);
+              if (json.data.length == 1) {
+                var id = json.data[0].id;
+                url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + id + '&devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj;
+                getdetail(url);
+              } else {
+                _this.wait_similars = true;
+                var similars = [];
+                json.data.forEach(function (l) {
+                  similars.push({
+                    is_similars: true,
+                    title: l.videoName,
+                    link: '',
+                    filmId: l.id,
+                    year: l.year,
+                    episodes_count: l.msg
+                  });
+                });
+                component.similars(similars);
+              }
+            } else component.emptyForQuery(select_title);
+          } else component.emptyForQuery(select_title);
+
+          component.loading(false);
+        }, function (a, c) {
+          if (network.errorDecode(a, c).indexOf('很抱歉') !== -1) {
+            component.empty('需要将User-Agent需改为：Dalvik，才能访问酷云。');
+          } else {
+            component.empty(network.errorDecode(a, c));
+          }
+        }, false, {
+          dataType: 'json',
+        });
+      };
     };
 
     this.extendChoice = function (saved) {
@@ -1333,7 +1358,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -1377,45 +1402,45 @@
     };
 
     function parse(json) {
-       
-        // var list = json.data[0].videoUrls.toString().split('$$$')[0].replace(/"/g,'').split(',');
-        //  $.each(list, function(i,val){        
-        //     //console.log(val);
-        //      if (val.split('$')[1].indexOf('.m3u8' !== -1)) {
-        //          rslt.push({
-        //              file: val.split('$')[1],
-        //              quality: val.split('$')[0],
-        //              title: json.data[0].videoName,
-        //              season: '',
-        //              episode: '',
-        //              info: ''
-        //          });
-        //      }
-        // }); 
-        //http://api.kunyu77.com/api.php/provide/videoPlaylist?ids=142546
-        // if (window.cordova){
-        //     //UserAgent.set('Dalvik/2.1.0 (Linux; U; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00)');
-        // }
-        // else {
-        //     Lampa.Noty.show('酷云线路只能在安卓上观看。');
-        // };
-        rslt = [];
-        json.data.episodes.forEach(function (episode) {
-            
-            if (episode.playurl.indexOf('.m3u8' !== -1)) {
-                rslt.push({
-                    file: episode.playurl,
-                    quality: episode.title.replace(episode.albumTitle, ''),
-                    title: episode.albumTitle,
-                    season: '',
-                    episode: episode.episode,
-                    info: ''
-                });
-            }
-        });
-        
-        append(filtred());
-        //rslt = [];
+
+      // var list = json.data[0].videoUrls.toString().split('$$$')[0].replace(/"/g,'').split(',');
+      //  $.each(list, function(i,val){        
+      //     //console.log(val);
+      //      if (val.split('$')[1].indexOf('.m3u8' !== -1)) {
+      //          rslt.push({
+      //              file: val.split('$')[1],
+      //              quality: val.split('$')[0],
+      //              title: json.data[0].videoName,
+      //              season: '',
+      //              episode: '',
+      //              info: ''
+      //          });
+      //      }
+      // }); 
+      //http://api.kunyu77.com/api.php/provide/videoPlaylist?ids=142546
+      // if (window.cordova){
+      //     //UserAgent.set('Dalvik/2.1.0 (Linux; U; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00)');
+      // }
+      // else {
+      //     Lampa.Noty.show('酷云线路只能在安卓上观看。');
+      // };
+      rslt = [];
+      json.data.episodes.forEach(function (episode) {
+
+        if (episode.playurl.indexOf('.m3u8' !== -1)) {
+          rslt.push({
+            file: episode.playurl,
+            quality: episode.title.replace(episode.albumTitle, ''),
+            title: episode.albumTitle,
+            season: '',
+            episode: episode.episode,
+            info: ''
+          });
+        }
+      });
+
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -1478,18 +1503,18 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
 
           if (element.file) {
-                var playlist = [];
-                var first = {
-                    url: element.file,
-                    timeline: view,
-                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                    subtitles: element.subtitles
-                };
-                Lampa.Player.play(first);
-                
-                playlist.push(first);
-                Lampa.Player.playlist(playlist);
-            
+            var playlist = [];
+            var first = {
+              url: element.file,
+              timeline: view,
+              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+              subtitles: element.subtitles
+            };
+            Lampa.Player.play(first);
+
+            playlist.push(first);
+            Lampa.Player.playlist(playlist);
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -1529,13 +1554,13 @@
     var rslt = [];
     var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
     var cors_https = /https/.test(cors) ? cors : '';
-    
+
     /**
      * Поиск
      * @param {Object} _object 
      */
 
-    
+
 
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
@@ -1545,76 +1570,76 @@
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
       var url;
-      parseFloat(kinopoisk_id)? url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + kinopoisk_id : url = 'http://47.242.89.48/video/xiaoshu.php/list?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&wd=' + encodeURIComponent(object.movie.title);
-      
+      parseFloat(kinopoisk_id) ? url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + kinopoisk_id : url = 'http://47.242.89.48/video/xiaoshu.php/list?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&wd=' + encodeURIComponent(object.movie.title);
+
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
-        if (parseFloat(kinopoisk_id)) {
-            network.silent(url, function (json) {
-                if (json) {
+      if (parseFloat(kinopoisk_id)) {
+        network.silent(url, function (json) {
+          if (json) {
+            if (json.data.length == 0) {
+              component.emptyForQuery(select_title)
+            } else {
+              parse(json);
+            }
+          } else component.emptyForQuery(select_title);
+
+          component.loading(false);
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'json'
+        });
+        //getdetail(url);
+      } else {
+        network.silent(url, function (json) {
+          if (json.code != 0) {
+            //console.log(json.data.length)
+            if (json.data.list.length !== 0) {
+              //parse(json);
+              if (json.data.list.length == 1) {
+                var id = json.data.list[0].vod_id;
+                url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + id;
+                network.silent(url, function (json) {
+                  if (json) {
                     if (json.data.length == 0) {
-                        component.emptyForQuery(select_title)
+                      component.emptyForQuery(select_title)
                     } else {
-                        parse(json);
+                      parse(json);
                     }
-                } else component.emptyForQuery(select_title);
+                  } else component.emptyForQuery(select_title);
 
-                component.loading(false);
-            }, function (a, c) {
-                component.empty(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'json'
-            });
-            //getdetail(url);
-        } else {
-            network.silent(url, function (json) {
-              if (json.code != 0) {
-                    //console.log(json.data.length)
-                    if (json.data.list.length !== 0) {
-                        //parse(json);
-                        if (json.data.list.length == 1) {
-                            var id = json.data.list[0].vod_id;
-                            url = 'http://47.242.89.48/video/xiaoshu.php/detail?action=plus&code=8ff57a4df664974eca05970c7dadfc8e&vod_id=' + id ;
-                            network.silent(url, function (json) {
-                                if (json) {
-                                    if (json.data.length == 0) {
-                                        component.emptyForQuery(select_title)
-                                    } else {
-                                        parse(json);
-                                    }
-                                } else component.emptyForQuery(select_title);
+                  component.loading(false);
+                }, function (a, c) {
+                  component.empty(network.errorDecode(a, c));
+                }, false, {
+                  dataType: 'json'
+                });
+                //getdetail(url);
+              } else {
+                _this.wait_similars = true;
+                var similars = [];
+                json.data.list.forEach(function (l) {
+                  similars.push({
+                    is_similars: true,
+                    title: l.vod_name,
+                    link: '',
+                    filmId: l.vod_id,
+                    year: l.vod_play_from.toUpperCase().split('$$$')[0],
+                    episodes_count: l.vod_remarks
+                  });
+                });
+                component.similars(similars);
+              }
+            } else component.emptyForQuery(select_title);
+          } else component.emptyForQuery(select_title);
 
-                                component.loading(false);
-                            }, function (a, c) {
-                                component.empty(network.errorDecode(a, c));
-                            }, false, {
-                                dataType: 'json'
-                            });
-                            //getdetail(url);
-                        } else {
-                            _this.wait_similars = true;
-                            var similars = [];
-                            json.data.list.forEach(function (l) {
-                                similars.push({
-                                    is_similars: true,
-                                    title: l.vod_name,
-                                    link: '',
-                                    filmId: l.vod_id,
-                                    year: l.vod_play_from.toUpperCase().split('$$$')[0],
-                                    episodes_count: l.vod_remarks
-                                });
-                            });
-                            component.similars(similars);
-                        }
-                    } else component.emptyForQuery(select_title);
-                } else component.emptyForQuery(select_title);
-
-                component.loading(false);
-            }, function (a, c) {
-                component.empty(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'json',
-            });
-        };     
+          component.loading(false);
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'json',
+        });
+      };
     };
 
     this.extendChoice = function (saved) {
@@ -1622,7 +1647,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -1666,23 +1691,23 @@
     };
 
     function parse(json) {
-        rslt = [];
-        json.data.vod_play_list[0].urls.forEach(function (episode) {
-            
-            //if (episode.playurl.indexOf('.m3u8' !== -1)) {
-                rslt.push({
-                    file: episode.url,
-                    quality: episode.name,
-                    title: episode.name,
-                    season: '',
-                    episode: '',
-                    info: ''
-                });
-            //}
+      rslt = [];
+      json.data.vod_play_list[0].urls.forEach(function (episode) {
+
+        //if (episode.playurl.indexOf('.m3u8' !== -1)) {
+        rslt.push({
+          file: episode.url,
+          quality: episode.name,
+          title: episode.name,
+          season: '',
+          episode: '',
+          info: ''
         });
-        filter();
-        append(filtred());
-        //rslt = [];
+        //}
+      });
+      filter();
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -1695,7 +1720,7 @@
         season: [],
         voice: [],
         quality: [],
-        order:[]
+        order: []
       };
 
       if (extract.playlist) {
@@ -1708,9 +1733,9 @@
 
       if (!filter_items.season[choice.season]) choice.season = 0;
       //console.log('component.order' + component.order)
-      component.order.forEach(function (i){
-                  filter_items.order.push(i.title);
-              });
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -1757,7 +1782,7 @@
           var url = 'http://47.242.89.48/video/xiaoshu.php?action=config&app=analysis2&code=8ff57a4df664974eca05970c7dadfc8e&url=' + element.file;
           network.silent(url, function (json) {
             if (json) {
-              if (json.code !== 200 ) {
+              if (json.code !== 200) {
                 Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));//component.emptyForQuery(select_title)
               } else {
                 var playlist = [];
@@ -1818,13 +1843,13 @@
       last_viewed: ''
     };
     var rslt = [];
-    
+
     /**
      * Поиск
      * @param {Object} _object 
      */
 
-    
+
 
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
@@ -1834,76 +1859,76 @@
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
       var url
-      parseFloat(kinopoisk_id) ? url = detailid.replace('#id', kinopoisk_id) : url =  searchurl.replace('#msearchword', encodeURIComponent(object.movie.title));
-      
+      parseFloat(kinopoisk_id) ? url = detailid.replace('#id', kinopoisk_id) : url = searchurl.replace('#msearchword', encodeURIComponent(object.movie.title));
+
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
-        if (parseFloat(kinopoisk_id)) {
-            network.silent(url, function (json) {
-                if (json) {
+      if (parseFloat(kinopoisk_id)) {
+        network.silent(url, function (json) {
+          if (json) {
+            if (json.list.length == 0) {
+              component.emptyForQuery(select_title)
+            } else {
+              parse(json);
+            }
+          } else component.emptyForQuery(select_title);
+
+          component.loading(false);
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'json'
+        });
+        //getdetail(url);
+      } else {
+        network.silent(url, function (json) {
+          if (json.code != 0) {
+            //console.log(json.data.length)
+            if (json.list.length !== 0) {
+              //parse(json);
+              if (json.list.length == 1) {
+                var id = json.list[0].vod_id;
+                url = detailid.replace('#id', id);
+                network.silent(url, function (json) {
+                  if (json) {
                     if (json.list.length == 0) {
-                        component.emptyForQuery(select_title)
+                      component.emptyForQuery(select_title)
                     } else {
-                        parse(json);
+                      parse(json);
                     }
-                } else component.emptyForQuery(select_title);
+                  } else component.emptyForQuery(select_title);
 
-                component.loading(false);
-            }, function (a, c) {
-                component.empty(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'json'
-            });
-            //getdetail(url);
-        } else {
-            network.silent(url, function (json) {
-              if (json.code != 0) {
-                    //console.log(json.data.length)
-                    if (json.list.length !== 0) {
-                        //parse(json);
-                        if (json.list.length == 1) {
-                            var id = json.list[0].vod_id;
-                            url = detailid.replace('#id', id);
-                            network.silent(url, function (json) {
-                                if (json) {
-                                    if (json.list.length == 0) {
-                                        component.emptyForQuery(select_title)
-                                    } else {
-                                        parse(json);
-                                    }
-                                } else component.emptyForQuery(select_title);
+                  component.loading(false);
+                }, function (a, c) {
+                  component.empty(network.errorDecode(a, c));
+                }, false, {
+                  dataType: 'json'
+                });
+                //getdetail(url);
+              } else {
+                _this.wait_similars = true;
+                var similars = [];
+                json.list.forEach(function (l) {
+                  similars.push({
+                    is_similars: true,
+                    title: l.vod_name,
+                    link: '',
+                    filmId: l.vod_id,
+                    year: l.vod_play_from,
+                    episodes_count: l.vod_remarks
+                  });
+                });
+                component.similars(similars);
+              }
+            } else component.emptyForQuery(select_title);
+          } else component.emptyForQuery(select_title);
 
-                                component.loading(false);
-                            }, function (a, c) {
-                                component.empty(network.errorDecode(a, c));
-                            }, false, {
-                                dataType: 'json'
-                            });
-                            //getdetail(url);
-                        } else {
-                            _this.wait_similars = true;
-                            var similars = [];
-                            json.list.forEach(function (l) {
-                                similars.push({
-                                    is_similars: true,
-                                    title: l.vod_name,
-                                    link: '',
-                                    filmId: l.vod_id,
-                                    year: l.vod_play_from,
-                                    episodes_count: l.vod_remarks
-                                });
-                            });
-                            component.similars(similars);
-                        }
-                    } else component.emptyForQuery(select_title);
-                } else component.emptyForQuery(select_title);
-
-                component.loading(false);
-            }, function (a, c) {
-                component.empty(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'json',
-            });
-        };     
+          component.loading(false);
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'json',
+        });
+      };
     };
 
     this.extendChoice = function (saved) {
@@ -1911,7 +1936,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -1955,25 +1980,25 @@
     };
 
     function parse(json) {
-        rslt = [];
-        var vodlist = json.list[0].vod_play_url.split('#');
-        vodlist.forEach(function (episode) {
-            
-            //if (episode.playurl.indexOf('.m3u8' !== -1)) {
-                rslt.push({
-                    file: episode.split('$')[1],
-                    quality: json.list[0].vod_play_from.toUpperCase() + ' / ' +json.list[0].vod_remarks+ ' / ' +episode.split('$')[0],
-                    title: episode.split('$')[0],
-                    season: '',
-                    episode: '',
-                    info: '',
-                    allepisode: json.list[0].vod_play_url
-                });
-            //}
+      rslt = [];
+      var vodlist = json.list[0].vod_play_url.split('#');
+      vodlist.forEach(function (episode) {
+
+        //if (episode.playurl.indexOf('.m3u8' !== -1)) {
+        rslt.push({
+          file: episode.split('$')[1],
+          quality: json.list[0].vod_play_from.toUpperCase() + ' / ' + json.list[0].vod_remarks + ' / ' + episode.split('$')[0],
+          title: episode.split('$')[0],
+          season: '',
+          episode: '',
+          info: '',
+          allepisode: json.list[0].vod_play_url
         });
-        filter();
-        append(filtred());
-        //rslt = [];
+        //}
+      });
+      filter();
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -1986,7 +2011,7 @@
         season: [],
         voice: [],
         quality: [],
-        order:[]
+        order: []
       };
 
       if (extract.playlist) {
@@ -2024,7 +2049,7 @@
 
 
     function append(items) {
-      
+
       var _this = this;
       component.reset();
       var viewed = Lampa.Storage.cache('online_view', 5000, []);
@@ -2047,24 +2072,24 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
 
           if (element.file) {
-                var playlist = [];
-                var first = {
-                    url: element.file,
-                    timeline: view,
-                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                    subtitles: element.subtitles
-                };
-                var vodlist = element.allepisode.split('#');
-                vodlist.forEach(function (elem) {
-                  playlist.push({
-                    title: elem.split('$')[0],
-                    url: elem.split('$')[1],
-                    tv: true
-                  });
-                });
-                Lampa.Player.play(first);
-                Lampa.Player.playlist(playlist);
-            
+            var playlist = [];
+            var first = {
+              url: element.file,
+              timeline: view,
+              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+              subtitles: element.subtitles
+            };
+            var vodlist = element.allepisode.split('#');
+            vodlist.forEach(function (elem) {
+              playlist.push({
+                title: elem.split('$')[0],
+                url: elem.split('$')[1],
+                tv: true
+              });
+            });
+            Lampa.Player.play(first);
+            Lampa.Player.playlist(playlist);
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -2102,7 +2127,7 @@
       last_viewed: ''
     };
     var rslt = [];
-    
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -2182,7 +2207,7 @@
         }, false, {
           dataType: 'text',
         });
-      };     
+      };
     };
 
     this.extendChoice = function (saved) {
@@ -2190,7 +2215,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -2263,7 +2288,7 @@
         season: [],
         voice: [],
         quality: [],
-        order:[]
+        order: []
       };
 
       if (extract.playlist) {
@@ -2276,9 +2301,9 @@
 
       if (!filter_items.season[choice.season]) choice.season = 0;
       //console.log('component.order' + component.order)
-      component.order.forEach(function (i){
-                  filter_items.order.push(i.title);
-              });
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -2323,18 +2348,18 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
 
           if (element.file) {
-                var playlist = [];
-                var first = {
-                    url: element.file,
-                    timeline: view,
-                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                    subtitles: element.subtitles
-                };
-                Lampa.Player.play(first);
-                
-                playlist.push(first);
-                Lampa.Player.playlist(playlist);
-            
+            var playlist = [];
+            var first = {
+              url: element.file,
+              timeline: view,
+              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+              subtitles: element.subtitles
+            };
+            Lampa.Player.play(first);
+
+            playlist.push(first);
+            Lampa.Player.playlist(playlist);
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -2371,11 +2396,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -2386,7 +2411,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://zhaoziyuan.la/so?filename=#msearchword';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -2408,9 +2433,9 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
-    
+
     /**
      * Сброс фильтра
      */
@@ -2453,23 +2478,23 @@
     };
 
     function parse(json) {
-        rslt = [];
-        var str = json.replace(/\n/g, '');
-        var h =  $('div.news_text > a', str);
-        $(h).each(function (i, html) {
-          rslt.push({
-            file: 'https://zhaoziyuan.la/'+$(html).attr('href'),
-            quality: $('p',html).text().replace(/类别：(文件|文件夹) \| /g,''),
-            //quality: $('p',html).text().replace(/文件夹/,'目录'),
-            title: $('h3',html).text(),
-            season: '',
-            episode: '',
-            info: ''
+      rslt = [];
+      var str = json.replace(/\n/g, '');
+      var h = $('div.news_text > a', str);
+      $(h).each(function (i, html) {
+        rslt.push({
+          file: 'https://zhaoziyuan.la/' + $(html).attr('href'),
+          quality: $('p', html).text().replace(/类别：(文件|文件夹) \| /g, ''),
+          //quality: $('p',html).text().replace(/文件夹/,'目录'),
+          title: $('h3', html).text(),
+          season: '',
+          episode: '',
+          info: ''
         });
-        });  
+      });
 
-        append(filtred());
-        //rslt = [];
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -2533,17 +2558,17 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
           component.activity.loader(true);
           if (element.file) {
-                // var playlist = [];
-                // var first = {
-                //     url: element.file,
-                //     timeline: view,
-                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                //     subtitles: element.subtitles
-                // };
-                // Lampa.Player.play(first);
-                
-                // playlist.push(first);
-                // Lampa.Player.playlist(playlist);
+            // var playlist = [];
+            // var first = {
+            //     url: element.file,
+            //     timeline: view,
+            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            //     subtitles: element.subtitles
+            // };
+            // Lampa.Player.play(first);
+
+            // playlist.push(first);
+            // Lampa.Player.playlist(playlist);
             network.silent(element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                 var str = json.replace(/\n/g, '');
@@ -2566,7 +2591,7 @@
             }, false, {
               dataType: 'text',
             });
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -2603,11 +2628,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -2618,7 +2643,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://gitcafe.net/tool/alipaper/';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -2643,7 +2668,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -2687,13 +2712,13 @@
     };
 
     function parse(json) {
-        // var str = json.replace(/\n/g, '');
-        // var h =  $('div.news_text > a', str);
-        // $(h).each(function (i, html) {
+      // var str = json.replace(/\n/g, '');
+      // var h =  $('div.news_text > a', str);
+      // $(h).each(function (i, html) {
       rslt = [];
       json.forEach(function (a) {
         rslt.push({
-          file: 'https://www.aliyundrive.com/s/'+a.key,
+          file: 'https://www.aliyundrive.com/s/' + a.key,
           quality: '小纸条-阿里云盘',
           //quality: $('p',html).text().replace(/文件夹/,'目录'),
           title: a.title,
@@ -2702,10 +2727,10 @@
           info: ''
         });
       });
-        //});  
+      //});  
 
-        append(filtred());
-        //rslt = [];
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -2770,17 +2795,17 @@
           component.activity.loader(true);
 
           if (element.file) {
-                // var playlist = [];
-                // var first = {
-                //     url: element.file,
-                //     timeline: view,
-                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                //     subtitles: element.subtitles
-                // };
-                // Lampa.Player.play(first);
-                
-                // playlist.push(first);
-                // Lampa.Player.playlist(playlist);
+            // var playlist = [];
+            // var first = {
+            //     url: element.file,
+            //     timeline: view,
+            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            //     subtitles: element.subtitles
+            // };
+            // Lampa.Player.play(first);
+
+            // playlist.push(first);
+            // Lampa.Player.playlist(playlist);
             // network.silent(element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //     var str = json.replace(/\n/g, '');
@@ -2813,7 +2838,7 @@
               page: 1
             });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -2850,8 +2875,8 @@
       voice: 0,
       last_viewed: ''
     };
-    var rslt    = [];
-    
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -2862,7 +2887,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://yiso.fun/api/search?name=#msearchword&pageNo=1&from=ali';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -2884,7 +2909,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -2928,14 +2953,14 @@
     };
 
     function parse(json) {
-        // var str = json.replace(/\n/g, '');
-        // var h =  $('div.news_text > a', str);
-        // $(h).each(function (i, html) {
+      // var str = json.replace(/\n/g, '');
+      // var h =  $('div.news_text > a', str);
+      // $(h).each(function (i, html) {
       rslt = [];
       json.data.list.forEach(function (a) {
         rslt.push({
           file: a.url,
-          quality: '收录时间: '+a.gmtCreate,
+          quality: '收录时间: ' + a.gmtCreate,
           //quality: $('p',html).text().replace(/文件夹/,'目录'),
           title: a.name.replace(/(<([^>]+)>)/ig, ''),
           season: '',
@@ -2943,10 +2968,10 @@
           info: ''
         });
       });
-        //});  
+      //});  
 
-        append(filtred());
-        //rslt = [];
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -3011,17 +3036,17 @@
           component.activity.loader(true);
 
           if (element.file) {
-                // var playlist = [];
-                // var first = {
-                //     url: element.file,
-                //     timeline: view,
-                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                //     subtitles: element.subtitles
-                // };
-                // Lampa.Player.play(first);
-                
-                // playlist.push(first);
-                // Lampa.Player.playlist(playlist);
+            // var playlist = [];
+            // var first = {
+            //     url: element.file,
+            //     timeline: view,
+            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            //     subtitles: element.subtitles
+            // };
+            // Lampa.Player.play(first);
+
+            // playlist.push(first);
+            // Lampa.Player.playlist(playlist);
             // network.silent(element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //     var str = json.replace(/\n/g, '');
@@ -3054,7 +3079,7 @@
               page: 1
             });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -3091,11 +3116,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -3106,7 +3131,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://t-rex.tzfile.com/?s=#msearchword';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -3132,7 +3157,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -3264,7 +3289,7 @@
           if (element.file) {
             network["native"](element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-               var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+                var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                 element.img = object.movie.img;
                 element.original_title = '';
                 Lampa.Activity.push({
@@ -3287,7 +3312,7 @@
               }
             });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -3324,11 +3349,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -3339,7 +3364,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://t-rex.tzfile.com/wp-admin/admin-ajax.php';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -3364,7 +3389,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -3408,9 +3433,9 @@
     };
 
     function parse(json) {
-        // var str = json.replace(/\n/g, '');
-        // var h =  $('div.news_text > a', str);
-        // $(h).each(function (i, html) {
+      // var str = json.replace(/\n/g, '');
+      // var h =  $('div.news_text > a', str);
+      // $(h).each(function (i, html) {
       rslt = [];
       json.forEach(function (a) {
         rslt.push({
@@ -3423,10 +3448,10 @@
           info: ''
         });
       });
-        //});  
+      //});  
 
-        append(filtred());
-        //rslt = [];
+      append(filtred());
+      //rslt = [];
 
     }
     /**
@@ -3493,7 +3518,7 @@
           if (element.file) {
             network.silent(element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-               var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
+                var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                 element.img = object.movie.img;
                 element.original_title = '';
                 Lampa.Activity.push({
@@ -3512,7 +3537,7 @@
               dataType: 'text',
             });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -3549,11 +3574,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -3564,7 +3589,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'http://www.dydhhy.com/?s=#msearchword';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -3589,7 +3614,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -3742,42 +3767,42 @@
 
             var sources = [];
 
-                    network.silent(element.file, function (str) {
-                        //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
-                            $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
-                            sources.push({
-                                title:  '阿里云盘 - 资源'+(i+1),
-                                url: html.href,
-                            });
-                    });
+            network.silent(element.file, function (str) {
+              //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+              $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
+                sources.push({
+                  title: '阿里云盘 - 资源' + (i + 1),
+                  url: html.href,
+                });
+              });
 
-                    Lampa.Select.show({
-                        title: '阿里云盘',
-                        items: sources,
-                        onSelect: function onSelect(a) {
-                            element.img = object.movie.img;
-                            element.original_title = '';
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '阿里云盘播放',
-                                component: 'yunpan2',
-                                movie: element,
-                                page: 1
-                            });
-                        },
-                        onBack: function onBack() {
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
+              Lampa.Select.show({
+                title: '阿里云盘',
+                items: sources,
+                onSelect: function onSelect(a) {
+                  element.img = object.movie.img;
+                  element.original_title = '';
+                  Lampa.Activity.push({
+                    url: a.url,
+                    title: '阿里云盘播放',
+                    component: 'yunpan2',
+                    movie: element,
+                    page: 1
+                  });
+                },
+                onBack: function onBack() {
+                  Lampa.Controller.toggle('content');
+                }
+              });
 
-                    }, function (a, c) {
-                        component.empty(network.errorDecode(a, c));
-                    }, false, {
-                        dataType: 'text'
-                    });
+            }, function (a, c) {
+              component.empty(network.errorDecode(a, c));
+            }, false, {
+              dataType: 'text'
+            });
 
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -3816,11 +3841,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -3830,8 +3855,8 @@
       object = _object;
       select_title = object.movie.title;
       doreg = rule;
-      var url1 = alistip+'/search?box=#msearchword&url=';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      var url1 = alistip + '/search?box=#msearchword&url=';
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -3855,7 +3880,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -3907,23 +3932,23 @@
 
         //console.log(html)
         //json.forEach(function (a) {
-            //console.log(html.text)
+        //console.log(html.text)
         //if ((html.text != '') || (html.text !='关注小雅的tg频道')){
-            rslt.push({
-            file: html.href,
-            quality: '小雅的Alist',
-            //quality: $('p',html).text().replace(/文件夹/,'目录'),
-            title: html.text,
-            season: '',
-            episode: '',
-            info: '',
-            search_title: select_title
-            });
+        rslt.push({
+          file: html.href,
+          quality: '小雅的Alist',
+          //quality: $('p',html).text().replace(/文件夹/,'目录'),
+          title: html.text,
+          season: '',
+          episode: '',
+          info: '',
+          search_title: select_title
+        });
         //}
         //});
       });
       //删除前两个数组
-      rslt.splice(0,2);
+      rslt.splice(0, 2);
 
       append(filtred());
       rslt = [];
@@ -3989,16 +4014,16 @@
           choice.last_viewed = item_id;
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
           component.activity.loader(true);
-          
+
           element.img = object.movie.img;
-            element.original_title = '';
-            Lampa.Activity.push({
-              url: alistip+'/'+element.title,
-              title: 'Alist - '+ element.search_title,
-              component: 'alist',
-              movie: element,
-              page: 1
-            });
+          element.original_title = '';
+          Lampa.Activity.push({
+            url: alistip + '/' + element.title,
+            title: 'Alist - ' + element.search_title,
+            component: 'alist',
+            movie: element,
+            page: 1
+          });
 
           // if (element.file) {
           //   network.silent(element.file, function (json) {
@@ -4022,7 +4047,7 @@
           //     dataType: 'text',
           //   });
           //   component.loading(false);
-            
+
           //   if (viewed.indexOf(hash_file) == -1) {
           //     viewed.push(hash_file);
           //     item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -4059,11 +4084,11 @@
       voice: 0,
       last_viewed: ''
     };
-      var resp;
-      var search_videos;
-      var find_videos;
-      var rslt    = [];
-    
+    var resp;
+    var search_videos;
+    var find_videos;
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -4074,7 +4099,7 @@
       select_title = object.movie.title;
       doreg = rule;
       var url1 = 'https://alipansou.com/search?k=#msearchword&s=1&t=7';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -4099,7 +4124,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -4145,12 +4170,12 @@
     function parse(json) {
       rslt = [];
       var str = json.replace(/\n/g, '');
-      
+
       var h = $('a[target="_blank"]', str);
-      
+
       $(h).each(function (i, html) {
-          if (($(html).attr('href')).indexOf(/s/) == 0) {
-            //console.log($(html).text())
+        if (($(html).attr('href')).indexOf(/s/) == 0) {
+          //console.log($(html).text())
           rslt.push({
             file: 'https://alipansou.com' + $(html).attr('href'),
             quality: $(html).html().replace(/(<([^>]+)>)/ig, '').match(/时间: (.+?)\s/) ? '收录' + $(html).html().replace(/(<([^>]+)>)/ig, '').match(/时间: (.+?)\s/)[0] : '',
@@ -4160,7 +4185,7 @@
             episode: '',
             info: ''
           });
-          }
+        }
       });
 
       append(filtred());
@@ -4228,18 +4253,18 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
           component.activity.loader(true);
           if (element.file) {
-                // var playlist = [];
-                // var first = {
-                //     url: element.file,
-                //     timeline: view,
-                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                //     subtitles: element.subtitles
-                // };
-                // Lampa.Player.play(first);
-                
-                // playlist.push(first);
-                // Lampa.Player.playlist(playlist);
-            network.native(element.file.replace('/s/','/cv/'), function (json) {
+            // var playlist = [];
+            // var first = {
+            //     url: element.file,
+            //     timeline: view,
+            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            //     subtitles: element.subtitles
+            // };
+            // Lampa.Player.play(first);
+
+            // playlist.push(first);
+            // Lampa.Player.playlist(playlist);
+            network.native(element.file.replace('/s/', '/cv/'), function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                 var link = json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                 element.img = object.movie.img;
@@ -4273,7 +4298,7 @@
             //   page: 1
             // });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -4299,7 +4324,7 @@
     }
   }
 
-  function tg_share_channel(component, _object,tg_channel_name) {
+  function tg_share_channel(component, _object, tg_channel_name) {
     var tg_channel_name = tg_channel_name;
     var network = new Lampa.Reguest();
     var extract = {};
@@ -4311,8 +4336,8 @@
       voice: 0,
       last_viewed: ''
     };
-    var rslt    = [];
-    
+    var rslt = [];
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -4323,8 +4348,8 @@
       select_title = object.movie.title;
       //doreg = rule;
       //Lampa.Utils.checkHttp('proxy.cub.watch/cdn/')+
-      var url1 = 'https://cors.eu.org/https://tx.me/s/'+ tg_channel_name +'?q=#msearchword';
-      url1 = url1.replace('#msearchword',encodeURIComponent(object.movie.title));
+      var url1 = 'https://cors.eu.org/https://tx.me/s/' + tg_channel_name + '?q=#msearchword';
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
       network.timeout(1000 * 15);
@@ -4348,7 +4373,7 @@
     };
 
     this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({origin_order:false,order:0}, saved, true);
+      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
     };
     /**
      * Сброс фильтра
@@ -4390,7 +4415,7 @@
       extract = null;
       rslt = null;
     };
-    
+
     function utc2beijing(utc_datetime) {
       // 转为正常的时间格式 年-月-日 时:分:秒
       var T_pos = utc_datetime.indexOf('T');
@@ -4409,14 +4434,14 @@
 
       // 时间戳转为时间
       var beijing_datetime = new Date(parseInt(timestamp) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
-      return beijing_datetime.replace(/\//g,'-');
+      return beijing_datetime.replace(/\//g, '-');
     };
-    
+
     function parse(json) {
       var str = json.replace(/\n/g, '');
       var h = $('.tgme_widget_message_bubble', str);
       $(h).each(function (i, html) {
-        
+
         if ($(html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
           rslt.push({
             file: $(html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0],
@@ -4464,7 +4489,7 @@
 
 
     function filtred() {
-      
+
       return rslt.reverse();
     }
     /**
@@ -4495,17 +4520,17 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
           component.activity.loader(true);
           if (element.file) {
-                // var playlist = [];
-                // var first = {
-                //     url: element.file,
-                //     timeline: view,
-                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                //     subtitles: element.subtitles
-                // };
-                // Lampa.Player.play(first);
-                
-                // playlist.push(first);
-                // Lampa.Player.playlist(playlist);
+            // var playlist = [];
+            // var first = {
+            //     url: element.file,
+            //     timeline: view,
+            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            //     subtitles: element.subtitles
+            // };
+            // Lampa.Player.play(first);
+
+            // playlist.push(first);
+            // Lampa.Player.playlist(playlist);
             // network.silent(element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //     var str = json.replace(/\n/g, '');
@@ -4538,7 +4563,7 @@
               page: 1
             });
             component.loading(false);
-            
+
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
               item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -4700,7 +4725,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -4876,7 +4901,7 @@
         }
 
         if (inx == -1) inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -5122,9 +5147,9 @@
       network.timeout(10000);
       network["native"](embed + 'embed/' + id, function (str) {
         extractData(str);
-        if (extract.voice.length) call(getChoiceVoice().token);else component.emptyForQuery(select_title);
+        if (extract.voice.length) call(getChoiceVoice().token); else component.emptyForQuery(select_title);
       }, function (a, c) {
-        if (a.status == 404 && a.responseText && a.responseText.indexOf('Видео не найдено') !== -1) component.emptyForQuery(select_title);else component.empty(network.errorDecode(a, c));
+        if (a.status == 404 && a.responseText && a.responseText.indexOf('Видео не найдено') !== -1) component.emptyForQuery(select_title); else component.empty(network.errorDecode(a, c));
       }, false, {
         dataType: 'text'
       });
@@ -5198,7 +5223,7 @@
 
       if (choice.voice_name) {
         var inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -5259,7 +5284,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -5286,8 +5311,8 @@
 
         if (videos) {
           var video = decode(videos[1]),
-              file = '',
-              quality = false;
+            file = '',
+            quality = false;
           var items = extractItems(video);
 
           if (items && items.length) {
@@ -5632,7 +5657,7 @@
             if (_tmp2.length) cards = _tmp2;
           }
 
-          if (cards.length == 1 && is_sure) getPage(cards[0].link);else if (items.length) {
+          if (cards.length == 1 && is_sure) getPage(cards[0].link); else if (items.length) {
             _this.wait_similars = true;
             items.forEach(function (c) {
               c.is_similars = true;
@@ -5909,7 +5934,7 @@
 
       if (choice.voice_name) {
         var inx = voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -5933,7 +5958,7 @@
 
       if (choice.voice_name) {
         var inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -5971,8 +5996,8 @@
       network_call(url, function (json) {
         if (json.url) {
           var video = decode(json.url),
-              file = '',
-              quality = false;
+            file = '',
+            quality = false;
           var items = extractItems(video);
 
           if (items && items.length) {
@@ -6064,7 +6089,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -6265,7 +6290,7 @@
         if (links) {
           var items = links.map(function (l) {
             var link = $(l),
-                titl = link.attr('title') || link.text() || '';
+              titl = link.attr('title') || link.text() || '';
             var year;
             var found = titl.match(/^(.*)\((\d{4})\)$/);
 
@@ -6304,7 +6329,7 @@
             if (_tmp.length) cards = _tmp;
           }
 
-          if (cards.length == 1 && is_sure) getPage(cards[0].link);else if (items.length) {
+          if (cards.length == 1 && is_sure) getPage(cards[0].link); else if (items.length) {
             _this.wait_similars = true;
             items.forEach(function (c) {
               c.is_similars = true;
@@ -6619,14 +6644,14 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
 
     function getStream(element) {
       var file = '',
-          quality = false;
+        quality = false;
       var items = extractItems(element.file, element.voice);
 
       if (items && items.length) {
@@ -6752,7 +6777,7 @@
 
         component.loading(false);
       }, function (a, c) {
-        if (a.status == 404 && a.responseText && a.responseText.indexOf('видео недоступно') !== -1) component.emptyForQuery(select_title);else component.empty(network.errorDecode(a, c));
+        if (a.status == 404 && a.responseText && a.responseText.indexOf('видео недоступно') !== -1) component.emptyForQuery(select_title); else component.empty(network.errorDecode(a, c));
       }, false, {
         dataType: 'text'
       });
@@ -6808,7 +6833,7 @@
 
       try {
         json = find && eval('({' + find[1] + '})');
-      } catch (e) {}
+      } catch (e) { }
 
       if (json) {
         extract = json;
@@ -7090,15 +7115,15 @@
       var url = embed;
       url = Lampa.Utils.addUrlComponent(url, 'token=' + token);
       var url_by_title = Lampa.Utils.addUrlComponent(url, 'search=' + encodeURIComponent(select_title));
-      if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url, 'imdb_id=' + encodeURIComponent(object.movie.imdb_id));else url = url_by_title;
+      if (object.movie.imdb_id) url = Lampa.Utils.addUrlComponent(url, 'imdb_id=' + encodeURIComponent(object.movie.imdb_id)); else url = url_by_title;
       network.clear();
       network.timeout(10000);
       network["native"](url, function (json) {
-        if (json.data && Object.keys(json.data).length) display(json.data);else if (object.movie.imdb_id) {
+        if (json.data && Object.keys(json.data).length) display(json.data); else if (object.movie.imdb_id) {
           network.clear();
           network.timeout(10000);
           network["native"](url_by_title, function (json) {
-            if (json.data && Object.keys(json.data).length) display(json.data);else display({});
+            if (json.data && Object.keys(json.data).length) display(json.data); else display({});
           }, function (a, c) {
             component.empty(network.errorDecode(a, c));
           });
@@ -7173,7 +7198,7 @@
 
       try {
         json = video && JSON.parse(video);
-      } catch (e) {}
+      } catch (e) { }
 
       if (json) {
         extract = json;
@@ -7246,7 +7271,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -7313,7 +7338,7 @@
 
       if (choice.voice_name) {
         var inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -7550,7 +7575,7 @@
           if (_tmp2.length) cards = _tmp2;
         }
 
-        if (cards.length == 1 && is_sure) _this.find(cards[0].id);else if (json.length) {
+        if (cards.length == 1 && is_sure) _this.find(cards[0].id); else if (json.length) {
           _this.wait_similars = true;
           json.forEach(function (c) {
             c.is_similars = true;
@@ -7676,7 +7701,7 @@
             var episode_voice = episode[voice];
             ++transl_id;
             var items = [],
-                epis_num = 0;
+              epis_num = 0;
 
             for (var ID in episode_voice) {
               var file_episod = episode_voice[ID];
@@ -7869,7 +7894,7 @@
 
       if (choice.voice_name) {
         var inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -8249,7 +8274,7 @@
 
       if (choice.voice_name) {
         var inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -8331,7 +8356,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -8677,7 +8702,7 @@
           return 0;
         });
         return items;
-      } catch (e) {}
+      } catch (e) { }
 
       return [];
     }
@@ -8853,7 +8878,7 @@
         }
 
         if (inx == -1) inx = filter_items.voice.indexOf(choice.voice_name);
-        if (inx == -1) choice.voice = 0;else if (inx !== choice.voice) {
+        if (inx == -1) choice.voice = 0; else if (inx !== choice.voice) {
           choice.voice = inx;
         }
       }
@@ -9059,7 +9084,7 @@
       filmix: new filmix(this, object),
       hdvb: new hdvb(this, object),
       videoapi: new videoapi(this, object),
-    //   无名资源: new noname(this, object),
+      //   无名资源: new noname(this, object),
       找资源: new zhaoziyuan(this, object),
       小纸条: new xiaozhitiao(this, object),
       易搜: new yiso(this, object),
@@ -9079,31 +9104,31 @@
     //     霸王龙压制组: new trex(this, object),
     //     小雅的Alist: new xiaoyaalist(this, object),
     //   };
-  
+
     var sname = [];
     var _this5 = this;
 
     if (doregjson.rule !== 'undefined') {
-          doregjson.rule.forEach(function (elem) {
-              sources[elem.name] = new web(_this5, object, elem);
-              sname.push(elem.name);
-          });
+      doregjson.rule.forEach(function (elem) {
+        sources[elem.name] = new web(_this5, object, elem);
+        sname.push(elem.name);
+      });
     };
 
     var tg_sname = [];
     if (doregjson.tg_channel !== 'undefined') {
-          doregjson.tg_channel.forEach(function (elem) {
-              sources[elem.channel_name] = new tg_share_channel(_this5, object, elem.channel_uri);
-              tg_sname.push(elem.channel_name);
-          });
+      doregjson.tg_channel.forEach(function (elem) {
+        sources[elem.channel_name] = new tg_share_channel(_this5, object, elem.channel_uri);
+        tg_sname.push(elem.channel_name);
+      });
     };
 
     var resource_sname = [];
-      if (doregjson.resource_site !== 'undefined') {
-          doregjson.resource_site.forEach(function (elem) {
-              sources[elem.site_name] = new resource_site(_this5, object, elem.site_search_url, elem.site_detail_url);
-              resource_sname.push(elem.site_name);
-          });
+    if (doregjson.resource_site !== 'undefined') {
+      doregjson.resource_site.forEach(function (elem) {
+        sources[elem.site_name] = new resource_site(_this5, object, elem.site_search_url, elem.site_detail_url);
+        resource_sname.push(elem.site_name);
+      });
     };
 
     var last;
@@ -9115,7 +9140,7 @@
       voice: Lampa.Lang.translate('torrent_parser_voice'),
       source: Lampa.Lang.translate('settings_rest_source')
     };
-    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD','找资源', '小纸条', '猫狸盘搜', '易搜', 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD', '找资源', '小纸条', '猫狸盘搜', '易搜', 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -9162,7 +9187,7 @@
       filter.onSelect = function (type, a, b) {
         if (type == 'filter') {
           if (a.reset) {
-            if (extended) sources[balanser].reset();else _this.start();
+            if (extended) sources[balanser].reset(); else _this.start();
           } else {
             sources[balanser].filter(type, a, b);
           }
@@ -9374,10 +9399,10 @@
     // };
 
     this.find = function () {
-        var _this2 = this;
-        var query = object.search || object.movie.title;
-        //_this2.extendChoice_();
-        sources[balanser].search(object, encodeURIComponent(_this2.cleanTitle(query)), '');
+      var _this2 = this;
+      var query = object.search || object.movie.title;
+      //_this2.extendChoice_();
+      sources[balanser].search(object, encodeURIComponent(_this2.cleanTitle(query)), '');
     };
 
     this.parsePlaylist = function (str) {
@@ -9413,7 +9438,7 @@
             }
           });
         }
-      } catch (e) {}
+      } catch (e) { }
 
       return pl;
     };
@@ -9442,7 +9467,7 @@
             height = 0;
           }
         });
-      } catch (e) {}
+      } catch (e) { }
 
       return pl;
     };
@@ -9516,7 +9541,7 @@
 
 
     this.loading = function (status) {
-      if (status) this.activity.loader(true);else {
+      if (status) this.activity.loader(true); else {
         this.activity.loader(false);
         this.activity.toggle();
       }
@@ -9583,7 +9608,7 @@
 
     this.selected = function (filter_items) {
       var need = Lampa.Storage.get('online_mod_filter', '{}'),
-          select = [];
+        select = [];
 
       for (var i in need) {
         if (filter_items[i] && filter_items[i].length) {
@@ -9816,7 +9841,7 @@
 
       if (first_select) {
         var last_views = scroll.render().find('.selector.online').find('.torrent-item__viewed').parent().last();
-        if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0];else last = scroll.render().find('.selector').eq(3)[0];
+        if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0]; else last = scroll.render().find('.selector').eq(3)[0];
       }
 
       Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
@@ -9836,10 +9861,10 @@
           Navigator.move('down');
         },
         right: function right() {
-          if (Navigator.canmove('right')) Navigator.move('right');else filter.show(Lampa.Lang.translate('title_filter'), 'filter');
+          if (Navigator.canmove('right')) Navigator.move('right'); else filter.show(Lampa.Lang.translate('title_filter'), 'filter');
         },
         left: function left() {
-          if (Navigator.canmove('left')) Navigator.move('left');else Lampa.Controller.toggle('menu');
+          if (Navigator.canmove('left')) Navigator.move('left'); else Lampa.Controller.toggle('menu');
         },
         back: this.back
       });
@@ -9854,9 +9879,9 @@
       Lampa.Activity.backward();
     };
 
-    this.pause = function () {};
+    this.pause = function () { };
 
-    this.stop = function () {};
+    this.stop = function () { };
 
     this.destroy = function () {
       network.clear();
@@ -9872,7 +9897,7 @@
       sources.filmix.destroy();
       sources.hdvb.destroy();
       sources.videoapi.destroy();
-    //   sources.无名资源.destroy();
+      //   sources.无名资源.destroy();
       sources.找资源.destroy();
       sources.小纸条.destroy();
       sources.易搜.destroy();
@@ -10213,7 +10238,7 @@
   Lampa.Template.add('settings_filmix', "<div>\n    <div class=\"settings-param selector\" data-name=\"filmix_token\" data-type=\"input\" placeholder=\"#{online_mod_filmix_param_placeholder}\">\n        <div class=\"settings-param__name\">#{online_mod_filmix_param_add_title}</div>\n        <div class=\"settings-param__value\"></div>\n        <div class=\"settings-param__descr\">#{online_mod_filmix_param_add_descr}</div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"filmix_add\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{online_mod_filmix_param_add_device}</div>\n    </div>\n</div>");
   Lampa.Storage.listener.follow('change', function (e) {
     if (e.name == 'filmix_token') {
-      if (e.value) checkPro(e.value);else {
+      if (e.value) checkPro(e.value); else {
         Lampa.Storage.set("filmix_status", {});
         showStatus();
       }
@@ -10228,7 +10253,7 @@
     }
   }
 
-  if (window.appready) addSettingsFilmix();else {
+  if (window.appready) addSettingsFilmix(); else {
     Lampa.Listener.follow('app', function (e) {
       if (e.type == 'ready') addSettingsFilmix();
     });
@@ -10287,7 +10312,7 @@
     var info = Lampa.Lang.translate('online_mod_filmix_nodevice');
 
     if (status.login) {
-      if (status.is_pro) info = status.login + ' - PRO ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date;else if (status.is_pro_plus) info = status.login + ' - PRO_PLUS ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date;else info = status.login + ' - NO PRO';
+      if (status.is_pro) info = status.login + ' - PRO ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date; else if (status.is_pro_plus) info = status.login + ' - PRO_PLUS ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date; else info = status.login + ' - NO PRO';
     }
 
     var field = $(Lampa.Lang.translate("\n        <div class=\"settings-param\" data-name=\"filmix_status\" data-static=\"true\">\n            <div class=\"settings-param__name\">#{online_mod_filmix_status}</div>\n            <div class=\"settings-param__value\">".concat(info, "</div>\n        </div>")));
@@ -10391,7 +10416,7 @@
     }
   }
 
-  if (window.appready) addSettingsOnlineMod();else {
+  if (window.appready) addSettingsOnlineMod(); else {
     Lampa.Listener.follow('app', function (e) {
       if (e.type == 'ready') addSettingsOnlineMod();
     });
