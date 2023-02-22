@@ -126,24 +126,24 @@
         use_referer: false,
         js_execute_key: ['maccms', 'player_aaaa']
       },
-      {
-        name : '网站-乐猪TV[!]',
-        websitelink : 'http://www.lezhutv.com/',
-        listlink : true,
-        use_proxy: false,
-        search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
-        search_json : false,
-        node_json : '',
-        name_json : '',
-        id_json : '',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder : 'play',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer : false,
-        js_execute_key : ['maccms','player_aaaa']
-      },
+      // {
+      //   name : '网站-乐猪TV[!]',
+      //   websitelink : 'http://www.lezhutv.com/',
+      //   listlink : true,
+      //   use_proxy: false,
+      //   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
+      //   search_json : false,
+      //   node_json : '',
+      //   name_json : '',
+      //   id_json : '',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder : 'play',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer : false,
+      //   js_execute_key : ['maccms','player_aaaa']
+      // },
       // {
       //   name : '9亿看看',
       //   websitelink : 'https://www.9eguoyu.com',
@@ -162,26 +162,26 @@
       //   use_referer : false,
       //   js_execute_key : ['maccms','player_aaaa']
       // },
-      {
-        name: '网站-AUETE影视[!]',
-        websitelink: 'https://auete.com',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://auete.com/aueteso.php?searchword=#msearchword',
-        search_json: false,
-        node_json: 'list',
-        name_json: 'name',
-        id_json: 'id',
-        first_page_json: '',
-        search_html_selector: '.subject.break-all',
-        link_folder: '',
-        detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
-        detail_url_selector: '#player_list',
-        videoparse: 'browser',
-        videocontainer: 'div#player',
-        use_referer: false,
-        js_execute_key: [';var vfrom=']
-      },
+      // {
+      //   name: '网站-AUETE影视[!]',
+      //   websitelink: 'https://auete.com',
+      //   listlink: true,
+      //   use_proxy: false,
+      //   search_url: 'https://auete.com/aueteso.php?searchword=#msearchword',
+      //   search_json: false,
+      //   node_json: 'list',
+      //   name_json: 'name',
+      //   id_json: 'id',
+      //   first_page_json: '',
+      //   search_html_selector: '.subject.break-all',
+      //   link_folder: '',
+      //   detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
+      //   detail_url_selector: '#player_list',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: false,
+      //   js_execute_key: [';var vfrom=']
+      // },
       // {
       //   name: '网站-欧乐影视',
       //   websitelink: 'https://www.olevod.com/',
@@ -1107,18 +1107,18 @@
                     window.eval('function base64decode(str){ return atob(str); };' + a);
                   });
 
-                  if (typeof now !== 'undefined') {
-                    var playlist = [];
-                    var first = {
-                      url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
-                      timeline: view,
-                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: element.subtitles
-                    };
-                    Lampa.Player.play(first);
-                    playlist.push(first);
-                    Lampa.Player.playlist(playlist);
-                  };
+                  // if (typeof now !== 'undefined') {
+                  //   var playlist = [];
+                  //   var first = {
+                  //     url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
+                  //     timeline: view,
+                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  //     subtitles: element.subtitles
+                  //   };
+                  //   Lampa.Player.play(first);
+                  //   playlist.push(first);
+                  //   Lampa.Player.playlist(playlist);
+                  // };
 
                   var script_arr = [
                     '/static/js/playerconfig.js',
