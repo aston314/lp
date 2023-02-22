@@ -994,6 +994,7 @@
             function loadingshow() {
               Lampa.Modal.open({
                 title: '',
+                align: 'center',
                 html: Lampa.Template.get('modal_loading'),
                 size: 'small',
                 mask: true,
@@ -1043,6 +1044,7 @@
               iabRef.removeEventListener('exit', iabClose);
               Lampa.Modal.close();
               Lampa.Api.clear();
+              Lampa.Controller.toggle('content');
             };
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (!!window.cordova && doreg.videoparse == 'browser') {
