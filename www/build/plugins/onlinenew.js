@@ -992,7 +992,7 @@
             var videocontainer = doreg.videocontainer;
             var iabRef = null;
             function playershow() {
-              iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
+              iabRef.insertCSS({ code: 'body {background-color: black;}' });
               //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
               //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
               iabRef.executeScript({
