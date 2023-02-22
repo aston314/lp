@@ -177,8 +177,8 @@
         link_folder: '',
         detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
         detail_url_selector: '#player_list',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
+        videoparse: 'browser',
+        videocontainer: 'div#player',
         use_referer: false,
         js_execute_key: [';var vfrom=']
       },
@@ -220,25 +220,25 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      {
-        name : '网站-555电影[!]',
-        websitelink : 'https://www.555dy.me',
-        listlink : true,
-        use_proxy: false,
-        search_url : 'https://www.555dy.me/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-        search_json : true,
-        node_json : 'list',
-        name_json : 'name',
-        id_json : 'id',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder : 'vodplay',
-        detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer : false,
-       js_execute_key : ['maccms','player_aaaa']
-      },
+      // {
+      //   name : '网站-555电影[!]',
+      //   websitelink : 'https://www.555dy.me',
+      //   listlink : true,
+      //   use_proxy: false,
+      //   search_url : 'https://www.555dy.me/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+      //   search_json : true,
+      //   node_json : 'list',
+      //   name_json : 'name',
+      //   id_json : 'id',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder : 'vodplay',
+      //   detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer : false,
+      //  js_execute_key : ['maccms','player_aaaa']
+      // },
       // {
       //   name : '看视界',
       //   websitelink : 'https://www.1080kan.cc',
@@ -1107,18 +1107,18 @@
                     window.eval('function base64decode(str){ return atob(str); };' + a);
                   });
 
-                  // if (typeof now !== 'undefined') {
-                  //   var playlist = [];
-                  //   var first = {
-                  //     url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
-                  //     timeline: view,
-                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  //     subtitles: element.subtitles
-                  //   };
-                  //   Lampa.Player.play(first);
-                  //   playlist.push(first);
-                  //   Lampa.Player.playlist(playlist);
-                  // };
+                  if (typeof now !== 'undefined') {
+                    var playlist = [];
+                    var first = {
+                      url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
+                      timeline: view,
+                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                      subtitles: element.subtitles
+                    };
+                    Lampa.Player.play(first);
+                    playlist.push(first);
+                    Lampa.Player.playlist(playlist);
+                  };
 
                   var script_arr = [
                     '/static/js/playerconfig.js',
