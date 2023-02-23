@@ -1544,6 +1544,9 @@
                         //豆瓣图片域名
                         if (ii.indexOf('doubanio.com') !== -1 && ii.indexOf('://') == 5) {
                             ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
+                        } else if (ii.indexOf('pic.imgdb.cn' !== -1)) {
+                            //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
+                            ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
                         };
                     };
 
