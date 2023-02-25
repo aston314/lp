@@ -1515,5 +1515,85 @@
   "search": {
     "url": ""
   }
+},
+{
+  "title": "蓝光电影网 - 磁力下载",
+  "link": "http://www.languangdy.com",
+  "show": "portrait",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "http://www.languangdy.com/",
+      "quantity": ""
+    },
+    {
+      "title": "Bluray蓝光原盘",
+      "url": "http://www.languangdy.com/Bluray/",
+      "quantity": ""
+    },
+    {
+      "title": "蓝光1080P",
+      "url": "http://www.languangdy.com/1080P/",
+      "quantity": ""
+    },
+    {
+      "title": "4K超高清",
+      "url": "http://www.languangdy.com/4K/",
+      "quantity": ""
+    },
+    {
+      "title": "其他资源",
+      "url": "http://www.languangdy.com/other/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "#post_container a.zoom",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ".pagination"
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": "http://www.languangdy.com/e/search/index.php#msearchword"
+  }
 }
 ]
