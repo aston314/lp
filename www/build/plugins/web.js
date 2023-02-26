@@ -1043,7 +1043,7 @@
         };
         this.next = function (page) {
             var _this2 = this;
-            if (total_pages == 1) waitload = true;
+            if (total_pages == 1 || total_pages == 0) waitload = true;
             if (waitload) return;
             waitload = true;
             object.page++;
