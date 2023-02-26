@@ -1397,6 +1397,111 @@
       }
    },
    {
+  "title": "DYD - 阿里云盘",
+  "link": "http://www.dydhhy.com",
+  "show": "portrait",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "http://www.dydhhy.com/",
+      "quantity": ""
+    },
+    {
+      "title": "电影",
+      "url": "http://www.dydhhy.com/tag/movie/",
+      "quantity": ""
+    },
+    {
+      "title": "剧集",
+      "url": "http://www.dydhhy.com/tag/tv/",
+      "quantity": ""
+    },
+    {
+      "title": "美剧",
+      "url": "http://www.dydhhy.com/tag/%E7%BE%8E%E5%89%A7/",
+      "quantity": ""
+    },
+    {
+      "title": "日剧",
+      "url": "http://www.dydhhy.com/tag/%e6%97%a5%e5%89%a7/",
+      "quantity": ""
+    },
+    {
+      "title": "英剧",
+      "url": "http://www.dydhhy.com/tag/%E8%8B%B1%E5%89%A7/",
+      "quantity": ""
+    },
+    {
+      "title": "韩剧",
+      "url": "http://www.dydhhy.com/tag/%E9%9F%A9%E5%89%A7/",
+      "quantity": ""
+    },
+    {
+      "title": "2023年",
+      "url": "http://www.dydhhy.com/tag/2023/",
+      "quantity": ""
+    },
+    {
+      "title": "2022年",
+      "url": "http://www.dydhhy.com/tag/2022/",
+      "quantity": ""
+    },
+    {
+      "title": "2021年",
+      "url": "http://www.dydhhy.com/tag/2021/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": ".thumbnail-link",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": ".thumbnail-wrap img",
+      "attrName": "alt",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": ".thumbnail-wrap img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ".nav-links"
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[href*=\"www.aliyundrive.com\"]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": "http://www.dydhhy.com/?s=#msearchword"
+  }
+},
+   {
       "title":"Ahhhhfs - 阿里云盘",
       "link":"https://www.ahhhhfs.com/",
       "show":"landscape",
