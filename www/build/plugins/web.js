@@ -1505,7 +1505,7 @@
                     if (typeof tt === 'undefined') return;
                     tt = catalogs1[0].list.title.filter !== '' ? (tt.match(new RegExp(catalogs1[0].list.title.filter)) ? tt.match(new RegExp(catalogs1[0].list.title.filter))[1] : tt) : tt;
                     //正则表达式来获取第一个空格前的字符
-                    //tt = tt.match(/^[^ ]+/) ? tt.match(/^[^ ]+/)[0] : tt;
+                    //tt = tt.match(/^[^ ]+(?=.*\s)|^[^ ]+/) ? tt.match(/^[^ ]+(?=.*\s)|^[^ ]+/)[0] : tt;
                     //console.log(tt)
                     //var tt1 = catalogs1[0].list.title.attrName == 'text' ? t1.text() : t1.attr(catalogs1[0].list.title.attrName);
                     //tt = catalogs1[0].list.title.filter !== '' ? (tt1.match(new RegExp(catalogs1[0].list.title.filter)) ? tt1.match(new RegExp(catalogs1[0].list.title.filter))[1] : tt1) : tt1;
@@ -1547,7 +1547,8 @@
                         //豆瓣图片域名
                         if (ii.indexOf('doubanio.com') !== -1 && ii.indexOf('://') == 5) {
                             ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
-                        } else if (ii.indexOf('pic.imgdb.cn' !== -1)) {
+                        } else if (ii.indexOf('pic.imgdb.cn') !== -1) {
+                            //console.log(ii.indexOf('www.dydhhy.com'))
                             //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
                             ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
                         };
