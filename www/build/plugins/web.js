@@ -1043,7 +1043,7 @@
         };
         this.next = function (page) {
             var _this2 = this;
-            if (total_pages == 0) waitload = true;
+            if (total_pages == 1) waitload = true;
             if (waitload) return;
             waitload = true;
             object.page++;
@@ -1435,6 +1435,7 @@
                 var h = $(v + object.quantity, str);
                 //console.log(h)
                 total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
+                //console.log('总分页',total_pages)
 
 
                 var position = object.url.indexOf('http');
@@ -1503,6 +1504,8 @@
                     };
                     if (typeof tt === 'undefined') return;
                     tt = catalogs1[0].list.title.filter !== '' ? (tt.match(new RegExp(catalogs1[0].list.title.filter)) ? tt.match(new RegExp(catalogs1[0].list.title.filter))[1] : tt) : tt;
+                    //正则表达式来获取第一个空格前的字符
+                    //tt = tt.match(/^[^ ]+/) ? tt.match(/^[^ ]+/)[0] : tt;
                     //console.log(tt)
                     //var tt1 = catalogs1[0].list.title.attrName == 'text' ? t1.text() : t1.attr(catalogs1[0].list.title.attrName);
                     //tt = catalogs1[0].list.title.filter !== '' ? (tt1.match(new RegExp(catalogs1[0].list.title.filter)) ? tt1.match(new RegExp(catalogs1[0].list.title.filter))[1] : tt1) : tt1;
