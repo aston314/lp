@@ -28,6 +28,99 @@
       };
 
       this.create = function () {
+        if (object.type == 'play') {
+          //console.log(object);
+          this.activity.loader(true);
+          
+          Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:40px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:60px;height:60px;border:none;border-radius:50%;background-color:#e74c3c;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/ffffff/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://danialsabagh.com/singleaudioplayer/img/pause.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background-color:#e74c3c;border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:"+object.content.imgUrl+"\" alt=\"电台Logo\"></div><audio id=\"audio-player\" src=\""+object.url+"\"></audio><button id=\"play-pause-button\" class=\"play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">"+object.content.desc+"</div></div></div>");
+          Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
+          var btn = Lampa.Template.get('play_list');
+          //info = Lampa.Template.get('play_list');
+
+          // var btn = Lampa.Template.get('button_category');
+          info = Lampa.Template.get('info_web');
+          info.find('#web_filtr').append(btn);
+          
+          //var audioPlayer = document.getElementById("audio-player");
+          var audioPlayer;
+          var playPauseButton = info.find("#play-pause-button");
+          //console.log(audioPlayer,playPauseButton)
+          audioPlayer = info.find("#audio-player")[0];
+            info.find('#play-pause-button').on('hover:enter click', function() {
+              
+              //console.log(audioPlayer,'音乐源')
+
+            // 初始化HLS.js
+            if (Hls.isSupported()) {
+              var hls = new Hls();
+              hls.loadSource(object.url);
+              hls.attachMedia(audioPlayer);
+              hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                audioPlayer.play();
+              });
+            } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
+              audioPlayer.src = object.url;
+            }
+
+            // 自动播放
+  // audioPlayer.addEventListener("canplay", function() {
+    audioPlayer.play();
+    //   playPauseButton.removeClass("play").addClass("pause");
+    // });
+
+    // 播放和暂停音频
+          playPauseButton.on("click", function() {
+            if (audioPlayer.paused) {
+              audioPlayer.play();
+              playPauseButton.removeClass("play").addClass("pause");
+            } else {
+              audioPlayer.pause();
+              playPauseButton.removeClass("pause").addClass("play");
+            }
+          });
+
+              //console.log('fff')
+              // if (audioPlayer.paused) {
+              //   audioPlayer.play();
+              //   playPauseButton.removeClass("play").addClass("pause");
+              // } else {
+              //   audioPlayer.pause();
+              //   playPauseButton.removeClass("pause").addClass("play");
+              // }
+			});
+      // 更新进度条
+      //audioPlayer = info.find("#audio-player")[0];
+      var progressBar = info.find("#progress");
+      
+    audioPlayer.addEventListener("loadedmetadata", function() {
+      audioPlayer.addEventListener("timeupdate", function() {
+          var currentTime = audioPlayer.currentTime;
+          var duration = audioPlayer.duration;
+        
+          var minutes = Math.floor(currentTime / 60);
+          var seconds = Math.floor(currentTime % 60);
+        
+          var durationMinutes = Math.floor(duration / 60);
+          var durationSeconds = Math.floor(duration % 60);
+        
+          var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+          //console.log(progress)
+          progressBar.css("width", progress + "%");
+        
+          // 更新进度条文本
+          $(".progress-text").text(
+            //("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
+            ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
+          );
+        });
+      });
+
+          html.append(info);
+            html.append(scroll.render());
+            scroll.append(body);
+            this.activity.loader(false);
+            this.activity.toggle();
+        } else {
         var postdata;
         if (object.keyword){
             postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:1, include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};
@@ -49,6 +142,8 @@
           _this.activity.toggle();
         }, postdata);
         return this.render();
+      }
+        
       };
 
       this.next = function () {
@@ -174,25 +269,33 @@
 
 //           });
           card.on('hover:enter', function (target, card_data) {
-            var video = {
-                title: element.title,
-                //url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
-                url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
-                tv: true
-            };
-            var playlist = [];
-            //http://lhttp.qingting.fm/live/
-            //https://lhttp.qtfm.cn/live/
-              data.forEach(function (elem) {
-                  playlist.push({
-                    title: elem.title,
-                    //url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
-                    url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
-                    tv: true
-                  });
-              });
-            Lampa.Player.play(video);
-            Lampa.Player.playlist(playlist);
+            // var video = {
+            //     title: element.title,
+            //     //url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
+            //     url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
+            //     tv: true
+            // };
+            // var playlist = [];
+            // //http://lhttp.qingting.fm/live/
+            // //https://lhttp.qtfm.cn/live/
+            //   data.forEach(function (elem) {
+            //       playlist.push({
+            //         title: elem.title,
+            //         //url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
+            //         url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
+            //         tv: true
+            //       });
+            //   });
+            // Lampa.Player.play(video);
+            // Lampa.Player.playlist(playlist);
+            Lampa.Activity.push({
+                                url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
+                                title: '蜻蜓FM - ' + element.title,
+                                component: 'qingtingfm',
+                                type: 'play',
+                                content: element,
+                                page: 1
+                            });
           });
 
           body.append(card);
