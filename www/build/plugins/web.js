@@ -1545,7 +1545,7 @@
                     if (Lampa.Storage.field('douban_img_proxy')) {
                         //console.log(ii.indexOf('://'))
                         //豆瓣图片域名
-                        if (ii.indexOf('doubanio.com') !== -1 && ii.indexOf('://') == 5) {
+                        if (/doubanio\.com|img\.yts\.mx/.test(ii) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(ii) ) {//ii.indexOf('://') == 5
                             ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
                         } else if (ii.indexOf('pic.imgdb.cn') !== -1) {
                             //console.log(ii.indexOf('www.dydhhy.com'))
