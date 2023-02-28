@@ -246,183 +246,183 @@
       }
    },
    {
-  "title": "霸王龙压制组",
-  "link": "https://t-rex.tzfile.com",
-  "show": "portrait",
-  "next": "search",
-  "datasort": "",
-  "use_referer": true,
-  "category": [
-    {
-      "title": "首页",
-      "url": "https://t-rex.tzfile.com",
-      "quantity": ""
-    },
-    {
-      "title": "电影",
-      "url": "https://t-rex.tzfile.com/movies",
-      "quantity": ""
-    },
-    {
-      "title": "美剧",
-      "url": "https://t-rex.tzfile.com/meiju",
-      "quantity": ""
-    },
-    {
-      "title": "韩剧",
-      "url": "https://t-rex.tzfile.com/hanju",
-      "quantity": ""
-    },
-    {
-      "title": "日剧",
-      "url": "https://t-rex.tzfile.com/riju",
-      "quantity": ""
-    },
-    {
-      "title": "英剧",
-      "url": "https://t-rex.tzfile.com/yingju",
-      "quantity": ""
-    },
-    {
-      "title": "泰剧",
-      "url": "https://t-rex.tzfile.com/taiju",
-      "quantity": ""
-    },
-    {
-      "title": "动画",
-      "url": "https://t-rex.tzfile.com/animation",
-      "quantity": ""
-    },
-    {
-      "title": "纪录片",
-      "url": "https://t-rex.tzfile.com/faction",
-      "quantity": ""
-    },
-    {
-      "title": "真人秀综艺",
-      "url": "https://t-rex.tzfile.com/show",
-      "quantity": ""
-    },
-    {
-      "title": "其他剧",
-      "url": "https://t-rex.tzfile.com/qitaju",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "div.placeholder",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "a",
-      "attrName": "title",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": "img",
-      "attrName": "data-src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "a",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ".pagination"
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "title",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": "https://t-rex.tzfile.com/?s=#msearchword"
-  }
-},
-   {
-      "title": "低端影视",
-      "link": "https://ddys.one",
-      "show": "portrait",
-      "next": "search",
-      "datasort": "",
-      "use_referer": true,
-      "category": [
-          {
-              "title": "电影",
-              "url": "https://ddys.one/category/movie/",
-              "quantity": ""
-          },
-          {
-              "title": "剧集",
-              "url": "https://ddys.one/category/airing/",
-              "quantity": ""
-          },
-          {
-              "title": "欧美剧",
-              "url": "https://ddys.one/category/drama/western-drama/",
-              "quantity": ""
-          },
-          {
-              "title": "韩剧",
-              "url": "https://ddys.one/category/drama/kr-drama/",
-              "quantity": ""
-          },
-          {
-              "title": "日剧",
-              "url": "https://ddys.one/category/drama/jp-drama/",
-              "quantity": ""
-          },
-          {
-              "title": "动画",
-              "url": "https://ddys.one/category/anime/",
-              "quantity": ""
-          }
+      "title":"霸王龙压制组",
+      "link":"https://t-rex.tzfile.com",
+      "show":"portrait",
+      "next":"search",
+      "datasort":"",
+      "use_referer":true,
+      "category":[
+         {
+            "title":"首页",
+            "url":"https://t-rex.tzfile.com",
+            "quantity":""
+         },
+         {
+            "title":"电影",
+            "url":"https://t-rex.tzfile.com/movies",
+            "quantity":""
+         },
+         {
+            "title":"美剧",
+            "url":"https://t-rex.tzfile.com/meiju",
+            "quantity":""
+         },
+         {
+            "title":"韩剧",
+            "url":"https://t-rex.tzfile.com/hanju",
+            "quantity":""
+         },
+         {
+            "title":"日剧",
+            "url":"https://t-rex.tzfile.com/riju",
+            "quantity":""
+         },
+         {
+            "title":"英剧",
+            "url":"https://t-rex.tzfile.com/yingju",
+            "quantity":""
+         },
+         {
+            "title":"泰剧",
+            "url":"https://t-rex.tzfile.com/taiju",
+            "quantity":""
+         },
+         {
+            "title":"动画",
+            "url":"https://t-rex.tzfile.com/animation",
+            "quantity":""
+         },
+         {
+            "title":"纪录片",
+            "url":"https://t-rex.tzfile.com/faction",
+            "quantity":""
+         },
+         {
+            "title":"真人秀综艺",
+            "url":"https://t-rex.tzfile.com/show",
+            "quantity":""
+         },
+         {
+            "title":"其他剧",
+            "url":"https://t-rex.tzfile.com/qitaju",
+            "quantity":""
+         }
       ],
-      "list": {
-          "page": {
-              "selector": ".nav-links"
-          },
-          "videoscontainer": {
-              "selector": "div.post-box-container",
-              "attrName": "",
-              "filter": ""
-          },
-          "title": {
-              "selector": "h2 > a",
-              "attrName": "text",
-              "filter": "(.+?) \\("
-          },
-          "thumb": {
-              "selector": "",
-              "attrName": "html",
-              "filter": "[\"|(](/.+?.jpg)"
-          },
-          "link": {
-              "selector": "h2 > a",
-              "attrName": "href",
-              "filter": ""
-          }
+      "list":{
+         "videoscontainer":{
+            "selector":"div.placeholder",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"a",
+            "attrName":"title",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"img",
+            "attrName":"data-src",
+            "filter":""
+         },
+         "link":{
+            "selector":"a",
+            "attrName":"href",
+            "filter":""
+         },
+         "page":{
+            "selector":".pagination"
+         }
       },
-      "search": {
-          "url": ""
+      "detail":{
+         "videoscontainer":{
+            "selector":"",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"title",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"https://t-rex.tzfile.com/?s=#msearchword"
       }
-  },
+   },
+   {
+      "title":"低端影视",
+      "link":"https://ddys.one",
+      "show":"portrait",
+      "next":"search",
+      "datasort":"",
+      "use_referer":true,
+      "category":[
+         {
+            "title":"电影",
+            "url":"https://ddys.one/category/movie/",
+            "quantity":""
+         },
+         {
+            "title":"剧集",
+            "url":"https://ddys.one/category/airing/",
+            "quantity":""
+         },
+         {
+            "title":"欧美剧",
+            "url":"https://ddys.one/category/drama/western-drama/",
+            "quantity":""
+         },
+         {
+            "title":"韩剧",
+            "url":"https://ddys.one/category/drama/kr-drama/",
+            "quantity":""
+         },
+         {
+            "title":"日剧",
+            "url":"https://ddys.one/category/drama/jp-drama/",
+            "quantity":""
+         },
+         {
+            "title":"动画",
+            "url":"https://ddys.one/category/anime/",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":".nav-links"
+         },
+         "videoscontainer":{
+            "selector":"div.post-box-container",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"h2 > a",
+            "attrName":"text",
+            "filter":"(.+?) \\("
+         },
+         "thumb":{
+            "selector":"",
+            "attrName":"html",
+            "filter":"[\"|(](/.+?.jpg)"
+         },
+         "link":{
+            "selector":"h2 > a",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":""
+      }
+   },
    {
       "title":"在线之家",
       "link":"https://www.zxzj.org",
@@ -1164,182 +1164,181 @@
          "url":"https://www.yinfans.me/?s=#msearchword"
       }
    },
-   ,
-{
-  "title": "蓝光电影网 - 磁力下载",
-  "link": "http://www.languangdy.com",
-  "show": "portrait",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "首页",
-      "url": "http://www.languangdy.com/",
-      "quantity": ""
-    },
-    {
-      "title": "Bluray蓝光原盘",
-      "url": "http://www.languangdy.com/Bluray/",
-      "quantity": ""
-    },
-    {
-      "title": "蓝光1080P",
-      "url": "http://www.languangdy.com/1080P/",
-      "quantity": ""
-    },
-    {
-      "title": "4K超高清",
-      "url": "http://www.languangdy.com/4K/",
-      "quantity": ""
-    },
-    {
-      "title": "其他资源",
-      "url": "http://www.languangdy.com/other/",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "#post_container a.zoom",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "title",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": "img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ".pagination"
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": "http://www.languangdy.com/e/search/index.php#msearchword"
-  }
-},
-{
-  "title": "4K HDR - 磁力下载",
-  "link": "https://4khdr.cn",
-  "show": "portrait",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "首页",
-      "url": "https://4khdr.cn",
-      "quantity": ""
-    },
-    {
-      "title": "4K电影",
-      "url": "https://4khdr.cn/forumtype-2-3-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "4K电视剧",
-      "url": "https://4khdr.cn/forumtype-2-8-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "4K动画片",
-      "url": "https://4khdr.cn/forumtype-2-6-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "4K纪录片",
-      "url": "https://4khdr.cn/forumtype-2-11-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "4K陆港台",
-      "url": "https://4khdr.cn/forumtype-2-15-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "4K日韩印",
-      "url": "https://4khdr.cn/forumtype-2-4-1.html",
-      "quantity": ""
-    },
-    {
-      "title": "1080抢鲜看",
-      "url": "https://4khdr.cn/forumtype-2-14-1.html",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "div.c.cl > a",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "title",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": "img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": "span#fd_page_bottom"
-    }
-  },
-  "search": {
-    "url": ""
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "div#postlist td > table > tbody > tr > td > div a",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  }
-},
+   {
+      "title":"蓝光电影网 - 磁力下载",
+      "link":"http://www.languangdy.com",
+      "show":"portrait",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"http://www.languangdy.com/",
+            "quantity":""
+         },
+         {
+            "title":"Bluray蓝光原盘",
+            "url":"http://www.languangdy.com/Bluray/",
+            "quantity":""
+         },
+         {
+            "title":"蓝光1080P",
+            "url":"http://www.languangdy.com/1080P/",
+            "quantity":""
+         },
+         {
+            "title":"4K超高清",
+            "url":"http://www.languangdy.com/4K/",
+            "quantity":""
+         },
+         {
+            "title":"其他资源",
+            "url":"http://www.languangdy.com/other/",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "videoscontainer":{
+            "selector":"#post_container a.zoom",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"title",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         },
+         "page":{
+            "selector":".pagination"
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"http://www.languangdy.com/e/search/index.php#msearchword"
+      }
+   },
+   {
+      "title":"4K HDR - 磁力下载",
+      "link":"https://4khdr.cn",
+      "show":"portrait",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"https://4khdr.cn",
+            "quantity":""
+         },
+         {
+            "title":"4K电影",
+            "url":"https://4khdr.cn/forumtype-2-3-1.html",
+            "quantity":""
+         },
+         {
+            "title":"4K电视剧",
+            "url":"https://4khdr.cn/forumtype-2-8-1.html",
+            "quantity":""
+         },
+         {
+            "title":"4K动画片",
+            "url":"https://4khdr.cn/forumtype-2-6-1.html",
+            "quantity":""
+         },
+         {
+            "title":"4K纪录片",
+            "url":"https://4khdr.cn/forumtype-2-11-1.html",
+            "quantity":""
+         },
+         {
+            "title":"4K陆港台",
+            "url":"https://4khdr.cn/forumtype-2-15-1.html",
+            "quantity":""
+         },
+         {
+            "title":"4K日韩印",
+            "url":"https://4khdr.cn/forumtype-2-4-1.html",
+            "quantity":""
+         },
+         {
+            "title":"1080抢鲜看",
+            "url":"https://4khdr.cn/forumtype-2-14-1.html",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "videoscontainer":{
+            "selector":"div.c.cl > a",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"title",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         },
+         "page":{
+            "selector":"span#fd_page_bottom"
+         }
+      },
+      "search":{
+         "url":""
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":"div#postlist td > table > tbody > tr > td > div a",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         }
+      }
+   },
    {
       "title":"阿里云盘发布频道",
       "link":"https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
@@ -1573,110 +1572,110 @@
       }
    },
    {
-  "title": "DYD - 阿里云盘",
-  "link": "http://www.dydhhy.com",
-  "show": "landscape",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "首页",
-      "url": "http://www.dydhhy.com/",
-      "quantity": ""
-    },
-    {
-      "title": "电影",
-      "url": "http://www.dydhhy.com/tag/movie/",
-      "quantity": ""
-    },
-    {
-      "title": "剧集",
-      "url": "http://www.dydhhy.com/tag/tv/",
-      "quantity": ""
-    },
-    {
-      "title": "美剧",
-      "url": "http://www.dydhhy.com/tag/%E7%BE%8E%E5%89%A7/",
-      "quantity": ""
-    },
-    {
-      "title": "日剧",
-      "url": "http://www.dydhhy.com/tag/%e6%97%a5%e5%89%a7/",
-      "quantity": ""
-    },
-    {
-      "title": "英剧",
-      "url": "http://www.dydhhy.com/tag/%E8%8B%B1%E5%89%A7/",
-      "quantity": ""
-    },
-    {
-      "title": "韩剧",
-      "url": "http://www.dydhhy.com/tag/%E9%9F%A9%E5%89%A7/",
-      "quantity": ""
-    },
-    {
-      "title": "2023年",
-      "url": "http://www.dydhhy.com/tag/2023/",
-      "quantity": ""
-    },
-    {
-      "title": "2022年",
-      "url": "http://www.dydhhy.com/tag/2022/",
-      "quantity": ""
-    },
-    {
-      "title": "2021年",
-      "url": "http://www.dydhhy.com/tag/2021/",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": ".thumbnail-link",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": ".thumbnail-wrap img",
-      "attrName": "alt",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": ".thumbnail-wrap img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ".nav-links"
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "a[href*=\"www.aliyundrive.com\"]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": "http://www.dydhhy.com/?s=#msearchword"
-  }
-},
+      "title":"DYD - 阿里云盘",
+      "link":"http://www.dydhhy.com",
+      "show":"landscape",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"http://www.dydhhy.com/",
+            "quantity":""
+         },
+         {
+            "title":"电影",
+            "url":"http://www.dydhhy.com/tag/movie/",
+            "quantity":""
+         },
+         {
+            "title":"剧集",
+            "url":"http://www.dydhhy.com/tag/tv/",
+            "quantity":""
+         },
+         {
+            "title":"美剧",
+            "url":"http://www.dydhhy.com/tag/%E7%BE%8E%E5%89%A7/",
+            "quantity":""
+         },
+         {
+            "title":"日剧",
+            "url":"http://www.dydhhy.com/tag/%e6%97%a5%e5%89%a7/",
+            "quantity":""
+         },
+         {
+            "title":"英剧",
+            "url":"http://www.dydhhy.com/tag/%E8%8B%B1%E5%89%A7/",
+            "quantity":""
+         },
+         {
+            "title":"韩剧",
+            "url":"http://www.dydhhy.com/tag/%E9%9F%A9%E5%89%A7/",
+            "quantity":""
+         },
+         {
+            "title":"2023年",
+            "url":"http://www.dydhhy.com/tag/2023/",
+            "quantity":""
+         },
+         {
+            "title":"2022年",
+            "url":"http://www.dydhhy.com/tag/2022/",
+            "quantity":""
+         },
+         {
+            "title":"2021年",
+            "url":"http://www.dydhhy.com/tag/2021/",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "videoscontainer":{
+            "selector":".thumbnail-link",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":".thumbnail-wrap img",
+            "attrName":"alt",
+            "filter":""
+         },
+         "thumb":{
+            "selector":".thumbnail-wrap img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         },
+         "page":{
+            "selector":".nav-links"
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":"a[href*=\"www.aliyundrive.com\"]",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"http://www.dydhhy.com/?s=#msearchword"
+      }
+   },
    {
       "title":"Ahhhhfs - 阿里云盘",
       "link":"https://www.ahhhhfs.com/",
@@ -1737,64 +1736,64 @@
          "url":"https://www.ahhhhfs.com/?cat=16&s=#msearchword"
       }
    },
-{
-  "title": "体育 - 24看球网",
-  "link": "https://www.24kanqiu.com",
-  "show": "minilandscape",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "首页",
-      "url": "https://www.24kanqiu.com",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": ".listDec a",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": ".home_team img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ""
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "a[data-url]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "data-url",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": ""
-  }
-}
+   {
+      "title":"体育 - 24看球网",
+      "link":"https://www.24kanqiu.com",
+      "show":"minilandscape",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"https://www.24kanqiu.com",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "videoscontainer":{
+            "selector":".listDec a",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"text",
+            "filter":""
+         },
+         "thumb":{
+            "selector":".home_team img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"href",
+            "filter":""
+         },
+         "page":{
+            "selector":""
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":"a[data-url]",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"",
+            "attrName":"data-url",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":""
+      }
+   }
 ]
