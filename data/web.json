@@ -1164,6 +1164,182 @@
          "url":"https://www.yinfans.me/?s=#msearchword"
       }
    },
+   ,
+{
+  "title": "蓝光电影网 - 磁力下载",
+  "link": "http://www.languangdy.com",
+  "show": "portrait",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "http://www.languangdy.com/",
+      "quantity": ""
+    },
+    {
+      "title": "Bluray蓝光原盘",
+      "url": "http://www.languangdy.com/Bluray/",
+      "quantity": ""
+    },
+    {
+      "title": "蓝光1080P",
+      "url": "http://www.languangdy.com/1080P/",
+      "quantity": ""
+    },
+    {
+      "title": "4K超高清",
+      "url": "http://www.languangdy.com/4K/",
+      "quantity": ""
+    },
+    {
+      "title": "其他资源",
+      "url": "http://www.languangdy.com/other/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "#post_container a.zoom",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ".pagination"
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": "http://www.languangdy.com/e/search/index.php#msearchword"
+  }
+},
+{
+  "title": "4K HDR - 磁力下载",
+  "link": "https://4khdr.cn",
+  "show": "portrait",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "https://4khdr.cn",
+      "quantity": ""
+    },
+    {
+      "title": "4K电影",
+      "url": "https://4khdr.cn/forumtype-2-3-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K电视剧",
+      "url": "https://4khdr.cn/forumtype-2-8-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K动画片",
+      "url": "https://4khdr.cn/forumtype-2-6-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K纪录片",
+      "url": "https://4khdr.cn/forumtype-2-11-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K陆港台",
+      "url": "https://4khdr.cn/forumtype-2-15-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K日韩印",
+      "url": "https://4khdr.cn/forumtype-2-4-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "1080抢鲜看",
+      "url": "https://4khdr.cn/forumtype-2-14-1.html",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "div.c.cl > a",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": "span#fd_page_bottom"
+    }
+  },
+  "search": {
+    "url": ""
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "div#postlist td > table > tbody > tr > td > div a",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
+  }
+},
    {
       "title":"阿里云盘发布频道",
       "link":"https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
@@ -1619,86 +1795,6 @@
   },
   "search": {
     "url": ""
-  }
-},
-{
-  "title": "蓝光电影网 - 磁力下载",
-  "link": "http://www.languangdy.com",
-  "show": "portrait",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "首页",
-      "url": "http://www.languangdy.com/",
-      "quantity": ""
-    },
-    {
-      "title": "Bluray蓝光原盘",
-      "url": "http://www.languangdy.com/Bluray/",
-      "quantity": ""
-    },
-    {
-      "title": "蓝光1080P",
-      "url": "http://www.languangdy.com/1080P/",
-      "quantity": ""
-    },
-    {
-      "title": "4K超高清",
-      "url": "http://www.languangdy.com/4K/",
-      "quantity": ""
-    },
-    {
-      "title": "其他资源",
-      "url": "http://www.languangdy.com/other/",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "#post_container a.zoom",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "title",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": "img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ".pagination"
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "href",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": "http://www.languangdy.com/e/search/index.php#msearchword"
   }
 }
 ]
