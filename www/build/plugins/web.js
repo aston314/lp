@@ -1061,7 +1061,16 @@
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
-                page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
+                const regex = /page=(\d+)/;  // 正则表达式
+                const match = page.match(regex);  // 使用 match() 方法来匹配
+
+                if (match) {
+                    //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
+                    page = page.replace('page=' + match[1], 'page=' + match[1]++)
+                } else {
+                    page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
+
+                }
             }
             //console.log(page);
             //console.log(object)
@@ -1467,7 +1476,7 @@
                 //console.log(object.search)
                 if (page) {
                     if (page.indexOf('http') == -1) {
-                        page = host + page;
+                        page = host + (page.startsWith('/') ? page : '/'+ page);
                     };
                     if (page.indexOf('#') !== -1) {
                         page = object.url;
@@ -1521,7 +1530,7 @@
                             uu = u1.html();
                             break;
                         default:
-                            uu = u1.attr(catalogs1[0].list.link.attrName).indexOf('http') == -1 ? host + u1.attr(catalogs1[0].list.link.attrName) : u1.attr(catalogs1[0].list.link.attrName);
+                            uu = u1.attr(catalogs1[0].list.link.attrName).indexOf('http') == -1 ? host + (u1.attr(catalogs1[0].list.link.attrName).startsWith('/') ? u1.attr(catalogs1[0].list.link.attrName) : '/' + u1.attr(catalogs1[0].list.link.attrName)) : u1.attr(catalogs1[0].list.link.attrName);
                     };
                     uu = catalogs1[0].list.link.filter !== '' ? (uu.match(new RegExp(catalogs1[0].list.link.filter)) ? uu.match(new RegExp(catalogs1[0].list.link.filter))[1] : uu) : uu;
                     //console.log(uu)
@@ -1534,7 +1543,7 @@
                             ii = i1.html();
                             break;
                         default:
-                            ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)) : '';
+                            ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + (i1.attr(catalogs1[0].list.thumb.attrName).startsWith('/') ? i1.attr(catalogs1[0].list.thumb.attrName) : '/' + i1.attr(catalogs1[0].list.thumb.attrName)) : i1.attr(catalogs1[0].list.thumb.attrName)) : '';
                     };
 
 
@@ -1545,7 +1554,7 @@
                     if (Lampa.Storage.field('douban_img_proxy')) {
                         //console.log(ii.indexOf('://'))
                         //豆瓣图片域名
-                        if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(ii) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(ii) ) {//ii.indexOf('://') == 5
+                        if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(ii) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(ii)) {//ii.indexOf('://') == 5
                             ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
                         } else if (ii.indexOf('pic.imgdb.cn') !== -1) {
                             //console.log(ii.indexOf('www.dydhhy.com'))
