@@ -1,14 +1,14 @@
 [
    {
   "title": "4K HDR - 磁力下载",
-  "link": "https://4khdr.cn",
+  "link": "https://4khdr.cn/",
   "show": "portrait",
-  "next": "search",
+  "next": "detail",
   "datasort": "",
   "use_referer": false,
   "category": [
     {
-      "title": "最新资源",
+      "title": "首页",
       "url": "https://4khdr.cn",
       "quantity": ":"
     },
@@ -50,7 +50,7 @@
   ],
   "list": {
     "videoscontainer": {
-      "selector": "a.z",
+      "selector": "div.c.cl > a",
       "attrName": "",
       "filter": ""
     },
@@ -70,11 +70,28 @@
       "filter": ""
     },
     "page": {
-      "selector": "div#ct div:nth-child(14)"
+      "selector": "span#fd_page_bottom"
     }
   },
   "search": {
     "url": ""
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    }
   }
 }
    ,{
