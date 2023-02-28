@@ -1,5 +1,83 @@
 [
    {
+  "title": "4K HDR - 磁力下载",
+  "link": "https://4khdr.cn",
+  "show": "portrait",
+  "next": "search",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "最新资源",
+      "url": "https://4khdr.cn",
+      "quantity": ":"
+    },
+    {
+      "title": "4K电影",
+      "url": "https://4khdr.cn/forumtype-2-3-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K电视剧",
+      "url": "https://4khdr.cn/forumtype-2-8-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K动画片",
+      "url": "https://4khdr.cn/forumtype-2-6-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K纪录片",
+      "url": "https://4khdr.cn/forumtype-2-11-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K陆港台",
+      "url": "https://4khdr.cn/forumtype-2-15-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "4K日韩印",
+      "url": "https://4khdr.cn/forumtype-2-4-1.html",
+      "quantity": ""
+    },
+    {
+      "title": "1080抢鲜看",
+      "url": "https://4khdr.cn/forumtype-2-14-1.html",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "a.z",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "title",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": "div#ct div:nth-child(14)"
+    }
+  },
+  "search": {
+    "url": ""
+  }
+}
+   ,{
   "title": "DYD - 阿里云盘",
   "link": "http://www.dydhhy.com",
   "show": "landscape",
