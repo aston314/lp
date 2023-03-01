@@ -63,7 +63,11 @@
         } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
           audioPlayer.src = object.url;
         }
-        
+
+        if (audioPlayer.paused) {
+          playPauseButton.removeClass("play").addClass("pause");
+        }
+
         empty.render().find('#play-pause-button').on('hover:enter click', function () {
           if (audioPlayer.paused) {
             audioPlayer.play();
