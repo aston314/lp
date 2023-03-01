@@ -57,7 +57,7 @@
     "title": {
       "selector": "",
       "attrName": "title",
-      "filter": "([\\u4e00-\\u9fa5]+[\\u4e00-\\u9fa5\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
+      "filter": "([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
     },
     "thumb": {
       "selector": "img",
