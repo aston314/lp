@@ -33,7 +33,7 @@
         //console.log(object);
         this.activity.loader(true);
 
-        Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:40px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:80px;height:80px;border:none;border-radius:50%;background-color:#e74c3c;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/ffffff/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://danialsabagh.com/singleaudioplayer/img/pause.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background-color:#e74c3c;border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\" src=\"" + object.url + "\"></audio><button id=\"play-pause-button\" class=\"simple-button selector focus play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
+        Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:50px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:80px;height:80px;border-radius:50%;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://danialsabagh.com/singleaudioplayer/img/pause.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background-color:#e74c3c;border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\"></audio><button id=\"play-pause-button\" class=\"simple-button selector focus play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
         // Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
         var btn = Lampa.Template.get('play_list');
         // //info = Lampa.Template.get('play_list');
@@ -139,10 +139,12 @@
         
         var audioPlayer;
         var playPauseButton = empty.render().find('#play-pause-button');
-        //console.log(audioPlayer,playPauseButton)
+        // console.log(audioPlayer,playPauseButton)
+        empty.render().find('#audio-player').attr('src', object.url);
         audioPlayer = empty.render().find('#audio-player')[0];
+        // console.log(audioPlayer)
         var progressBar = empty.render().find("#progress");
-        console.log(audioPlayer,playPauseButton)
+        // console.log(audioPlayer,playPauseButton)
         empty.render().find('#play-pause-button').on('hover:enter click', function () {
           //$(".empty__footer").on('hover:enter hover:click', function () {
           //_this.selectGroup();
@@ -175,6 +177,14 @@
             } else {
               audioPlayer.pause();
               playPauseButton.removeClass("pause").addClass("play");
+              hls.stopLoad();
+              hls.destroy();
+              // hls.remove();
+              // video.pause();
+              // video.src = "";
+              // video.load();
+              // video.play();
+              // video.remove();
             }
           });
 
