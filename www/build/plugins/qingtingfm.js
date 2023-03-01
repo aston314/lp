@@ -34,172 +34,48 @@
         this.activity.loader(true);
 
         Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:50px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:80px;height:80px;border-radius:50%;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/pause--v2.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background: linear-gradient(to right, #ffcc00, #ff6600);border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\"></audio><button id=\"play-pause-button\" class=\"simple-button selector focus play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
-        // Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
         var btn = Lampa.Template.get('play_list');
-        // //info = Lampa.Template.get('play_list');
-
-        // // var btn = Lampa.Template.get('button_category');
-        // info = Lampa.Template.get('info_web');
-        // info.find('#web_filtr').append(btn);
-
-        // //var audioPlayer = document.getElementById("audio-player");
-        // var audioPlayer;
-        // var playPauseButton = info.find("#play-pause-button");
-        // //console.log(audioPlayer,playPauseButton)
-        // audioPlayer = info.find("#audio-player")[0];
-        // info.find('#play-pause-button').on('hover:enter click', function () {
-
-        //   //console.log(audioPlayer,'音乐源')
-
-        //   // 初始化HLS.js
-        //   if (Hls.isSupported()) {
-        //     var hls = new Hls();
-        //     hls.loadSource(object.url);
-        //     hls.attachMedia(audioPlayer);
-        //     hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        //       audioPlayer.play();
-        //     });
-        //   } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
-        //     audioPlayer.src = object.url;
-        //   }
-
-        //   // 自动播放
-        //   // audioPlayer.addEventListener("canplay", function() {
-        //   audioPlayer.play();
-        //   //   playPauseButton.removeClass("play").addClass("pause");
-        //   // });
-
-        //   // 播放和暂停音频
-        //   playPauseButton.on("click", function () {
-        //     if (audioPlayer.paused) {
-        //       audioPlayer.play();
-        //       playPauseButton.removeClass("play").addClass("pause");
-        //     } else {
-        //       audioPlayer.pause();
-        //       playPauseButton.removeClass("pause").addClass("play");
-        //     }
-        //   });
-
-        //   //console.log('fff')
-        //   // if (audioPlayer.paused) {
-        //   //   audioPlayer.play();
-        //   //   playPauseButton.removeClass("play").addClass("pause");
-        //   // } else {
-        //   //   audioPlayer.pause();
-        //   //   playPauseButton.removeClass("pause").addClass("play");
-        //   // }
-        // });
-        // // 更新进度条
-        // //audioPlayer = info.find("#audio-player")[0];
-        // var progressBar = info.find("#progress");
-
-        // audioPlayer.addEventListener("loadedmetadata", function () {
-        //   audioPlayer.addEventListener("timeupdate", function () {
-        //     var currentTime = audioPlayer.currentTime;
-        //     var duration = audioPlayer.duration;
-
-        //     var minutes = Math.floor(currentTime / 60);
-        //     var seconds = Math.floor(currentTime % 60);
-
-        //     var durationMinutes = Math.floor(duration / 60);
-        //     var durationSeconds = Math.floor(duration % 60);
-
-        //     var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        //     //console.log(progress)
-        //     progressBar.css("width", progress + "%");
-
-        //     // 更新进度条文本
-        //     $(".progress-text").text(
-        //       //("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
-        //       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
-        //     );
-        //   });
-        // });
-
-        // html.append(info);
-        // html.append(scroll.render());
-        // scroll.append(body);
-        // this.activity.loader(false);
-        // this.activity.toggle();
-
-
-        // Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:40px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:60px;height:60px;border:none;border-radius:50%;background-color:#e74c3c;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/ffffff/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://danialsabagh.com/singleaudioplayer/img/pause.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background-color:#e74c3c;border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\" src=\"" + object.url + "\"></audio><button id=\"play-pause-button\" class=\"play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
-        // var btn = Lampa.Template.get('play_list');
-
         var empty = new Lampa.Empty({
-          
         });
         //console.log(empty)
         html.append(empty.render());
         empty.render().find('.empty__descr').append(btn);
-        //empty.render().find('.empty__descr').after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-        // empty.render().find('.empty__descr').before('<div class="container"><div class="player"><div class="logo"><img src="https:' + object.content.imgUrl + '" alt="电台Logo"></div><video id="audio-player" src="' + object.url + '"></video><button id="play-pause-button" class="play"></button><div id="progress-bar"><div id="progress"></div><div class="progress-text">进度：0%</div></div><div id="radio-name">' + object.content.desc + '</div></div></div><div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-
         //console.log(object)
-        
-        var audioPlayer;
+
+        var audioPlayer, progressBar;
         var playPauseButton = empty.render().find('#play-pause-button');
         // console.log(audioPlayer,playPauseButton)
         empty.render().find('#audio-player').attr('src', object.url);
+
+        progressBar = empty.render().find("#progress");
         audioPlayer = empty.render().find('#audio-player')[0];
-        // console.log(audioPlayer)
-        var progressBar = empty.render().find("#progress");
-        // console.log(audioPlayer,playPauseButton)
-        empty.render().find('#play-pause-button').on('hover:enter click', function () {
-          //$(".empty__footer").on('hover:enter hover:click', function () {
-          //_this.selectGroup();
 
-          //console.log(audioPlayer,'音乐源')
-
-          // 初始化HLS.js
-          if (Hls.isSupported()) {
-            var hls = new Hls();
-            hls.loadSource(object.url);
-            hls.attachMedia(audioPlayer);
-            hls.on(Hls.Events.MANIFEST_PARSED, function () {
-              audioPlayer.play();
-              // 绑定timeupdate事件
-              //audioPlayer.addEventListener("timeupdate", playbackTimeUpdate(audioPlayer));
-            });
-          } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
-            audioPlayer.src = object.url;
-          }
-
-          // 自动播放
-          // audioPlayer.addEventListener("canplay", function() {
-          // audioPlayer.play();
-          //   playPauseButton.removeClass("play").addClass("pause");
-          // });
-
-          // 播放和暂停音频
-          // playPauseButton.on("click", function () {
-          empty.render().find('#play-pause-button').on('hover:enter click', function () {
-            if (audioPlayer.paused) {
-              audioPlayer.play();
-              playPauseButton.removeClass("play").addClass("pause");
-            } else {
-              audioPlayer.pause();
-              // audioPlayer.dispose();
-              playPauseButton.removeClass("pause").addClass("play");
-              hls.stopLoad();
-              // hls.destroy();
-              // hls.remove();
-              // video.pause();
-              // video.src = "";
-              // video.load();
-              // video.play();
-              // video.remove();
-            }
+        // 初始化HLS.js
+        if (Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource(object.url);
+          hls.attachMedia(audioPlayer);
+          hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            audioPlayer.play();
+            // 绑定timeupdate事件
+            //audioPlayer.addEventListener("timeupdate", playbackTimeUpdate(audioPlayer));
           });
-
-          //console.log('fff')
-          // if (audioPlayer.paused) {
-          //   audioPlayer.play();
-          //   playPauseButton.removeClass("play").addClass("pause");
-          // } else {
-          //   audioPlayer.pause();
-          //   playPauseButton.removeClass("pause").addClass("play");
-          // }
+        } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
+          audioPlayer.src = object.url;
+        }
+        
+        empty.render().find('#play-pause-button').on('hover:enter click', function () {
+          if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseButton.removeClass("play").addClass("pause");
+          } else {
+            audioPlayer.pause();
+            //audioPlayer.currentTime = 0;
+            //hls.detachMedia();
+            //hls.destroy();
+            // audioPlayer.dispose();
+            playPauseButton.removeClass("pause").addClass("play");
+          }
         });
 
         audioPlayer.addEventListener("loadedmetadata", function () {
@@ -225,21 +101,6 @@
           });
         });
 
-        function playbackTimeUpdate(audioPlayer) {
-          const t = this.hls.audioPlayer;
-          let e = null;
-          if (this.hls.mediaBuffer !== undefined && this.hls.mediaBuffer !== null) {
-            e = this.hls.mediaBuffer.buffered;
-          } else if (t && t.buffered) {
-            e = t.buffered;
-          }
-          if (e && e.length) {
-            const n = this.hls.media.duration;
-            const i = e.end(e.length - 1);
-            const r = Math.round((i / n) * 1e3) / 10;
-            this.updatePlaybackTime(r);
-          }
-        }
 
         _this.start = empty.start;
         _this.activity.loader(false);
@@ -253,7 +114,7 @@
           postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + object.page + "){\n      contents\n    }\n  }" }
         };
 
-        
+
 
         this.activity.loader(true);
 
