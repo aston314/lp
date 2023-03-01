@@ -1207,7 +1207,7 @@
          "title":{
             "selector":"",
             "attrName":"title",
-            "filter":""
+            "filter":"(^[^\\[]+)"
          },
          "thumb":{
             "selector":"img",
@@ -1302,7 +1302,7 @@
          "title":{
             "selector":"",
             "attrName":"title",
-            "filter":""
+            "filter":"([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
          },
          "thumb":{
             "selector":"img",
@@ -1639,7 +1639,7 @@
          "title":{
             "selector":".thumbnail-wrap img",
             "attrName":"alt",
-            "filter":""
+            "filter":"([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
          },
          "thumb":{
             "selector":".thumbnail-wrap img",
