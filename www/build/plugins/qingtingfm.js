@@ -33,7 +33,7 @@
         //console.log(object);
         this.activity.loader(true);
 
-        Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:50px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:80px;height:80px;border-radius:50%;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://danialsabagh.com/singleaudioplayer/img/pause.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background-color:#e74c3c;border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\"></audio><button id=\"play-pause-button\" class=\"simple-button selector focus play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
+        Lampa.Template.add('play_list', "<style>.container,.logo{flex-direction:column;display:flex}.container,.logo,.player{display:flex}#radio-name,.progress-text{text-align:center;font-size:1.7em;font-weight:300;color:#fff}.container{align-items:center;justify-content:center;height:100vh}.logo{margin-bottom:50px;align-items:center;justify-content:center}.logo img{width:200px;height:auto;border-radius:10%}.player{flex-direction:column;align-items:center;justify-content:center}#play-pause-button{width:80px;height:80px;border-radius:50%;margin-bottom:20px}#play-pause-button.play{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/play--v2.png\");background-size:cover}#play-pause-button.pause{background-image:url(\"https://img.icons8.com/ios-filled/60/000000/pause--v2.png\");background-size:cover}#progress-bar{width:25%;height:10px;background-color:#bdc3c7;border-radius:10px}#progress{width:0;height:100%;background: linear-gradient(to right, #ffcc00, #ff6600);border-radius:10px}.progress:hover{background-color:#555}#play-pause-button:hover{transform:scale(1.1);transition:transform .2s}#radio-name{margin-top:100px}.progress-text{margin-top:25px}</style><div class=\"container\"><div class=\"player\"><div class=\"logo\"><img src=\"https:" + object.content.imgUrl + "\" alt=\"电台Logo\"></div><audio id=\"audio-player\"></audio><button id=\"play-pause-button\" class=\"simple-button selector focus play\"></button><div id=\"progress-bar\"><div id=\"progress\"></div><div class=\"progress-text\">进度：0%</div></div><div id=\"radio-name\">" + object.content.desc + "</div></div></div>");
         // Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
         var btn = Lampa.Template.get('play_list');
         // //info = Lampa.Template.get('play_list');
@@ -158,6 +158,8 @@
             hls.attachMedia(audioPlayer);
             hls.on(Hls.Events.MANIFEST_PARSED, function () {
               audioPlayer.play();
+              // 绑定timeupdate事件
+              //audioPlayer.addEventListener("timeupdate", playbackTimeUpdate(audioPlayer));
             });
           } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
             audioPlayer.src = object.url;
@@ -165,20 +167,22 @@
 
           // 自动播放
           // audioPlayer.addEventListener("canplay", function() {
-          audioPlayer.play();
+          // audioPlayer.play();
           //   playPauseButton.removeClass("play").addClass("pause");
           // });
 
           // 播放和暂停音频
-          playPauseButton.on("click", function () {
+          // playPauseButton.on("click", function () {
+          empty.render().find('#play-pause-button').on('hover:enter click', function () {
             if (audioPlayer.paused) {
               audioPlayer.play();
               playPauseButton.removeClass("play").addClass("pause");
             } else {
               audioPlayer.pause();
+              // audioPlayer.dispose();
               playPauseButton.removeClass("pause").addClass("play");
               hls.stopLoad();
-              hls.destroy();
+              // hls.destroy();
               // hls.remove();
               // video.pause();
               // video.src = "";
@@ -220,6 +224,22 @@
             );
           });
         });
+
+        function playbackTimeUpdate(audioPlayer) {
+          const t = this.hls.audioPlayer;
+          let e = null;
+          if (this.hls.mediaBuffer !== undefined && this.hls.mediaBuffer !== null) {
+            e = this.hls.mediaBuffer.buffered;
+          } else if (t && t.buffered) {
+            e = t.buffered;
+          }
+          if (e && e.length) {
+            const n = this.hls.media.duration;
+            const i = e.end(e.length - 1);
+            const r = Math.round((i / n) * 1e3) / 10;
+            this.updatePlaybackTime(r);
+          }
+        }
 
         _this.start = empty.start;
         _this.activity.loader(false);
