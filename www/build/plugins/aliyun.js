@@ -43,6 +43,12 @@
     this.create = function () {
         var _this = this;
 
+        var deviceId = _this.generateUUID();
+        var nonce = 0;
+        // console.log(deviceId)
+
+        
+
         this.activity.loader(true);
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
 
@@ -101,7 +107,46 @@
                       dataType: 'text'
                     });
                   };
-                  var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token));
+                  var signature_ = _this.get_signature(json.user_id,deviceId,nonce);
+                  // console.log(signature_)
+                  var signature = JSON.parse(signature_).signature;
+                  var publickey  = JSON.parse(signature_).publicKey;
+                  // console.log(publickey,(nonce ==0))
+
+                var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
+                var dataJSON = {};
+
+                dataJSON["deviceName"] = "Edge浏览器";
+                dataJSON["modelName"] = "Windows网页版";
+                dataJSON["pubKey"] = publickey;
+                // if (nonce == 0){
+                $.ajax({
+                    url: requestURL,
+                    data: JSON.stringify(dataJSON),
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    headers: {
+                    "authorization": "Bearer "+ json.access_token +"",
+                    // "origin": "https://www.aliyundrive.com",
+                    // "referer": "https://www.aliyundrive.com/",
+                    // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                    // "x-canary": "client=web,app=adrive,version=v3.17.0",
+                    "x-device-id": deviceId,
+                    "x-signature": signature,
+                   },
+                    success: function(returnData){
+                        console.log(returnData);
+                    },
+                    error: function(xhr, ajaxOptions, thrownError){
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+                nonce++;
+
+                  // console.log(json)
+                  var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId, signature));
                   //console.log(get_list)
                   if (get_list.message && get_list.message == 'invalid X-Device-Id') {
                     Lampa.Noty.show('阿里云盘访问错误：invalid X-Device-Id');
@@ -439,7 +484,7 @@
         }).responseText;;
       };
 
-      this.get_file_ = function (path, driveId, accesstoken) {
+      this.get_file_ = function (path, driveId, accesstoken, deviceId, signature) {
         return $.ajax({
           type: "post",
           url: "https://api.aliyundrive.com/v2/file/list",
@@ -452,9 +497,42 @@
           headers: {
             "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
             "content-type": "application/json;charset=utf-8",
+            "origin": "https://aliyundrive.com",
+            "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+            "x-canary": "client=web,app=adrive,version=v3.17.0",
+            "x-device-id": deviceId,
+            "x-signature": signature,
           },
           async: false
         }).responseText;;
+      };
+
+      this.get_signature = function (deviceId, userId, nonce) {
+        return $.ajax({
+          type: "post",
+          url: "https://aliyun-1-c3851719.deta.app/api/sign",
+          data: JSON.stringify({
+            appId: "5dde4e1bdf9e4966b387ba58f4b3fdc3",
+            deviceId: deviceId,
+            userId: userId,
+            nonce: nonce
+          }),
+          headers: {
+            //"authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
+            "content-type": "application/json;charset=utf-8",
+          },
+          async: false
+        }).responseText;;
+      };
+
+      this.generateUUID = function() {
+        var d = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        return uuid;
       };
 
       this.empty = function (descr) {
