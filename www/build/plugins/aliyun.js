@@ -202,7 +202,7 @@
                   headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    "authorization": "Bearer "+ json.access_token +"",
+                    "authorization": "Bearer "+ json.access_token,
                     "origin": "https://www.aliyundrive.com",
                     "referer": "https://www.aliyundrive.com/",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
@@ -210,7 +210,11 @@
                     "x-device-id": deviceId,
                     "x-signature": signature,
                   },
-                  body: JSON.stringify(dataJSON)
+                  body: JSON.stringify({
+                    deviceName: 'Edge浏览器',
+                    modelName: 'Windows网页版',
+                    pubKey: publickey,
+                  })
                 })
                 .then(function(response) {
                   return response.json()
