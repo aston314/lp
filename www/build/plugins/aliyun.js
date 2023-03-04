@@ -196,11 +196,6 @@
               //   });
 
               //   })
-              // JSON.stringify({
-              //   deviceName: 'Edge浏览器',
-              //   modelName: 'Windows网页版',
-              //   pubKey: publickey,
-              // })
               if (!!window.cordova) {
                 cordovaFetch(requestURL, {
                   method: 'POST',
@@ -215,11 +210,11 @@
                     "x-device-id": deviceId,
                     "x-signature": signature,
                   },
-                  body:`{
-                    "deviceName": Edge浏览器,
-                    "modelName": "JWindows网页版",
-                    "pubKey": 1
-                   }`,
+                  body: JSON.stringify({
+                    deviceName: 'Edge浏览器',
+                    modelName: 'Windows网页版',
+                    pubKey: publickey,
+                  })
                 })
                 .then(function(response) {
                   return response.json()
