@@ -107,42 +107,137 @@
                       dataType: 'text'
                     });
                   };
-                  var signature_ = _this.get_signature(json.user_id,deviceId,nonce);
+                  var signature_ = _this.get_signature(deviceId,json.user_id,nonce);
                   // console.log(signature_)
                   var signature = JSON.parse(signature_).signature;
                   var publickey  = JSON.parse(signature_).publicKey;
                   // console.log(publickey,(nonce ==0))
 
-                var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
+                 var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
                 var dataJSON = {};
 
                 dataJSON["deviceName"] = "Edge浏览器";
                 dataJSON["modelName"] = "Windows网页版";
                 dataJSON["pubKey"] = publickey;
-                // if (nonce == 0){
-                $.ajax({
-                    url: requestURL,
-                    data: JSON.stringify(dataJSON),
-                    type: "POST",
-                    dataType: "json",
-                    contentType: "application/json;charset=utf-8",
-                    headers: {
+                // // // if (nonce == 0){
+                // $.ajax({
+                //     url: requestURL,
+                //     data: JSON.stringify(dataJSON),
+                //     type: "POST",
+                //     dataType: "json",
+                //     contentType: "application/json;charset=utf-8",
+                //     headers: {
+                //     "authorization": "Bearer "+ json.access_token +"",
+                //     "origin": "https://www.aliyundrive.com",
+                //     "referer": "https://www.aliyundrive.com/",
+                //     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                //     "x-canary": "client=web,app=adrive,version=v3.17.0",
+                //     "x-device-id": deviceId,
+                //     "x-signature": signature,
+                //    },
+                //     success: function(returnData){
+                //         console.log(returnData);
+                //     },
+                //     error: function(xhr, ajaxOptions, thrownError){
+                //         console.log(xhr.status);
+                //         console.log(thrownError);
+                //     }
+                // });
+
+                // var requestURL = `https://aliyun-1-c3851719.deta.app/api/create_session`;
+                // var dataJSON = {};
+
+                // dataJSON["appId"] = "5dde4e1bdf9e4966b387ba58f4b3fdc3";
+                // dataJSON["deviceId"] = deviceId;
+                // dataJSON["userId"] = json.user_id;
+                // dataJSON["nonce"] = 0;
+                // dataJSON["accessToken"] = json.access_token;
+                // // // if (nonce == 0){
+                // $.ajax({
+                //     url: requestURL,
+                //     data: JSON.stringify(dataJSON),
+                //     type: "POST",
+                //     dataType: "json",
+                //     contentType: "application/json;charset=utf-8",
+                //     success: function(returnData){
+                //         console.log(returnData);
+                //     },
+                //     error: function(xhr, ajaxOptions, thrownError){
+                //         console.log(xhr.status);
+                //         console.log(thrownError);
+                //     }
+                // });
+                
+              //   const headers = {
+              //     "authorization": "Bearer "+ json.access_token +"",
+              //     "origin": "https://www.aliyundrive.com",
+              //     "referer": "https://www.aliyundrive.com/",
+              //     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+              //     "x-canary": "client=web,app=adrive,version=v3.17.0",
+              //     "x-device-id": deviceId,
+              //     "x-signature": signature,
+              // };
+
+              //   $.loadScript('https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js', function () {
+              //     axios.post(
+              //       "https://api.aliyundrive.com/users/v1/users/device/create_session",
+              //       {
+              //           "deviceName": "Edge浏览器",
+              //           "modelName": "Windows网页版",
+              //           "pubKey": publickey,
+              //       },
+              //       {
+              //           headers: headers,
+              //       }
+              //   ).then((response) => {
+              //       console.log(response.data);
+              //   }).catch((error) => {
+              //       console.error(error);
+              //   });
+
+              //   })
+              if (!!window.cordova) {
+                cordovaFetch(requestURL, {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
                     "authorization": "Bearer "+ json.access_token +"",
-                    // "origin": "https://www.aliyundrive.com",
-                    // "referer": "https://www.aliyundrive.com/",
-                    // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                    // "x-canary": "client=web,app=adrive,version=v3.17.0",
+                    "origin": "https://www.aliyundrive.com",
+                    "referer": "https://www.aliyundrive.com/",
+                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                    "x-canary": "client=web,app=adrive,version=v3.17.0",
                     "x-device-id": deviceId,
                     "x-signature": signature,
-                   },
-                    success: function(returnData){
-                        console.log(returnData);
-                    },
-                    error: function(xhr, ajaxOptions, thrownError){
-                        console.log(xhr.status);
-                        console.log(thrownError);
-                    }
-                });
+                  },
+                  body: JSON.stringify(dataJSON)
+                })
+                .then(function(response) {
+                  return response.json()
+                }).then(function(json) {
+                  console.log('parsed json', json)
+                }).catch(function(ex) {
+                  console.log('parsing failed', ex)
+                })
+              } else {
+                network.silent(requestURL, function (result) {
+                }, false,JSON.stringify(dataJSON), {
+                  //dataType: 'text',
+                  dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                headers: {
+                "authorization": "Bearer "+ json.access_token +"",
+                "origin": "https://www.aliyundrive.com",
+                "referer": "https://www.aliyundrive.com/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                "x-canary": "client=web,app=adrive,version=v3.17.0",
+                "x-device-id": deviceId,
+                "x-signature": signature,
+               }
+              });
+            }
+
+              
                 nonce++;
 
                   // console.log(json)
