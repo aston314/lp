@@ -145,36 +145,6 @@
                       dataType: 'text'
                     });
                   };
-                  
-                
-              //   const headers = {
-              //     "authorization": "Bearer "+ json.access_token +"",
-              //     "origin": "https://www.aliyundrive.com",
-              //     "referer": "https://www.aliyundrive.com/",
-              //     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-              //     "x-canary": "client=web,app=adrive,version=v3.17.0",
-              //     "x-device-id": deviceId,
-              //     "x-signature": signature,
-              // };
-
-              //   $.loadScript('https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js', function () {
-              //     axios.post(
-              //       "https://api.aliyundrive.com/users/v1/users/device/create_session",
-              //       {
-              //           "deviceName": "Edge浏览器",
-              //           "modelName": "Windows网页版",
-              //           "pubKey": publickey,
-              //       },
-              //       {
-              //           headers: headers,
-              //       }
-              //   ).then((response) => {
-              //       console.log(response.data);
-              //   }).catch((error) => {
-              //       console.error(error);
-              //   });
-
-              //   })
               
                   // console.log(json)
                   var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId));
@@ -207,8 +177,7 @@
                   _this.activity.loader(false);
 
                   _this.activity.toggle();
-                }
-              else{
+                }else{
                 var token_refresh = json;
                 //Lampa.Storage.set('aliyun_token', json.refresh_token);
                 //console.log(json)
@@ -294,7 +263,8 @@
                           "content-type": "application/json;charset=utf-8",
                         },
                       };
-                      _this.get_file(url, jsonsearch, file_id, file_type, getShareId, p);
+                      _this.get_file(url, jsonsearch, file_id, file_type, getShareId, p,token_refresh.access_token,token_refresh.default_drive_id);
+                      
                     };
                   } else _this.empty('哦，该资源已经取消分享。');
                 }, function (a, c) {
@@ -385,7 +355,7 @@
         return this.render();
       };
 
-      this.get_file = function (url, jsonsearch, file_id, file_type, getShareId, p) {
+      this.get_file = function (url, jsonsearch, file_id, file_type, getShareId, p,token,default_drive_id) {
         var _this = this;
         network.silent(url, function (json) {
           if (json) {
@@ -451,6 +421,67 @@
                 //}, 66 * index);
               });
             };
+
+
+            var batchmenu = $('<div class="simple-button simple-button--filter selector filter--batch">\n        <span>全部保存到我的云盘</span></div>');
+            filter.render().find('.filter--filter').after(batchmenu);
+            batchmenu.on('hover:enter', function () {
+
+              Lampa.Modal.open({
+                        title: '',
+                        html: Lampa.Template.get('modal_loading'),
+                        size: 'small',
+                        mask: true,
+                        onBack: function onBack() {
+                            Lampa.Modal.close();
+                            Lampa.Api.clear();
+                            Lampa.Controller.toggle('content');
+                        }
+              });
+              var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
+              var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
+              // console.log(aliyun_batch_path)
+              var dataJSON = { "requests": [{ "body": { "file_id": "" + file_id + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
+              // console.log(dataJSON);
+              $.ajax({
+                url: requestURL,
+                data: JSON.stringify(dataJSON),
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                headers: {
+                  "authorization": "Bearer " + token,
+                  "x-share-token": get_share_token.share_token,
+                  // "origin": "https://www.aliyundrive.com",
+                  // "referer": "https://www.aliyundrive.com/",
+                  // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                  // "x-canary": "client=web,app=adrive,version=v3.17.0",
+                  "x-device-id": deviceId,
+                },
+                async: false,
+                success: function (returnData) {
+                  // console.log(returnData.responses[0]);
+                  var myurl = returnData.responses[0].body.file_id;
+                    Lampa.Activity.push({
+                        url: myurl,
+                        title: '我的阿里云盘',
+                        component: 'yunpan2',
+                        movie: object.movie,
+                        page: 1
+                    });
+                  Lampa.Noty.show('文件保存成功。');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
+                  console.log(thrownError);
+                }
+              });
+
+              Lampa.Modal.close();
+              Lampa.Api.clear();
+              Lampa.Controller.toggle('content');
+              
+            });
             results = listlink.data;
             //console.log(results[0].translations.length);
             _this.build();
@@ -781,9 +812,7 @@
         filter.render().addClass('torrent-filter');
         scroll.append(filter.render());
         filter.render().find('.filter--search').remove();
-        //filter.render().find('.filter--sort').hide();
-        //filter.render().find('.filter--filter').hide();
-        
+        //if (/aliyundrive\.com\/s\/([a-zA-Z\d]+)/.test(object.url))  $(filter.render().find('.filter--filter')).after("<div class=\"simple-button simple-button--filter selector filter--batch\">\n        <span>全部保存到我的云盘</span></div>");
         this.append(filtred);
         files.append(scroll.render());
         //$(".scroll").find(".torrent-filter").remove();
@@ -1307,7 +1336,8 @@
 
     if (!window.plugin_yunpan2_ready) startPlugin();
     Lampa.Params.select('aliyun_token', '', '');
-    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div>\n</div>\n</div>");
+    Lampa.Params.select('aliyun_batch_path', '', '');
+    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div>\n</div>\n</div>");
     
     function addSettingsAliyun() {
       if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
