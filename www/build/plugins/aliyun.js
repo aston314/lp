@@ -844,6 +844,20 @@
         
         Lampa.Storage.set('aliyun_token', token_refresh.refresh_token);
         var get_download_url;
+
+        var data = {
+          expire_sec: 0,
+          width: 0,
+          height: 0,
+          url: '',
+          duration: 0,
+          urlFHD: '',
+          urlHD: '',
+          urlSD: '',
+          urlLD: '',
+          subtitles: []
+        };
+
         if (element.share_id) {
           url = "https://api.aliyundrive.com/v2/share_link/get_share_token";
           var jsonsearch = {
@@ -854,6 +868,7 @@
 
           get_download_url = this.getShareLinkDownloadUrl(translat, getShareId, get_share_token.share_token, token_refresh.access_token);
           get_download_url = $.parseJSON(get_download_url).download_url;
+          data.url = get_download_url;
         } else {
           url = "https://auth.aliyundrive.com/v2/account/token";
           jsonsearch = {
@@ -862,9 +877,12 @@
           };
           var get_folder_token = $.parseJSON(this.getRemote(url, "POST", "json", jsonsearch, ""));
           //console.log(get_folder_token)
+          
+
           if (Lampa.Storage.get('aliyun_play_quantity')) {
             get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
             get_download_url = $.parseJSON(get_download_url).url;
+            data.url = get_download_url;
           } else {
             get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
             
@@ -874,19 +892,15 @@
               return;
             };
             // const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
+          
+            var subtitle = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_subtitle_task_list) || [];
+            for (let i = 0, maxi = subtitle.length; i < maxi; i++) {
+              if (subtitle[i].status == 'finished') {
+                data.subtitles.push({ label: subtitle[i].language, url: subtitle[i].url })
+              }
+            };
+
             var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
-            const data = {
-              expire_sec: 0,
-              width: 0,
-              height: 0,
-              url: '',
-              duration: 0,
-              urlFHD: '',
-              urlHD: '',
-              urlSD: '',
-              urlLD: '',
-              subtitles: []
-            }
 
             for (let i = 0, maxi = taskList.length; i < maxi; i++) {
               if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
@@ -916,7 +930,8 @@
         //https://api.aliyundrive.com/token/refresh
         //https://api.aliyundrive.com/v2/file/get_share_link_video_preview_play_info
         if (get_download_url) {
-            return get_download_url;
+            // return get_download_url;
+            return data;
         }
         if (show_error) Lampa.Noty.show('无法检索链接，阿里云盘token失效。');
       };
@@ -1015,14 +1030,15 @@
                     /*console.log(file);
                       console.log("取得播放地址");*/
 
-                    if (file) {
+                    if (file.url) {
                         //_this4.start();
 
                         var playlist = [];
                         var first = {
-                            url: file,
+                            url: file.url,
                             timeline: view,
-                            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                            subtitles: file.subtitles
                         };
                         Lampa.Player.play(first);
 
