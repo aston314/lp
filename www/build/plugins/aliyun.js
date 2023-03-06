@@ -469,7 +469,7 @@
                         movie: object.movie,
                         page: 1
                     });
-                  Lampa.Noty.show('文件保存成功。');
+                  Lampa.Noty.show('文件保存成功，将跳转到你的阿里云盘，以便流畅观看。');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                   Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
