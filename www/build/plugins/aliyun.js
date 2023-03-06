@@ -40,15 +40,13 @@
 
     this.order = [{title: '原始顺序', id: 'normal'}, 
 		              {title: '倒序', id: 'invers'}];  
+    var deviceId = "6ba7b811-9dad-11d1-80b4-00c04fd430c8"//_this.generateUUID();
+    var nonce = 0;
+    // console.log(deviceId)
+    // console.log(nonce)
+
     this.create = function () {
         var _this = this;
-
-        var deviceId = _this.generateUUID();
-        var nonce = 0;
-        // console.log(deviceId)
-
-        
-
         this.activity.loader(true);
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
 
@@ -75,6 +73,46 @@
             };
             network.silent(url, function (json) {
               if (json) {
+                var signature_ = _this.get_signature(deviceId, json.user_id, nonce);
+                // console.log(signature_)
+                var signature = JSON.parse(signature_).signature;
+                Lampa.Storage.set('aliyun_signature', signature);
+                var publickey = JSON.parse(signature_).publicKey;
+                //Lampa.Storage.set('aliyun_publickey', publickey);
+                // console.log(publickey,(nonce ==0))
+
+                var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
+                var dataJSON = {};
+
+                dataJSON["deviceName"] = "Edge浏览器";
+                dataJSON["modelName"] = "Windows网页版";
+                dataJSON["pubKey"] = publickey;
+                // // // if (nonce == 0){
+                $.ajax({
+                  url: requestURL,
+                  data: JSON.stringify(dataJSON),
+                  type: "POST",
+                  dataType: "json",
+                  contentType: "application/json;charset=utf-8",
+                  headers: {
+                    "authorization": "Bearer " + json.access_token + "",
+                    // "origin": "https://www.aliyundrive.com",
+                    // "referer": "https://www.aliyundrive.com/",
+                    // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                    // "x-canary": "client=web,app=adrive,version=v3.17.0",
+                    "x-device-id": deviceId,
+                    "x-signature": signature,
+                  },
+                  async: false,
+                  success: function (returnData) {
+                    // console.log(returnData);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                  }
+                });
+
                 if (getShareId === null) {
                   //console.log(json)
                   //$('.files__left').hide();
@@ -107,66 +145,7 @@
                       dataType: 'text'
                     });
                   };
-                  var signature_ = _this.get_signature(deviceId,json.user_id,nonce);
-                  // console.log(signature_)
-                  var signature = JSON.parse(signature_).signature;
-                  var publickey  = JSON.parse(signature_).publicKey;
-                  // console.log(publickey,(nonce ==0))
-
-                 var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
-                var dataJSON = {};
-
-                dataJSON["deviceName"] = "Edge浏览器";
-                dataJSON["modelName"] = "Windows网页版";
-                dataJSON["pubKey"] = publickey;
-                // // // if (nonce == 0){
-                // $.ajax({
-                //     url: requestURL,
-                //     data: JSON.stringify(dataJSON),
-                //     type: "POST",
-                //     dataType: "json",
-                //     contentType: "application/json;charset=utf-8",
-                //     headers: {
-                //     "authorization": "Bearer "+ json.access_token +"",
-                //     "origin": "https://www.aliyundrive.com",
-                //     "referer": "https://www.aliyundrive.com/",
-                //     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                //     "x-canary": "client=web,app=adrive,version=v3.17.0",
-                //     "x-device-id": deviceId,
-                //     "x-signature": signature,
-                //    },
-                //     success: function(returnData){
-                //         console.log(returnData);
-                //     },
-                //     error: function(xhr, ajaxOptions, thrownError){
-                //         console.log(xhr.status);
-                //         console.log(thrownError);
-                //     }
-                // });
-
-                // var requestURL = `https://aliyun-1-c3851719.deta.app/api/create_session`;
-                // var dataJSON = {};
-
-                // dataJSON["appId"] = "5dde4e1bdf9e4966b387ba58f4b3fdc3";
-                // dataJSON["deviceId"] = deviceId;
-                // dataJSON["userId"] = json.user_id;
-                // dataJSON["nonce"] = 0;
-                // dataJSON["accessToken"] = json.access_token;
-                // // // if (nonce == 0){
-                // $.ajax({
-                //     url: requestURL,
-                //     data: JSON.stringify(dataJSON),
-                //     type: "POST",
-                //     dataType: "json",
-                //     contentType: "application/json;charset=utf-8",
-                //     success: function(returnData){
-                //         console.log(returnData);
-                //     },
-                //     error: function(xhr, ajaxOptions, thrownError){
-                //         console.log(xhr.status);
-                //         console.log(thrownError);
-                //     }
-                // });
+                  
                 
               //   const headers = {
               //     "authorization": "Bearer "+ json.access_token +"",
@@ -196,56 +175,9 @@
               //   });
 
               //   })
-              if (!!window.cordova) {
-                cordovaFetch(requestURL, {
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    "authorization": "Bearer "+ json.access_token,
-                    "origin": "https://www.aliyundrive.com",
-                    "referer": "https://www.aliyundrive.com/",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                    "x-canary": "client=web,app=adrive,version=v3.17.0",
-                    "x-device-id": deviceId,
-                    "x-signature": signature,
-                  },
-                  body: JSON.stringify({
-                    deviceName: 'Edge浏览器',
-                    modelName: 'Windows网页版',
-                    pubKey: publickey,
-                  })
-                })
-                .then(function(response) {
-                  return response.json()
-                }).then(function(json) {
-                  console.log('parsed json', json)
-                }).catch(function(ex) {
-                  console.log('parsing failed', ex)
-                })
-              } else {
-                network.silent(requestURL, function (result) {
-                }, false,JSON.stringify(dataJSON), {
-                  //dataType: 'text',
-                  dataType: "json",
-                contentType: "application/json;charset=utf-8",
-                headers: {
-                "authorization": "Bearer "+ json.access_token +"",
-                "origin": "https://www.aliyundrive.com",
-                "referer": "https://www.aliyundrive.com/",
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                "x-canary": "client=web,app=adrive,version=v3.17.0",
-                "x-device-id": deviceId,
-                "x-signature": signature,
-               }
-              });
-            }
-
               
-                nonce++;
-
                   // console.log(json)
-                  var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId, signature));
+                  var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId));
                   //console.log(get_list)
                   if (get_list.message && get_list.message == 'invalid X-Device-Id') {
                     Lampa.Noty.show('阿里云盘访问错误：invalid X-Device-Id');
@@ -566,7 +498,7 @@
         }).responseText;;
       };
 
-      this.get_download_url_ = function (file_id, driveId, accesstoken) {
+      this.get_download_url_ = function (file_id, driveId, accesstoken, deviceId) {
         return $.ajax({
           type: "post",
           url: "https://api.aliyundrive.com/v2/file/get_download_url",
@@ -578,12 +510,17 @@
           headers: {
             "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
             "content-type": "application/json;charset=utf-8",
+            // "origin": "https://aliyundrive.com",
+            // "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+            // "x-canary": "client=web,app=adrive,version=v3.17.0",
+            "x-device-id": deviceId,
+            "x-signature": Lampa.Storage.get('aliyun_signature'),
           },
           async: false
         }).responseText;;
       };
 
-      this.get_file_ = function (path, driveId, accesstoken, deviceId, signature) {
+      this.get_file_ = function (path, driveId, accesstoken, deviceId) {
         return $.ajax({
           type: "post",
           url: "https://api.aliyundrive.com/v2/file/list",
@@ -596,11 +533,37 @@
           headers: {
             "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
             "content-type": "application/json;charset=utf-8",
-            "origin": "https://aliyundrive.com",
-            "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
-            "x-canary": "client=web,app=adrive,version=v3.17.0",
+            // "origin": "https://aliyundrive.com",
+            // "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+            // "x-canary": "client=web,app=adrive,version=v3.17.0",
             "x-device-id": deviceId,
-            "x-signature": signature,
+            "x-signature": Lampa.Storage.get('aliyun_signature'),
+          },
+          async: false
+        }).responseText;;
+      };
+
+      //get_video_preview_play_info
+      this.get_video_preview_play_info = function (file_id, driveId, accesstoken, deviceId) {
+        return $.ajax({
+          type: "post",
+          url: "https://api.aliyundrive.com/v2/file/get_video_preview_play_info",
+          data: JSON.stringify({
+            category: "live_transcoding",
+            drive_id: driveId,
+            file_id: file_id,
+            template_id: "",
+            get_subtitle_info: !0,
+            url_expire_sec: 14400
+          }),
+          headers: {
+            "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
+            "content-type": "application/json;charset=utf-8",
+            // "origin": "https://aliyundrive.com",
+            // "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+            // "x-canary": "client=web,app=adrive,version=v3.17.0",
+            "x-device-id": deviceId,
+            "x-signature": Lampa.Storage.get('aliyun_signature'),
           },
           async: false
         }).responseText;;
@@ -871,8 +834,49 @@
           var get_folder_token = $.parseJSON(this.getRemote(url, "POST", "json", jsonsearch, ""));
           //console.log(get_folder_token)
 
-          get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token);
-          get_download_url = $.parseJSON(get_download_url).url;
+          // get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+          get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+          // get_download_url = $.parseJSON(get_download_url).url;
+          var getjson = $.parseJSON(get_download_url);
+          if (getjson.code == 'VideoPreviewWaitAndRetry') {
+            Lampa.Noty.show('视频正在转码中，稍后重试');
+            return;
+          };
+          const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
+          const data = {
+            expire_sec: 0,
+            width: 0,
+            height: 0,
+            url: '',
+            duration: 0,
+            urlFHD: '',
+            urlHD: '',
+            urlSD: '',
+            urlLD: '',
+            subtitles: []
+          }
+
+          for (let i = 0, maxi = taskList.length; i < maxi; i++) {
+            if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
+
+              data.urlFHD = taskList[i].url
+            } else if (taskList[i].template_id && taskList[i].template_id == 'HD' && taskList[i].status == 'finished') {
+
+              data.urlHD = taskList[i].url
+            } else if (taskList[i].template_id && taskList[i].template_id == 'SD' && taskList[i].status == 'finished') {
+
+              data.urlSD = taskList[i].url
+            } else if (taskList[i].template_id && taskList[i].template_id == 'LD' && taskList[i].status == 'finished') {
+
+              data.urlLD = taskList[i].url
+            }
+          }
+          data.url = data.urlFHD || data.urlHD || data.urlSD || data.urlLD || '';
+          //console.log(data.url)
+
+          // get_download_url = $.parseJSON(get_download_url).video_preview_play_info.live_transcoding_task_list[3].url;
+          get_download_url = data.url;
+
         };
         //https://api.aliyundrive.com/v2/share_link/get_share_token
         //http://81.68.244.5/tv/alitk
