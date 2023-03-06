@@ -469,7 +469,7 @@
                         movie: object.movie,
                         page: 1
                     });
-                  Lampa.Noty.show('文件保存成功，将跳转到你的阿里云盘，以便流畅观看。');
+                  Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                   Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
@@ -862,50 +862,53 @@
           };
           var get_folder_token = $.parseJSON(this.getRemote(url, "POST", "json", jsonsearch, ""));
           //console.log(get_folder_token)
-
-          // get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-          get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-          // get_download_url = $.parseJSON(get_download_url).url;
-          var getjson = $.parseJSON(get_download_url);
-          if (getjson.code == 'VideoPreviewWaitAndRetry') {
-            Lampa.Noty.show('视频正在转码中，稍后重试');
-            return;
-          };
-          // const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
-          var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
-          const data = {
-            expire_sec: 0,
-            width: 0,
-            height: 0,
-            url: '',
-            duration: 0,
-            urlFHD: '',
-            urlHD: '',
-            urlSD: '',
-            urlLD: '',
-            subtitles: []
-          }
-
-          for (let i = 0, maxi = taskList.length; i < maxi; i++) {
-            if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
-
-              data.urlFHD = taskList[i].url
-            } else if (taskList[i].template_id && taskList[i].template_id == 'HD' && taskList[i].status == 'finished') {
-
-              data.urlHD = taskList[i].url
-            } else if (taskList[i].template_id && taskList[i].template_id == 'SD' && taskList[i].status == 'finished') {
-
-              data.urlSD = taskList[i].url
-            } else if (taskList[i].template_id && taskList[i].template_id == 'LD' && taskList[i].status == 'finished') {
-
-              data.urlLD = taskList[i].url
+          if (Lampa.Storage.get('aliyun_play_quantity')) {
+            get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+            get_download_url = $.parseJSON(get_download_url).url;
+          } else {
+            get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+            
+            var getjson = $.parseJSON(get_download_url);
+            if (getjson.code == 'VideoPreviewWaitAndRetry') {
+              Lampa.Noty.show('视频正在转码中，稍后重试');
+              return;
+            };
+            // const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
+            var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
+            const data = {
+              expire_sec: 0,
+              width: 0,
+              height: 0,
+              url: '',
+              duration: 0,
+              urlFHD: '',
+              urlHD: '',
+              urlSD: '',
+              urlLD: '',
+              subtitles: []
             }
-          }
-          data.url = data.urlFHD || data.urlHD || data.urlSD || data.urlLD || '';
-          //console.log(data.url)
 
-          // get_download_url = $.parseJSON(get_download_url).video_preview_play_info.live_transcoding_task_list[3].url;
-          get_download_url = data.url;
+            for (let i = 0, maxi = taskList.length; i < maxi; i++) {
+              if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
+
+                data.urlFHD = taskList[i].url
+              } else if (taskList[i].template_id && taskList[i].template_id == 'HD' && taskList[i].status == 'finished') {
+
+                data.urlHD = taskList[i].url
+              } else if (taskList[i].template_id && taskList[i].template_id == 'SD' && taskList[i].status == 'finished') {
+
+                data.urlSD = taskList[i].url
+              } else if (taskList[i].template_id && taskList[i].template_id == 'LD' && taskList[i].status == 'finished') {
+
+                data.urlLD = taskList[i].url
+              }
+            }
+            data.url = data.urlFHD || data.urlHD || data.urlSD || data.urlLD || '';
+            //console.log(data.url)
+
+            // get_download_url = $.parseJSON(get_download_url).video_preview_play_info.live_transcoding_task_list[3].url;
+            get_download_url = data.url;
+          }
 
         };
         //https://api.aliyundrive.com/v2/share_link/get_share_token
@@ -1337,7 +1340,8 @@
     if (!window.plugin_yunpan2_ready) startPlugin();
     Lampa.Params.select('aliyun_token', '', '');
     Lampa.Params.select('aliyun_batch_path', '', '');
-    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div>\n</div>\n</div>");
+    Lampa.Params.trigger('aliyun_play_quantity', false);
+    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认使用阿里云盘转码最高码流播放，原画播放可能由于限速，加载速度慢。</div></div>\n</div>\n</div>");
     
     function addSettingsAliyun() {
       if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
