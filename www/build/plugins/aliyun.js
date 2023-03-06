@@ -842,7 +842,8 @@
             Lampa.Noty.show('视频正在转码中，稍后重试');
             return;
           };
-          const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
+          // const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
+          var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
           const data = {
             expire_sec: 0,
             width: 0,
