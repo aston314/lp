@@ -438,10 +438,11 @@
                             Lampa.Controller.toggle('content');
                         }
               });
+              
               var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
               var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
               // console.log(aliyun_batch_path)
-              var dataJSON = { "requests": [{ "body": { "file_id": "" + file_id + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
+              var dataJSON = { "requests": [{ "body": { "file_id": "" + file_id + "", "share_id": "" + getShareId + "", "auto_rename": Lampa.Storage.get('aliyun_save_type'), "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
               // console.log(dataJSON);
               $.ajax({
                 url: requestURL,
@@ -812,7 +813,6 @@
         filter.render().addClass('torrent-filter');
         scroll.append(filter.render());
         filter.render().find('.filter--search').remove();
-        //if (/aliyundrive\.com\/s\/([a-zA-Z\d]+)/.test(object.url))  $(filter.render().find('.filter--filter')).after("<div class=\"simple-button simple-button--filter selector filter--batch\">\n        <span>全部保存到我的云盘</span></div>");
         this.append(filtred);
         files.append(scroll.render());
         //$(".scroll").find(".torrent-filter").remove();
@@ -1357,7 +1357,8 @@
     Lampa.Params.select('aliyun_token', '', '');
     Lampa.Params.select('aliyun_batch_path', '', '');
     Lampa.Params.trigger('aliyun_play_quantity', false);
-    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认使用阿里云盘转码最高码流播放，原画播放可能由于限速，加载速度慢。</div></div>\n</div>\n</div>");
+    Lampa.Params.trigger('aliyun_save_type', false);
+    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_save_type\"><div class=\"settings-param__name\">自动改名保存</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">保存分享文件时默认同名保存，否则将自动更名生成新文件或文件夹。</div></div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认使用阿里云盘转码最高码流播放，原画播放可能由于限速，加载速度慢。</div></div>\n</div>\n</div>");
     
     function addSettingsAliyun() {
       if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
