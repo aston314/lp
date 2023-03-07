@@ -151,7 +151,7 @@
                   //console.log(get_list)
                   
                   if (get_list.message && get_list.message !== '') {
-                    Lampa.Noty.show('访问出现问题：' + get_list.message);
+                    Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
                   } else {
                     get_list.items.forEach(function (item, index) {
                       //setTimeout(function() {
@@ -404,26 +404,29 @@
               var get_file_list = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
               //console.log(obj.file_page.access_token);
               var itemsProcessed = 0;
-
-              get_file_list.items.forEach(function (item, index) {
-                //setTimeout(function() {
-                if (item.category == "video" || item.type == "folder") {
-                  listlink.data[0].media.push({
-                    translation_id: item.file_id,
-                    max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size): '文件夹',
-                    title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                    type: item.type,
-                    file_id: item.file_id,
-                    share_id: item.share_id
-                    //iframe_src : matches[0],
-                    //translation : mytranslation
-                  });
-                };
-                //}, 66 * index);
-              });
+              if (get_file_list.message && get_file_list.message !== '') {
+                Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
+              } else {
+                get_file_list.items.forEach(function (item, index) {
+                  //setTimeout(function() {
+                  if (item.category == "video" || item.type == "folder") {
+                    listlink.data[0].media.push({
+                      translation_id: item.file_id,
+                      max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                      title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                      type: item.type,
+                      file_id: item.file_id,
+                      share_id: item.share_id
+                      //iframe_src : matches[0],
+                      //translation : mytranslation
+                    });
+                  };
+                  //}, 66 * index);
+                });
+              }
             };
 
-
+            // console.log(object.movie.file_id ? object.movie.file_id : file_id)
             var batchmenu = $('<div class="simple-button simple-button--filter selector filter--batch">\n        <span>全部保存到我的云盘</span></div>');
             filter.render().find('.filter--filter').after(batchmenu);
             batchmenu.on('hover:enter', function () {
@@ -443,7 +446,7 @@
               var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
               var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
               // console.log(aliyun_batch_path)
-              var dataJSON = { "requests": [{ "body": { "file_id": "" + file_id + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
+              var dataJSON = { "requests": [{ "body": { "file_id": "" + object.movie.file_id ? object.movie.file_id : file_id + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
               // console.log(dataJSON);
               $.ajax({
                 url: requestURL,
