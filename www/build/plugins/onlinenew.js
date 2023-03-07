@@ -3859,7 +3859,7 @@
       object = _object;
       select_title = object.movie.title;
       doreg = rule;
-      var url1 = alistip + '/search?box=#msearchword&url=';
+      var url1 = alistip + '/search?box=#msearchword&url=&type=video';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
