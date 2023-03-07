@@ -149,8 +149,9 @@
                   // console.log(json)
                   var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId));
                   //console.log(get_list)
-                  if (get_list.message && get_list.message == 'invalid X-Device-Id') {
-                    Lampa.Noty.show('阿里云盘访问错误：invalid X-Device-Id');
+                  
+                  if (get_list.message && get_list.message !== '') {
+                    Lampa.Noty.show('访问出现问题：' + get_list.message);
                   } else {
                     get_list.items.forEach(function (item, index) {
                       //setTimeout(function() {
