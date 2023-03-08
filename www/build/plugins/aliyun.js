@@ -884,9 +884,70 @@
           
 
           if (Lampa.Storage.get('aliyun_play_quantity')) {
-            get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-            get_download_url = $.parseJSON(get_download_url).url;
-            data.url = get_download_url;
+            // get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+            // get_download_url = $.parseJSON(get_download_url).url;
+            // data.url = get_download_url;
+            
+            var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
+            if (aliyun_open_token) {
+              var requestURL = 'http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token;
+              $.ajax({
+                url: requestURL,
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function (returnData) {
+                  if (returnData.refreshToken != null) {
+                    // console.log(returnData.accessToken);
+                    Lampa.Storage.set('aliyun_open_token',returnData.refreshToken)
+                    $.ajax({
+                      url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
+                      data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
+                      type: "POST",
+                      dataType: "json",
+                      contentType: "application/json;charset=utf-8",
+                      headers: {
+                        "authorization": "Bearer " + returnData.accessToken,
+                      },
+                      async: false,
+                      success: function (returnData) {
+                        if (returnData.url != null) {
+                          data.url = returnData.url;
+                          // console.log(data.url)
+                        } else {
+                          data.url = '';
+                          Lampa.Noty.show('获取原画失败。');
+                        }
+                      },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                        Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
+                        console.log(thrownError);
+                      }
+                    });
+                  } else {
+                    Lampa.Noty.show('刷新 open refresh token 失败。');
+                  }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  Lampa.Noty.show("状态代码：" + xhr.status + '，刷新 open refresh token 失败。');
+                  console.log(thrownError);
+                }
+              });
+
+              // network.silent(requestURL, function (json) {
+              //   console.log(json)
+              // }, function (a, c) {
+              //   Lampa.Noty.show(network.errorDecode(a, c));
+              // }, false, {
+              //   dataType: 'json'
+              // });
+              get_download_url = data.url
+              // console.log('data.url',data.url)
+            } else {
+              Lampa.Noty.show('请设置阿里云open token。');
+              return;
+            }
+            
           } else {
             get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
             
@@ -1028,47 +1089,51 @@
                     object.movie.url = object.url;
                     if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100)
                   };
-                    /* console.log(element);
-                    console.log("这里");*/
-                    var file = _this4.getFile(element, true);
-                    /*console.log(file);
-                      console.log("取得播放地址");*/
+                  /* console.log(element);
+                  console.log("这里");*/
+                  var file = _this4.getFile(element, true);
+                  /*console.log(file);
+                    console.log("取得播放地址");*/
+                  if (typeof file == 'undefined') {
+                    Lampa.Noty.show('无法获取播放地址，请检查是否已经设置 Refresh token。');
+                    return;
+                  }
 
-                    if (file.url) {
-                        //_this4.start();
+                  if (file.url) {
+                    //_this4.start();
 
-                        var playlist = [];
-                        var first = {
-                            url: file.url,
-                            timeline: view,
-                            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                            subtitles: file.subtitles
-                        };
-                        Lampa.Player.play(first);
+                    var playlist = [];
+                    var first = {
+                      url: file.url,
+                      timeline: view,
+                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                      subtitles: file.subtitles
+                    };
+                    Lampa.Player.play(first);
 
-                        playlist.push(first);
-                        Lampa.Player.playlist(playlist);
-                        // if (window.intentShim) {
-                        //     window.plugins.intentShim.startActivity(
-                        //         {
-                        //             action: window.plugins.intentShim.ACTION_VIEW,
-                        //             package: "is.xyz.mpv", //setPackage
-                        //             url: file,
-                        //             type: 'video/mp4',
-                        //             extras: {
-                        //                 'http-header-fields': 'referer:https://www.aliyundrive.com/'
-                        //             }
-                        //         },
-                        //         function () { },
-                        //         function () { console.log('Failed to open URL via Android Intent') }
-                        //     );
-                        // } else {
-                        //     Lampa.Noty.show('请在在安卓平台上，使用MPV播放器播放该视频。');
-                        // };
-                    } else {
-                        Lampa.Noty.show('无法检索链接');
-                    }
-                    
+                    playlist.push(first);
+                    Lampa.Player.playlist(playlist);
+                    // if (window.intentShim) {
+                    //     window.plugins.intentShim.startActivity(
+                    //         {
+                    //             action: window.plugins.intentShim.ACTION_VIEW,
+                    //             package: "is.xyz.mpv", //setPackage
+                    //             url: file,
+                    //             type: 'video/mp4',
+                    //             extras: {
+                    //                 'http-header-fields': 'referer:https://www.aliyundrive.com/'
+                    //             }
+                    //         },
+                    //         function () { },
+                    //         function () { console.log('Failed to open URL via Android Intent') }
+                    //     );
+                    // } else {
+                    //     Lampa.Noty.show('请在在安卓平台上，使用MPV播放器播放该视频。');
+                    // };
+                  } else {
+                    Lampa.Noty.show('无法检索链接');
+                  }
+
                 }
                 if (viewed.indexOf(hash_file) == -1) {
                   viewed.push(hash_file);
@@ -1359,11 +1424,12 @@
 
     if (!window.plugin_yunpan2_ready) startPlugin();
     Lampa.Params.select('aliyun_token', '', '');
+    Lampa.Params.select('aliyun_open_token', '', '');
     Lampa.Params.select('aliyun_batch_path', '', '');
     // Lampa.Params.trigger('aliyun_save_type', false);
     // <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_save_type\"><div class=\"settings-param__name\">自动改名保存</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认自动更名生成新文件或文件夹，否则将用同名保存。</div></div>
-    Lampa.Params.trigger('aliyun_play_quantity', false);
-    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">手动添加 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认使用阿里云盘转码最高码流播放，原画播放可能由于限速，加载速度慢。</div></div>\n</div>\n</div>");
+    Lampa.Params.trigger('aliyun_play_quantity', true);
+    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">填写 Web Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n   <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Web Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div> <div class=\"settings-param selector\" data-name=\"aliyun_open_token\" data-type=\"input\" placeholder=\"须是128位长token\"> <div class=\"settings-param__name\">填写 Open Refresh token </div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">必须使用 Open token，以播放原画</div> </div>\n \n<div class=\"settings-param selector\" data-name=\"aliyun_open_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Open Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div> <div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">须设置open token才能使用原画播放，否则使用阿里云盘转码最高码流播放。</div></div>\n</div>\n</div>");
     
     function addSettingsAliyun() {
       if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
@@ -1455,219 +1521,211 @@
           }
       })
   }
-    // Lampa.Listener.follow('app', function (e) {
-    //   // if (e.type == 'ready' && Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
-    //   //   var field = $(Lampa.Lang.translate("<div class=\"settings-folder selector\" data-component=\"mod_aliyun\">\n            <div class=\"settings-folder__icon\">\n                <svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-hard-drive\"><line x1=\"22\" y1=\"12\" x2=\"2\" y2=\"12\"></line><path d=\"M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"></path><line x1=\"6\" y1=\"16\" x2=\"6.01\" y2=\"16\"></line><line x1=\"10\" y1=\"16\" x2=\"10.01\" y2=\"16\"></line></svg>\n            </div>\n            <div class=\"settings-folder__name\">阿里云盘</div>\n        </div>"));
-    //   //   Lampa.Settings.main().render().find('[data-component="more"]').after(field);
-    //   //   Lampa.Settings.main().update();
-    //   // };
-    //   // if (e.type == 'ready') {
-		// 	// 	//FullScreen 
-		// 	// 		var pushualiyunBut = $('<div class="head__action pushualiyunBut selector"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-airplay\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"></path><polygon points=\"12 15 17 21 7 21 12 15\"></polygon></svg></div>');
-		// 	// 		$('.head__actions .open--notice').after(pushualiyunBut);
-		// 	// 		pushualiyunBut.on('hover:enter click.hover', function () {
-		// 	// 			Lampa.Input.edit({
-    //   //         title: '填写阿里云盘分享或磁力链接 - 推送',
-    //   //         value: '',
-    //   //         free: true,
-    //   //         nosave: true
-    //   //     }, function (new_value) {
-    //   //         if (new_value) {
-    //   //             //console.log(new_value)
-    //   //             //var searchurl = object.search.replace('#msearchword',encodeURIComponent(new_value));
-    //   //           var element = {};
-    //   //           element.img = './img/img_broken.svg';
-    //   //           element.original_title = '';
-    //   //           if (/^https:\/\/www\.aliyundrive\.com\/s\/[a-zA-Z\d]+/i.test(new_value)) {
-    //   //             element.title = '阿里云盘推送';
-    //   //             Lampa.Activity.push({
-    //   //               url: new_value,
-    //   //               title: '阿里云盘推送',
-    //   //               component: 'yunpan2',
-    //   //               movie: element,
-    //   //               page: 1
-    //   //             });
-    //   //           } else if (/^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/i.test(new_value)) {
-    //   //             if (window.intentShim) {
-    //   //               window.plugins.intentShim.startActivity(
-    //   //                   {
-    //   //                       action: window.plugins.intentShim.ACTION_VIEW,
-    //   //                       url: new_value
-    //   //                   },
-    //   //                   function () { },
-    //   //                   function () { console.log('Failed to open URL via Android Intent') }
 
-    //   //               );
-    //   //           };
-    //   //           Lampa.Controller.toggle('content');
-    //   //           };
-                
-    //   //             // Lampa.Activity.push({
-    //   //             //     //	url: cors + a.url,
-    //   //             //     url: searchurl,
-    //   //             //     quantity: object.quantity,
-    //   //             //     title: Lampa.Storage.get('online_web_balanser')+' - 搜索"'+new_value+'"',
-    //   //             //     component: 'mod_web',
-    //   //             //     show: object.show,
-    //   //             //     next: object.next,
-    //   //             //     search: object.search,
-    //   //             //     detail: object.detail,
-    //   //             //     page: 1
-    //   //             // });
-    //   //         }
-    //   //         else Lampa.Controller.toggle('content');
-    //   //     })
-    //   //     //$('.settings-input__title').before($('<div class=\"settings-input__title\"><div style=\"width:80px\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-cast\"> <path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path> <line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"></line> </svg></div><div style=\"height:15px\"></div></div>'));
-		// 	// 		});
-		// 	// };
-    //   // var ico = '<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-hard-drive\"><line x1=\"22\" y1=\"12\" x2=\"2\" y2=\"12\"></line><path d=\"M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"></path><line x1=\"6\" y1=\"16\" x2=\"6.01\" y2=\"16\"></line><line x1=\"10\" y1=\"16\" x2=\"10.01\" y2=\"16\"></line></svg>';
-    //   // var menu_item = $('<li class="menu__item selector focus" data-action="myaliyundrive"><div class="menu__ico">' + ico + '</div><div class="menu__text">云盘</div></li>');
-    //   // var element = {};
-    //   // element.img = './img/img_broken.svg';
-    //   // element.original_title = '';
-    //   // element.title = '云盘内容';
-    //   // menu_item.on('hover:enter', function () {
-    //   //   Lampa.Activity.push({
-    //   //     url: 'root',
-    //   //     title: '我的阿里云盘',
-    //   //     component: 'yunpan2',
-    //   //     movie: element,
-    //   //     page: 1
-    //   //   });
-    //   // });
-    //   // $('*[data-type="book"]').before(menu_item);
-    // });
-    var network = new Lampa.Reguest();
-    var ping_auth;
-    var i = void 0;
-    var c = "";
+  var network = new Lampa.Reguest();
+  var ping_auth;
+  var i = void 0;
+  var c = "";
 
-    Lampa.Settings.listener.follow('open', function (e) {
-        if (e.name == 'mod_aliyun') {
-            e.body.find('[data-name="aliyun_qr"]').unbind('hover:enter').on('hover:enter', function () {
-                var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
-                Lampa.Modal.open({
-                    title: '',
-                    html: modal,
-                    onBack: function onBack() {
-                        Lampa.Modal.close();
-                        Lampa.Controller.toggle('settings_component');
-                        //clearInterval(ping_auth);
-                        clearInterval(i);
-                    },
-                });
-                ping_auth = setTimeout(function () {
-                    network.clear();
-                    network.timeout(10000);
-                    //https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=X5vxoYz2z12UalF5Sw5DG6&umidToken=1112cd325b4b833b2c397da867e6b7e3865c9aaa&isMobile=true&lang=zh_CN&returnUrl=&hsiz=1f59a0289eb8d12691c959648e423ace&fromSite=52&bizParams=&_bx-v=2.0.31
-                    //https://auth.aliyundrive.com/v2/oauth/authorize?client_id=25dzX3vbYqktVxyX&redirect_uri=https%3A%2F%2Fwww.aliyundrive.com%2Fsign%2Fcallback&response_type=code&login_type=custom&state=%7B%22origin%22%3A%22https%3A%2F%2Fwww.aliyundrive.com%22%7D
-                   var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
-                                "appName=aliyun_drive" +
-                                "&fromSite=52" +
-                                "&appName=aliyun_drive" +
-                                "&appEntrance=web" +
-                                "&isMobile=false" +
-                                "&lang=zh_CN" +
-                                "&returnUrl=" +
-                                "&fromSite=52" +
-                                "&bizParams=" +
-                                "&_bx-v=2.0.31"
-                    var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-                    network.quiet(qrurl, function (found) {
-                        if (found.content.success) {
-                            c = found.content.data;
-                            if (typeof QRCode == 'undefined') {
-                                $.loadScript('https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js', function () {
-                                    //Stuff to do after someScript has loaded   
-                                    var qrc = new QRCode(
-                                        document.getElementById("qrcode-container"),
-                                        found.content.data.codeContent
-                                    );
-                                    i = setInterval(getcode, 2500);
-                                })
-                            } else {
-                                var qrc = new QRCode(
-                                    document.getElementById("qrcode-container"),
-                                    found.content.data.codeContent
-                                );
-                                i = setInterval(getcode, 2500);
-                            };
-                        } else {
-                            Lampa.Noty.show(found);
-                        }
-                    }, function (a, c) {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    });
-                }, 200);
-            });
-
-        }
-    });
-
-    jQuery.loadScript = function (url, callback) {
-        jQuery.ajax({
-            url: url,
-            dataType: 'script',
-            success: callback,
-            async: true
+  Lampa.Settings.listener.follow('open', function (e) {
+    if (e.name == 'mod_aliyun') {
+      e.body.find('[data-name="aliyun_qr"]').unbind('hover:enter').on('hover:enter', function () {
+        var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
+        Lampa.Modal.open({
+          title: '',
+          html: modal,
+          onBack: function onBack() {
+            Lampa.Modal.close();
+            Lampa.Controller.toggle('settings_component');
+            //clearInterval(ping_auth);
+            clearInterval(i);
+          },
         });
-    };
-
-    function getcode() {
-        network.clear();
-        network.timeout(10000);
-        network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
-            var scaned = false;
-            // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
-            if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
-                clearInterval(i);
-                $('#qrcode-container').text('二维码已过期');
-            } else if (["SCANED"].includes(found.content.data.qrCodeStatus)) {
-                if (!scaned) {
-                    $('#qrcode-container').text('扫描成功, 请在手机上根据提示确认登录');
-                }
-                scaned = true;
-            } else if (["CANCELED"].includes(found.content.data.qrCodeStatus)) {
-                clearInterval(i);
-                $('#qrcode-container').text('您已取消登录');
+        ping_auth = setTimeout(function () {
+          network.clear();
+          network.timeout(10000);
+          //https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=X5vxoYz2z12UalF5Sw5DG6&umidToken=1112cd325b4b833b2c397da867e6b7e3865c9aaa&isMobile=true&lang=zh_CN&returnUrl=&hsiz=1f59a0289eb8d12691c959648e423ace&fromSite=52&bizParams=&_bx-v=2.0.31
+          //https://auth.aliyundrive.com/v2/oauth/authorize?client_id=25dzX3vbYqktVxyX&redirect_uri=https%3A%2F%2Fwww.aliyundrive.com%2Fsign%2Fcallback&response_type=code&login_type=custom&state=%7B%22origin%22%3A%22https%3A%2F%2Fwww.aliyundrive.com%22%7D
+          var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
+            "appName=aliyun_drive" +
+            "&fromSite=52" +
+            "&appName=aliyun_drive" +
+            "&appEntrance=web" +
+            "&isMobile=false" +
+            "&lang=zh_CN" +
+            "&returnUrl=" +
+            "&fromSite=52" +
+            "&bizParams=" +
+            "&_bx-v=2.0.31"
+          var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
+          network.quiet(qrurl, function (found) {
+            if (found.content.success) {
+              c = found.content.data;
+              if (typeof QRCode == 'undefined') {
+                $.loadScript('https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js', function () {
+                  //Stuff to do after someScript has loaded   
+                  var qrc = new QRCode(
+                    document.getElementById("qrcode-container"),
+                    found.content.data.codeContent
+                  );
+                  i = setInterval(getcode, 2500);
+                })
+              } else {
+                var qrc = new QRCode(
+                  document.getElementById("qrcode-container"),
+                  found.content.data.codeContent
+                );
+                i = setInterval(getcode, 2500);
+              };
+            } else {
+              Lampa.Noty.show(found);
             }
-            else {
-                if (["CONFIRMED"].includes(found.content.data.qrCodeStatus)) {
-                    clearInterval(i);
-                    var resultjson = JSON.parse(atob(found.content.data.bizExt));
-                    Lampa.Storage.set("aliyun_token", resultjson.pds_login_result.refreshToken);
-                    $('.settings [data-name="aliyun_token"] .settings-param__value').text(resultjson.pds_login_result.refreshToken);
-                    Lampa.Modal.close();
-                    Lampa.Controller.toggle('settings_component');
-                  if (firstlogin) {
-                    var element = {};
-                    element.img = './img/img_broken.svg';
-                    element.original_title = '';
-                    element.title = '云盘内容';
-                    Lampa.Activity.push({
-                      url: 'root',
-                      title: '我的阿里云盘',
-                      component: 'yunpan2',
-                      movie: element,
-                      page: 1
-                    });
-                  };//window.location.reload();
-                }
-            }
-        }, function (a, c) {
+          }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
-        }, {
-          ck: c.ck,
-          t: c.t,
-          AppName: "aliyun_drive",
-          AppEntrance: "web",
-          IsMobile: "false",
-          Lang: "zh_CN",
-          ReturnURL: "",
-          FromSite: "52",
-          BizParams: "",
-          Navlanguage: "zh-CN",
-          NavPlatform: "MacIntel",
+          });
+        }, 200);
+      });
+
+      e.body.find('[data-name="aliyun_open_qr"]').unbind('hover:enter').on('hover:enter', function () {
+        var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
+        Lampa.Modal.open({
+          title: '',
+          html: modal,
+          onBack: function onBack() {
+            Lampa.Modal.close();
+            Lampa.Controller.toggle('settings_component');
+            //clearInterval(ping_auth);
+            clearInterval(i);
+          },
         });
+        ping_auth = setTimeout(function () {
+          network.clear();
+          network.timeout(10000);
+          var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
+          network.quiet(qrurl, function (found) {
+            if (found.qrCodeUrl) {
+              // c = found.qrCodeUrl;
+              $('#qrcode-container').prepend('<img id="opentokenqr" src="' + found.qrCodeUrl + '" />')
+              // i = setInterval(getcode_opentoken(found.sid), 2500);
+              i = setInterval(function () {
+                getcode_opentoken(found.sid);
+              }, 2500);
+            } else {
+              Lampa.Noty.show(found);
+            }
+          }, function (a, c) {
+            Lampa.Noty.show(network.errorDecode(a, c));
+          });
+        }, 200);
+      });
+
     }
+  });
+
+  jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+      url: url,
+      dataType: 'script',
+      success: callback,
+      async: true
+    });
+  };
+
+  function getcode() {
+    network.clear();
+    network.timeout(10000);
+    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+      var scaned = false;
+      // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
+      if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
+        clearInterval(i);
+        $('#qrcode-container').text('二维码已过期');
+      } else if (["SCANED"].includes(found.content.data.qrCodeStatus)) {
+        if (!scaned) {
+          $('#qrcode-container').text('扫描成功, 请在手机上根据提示确认登录');
+        }
+        scaned = true;
+      } else if (["CANCELED"].includes(found.content.data.qrCodeStatus)) {
+        clearInterval(i);
+        $('#qrcode-container').text('您已取消登录');
+      }
+      else {
+        if (["CONFIRMED"].includes(found.content.data.qrCodeStatus)) {
+          clearInterval(i);
+          var resultjson = JSON.parse(atob(found.content.data.bizExt));
+          Lampa.Storage.set("aliyun_token", resultjson.pds_login_result.refreshToken);
+          $('.settings [data-name="aliyun_token"] .settings-param__value').text(resultjson.pds_login_result.refreshToken);
+          Lampa.Modal.close();
+          Lampa.Controller.toggle('settings_component');
+          if (firstlogin) {
+            var element = {};
+            element.img = './img/img_broken.svg';
+            element.original_title = '';
+            element.title = '云盘内容';
+            Lampa.Activity.push({
+              url: 'root',
+              title: '我的阿里云盘',
+              component: 'yunpan2',
+              movie: element,
+              page: 1
+            });
+          };//window.location.reload();
+        }
+      }
+    }, function (a, c) {
+      Lampa.Noty.show(network.errorDecode(a, c));
+    }, {
+      ck: c.ck,
+      t: c.t,
+      AppName: "aliyun_drive",
+      AppEntrance: "web",
+      IsMobile: "false",
+      Lang: "zh_CN",
+      ReturnURL: "",
+      FromSite: "52",
+      BizParams: "",
+      Navlanguage: "zh-CN",
+      NavPlatform: "MacIntel",
+    });
+  }
+
+  function getcode_opentoken(sid) {
+    network.clear();
+    network.timeout(10000);
+    network.quiet("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
+      var scaned = false;
+      // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
+      if (["QRCodeExpired"].includes(found.status)) {
+        clearInterval(i);
+        $('#qrcode-container').text('二维码已过期');
+      } else if (["ScanSuccess"].includes(found.status)) {
+        if (!scaned) {
+          $('#qrcode-container').text('扫描成功, 请在手机上根据提示确认登录');
+        }
+        scaned = true;
+      } else if (["CANCELED"].includes(found.status)) {
+        clearInterval(i);
+        $('#qrcode-container').text('您已取消登录');
+      }
+      else {
+        if (["LoginSuccess"].includes(found.status)) {
+          clearInterval(i);
+          network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+            $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
+          }, function (a, c) {
+            Lampa.Noty.show(network.errorDecode(a, c));
+          }), false, {
+            dataType: 'json'
+          };
+
+          Lampa.Modal.close();
+          Lampa.Controller.toggle('settings_component');
+        }
+      }
+    }, function (a, c) {
+      Lampa.Noty.show(network.errorDecode(a, c));
+    }, false, {
+      dataType: 'json'
+    });
+  }
 })();
