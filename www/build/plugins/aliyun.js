@@ -1331,7 +1331,12 @@
         if (Lampa.Activity.active().activity !== this.activity) return; //обязательно, иначе наблюдается баг, активность создается но не стартует, в то время как компонент загружается и стартует самого себя.
         if (first_select) {
           var last_views = scroll.render().find('.selector.online').find('.torrent-item__viewed').parent().last();
-          if (last_views.length) last = last_views.eq(0)[0];else last = scroll.render().find('.selector').eq(1)[0];
+          // if (last_views.length) last = last_views.eq(0)[0];else last = scroll.render().find('.selector').eq(1)[0];
+          last = scroll.render().find('.selector').eq(1)[0];
+          // var last_views = scroll.render().find('.selector.online').eq(new_order);
+          // //console.log(last_views)
+          // if (last_views.length) last = last_views.eq(0)[0];
+          // else last = scroll.render().find('.selector').eq(3)[0];
         }
         
         Lampa.Controller.add('content', {
