@@ -259,33 +259,36 @@
 
         //           });
         card.on('hover:enter', function (target, card_data) {
-          // var video = {
-          //     title: element.title,
-          //     //url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
-          //     url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
-          //     tv: true
-          // };
-          // var playlist = [];
-          // //http://lhttp.qingting.fm/live/
-          // //https://lhttp.qtfm.cn/live/
-          //   data.forEach(function (elem) {
-          //       playlist.push({
-          //         title: elem.title,
-          //         //url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
-          //         url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
-          //         tv: true
-          //       });
-          //   });
-          // Lampa.Player.play(video);
-          // Lampa.Player.playlist(playlist);
-          Lampa.Activity.push({
-            url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
-            title: '蜻蜓FM - ' + element.title,
-            component: 'qingtingfm',
-            type: 'play',
-            content: element,
-            page: 1
-          });
+          if (!!window.cordova) {
+            var video = {
+              title: element.title,
+              //url: 'http://lhttp.qingting.fm/live/' + element.id + '/64k.mp3',
+              url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
+              tv: true
+            };
+            var playlist = [];
+            //http://lhttp.qingting.fm/live/
+            //https://lhttp.qtfm.cn/live/
+            data.forEach(function (elem) {
+              playlist.push({
+                title: elem.title,
+                //url: 'http://lhttp.qingting.fm/live/' + elem.id + '/64k.mp3',
+                url: 'https://ls.qingting.fm/live/' + elem.id + '.m3u8',
+                tv: true
+              });
+            });
+            Lampa.Player.play(video);
+            Lampa.Player.playlist(playlist);
+          } else {
+            Lampa.Activity.push({
+              url: 'https://ls.qingting.fm/live/' + element.id + '.m3u8',
+              title: '蜻蜓FM - ' + element.title,
+              component: 'qingtingfm',
+              type: 'play',
+              content: element,
+              page: 1
+            });
+          }
         });
 
         body.append(card);
