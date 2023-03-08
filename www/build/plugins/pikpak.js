@@ -42,7 +42,7 @@
     var info = Lampa.Storage.get("pikpakUserInfo","");
     
     if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-      var url = 'https://user.mypikpak.com/v1/auth/signin';
+      var url = PikPakProxy() + 'https://user.mypikpak.com/v1/auth/signin';
       var postdata =
       {
         "client_id": "YNxT9w7GMdWvEOKa",
@@ -772,7 +772,7 @@
     if (!window.plugin_pikpak_ready) startPlugin();
     Lampa.Params.select('pikpak_userName', '', '');
     Lampa.Params.select('pikpak_userPass', '', '');
-    Lampa.Params.trigger('pikpak_proxy', false);
+    Lampa.Params.trigger('pikpak_proxy', true);
     Lampa.Template.add('settings_mod_pikpak', "<div>\n <div class=\"settings-param selector\" data-name=\"pikpak_proxy\" data-type=\"toggle\">\n        <div class=\"settings-param__name\">使用代理</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n  <div class=\"settings-param selector\" data-name=\"pikpak_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">用户名</div> <div class=\"settings-param__value\">PikPak用户名</div> <div class=\"settings-param__descr\">PikPak用户名</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"pikpak_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">密码</div>\n    <div class=\"settings-param__descr\">PikPak密码</div> </div>\n           <div class=\"settings-param selector\" data-name=\"online_mod_pikpak_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_pikpak_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
     
     function addSettingsPikpak() {
@@ -875,7 +875,7 @@
 
 
     function PikPakLogin(success, error) {
-      var url = 'https://user.mypikpak.com/v1/auth/signin';
+      var url = PikPakProxy() + 'https://user.mypikpak.com/v1/auth/signin';
       // var postdata = 'login_name=' + encodeURIComponent(Lampa.Storage.get('pikpak_userName', ''));
       // postdata += '&login_password=' + encodeURIComponent(Lampa.Storage.get('pikpak_userPass', ''));
       // postdata += '&login_not_save=0';
