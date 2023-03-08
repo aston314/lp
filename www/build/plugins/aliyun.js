@@ -884,10 +884,6 @@
           
 
           if (Lampa.Storage.get('aliyun_play_quantity')) {
-            // get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-            // get_download_url = $.parseJSON(get_download_url).url;
-            // data.url = get_download_url;
-            
             var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
             if (aliyun_open_token) {
               var requestURL = 'http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token;
@@ -899,7 +895,7 @@
                 success: function (returnData) {
                   if (returnData.refreshToken != null) {
                     // console.log(returnData.accessToken);
-                    Lampa.Storage.set('aliyun_open_token',returnData.refreshToken)
+                    Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
                     $.ajax({
                       url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
                       data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
@@ -944,10 +940,12 @@
               get_download_url = data.url
               // console.log('data.url',data.url)
             } else {
-              Lampa.Noty.show('请设置阿里云open token。');
-              return;
+              get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
+              get_download_url = $.parseJSON(get_download_url).url;
+              data.url = get_download_url;
+              // Lampa.Noty.show('请设置阿里云open token。');
+              // return;
             }
-            
           } else {
             get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
             
@@ -1434,7 +1432,7 @@
     // Lampa.Params.trigger('aliyun_save_type', false);
     // <div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_save_type\"><div class=\"settings-param__name\">自动改名保存</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">默认自动更名生成新文件或文件夹，否则将用同名保存。</div></div>
     Lampa.Params.trigger('aliyun_play_quantity', true);
-    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param-title settings--token\"><span>Web Token</span></div><div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">填写 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n   <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param-title settings--token\"><span>Open Token</span></div> <div class=\"settings-param selector\" data-name=\"aliyun_open_token\" data-type=\"input\" placeholder=\"须是128位长token\"> <div class=\"settings-param__name\">填写 Refresh token </div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">必须使用 Open token，以播放原画</div> </div>\n \n<div class=\"settings-param selector\" data-name=\"aliyun_open_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param-title settings--token\"><span>其他</span></div> <div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">须设置 Open token 才能使用原画播放，否则使用阿里云盘转码最高码流播放。</div></div>\n</div>\n</div>");
+    Lampa.Template.add('settings_mod_aliyun', "<div>\n <div class=\"settings-param-title settings--token\"><span>Web Token</span></div><div class=\"settings-param selector\" data-name=\"aliyun_token\" data-type=\"input\" placeholder=\"例如: nxjekeb57385b..\"> <div class=\"settings-param__name\">填写 Refresh token </div> <div class=\"settings-param__value\">例如: nxjekeb57385b..</div> <div class=\"settings-param__descr\">必须使用移动端token</div> </div>\n \n   <div class=\"settings-param selector\" data-name=\"aliyun_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param-title settings--token\"><span>Open Token</span></div> <div class=\"settings-param selector\" data-name=\"aliyun_open_token\" data-type=\"input\" placeholder=\"须是128位长token\"> <div class=\"settings-param__name\">填写 Refresh token </div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">必须使用 Open token，以播放原画</div> </div>\n \n<div class=\"settings-param selector\" data-name=\"aliyun_open_qr\" data-static=\"true\">\n        <div class=\"settings-param__name\">扫码获取 Refresh token</div>\n    <div class=\"settings-param__descr\">扫码获取token更方便</div> </div><div class=\"settings-param-title settings--token\"><span>其他</span></div> <div class=\"settings-param selector\" data-name=\"aliyun_batch_path\" data-type=\"input\" placeholder=\"例如: root\"> <div class=\"settings-param__name\">分享文件保存目录(可空)</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__descr\">留空或填写root为根目录，或浏览器地址中https://www.aliyundrive.com/drive/folder/XXXX的XXXX，注意不是文件夹名称。</div> </div><div class=\"settings-param selector\" data-type=\"toggle\" data-name=\"aliyun_play_quantity\"><div class=\"settings-param__name\">使用原画播放</div><div class=\"settings-param__value\"></div><div class=\"settings-param__descr\">须设置 Open token 才能流畅播放原画，用 Web token 有限速，否则使用阿里云盘转码最高码流播放。</div></div>\n</div>\n</div>");
     
     function addSettingsAliyun() {
       if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_aliyun"]').length) {
