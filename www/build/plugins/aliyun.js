@@ -1544,8 +1544,6 @@
         ping_auth = setTimeout(function () {
           network.clear();
           network.timeout(10000);
-          //https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=X5vxoYz2z12UalF5Sw5DG6&umidToken=1112cd325b4b833b2c397da867e6b7e3865c9aaa&isMobile=true&lang=zh_CN&returnUrl=&hsiz=1f59a0289eb8d12691c959648e423ace&fromSite=52&bizParams=&_bx-v=2.0.31
-          //https://auth.aliyundrive.com/v2/oauth/authorize?client_id=25dzX3vbYqktVxyX&redirect_uri=https%3A%2F%2Fwww.aliyundrive.com%2Fsign%2Fcallback&response_type=code&login_type=custom&state=%7B%22origin%22%3A%22https%3A%2F%2Fwww.aliyundrive.com%22%7D
           var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
             "appName=aliyun_drive" +
             "&fromSite=52" +
@@ -1711,6 +1709,7 @@
         if (["LoginSuccess"].includes(found.status)) {
           clearInterval(i);
           network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+            Lampa.Storage.set("aliyun_open_token", j.refreshToken);
             $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
