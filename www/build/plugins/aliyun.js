@@ -211,7 +211,14 @@
                         object.movie.title = '推送：'+(file_id_json.file_infos[0].file_name||file_id_json.file_infos[0]);
                         //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
                         var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
-                        var foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
+                        // console.log(file_id_json.file_infos[0].file_name.match(reg))
+                        var foldername;
+                        if (file_id_json.file_infos[0].file_name.match(reg) == null) {
+                          foldername = file_id_json.file_infos[0].file_name;
+                        } else {
+                          foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
+                        }
+                        // console.log(foldername)
                         network.silent('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
                           // var poster_douban = $('div:first-child > div.haibao > a > img', json).attr('src');
                           // var rating_douban = $('div:first-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
@@ -405,7 +412,7 @@
               //console.log(obj.file_page.access_token);
               var itemsProcessed = 0;
               if (get_file_list.message && get_file_list.message !== '') {
-                Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.message);
+                Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
               } else {
                 get_file_list.items.forEach(function (item, index) {
                   //setTimeout(function() {
