@@ -159,8 +159,7 @@
                         listlink.data[0].media.push({
                           translation_id: item.file_id,
                           max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-                          // title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                          title: name.replace(/\.mp4|\.mkv/g, ""),
+                          title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
                           type: item.type,
                           drive_id: item.drive_id,
                           file_id: item.file_id,
@@ -422,8 +421,8 @@
                       translation_id: item.file_id,
                       max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
                       // max_quality: item.category == "video" ? item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-                      // title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                      title: name.replace(/\.mp4|\.mkv/g, ""),
+                      title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                      // title: item.name.replace(/\.mp4|\.mkv/g, ""),
                       type: item.type,
                       file_id: item.file_id,
                       share_id: item.share_id
@@ -456,7 +455,7 @@
               var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
               var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
               // console.log(aliyun_batch_path)
-              var dataJSON = { "requests": [{ "body": { "file_id": "" + (object.movie.file_id ? object.movie.file_id : file_id) + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
+              var dataJSON = { "requests": [{ "body": { "file_id": "" + (object.movie.file_id ? object.movie.file_id : file_id) + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": "" + aliyun_batch_path + "", "to_drive_id": "" + default_drive_id + "" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
               // console.log(dataJSON);
               $.ajax({
                 url: requestURL,
@@ -473,7 +472,6 @@
                   // "x-canary": "client=web,app=adrive,version=v3.17.0",
                   "x-device-id": deviceId,
                 },
-                async: false,
                 success: function (returnData) {
                   // console.log(returnData.responses[0]);
                   var myurl = returnData.responses[0].body.file_id;
