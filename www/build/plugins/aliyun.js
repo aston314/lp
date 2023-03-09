@@ -527,7 +527,7 @@
                         console.log(thrownError);
                       }
                     });
-                  }, 1000);
+                  }, 2000);
                   
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
