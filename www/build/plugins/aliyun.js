@@ -439,9 +439,9 @@
             var batchmenu = $('<div class="simple-button simple-button--filter selector filter--batch">\n        <span>全部保存到我的云盘</span></div>');
             filter.render().find('.filter--filter').after(batchmenu);
             batchmenu.on('hover:enter', function () {
-
+              var batchnumber = void 0;
               Lampa.Modal.open({
-                        title: '',
+                        title: '文件保存中',
                         html: Lampa.Template.get('modal_loading'),
                         size: 'small',
                         mask: true,
@@ -449,6 +449,7 @@
                             Lampa.Modal.close();
                             Lampa.Api.clear();
                             Lampa.Controller.toggle('content');
+                            clearInterval(batchnumber);
                         }
               });
               
@@ -466,23 +467,68 @@
                 headers: {
                   "authorization": "Bearer " + token,
                   "x-share-token": get_share_token.share_token,
-                  // "origin": "https://www.aliyundrive.com",
-                  // "referer": "https://www.aliyundrive.com/",
-                  // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                  // "x-canary": "client=web,app=adrive,version=v3.17.0",
                   "x-device-id": deviceId,
                 },
                 success: function (returnData) {
                   // console.log(returnData.responses[0]);
-                  var myurl = returnData.responses[0].body.file_id;
-                    Lampa.Activity.push({
-                        url: myurl,
-                        title: '我的阿里云盘',
-                        component: 'yunpan2',
-                        movie: object.movie,
-                        page: 1
+                  var myurl_ = returnData.responses[0].body.file_id;
+                  
+                  batchnumber = setInterval(function () {
+                    $.ajax({
+                      url: requestURL,
+                      data: JSON.stringify({"requests":[{"body":{"async_task_id":""+returnData.responses[0].body.async_task_id+""},"headers":{"Content-Type":"application/json"},"id":""+returnData.responses[0].body.async_task_id+"","method":"POST","url":"/async_task/get"}],"resource":"file"}),
+                      type: "POST",
+                      dataType: "json",
+                      contentType: "application/json;charset=utf-8",
+                      headers: {
+                        "authorization": "Bearer " + token,
+                        "x-share-token": get_share_token.share_token,
+                        "x-device-id": deviceId,
+                      },
+                      success: function (returnData) {
+                        // console.log(returnData.responses[0]);
+                        var myurl = returnData.responses[0].body.status;
+                        if ( returnData.responses[0].body.message && returnData.responses[0].body.message == "ErrQuotaExhausted"){
+                          clearInterval(batchnumber);
+                          if (myurl == 'PartialSucceed') {
+                            Lampa.Activity.push({
+                              url: myurl_,
+                              title: '我的阿里云盘',
+                              component: 'yunpan2',
+                              movie: object.movie,
+                              page: 1
+                            });
+                          //   Lampa.Noty.show('部分文件保存成功，云盘可用空间不足。');
+                          // } else {
+                            Lampa.Noty.show('文件不能全部保存，云盘可用空间不足。');
+                          };
+                          Lampa.Modal.close();
+                          Lampa.Api.clear();
+                          Lampa.Controller.toggle('content');
+                        } else {
+                        if (myurl == 'Succeed') {
+                          clearInterval(batchnumber);
+                          Lampa.Activity.push({
+                            url: myurl_,
+                            title: '我的阿里云盘',
+                            component: 'yunpan2',
+                            movie: object.movie,
+                            page: 1
+                          });
+                          Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
+                          Lampa.Modal.close();
+                          Lampa.Api.clear();
+                          Lampa.Controller.toggle('content');
+                        }
+                      };
+                      },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                        Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
+                        console.log(thrownError);
+                      }
                     });
-                  Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
+                  }, 1000);
+                  
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                   Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
@@ -490,9 +536,7 @@
                 }
               });
 
-              Lampa.Modal.close();
-              Lampa.Api.clear();
-              Lampa.Controller.toggle('content');
+              
               
             });
             results = listlink.data;
