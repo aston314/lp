@@ -129,27 +129,16 @@
                     // });
                     var chinese_title = object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : object.movie.title;
                     network.silent('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
-                      // var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
-                      // var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                      // if (rating_douban){
-                      //   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                      //   $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：'+ rating_douban +'</div>');
-                      // };
-                      // if (poster_douban) {
-                      //   $(".full-start__img").attr('src', poster_douban)
-                      // };
-                      // $('.broadcast__scan').remove();
-                      // chatgpt
-                      var poster_douban = $(json).find('div:last-child a > img[src]').attr('src');
-                      var rating_douban = $(json).find('div:last-child span.fen').text();
-                      if (rating_douban) {
-                        $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                      }
+                      var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
+                      var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
+                      if (rating_douban){
+                        //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                        $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：'+ rating_douban +'</div>');
+                      };
                       if (poster_douban) {
-                        $(".full-start__img").attr('src', poster_douban);
-                      }
+                        $(".full-start__img").attr('src', poster_douban)
+                      };
                       $('.broadcast__scan').remove();
-                      
                     }, function (a, c) {
                       //Lampa.Noty.show(network.errorDecode(a, c));
                     }, false, {
@@ -161,55 +150,31 @@
                   var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId));
                   //console.log(get_list)
                   
-                  // if (get_list.message && get_list.message !== '') {
-                  //   Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
-                  // } else {
-                  //   get_list.items.forEach(function (item, index) {
-                  //     //setTimeout(function() {
-                  //     if (item.category == "video" || item.type == "folder") {
-                  //       listlink.data[0].media.push({
-                  //         translation_id: item.file_id,
-                  //         max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-                  //         title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                  //         type: item.type,
-                  //         drive_id: item.drive_id,
-                  //         file_id: item.file_id,
-                  //         share_id: item.share_id
-                  //         //iframe_src : matches[0],
-                  //         //translation : mytranslation
-                  //       });
-                  //     };
-                  //     //}, 66 * index);
-                  //   });
-                  //   results = listlink.data;
-                  //   //console.log(results[0].translations.length);
-                  //   _this.build();
-                  // };
-
                   if (get_list.message && get_list.message !== '') {
                     Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
                   } else {
-                    var media = get_list.items
-                      .filter(function(item) {
-                        return item.category == "video" || item.type == "folder";
-                      })
-                      .map(function(item) {
-                        var max_quality = item.category == "video" ? item.name.split('.').pop().toUpperCase() + ' / ' + get_size(item.size) : '文件夹';
-                        var title = item.name.replace(/\.(mp4|mkv)$/i, '');
-                        return {
+                    get_list.items.forEach(function (item, index) {
+                      //setTimeout(function() {
+                      if (item.category == "video" || item.type == "folder") {
+                        listlink.data[0].media.push({
                           translation_id: item.file_id,
-                          max_quality: max_quality,
-                          title: title,
+                          max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                          // title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                          title: name.replace(/\.mp4|\.mkv/g, ""),
                           type: item.type,
-                          file_id: item.file_id
-                        };
-                      });
-                  
-                    listlink.data[0].media.push.apply(listlink.data[0].media, media);
+                          drive_id: item.drive_id,
+                          file_id: item.file_id,
+                          share_id: item.share_id
+                          //iframe_src : matches[0],
+                          //translation : mytranslation
+                        });
+                      };
+                      //}, 66 * index);
+                    });
                     results = listlink.data;
+                    //console.log(results[0].translations.length);
                     _this.build();
-                  }
-                  
+                  };
 
                   _this.activity.loader(false);
 
@@ -243,64 +208,32 @@
                       var file_id = file_id_json.file_infos[0].file_id;
                       var file_type = file_id_json.file_infos[0].type;
                       if (object.movie.img == './img/img_broken.svg') {
-                        // oldscript
-                        // $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
-                        // object.movie.title = '推送：'+(file_id_json.file_infos[0].file_name||file_id_json.file_infos[0]);
-                        // //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
-                        // var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
-                        // // console.log(file_id_json.file_infos[0].file_name.match(reg))
-                        // var foldername;
-                        // if (file_id_json.file_infos[0].file_name.match(reg) == null) {
-                        //   foldername = file_id_json.file_infos[0].file_name;
-                        // } else {
-                        //   foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
-                        // }
-                        // chatgpt
-                        const $poster = $(".full-start__poster");
-                        $poster.after('<div class="broadcast__scan"><div></div></div>');
-                        
-                        const reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
-                        const foldernameMatch = file_id_json.file_infos[0].file_name.match(reg) || [];
-                        const foldername = (foldernameMatch[0] ? foldernameMatch[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
-                        
+                        $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
+                        object.movie.title = '推送：'+(file_id_json.file_infos[0].file_name||file_id_json.file_infos[0]);
+                        //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
+                        var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
+                        // console.log(file_id_json.file_infos[0].file_name.match(reg))
+                        var foldername;
+                        if (file_id_json.file_infos[0].file_name.match(reg) == null) {
+                          foldername = file_id_json.file_infos[0].file_name;
+                        } else {
+                          foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
+                        }
                         // console.log(foldername)
                         network.silent('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
                           // var poster_douban = $('div:first-child > div.haibao > a > img', json).attr('src');
                           // var rating_douban = $('div:first-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                          // var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
-                          // var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
-                          // if (rating_douban) {
-                          //   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                          //   $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                          // };
-                          // if (poster_douban) {
-                          //   $(".full-start__img").attr('src', poster_douban);
-                          //   object.movie.img = poster_douban;
-                          // };
-                          // $('.broadcast__scan').remove();
-                          const poster = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img').attr('src');
-                          const rating = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)').text();
-                          
-                          if (rating) {
-                            $(".full-start__poster").after(`<div class="card__type" style="left:1em;top:70">豆瓣：${rating}</div>`);
-                          }
-                          
-                          if (poster) {
-                            $(".full-start__img").attr("src", poster);
-                            object.movie.img = poster;
-                          }
-                          $(".broadcast__scan").remove();
-                          
-                          // Use $(functionName) instead of $(document).ready(functionName)
-                          $(function () {
-                            $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
-                            const name = file_id_json.file_infos[0].file_name.match(/[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/);
-                          
-                            const foldername = name == null 
-                              ? file_id_json.file_infos[0].file_name 
-                              : (name[0] ?? file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, " ");
-                          });
-                          
+                          var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
+                          var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
+                          if (rating_douban) {
+                            //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                            $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
+                          };
+                          if (poster_douban) {
+                            $(".full-start__img").attr('src', poster_douban);
+                            object.movie.img = poster_douban;
+                          };
+                          $('.broadcast__scan').remove();
                         }, function (a, c) {
                           //Lampa.Noty.show(network.errorDecode(a, c));
                         }, false, {
@@ -479,90 +412,28 @@
               var get_file_list = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
               //console.log(obj.file_page.access_token);
               var itemsProcessed = 0;
-              // if (get_file_list.message && get_file_list.message !== '') {
-              //   Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
-              // } else {
-              //   get_file_list.items.forEach(function (item, index) {
-              //     //setTimeout(function() {
-              //     if (item.category == "video" || item.type == "folder") {
-              //       listlink.data[0].media.push({
-              //         translation_id: item.file_id,
-              //         max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-              //         // max_quality: item.category == "video" ? item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-              //         title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-              //         // title: item.name.replace(/\.mp4|\.mkv/g, ""),
-              //         type: item.type,
-              //         file_id: item.file_id,
-              //         share_id: item.share_id
-              //         //iframe_src : matches[0],
-              //         //translation : mytranslation
-              //       });
-              //     };
-              //     //}, 66 * index);
-              //   });
-              // }
-              // if (get_file_list.message && get_file_list.message !== '') {
-              //   Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
-              // } else {
-              //   get_file_list.items.forEach(function(item, index) {
-              //     if (is_video_or_folder(item.category, item.type)) {
-              //       var media = create_media_object(item);
-              //       listlink.data[0].media.push(media);
-              //     }
-              //   });
-              // }
-              
-              // function is_video_or_folder(category, type) {
-              //   return category === "video" || type === "folder";
-              // }
-              
-              // function create_media_object(item) {
-              //   var max_quality = "";
-              //   if (item.category === "video") {
-              //     max_quality = item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size);
-              //     // max_quality: item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size),
-              //   } else {
-              //     max_quality = '文件夹';
-              //   }
-                
-              //   return {
-              //     translation_id: item.file_id,
-              //     max_quality: max_quality,
-              //     title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-              //     // title: item.name.replace(/\.mp4|\.mkv/g, ""),
-              //     type: item.type,
-              //     file_id: item.file_id,
-              //     share_id: item.share_id
-              //     //iframe_src : matches[0],
-              //     //translation : mytranslation
-              //   };
-              // }
-
               if (get_file_list.message && get_file_list.message !== '') {
                 Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
               } else {
-                const media = listlink.data[0].media;
-                const len = get_file_list.items.length;
-                for (let i = 0; i < len; i++) {
-                  const item = get_file_list.items[i];
-                  if (item.category === "video" || item.type === "folder") {
-                    const ext = item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase();
-                    const size = get_size(item.size);
-                    const max_quality = item.category === "video" ? `${ext} / ${size}` : '文件夹';
-                    const title = item.name.replace(/(\.mp4|\.mkv)/g, '');
-                    media.push({
+                get_file_list.items.forEach(function (item, index) {
+                  //setTimeout(function() {
+                  if (item.category == "video" || item.type == "folder") {
+                    listlink.data[0].media.push({
                       translation_id: item.file_id,
-                      max_quality,
-                      title,
+                      max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                      // max_quality: item.category == "video" ? item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                      // title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                      title: name.replace(/\.mp4|\.mkv/g, ""),
                       type: item.type,
                       file_id: item.file_id,
                       share_id: item.share_id
+                      //iframe_src : matches[0],
+                      //translation : mytranslation
                     });
-                  }
-                }
+                  };
+                  //}, 66 * index);
+                });
               }
-              
-              
             };
 
             // console.log(object.movie.file_id ? object.movie.file_id : file_id)
@@ -582,95 +453,44 @@
                         }
               });
               
-              // var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
-              // var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
-              // // console.log(aliyun_batch_path)
-              // var dataJSON = { "requests": [{ "body": { "file_id": "" + (object.movie.file_id ? object.movie.file_id : file_id) + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
-              // // console.log(dataJSON);
-              // $.ajax({
-              //   url: requestURL,
-              //   data: JSON.stringify(dataJSON),
-              //   type: "POST",
-              //   dataType: "json",
-              //   contentType: "application/json;charset=utf-8",
-              //   headers: {
-              //     "authorization": "Bearer " + token,
-              //     "x-share-token": get_share_token.share_token,
-              //     // "origin": "https://www.aliyundrive.com",
-              //     // "referer": "https://www.aliyundrive.com/",
-              //     // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-              //     // "x-canary": "client=web,app=adrive,version=v3.17.0",
-              //     "x-device-id": deviceId,
-              //   },
-              //   async: false,
-              //   success: function (returnData) {
-              //     // console.log(returnData.responses[0]);
-              //     var myurl = returnData.responses[0].body.file_id;
-              //       Lampa.Activity.push({
-              //           url: myurl,
-              //           title: '我的阿里云盘',
-              //           component: 'yunpan2',
-              //           movie: object.movie,
-              //           page: 1
-              //       });
-              //     Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
-              //   },
-              //   error: function (xhr, ajaxOptions, thrownError) {
-              //     Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
-              //     console.log(thrownError);
-              //   }
-              // });
-              const requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
-              const aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') || "root";
-              const dataJSON = { 
-                "requests": [
-                  { 
-                    "body": { 
-                      "file_id": "" + (object.movie.file_id ?? file_id) + "", 
-                      "share_id": "" + getShareId + "", 
-                      "auto_rename": true, 
-                      "to_parent_file_id": ""+ aliyun_batch_path +"", 
-                      "to_drive_id": ""+default_drive_id+""
-                    }, 
-                    "headers": { 
-                      "Content-Type": "application/json" 
-                    }, 
-                    "id": "0", 
-                    "method": "POST", 
-                    "url": "/file/copy" 
-                  }
-                ], 
-                "resource": "file" 
-              };
-              
+              var requestURL = `https://api.aliyundrive.com/adrive/v2/batch`;
+              var aliyun_batch_path = Lampa.Storage.get('aliyun_batch_path') !=="" ? Lampa.Storage.get('aliyun_batch_path') : "root";
+              // console.log(aliyun_batch_path)
+              var dataJSON = { "requests": [{ "body": { "file_id": "" + (object.movie.file_id ? object.movie.file_id : file_id) + "", "share_id": "" + getShareId + "", "auto_rename": true, "to_parent_file_id": ""+ aliyun_batch_path +"", "to_drive_id": ""+default_drive_id+"" }, "headers": { "Content-Type": "application/json" }, "id": "0", "method": "POST", "url": "/file/copy" }], "resource": "file" };
+              // console.log(dataJSON);
               $.ajax({
                 url: requestURL,
                 data: JSON.stringify(dataJSON),
                 type: "POST",
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 headers: {
-                  "authorization": `Bearer ${token}`,
+                  "authorization": "Bearer " + token,
                   "x-share-token": get_share_token.share_token,
-                  "x-device-id": deviceId
+                  // "origin": "https://www.aliyundrive.com",
+                  // "referer": "https://www.aliyundrive.com/",
+                  // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
+                  // "x-canary": "client=web,app=adrive,version=v3.17.0",
+                  "x-device-id": deviceId,
+                },
+                async: false,
+                success: function (returnData) {
+                  // console.log(returnData.responses[0]);
+                  var myurl = returnData.responses[0].body.file_id;
+                    Lampa.Activity.push({
+                        url: myurl,
+                        title: '我的阿里云盘',
+                        component: 'yunpan2',
+                        movie: object.movie,
+                        page: 1
+                    });
+                  Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
+                  console.log(thrownError);
                 }
-              })
-              .done(function(returnData) {
-                const myurl = returnData.responses[0].body.file_id;
-                Lampa.Activity.push({
-                  url: myurl,
-                  title: '我的阿里云盘',
-                  component: 'yunpan2',
-                  movie: object.movie,
-                  page: 1
-                });
-                Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
-              })
-              .fail(function(xhr, ajaxOptions, thrownError) {
-                Lampa.Noty.show(`状态代码：${xhr.status}，文件保存失败。`);
-                console.log(thrownError);
               });
-              
 
               Lampa.Modal.close();
               Lampa.Api.clear();
@@ -766,7 +586,7 @@
             "x-signature": Lampa.Storage.get('aliyun_signature'),
           },
           async: false
-        }).responseText;
+        }).responseText;;
       };
 
       //get_video_preview_play_info
