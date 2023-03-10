@@ -134,101 +134,43 @@
             if (element.imgUrl) Lampa.Background.change('https:' + element.coverLarge.replace('l_ratio_poster','s_ratio_poster'));
             //if (Lampa.Helper) Lampa.Helper.show('qt_detail', '长按住 (ОК) 键查看详情', card);
           });
-//           card.on('hover:long', function (target, card_data) {
-            
-//             Lampa.Modal.open({
-//               title: '',
-//               html: Lampa.Template.get('modal_loading'),
-//               size: 'small',
-//               mask: true,
-//               onBack: function onBack() {
-//                 Lampa.Modal.close();
-//                 Lampa.Api.clear();
-//                 Lampa.Controller.toggle('content');
-//               }
-//             });
-//             var a = {};
-//             Lampa.Api.search({
-//               query: encodeURIComponent(mytitle)
-//             }, function (find) {
-// /*              console.log(find)
-//               console.log(element);*/
-//               Lampa.Modal.close();
-//               var finded = _this3.finds(find, element);
-
-//               if (finded) {
-//                 Lampa.Activity.push({
-//                   url: '',
-//                   component: 'full',
-//                   id: finded.id,
-//                   method: finded.name ? 'tv' : 'movie',
-//                   card: finded
-//                 });
-//               } else {
-//                 Lampa.Noty.show('找不到影片信息。');
-//                 Lampa.Controller.toggle('content');
-//               }
-//             }, function () {
-//               Lampa.Modal.close();
-//               Lampa.Noty.show('找不到影片信息。');
-//               Lampa.Controller.toggle('content');
-//             });
-          
-
-//           });
           card.on('hover:enter', function (target, card_data) {
 
-           
-            var sources = [];
-      for (let key in element.playUrl) {
-        // key 为属性名，obj.playUrl[key] 为对应的值
-        sources.push({
-          title:  key,
-          url: element.playUrl[key],
-      });
-      }
 
-      Lampa.Select.show({
-          title: '直播源',
-          items: sources,
-          onSelect: function onSelect(a) {
-              // Lampa.Activity.push({
-              //     url: a.url,
-              //     title: '直播源 - ' + a.title,
-              //     component: 'worldcup',
-              //     type: 'live',
-              //     content: element.title,
-              //     page: 1
-              // });
-              Lampa.Iframe.show({
-                  //url: $('.embed-responsive-item', str).attr('src'),
+            var sources = [];
+            for (let key in element.playUrl) {
+              sources.push({
+                title: key,
+                url: element.playUrl[key],
+              });
+            }
+
+            Lampa.Select.show({
+              title: '选择音质',
+              items: sources,
+              onSelect: function onSelect(a) {
+                var video = {
+                  title: a.title,
                   url: a.url,
-                  onBack: function onBack() {
-                    Lampa.Controller.toggle('content');
-                  }
+                  tv: true
+                };
+                var playlist = [];
+                sources.forEach(function (elem) {
+                  playlist.push({
+                    title: elem.title,
+                    url: elem.url,
+                    tv: true
+                  });
                 });
-                $('.iframe__body iframe').removeClass('iframe__window');
-                $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-          },
-          onBack: function onBack() {
-              Lampa.Controller.toggle('content');
-          }
-      });
-            // var video = {
-            //     title: element.name,
-            //     url: element.playUrl.ts64,
-            //     tv: true
-            // };
-            // var playlist = [];
-            //   data.forEach(function (elem) {
-            //       playlist.push({
-            //         title: elem.name,
-            //         url: element.playUrl.ts64,
-            //         tv: true
-            //       });
-            //   });
-            // Lampa.Player.play(video);
-            // Lampa.Player.playlist(playlist);
+                Lampa.Player.play(video);
+                Lampa.Player.playlist(playlist);
+
+              },
+              onBack: function onBack() {
+                Lampa.Controller.toggle('content');
+              }
+            });
+
           });
 
           body.append(card);
