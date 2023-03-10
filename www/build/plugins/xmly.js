@@ -10,7 +10,7 @@
       });
       var items = [];
       var html = $('<div></div>');
-      var body = $('<div class="category-full"></div>');
+      var body = $('<div class="freetv_n category-full"></div>');
       var info;
       var last;
       var waitload;
