@@ -147,7 +147,7 @@
 
             Lampa.Select.show({
               title: '选择音质',
-              items: sources,
+              items: sources.reverse(),
               onSelect: function onSelect(a) {
                 var video = {
                   title: a.title,
@@ -155,7 +155,7 @@
                   tv: true
                 };
                 var playlist = [];
-                sources.forEach(function (elem) {
+                sources.reverse().forEach(function (elem) {
                   playlist.push({
                     title: elem.title,
                     url: elem.url,
