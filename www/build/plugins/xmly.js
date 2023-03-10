@@ -88,7 +88,7 @@
       this.append = function (data) {
         var _this3 = this;
 
-        data.radios.forEach(function (element) {
+        data.forEach(function (element) {
           var mytitle = element.name.replace('/',' ');
           if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
           var card = Lampa.Template.get('card', {
@@ -291,9 +291,9 @@
         scroll.render().addClass('layer--wheight').data('mheight', info);
         var new_data;
         if (object.keyword){
-            new_data = data.data.searchResultsPage.searchData;
+            new_data = radios;
         } else {
-            new_data = data.data.radioPage.contents.items;
+            new_data = data.radios;
         };
         if (new_data.length) {
             html.append(info);
