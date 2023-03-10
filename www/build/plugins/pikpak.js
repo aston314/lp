@@ -51,29 +51,6 @@
         "username": Lampa.Storage.get('pikpak_userName', '')
       };
       
-      // $.ajax({
-      //   url: url,
-      //   type: 'POST',
-      //   data: postdata,
-      //   async: false,
-      //   dataType: 'json',
-      //   success: function success(json) {
-      //     if (json && (json.access_token || json.type == 'Bearer')) {
-      //       var info = {};
-      //       info.loginInfo = json;
-      //       if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-      //         info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-      //       };
-      //       Lampa.Storage.set("pikpakUserInfo", info);
-      //     } else {
-      //       Lampa.Storage.set("pikpakUserInfo", "");
-      //       if (json && json.error) Lampa.Noty.show(json.details[1].message);
-      //     }
-      //   },
-      //   error: function error() {
-      //     Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-      //   }
-      // });
       if (Lampa.Storage.get('pikpak_proxy')) {
         $.ajax({
           url: url,
@@ -116,7 +93,6 @@
           }
         }, function (a, c) {
           Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-          if (error) error();
         }, postdata, {
           dataType: 'json'
         });
