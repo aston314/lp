@@ -291,9 +291,9 @@
         scroll.render().addClass('layer--wheight').data('mheight', info);
         var new_data;
         if (object.keyword){
-            new_data = radios;
+            new_data = data.data.radios;
         } else {
-            new_data = data.radios;
+            new_data = data.data.radios;
         };
         if (new_data.length) {
             html.append(info);
