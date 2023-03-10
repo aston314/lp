@@ -51,13 +51,58 @@
         "username": Lampa.Storage.get('pikpak_userName', '')
       };
       
-      $.ajax({
-        url: url,
-        type: 'POST',
-        data: postdata,
-        async: false,
-        dataType: 'json',
-        success: function success(json) {
+      // $.ajax({
+      //   url: url,
+      //   type: 'POST',
+      //   data: postdata,
+      //   async: false,
+      //   dataType: 'json',
+      //   success: function success(json) {
+      //     if (json && (json.access_token || json.type == 'Bearer')) {
+      //       var info = {};
+      //       info.loginInfo = json;
+      //       if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+      //         info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+      //       };
+      //       Lampa.Storage.set("pikpakUserInfo", info);
+      //     } else {
+      //       Lampa.Storage.set("pikpakUserInfo", "");
+      //       if (json && json.error) Lampa.Noty.show(json.details[1].message);
+      //     }
+      //   },
+      //   error: function error() {
+      //     Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+      //   }
+      // });
+      if (Lampa.Storage.get('pikpak_proxy')) {
+        $.ajax({
+          url: url,
+          type: 'POST',
+          data: JSON.stringify(postdata),
+          async: false,
+          contentType: "application/json",
+          dataType: 'json',
+          success: function success_(json) {
+            if (json && (json.access_token || json.type == 'Bearer')) {
+              var info = {};
+              info.loginInfo = json;
+              if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+                info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+              };
+              Lampa.Storage.set("pikpakUserInfo", info);
+            } else {
+              Lampa.Storage.set("pikpakUserInfo", "");
+              if (json && json.error) Lampa.Noty.show(json.details[1].message);
+            }
+          },
+          error: function error() {
+            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+          }
+        });
+      } else {
+        network.clear();
+        network.timeout(8000);
+        network.silent(url, function (json) {
           if (json && (json.access_token || json.type == 'Bearer')) {
             var info = {};
             info.loginInfo = json;
@@ -69,11 +114,13 @@
             Lampa.Storage.set("pikpakUserInfo", "");
             if (json && json.error) Lampa.Noty.show(json.details[1].message);
           }
-        },
-        error: function error() {
+        }, function (a, c) {
           Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-        }
-      });
+          if (error) error();
+        }, postdata, {
+          dataType: 'json'
+        });
+      };
 
       info = Lampa.Storage.get("pikpakUserInfo","");
       
@@ -152,6 +199,7 @@
           }, false, p);
         } else {
           _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
+          
         }
         filter.onSearch = function (value) {
           Lampa.Activity.replace({
@@ -432,7 +480,7 @@
               // }, false, {
               //   dataType: 'text'
               // });
-              network.silent('https://proxy.cub.watch/cdn/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+              network.silent(PikPakProxy() + 'http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
                 
                 if (json.results.length > 0) {
                   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
@@ -887,28 +935,60 @@
         "password": Lampa.Storage.get('pikpak_userPass', ''),
         "username": Lampa.Storage.get('pikpak_userName', '')
       };
-      network.clear();
-      network.timeout(8000);
-      network.silent(url, function (json) {
-        if (json && (json.access_token || json.type == 'Bearer')) {
-          var info = {};
-          info.loginInfo = json;
-          if(!info.loginInfo.expires && info.loginInfo.expires_in){
-            info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-          };
-          Lampa.Storage.set("pikpakUserInfo",info);
-          if (success) success();
-        } else {
-          Lampa.Storage.set("pikpakUserInfo","");
-          if (json && json.error) Lampa.Noty.show(json.details[1].message);
+      
+
+      if (Lampa.Storage.get('pikpak_proxy')) {
+        $.ajax({
+          url: url,
+          type: 'POST',
+          data: JSON.stringify(postdata),
+          async: false,
+          contentType: "application/json",
+          dataType: 'json',
+          success: function success_(json) {
+            if (json && (json.access_token || json.type == 'Bearer')) {
+              var info = {};
+              info.loginInfo = json;
+              if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+                info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+              };
+              Lampa.Storage.set("pikpakUserInfo", info);
+              if (success) success();
+            } else {
+              Lampa.Storage.set("pikpakUserInfo", "");
+              if (json && json.error) Lampa.Noty.show(json.details[1].message);
+              if (error) error();
+            }
+          },
+          error: function error() {
+            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+            if (error) error();
+          }
+        });
+      } else {
+        network.clear();
+        network.timeout(8000);
+        network.silent(url, function (json) {
+          if (json && (json.access_token || json.type == 'Bearer')) {
+            var info = {};
+            info.loginInfo = json;
+            if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+              info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+            };
+            Lampa.Storage.set("pikpakUserInfo", info);
+            if (success) success();
+          } else {
+            Lampa.Storage.set("pikpakUserInfo", "");
+            if (json && json.error) Lampa.Noty.show(json.details[1].message);
+            if (error) error();
+          }
+        }, function (a, c) {
+          Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
           if (error) error();
-        }
-      }, function (a, c) {
-        Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-        if (error) error();
-      }, postdata, {
-        dataType: 'json'
-      });
+        }, postdata, {
+          dataType: 'json'
+        });
+      };
     }
   
     function PikPakLogout(success, error) {
@@ -921,7 +1001,7 @@
     function PikPakProxy() {
       var url ;
       //https://api-pikpak.tjsky.cf/
-      Lampa.Storage.get('pikpak_proxy') ? url = 'https://cors.eu.org/': url = '';
+      Lampa.Storage.get('pikpak_proxy') ? url = 'https://f.nxcloud.uk/': url = '';
       return url;
     }
 })();
