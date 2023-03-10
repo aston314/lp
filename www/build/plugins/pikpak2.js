@@ -100,7 +100,7 @@
           postdata.ID = object.url;
           url =  "https://pikpak.kinh.cc/List.php";
 
-          network.native(url, function (json) {
+          network.silent(url, function (json) {
             if (json.files) {
               json.files.forEach(function (item, index) {
                 if (item.mime_type.indexOf('video') != -1 || item.kind == "drive#folder") {
