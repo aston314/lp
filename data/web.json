@@ -357,7 +357,7 @@
    },
    {
       "title":"低端影视",
-      "link":"https://ddys.one",
+      "link":"https://ddys.art",
       "show":"portrait",
       "next":"search",
       "datasort":"",
@@ -365,37 +365,37 @@
       "category":[
          {
             "title":"首页",
-            "url":"https://ddys.one",
+            "url":"https://ddys.art",
             "quantity":""
          },
          {
             "title":"电影",
-            "url":"https://ddys.one/category/movie/",
+            "url":"https://ddys.art/category/movie/",
             "quantity":""
          },
          {
             "title":"剧集",
-            "url":"https://ddys.one/category/airing/",
+            "url":"https://ddys.art/category/airing/",
             "quantity":""
          },
          {
             "title":"欧美剧",
-            "url":"https://ddys.one/category/drama/western-drama/",
+            "url":"https://ddys.art/category/drama/western-drama/",
             "quantity":""
          },
          {
             "title":"韩剧",
-            "url":"https://ddys.one/category/drama/kr-drama/",
+            "url":"https://ddys.art/category/drama/kr-drama/",
             "quantity":""
          },
          {
             "title":"日剧",
-            "url":"https://ddys.one/category/drama/jp-drama/",
+            "url":"https://ddys.art/category/drama/jp-drama/",
             "quantity":""
          },
          {
             "title":"动画",
-            "url":"https://ddys.one/category/anime/",
+            "url":"https://ddys.art/category/anime/",
             "quantity":""
          }
       ],
