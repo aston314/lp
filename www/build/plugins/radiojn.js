@@ -57,6 +57,7 @@
           active = items.indexOf(item$1);
           scroll.update(items[active].render(), true);
         }).on('hover:enter', function () {
+          console.log(element);
           player.play(element);
         });
         scroll.append(item$1.render());
