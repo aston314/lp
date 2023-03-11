@@ -364,6 +364,11 @@
       "use_referer":true,
       "category":[
          {
+            "title":"首页",
+            "url":"https://ddys.one",
+            "quantity":""
+         },
+         {
             "title":"电影",
             "url":"https://ddys.one/category/movie/",
             "quantity":""
