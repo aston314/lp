@@ -209,7 +209,7 @@
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
-                    title: '喜马拉雅 - 搜索',
+                    title: '喜马拉雅FM - 搜索',
                     value: '',
                     free: true,
                     nosave: true
@@ -220,7 +220,7 @@
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: searchurl,
-                            title: '喜马拉雅 - 搜索"'+new_value+'"',
+                            title: '喜马拉雅FM - 搜索"'+new_value+'"',
                             component: 'ximalaya',
                             keyword: new_value,
                             page: 1
@@ -231,12 +231,12 @@
 			});
             this.selectGroup = function () {
                 Lampa.Select.show({
-                    title: '喜马拉雅',
+                    title: '喜马拉雅FM',
                     items: catalogs,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
-                            title: '喜马拉雅 - ' + a.title,
+                            title: '喜马拉雅FM - ' + a.title,
                             cid: a.cid,
                             component: 'ximalaya',
                             page: 1
@@ -403,16 +403,17 @@
       Lampa.Component.add('ximalaya', ximalaya);
       
       function addSettingsximalaya() {
+        // <svg width="28px" height="28px" viewBox="0 0 1.75 1.75" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><path d="M0.42 0.28C0.206 0.28 0.035 0.453 0.035 0.665L0.035 1.435A0.035 0.035 0 0 0 0.07 1.47L1.33 1.47C1.542 1.47 1.715 1.298 1.715 1.085L1.715 0.315A0.035 0.035 0 0 0 1.68 0.28L0.42 0.28zM0.42 0.35L1.645 0.35L1.645 1.085C1.645 1.26 1.505 1.4 1.33 1.4L0.105 1.4L0.105 0.665C0.105 0.492 0.247 0.35 0.42 0.35zM0.455 0.63L0.455 1.12L0.525 1.12L0.525 0.91L0.735 0.91L0.735 0.84L0.525 0.84L0.525 0.7L0.756 0.7L0.756 0.63L0.455 0.63zM0.84 0.63L0.84 1.12L0.91 1.12L0.91 0.773L1.057 1.12L1.115 1.12L1.26 0.777L1.26 1.12L1.33 1.12L1.33 0.63L1.249 0.63L1.087 1.024L0.921 0.63L0.84 0.63z"/></svg>
         var ico = '<svg width="24px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="radioIconTitle" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"> <title id="radioIconTitle">Radio</title> <path d="M5.44972845 6C2.18342385 9.2663046 2.18342385 14.7336954 5.44972845 18M8.59918369 8C6.46693877 10.1322449 6.46693877 13.8677551 8.59918369 16M18.5502716 18C21.8165761 14.7336954 21.8165761 9.2663046 18.5502716 6M15.4008163 16C17.5330612 13.8677551 17.5330612 10.1322449 15.4008163 8"/> <circle cx="12" cy="12" r="1"/> </svg>';
         var menu_item = $('<li class="menu__item selector focus" data-action="ximalaya"><div class="menu__ico">' + ico + '</div><div class="menu__text">电台</div></li>');
         menu_item.on('hover:enter', function () {
           Lampa.Select.show({
-            title: '喜马拉雅',
+            title: '喜马拉雅FM',
             items: catalogs,
             onSelect: function onSelect(a) {
               Lampa.Activity.push({
                 url: a.url,
-                title: '喜马拉雅 - ' + a.title,
+                title: '喜马拉雅FM - ' + a.title,
                 cid: a.cid,
                 component: 'ximalaya',
                 page: 1
