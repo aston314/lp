@@ -414,9 +414,9 @@
             "filter":"(.+?) \\("
          },
          "thumb":{
-            "selector":"",
-            "attrName":"html",
-            "filter":"[\"|(](/.+?.jpg)"
+            "selector":"div.post-box-image",
+            "attrName":"style",
+            "filter":"url\\((.*?)\\)"
          },
          "link":{
             "selector":"h2 > a",
