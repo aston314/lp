@@ -85,6 +85,13 @@
         //}
       };
 
+      function formatNumber(num) {
+        if (num >= 10000) {
+          num = (num / 10000).toFixed(1) + '万';
+        }
+        return num;
+      }
+      
       this.append = function (data) {
         var _this3 = this;
 
@@ -114,9 +121,9 @@
             card.find('.card__view').append('<div class="card__quality"></div>');
             card.find('.card__quality').text(element.subtitle.split(' ')[0]);
           };
-          if (element.score){
+          if (element.playCount){
           card.find('.card__view').append('<div class="card__type"></div>');
-          card.find('.card__type').text(element.score);
+          card.find('.card__type').text(formatNumber(element.playCount)+'人');
           };
           /*card.find('.card__view').append('<div class="card__quality"></div>');
           card.find('.card__quality').text(element.score);*/
