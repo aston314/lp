@@ -485,15 +485,14 @@
         });
   
         this.create = function () {
-        //   $('.head__actions .open--search').before(html);
-          $('div.view--category.full-start__button').before(html);
+          $('.head__actions .open--search').before(html);
         };
   
         this.play = function (data) {
           stop();
         //   url = data.stream_320 ? data.stream_320 : data.stream_128 ? data.stream_128 : data.stream_hls.replace('playlist.m3u8', '96/playlist.m3u8');
         //   url = data.playUrl.ts64;
-          url = data.playUrl.aac64;
+          url = data.playUrl.ts64;
           html.find('.radio-player__name').text(data.name);
           html.toggleClass('hide', false);
           play();
