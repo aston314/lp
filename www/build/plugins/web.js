@@ -1324,9 +1324,15 @@
         };
         this.selectGroup = function () {
             //console.log(catalogs)
+            var balanser_ = Lampa.Storage.get('online_web_balanser')
             Lampa.Select.show({
                 title: '网站',
-                items: catalogs,
+                // items: catalogs,
+                items: catalogs.map(function (elem, index) {
+                    elem.selected = balanser_ == elem.title;
+                    // console.log(balanser_,elem)
+                    return elem;
+                  }),
                 onSelect: function onSelect(a) {
                     //console.log(a)
                     Lampa.Storage.set('online_web_balanser', a.title);
