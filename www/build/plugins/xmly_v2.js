@@ -486,7 +486,7 @@
   
         this.create = function () {
         //   $('.head__actions .open--search').before(html);
-          $('.full-start__buttons .view--category').before(html);
+          $('div.view--category.full-start__button').before(html);
         };
   
         this.play = function (data) {
