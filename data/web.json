@@ -1742,6 +1742,66 @@
       }
    },
    {
+  "title": "体育 - JRKAN直播",
+  "link": "http://play.sportsteam685.com",
+  "show": "minilandscape",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "今日热门比赛",
+      "url": "http://www.jrkan2023.com/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "ul[data-lid*='\\,2\\,'][class=\"item play d-touch active hot\"]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "li:gt(0):lt(5)",
+      "attrName": "text",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": ".lab_team_home img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "a.item.ok",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ""
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[data-play]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "data-play",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": ""
+  }
+},
+   {
       "title":"体育 - 24看球网",
       "link":"https://www.24kanqiu.com",
       "show":"minilandscape",
