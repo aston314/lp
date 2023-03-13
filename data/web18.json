@@ -25,7 +25,7 @@
       "filter": ""
     },
     "thumb": {
-      "selector": "strong.avatar img",
+      "selector": ".lab_team_home img",
       "attrName": "src",
       "filter": ""
     },
