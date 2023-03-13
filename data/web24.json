@@ -15,7 +15,7 @@
   ],
   "list": {
     "videoscontainer": {
-      "selector": "ul[data-lid*='\\,2\\,']",
+      "selector": "ul[data-lid*='\\,2\\,'][class=\"item play d-touch active hot\"]",
       "attrName": "",
       "filter": ""
     },
