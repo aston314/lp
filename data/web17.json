@@ -1,5 +1,65 @@
 [
    {
+  "title": "JRKAN直播",
+  "link": "http://play.sportsteam685.com",
+  "show": "minilandscape",
+  "next": "detail",
+  "datasort": "",
+  "use_referer": false,
+  "category": [
+    {
+      "title": "首页",
+      "url": "http://www.jrkan2023.com/",
+      "quantity": ""
+    }
+  ],
+  "list": {
+    "videoscontainer": {
+      "selector": "ul.active.hot.item.play.d-touch",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "strong.name",
+      "attrName": "text",
+      "filter": ""
+    },
+    "thumb": {
+      "selector": "strong.avatar img",
+      "attrName": "src",
+      "filter": ""
+    },
+    "link": {
+      "selector": "a.item.ok",
+      "attrName": "href",
+      "filter": ""
+    },
+    "page": {
+      "selector": ""
+    }
+  },
+  "detail": {
+    "videoscontainer": {
+      "selector": "a[data-url]",
+      "attrName": "",
+      "filter": ""
+    },
+    "title": {
+      "selector": "",
+      "attrName": "text",
+      "filter": ""
+    },
+    "link": {
+      "selector": "",
+      "attrName": "data-url",
+      "filter": ""
+    }
+  },
+  "search": {
+    "url": ""
+  }
+},
+   {
   "title": "4K HDR - 磁力下载",
   "link": "https://4khdr.cn",
   "show": "portrait",
