@@ -8,7 +8,7 @@
   "use_referer": false,
   "category": [
     {
-      "title": "首页",
+      "title": "今日热门比赛",
       "url": "http://www.jrkan2023.com/",
       "quantity": ""
     }
@@ -20,7 +20,7 @@
       "filter": ""
     },
     "title": {
-      "selector": "strong.name",
+      "selector": "li:gt(1):lt(4)",
       "attrName": "text",
       "filter": ""
     },
