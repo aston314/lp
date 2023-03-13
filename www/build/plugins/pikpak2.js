@@ -39,56 +39,52 @@
     { title: '倒序', id: 'invers' }];  
     
     var info = Lampa.Storage.get("pikpakUserInfo","");
+
     var postdata =
-        {
-            Token: "",
-            AccessToken: "",
-            ID:""
-        };
-    if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-    
-    //   PikPakLogin(function () {}, function () {});
-        var postdata_ =
-        {
-            "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
-            "Mail": Lampa.Storage.get('pikpak_userName', '')
-        };
-
-        network.clear();
-        network.timeout(8000);
-        network.silent('https://pikpak.kinh.cc/Login.php', function (json) {
-            if (json.Status) {
-
-            } else {
-                json = JSON.parse(json.TokenData);
-                if (json && (json.access_token || json.type == 'Bearer')) {
-                    var info = {};
-                    info.loginInfo = json;
-                    if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-                        info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-                    };
-                    Lampa.Storage.set("pikpakUserInfo", info);
-                } else {
-                    Lampa.Storage.set("pikpakUserInfo", "");
-                    if (json && json.error) Lampa.Noty.show(json.details[1].message);
-                }
-            }
-        }, function (a, c) {
-            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-        }, postdata_, {
-            dataType: 'json'
-        });
-
-      info = Lampa.Storage.get("pikpakUserInfo","");
-      
-      if (info.loginInfo) {
-        postdata.AccessToken = info.loginInfo.access_token;
-      } else {
-        postdata.AccessToken = "";
-      };
-    } else {
-        postdata.AccessToken = info.loginInfo.access_token;
+    {
+      Token: "",
+      AccessToken: "",
+      ID: ""
     };
+    if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
+      //   PikPakLogin(function () {}, function () {});
+      var postdata_ =
+      {
+        "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
+        "Mail": Lampa.Storage.get('pikpak_userName', '')
+      };
+
+      network.clear();
+      network.timeout(8000);
+      network.silent('https://pikpak.kinh.cc/Login.php', function (json) {
+        if (json.Status) {
+
+        } else {
+          json = JSON.parse(json.TokenData);
+          if (json && (json.access_token || json.type == 'Bearer')) {
+            var info = {};
+            info.loginInfo = json;
+            if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+              info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+            };
+            // info = Lampa.Storage.get("pikpakUserInfo","");
+            postdata.AccessToken = info.loginInfo.access_token;
+            Lampa.Storage.set("pikpakUserInfo", info);
+          } else {
+            postdata.AccessToken = "";
+            Lampa.Storage.set("pikpakUserInfo", "");
+            if (json && json.error) Lampa.Noty.show(json.details[1].message);
+          }
+        }
+      }, function (a, c) {
+        Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+      }, postdata_, {
+        dataType: 'json'
+      });
+    } else {
+      postdata.AccessToken = info.loginInfo.access_token;
+    };
+
      
     this.create = function () {
         var _this = this;
@@ -97,6 +93,7 @@
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
         
         if (info.loginInfo) {
+          postdata.AccessToken = info.loginInfo.access_token;
           postdata.ID = object.url;
           url =  "https://pikpak.kinh.cc/List.php";
 
@@ -456,6 +453,7 @@
             } else {
               /* console.log(element);
               console.log("取得播放地址");*/
+              postdata.AccessToken = info.loginInfo.access_token;
               postdata.ID = myurl;
               network.silent("https://pikpak.kinh.cc/DownLoad.php", function (json) {
                 if (json) {
