@@ -40,7 +40,7 @@
   },
   "detail": {
     "videoscontainer": {
-      "selector": "a[data-url]",
+      "selector": "a[data-play]",
       "attrName": "",
       "filter": ""
     },
