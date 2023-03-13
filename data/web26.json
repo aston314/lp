@@ -20,7 +20,7 @@
       "filter": ""
     },
     "title": {
-      "selector": "li:gt(1):lt(4)",
+      "selector": "li:gt(0):lt(5)",
       "attrName": "text",
       "filter": ""
     },
