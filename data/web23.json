@@ -15,7 +15,7 @@
   ],
   "list": {
     "videoscontainer": {
-      "selector": "ul[data-lid*='\,2\,']",
+      "selector": "ul[data-lid*='\\,2\\,']",
       "attrName": "",
       "filter": ""
     },
