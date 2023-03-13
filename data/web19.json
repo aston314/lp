@@ -40,7 +40,7 @@
   },
   "detail": {
     "videoscontainer": {
-      "selector": "a[data-play]",
+      "selector": "a[target='myplayer']",
       "attrName": "",
       "filter": ""
     },
