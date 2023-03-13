@@ -15,7 +15,7 @@
   ],
   "list": {
     "videoscontainer": {
-      "selector": "ul.active.hot.item.play.d-touch",
+      "selector": "div[style=''] ul",
       "attrName": "",
       "filter": ""
     },
