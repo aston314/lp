@@ -47,19 +47,19 @@
       ID: ""
     };
     if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-      //   PikPakLogin(function () {}, function () {});
       var postdata_ =
       {
         "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
         "Mail": Lampa.Storage.get('pikpak_userName', '')
       };
 
-      network.clear();
-      network.timeout(8000);
-      network.silent('https://pikpak.kinh.cc/Login.php', function (json) {
-        if (json.Status) {
-
-        } else {
+      $.ajax({
+        url: "https://pikpak.kinh.cc/Login.php",
+        type: 'POST',
+        data: postdata_,
+        async: false,
+        dataType: 'json',
+        success: function success(json) {
           json = JSON.parse(json.TokenData);
           if (json && (json.access_token || json.type == 'Bearer')) {
             var info = {};
@@ -67,7 +67,6 @@
             if (!info.loginInfo.expires && info.loginInfo.expires_in) {
               info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
             };
-            // info = Lampa.Storage.get("pikpakUserInfo","");
             postdata.AccessToken = info.loginInfo.access_token;
             Lampa.Storage.set("pikpakUserInfo", info);
           } else {
@@ -75,11 +74,10 @@
             Lampa.Storage.set("pikpakUserInfo", "");
             if (json && json.error) Lampa.Noty.show(json.details[1].message);
           }
+        },
+        error: function error() {
+          Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
         }
-      }, function (a, c) {
-        Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-      }, postdata_, {
-        dataType: 'json'
       });
     } else {
       postdata.AccessToken = info.loginInfo.access_token;
@@ -92,8 +90,7 @@
         this.activity.loader(true);
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
         
-        if (info.loginInfo) {
-          postdata.AccessToken = info.loginInfo.access_token;
+        if (postdata.AccessToken) {
           postdata.ID = object.url;
           url =  "https://pikpak.kinh.cc/List.php";
 
@@ -453,7 +450,6 @@
             } else {
               /* console.log(element);
               console.log("取得播放地址");*/
-              postdata.AccessToken = info.loginInfo.access_token;
               postdata.ID = myurl;
               network.silent("https://pikpak.kinh.cc/DownLoad.php", function (json) {
                 if (json) {
@@ -855,14 +851,6 @@
       };
   });
 
-    function isJSON(str) {
-        try {
-            JSON.parse(str);
-            return true;
-        } catch (error) {
-            return false;
-        }
-    }
 
     function PikPakLogin(success, error) {
         var url = 'https://pikpak.kinh.cc/Login.php';
