@@ -71,7 +71,7 @@
                 "content-type": "application/json;charset=utf-8",
               },
             };
-            network.silent(url, function (json) {
+            network["native"](url, function (json) {
               if (json) {
                 var signature_ = _this.get_signature(deviceId, json.user_id, nonce);
                 // console.log(signature_)
@@ -119,7 +119,7 @@
                   if (object.movie.img == './img/img_broken.svg') {
                     $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
                     var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|\/]+/;
-                    // network.silent('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(object.movie.title.replace(/《|【|》|】|\./g, ' ').match(reg)[0] ), function (json) {
+                    // network["native"]('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(object.movie.title.replace(/《|【|》|】|\./g, ' ').match(reg)[0] ), function (json) {
                     //   if (json.length > 0) { $(".full-start__img").attr('src', json[0].cover_url) };
                     //   $('.broadcast__scan').remove();
                     // }, function (a, c) {
@@ -128,7 +128,7 @@
                     //   dataType: 'json'
                     // });
                     var chinese_title = object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : object.movie.title;
-                    network.silent('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+                    network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
                       var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
                       var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
                       if (rating_douban){
@@ -202,7 +202,7 @@
                     "content-type": "application/json;charset=utf-8",
                   },
                 };
-                network.silent(url, function (json) {
+                network["native"](url, function (json) {
                   if (json) {
                     var file_id_json = json;
                     if (file_id_json.code) {
@@ -227,7 +227,7 @@
                           foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
                         }
                         // console.log(foldername)
-                        network.silent('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
+                        network["native"]('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
                           // var poster_douban = $('div:first-child > div.haibao > a > img', json).attr('src');
                           // var rating_douban = $('div:first-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
                           var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
@@ -263,7 +263,7 @@
                       //   // if (object.movie.img == './img/img_broken.svg') {
                       //   //   $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
                       //   //   var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
-                      //   //   network.silent('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]), function (json) {
+                      //   //   network["native"]('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]), function (json) {
                       //   //     if (json.length > 0) { $(".full-start__img").attr('src', json[0].cover_url) };
                       //   //     $('.broadcast__scan').remove();
                       //   //   }, function (a, c) {
@@ -381,7 +381,7 @@
 
       this.get_file = function (url, jsonsearch, file_id, file_type, getShareId, p,token,default_drive_id) {
         var _this = this;
-        network.silent(url, function (json) {
+        network["native"](url, function (json) {
           if (json) {
             var get_share_token = json;
             if (file_type == 'file') {
@@ -998,7 +998,7 @@
                 }
               });
 
-              // network.silent(requestURL, function (json) {
+              // network["native"](requestURL, function (json) {
               //   console.log(json)
               // }, function (a, c) {
               //   Lampa.Noty.show(network.errorDecode(a, c));
@@ -1098,7 +1098,7 @@
                 //setTimeout(function () {
                   var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|\/]+/;
                   //    var chinese_title = element.title.replace(/《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/《|【|》|】|\./g, ' ').match(reg)[0] : element.title;
-                  //    network.silent('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(chinese_title), function (json) {
+                  //    network["native"]('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(chinese_title), function (json) {
                   //      if (json.length > 0) { $(".full-start__img").attr('src', json[0].cover_url) }
                   //      else { $(".full-start__img").attr('src', './img/img_broken.svg'); };
                   //      $('.broadcast__scan').remove();
@@ -1109,7 +1109,7 @@
                   //    });
                   $('.card__type').remove();
                   var chinese_title = element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : element.title;
-                  network.silent('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+                  network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
                     var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
                     var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
                     if (rating_douban){
