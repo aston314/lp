@@ -1679,7 +1679,7 @@
           network.clear();
           network.timeout(10000);
           var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
-          network["native"](qrurl, function (found) {
+          network.quiet(qrurl, function (found) {
             if (found.qrCodeUrl) {
               // c = found.qrCodeUrl;
               $('#qrcode-container').prepend('<img id="opentokenqr" src="' + found.qrCodeUrl + '" />')
@@ -1763,6 +1763,8 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
+    }, {
+      dataType: 'json'
     });
   }
 
@@ -1787,7 +1789,7 @@
       else {
         if (["LoginSuccess"].includes(found.status)) {
           clearInterval(i);
-          network["native"]("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+          network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
             Lampa.Storage.set("aliyun_open_token", j.refreshToken);
             $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
           }, function (a, c) {
