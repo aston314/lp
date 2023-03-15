@@ -438,37 +438,37 @@
       "category":[
          {
             "title":"首页",
-            "url":"https://zxzj.org",
+            "url":"https://www.zxzjhd.com",
             "quantity":":gt(11)"
          },
          {
             "title":"电影",
-            "url":"https://zxzj.org/list/1.html",
+            "url":"https://www.zxzjhd.com/list/1.html",
             "quantity":""
          },
          {
             "title":"美剧",
-            "url":"https://zxzj.org/list/2.html",
+            "url":"https://www.zxzjhd.com/list/2.html",
             "quantity":""
          },
          {
             "title":"韩剧",
-            "url":"https://zxzj.org/list/3.html",
+            "url":"https://www.zxzjhd.com/list/3.html",
             "quantity":""
          },
          {
             "title":"日剧",
-            "url":"https://zxzj.org/list/4.html",
+            "url":"https://www.zxzjhd.com/list/4.html",
             "quantity":""
          },
          {
             "title":"泰剧",
-            "url":"https://zxzj.org/list/5.html",
+            "url":"https://www.zxzjhd.com/list/5.html",
             "quantity":""
          },
          {
             "title":"动漫",
-            "url":"https://zxzj.org/list/6.html",
+            "url":"https://www.zxzjhd.com/list/6.html",
             "quantity":""
          }
       ],
@@ -498,7 +498,7 @@
          }
       },
       "search":{
-         "url":"https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
+         "url":"https://www.zxzjhd.com/vodsearch/-------------.html?wd=#msearchword&submit="
       }
    },
    {
