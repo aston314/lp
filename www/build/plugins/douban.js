@@ -317,13 +317,13 @@
             network.clear();
             network.timeout(10000);
             network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
-                //console.log(JSON.parse(json));
+                // console.log(json);
                 //doubanitem = JSON.parse(json);
-                _this.find_tmdb(JSON.parse(json),element);
+                _this.find_tmdb(json,element);
             }, function (a, c) {
                 this.empty(network.errorDecode(a, c));
             }, false, {
-                dataType: 'text'
+                dataType: 'json'
             });
         };
         this.find_tmdb = function (data,element) {
