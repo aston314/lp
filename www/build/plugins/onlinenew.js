@@ -648,7 +648,7 @@
       network["native"](proxy_url + url1, function (str) {
         console.log(str)
 
-        var parsedData = doreg.search_json ? JSON.parse(str) : str;
+        var parsedData = doreg.search_json ? str : str;
 
         var searchresult = doreg.search_json ? (parsedData.code === 999 ? 0 : (parsedData[doreg.node_json] ? parsedData[doreg.node_json].length : 0)) : $(doreg.search_html_selector, parsedData).find('a').length;
 
