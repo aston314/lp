@@ -18,20 +18,8 @@
     this.create = function () {
       var _this = this;
       this.activity.loader(true);
-      // if (!!window.cordova) {
-      //   network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
-      //     var empty = new Lampa.Empty();
-      //     html.append(empty.render());
-      //     _this.start = empty.start;
-
-      //     _this.activity.loader(false);
-
-      //     _this.activity.toggle();
-      //   });
-      // }
-      // else {
-
-        network["native"](object.url, this.build.bind(this), function (str) {
+      if (!!window.cordova) {
+        network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
           var empty = new Lampa.Empty();
           html.append(empty.render());
           _this.start = empty.start;
@@ -39,22 +27,19 @@
           _this.activity.loader(false);
 
           _this.activity.toggle();
-        }, function (a, c) {
-          Lampa.Noty.show(network.errorDecode(a, c));
-        }, false, {
-          dataType: 'json'
         });
+      }
+      else {
+        network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
+          var empty = new Lampa.Empty();
+          html.append(empty.render());
+          _this.start = empty.start;
 
-        // network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
-        //   var empty = new Lampa.Empty();
-        //   html.append(empty.render());
-        //   _this.start = empty.start;
+          _this.activity.loader(false);
 
-        //   _this.activity.loader(false);
-
-        //   _this.activity.toggle();
-        // });
-      // }
+          _this.activity.toggle();
+        });
+      }
 
       return this.render();
     };
