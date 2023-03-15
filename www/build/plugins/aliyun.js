@@ -1765,7 +1765,7 @@
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
     }, {
-      dataType: 'text'
+      dataType: 'json'
     });
   }
 
