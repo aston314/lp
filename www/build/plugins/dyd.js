@@ -36,7 +36,7 @@
 
             this.activity.loader(true);
 
-            network.silent(object.url, function (str) {
+            network["native"](object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -66,7 +66,7 @@
                 waitload = true;
                 object.page++;
                 // console.log(object.page)
-                network.silent(object.url + 'page/' + object.page, function (str) {
+                network["native"](object.url + 'page/' + object.page, function (str) {
                     var result = _this2.card(str);
                     _this2.append(result);
                     if (result.card.length) waitload = false;
@@ -216,7 +216,7 @@
                     //     movie: element,
                     //     page: 1
                     // });
-                    // network.silent(element.url, function (json) {
+                    // network["native"](element.url, function (json) {
                     //     if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                     //         var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                     //         //element.img = object.element.img;
@@ -237,7 +237,7 @@
                     // });
                     var sources = [];
 
-                    network.silent(element.url, function (str) {
+                    network["native"](element.url, function (str) {
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
                             $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
                             sources.push({
@@ -413,7 +413,7 @@
             var _this = this;
             network.clear();
             network.timeout(10000);
-            network.silent('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
+            network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
                 //console.log(JSON.parse(json));
                 //doubanitem = JSON.parse(json);
                 _this.find_tmdb(JSON.parse(json), element);
@@ -427,14 +427,14 @@
             var _this1 = this;
             var s, str = data.subject;
 
-            network.silent(str.url, function (json) {
+            network["native"](str.url, function (json) {
                 var s = json.match(/tt(\d+)/, 'g');
                 s = s ? s[0] : s;
                 //console.log(element);
                 //console.log(s)
                 if (s) {
                     var dom = Lampa.Storage.field('proxy_tmdb') ? 'http://apitmdb.cub.watch/3/' : 'https://api.themoviedb.org/3/';
-                    network.silent(dom + 'find/' + s + '?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
+                    network["native"](dom + 'find/' + s + '?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
 
                         var json = str.is_tv ? json.tv_results[0] : json.movie_results[0];
                         //console.log(json);
