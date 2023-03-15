@@ -206,7 +206,7 @@
                 card.on('hover:enter', function (target, card_data) {
                     var sources = [];
 
-                    network.silent(element.url+'-url', function (str) {
+                    network["native"](element.url+'-url', function (str) {
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
                         str.forEach(function (element) {
                             sources.push({
