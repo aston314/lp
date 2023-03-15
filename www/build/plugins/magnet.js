@@ -19,7 +19,7 @@
         var _this = this;
 
         this.activity.loader(true);
-        network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
+        network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
           var empty = new Lampa.Empty();
           html.append(empty.render());
           _this.start = empty.start;
@@ -39,7 +39,7 @@
         if (object.page < 1) {
           waitload = true;
           object.page++;
-          network.silent(object.url + '?pg=' + object.page, function (result) {
+          network["native"](object.url + '?pg=' + object.page, function (result) {
             _this2.append(result);
 
             if (result.length) waitload = false;
