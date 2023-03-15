@@ -645,7 +645,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(proxy_url + url1, function (str) {
+      network["native"](proxy_url + url1, function (str) {
 
         var parsedData = doreg.search_json ? JSON.parse(str) : str;
 
@@ -748,7 +748,7 @@
     function dodetail(link, data, title) {
       //取得具体页面的详情地址
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-      network.silent(proxy_url + link, function (data) {
+      network["native"](proxy_url + link, function (data) {
 
         var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
         rslt = [];
@@ -1060,7 +1060,7 @@
               });
               iabRef.addEventListener('exit', iabClose);
             } else {
-              network.silent(proxy_url + element.file, function (str) {
+              network["native"](proxy_url + element.file, function (str) {
                 if (str) {
 
                   // var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
@@ -2419,7 +2419,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json.indexOf('此刻找不到') == -1) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -2573,7 +2573,7 @@
 
             // playlist.push(first);
             // Lampa.Player.playlist(playlist);
-            network.silent(element.file, function (json) {
+            network["native"](element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                 var str = json.replace(/\n/g, '');
                 var h = $('section > div > a', str);
@@ -2651,7 +2651,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json.length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -2895,7 +2895,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json.data.list.length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -3051,7 +3051,7 @@
 
             // playlist.push(first);
             // Lampa.Player.playlist(playlist);
-            // network.silent(element.file, function (json) {
+            // network["native"](element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //     var str = json.replace(/\n/g, '');
             //     var h = $('section > div > a', str);
@@ -3372,7 +3372,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json.length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -3520,7 +3520,7 @@
           component.activity.loader(true);
 
           if (element.file) {
-            network.silent(element.file, function (json) {
+            network["native"](element.file, function (json) {
               if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                 var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                 element.img = object.movie.img;
@@ -3597,7 +3597,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if ($('h2.entry-title a', json).length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
@@ -3748,7 +3748,7 @@
           component.activity.loader(true);
 
           if (element.file) {
-            // network.silent(element.file, function (json) {
+            // network["native"](element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //    var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
             //     element.img = object.movie.img;
@@ -3771,7 +3771,7 @@
 
             var sources = [];
 
-            network.silent(element.file, function (str) {
+            network["native"](element.file, function (str) {
               //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
               $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
                 sources.push({
@@ -3864,7 +3864,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         //console.log($("a", json))
         //console.log($("a", json).length)
         if ($("a", json).length > 2) {
@@ -4030,7 +4030,7 @@
           });
 
           // if (element.file) {
-          //   network.silent(element.file, function (json) {
+          //   network["native"](element.file, function (json) {
           //     if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
           //      var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
           //       element.img = object.movie.img;
@@ -4107,7 +4107,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json) {
           //console.log($('.van-row > a[target="_blank"]',json))
           if ($('a[target="_blank"]', json).length > 4) {
@@ -4357,7 +4357,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network.silent(url1, function (json) {
+      network["native"](url1, function (json) {
         if (json) {
           if (json.indexOf('No posts found') == -1) {
             parse(json);
@@ -4535,7 +4535,7 @@
 
             // playlist.push(first);
             // Lampa.Player.playlist(playlist);
-            // network.silent(element.file, function (json) {
+            // network["native"](element.file, function (json) {
             //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
             //     var str = json.replace(/\n/g, '');
             //     var h = $('section > div > a', str);
@@ -9595,6 +9595,7 @@
           selected: e == balanser
         };
       }));
+      
       this.selected(filter_items);
     };
     /**
