@@ -1235,7 +1235,7 @@
                             page: 1
                         });
                     } else if (object.next == 'play') {
-                        network.silent(element.url, function (result) {
+                        network["native"](element.url, function (result) {
                             // /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
                             //var videolink = result.match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/)[0];
                             var v = result.replace(/\n|\r/g, '').replace(/\\/g, '').match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/);
@@ -1377,7 +1377,7 @@
                 var page = data.page;
                 var pagenum = object.page + 1;
                 page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + pagenum + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
-                network.silent(cors + page, function (result) {
+                network["native"](cors + page, function (result) {
                     var card = _this.card(result);
                     next.data = card;
                     if (object.cards) next.cards = false;
