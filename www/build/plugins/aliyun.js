@@ -1635,7 +1635,7 @@
             "&bizParams=" +
             "&_bx-v=2.0.31"
           var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-          network.quiet(qrurl, function (found) {
+          network["native"](qrurl, function (found) {
             if (found.content.success) {
               c = found.content.data;
               if (typeof QRCode == 'undefined') {
@@ -1679,7 +1679,7 @@
           network.clear();
           network.timeout(10000);
           var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
-          network.quiet(qrurl, function (found) {
+          network["native"](qrurl, function (found) {
             if (found.qrCodeUrl) {
               // c = found.qrCodeUrl;
               $('#qrcode-container').prepend('<img id="opentokenqr" src="' + found.qrCodeUrl + '" />')
@@ -1711,7 +1711,7 @@
   function getcode() {
     network.clear();
     network.timeout(10000);
-    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
@@ -1769,7 +1769,7 @@
   function getcode_opentoken(sid) {
     network.clear();
     network.timeout(10000);
-    network.quiet("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
+    network["native"]("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["QRCodeExpired"].includes(found.status)) {
@@ -1787,7 +1787,7 @@
       else {
         if (["LoginSuccess"].includes(found.status)) {
           clearInterval(i);
-          network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+          network["native"]("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
             Lampa.Storage.set("aliyun_open_token", j.refreshToken);
             $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
           }, function (a, c) {
