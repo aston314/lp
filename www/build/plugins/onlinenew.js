@@ -1870,7 +1870,7 @@
 
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (parseFloat(kinopoisk_id)) {
-        network["native"](url, function (json) {
+        network.silent(url, function (json) {
           if (json) {
             if (json.list.length == 0) {
               component.emptyForQuery(select_title)
