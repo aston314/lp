@@ -648,7 +648,7 @@
       network.timeout(1000 * 15);
       network["native"](proxy_url + url1, function (str) {
         // var parsedData = doreg.search_json ? str : str;
-        console.log(str)
+
         var parsedData = str;
 
 
