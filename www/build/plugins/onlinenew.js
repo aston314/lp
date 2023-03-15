@@ -643,10 +643,12 @@
       var url1 = doreg.search_url.replace('#msearchword', encodeURIComponent(object.movie.title.replace(/第(.+)季/, '')));
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
 
+      var ifjson = doreg.search_json ? "json" : "text";
       network.clear();
       network.timeout(1000 * 15);
       network["native"](proxy_url + url1, function (str) {
-        var parsedData = doreg.search_json ? str : str;
+        // var parsedData = doreg.search_json ? str : str;
+        var parsedData = str;
 
         var searchresult = doreg.search_json ? (parsedData.code === 999 ? 0 : (parsedData[doreg.node_json] ? parsedData[doreg.node_json].length : 0)) : $(doreg.search_html_selector, parsedData).find('a').length;
 
@@ -658,7 +660,7 @@
       }, function (a, c) {
         component.empty(network.errorDecode(a, c));
       }, false, {
-        dataType: 'text'
+        dataType: ifjson
       });
     };
 
