@@ -39,16 +39,28 @@
             var _this = this;
 
             this.activity.loader(true);
+            if (!!window.cordova) {
+                network.silent(object.url, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
 
-            network["native"](object.url, this.build.bind(this), function () {
-                var empty = new Lampa.Empty();
-                html.append(empty.render());
-                _this.start = empty.start;
+                    _this.activity.loader(false);
 
-                _this.activity.loader(false);
+                    _this.activity.toggle();
+                });
+            } else {
+                network["native"](object.url, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
 
-                _this.activity.toggle();
-            });
+                    _this.activity.loader(false);
+
+                    _this.activity.toggle();
+                });
+            }
+            
             return this.render();
         };
 
@@ -71,13 +83,24 @@
                 object.page++;
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
-                network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
-                    _this2.append(result);
-                    
-                    object.type == 'list' ? datatye = result.subjects : datatye = result ;
-                    if (datatye.length) waitload = false;
-                    Lampa.Controller.enable('content');
-                }, false);
+                if (!!window.cordova) {
+                    network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
+                        _this2.append(result);
+                        
+                        object.type == 'list' ? datatye = result.subjects : datatye = result ;
+                        if (datatye.length) waitload = false;
+                        Lampa.Controller.enable('content');
+                    }, false);
+                } else {
+                    network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
+                        _this2.append(result);
+                        
+                        object.type == 'list' ? datatye = result.subjects : datatye = result ;
+                        if (datatye.length) waitload = false;
+                        Lampa.Controller.enable('content');
+                    }, false);
+                }
+                
             //}
         };
 
