@@ -360,7 +360,7 @@
                 //console.log(s)
                 if (s) {
                     var dom = Lampa.Storage.field('proxy_tmdb') ? 'http://apitmdb.cub.watch/3/' : 'https://api.themoviedb.org/3/';
-                    network["native"](dom + 'find/'+s+'?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
+                    network.silent(dom + 'find/'+s+'?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
                         
                         var json = str.is_tv ? json.tv_results[0] :json.movie_results[0];
                         //console.log(json);
