@@ -40,7 +40,7 @@
 
             this.activity.loader(true);
 
-            network.silent(object.url, this.build.bind(this), function () {
+            network["native"](object.url, this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
@@ -71,7 +71,7 @@
                 object.page++;
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
-                network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
+                network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
                     _this2.append(result);
                     
                     object.type == 'list' ? datatye = result.subjects : datatye = result ;
@@ -316,7 +316,7 @@
             var _this = this;
             network.clear();
             network.timeout(10000);
-            network.silent('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
+            network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
                 //console.log(JSON.parse(json));
                 //doubanitem = JSON.parse(json);
                 _this.find_tmdb(JSON.parse(json),element);
@@ -330,14 +330,14 @@
             var _this1 = this;
             var s, str = data.subject;
 
-            network.silent(str.url, function (json) {
+            network["native"](str.url, function (json) {
                 var s = json.match(/tt(\d+)/, 'g');
                 s = s ? s[0] : s;
                 //console.log(element);
                 //console.log(s)
                 if (s) {
                     var dom = Lampa.Storage.field('proxy_tmdb') ? 'http://apitmdb.cub.watch/3/' : 'https://api.themoviedb.org/3/';
-                    network.silent(dom + 'find/'+s+'?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
+                    network["native"](dom + 'find/'+s+'?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
                         
                         var json = str.is_tv ? json.tv_results[0] :json.movie_results[0];
                         //console.log(json);
