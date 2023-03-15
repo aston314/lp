@@ -334,7 +334,7 @@
               "&bizParams=" +
               "&_bx-v=2.0.31"
             var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-            network.quiet(qrurl, function (found) {
+            network["native"](qrurl, function (found) {
               if (found.content.success) {
                 c = found.content.data;
                 if (typeof QRCode == 'undefined') {
