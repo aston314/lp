@@ -1887,7 +1887,7 @@
         });
         //getdetail(url);
       } else {
-        network["native"](url, function (json) {
+        network.silent(url, function (json) {
           if (json.code != 0) {
             //console.log(json.data.length)
             if (json.list.length !== 0) {
