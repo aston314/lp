@@ -334,7 +334,7 @@
               "&bizParams=" +
               "&_bx-v=2.0.31"
             var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-            network["native"](qrurl, function (found) {
+            network.quiet(qrurl, function (found) {
               if (found.content.success) {
                 c = found.content.data;
                 if (typeof QRCode == 'undefined') {
@@ -1711,7 +1711,8 @@
   function getcode() {
     network.clear();
     network.timeout(10000);
-    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+      console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
@@ -1763,15 +1764,13 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
-    }, {
-      dataType: 'json'
     });
   }
 
   function getcode_opentoken(sid) {
     network.clear();
     network.timeout(10000);
-    network["native"]("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
+    network.quiet("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["QRCodeExpired"].includes(found.status)) {
