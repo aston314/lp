@@ -2652,7 +2652,7 @@
 
       network.clear();
       network.timeout(1000 * 15);
-      network["native"](url1, function (json) {
+      network.silent(url1, function (json) {
         if (json.length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
