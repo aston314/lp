@@ -347,6 +347,47 @@
         scroll.clear();
       };
 
+      this.doview = function (url,file,element,view) {
+        // console.log('param',param)
+        network["native"](url+'/api/fs/get', function (j) {
+            if (j.message == "success") {
+                var playlist = [];
+                var first = {
+                  url: j.data.raw_url,
+                  timeline: view,
+                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                };
+                Lampa.Player.play(first);
+
+                playlist.push(first);
+                Lampa.Player.playlist(playlist);
+              } else {
+                  //Lampa.Noty.show('获取Alsit播放地址失败。');
+                  var playlist = [];
+                  var first = {
+                    url: file1,
+                    timeline: view,
+                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                  };
+                  Lampa.Player.play(first);
+
+                  playlist.push(first);
+                  Lampa.Player.playlist(playlist);
+              }
+        }, function (a, c) {
+            //console.log(a.responseText,a.status)
+            _this.empty('哦: ' + network.errorDecode(a, c));
+        }, JSON.stringify({
+            "path": file.replace(url+'/',''),
+            "password": ""
+          }), {
+            dataType: "json",
+            headers: {
+                "content-type": "application/json",
+            }
+        });
+      }
+
       this.append = function (items) {
         var _this4 = this;
         var viewed = Lampa.Storage.cache('online_view', 5000, []);
@@ -468,45 +509,46 @@
                 
                     //   }
                     // });
-                    $.ajax({
-                      url: r[0]+'/api/fs/get',
-                      type: 'POST',
-                      async: true,
-                      data: {
-                        "path": file.replace(r[0]+'/',''),
-                        "password": ""
-                      },
-                      dataType: 'json',
-                      success: function success(j) {
-                          if (j.message == "success") {
-                            var playlist = [];
-                            var first = {
-                              url: j.data.raw_url,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
-                            };
-                            Lampa.Player.play(first);
+                    _this4.doview (r[0],file,element,view);
+                //     $.ajax({
+                //       url: r[0]+'/api/fs/get',
+                //       type: 'POST',
+                //       async: true,
+                //       data: {
+                //         "path": file.replace(r[0]+'/',''),
+                //         "password": ""
+                //       },
+                //       dataType: 'json',
+                //       success: function success(j) {
+                //           if (j.message == "success") {
+                //             var playlist = [];
+                //             var first = {
+                //               url: j.data.raw_url,
+                //               timeline: view,
+                //               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                //             };
+                //             Lampa.Player.play(first);
           
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          } else {
-                              //Lampa.Noty.show('获取Alsit播放地址失败。');
-                              var playlist = [];
-                              var first = {
-                                url: file1,
-                                timeline: view,
-                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
-                              };
-                              Lampa.Player.play(first);
+                //             playlist.push(first);
+                //             Lampa.Player.playlist(playlist);
+                //           } else {
+                //               //Lampa.Noty.show('获取Alsit播放地址失败。');
+                //               var playlist = [];
+                //               var first = {
+                //                 url: file1,
+                //                 timeline: view,
+                //                 title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+                //               };
+                //               Lampa.Player.play(first);
             
-                              playlist.push(first);
-                              Lampa.Player.playlist(playlist);
-                          }
-                      },
-                      error: function error() {
-                          Lampa.Noty.show('获取Alsit播放地址失败。');
-                      }
-                  });
+                //               playlist.push(first);
+                //               Lampa.Player.playlist(playlist);
+                //           }
+                //       },
+                //       error: function error() {
+                //           Lampa.Noty.show('获取Alsit播放地址失败。');
+                //       }
+                //   });
                     //console.log(file)
                   //};
                   
