@@ -70,6 +70,7 @@
         url = getlink;
         var baseurl = getlink.match(/http.*:\/\/.*?\//, getlink)[0];
         (baseurl.indexOf('http://') !== -1) ? baseurl = cors_https + baseurl : baseurl;
+        console.log('baseurl',baseurl)
         
         network["native"](baseurl + "api/public/settings", function (json) {
             var url;
