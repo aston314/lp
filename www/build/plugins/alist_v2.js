@@ -104,7 +104,7 @@
       };
 
       this.dolist = function (_this,ver,url,param) {
-        network.silent(url, function (json) {
+        network["native"](url, function (json) {
             if (json.message == "success") {
                 var datatype;
                 (ver == 3) ? datatype = json.data.content : datatype = json.data.files;
