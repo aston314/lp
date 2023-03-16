@@ -456,10 +456,12 @@
             filter.render().find('.filter--filter').after(batchmenu);
             batchmenu.on('hover:enter', function () {
               var batchnumber = void 0;
+              var modal = $('<div><div class="broadcast__text">文件保存中</div><div class="broadcast__device" style="text-align: center">请稍候...</div><br><div class="broadcast__scan"><div></div></div></div></div>');
               Lampa.Modal.open({
-                        title: '文件保存中',
-                        html: Lampa.Template.get('modal_loading'),
-                        size: 'small',
+                        title: '',// 文件保存中
+                        // html: Lampa.Template.get('modal_loading'),
+                        html: modal,
+                        // size: 'small',
                         mask: true,
                         onBack: function onBack() {
                             Lampa.Modal.close();
