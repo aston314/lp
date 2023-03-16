@@ -105,7 +105,7 @@
       };
 
       this.dolist = function (_this,ver,url,param) {
-        console.log('param',param)
+        // console.log('param',param)
         network["native"](url, function (json) {
             if (json.message == "success") {
                 var datatype;
@@ -392,7 +392,7 @@
               //    });
               $('.card__type').remove();
               var chinese_title = element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : element.title;
-              network.silent('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+              network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
                 var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
                 var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
                 if (rating_douban) {
@@ -471,7 +471,7 @@
                     $.ajax({
                       url: r[0]+'/api/fs/get',
                       type: 'POST',
-                      async: false,
+                      async: true,
                       data: {
                         "path": file.replace(r[0]+'/',''),
                         "password": ""
