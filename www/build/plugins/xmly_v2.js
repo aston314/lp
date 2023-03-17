@@ -85,7 +85,9 @@
             }
             // if (new_data.length) waitload = false;
             Lampa.Controller.enable('content');
-          }, false);
+          }, false, false, {
+            dataType: 'json'
+          });
         //}
       };
 
