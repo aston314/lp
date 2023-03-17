@@ -74,8 +74,8 @@
           //object.page++;
           var new_data;
           network["native"](postdata, function (result) {
-            console.log(result.data)
-            if (Array.isArray(result.data)){
+            // console.log(result.data)
+            if (result.data.radios.length >0 ){
             if (object.keyword){
                 new_data = result.data.searchResultsPage.searchData;
             } else {
