@@ -82,7 +82,9 @@
             _this2.append(new_data);
             if (new_data.length) waitload = false;
             Lampa.Controller.enable('content');
-          }, false);
+          }, false,{
+            dataType: 'json',
+          });
         //}
       };
 
