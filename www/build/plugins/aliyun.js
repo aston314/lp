@@ -30,6 +30,7 @@
     scroll.body().addClass('torrent-list');
     var listlink = {
       data: [{
+        signature: [],
         media: [],
         "iframe_src": "",
         translations: []
@@ -73,228 +74,144 @@
             };
             network["native"](url, function (json) {
               if (json) {
-                var signature_ = _this.get_signature(deviceId, json.user_id, nonce);
-                // console.log(signature_)
-                var signature = JSON.parse(signature_).signature;
-                Lampa.Storage.set('aliyun_signature', signature);
-                var publickey = JSON.parse(signature_).publicKey;
-                //Lampa.Storage.set('aliyun_publickey', publickey);
-                // console.log(publickey,(nonce ==0))
-
-                var requestURL = `https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`;
-                var dataJSON = {};
-
-                dataJSON["deviceName"] = "Edge浏览器";
-                dataJSON["modelName"] = "Windows网页版";
-                dataJSON["pubKey"] = publickey;
-                // // // if (nonce == 0){
-                $.ajax({
-                  url: requestURL,
-                  data: JSON.stringify(dataJSON),
-                  type: "POST",
-                  dataType: "json",
-                  contentType: "application/json;charset=utf-8",
-                  headers: {
-                    "authorization": "Bearer " + json.access_token + "",
-                    // "origin": "https://www.aliyundrive.com",
-                    // "referer": "https://www.aliyundrive.com/",
-                    // "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41",
-                    // "x-canary": "client=web,app=adrive,version=v3.17.0",
-                    "x-device-id": deviceId,
-                    "x-signature": signature,
-                  },
-                  async: false,
-                  success: function (returnData) {
-                    // console.log(returnData);
-                  },
-                  error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr.status);
-                    console.log(thrownError);
-                  }
-                });
-
-                if (getShareId === null) {
-                  //console.log(json)
-                  //$('.files__left').hide();
-                  if (object.movie.img == './img/img_broken.svg') {
-                    $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
-                    var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|\/]+/;
-                    // network["native"]('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(object.movie.title.replace(/《|【|》|】|\./g, ' ').match(reg)[0] ), function (json) {
-                    //   if (json.length > 0) { $(".full-start__img").attr('src', json[0].cover_url) };
-                    //   $('.broadcast__scan').remove();
-                    // }, function (a, c) {
-                    //   //Lampa.Noty.show(network.errorDecode(a, c));
-                    // }, false, {
-                    //   dataType: 'json'
-                    // });
-                    var chinese_title = object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : object.movie.title;
-                    network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
-                      var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
-                      var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                      if (rating_douban){
-                        //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                        $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：'+ rating_douban +'</div>');
-                      };
-                      if (poster_douban) {
-                        if (Lampa.Storage.field('douban_img_proxy')) {
-                          //豆瓣图片域名
-                          if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                            poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                          } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                            poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                          };
+                _this.aliyun_signature(deviceId, json.user_id, nonce).then(function(signature) {
+                  // 如果登录成功，则调用获取签名函数来获取签名
+                  // console.log('Login successful. Signature: ' + signature);
+                  Lampa.Storage.set('aliyun_signature', signature.signature);
+                  return _this.aliyun_renew(signature,json);
+                }).then(function(result) {
+                  // 如果获取签名成功，则打印签名并执行后续代码
+                  // console.log('Get renew successful. Result: ' + result);
+                  if (getShareId === null) {
+                    //console.log(json)
+                    //$('.files__left').hide();
+                    if (object.movie.img == './img/img_broken.svg') {
+                      $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
+                      var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|\/]+/;
+                      var chinese_title = object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : object.movie.title;
+                      network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+                        var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
+                        var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
+                        if (rating_douban) {
+                          //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                          $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
                         };
-                        $(".full-start__img").attr('src', poster_douban)
-                      };
-                      $('.broadcast__scan').remove();
-                    }, function (a, c) {
-                      //Lampa.Noty.show(network.errorDecode(a, c));
-                    }, false, {
-                      dataType: 'text'
-                    });
-                  };
-              
-                  // console.log(json)
-                  var get_list = $.parseJSON(_this.get_file_(getlink, json.default_drive_id, json.access_token, deviceId));
-                  //console.log(get_list)
-                  
-                  if (get_list.message && get_list.message !== '') {
-                    Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
-                  } else {
-                    get_list.items.forEach(function (item, index) {
-                      //setTimeout(function() {
-                      if (item.category == "video" || item.type == "folder") {
-                        listlink.data[0].media.push({
-                          translation_id: item.file_id,
-                          max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-                          title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                          type: item.type,
-                          drive_id: item.drive_id,
-                          file_id: item.file_id,
-                          share_id: item.share_id
-                          //iframe_src : matches[0],
-                          //translation : mytranslation
-                        });
-                      };
-                      //}, 66 * index);
-                    });
-                    results = listlink.data;
-                    //console.log(results[0].translations.length);
-                    _this.build();
-                  };
-
-                  _this.activity.loader(false);
-
-                  _this.activity.toggle();
-                }else{
-                var token_refresh = json;
-                //Lampa.Storage.set('aliyun_token', json.refresh_token);
-                //console.log(json)
-
-                //取得file_id
-                url = "https://api.aliyundrive.com/adrive/v3/share_link/get_share_by_anonymous?share_id=" + getShareId;
-                jsonsearch = {
-                  share_id: getShareId
-                };
-                var p = {
-                  dataType: "json",
-                  headers: {
-                    "content-type": "application/json;charset=utf-8",
-                  },
-                };
-                network["native"](url, function (json) {
-                  if (json) {
-                    var file_id_json = json;
-                    if (file_id_json.code) {
-                      _this.empty('哦，该资源已经取消分享');
-                    }
-                    else {
-
-                      //console.log(file_id_json.code);
-                      //if (file_id_json.code == "ShareLink.Forbidden"){} ;
-                      var file_id = file_id_json.file_infos[0].file_id;
-                      var file_type = file_id_json.file_infos[0].type;
-                      if (object.movie.img == './img/img_broken.svg') {
-                        $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
-                        object.movie.title = '推送：'+(file_id_json.file_infos[0].file_name||file_id_json.file_infos[0]);
-                        //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
-                        var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
-                        // console.log(file_id_json.file_infos[0].file_name.match(reg))
-                        var foldername;
-                        if (file_id_json.file_infos[0].file_name.match(reg) == null) {
-                          foldername = file_id_json.file_infos[0].file_name;
-                        } else {
-                          foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
-                        }
-                        // console.log(foldername)
-                        network["native"]('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
-                          // var poster_douban = $('div:first-child > div.haibao > a > img', json).attr('src');
-                          // var rating_douban = $('div:first-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                          var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
-                          var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
-                          if (rating_douban) {
-                            //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                            $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                          };
-                          if (poster_douban) {
-                            if (Lampa.Storage.field('douban_img_proxy')) {
-                              //豆瓣图片域名
-                              if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                                poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                              } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                                poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                              };
+                        if (poster_douban) {
+                          if (Lampa.Storage.field('douban_img_proxy')) {
+                            //豆瓣图片域名
+                            if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
+                              poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
+                            } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
+                              poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
                             };
-                            $(".full-start__img").attr('src', poster_douban);
-                            object.movie.img = poster_douban;
                           };
-                          $('.broadcast__scan').remove();
-                        }, function (a, c) {
-                          //Lampa.Noty.show(network.errorDecode(a, c));
-                        }, false, {
-                          dataType: 'text'
-                        });
-                      };
-                      //if (object.title == '阿里云盘播放') {
-                        $(".files__title").text(file_id_json.file_infos[0].file_name);
-                        
-                      // } 
-                      // else {
-                      //   // if (object.movie.img == './img/img_broken.svg') {
-                      //   //   $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
-                      //   //   var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
-                      //   //   network["native"]('https://filebox-douban.vercel.app/api/search?keyword=' + encodeURIComponent(file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]), function (json) {
-                      //   //     if (json.length > 0) { $(".full-start__img").attr('src', json[0].cover_url) };
-                      //   //     $('.broadcast__scan').remove();
-                      //   //   }, function (a, c) {
-                      //   //     //Lampa.Noty.show(network.errorDecode(a, c));
-                      //   //   }, false, {
-                      //   //     dataType: 'json'
-                      //   //   });
-                      //   // };
-                      //   $(".files__title-original").text(file_id_json.file_infos[0].file_name);
-                      // };
-                      //console.log(file_id);
-                      //console.log(file_id_json);
-                      url = "https://api.aliyundrive.com/v2/share_link/get_share_token";
-                      jsonsearch = {
-                        share_id: getShareId,
-                        share_pwd: ""
-                      };
-                      var p = {
-                        dataType: "json",
-                        headers: {
-                          "content-type": "application/json;charset=utf-8",
-                        },
-                      };
-                      _this.get_file(url, jsonsearch, file_id, file_type, getShareId, p,token_refresh.access_token,token_refresh.default_drive_id);
-                      
+                          $(".full-start__img").attr('src', poster_douban)
+                        };
+                        $('.broadcast__scan').remove();
+                      }, function (a, c) {
+                        //Lampa.Noty.show(network.errorDecode(a, c));
+                      }, false, {
+                        dataType: 'text'
+                      });
                     };
-                  } else _this.empty('哦，该资源已经取消分享。');
-                }, function (a, c) {
-                  _this.empty('哦: ' + network.errorDecode(a, c));
-                }, JSON.stringify(jsonsearch), p);
-              };
+
+                    _this.aliyun_file_list(_this, getlink, json.default_drive_id, json.access_token, deviceId);
+                    
+                    _this.activity.loader(false);
+
+                    _this.activity.toggle();
+                  } else {
+                    var token_refresh = json;
+                    //Lampa.Storage.set('aliyun_token', json.refresh_token);
+                    //console.log(json)
+
+                    //取得file_id
+                    url = "https://api.aliyundrive.com/adrive/v3/share_link/get_share_by_anonymous?share_id=" + getShareId;
+                    jsonsearch = {
+                      share_id: getShareId
+                    };
+                    var p = {
+                      dataType: "json",
+                      headers: {
+                        "content-type": "application/json;charset=utf-8",
+                      },
+                    };
+                    network["native"](url, function (json) {
+                      if (json) {
+                        var file_id_json = json;
+                        if (file_id_json.code) {
+                          _this.empty('哦，该资源已经取消分享');
+                        }
+                        else {
+                          //console.log(file_id_json.code);
+                          //if (file_id_json.code == "ShareLink.Forbidden"){} ;
+                          var file_id = file_id_json.file_infos[0].file_id;
+                          var file_type = file_id_json.file_infos[0].type;
+                          if (object.movie.img == './img/img_broken.svg') {
+                            $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
+                            object.movie.title = '推送：' + (file_id_json.file_infos[0].file_name || file_id_json.file_infos[0]);
+                            //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
+                            var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5|\d+|\/]+/;
+                            // console.log(file_id_json.file_infos[0].file_name.match(reg))
+                            var foldername;
+                            if (file_id_json.file_infos[0].file_name.match(reg) == null) {
+                              foldername = file_id_json.file_infos[0].file_name;
+                            } else {
+                              foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
+                            }
+                            // console.log(foldername)
+                            network["native"]('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
+                              var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
+                              var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
+                              if (rating_douban) {
+                                //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
+                              };
+                              if (poster_douban) {
+                                if (Lampa.Storage.field('douban_img_proxy')) {
+                                  //豆瓣图片域名
+                                  if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
+                                    poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
+                                  } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
+                                    poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
+                                  };
+                                };
+                                $(".full-start__img").attr('src', poster_douban);
+                                object.movie.img = poster_douban;
+                              };
+                              $('.broadcast__scan').remove();
+                            }, function (a, c) {
+                              //Lampa.Noty.show(network.errorDecode(a, c));
+                            }, false, {
+                              dataType: 'text'
+                            });
+                          };
+                          //if (object.title == '阿里云盘播放') {
+                          $(".files__title").text(file_id_json.file_infos[0].file_name);
+
+                          url = "https://api.aliyundrive.com/v2/share_link/get_share_token";
+                          jsonsearch = {
+                            share_id: getShareId,
+                            share_pwd: ""
+                          };
+                          var p = {
+                            dataType: "json",
+                            headers: {
+                              "content-type": "application/json;charset=utf-8",
+                            },
+                          };
+                          _this.aliyun_share_file(url, jsonsearch, file_id, file_type, getShareId, p, token_refresh.access_token, token_refresh.default_drive_id);
+
+                        };
+                      } else _this.empty('哦，该资源已经取消分享。');
+                    }, function (a, c) {
+                      _this.empty('哦: ' + network.errorDecode(a, c));
+                    }, JSON.stringify(jsonsearch), p);
+                  };
+                }).catch(function(error) {
+                  // 如果登录或获取签名失败，则打印错误信息
+                  console.error('Error: ' + error);
+                });
               } else _this.empty('哦, 阿里云盘Token失效了，请在设置中重新填写。');
             }, function (a, c) {
               _this.empty('哦: ' + network.errorDecode(a, c));
@@ -320,8 +237,6 @@
           ping_auth = setTimeout(function () {
             network.clear();
             network.timeout(10000);
-            //https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=X5vxoYz2z12UalF5Sw5DG6&umidToken=1112cd325b4b833b2c397da867e6b7e3865c9aaa&isMobile=true&lang=zh_CN&returnUrl=&hsiz=1f59a0289eb8d12691c959648e423ace&fromSite=52&bizParams=&_bx-v=2.0.31
-            //https://auth.aliyundrive.com/v2/oauth/authorize?client_id=25dzX3vbYqktVxyX&redirect_uri=https%3A%2F%2Fwww.aliyundrive.com%2Fsign%2Fcallback&response_type=code&login_type=custom&state=%7B%22origin%22%3A%22https%3A%2F%2Fwww.aliyundrive.com%22%7D
             var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
               "appName=aliyun_drive" +
               "&fromSite=52" +
@@ -361,7 +276,7 @@
             });
           }, 200);
            _this.empty('哦，未找到阿里云盘Token，请在设置中填写。');
-          }
+        }
         filter.onSearch = function (value) {
           Lampa.Activity.replace({
             search: value,
@@ -379,7 +294,46 @@
         return this.render();
       };
 
-      this.get_file = function (url, jsonsearch, file_id, file_type, getShareId, p,token,default_drive_id) {
+      this.aliyun_file_list = function (_this, path, driveId, accesstoken, deviceId) {
+        network["native"]("https://api.aliyundrive.com/v2/file/list", function (get_list) {
+          if (get_list.message && get_list.message !== '') {
+            Lampa.Noty.show('阿里云盘访问错误：' + get_list.message);
+          } else {
+            get_list.items.forEach(function (item, index) {
+              if (item.category == "video" || item.type == "folder") {
+                listlink.data[0].media.push({
+                  translation_id: item.file_id,
+                  max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+                  title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+                  type: item.type,
+                  drive_id: item.drive_id,
+                  file_id: item.file_id,
+                  share_id: item.share_id
+                });
+              };
+            });
+            results = listlink.data;
+            _this.build();
+          };
+        }, function (a, c) {
+          Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+        }, JSON.stringify({
+          drive_id: driveId,
+          fields: '*',
+          parent_file_id: path,
+          limit: 200
+        }), {
+          dataType: "json",
+          headers: {
+            "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
+            "content-type": "application/json",
+            "x-device-id": deviceId,
+            "x-signature": Lampa.Storage.get('aliyun_signature'),
+          }
+        });
+      };
+
+      this.aliyun_share_file = function (url, jsonsearch, file_id, file_type, getShareId, p,token,default_drive_id) {
         var _this = this;
         network["native"](url, function (json) {
           if (json) {
@@ -397,7 +351,6 @@
               var get_file_get = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
               //console.log(get_file_get);
 
-              //setTimeout(function() {
               if (get_file_get.category == "video") {
                 listlink.data[0].media.push({
                   translation_id: get_file_get.file_id,
@@ -410,7 +363,6 @@
                   //translation : mytranslation
                 });
               };
-              //}, 66);
             } else {
               url = "https://api.aliyundrive.com/adrive/v3/file/list";
               jsonsearch = {
@@ -480,7 +432,7 @@
                 var myurl_ = returnData.responses[0].body.file_id;
                   
                 batchnumber = setInterval(function () {
-                  _this.dobatch(requestURL, myurl_, returnData, token, get_share_token.share_token, batchnumber);
+                  _this.aliyunbatch(requestURL, myurl_, returnData, token, get_share_token.share_token, batchnumber);
                 }, 1000);
       
               }, function (a, c) {
@@ -590,7 +542,7 @@
         }, JSON.stringify(jsonsearch), p);
       };
 
-      this.dobatch = function (url, myurl_, json, token, share_token,batchnumber) {
+      this.aliyunbatch = function (url, myurl_, json, token, share_token,batchnumber) {
         var param = {"requests":[{"body":{"async_task_id":""+json.responses[0].body.async_task_id+""},"headers":{"Content-Type":"application/json"},"id":""+json.responses[0].body.async_task_id+"","method":"POST","url":"/async_task/get"}],"resource":"file"};
         network["native"](url, function (returnData) {
           // console.log(returnData.responses[0]);
@@ -699,29 +651,6 @@
         }).responseText;;
       };
 
-      this.get_file_ = function (path, driveId, accesstoken, deviceId) {
-        return $.ajax({
-          type: "post",
-          url: "https://api.aliyundrive.com/v2/file/list",
-          data: JSON.stringify({
-            drive_id: driveId,
-            fields: '*',
-            parent_file_id: path,
-            limit: 200
-          }),
-          headers: {
-            "authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
-            "content-type": "application/json;charset=utf-8",
-            // "origin": "https://aliyundrive.com",
-            // "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
-            // "x-canary": "client=web,app=adrive,version=v3.17.0",
-            "x-device-id": deviceId,
-            "x-signature": Lampa.Storage.get('aliyun_signature'),
-          },
-          async: false
-        }).responseText;;
-      };
-
       //get_video_preview_play_info
       this.get_video_preview_play_info = function (file_id, driveId, accesstoken, deviceId) {
         return $.ajax({
@@ -748,23 +677,93 @@
         }).responseText;;
       };
 
-      this.get_signature = function (deviceId, userId, nonce) {
-        return $.ajax({
-          type: "post",
-          url: "https://aliyun-1-c3851719.deta.app/api/sign",
-          data: JSON.stringify({
+      this.aliyun_signature = function (deviceId, userId, nonce) {
+        return new Promise(function(resolve, reject) {
+          network["native"]("https://aliyun-1-c3851719.deta.app/api/sign", function (json) {
+            // console.log(json)
+            // return json
+            // 如果登录成功，则将获取到的 token 传递给下一步
+            // array_signature (json);
+            resolve(json);
+          }, function (a, c) {
+            Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+            // 如果登录失败，则将错误信息传递给下一步
+            resolve(network.errorDecode(a, c));
+          }, JSON.stringify({
             appId: "5dde4e1bdf9e4966b387ba58f4b3fdc3",
             deviceId: deviceId,
             userId: userId,
             nonce: nonce
-          }),
-          headers: {
-            //"authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
-            "content-type": "application/json;charset=utf-8",
-          },
-          async: false
-        }).responseText;;
-      };
+          }), {
+            dataType: "json",
+            headers: {
+              "content-type": "application/json",
+            }
+          });
+
+        });
+      }
+
+      this.aliyun_renew = function (s,json) {
+        return new Promise(function(resolve, reject) {
+          network["native"](`https://api.aliyundrive.com/users/v1/users/device/${nonce != 0 ? 'renew_session' : 'create_session'}`, function (json) {
+            // 如果登录成功，则将获取到的 token 传递给下一步
+            resolve(json);
+          }, function (a, c) {
+            Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+            // 如果登录失败，则将错误信息传递给下一步
+            resolve(network.errorDecode(a, c));
+          }, JSON.stringify({
+              deviceName: "Edge浏览器",
+              modelName: "Windows网页版",
+              pubKey: s.publicKey
+          }), {
+            dataType: "json",
+            headers: {
+              "authorization": "Bearer "+json.access_token,
+              "x-device-id": deviceId,
+              "x-signature": s.signature,
+              "content-type": "application/json",
+            }
+          });
+
+        });
+      }
+
+      // this.get_signature = function (deviceId, userId, nonce) {
+      //   return $.ajax({
+      //     type: "post",
+      //     url: "https://aliyun-1-c3851719.deta.app/api/sign",
+      //     data: JSON.stringify({
+      //       appId: "5dde4e1bdf9e4966b387ba58f4b3fdc3",
+      //       deviceId: deviceId,
+      //       userId: userId,
+      //       nonce: nonce
+      //     }),
+      //     headers: {
+      //       //"authorization": "".concat("Bearer" || "", " ").concat(accesstoken || ""),
+      //       "content-type": "application/json;charset=utf-8",
+      //     },
+      //     async: false
+      //   }).responseText;
+
+      //   // network["native"]("https://aliyun-1-c3851719.deta.app/api/sign", function (json) {
+      //   //   console.log(json)
+      //   //   return json
+      //   // }, function (a, c) {
+      //   //   Lampa.Noty.show('哦: ' + network.errorDecode(a, c))
+      //   // }, JSON.stringify({
+      //   //   appId: "5dde4e1bdf9e4966b387ba58f4b3fdc3",
+      //   //   deviceId: deviceId,
+      //   //   userId: userId,
+      //   //   nonce: nonce
+      //   // }), {
+      //   //   dataType: "json",
+      //   //   headers: {
+      //   //     "content-type": "application/json",
+      //   //   }
+      //   // });
+      // };
 
       // this.generateUUID = function() {
       //   var d = new Date().getTime();
@@ -779,8 +778,6 @@
       this.getFile = function (element, show_error) {
         //console.log(element)
         var translat = element.translation;
-        // var jsonresult = $.parseJSON(this.getRemote("http://proxy.cub.watch/cdn/https://rentry.co/qptpt/raw","GET","json","",""));
-        // token = jsonresult.data[0].t;
         token = Lampa.Storage.get('aliyun_token');
 
         url = "https://auth.aliyundrive.com/v2/account/token";
@@ -832,15 +829,72 @@
             var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
             if (aliyun_open_token) {
               var requestURL = 'http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token;
+
+              // network["native"](requestURL, function (returnData) {
+              //   if (returnData.refreshToken != null) {
+              //     // console.log(returnData.accessToken);
+              //     Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
+
+              //     network["native"]("https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl", function (json) {
+              //       if (json.url != null) {
+              //         data.url = json.url;
+              //         // console.log(data.url)
+              //       } else {
+              //         data.url = '';
+              //         Lampa.Noty.show('获取原画失败。');
+              //       }
+              //     }, function (a, c) {
+              //       // _this.empty('哦: ' + network.errorDecode(a, c));
+              //       Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
+              //     }, JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }), {
+              //       dataType: "json",
+              //       headers: {
+              //         "content-type": "application/json",
+              //         "authorization": "Bearer " + returnData.accessToken,
+              //       }
+              //     });
+              //     // $.ajax({
+              //     //   url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
+              //     //   data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
+              //     //   type: "POST",
+              //     //   dataType: "json",
+              //     //   contentType: "application/json;charset=utf-8",
+              //     //   headers: {
+              //     //     "authorization": "Bearer " + returnData.accessToken,
+              //     //   },
+              //     //   async: false,
+              //     //   success: function (returnData) {
+              //     //     if (returnData.url != null) {
+              //     //       data.url = returnData.url;
+              //     //       // console.log(data.url)
+              //     //     } else {
+              //     //       data.url = '';
+              //     //       Lampa.Noty.show('获取原画失败。');
+              //     //     }
+              //     //   },
+              //     //   error: function (xhr, ajaxOptions, thrownError) {
+              //     //     Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
+              //     //     console.log(thrownError);
+              //     //   }
+              //     // });
+              //   } else {
+              //     Lampa.Noty.show('刷新 open refresh token 失败。');
+              //   }
+              // }, function (a, c) {
+              //   Lampa.Noty.show("状态代码：" + network.errorDecode(a, c) + '，刷新 open refresh token 失败。');
+              // }, false, false, {
+              //   dataType: 'json'
+              // });
+
               $.ajax({
                 url: requestURL,
                 type: "get",
                 dataType: "json",
                 async: false,
-                success: function (returnData) {
-                  if (returnData.refreshToken != null) {
+                success: function (Data) {
+                  if (Data.refreshToken != null) {
                     // console.log(returnData.accessToken);
-                    Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
+                    Lampa.Storage.set('aliyun_open_token', Data.refreshToken)
                     $.ajax({
                       url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
                       data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
@@ -848,7 +902,7 @@
                       dataType: "json",
                       contentType: "application/json;charset=utf-8",
                       headers: {
-                        "authorization": "Bearer " + returnData.accessToken,
+                        "authorization": "Bearer " + Data.accessToken,
                       },
                       async: false,
                       success: function (returnData) {
