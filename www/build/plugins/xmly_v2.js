@@ -63,7 +63,7 @@
             postdata = "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ (parseInt(object.page++)+1) + "&pageSize=48"
         };
         
-        console.log(postdata)
+        // console.log(postdata)
         
         var _this2 = this;
 
