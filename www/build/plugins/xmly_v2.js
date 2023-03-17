@@ -74,14 +74,16 @@
           //object.page++;
           var new_data;
           network["native"](postdata, function (result) {
-            console.log(result.data)
+            if (result.data.length > 0){
             if (object.keyword){
                 new_data = result.data.searchResultsPage.searchData;
             } else {
                 new_data = result.data.radios;
             };
             _this2.append(new_data);
-            if (new_data.length) waitload = false;
+            waitload = false
+            }
+            // if (new_data.length) waitload = false;
             Lampa.Controller.enable('content');
           }, false,{
             dataType: 'json',
