@@ -48,7 +48,7 @@
                 _this.activity.loader(false);
 
                 _this.activity.toggle();
-            }, false, {
+            }, false, false, {
                 dataType: 'json'
             });
 
@@ -104,7 +104,7 @@
                 object.type == 'list' ? datatye = result.subjects : datatye = result;
                 if (datatye.length) waitload = false;
                 Lampa.Controller.enable('content');
-            }, false, {
+            }, false, false, {
                 dataType: 'json'
             });
 
