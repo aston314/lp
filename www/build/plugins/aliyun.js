@@ -1931,6 +1931,7 @@
 
     network.clear();
     network.timeout(10000);
+
     network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       console.log(found)
       var scaned = false;
@@ -1971,10 +1972,56 @@
         }
       }
     }, function (a, c) {
-      Lampa.Noty.show(network.errorDecode(a, c));
+      Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
     }, postdata, {
-      dataType: "json",
-  });
+      dataType: "json"
+    });
+
+
+  //   network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+  //     console.log(found)
+  //     var scaned = false;
+  //     // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
+  //     if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
+  //       clearInterval(i);
+  //       $('#qrcode-container').text('二维码已过期');
+  //     } else if (["SCANED"].includes(found.content.data.qrCodeStatus)) {
+  //       if (!scaned) {
+  //         $('#qrcode-container').text('扫描成功, 请在手机上根据提示确认登录');
+  //       }
+  //       scaned = true;
+  //     } else if (["CANCELED"].includes(found.content.data.qrCodeStatus)) {
+  //       clearInterval(i);
+  //       $('#qrcode-container').text('您已取消登录');
+  //     }
+  //     else {
+  //       if (["CONFIRMED"].includes(found.content.data.qrCodeStatus)) {
+  //         clearInterval(i);
+  //         var resultjson = JSON.parse(atob(found.content.data.bizExt));
+  //         Lampa.Storage.set("aliyun_token", resultjson.pds_login_result.refreshToken);
+  //         $('.settings [data-name="aliyun_token"] .settings-param__value').text(resultjson.pds_login_result.refreshToken);
+  //         Lampa.Modal.close();
+  //         Lampa.Controller.toggle('settings_component');
+  //         if (firstlogin) {
+  //           var element = {};
+  //           element.img = './img/img_broken.svg';
+  //           element.original_title = '';
+  //           element.title = '云盘内容';
+  //           Lampa.Activity.push({
+  //             url: 'root',
+  //             title: '我的阿里云盘',
+  //             component: 'yunpan2',
+  //             movie: element,
+  //             page: 1
+  //           });
+  //         };//window.location.reload();
+  //       }
+  //     }
+  //   }, function (a, c) {
+  //     Lampa.Noty.show(network.errorDecode(a, c));
+  //   }, postdata, {
+  //     dataType: "json",
+  // });
   }
 
   function getcode_opentoken(sid) {
