@@ -1766,7 +1766,7 @@
             "&bizParams=" +
             "&_bx-v=2.0.31"
           var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-          network.quiet(qrurl, function (found) {
+          network["native"](qrurl, function (found) {
             if (found.content.success) {
               c = found.content.data;
               if (typeof QRCode == 'undefined') {
@@ -1790,7 +1790,9 @@
             }
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
-          });
+          }, false, false, {
+            dataType: 'json'
+        });
         }, 200);
       });
 
@@ -1810,7 +1812,7 @@
           network.clear();
           network.timeout(10000);
           var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
-          network.quiet(qrurl, function (found) {
+          network["native"](qrurl, function (found) {
             if (found.qrCodeUrl) {
               // c = found.qrCodeUrl;
               $('#qrcode-container').prepend('<img id="opentokenqr" src="' + found.qrCodeUrl + '" />')
@@ -1823,7 +1825,9 @@
             }
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
-          });
+          }, false, false, {
+            dataType: 'json'
+        });
         }, 200);
       });
 
@@ -1842,7 +1846,7 @@
   function getcode() {
     network.clear();
     network.timeout(10000);
-    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1901,7 +1905,7 @@
   function getcode_opentoken(sid) {
     network.clear();
     network.timeout(10000);
-    network.quiet("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
+    network["native"]("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["QRCodeExpired"].includes(found.status)) {
@@ -1934,7 +1938,7 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, false, {
+    }, false,false, {
       dataType: 'json'
     });
   }
