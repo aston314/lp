@@ -1791,8 +1791,8 @@
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
           }, false, false, {
-            dataType: 'json'
-        });
+                dataType: 'json'
+            });
         }, 200);
       });
 
@@ -1812,7 +1812,7 @@
           network.clear();
           network.timeout(10000);
           var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
-          network["native"](qrurl, function (found) {
+          network.quiet(qrurl, function (found) {
             if (found.qrCodeUrl) {
               // c = found.qrCodeUrl;
               $('#qrcode-container').prepend('<img id="opentokenqr" src="' + found.qrCodeUrl + '" />')
@@ -1825,9 +1825,7 @@
             }
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
-          }, false, false, {
-            dataType: 'json'
-        });
+          });
         }, 200);
       });
 
@@ -1846,7 +1844,7 @@
   function getcode() {
     network.clear();
     network.timeout(10000);
-    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1905,7 +1903,7 @@
   function getcode_opentoken(sid) {
     network.clear();
     network.timeout(10000);
-    network["native"]("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
+    network.quiet("https://open.aliyundrive.com/oauth/qrcode/" + sid + "/status", function (found) {
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["QRCodeExpired"].includes(found.status)) {
@@ -1938,7 +1936,7 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, false,false, {
+    }, false, {
       dataType: 'json'
     });
   }
