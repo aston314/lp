@@ -1921,12 +1921,12 @@
       else {
         if (["LoginSuccess"].includes(found.status)) {
           clearInterval(i);
-          network["native"]("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+          network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
             Lampa.Storage.set("aliyun_open_token", j.refreshToken);
             $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
           }, function (a, c) {
             Lampa.Noty.show(network.errorDecode(a, c));
-          }), false, false, {
+          }), false, {
             dataType: 'json'
           };
 
