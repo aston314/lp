@@ -333,6 +333,24 @@
         });
       };
 
+      this.aliyun_getjson = function (url, param, token) {
+        return new Promise(function(resolve, reject) {
+          network["native"](url, function (json) {
+            resolve(json);
+          }, function (a, c) {
+            Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+            resolve(network.errorDecode(a, c));
+          }, JSON.stringify(param), {
+            dataType: "json",
+            headers: {
+              "authorization": "",
+              "content-type": "application/json;charset=utf-8",
+              "x-share-token": token
+            }
+          });
+        });
+      }
+
       this.aliyun_share_file = function (url, jsonsearch, file_id, file_type, getShareId, p,token,default_drive_id) {
         var _this = this;
         network["native"](url, function (json) {
@@ -348,21 +366,33 @@
                 image_url_process: "image/resize,w_375/format,jpeg",
                 video_thumbnail_process: "video/snapshot,t_1000,f_jpg,ar_auto,w_375"
               };
-              var get_file_get = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
-              //console.log(get_file_get);
 
-              if (get_file_get.category == "video") {
-                listlink.data[0].media.push({
-                  translation_id: get_file_get.file_id,
-                  max_quality: get_file_get.name,
-                  title: get_file_get.name.replace("\.mp4", "").replace("\.mkv", ""),
-                  // type: item.type,
-                  // file_id: item.file_id,
-                  // share_id: item.share_id 
-                  //iframe_src : matches[0],
-                  //translation : mytranslation
-                });
-              };
+              // _this.aliyun_getjson(url, jsonsearch, get_share_token.share_token).then(function(get_file_get) {
+              //   console.log('successful. get_file_get: ' + get_file_get);
+              // }).catch(function(error) {
+              //   console.error('failed: ' + error);
+              // });
+
+
+              // var get_file_get = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
+              // console.log(get_file_get);
+
+              _this.aliyun_getjson(url, jsonsearch, get_share_token.share_token).then(function (ojson) {
+                var jsonData = JSON.stringify(ojson);// 转成JSON格式
+                var get_file_get = $.parseJSON(jsonData);// 转成JSON对象
+                if (get_file_get.category == "video") {
+                  listlink.data[0].media.push({
+                    translation_id: get_file_get.file_id,
+                    max_quality: get_file_get.name,
+                    title: get_file_get.name.replace("\.mp4", "").replace("\.mkv", ""),
+                  });
+                };
+                results = listlink.data;
+                _this.build();
+              }).catch(function (error) {
+                console.error('failed: ' + error);
+              });
+
             } else {
               url = "https://api.aliyundrive.com/adrive/v3/file/list";
               jsonsearch = {
@@ -376,31 +406,69 @@
                 order_direction: "ASC"
               };
 
-              var get_file_list = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
-              //console.log(obj.file_page.access_token);
-              var itemsProcessed = 0;
+              _this.aliyun_getjson(url, jsonsearch, get_share_token.share_token).then(function(ojson) {
+                //console.log('successful. get_file_get: ' + JSON.stringify(ojson));
+                var jsonData = JSON.stringify(ojson);// 转成JSON格式
+                var get_file_list = $.parseJSON(jsonData);// 转成JSON对象
               if (get_file_list.message && get_file_list.message !== '') {
                 Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
               } else {
+                
                 get_file_list.items.forEach(function (item, index) {
-                  //setTimeout(function() {
                   if (item.category == "video" || item.type == "folder") {
                     listlink.data[0].media.push({
                       translation_id: item.file_id,
                       max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
-                      // max_quality: item.category == "video" ? item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
                       title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
-                      // title: item.name.replace(/\.mp4|\.mkv/g, ""),
                       type: item.type,
                       file_id: item.file_id,
                       share_id: item.share_id
-                      //iframe_src : matches[0],
-                      //translation : mytranslation
                     });
                   };
-                  //}, 66 * index);
                 });
+                results = listlink.data;
+                _this.build();
               }
+              }).catch(function(error) {
+                console.error('failed: ' + error);
+              });
+
+    
+              // _this.aliyun_getjson(url, jsonsearch, get_share_token.share_token).then(function(ojson) {
+              //   var jsonData = JSON.stringify(ojson);// 转成JSON格式
+              //   var get_file_list = $.parseJSON(jsonData);// 转成JSON对象
+              //   console.log(get_file_list);
+              // }).catch(function(error) {
+              //   console.error('failed: ' + error);
+              // });
+
+
+
+              // var get_file_list = $.parseJSON(_this.getRemote(url, "POST", "json", jsonsearch, get_share_token.share_token));
+              // //console.log(obj.file_page.access_token);
+              // var itemsProcessed = 0;
+              // if (get_file_list.message && get_file_list.message !== '') {
+              //   Lampa.Noty.show('阿里云盘访问错误：' + get_file_list.code);
+              // } else {
+              //   get_file_list.items.forEach(function (item, index) {
+              //     //setTimeout(function() {
+              //     if (item.category == "video" || item.type == "folder") {
+              //       listlink.data[0].media.push({
+              //         translation_id: item.file_id,
+              //         max_quality: item.category == "video" ? item.name.substr(item.name.lastIndexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+              //         // max_quality: item.category == "video" ? item.name.substring(item.name.indexOf('.') + 1).toUpperCase() + ' / ' + get_size(item.size) : '文件夹',
+              //         title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
+              //         // title: item.name.replace(/\.mp4|\.mkv/g, ""),
+              //         type: item.type,
+              //         file_id: item.file_id,
+              //         share_id: item.share_id
+              //         //iframe_src : matches[0],
+              //         //translation : mytranslation
+              //       });
+              //     };
+              //     //}, 66 * index);
+              //   });
+              // }
             };
 
             // console.log(object.movie.file_id ? object.movie.file_id : file_id)
@@ -528,9 +596,7 @@
               //   }
               // });
             });
-            results = listlink.data;
-            //console.log(results[0].translations.length);
-            _this.build();
+            
 
             _this.activity.loader(false);
 
@@ -1844,7 +1910,7 @@
   function getcode() {
     network.clear();
     network.timeout(10000);
-    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network.quiet("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1897,7 +1963,7 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
-    },{dataType: 'json'});
+    });
   }
 
   function getcode_opentoken(sid) {
