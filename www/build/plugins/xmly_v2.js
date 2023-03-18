@@ -50,6 +50,10 @@
           _this.activity.toggle();
         },false,{
             dataType: 'json',
+            headers: {
+              'Referer': "https://www.ximalaya.com/",
+              'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+          }
           });
         return this.render();
       };
@@ -87,7 +91,11 @@
             // if (new_data.length) waitload = false;
             Lampa.Controller.enable('content');
           }, false, false, {
-            dataType: 'json'
+            dataType: 'json',
+            headers: {
+              'Referer': "https://www.ximalaya.com/",
+              'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+          }
           });
         //}
       };
