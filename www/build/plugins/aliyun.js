@@ -227,10 +227,12 @@
           Lampa.Modal.open({
             title: '',
             html: modal,
+            mask: true,
             onBack: function onBack() {
               Lampa.Modal.close();
               //Lampa.Controller.toggle('settings_component');
               //clearInterval(ping_auth);
+					    Lampa.Controller.toggle('content');
               clearInterval(i);
             },
           });
@@ -507,8 +509,7 @@
       
               }, function (a, c) {
                 //console.log(a.responseText,a.status)
-                // _this.empty('哦: ' + network.errorDecode(a, c));
-                Lampa.Noty.show("状态代码：" + network.errorDecode(a, c) + '，文件保存失败。');
+                Lampa.Noty.show(network.errorDecode(a, c) + '，文件保存失败。');
               }, JSON.stringify(dataJSON), {
                 dataType: "json",
                 headers: {
@@ -518,85 +519,6 @@
                   "content-type": "application/json",
                 }
               });
-
-              // $.ajax({
-              //   url: requestURL,
-              //   data: JSON.stringify(dataJSON),
-              //   type: "POST",
-              //   dataType: "json",
-              //   contentType: "application/json;charset=utf-8",
-              //   headers: {
-              //     "authorization": "Bearer " + token,
-              //     "x-share-token": get_share_token.share_token,
-              //     "x-device-id": deviceId,
-              //   },
-              //   success: function (returnData) {
-              //     // console.log(returnData.responses[0]);
-              //     var myurl_ = returnData.responses[0].body.file_id;
-                  
-              //     batchnumber = setInterval(function () {
-              //       // $.ajax({
-              //       //   url: requestURL,
-              //       //   data: JSON.stringify({"requests":[{"body":{"async_task_id":""+returnData.responses[0].body.async_task_id+""},"headers":{"Content-Type":"application/json"},"id":""+returnData.responses[0].body.async_task_id+"","method":"POST","url":"/async_task/get"}],"resource":"file"}),
-              //       //   type: "POST",
-              //       //   dataType: "json",
-              //       //   contentType: "application/json;charset=utf-8",
-              //       //   headers: {
-              //       //     "authorization": "Bearer " + token,
-              //       //     "x-share-token": get_share_token.share_token,
-              //       //     "x-device-id": deviceId,
-              //       //   },
-              //       //   success: function (returnData) {
-              //       //     // console.log(returnData.responses[0]);
-              //       //     var myurl = returnData.responses[0].body.status;
-              //       //     if ( returnData.responses[0].body.message && returnData.responses[0].body.message == "ErrQuotaExhausted"){
-              //       //       clearInterval(batchnumber);
-              //       //       if (myurl == 'PartialSucceed') {
-              //       //         Lampa.Activity.push({
-              //       //           url: myurl_,
-              //       //           title: '我的阿里云盘',
-              //       //           component: 'yunpan2',
-              //       //           movie: object.movie,
-              //       //           page: 1
-              //       //         });
-              //       //       //   Lampa.Noty.show('部分文件保存成功，云盘可用空间不足。');
-              //       //       // } else {
-              //       //         Lampa.Noty.show('文件不能全部保存，云盘可用空间不足。');
-              //       //       };
-              //       //       Lampa.Modal.close();
-              //       //       Lampa.Api.clear();
-              //       //       Lampa.Controller.toggle('content');
-              //       //     } else {
-              //       //     if (myurl == 'Succeed') {
-              //       //       clearInterval(batchnumber);
-              //       //       Lampa.Activity.push({
-              //       //         url: myurl_,
-              //       //         title: '我的阿里云盘',
-              //       //         component: 'yunpan2',
-              //       //         movie: object.movie,
-              //       //         page: 1
-              //       //       });
-              //       //       Lampa.Noty.show('文件保存成功，现在跳转到你的阿里云盘，以便流畅观看。');
-              //       //       Lampa.Modal.close();
-              //       //       Lampa.Api.clear();
-              //       //       Lampa.Controller.toggle('content');
-              //       //     }
-              //       //   };
-              //       //   },
-              //       //   error: function (xhr, ajaxOptions, thrownError) {
-              //       //     Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
-              //       //     console.log(thrownError);
-              //       //   }
-              //       // });
-              //       _this.dobatch(requestURL, myurl_, returnData, token, get_share_token.share_token, batchnumber);
-              //     }, 1000);
-                  
-              //   },
-              //   error: function (xhr, ajaxOptions, thrownError) {
-              //     Lampa.Noty.show("状态代码：" + xhr.status + '，文件保存失败。');
-              //     console.log(thrownError);
-              //   }
-              // });
             });
             
 
@@ -719,7 +641,6 @@
         }).responseText;;
       };
 
-      //get_video_preview_play_info
       this.get_video_preview_play_info = function (file_id, driveId, accesstoken, deviceId) {
         return $.ajax({
           type: "post",
@@ -843,234 +764,252 @@
       //   return uuid;
       // };
 
-      this.getFile = function (element, show_error) {
+      this.getFile = function (view, element, show_error) {
         //console.log(element)
         var translat = element.translation;
         token = Lampa.Storage.get('aliyun_token');
 
-        url = "https://auth.aliyundrive.com/v2/account/token";
-        jsonsearch = {
-            refresh_token: token,
-            grant_type: 'refresh_token'
-        };
-        //accesstoken
-        var token_refresh  = $.parseJSON(this.getRemote(url,"POST","json",jsonsearch,""));
+        network["native"]("https://auth.aliyundrive.com/v2/account/token", function (get_folder_token) {
+          Lampa.Storage.set('aliyun_token', get_folder_token.refresh_token);
 
-        // _this.aliyun_getjson(url, jsonsearch, "").then(function (token_refresh) {
-        //   console.log(token_refresh);
-        //   // Lampa.Storage.set('aliyun_token', token_refresh.refresh_token);
-        // }).catch(function (error) {
-        //   console.error('failed: ' + error);
-        // });
-        
-        Lampa.Storage.set('aliyun_token', token_refresh.refresh_token);
-        var get_download_url;
-
-        var data = {
-          expire_sec: 0,
-          width: 0,
-          height: 0,
-          url: '',
-          duration: 0,
-          urlFHD: '',
-          urlHD: '',
-          urlSD: '',
-          urlLD: '',
-          subtitles: []
-        };
-
-        if (element.share_id) {
-          url = "https://api.aliyundrive.com/v2/share_link/get_share_token";
-          var jsonsearch = {
-            share_id: getShareId,
-            share_pwd: ""
+          var data = {
+            expire_sec: 0,
+            width: 0,
+            height: 0,
+            url: '',
+            duration: 0,
+            urlFHD: '',
+            urlHD: '',
+            urlSD: '',
+            urlLD: '',
+            subtitles: []
           };
-          var get_share_token = $.parseJSON(this.getRemote(url, "POST", "json", jsonsearch, ""));
 
-          get_download_url = this.getShareLinkDownloadUrl(translat, getShareId, get_share_token.share_token, token_refresh.access_token);
-          get_download_url = $.parseJSON(get_download_url).download_url;
-          data.url = get_download_url;
-        } else {
-          url = "https://auth.aliyundrive.com/v2/account/token";
-          jsonsearch = {
-            refresh_token: token,
-            grant_type: 'refresh_token'
-          };
-          var get_folder_token = $.parseJSON(this.getRemote(url, "POST", "json", jsonsearch, ""));
-          //console.log(get_folder_token)
-          
+          if (element.share_id) {
+            network["native"]("https://api.aliyundrive.com/v2/share_link/get_share_token", function (json_) {
+              network["native"]("https://api.aliyundrive.com/v2/file/get_share_link_download_url", function (json) {
+                if (json.download_url != null) {
+                  data.url = json.download_url;
+                } else {
+                  data.url = '';
+                  Lampa.Noty.show('获取视频失败。');
+                  return;
+                }
+                if (data.url) {
+                  var playlist = [];
+                  var first = {
+                    url: data.url,
+                    timeline: view,
+                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                    subtitles: data.subtitles
+                  };
+                  Lampa.Player.play(first);
 
-          if (Lampa.Storage.get('aliyun_play_quantity')) {
-            var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
-            if (aliyun_open_token) {
-              var requestURL = 'http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token;
+                  playlist.push(first);
+                  Lampa.Player.playlist(playlist);
 
-              // network["native"](requestURL, function (returnData) {
-              //   if (returnData.refreshToken != null) {
-              //     // console.log(returnData.accessToken);
-              //     Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
+                } else {
+                  Lampa.Noty.show('无法检索链接');
+                }
 
-              //     network["native"]("https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl", function (json) {
-              //       if (json.url != null) {
-              //         data.url = json.url;
-              //         // console.log(data.url)
-              //       } else {
-              //         data.url = '';
-              //         Lampa.Noty.show('获取原画失败。');
-              //       }
-              //     }, function (a, c) {
-              //       // _this.empty('哦: ' + network.errorDecode(a, c));
-              //       Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
-              //     }, JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }), {
-              //       dataType: "json",
-              //       headers: {
-              //         "content-type": "application/json",
-              //         "authorization": "Bearer " + returnData.accessToken,
-              //       }
-              //     });
-              //     // $.ajax({
-              //     //   url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
-              //     //   data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
-              //     //   type: "POST",
-              //     //   dataType: "json",
-              //     //   contentType: "application/json;charset=utf-8",
-              //     //   headers: {
-              //     //     "authorization": "Bearer " + returnData.accessToken,
-              //     //   },
-              //     //   async: false,
-              //     //   success: function (returnData) {
-              //     //     if (returnData.url != null) {
-              //     //       data.url = returnData.url;
-              //     //       // console.log(data.url)
-              //     //     } else {
-              //     //       data.url = '';
-              //     //       Lampa.Noty.show('获取原画失败。');
-              //     //     }
-              //     //   },
-              //     //   error: function (xhr, ajaxOptions, thrownError) {
-              //     //     Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
-              //     //     console.log(thrownError);
-              //     //   }
-              //     // });
-              //   } else {
-              //     Lampa.Noty.show('刷新 open refresh token 失败。');
-              //   }
-              // }, function (a, c) {
-              //   Lampa.Noty.show("状态代码：" + network.errorDecode(a, c) + '，刷新 open refresh token 失败。');
-              // }, false, false, {
-              //   dataType: 'json'
-              // });
-
-              $.ajax({
-                url: requestURL,
-                type: "get",
+              }, function (a, c) {
+                Lampa.Noty.show(network.errorDecode(a, c) + '，获取分享视频播放地址失败。');
+              }, JSON.stringify({
+                expire_sec: 600,
+                file_id: translat,
+                share_id: getShareId
+              }), {
                 dataType: "json",
-                async: false,
-                success: function (Data) {
-                  if (Data.refreshToken != null) {
+                headers: {
+                  "content-type": "application/json;charset=utf-8",
+                  "authorization": "".concat("Bearer" || "", " ").concat(get_folder_token.access_token || ""),
+                  "x-share-token": json_.share_token
+                },
+              });
+            }, function (a, c) {
+              Lampa.Noty.show(network.errorDecode(a, c) + '，获取分享Token失败。');
+            }, JSON.stringify({
+              share_id: getShareId,
+              share_pwd: ""
+            }), {
+              dataType: "json",
+              headers: {
+                "content-type": "application/json",
+              }
+            });
+          } else {
+            if (Lampa.Storage.get('aliyun_play_quantity')) {
+              var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
+              if (aliyun_open_token) {
+                network.silent('http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token, function (returnData) {
+                  if (returnData.refreshToken != null) {
                     // console.log(returnData.accessToken);
-                    Lampa.Storage.set('aliyun_open_token', Data.refreshToken)
-                    $.ajax({
-                      url: 'https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl',
-                      data: JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }),
-                      type: "POST",
+                    Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
+                    network["native"]("https://open.aliyundrive.com/adrive/v1.0/openFile/getDownloadUrl", function (json) {
+                      if (json.url != null) {
+                        data.url = json.url;
+                      } else {
+                        data.url = '';
+                        Lampa.Noty.show('获取原画失败。');
+                        return;
+                      }
+                      if (data.url) {
+                        var playlist = [];
+                        var first = {
+                          url: data.url,
+                          timeline: view,
+                          title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                          subtitles: data.subtitles
+                        };
+                        Lampa.Player.play(first);
+
+                        playlist.push(first);
+                        Lampa.Player.playlist(playlist);
+                      } else {
+                        Lampa.Noty.show('无法检索链接');
+                      }
+
+                    }, function (a, c) {
+                      Lampa.Noty.show(network.errorDecode(a, c) + '，获取原画失败。');
+                    }, JSON.stringify({ "drive_id": "" + get_folder_token.default_drive_id + "", "expire_sec": 14400, "file_id": "" + element.file_id + "" }), {
                       dataType: "json",
-                      contentType: "application/json;charset=utf-8",
                       headers: {
-                        "authorization": "Bearer " + Data.accessToken,
-                      },
-                      async: false,
-                      success: function (returnData) {
-                        if (returnData.url != null) {
-                          data.url = returnData.url;
-                          // console.log(data.url)
-                        } else {
-                          data.url = '';
-                          Lampa.Noty.show('获取原画失败。');
-                        }
-                      },
-                      error: function (xhr, ajaxOptions, thrownError) {
-                        Lampa.Noty.show("状态代码：" + xhr.status + '，获取原画失败。');
-                        console.log(thrownError);
+                        "content-type": "application/json",
+                        "authorization": "Bearer " + returnData.accessToken,
                       }
                     });
                   } else {
                     Lampa.Noty.show('刷新 open refresh token 失败。');
                   }
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                  Lampa.Noty.show("状态代码：" + xhr.status + '，刷新 open refresh token 失败。');
-                  console.log(thrownError);
+                }, function (a, c) {
+                  Lampa.Noty.show(network.errorDecode(a, c) + '，刷新 open Token 失败。');
+                }, false, {
+                  dataType: 'json'
+                });
+              } else {
+                network["native"]("https://api.aliyundrive.com/v2/file/get_download_url", function (json) {
+                  if (json.url != null) {
+                    data.url = json.url;
+                  } else {
+                    data.url = '';
+                    Lampa.Noty.show('获取视频失败。');
+                    return;
+                  }
+                  if (data.url) {
+                    var playlist = [];
+                    var first = {
+                      url: data.url,
+                      timeline: view,
+                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                      subtitles: data.subtitles
+                    };
+                    Lampa.Player.play(first);
+
+                    playlist.push(first);
+                    Lampa.Player.playlist(playlist);
+
+                  } else {
+                    Lampa.Noty.show('无法检索链接');
+                  }
+
+                }, function (a, c) {
+                  Lampa.Noty.show(network.errorDecode(a, c) + '，获取原画失败。');
+                }, JSON.stringify({
+                  expire_sec: 14400,
+                  file_id: file_id,
+                  drive_id: driveId,
+                }), {
+                  dataType: "json",
+                  headers: {
+                    "authorization": "".concat("Bearer" || "", " ").concat(get_folder_token.access_token || ""),
+                    "content-type": "application/json;charset=utf-8",
+                    "x-device-id": deviceId,
+                    "x-signature": Lampa.Storage.get('aliyun_signature'),
+                  }
+                });
+              }
+            } else {
+              network["native"]("https://api.aliyundrive.com/v2/file/get_video_preview_play_info", function (getjson) {
+
+                if (getjson.code == 'VideoPreviewWaitAndRetry') {
+                  Lampa.Noty.show('视频正在转码中，稍后重试');
+                  return;
+                };
+
+                var subtitle = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_subtitle_task_list) || [];
+                for (let i = 0, maxi = subtitle.length; i < maxi; i++) {
+                  if (subtitle[i].status == 'finished') {
+                    data.subtitles.push({ label: subtitle[i].language, url: subtitle[i].url })
+                  }
+                };
+
+                var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
+
+                for (let i = 0, maxi = taskList.length; i < maxi; i++) {
+                  if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
+
+                    data.urlFHD = taskList[i].url
+                  } else if (taskList[i].template_id && taskList[i].template_id == 'HD' && taskList[i].status == 'finished') {
+
+                    data.urlHD = taskList[i].url
+                  } else if (taskList[i].template_id && taskList[i].template_id == 'SD' && taskList[i].status == 'finished') {
+
+                    data.urlSD = taskList[i].url
+                  } else if (taskList[i].template_id && taskList[i].template_id == 'LD' && taskList[i].status == 'finished') {
+
+                    data.urlLD = taskList[i].url
+                  }
+                }
+                data.url = data.urlFHD || data.urlHD || data.urlSD || data.urlLD || '';
+
+                if (data.url) {
+                  var playlist = [];
+                  var first = {
+                    url: data.url,
+                    timeline: view,
+                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                    subtitles: data.subtitles
+                  };
+                  Lampa.Player.play(first);
+
+                  playlist.push(first);
+                  Lampa.Player.playlist(playlist);
+
+                } else {
+                  Lampa.Noty.show('无法检索链接');
+                }
+
+              }, function (a, c) {
+                Lampa.Noty.show(network.errorDecode(a, c) + '，获取高码流视频失败。');
+              }, JSON.stringify({
+                category: "live_transcoding",
+                drive_id: get_folder_token.default_drive_id,
+                file_id: element.file_id,
+                template_id: "",
+                get_subtitle_info: !0,
+                url_expire_sec: 14400
+              }), {
+                dataType: "json",
+                headers: {
+                  "authorization": "".concat("Bearer" || "", " ").concat(get_folder_token.access_token || ""),
+                  "content-type": "application/json;charset=utf-8",
+                  "x-device-id": deviceId,
+                  "x-signature": Lampa.Storage.get('aliyun_signature'),
                 }
               });
-
-              // network["native"](requestURL, function (json) {
-              //   console.log(json)
-              // }, function (a, c) {
-              //   Lampa.Noty.show(network.errorDecode(a, c));
-              // }, false, {
-              //   dataType: 'json'
-              // });
-              get_download_url = data.url
-              // console.log('data.url',data.url)
-            } else {
-              get_download_url = this.get_download_url_(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-              get_download_url = $.parseJSON(get_download_url).url;
-              data.url = get_download_url;
-              // Lampa.Noty.show('请设置阿里云open token。');
-              // return;
             }
-          } else {
-            get_download_url = this.get_video_preview_play_info(element.file_id, get_folder_token.default_drive_id, get_folder_token.access_token, deviceId);
-            
-            var getjson = $.parseJSON(get_download_url);
-            if (getjson.code == 'VideoPreviewWaitAndRetry') {
-              Lampa.Noty.show('视频正在转码中，稍后重试');
-              return;
-            };
-            // const taskList = getjson.video_preview_play_info?.live_transcoding_task_list || [];
-          
-            var subtitle = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_subtitle_task_list) || [];
-            for (let i = 0, maxi = subtitle.length; i < maxi; i++) {
-              if (subtitle[i].status == 'finished') {
-                data.subtitles.push({ label: subtitle[i].language, url: subtitle[i].url })
-              }
-            };
-
-            var taskList = (getjson.video_preview_play_info && getjson.video_preview_play_info.live_transcoding_task_list) || [];
-
-            for (let i = 0, maxi = taskList.length; i < maxi; i++) {
-              if (taskList[i].template_id && taskList[i].template_id == 'FHD' && taskList[i].status == 'finished') {
-
-                data.urlFHD = taskList[i].url
-              } else if (taskList[i].template_id && taskList[i].template_id == 'HD' && taskList[i].status == 'finished') {
-
-                data.urlHD = taskList[i].url
-              } else if (taskList[i].template_id && taskList[i].template_id == 'SD' && taskList[i].status == 'finished') {
-
-                data.urlSD = taskList[i].url
-              } else if (taskList[i].template_id && taskList[i].template_id == 'LD' && taskList[i].status == 'finished') {
-
-                data.urlLD = taskList[i].url
-              }
-            }
-            data.url = data.urlFHD || data.urlHD || data.urlSD || data.urlLD || '';
-            //console.log(data.url)
-
-            // get_download_url = $.parseJSON(get_download_url).video_preview_play_info.live_transcoding_task_list[3].url;
-            get_download_url = data.url;
+          };
+        }, function (a, c) {
+          Lampa.Noty.show(network.errorDecode(a, c) + '，失败acesstoken失败。');
+        }, JSON.stringify({
+          refresh_token: token,
+          grant_type: 'refresh_token'
+        }), {
+          dataType: "json",
+          headers: {
+            "content-type": "application/json;charset=utf-8",
           }
-
-        };
-        //https://api.aliyundrive.com/v2/share_link/get_share_token
-        //http://81.68.244.5/tv/alitk
-        //https://api.aliyundrive.com/token/refresh
-        //https://api.aliyundrive.com/v2/file/get_share_link_video_preview_play_info
-        if (get_download_url) {
-            // return get_download_url;
-            return data;
-        }
-        if (show_error) Lampa.Noty.show('无法检索链接，阿里云盘token失效。');
+        });
       };
 
       function get_size(sz) {
@@ -1388,48 +1327,49 @@
                   };
                   /* console.log(element);
                   console.log("这里");*/
-                  var file = _this4.getFile(element, true);
+                  // var file = _this4.getFile(element, true);
+                  _this4.getFile(view, element, true);
                   /*console.log(file);
                     console.log("取得播放地址");*/
-                  if (typeof file == 'undefined') {
-                    Lampa.Noty.show('无法获取播放地址，请检查是否已经设置 Refresh token。');
-                    return;
-                  }
+                  // if (typeof file == 'undefined') {
+                  //   Lampa.Noty.show('无法获取播放地址，请检查是否已经设置 Refresh token。');
+                  //   return;
+                  // }
 
-                  if (file.url) {
-                    //_this4.start();
+                  // if (file.url) {
+                  //   //_this4.start();
 
-                    var playlist = [];
-                    var first = {
-                      url: file.url,
-                      timeline: view,
-                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: file.subtitles
-                    };
-                    Lampa.Player.play(first);
+                  //   var playlist = [];
+                  //   var first = {
+                  //     url: file.url,
+                  //     timeline: view,
+                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  //     subtitles: file.subtitles
+                  //   };
+                  //   Lampa.Player.play(first);
 
-                    playlist.push(first);
-                    Lampa.Player.playlist(playlist);
-                    // if (window.intentShim) {
-                    //     window.plugins.intentShim.startActivity(
-                    //         {
-                    //             action: window.plugins.intentShim.ACTION_VIEW,
-                    //             package: "is.xyz.mpv", //setPackage
-                    //             url: file,
-                    //             type: 'video/mp4',
-                    //             extras: {
-                    //                 'http-header-fields': 'referer:https://www.aliyundrive.com/'
-                    //             }
-                    //         },
-                    //         function () { },
-                    //         function () { console.log('Failed to open URL via Android Intent') }
-                    //     );
-                    // } else {
-                    //     Lampa.Noty.show('请在在安卓平台上，使用MPV播放器播放该视频。');
-                    // };
-                  } else {
-                    Lampa.Noty.show('无法检索链接');
-                  }
+                  //   playlist.push(first);
+                  //   Lampa.Player.playlist(playlist);
+                  //   // if (window.intentShim) {
+                  //   //     window.plugins.intentShim.startActivity(
+                  //   //         {
+                  //   //             action: window.plugins.intentShim.ACTION_VIEW,
+                  //   //             package: "is.xyz.mpv", //setPackage
+                  //   //             url: file,
+                  //   //             type: 'video/mp4',
+                  //   //             extras: {
+                  //   //                 'http-header-fields': 'referer:https://www.aliyundrive.com/'
+                  //   //             }
+                  //   //         },
+                  //   //         function () { },
+                  //   //         function () { console.log('Failed to open URL via Android Intent') }
+                  //   //     );
+                  //   // } else {
+                  //   //     Lampa.Noty.show('请在在安卓平台上，使用MPV播放器播放该视频。');
+                  //   // };
+                  // } else {
+                  //   Lampa.Noty.show('无法检索链接');
+                  // }
 
                 }
                 if (viewed.indexOf(hash_file) == -1) {
@@ -1449,7 +1389,7 @@
             element: element,
             file: function file(call) {
               call({
-                file: _this4.getFile(element, true),
+                file: _this4.getFile(view, element, true),
               });
             }
           });
@@ -1920,7 +1860,7 @@
     network.clear();
     network.timeout(10000);
     network.silent("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
-      console.log(found)
+      // console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
       if (["EXPIRED"].includes(found.content.data.qrCodeStatus)) {
