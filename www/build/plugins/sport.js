@@ -138,7 +138,7 @@
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
                         url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + (typeof $('a.btn[target=\'_blank\']',html).attr('href') !== 'undefined' ? $('a.btn[target=\'_blank\']',html).attr('href') : $('a',html).attr('href')) ,
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: $('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src'),
+                        img: typeof $('a.btn[target=\'_blank\']',html).attr('href') !== 'undefined' ? ($('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src')) : ($('img.img-responsive',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('img.img-responsive',html).attr('src')),
                         quantity: $('.game-type',html).text(),
                         year: '',
                         rate:$('.category-game-time',html).text().replace(/\n/g,''),
