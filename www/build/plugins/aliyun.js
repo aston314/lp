@@ -1857,31 +1857,31 @@
   };
 
   function getcode() {
-    var obj = {
-      ck: c.ck,
-      t: c.t,
-      AppName: "aliyun_drive",
-      AppEntrance: "web",
-      IsMobile: "false",
-      Lang: "zh_CN",
-      ReturnURL: "",
-      FromSite: "52",
-      BizParams: "",
-      Navlanguage: "zh-CN",
-      NavPlatform: "MacIntel",
-    };
-    var queryString = [];
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        queryString.push(key + "=" + encodeURIComponent(obj[key]));
-      }
-    }
 
-    queryString = queryString.join("&");
+    // var obj = {
+    //   ck: c.ck,
+    //   t: c.t,
+    //   AppName: "aliyun_drive",
+    //   AppEntrance: "web",
+    //   IsMobile: "false",
+    //   Lang: "zh_CN",
+    //   ReturnURL: "",
+    //   FromSite: "52",
+    //   BizParams: "",
+    //   Navlanguage: "zh-CN",
+    //   NavPlatform: "MacIntel",
+    // };
+    // var queryString = [];
+    // for (var key in obj) {
+    //   if (obj.hasOwnProperty(key)) {
+    //     queryString.push(key + "=" + encodeURIComponent(obj[key]));
+    //   }
+    // }
 
+    // queryString = queryString.join("&");
     network.clear();
     network.timeout(10000);
-    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network.silent("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       // console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1922,9 +1922,19 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, queryString ,{
-      dataType: "json",
-    });
+    }, jQuery.param({
+      ck: c.ck,
+      t: c.t,
+      AppName: "aliyun_drive",
+      AppEntrance: "web",
+      IsMobile: "false",
+      Lang: "zh_CN",
+      ReturnURL: "",
+      FromSite: "52",
+      BizParams: "",
+      Navlanguage: "zh-CN",
+      NavPlatform: "MacIntel",
+    }));
   }
 
   function getcode_opentoken(sid) {
