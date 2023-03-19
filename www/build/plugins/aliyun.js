@@ -838,7 +838,7 @@
               }
             });
           } else {
-            if (Lampa.Storage.field('aliyun_play_quantity')) {
+            if (Lampa.Storage.field('aliyun_play_quantity') === true) {
               var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
               if (aliyun_open_token) {
                 network.silent('http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token, function (returnData) {
