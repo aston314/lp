@@ -1857,6 +1857,28 @@
   };
 
   function getcode() {
+    var obj = {
+      ck: c.ck,
+      t: c.t,
+      AppName: "aliyun_drive",
+      AppEntrance: "web",
+      IsMobile: "false",
+      Lang: "zh_CN",
+      ReturnURL: "",
+      FromSite: "52",
+      BizParams: "",
+      Navlanguage: "zh-CN",
+      NavPlatform: "MacIntel",
+    };
+    var queryString = [];
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        queryString.push(key + "=" + encodeURIComponent(obj[key]));
+      }
+    }
+
+    queryString = queryString.join("&");
+
     network.clear();
     network.timeout(10000);
     network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
@@ -1900,23 +1922,8 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, {
-      ck: c.ck,
-      t: c.t,
-      AppName: "aliyun_drive",
-      AppEntrance: "web",
-      IsMobile: "false",
-      Lang: "zh_CN",
-      ReturnURL: "",
-      FromSite: "52",
-      BizParams: "",
-      Navlanguage: "zh-CN",
-      NavPlatform: "MacIntel",
-    },{
+    }, queryString ,{
       dataType: "json",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      }
     });
   }
 
