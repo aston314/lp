@@ -838,7 +838,7 @@
               }
             });
           } else {
-            if (Lampa.Storage.get('aliyun_play_quantity')) {
+            if (Lampa.Storage.field('aliyun_play_quantity')) {
               var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
               if (aliyun_open_token) {
                 network.silent('http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token, function (returnData) {
@@ -879,7 +879,7 @@
                       }
                     });
                   } else {
-                    Lampa.Noty.show('刷新 open refresh token 失败。');
+                    Lampa.Noty.show('刷新 open token 失败。');
                   }
                 }, function (a, c) {
                   Lampa.Noty.show(network.errorDecode(a, c) + '，刷新 open Token 失败。');
