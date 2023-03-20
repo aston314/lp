@@ -1870,7 +1870,7 @@
 
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (parseFloat(kinopoisk_id)) {
-        network.silent(url, function (json) {
+        network["native"](url, function (json) {
           if (json) {
             if (json.list.length == 0) {
               component.emptyForQuery(select_title)
@@ -1887,7 +1887,7 @@
         });
         //getdetail(url);
       } else {
-        network.silent(url, function (json) {
+        network["native"](url, function (json) {
           if (json.code != 0) {
             //console.log(json.data.length)
             if (json.list.length !== 0) {
@@ -1895,7 +1895,7 @@
               if (json.list.length == 1) {
                 var id = json.list[0].vod_id;
                 url = detailid.replace('#id', id);
-                network.silent(url, function (json) {
+                network["native"](url, function (json) {
                   if (json) {
                     if (json.list.length == 0) {
                       component.emptyForQuery(select_title)
@@ -9665,7 +9665,7 @@
             }
 
             Lampa.Select.show({
-              title: 'Ссылки',
+              title: '链接',
               items: qual,
               onBack: function onBack() {
                 Lampa.Controller.toggle(enabled);
