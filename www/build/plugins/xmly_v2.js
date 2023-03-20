@@ -15,6 +15,11 @@
       var last;
       var waitload;
       var player = window.radio_player_;
+      var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
+      var isLampaTV = current_version.startsWith("7.");
+      var porxy;
+      isLampaTV ? porxy ="https://f.nxcloud.uk/" : porxy = "";
+
       
       this.getQueryString = function (link,name) {
         let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
@@ -32,7 +37,7 @@
             postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:1, include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};
         } else {
             //postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + object.page + "){\n      contents\n    }\n  }" }
-            postdata = "https://f.nxcloud.uk/https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ object.page + "&pageSize=48"
+            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ object.page + "&pageSize=48"
 
         };
         
@@ -64,7 +69,7 @@
             postdata = postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:"+ (parseInt(object.page++)+1) +", include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};;
         } else {
             //postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + (parseInt(object.page++)+1) + "){\n      contents\n    }\n  }" };
-            postdata = "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ (parseInt(object.page++)+1) + "&pageSize=48"
+            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ (parseInt(object.page++)+1) + "&pageSize=48"
         };
         
         // console.log(postdata)
