@@ -32,7 +32,7 @@
             postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:1, include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};
         } else {
             //postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + object.page + "){\n      contents\n    }\n  }" }
-            postdata = "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ object.page + "&pageSize=48"
+            postdata = "https://f.nxcloud.uk/https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ object.page + "&pageSize=48"
 
         };
         
