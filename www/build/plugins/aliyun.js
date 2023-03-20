@@ -1856,7 +1856,7 @@
     });
   };
 
-  function getcode() {
+  function getcode_() {
 
     // jQuery.param
     network.clear();
@@ -1914,6 +1914,57 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
+    });
+  }
+
+  function getcode() {
+
+    // jQuery.param
+    network.clear();
+    network.timeout(10000);
+    network.silent("https://aliyuntoken.vercel.app/api/state-query?ck="+c.ck+"&t="+c.t, function (found) {
+      // console.log(found)
+      var scaned = false;
+      // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
+      if (["EXPIRED"].includes(found.data.qrCodeStatus)) {
+        clearInterval(i);
+        $('#qrcode-container').text('二维码已过期');
+      } else if (["SCANED"].includes(found.data.qrCodeStatus)) {
+        if (!scaned) {
+          $('#qrcode-container').text('扫描成功, 请在手机上根据提示确认登录');
+        }
+        scaned = true;
+      } else if (["CANCELED"].includes(found.data.qrCodeStatus)) {
+        clearInterval(i);
+        $('#qrcode-container').text('您已取消登录');
+      }
+      else {
+        if (["CONFIRMED"].includes(found.data.qrCodeStatus)) {
+          clearInterval(i);
+          var resultjson = found.data.bizExt;
+          Lampa.Storage.set("aliyun_token", resultjson.pds_login_result.refreshToken);
+          $('.settings [data-name="aliyun_token"] .settings-param__value').text(resultjson.pds_login_result.refreshToken);
+          Lampa.Modal.close();
+          Lampa.Controller.toggle('settings_component');
+          if (firstlogin) {
+            var element = {};
+            element.img = './img/img_broken.svg';
+            element.original_title = '';
+            element.title = '云盘内容';
+            Lampa.Activity.push({
+              url: 'root',
+              title: '我的阿里云盘',
+              component: 'yunpan2',
+              movie: element,
+              page: 1
+            });
+          };//window.location.reload();
+        }
+      }
+    }, function (a, c) {
+      Lampa.Noty.show(network.errorDecode(a, c));
+    }, false, {
+      dataType: 'json'
     });
   }
 
