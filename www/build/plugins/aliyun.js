@@ -1881,7 +1881,7 @@
     // queryString = queryString.join("&");
     network.clear();
     network.timeout(10000);
-    network.silent("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       // console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1934,6 +1934,11 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
+    }, {
+      dataType: "json",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
     });
   }
 
