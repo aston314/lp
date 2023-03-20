@@ -1922,7 +1922,7 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, {
+    }, jQuery.param({
       ck: c.ck,
       t: c.t,
       AppName: "aliyun_drive",
@@ -1934,11 +1934,11 @@
       BizParams: "",
       Navlanguage: "zh-CN",
       NavPlatform: "MacIntel",
-    }, {
+    }), {
       dataType: "json",
       headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+      }
     });
   }
 
