@@ -130,6 +130,8 @@
             };
 
             $('.list-group-item', str).each(function (i, html) {
+                // var matchtext = $(this).text().replace(/\n/g,'')
+                // console.log(matchtext.trim())
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: $('.text-right',html).length == 1 ? $('.text-right',html).text().replace(/\n/g,'') + ' VS ' + $('.text-left',html).text().replace(/\n/g,'') : $(this).text().trim(),
@@ -138,7 +140,7 @@
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
                         url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + (typeof $('a.btn[target=\'_blank\']',html).attr('href') !== 'undefined' ? $('a.btn[target=\'_blank\']',html).attr('href') : $('a',html).attr('href')) ,
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: typeof $('a.btn[target=\'_blank\']',html).attr('href') !== 'undefined' ? ($('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src')) : ($('img.img-responsive',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('img.img-responsive',html).attr('src')),
+                        img: typeof $('div.text-right + div.col-xs-1 img',html).attr('src') !== 'undefined' ? ($('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src')) : ($('img.img-responsive',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('img.img-responsive',html).attr('src')),
                         quantity: $('.game-type',html).text(),
                         year: '',
                         rate:$('.category-game-time',html).text().replace(/\n/g,''),
@@ -183,7 +185,7 @@
                 card.find('.card__quality').text(element.score);*/
                 if (element.episodes_info) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info.replace('更新至', '第'));
+                    card.find('.card__quality').text(element.episodes_info);
                 };
 
                 card.on('hover:focus', function () {
@@ -247,21 +249,6 @@
                     }, false, {
                         dataType: 'json'
                     });
-
-                    // //console.log(element)
-                    // //element.img = element.cover;
-                    // element.original_title = '';
-                    // element.title = mytitle;
-                    // //element.img = object.movie.img;
-                    // var playlist = [{ title: 'CCTV-5FHD', url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225751/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225752/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225753/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225754/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225755/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225756/index.m3u8', tv: true }, { title: 'CCTV-5HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225633/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225649/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.135.138.58:18890/PLTV/88888888/224/3221225706/index.m3u8', tv: true }, { title: 'CCTV-5+HD', url: 'http://39.134.115.163:8080/PLTV/88888910/224/3221225649/index.m3u8', tv: true }];
-                    
-                    // var video = {
-                    //     title: element.title,
-                    //     url: 'http://60.213.134.68/tlivecloud-ipv6.ysp.cctv.cn/ysp/2000205103.m3u8',
-                    //     tv: true
-                    // };
-                    // Lampa.Player.play(video);
-                    // Lampa.Player.playlist(playlist);
                 });
                 }
                 body.append(card);
