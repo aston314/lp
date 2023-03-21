@@ -264,11 +264,11 @@
                             sources.push({
                                 title: html.caption,
                                 url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
-                                subtitles: [{ label: "简体中文", url: "https://ddys.pro" + html.subsrc }]
+                                subtitles: []
                             });
                             
                         });
-                        console.log(sources)
+                        // console.log(sources)
 
 
 
