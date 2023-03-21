@@ -115,13 +115,15 @@
             //console.log(page)
             $('div.post-box-container', str).each(function (i, html) {
                 //if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+                    var regex = /第(\d+)季/;
+                    var match = regex.exec($('h2 > a', html).text()) ? regex.exec($('h2 > a', html).text())[1] + "/" : "";
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: $('h2 > a', html).text(),
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: $('h2 > a', html).attr('href'),
+                        url: $('h2 > a', html).attr('href') + match,
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: /url\((.*?)\)/.exec($('div.post-box-image', html).attr('style'))[1],
                         quantity: ' ',
@@ -204,6 +206,18 @@
                 //     _this3.find_douban(element);
                 // });
                 card.on('hover:enter', function (target, card_data) {
+                    Lampa.Modal.open({
+                        title: '',
+                        html: Lampa.Template.get('modal_loading'),
+                        size: 'small',
+                        align: 'center',
+                        mask: true,
+                        onBack: function onBack() {
+                          Lampa.Modal.close();
+                          Lampa.Api.clear();
+                          Lampa.Controller.toggle('content');
+                        }
+                      });
                     //console.log(element)
                     //element.img = element.cover;
                     element.original_title = '';
@@ -238,61 +252,69 @@
                     var sources = [];
 
                     network["native"](element.url, function (str) {
+                        Lampa.Modal.close();
+                        // Lampa.Api.clear();
+                        // Lampa.Controller.toggle('content');
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
-                            var playlistScript = $('.wp-playlist-script',str).text();
-                            var playlistData = JSON.parse(playlistScript);
-                            // console.log(playlistData.tracks)
-                            playlistData.tracks.forEach(function (html) {
+                        var playlistScript = $('.wp-playlist-script', str).text();
+                        var playlistData = JSON.parse(playlistScript);
+                        // console.log(playlistData.tracks)
+                        playlistData.tracks.forEach(function (html) {
                             sources.push({
-                                title:  html.caption,
+                                title: html.caption,
                                 url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
                                 subtitles: "https://ddys.pro/" + html.subsrc
                             });
-                    });
+                        });
 
-                    Lampa.Select.show({
-                        title: '播放列表',
-                        items: sources,
-                        onSelect: function onSelect(a) {
-                            // Lampa.Activity.push({
-                            //     url: a.url,
-                            //     title: '阿里云盘播放',
-                            //     component: 'yunpan2',
-                            //     movie: element,
-                            //     page: 1
-                            // });
-                            network["native"](a.url, function (data) {
-                                if (data.url) {
-                                    var playlist = [];
-                                    var first = {
-                                        url: data.url,
-                                        //   timeline: view,
-                                        title: a.title,
-                                        subtitles: a.subtitles
-                                    };
-                                    Lampa.Player.play(first);
 
-                                    playlist.push(first);
-                                    Lampa.Player.playlist(playlist);
 
-                                } else {
-                                    Lampa.Noty.show('无法检索播放链接');
-                                }
-                               
-                            }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                            }, false, {
-                                dataType: 'json',
-                                headers: {
-                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                                    'Referer': "https://ddys.pro/"
-                                }
-                            });
-                        },
-                        onBack: function onBack() {
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
+                        Lampa.Select.show({
+                            title: '播放列表',
+                            items: sources,
+                            onSelect: function onSelect(a) {
+                                // Lampa.Activity.push({
+                                //     url: a.url,
+                                //     title: '阿里云盘播放',
+                                //     component: 'yunpan2',
+                                //     movie: element,
+                                //     page: 1
+                                // });
+                                network["native"](a.url, function (data) {
+                                    if (data.url) {
+                                        var playlist = [];
+                                        var first = {
+                                            url: data.url,
+                                            //   timeline: view,
+                                            title: a.title,
+                                            subtitles: a.subtitles
+                                        };
+                                        Lampa.Player.play(first);
+
+                                        playlist.push(first);
+                                        Lampa.Player.playlist(playlist);
+
+                                    } else {
+                                        Lampa.Noty.show('无法检索播放链接');
+                                    }
+                                    Lampa.Controller.toggle('content');
+
+                                }, function (a, c) {
+                                    Lampa.Noty.show(network.errorDecode(a, c));
+                                }, false, {
+                                    dataType: 'json',
+                                    headers: {
+                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+                                        'Referer': "https://ddys.pro/"
+                                    }
+                                });
+                            },
+                            onBack: function onBack() {
+                                Lampa.Controller.toggle('content');
+                            }
+                        });
+
+                        
 
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
