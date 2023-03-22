@@ -1257,7 +1257,7 @@
               Lampa.Api.clear();
               Lampa.Controller.toggle('content');
             };
-
+            
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (!!window.cordova && doreg.videoparse == 'browser') {
               iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
@@ -1272,7 +1272,18 @@
               });
               iabRef.addEventListener('exit', iabClose);
             } else {
-              loadingshow();
+              Lampa.Modal.open({
+                title: '',
+                align: 'center',
+                html: Lampa.Template.get('modal_loading'),
+                size: 'small',
+                mask: true,
+                onBack: function onBack() {
+                  Lampa.Modal.close();
+                  Lampa.Api.clear();
+                  Lampa.Controller.toggle('content');
+                }
+              });
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
 
@@ -1447,8 +1458,6 @@
               }, false, {
                 dataType: 'text'
               });
-              Lampa.Modal.close();
-              Lampa.Api.clear();
             };
 
             if (viewed.indexOf(hash_file) == -1) {
