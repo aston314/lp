@@ -50,7 +50,11 @@
             }, function (a, c) {
                 Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
-                dataType: 'text'
+                dataType: 'text',
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+                    'Referer': "https://ddys.pro/"
+                }
             });
             return this.render();
         };
@@ -74,7 +78,11 @@
                 },function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
-                    dataType: 'text'
+                    dataType: 'text',
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+                        'Referer': "https://ddys.pro/"
+                    }
                 });
             //}
         };
@@ -322,7 +330,11 @@
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
                     }, false, {
-                        dataType: 'text'
+                        dataType: 'text',
+                        headers: {
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+                            'Referer': "https://ddys.pro/"
+                        }
                     });
                 });
                 body.append(card);
