@@ -1458,6 +1458,8 @@
               }, false, {
                 dataType: 'text'
               });
+              Lampa.Modal.close();
+              Lampa.Api.clear();
             };
 
             if (viewed.indexOf(hash_file) == -1) {
