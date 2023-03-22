@@ -1018,6 +1018,24 @@
       loadScripts(aa).then(function() {
         try {
           window.eval(joinedaa);
+          if (typeof urls !== "undefined") {
+            var file = urls;
+            //console.log(file);
+            if (file) {
+              var playlist = [];
+              var first = {
+                url: file,
+                timeline: view,
+                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                subtitles: element.subtitles
+              };
+              Lampa.Player.play(first);
+              playlist.push(first);
+              Lampa.Player.playlist(playlist);
+            } else {
+              Lampa.Noty.show('无法检索链接');
+            }
+          };
         } catch (e) {
           if (e instanceof SyntaxError) {
             console.log(e.message);
@@ -1083,24 +1101,7 @@
         });
       };
 
-      if (typeof urls !== "undefined") {
-        var file = urls;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
-          };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-        } else {
-          Lampa.Noty.show('无法检索链接');
-        }
-      };
+      
 
     };
     
