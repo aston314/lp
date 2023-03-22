@@ -55,7 +55,7 @@
         websitelink: 'https://www.zxzjhd.com',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://www.zxzjhd.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_url: 'https://f.nxcloud.uk/https://www.zxzjhd.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
         name_json: 'name',
