@@ -845,12 +845,13 @@
       });
     };
 
-    function doparse(element, view, url1_, url, data) {
+    function doparse_(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
-      var str = data;
+      // var str = data;
+      var str = data.replace(/src="\/\//g, 'src="https://');
 
       //var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
       var re = /<script.*?src="(.*?)"/gm;
@@ -967,6 +968,212 @@
         };
       });
     };
+
+
+    function loadScripts(scripts) {
+      return Promise.all(scripts.map(function(url) {
+        return new Promise(function(resolve, reject) {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }));
+    }
+    
+    function doparse(element, view, url1_, url, data) {
+      var element = element;
+      var view = view;
+      var url1_ = url1_;
+      var MacPlayer_ = url;
+      var str = data.replace(/src="\/\//g, 'src="https://');
+    
+      var re = /<script.*?src="(.*?)"/gm;
+      var match, aa = [], setting_js = false, setting_link;
+      while (match = re.exec(str)) {
+        var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
+    
+        if (!/DPlayer|jquery|setting|-player|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff|hls|flv/.test(cc)) {
+          aa.push(cc);
+        }
+        if (/setting[\s\S]*\.js/.test(cc)) {
+          setting_js = true;
+          setting_link = cc;
+        }
+      };
+    
+      str = str.replace(/<!--[\s\S]*?-->/g, '');
+      var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
+      var match_, aa_ = [];
+      while (match_ = pattern.exec(str)) {
+        if (match_[1]) {
+          var cc = match_[1].replace(';!function(n)', '//;!function(n)');
+          aa_.push(cc);
+        }
+      };
+      var joinedaa = aa_.join("\r\n");
+    
+      loadScripts(aa).then(function() {
+        try {
+          window.eval(joinedaa);
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            console.log(e.message);
+          }
+        };
+      });
+
+      if (setting_js) {
+        //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
+        var s_js = getRemote(setting_link);
+
+        var b_js = s_js.match(/\.post|GET|POST/);
+        var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
+        var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
+        c_js = c_js[0].replace(/'|"/g, '');
+        var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
+        var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
+        //console.log(config.url,config.vkey,config.token,d_sj,e_js)
+        $.ajax({
+          url: d_sj,
+          type: f_js,
+          dataType: 'JSON',
+          timeout: 3000,
+          data: {
+            tm: (new Date().getTime()),
+            url: config.url,
+            vkey: config.vkey,
+            token: config.token,
+            sign: e_js
+          },
+          success: function (data) {
+            if (data.code === 200) {
+              //console.log(data)
+              var playlist = [];
+              var first = {
+                url: getVideoInfo(data.url),
+                timeline: view,
+                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                subtitles: element.subtitles
+              };
+              Lampa.Player.play(first);
+              playlist.push(first);
+              Lampa.Player.playlist(playlist);
+            } else {
+              //handlePlayerLoadError();
+              $(".noty").show();
+              Lampa.Noty.show('解析失败，请重试或切换线路~');
+              //console.log('解析失败，请重试或切换线路~');
+            }
+          },
+          error: function () {
+            //handlePlayerLoadError();
+            $(".noty").show();
+            Lampa.Noty.show('解析失败，请重试或切换线路~');
+            //console.log('解析失败，请重试或切换线路~');
+          }
+        });
+      };
+
+      if (typeof urls !== "undefined") {
+        var file = urls;
+        //console.log(file);
+        if (file) {
+          var playlist = [];
+          var first = {
+            url: file,
+            timeline: view,
+            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            subtitles: element.subtitles
+          };
+          Lampa.Player.play(first);
+          playlist.push(first);
+          Lampa.Player.playlist(playlist);
+        } else {
+          Lampa.Noty.show('无法检索链接');
+        }
+      };
+
+    };
+    
+
+    // function loadScripts(scripts) {
+    //   return Promise.all(scripts.map(function(url) {
+    //     return new Promise(function(resolve, reject) {
+    //       var script = document.createElement('script');
+    //       script.type = 'text/javascript';
+    //       script.src = url;
+    //       script.onload = resolve;
+    //       script.onerror = reject;
+    //       document.head.appendChild(script);
+    //     });
+    //   }));
+    // }
+    
+    // function doparse(element, view, baseUrl, currentUrl, data) {
+    //   var element = element;
+    //   var view = view;
+    //   var baseUrl = baseUrl;
+    //   var currentUrl = currentUrl;
+    //   var MacPlayer_ = currentUrl;
+    //   var scriptUrls = [];
+    //   var scriptContent = [];
+    //   var settingJsUrl = null;
+    
+    //   // Replace relative protocol "//" with "https://" to avoid mixed content error
+    //   var str = data.replace(/src="\/\//g, 'src="https://');
+    
+    //   var scriptUrlPattern = /<script.*?src="(.*?)"/gm;
+    //   var match;
+    //   while (match = scriptUrlPattern.exec(str)) {
+    //     var scriptUrl = match[1];
+    //     if (!/DPlayer|jquery|setting|-player|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff|hls|flv/.test(scriptUrl)) {
+    //       scriptUrls.push(getAbsoluteUrl(scriptUrl, baseUrl, MacPlayer_));
+    //     }
+    //     if (/setting[\s\S]*\.js/.test(scriptUrl)) {
+    //       settingJsUrl = getAbsoluteUrl(scriptUrl, baseUrl, MacPlayer_);
+    //     }
+    //   };
+    
+    //   // Remove HTML comments to avoid parsing issues
+    //   str = str.replace(/<!--[\s\S]*?-->/g, '');
+    
+    //   var scriptContentPattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
+    //   var match;
+    //   while (match = scriptContentPattern.exec(str)) {
+    //     if (match[1]) {
+    //       var script = match[1].replace(';!function(n)', '//;!function(n)');
+    //       scriptContent.push(script);
+    //     }
+    //   };
+    
+    //   loadScripts(scriptUrls).then(function() {
+    //     scriptContent.forEach(function(script) {
+    //       try {
+    //         window.eval(script);
+    //       } catch (e) {
+    //         if (e instanceof SyntaxError) {
+    //           console.log(e.message);
+    //         }
+    //       };
+    //     });
+    //   });
+    
+    //   if (settingJsUrl) {
+    //     loadScripts([settingJsUrl]).then(function() {
+    //       // Do something with the setting script
+    //     });
+    //   }
+    // };
+
+
+
+
+
+
+
 
     function append(items) {
       var _this = this;
