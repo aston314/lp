@@ -1249,6 +1249,7 @@
 
               iabRef.show();
             };
+
             function iabClose(event) {
               iabRef.removeEventListener('loadstop', playershow);
               iabRef.removeEventListener('exit', iabClose);
@@ -1256,6 +1257,7 @@
               Lampa.Api.clear();
               Lampa.Controller.toggle('content');
             };
+
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (!!window.cordova && doreg.videoparse == 'browser') {
               iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
