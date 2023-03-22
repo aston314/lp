@@ -1027,53 +1027,59 @@
 
       if (setting_js) {
         //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
-        var s_js = getRemote(setting_link);
-
-        var b_js = s_js.match(/\.post|GET|POST/);
-        var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
-        var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
-        c_js = c_js[0].replace(/'|"/g, '');
-        var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
-        var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
-        //console.log(config.url,config.vkey,config.token,d_sj,e_js)
-        $.ajax({
-          url: d_sj,
-          type: f_js,
-          dataType: 'JSON',
-          timeout: 3000,
-          data: {
-            tm: (new Date().getTime()),
-            url: config.url,
-            vkey: config.vkey,
-            token: config.token,
-            sign: e_js
-          },
-          success: function (data) {
-            if (data.code === 200) {
-              //console.log(data)
-              var playlist = [];
-              var first = {
-                url: getVideoInfo(data.url),
-                timeline: view,
-                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                subtitles: element.subtitles
-              };
-              Lampa.Player.play(first);
-              playlist.push(first);
-              Lampa.Player.playlist(playlist);
-            } else {
+        // var s_js = getRemote(setting_link);
+        network["native"](setting_link, function (s_js) {
+          var b_js = s_js.match(/\.post|GET|POST/);
+          var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
+          var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
+          c_js = c_js[0].replace(/'|"/g, '');
+          var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
+          var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
+          //console.log(config.url,config.vkey,config.token,d_sj,e_js)
+          $.ajax({
+            url: d_sj,
+            type: f_js,
+            dataType: 'JSON',
+            timeout: 3000,
+            data: {
+              tm: (new Date().getTime()),
+              url: config.url,
+              vkey: config.vkey,
+              token: config.token,
+              sign: e_js
+            },
+            success: function (data) {
+              if (data.code === 200) {
+                //console.log(data)
+                var playlist = [];
+                var first = {
+                  url: getVideoInfo(data.url),
+                  timeline: view,
+                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  subtitles: element.subtitles
+                };
+                Lampa.Player.play(first);
+                playlist.push(first);
+                Lampa.Player.playlist(playlist);
+              } else {
+                //handlePlayerLoadError();
+                $(".noty").show();
+                Lampa.Noty.show('解析失败，请重试或切换线路~');
+                //console.log('解析失败，请重试或切换线路~');
+              }
+            },
+            error: function () {
               //handlePlayerLoadError();
               $(".noty").show();
               Lampa.Noty.show('解析失败，请重试或切换线路~');
               //console.log('解析失败，请重试或切换线路~');
             }
-          },
-          error: function () {
-            //handlePlayerLoadError();
-            $(".noty").show();
-            Lampa.Noty.show('解析失败，请重试或切换线路~');
-            //console.log('解析失败，请重试或切换线路~');
-          }
+          });
+
+        }, function (a, c) {
+          Lampa.Noty.show(network.errorDecode(a, c));
+        }, false, {
+          dataType: 'text'
         });
       };
 
