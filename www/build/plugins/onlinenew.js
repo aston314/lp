@@ -1270,6 +1270,7 @@
               });
               iabRef.addEventListener('exit', iabClose);
             } else {
+              loadingshow();
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
 
@@ -1396,18 +1397,6 @@
                             $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
 
                           } else {
-                            Lampa.Modal.open({
-                              title: '',
-                              align: 'center',
-                              html: Lampa.Template.get('modal_loading'),
-                              size: 'small',
-                              mask: true,
-                              onBack: function onBack() {
-                                Lampa.Modal.close();
-                                Lampa.Api.clear();
-                                Lampa.Controller.toggle('content');
-                              }
-                            });
                             if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
                               $(".noty").show();
                               Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
@@ -1416,9 +1405,6 @@
                             //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                             network["native"](MacPlayer_, function (str) {
                               doparse(element, view, url1_, MacPlayer_, str);
-                              Lampa.Modal.close();
-                              Lampa.Api.clear();
-                              Lampa.Controller.toggle('content');
                             }, function (a, c) {
                               Lampa.Noty.show(network.errorDecode(a, c));
                             }, false, {
@@ -1459,6 +1445,8 @@
               }, false, {
                 dataType: 'text'
               });
+              Lampa.Modal.close();
+              Lampa.Api.clear();
             };
 
             if (viewed.indexOf(hash_file) == -1) {
