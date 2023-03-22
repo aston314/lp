@@ -1272,18 +1272,7 @@
               });
               iabRef.addEventListener('exit', iabClose);
             } else {
-              Lampa.Modal.open({
-                title: '',
-                align: 'center',
-                html: Lampa.Template.get('modal_loading'),
-                size: 'small',
-                mask: true,
-                onBack: function onBack() {
-                  Lampa.Modal.close();
-                  Lampa.Api.clear();
-                  Lampa.Controller.toggle('content');
-                }
-              });
+              loadingshow();
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
 
@@ -1453,13 +1442,13 @@
                 } else component.emptyForQuery(select_title);
 
                 component.loading(false);
+                Lampa.Modal.close();
+                Lampa.Api.clear();
               }, function (a, c) {
                 component.empty(network.errorDecode(a, c));
               }, false, {
                 dataType: 'text'
               });
-              Lampa.Modal.close();
-              Lampa.Api.clear();
             };
 
             if (viewed.indexOf(hash_file) == -1) {
