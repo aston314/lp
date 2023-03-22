@@ -52,10 +52,10 @@
       },
       {
         name: '网站-在线之家[!]',
-        websitelink: 'https://www.zxzj.org',
+        websitelink: 'https://www.zxzjhd.com',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://www.zxzj.org/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_url: 'https://www.zxzjhd.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
         name_json: 'name',
@@ -64,7 +64,7 @@
         search_html_selector: '',
         link_folder: 'video',
         detail_url_selector: '.play-item.cont.active',
-        videoparse: 'browser',
+        videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
@@ -1174,7 +1174,7 @@
     //   }
     // };
 
-    
+
     function append(items) {
       var _this = this;
       component.reset();
