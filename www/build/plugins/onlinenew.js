@@ -44,7 +44,7 @@
         search_html_selector: '',
         link_folder: 'detail',
         //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-        detail_url_selector: 'div > div:nth-child(2) > ul',
+        detail_url_selector: 'div > div:nth-child(3) > ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
@@ -875,7 +875,8 @@
       //"([^.]*)\.(.*)"
       //console.log(setting_link,setting_js)
       str = str.replace(/<!--[\s\S]*?-->/g, '');
-      var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi; //whole thing.
+      // <script[^>]*>([\s\S]*?)<\/script>
+      var pattern = /<script.*?>\s*(.*?)\s*<\/script>/gi; //whole thing.
       //var pattern = /<script type="text\/javascript">([\s\S]*?)<\/script>/gi; //whole thing.
       var match_, aa_ = [];
       while (match_ = pattern.exec(str)) {
@@ -970,7 +971,23 @@
     };
 
 
+    // function loadScripts(scripts) {
+    //   return Promise.all(scripts.map(function(url) {
+    //     return new Promise(function(resolve, reject) {
+    //       var script = document.createElement('script');
+    //       script.type = 'text/javascript';
+    //       script.src = url;
+    //       script.onload = resolve;
+    //       script.onerror = reject;
+    //       document.head.appendChild(script);
+    //     });
+    //   }));
+    // }
+
     function loadScripts(scripts) {
+      if (!Array.isArray(scripts) || scripts.length === 0) {
+        return Promise.resolve();
+      }
       return Promise.all(scripts.map(function(url) {
         return new Promise(function(resolve, reject) {
           var script = document.createElement('script');
@@ -982,6 +999,7 @@
         });
       }));
     }
+    
     
     function doparse__(element, view, url1_, url, data) {
       var element = element;
@@ -1015,15 +1033,29 @@
       };
       var joinedaa = aa_.join("\r\n");
     
-      loadScripts(aa).then(function() {
-        try {
-          window.eval(joinedaa);
-        } catch (e) {
-          if (e instanceof SyntaxError) {
-            console.log(e.message);
-          }
-        };
-      });
+      // loadScripts(aa).then(function() {
+      //   try {
+      //     window.eval(joinedaa);
+      //   } catch (e) {
+      //     if (e instanceof SyntaxError) {
+      //       console.log(e.message);
+      //     }
+      //   };
+      // });
+
+      loadScripts(scripts)
+        .then(function () {
+          try {
+            window.eval(joinedaa);
+          } catch (e) {
+            if (e instanceof SyntaxError) {
+              console.log(e.message);
+            }
+          };
+        })
+        .catch(function () {
+          console.error('Failed to load one or more scripts.');
+        });
 
       if (setting_js) {
         //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
