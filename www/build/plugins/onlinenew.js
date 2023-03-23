@@ -845,7 +845,7 @@
       });
     };
 
-    function doparse(element, view, url1_, url, data) {
+    function doparse_(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
@@ -1002,7 +1002,7 @@
     }
     
     
-    function doparse__(element, view, url1_, url, data) {
+    function doparse(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
