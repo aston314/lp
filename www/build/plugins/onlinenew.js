@@ -854,8 +854,8 @@
       var str = data.replace(/src="\/\//g, 'src="https://');
 
       //var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-      // var re = /<script.*?src="(.*?)"/gm;
-      re = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
+      var re = /<script.*?src="(.*?)"/gm;
+      //re = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
       var match, aa = [], setting_js = false, setting_link;
       while (match = re.exec(str)) {
         var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
@@ -876,7 +876,8 @@
       //console.log(setting_link,setting_js)
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       // <script[^>]*>([\s\S]*?)<\/script>
-      var pattern = /<script.*?>\s*(.*?)\s*<\/script>/gi; //whole thing.
+      var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi; //whole thing.
+      // var pattern = /<script.*?>\s*(.*?)\s*<\/script>/gi; //whole thing.
       //var pattern = /<script type="text\/javascript">([\s\S]*?)<\/script>/gi; //whole thing.
       var match_, aa_ = [];
       while (match_ = pattern.exec(str)) {
