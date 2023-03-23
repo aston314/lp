@@ -51,10 +51,6 @@
                 Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
                 dataType: 'text',
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                    'Referer': "https://ddys.art/"
-                }
             });
             return this.render();
         };
@@ -78,7 +74,11 @@
                 },function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
-                    dataType: 'text'
+                    dataType: 'text',
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+                        'Referer': "https://ddys.pro/"
+                    }
                 });
             //}
         };
@@ -267,7 +267,7 @@
                         playlistData.tracks.forEach(function (html) {
                             sources.push({
                                 title: html.caption,
-                                url: "https://ddys.art/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
+                                url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
                                 subtitles: []
                             });
                             
@@ -312,7 +312,7 @@
                                     dataType: 'json',
                                     headers: {
                                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                                        'Referer': "https://ddys.art/"
+                                        'Referer': "https://ddys.pro/"
                                     }
                                 });
                             },
@@ -329,7 +329,7 @@
                         dataType: 'text',
                         headers: {
                             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                            'Referer': "https://ddys.art/"
+                            'Referer': "https://ddys.pro/"
                         }
                     });
                 });
@@ -708,31 +708,31 @@
     var catalogs = [
     {
         title: '首页',
-        url: 'https://ddys.art/'
+        url: 'https://ddys.pro/'
     },
     {
         title: '电影',
-        url: 'https://ddys.art/category/movie/'
+        url: 'https://ddys.pro/category/movie/'
     },
     {
         title: '剧集',
-        url: 'https://ddys.art/category/airing/'
+        url: 'https://ddys.pro/category/airing/'
     },
     {
         title: '欧美剧',
-        url: 'https://ddys.art/category/drama/western-drama/'
+        url: 'https://ddys.pro/category/drama/western-drama/'
     },
     {
         title: '韩剧',
-        url: 'https://ddys.art/category/drama/kr-drama/'
+        url: 'https://ddys.pro/category/drama/kr-drama/'
     },
     {
         title: '日剧',
-        url: 'https://ddys.art/category/drama/jp-drama/'
+        url: 'https://ddys.pro/category/drama/jp-drama/'
     },
     {
         title: '动画',
-        url: 'https://ddys.art/category/anime/'
+        url: 'https://ddys.pro/category/anime/'
     }];
 
     function startDDYS() {
