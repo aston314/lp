@@ -20,15 +20,15 @@
 
 
 
-        this.getQueryString = function (link, name) {
-            let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
-            //console.log(link)
-            let r = link.match(reg);
-            if (r != null) {
-                return decodeURIComponent(r[2]);
-            };
-            return null;
-        };
+        // this.getQueryString = function (link, name) {
+        //     let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
+        //     //console.log(link)
+        //     let r = link.match(reg);
+        //     if (r != null) {
+        //         return decodeURIComponent(r[2]);
+        //     };
+        //     return null;
+        // };
 
         this.create = function () {
             //console.log(object.url)
@@ -51,6 +51,10 @@
                 Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
                 dataType: 'text',
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                    'Referer': "https://ddys.art/"
+                }
             });
             return this.render();
         };
@@ -76,8 +80,8 @@
                 }, false, {
                     dataType: 'text',
                     headers: {
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                        'Referer': "https://ddys.pro/"
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                        'Referer': "https://ddys.art/"
                     }
                 });
             //}
@@ -117,7 +121,7 @@
             //     };
             // };
             //console.log(page)
-            $('div.post-box-container', str).each(function (i, html) {
+            ($('div.post-box-container', str)||$('article', str)).each(function (i, html) {
                 //if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                     var regex = /第(\d+)季/;
                     var match = regex.exec($('h2 > a', html).text()) ? regex.exec($('h2 > a', html).text())[1] + "/" : "";
@@ -267,7 +271,7 @@
                         playlistData.tracks.forEach(function (html) {
                             sources.push({
                                 title: html.caption,
-                                url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
+                                url: "https://ddys.art/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
                                 subtitles: []
                             });
                             
@@ -311,8 +315,8 @@
                                 }, false, {
                                     dataType: 'json',
                                     headers: {
-                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                                        'Referer': "https://ddys.pro/"
+                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                                        'Referer': "https://ddys.art/"
                                     }
                                 });
                             },
@@ -328,8 +332,8 @@
                     }, false, {
                         dataType: 'text',
                         headers: {
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
-                            'Referer': "https://ddys.pro/"
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                            'Referer': "https://ddys.art/"
                         }
                     });
                 });
@@ -358,7 +362,7 @@
                 }, function (new_value) {
                     if (new_value) {
                         //console.log(new_value)
-                        var search_tempalte = 'http://www.dydhhy.com/?s=#msearchword';
+                        var search_tempalte = 'https://ddys.art/?s=#msearchword&post_type=post';
                         var searchurl = search_tempalte.replace('#msearchword',encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
@@ -708,31 +712,31 @@
     var catalogs = [
     {
         title: '首页',
-        url: 'https://ddys.pro/'
+        url: 'https://ddys.art/'
     },
     {
         title: '电影',
-        url: 'https://ddys.pro/category/movie/'
+        url: 'https://ddys.art/category/movie/'
     },
     {
         title: '剧集',
-        url: 'https://ddys.pro/category/airing/'
+        url: 'https://ddys.art/category/airing/'
     },
     {
         title: '欧美剧',
-        url: 'https://ddys.pro/category/drama/western-drama/'
+        url: 'https://ddys.art/category/drama/western-drama/'
     },
     {
         title: '韩剧',
-        url: 'https://ddys.pro/category/drama/kr-drama/'
+        url: 'https://ddys.art/category/drama/kr-drama/'
     },
     {
         title: '日剧',
-        url: 'https://ddys.pro/category/drama/jp-drama/'
+        url: 'https://ddys.art/category/drama/jp-drama/'
     },
     {
         title: '动画',
-        url: 'https://ddys.pro/category/anime/'
+        url: 'https://ddys.art/category/anime/'
     }];
 
     function startDDYS() {
