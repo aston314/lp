@@ -1104,6 +1104,7 @@
       loadScripts(aa).then(function() {
         try {
           window.eval(joinedaa);
+          console.log('fuk')
           if (typeof urls !== "undefined") {
             console.log('找到视频播放地址：'+urls)
             var file = urls;
