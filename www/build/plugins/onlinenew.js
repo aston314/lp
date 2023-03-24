@@ -44,7 +44,7 @@
         search_html_selector: '',
         link_folder: 'detail',
         //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-        detail_url_selector: 'div > div:nth-child(3) > ul',
+        detail_url_selector: '.stui-content+.stui-vodlist__head > ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
