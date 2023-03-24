@@ -1315,6 +1315,7 @@
               });
               iabRef.addEventListener('exit', iabClose);
             } else {
+              loadingshow();
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
 
@@ -1486,6 +1487,8 @@
                         }
                       });
                   });
+                  Lampa.Modal.close();
+                  Lampa.Api.clear();
                 } else component.emptyForQuery(select_title);
 
                 component.loading(false);
