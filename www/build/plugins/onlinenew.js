@@ -845,7 +845,7 @@
       });
     };
 
-    function doparse(element, view, url1_, url, data) {
+    function doparse_(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
@@ -1002,7 +1002,7 @@
     }
     
     
-    function doparse__(element, view, url1_, url, data) {
+    function doparse(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
@@ -1044,19 +1044,29 @@
       //   };
       // });
 
-      loadScripts(scripts)
-        .then(function () {
-          try {
-            window.eval(joinedaa);
-          } catch (e) {
-            if (e instanceof SyntaxError) {
-              console.log(e.message);
-            }
-          };
-        })
-        .catch(function () {
-          console.error('Failed to load one or more scripts.');
-        });
+      // loadScripts(scripts)
+      //   .then(function () {
+      //     try {
+      //       window.eval(joinedaa);
+      //     } catch (e) {
+      //       if (e instanceof SyntaxError) {
+      //         console.log(e.message);
+      //       }
+      //     };
+      //   })
+      //   .catch(function () {
+      //     console.error('Failed to load one or more scripts.');
+      //   });
+
+      loadScripts(aa).then(function() {
+        try {
+          window.eval(joinedaa);
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            console.log(e.message);
+          }
+        };
+      });
 
       if (setting_js) {
         //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
