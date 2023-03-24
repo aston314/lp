@@ -1033,31 +1033,6 @@
         }
       };
       var joinedaa = aa_.join("\r\n");
-    
-      // loadScripts(aa).then(function() {
-      //   try {
-      //     window.eval(joinedaa);
-      //   } catch (e) {
-      //     if (e instanceof SyntaxError) {
-      //       console.log(e.message);
-      //     }
-      //   };
-      // });
-
-      // loadScripts(scripts)
-      //   .then(function () {
-      //     try {
-      //       window.eval(joinedaa);
-      //     } catch (e) {
-      //       if (e instanceof SyntaxError) {
-      //         console.log(e.message);
-      //       }
-      //     };
-      //   })
-      //   .catch(function () {
-      //     console.error('Failed to load one or more scripts.');
-      //   });
-
 
       // 定义一个执行第一段代码的函数，这里假设参数为 name
       function executeFirstCode(name) {
@@ -1102,9 +1077,26 @@
       }
 
       loadScripts(aa).then(function() {
-        console.log('执行了本页所有js代码')
         try {
-          window.eval(joinedaa);
+          eval(joinedaa);
+          if (typeof urls !== "undefined") {
+            var file = urls;
+            //console.log(file);
+            if (file) {
+              var playlist = [];
+              var first = {
+                url: file,
+                timeline: view,
+                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                subtitles: element.subtitles
+              };
+              Lampa.Player.play(first);
+              playlist.push(first);
+              Lampa.Player.playlist(playlist);
+            } else {
+              Lampa.Noty.show('无法检索链接');
+            }
+          };
           
           // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
           // executeFirstCode(joinedaa).then(function (result) {
@@ -1182,24 +1174,7 @@
         });
       };
 
-      if (typeof urls !== "undefined") {
-        var file = urls;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
-          };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-        } else {
-          Lampa.Noty.show('无法检索链接');
-        }
-      };
+      
 
     };
     
