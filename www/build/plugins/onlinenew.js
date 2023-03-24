@@ -1102,9 +1102,10 @@
       }
 
       loadScripts(aa).then(function() {
+        console.log('执行了本页所有js代码')
         try {
           window.eval(joinedaa);
-          console.log('执行了本页所有js代码')
+          
           // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
           // executeFirstCode(joinedaa).then(function (result) {
           //   console.log(result); // 输出：张三执行了第一段代码
@@ -1182,7 +1183,6 @@
       };
 
       if (typeof urls !== "undefined") {
-        console.log('找到视频播放地址：'+urls)
         var file = urls;
         //console.log(file);
         if (file) {
