@@ -1076,28 +1076,26 @@
         });
       }
 
-      try {
-        window.eval(joinedaa);
-        
-        // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
-        // executeFirstCode(joinedaa).then(function (result) {
-        //   console.log(result); // 输出：张三执行了第一段代码
-        //   return executeSecondCode();
-        // }).then(function () {
-        //   console.log('两段代码均已执行完毕');
-        // }).catch(function (err) {
-        //   console.error('执行代码时发生错误：', err);
-        // });
-
-
-      } catch (e) {
-        if (e instanceof SyntaxError) {
-          console.log(e.message);
-        }
-      };
-
       loadScripts(aa).then(function() {
+        try {
+          window.eval(joinedaa);
+          
+          // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
+          // executeFirstCode(joinedaa).then(function (result) {
+          //   console.log(result); // 输出：张三执行了第一段代码
+          //   return executeSecondCode();
+          // }).then(function () {
+          //   console.log('两段代码均已执行完毕');
+          // }).catch(function (err) {
+          //   console.error('执行代码时发生错误：', err);
+          // });
 
+
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            console.log(e.message);
+          }
+        };
       });
 
       if (setting_js) {
@@ -1175,6 +1173,7 @@
         } else {
           Lampa.Noty.show('无法检索链接');
         }
+        urls = undefined;
       };
 
     };
