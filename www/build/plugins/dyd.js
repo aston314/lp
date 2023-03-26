@@ -241,7 +241,7 @@
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
                             $('a[href*="www.aliyundrive.com"],a[href*="magnet:?xt=urn:btih:"]', str).each(function (i, html) {
                             sources.push({
-                                title: /.*www\.aliyundrive\.com.*/.test(html.href) ? '阿里云盘 - ' + (i + 1) : '磁力链接 - 资源' + (i + 1),
+                                title: /.*www\.aliyundrive\.com.*/.test(html.href) ? '阿里云盘 - 资源' + (i + 1) : '磁力链接 - 资源' + (i + 1),
                                 url: html.href,
                             });
                     });
