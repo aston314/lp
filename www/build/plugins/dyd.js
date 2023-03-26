@@ -246,6 +246,8 @@
                             });
                     });
 
+                    console.log(element)
+
                     Lampa.Select.show({
                         title: '观看资源',
                         items: sources,
@@ -299,7 +301,9 @@
                                     SERVER.object.poster = element.picture;
                                     Lampa.Android.openTorrent(SERVER);
                                 };
+                                Lampa.Controller.toggle('content');
                             }
+
                         },
                         onBack: function onBack() {
                             Lampa.Controller.toggle('content');
