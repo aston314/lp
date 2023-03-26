@@ -246,8 +246,6 @@
                             });
                     });
 
-                    console.log(element)
-
                     Lampa.Select.show({
                         title: '观看资源',
                         items: sources,
@@ -268,8 +266,8 @@
 
                                 if (window.intentShim) {
                                     var intentExtra = {
-                                        title: element.name,
-                                        poster: element.picture,
+                                        title: element.title,
+                                        poster: element.img,
                                         action: "play",
                                         data: {
                                             lampa: true
@@ -297,8 +295,8 @@
                                         }
                                     };
                                     SERVER.object.MagnetUri = a.url;
-                                    SERVER.movie.title = element.name;
-                                    SERVER.object.poster = element.picture;
+                                    SERVER.movie.title = element.title;
+                                    SERVER.object.poster = element.img;
                                     Lampa.Android.openTorrent(SERVER);
                                 };
                                 Lampa.Controller.toggle('content');
