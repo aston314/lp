@@ -239,24 +239,67 @@
 
                     network["native"](element.url, function (str) {
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
-                            $('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
+                            $('a[href*="www.aliyundrive.com"],a[href*="magnet:?xt=urn:btih:"]', str).each(function (i, html) {
                             sources.push({
-                                title:  '阿里云盘 - 资源'+(i+1),
+                                title: /.*www\.aliyundrive\.com.*/.test(html.href) ? '阿里云盘 - ' + (i + 1) : '磁力链接 - 资源' + (i + 1),
                                 url: html.href,
                             });
                     });
 
                     Lampa.Select.show({
-                        title: '阿里云盘',
+                        title: '观看资源',
                         items: sources,
                         onSelect: function onSelect(a) {
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '阿里云盘播放',
-                                component: 'yunpan2',
-                                movie: element,
-                                page: 1
-                            });
+                            if (/.*www\.aliyundrive\.com.*/.test(a.url)) {
+                                Lampa.Activity.push({
+                                    url: a.url,
+                                    title: '阿里云盘播放',
+                                    component: 'yunpan2',
+                                    movie: element,
+                                    page: 1
+                                });
+                            } else {
+                                var video = {
+                                    title: element.name,
+                                    url: element.video
+                                };
+
+                                if (window.intentShim) {
+                                    var intentExtra = {
+                                        title: element.name,
+                                        poster: element.picture,
+                                        action: "play",
+                                        data: {
+                                            lampa: true
+                                        }
+                                    };
+                                    window.plugins.intentShim.startActivity(
+                                        {
+                                            action: window.plugins.intentShim.ACTION_VIEW,
+                                            url: a.url,
+                                            extras: intentExtra
+                                        },
+                                        function () { },
+                                        function () { console.log('Failed to open magnet URL via Android Intent') }
+
+                                    );
+                                } else {
+                                    var SERVER = {
+                                        "object": {
+                                            "Title": "",
+                                            "MagnetUri": "",
+                                            "poster": ""
+                                        },
+                                        "movie": {
+                                            "title": "",
+                                        }
+                                    };
+                                    SERVER.object.MagnetUri = a.url;
+                                    SERVER.movie.title = element.name;
+                                    SERVER.object.poster = element.picture;
+                                    Lampa.Android.openTorrent(SERVER);
+                                };
+                            }
                         },
                         onBack: function onBack() {
                             Lampa.Controller.toggle('content');
