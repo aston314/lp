@@ -1094,7 +1094,7 @@
         
       });
 
-      var playing = `${str}`;
+      // var playing = `${str}`;
 
       // $('body').append($('<script>')
       //   .html(joinedaa)
