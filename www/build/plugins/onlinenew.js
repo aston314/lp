@@ -42,7 +42,7 @@
         id_json: 'id',
         first_page_json: '.html',
         search_html_selector: '',
-        link_folder: 'detail',
+        link_folder: 'detail_',
         //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
         detail_url_selector: '.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul',
         videoparse: 'default',
@@ -62,7 +62,7 @@
         id_json: 'id',
         first_page_json: '-1-1.html',
         search_html_selector: '',
-        link_folder: 'video',
+        link_folder: 'video/',
         detail_url_selector: '.play-item.cont.active',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
@@ -119,7 +119,7 @@
         id_json: 'id',
         first_page_json: '-1-1.html',
         search_html_selector: '',
-        link_folder: 'play',
+        link_folder: 'play/',
         detail_url_selector: '.stui-pannel_bd.col-pd.clearfix:eq(0)',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
@@ -289,7 +289,7 @@
         id_json: 'id',
         first_page_json: '-1-1.html',
         search_html_selector: '',
-        link_folder: 'vodplay',
+        link_folder: 'vodplay/',
         detail_url_selector: 'div#play-box div.play-item.cont.active > ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
@@ -327,7 +327,7 @@
         id_json: 'id',
         first_page_json: '-1-1.html',
         search_html_selector: '',
-        link_folder: 'play',
+        link_folder: 'play/',
         detail_url_selector: 'ul.stui-play__list',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
@@ -346,7 +346,7 @@
         id_json: 'id',
         first_page_json: '-1-1.html',
         search_html_selector: '',
-        link_folder: 'play',
+        link_folder: 'play/',
         detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
@@ -722,7 +722,8 @@
         try {
           str[doreg.node_json].forEach(function (e) {
             item.Title = e[doreg.name_json];
-            item.Link = doreg.websitelink + '/' + doreg.link_folder + '/' + e[doreg.id_json] + doreg.first_page_json;
+            item.Link = doreg.websitelink + '/' + doreg.link_folder + e[doreg.id_json] + doreg.first_page_json;
+            // item.Link = doreg.websitelink + '/' + doreg.link_folder + '/' + e[doreg.id_json] + doreg.first_page_json;
             dodetail(item.Link, str, item.Title);
             doonce++;
             if (doonce === 1) {
