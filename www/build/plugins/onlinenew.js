@@ -1129,7 +1129,7 @@
       var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
         return this.nodeName !== 'SCRIPT';
       }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
-      // console.log('html_',html_)
+      console.log('html_',html_)
       $('body').append(html_);
 
       // var parser = new DOMParser();
