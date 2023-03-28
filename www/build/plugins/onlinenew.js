@@ -1119,13 +1119,20 @@
       // } else {
       //   console.log('未找到 body 标签');
       // }
-      // 创建一个临时的元素并将 HTML 字符串插入到该元素中
-      var $tempEl = $('<div>').html(str);
+      // // 创建一个临时的元素并将 HTML 字符串插入到该元素中
+      // var $tempEl = $('<div>').html(str);
 
-      // 获取主体内容并将其插入到新元素中
-      var $newEl = $('<div>').html($tempEl.find('body').html());
-      console.log($newEl)
-      $('body').append($newEl);
+      // // 获取主体内容并将其插入到新元素中
+      // var $newEl = $('<div>').html($tempEl.find('body').html());
+      // // console.log($newEl)
+      // $('body').append($newEl);
+
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, "text/html");
+      var body = doc.querySelector("body");
+      
+      console.log(body.innerHTML);
+      $('body').append(body.innerHTML);
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
@@ -1229,25 +1236,25 @@
         });
       };
 
-      // if (typeof urls !== "undefined") {
-      //   var file = urls;
-      //   //console.log(file);
-      //   if (file) {
-      //     var playlist = [];
-      //     var first = {
-      //       url: file,
-      //       timeline: view,
-      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-      //       subtitles: element.subtitles
-      //     };
-      //     Lampa.Player.play(first);
-      //     playlist.push(first);
-      //     Lampa.Player.playlist(playlist);
-      //   } else {
-      //     Lampa.Noty.show('无法检索链接');
-      //   }
-      //   urls = undefined;
-      // };
+      if (typeof urls !== "undefined") {
+        var file = urls;
+        //console.log(file);
+        if (file) {
+          var playlist = [];
+          var first = {
+            url: file,
+            timeline: view,
+            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            subtitles: element.subtitles
+          };
+          Lampa.Player.play(first);
+          playlist.push(first);
+          Lampa.Player.playlist(playlist);
+        } else {
+          Lampa.Noty.show('无法检索链接');
+        }
+        urls = undefined;
+      };
 
     };
     
