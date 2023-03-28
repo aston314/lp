@@ -1152,6 +1152,10 @@
 
       // var playing = `${str}`;
 
+      $('body').append(`
+      ${str}
+`);
+
       // $('body').append($('<script>')
       //   .html(joinedaa)
       // );
