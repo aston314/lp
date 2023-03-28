@@ -1040,7 +1040,7 @@
       while (match = re.exec(str)) {
         var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
     
-        if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
+        if (!/c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
           aa.push(cc);
         }
         if (/setting[\s\S]*\.js/.test(cc)) {
@@ -1049,35 +1049,77 @@
         }
       };
 
-      var cssFiles = [];
-      $('link[rel="stylesheet"]', str).each(function () {
-        cssFiles.push($(this).attr('href'));
-      });
-      console.log('cssFiles',cssFiles);
+      // var cssFiles = [];
+      // $('link[rel="stylesheet"]', str).each(function () {
+      //   cssFiles.push($(this).attr('href'));
+      // });
+      // console.log('cssFiles',cssFiles);
+      // var cssString = cssFiles.join(",");
+      // $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
+
+
+      // var styleTags = $('body', str).find('style'); 
+      // var cssStyles = '';
+      // if (styleTags.length > 0) { 
+      //   styleTags.each(function () {
+      //     cssStyles += $(this).html().replace(/[\r\n]/g, ''); // 使用正则表达式进行处理
+      //   });
+      //   $('<style>', { type: 'text/css', html: cssStyles }).appendTo('head');
+      // }
+      // console.log('cssStyles',cssStyles)
+
+      // // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
+      // // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
+      // // $('#new').html(html);
+      // var wrapper = $(str); 
+      // var body = wrapper.find('body'); // 获取body 元素
+      // var content = body.contents(); // 获取 body 元素中的所有子元素
+      // var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
+      //   return this.nodeName !== 'SCRIPT';
+      // }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
+      // console.log('html_',html_)
+
+
+      var regex = /<link[^>]*href\s*=\s*["']([^"']*.css)["'][^>]*>/gi;
+      var matches = str.match(regex);
+      for (var i = 0; i < matches.length; i++) {
+        var hrefMatch = matches[i].match(/href\s*=\s*["']([^"']*)["']/i);
+        if (hrefMatch) {
+          var hrefValue = hrefMatch[1];
+          cssFiles.push(hrefValue);
+        }
+      }
+      console.log('cssFiles', cssFiles);
       var cssString = cssFiles.join(",");
       $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
 
 
-      var styleTags = $('body', str).find('style'); 
-      var cssStyles = '';
-      if (styleTags.length > 0) { 
-        styleTags.each(function () {
-          cssStyles += $(this).html().replace(/[\r\n]/g, ''); // 使用正则表达式进行处理
-        });
-        $('<style>', { type: 'text/css', html: cssStyles }).appendTo('head');
+      // 正则表达式匹配 CSS 样式
+      var cssContent = '';
+      var match = str.match(/<style[^>]*>([\s\S]*?)<\/style>/ig);
+      if (match && match.length > 0) {
+        cssContent = match.join('').replace(/(<([^>]+)>)/ig, '').replace(/\s+/g, ' ');
+        // 创建 style 标签，并将 CSS 样式添加到 head 中
+        $('<style>', {
+          type: 'text/css',
+          html: cssContent
+        }).appendTo('head');
       }
-      console.log('cssStyles',cssStyles)
+      console.log('cssContent', cssContent)
 
-      // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
-      // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
-      // $('#new').html(html);
-      var wrapper = $(str); 
-      var body = wrapper.find('body'); // 获取body 元素
-      var content = body.contents(); // 获取 body 元素中的所有子元素
-      var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
-        return this.nodeName !== 'SCRIPT';
-      }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
-      console.log('html_',html_)
+      var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
+
+      if (result && result.length > 1) {
+        var body = result[1];
+        console.log(body);
+        var decodedHtml = $('<textarea />').html(body).text();
+
+        // 使用 append() 方法将 HTML 字符串插入到目标元素中
+        /* $(decodedHtml).appendTo('#container') */
+        $('body').append(decodedHtml);
+      } else {
+        console.log('未找到 body 标签');
+      }
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
@@ -1181,25 +1223,25 @@
         });
       };
 
-      if (typeof urls !== "undefined") {
-        var file = urls;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
-          };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-        } else {
-          Lampa.Noty.show('无法检索链接');
-        }
-        urls = undefined;
-      };
+      // if (typeof urls !== "undefined") {
+      //   var file = urls;
+      //   //console.log(file);
+      //   if (file) {
+      //     var playlist = [];
+      //     var first = {
+      //       url: file,
+      //       timeline: view,
+      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+      //       subtitles: element.subtitles
+      //     };
+      //     Lampa.Player.play(first);
+      //     playlist.push(first);
+      //     Lampa.Player.playlist(playlist);
+      //   } else {
+      //     Lampa.Noty.show('无法检索链接');
+      //   }
+      //   urls = undefined;
+      // };
 
     };
     
