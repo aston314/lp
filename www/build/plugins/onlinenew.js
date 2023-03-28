@@ -1106,19 +1106,26 @@
       }
       console.log('cssContent', cssContent)
 
-      var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
+      // var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
 
-      if (result && result.length > 1) {
-        var body = result[1];
-        console.log(body);
-        var decodedHtml = $('<textarea />').html(body).text();
+      // if (result && result.length > 1) {
+      //   var body = result[1];
+      //   console.log(body);
+      //   var decodedHtml = $('<textarea />').html(body).text();
 
-        // 使用 append() 方法将 HTML 字符串插入到目标元素中
-        /* $(decodedHtml).appendTo('#container') */
-        $('body').append(decodedHtml);
-      } else {
-        console.log('未找到 body 标签');
-      }
+      //   // 使用 append() 方法将 HTML 字符串插入到目标元素中
+      //   /* $(decodedHtml).appendTo('#container') */
+      //   $('body').append(decodedHtml);
+      // } else {
+      //   console.log('未找到 body 标签');
+      // }
+      // 创建一个临时的元素并将 HTML 字符串插入到该元素中
+      var $tempEl = $('<div>').html(str);
+
+      // 获取主体内容并将其插入到新元素中
+      var $newEl = $('<div>').html($tempEl.find('body').html());
+      console.log($newEl)
+      $('body').append($newEl);
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
