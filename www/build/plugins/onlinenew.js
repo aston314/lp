@@ -1040,7 +1040,7 @@
       while (match = re.exec(str)) {
         var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
     
-        if (!/c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
+        if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
           aa.push(cc);
         }
         if (/setting[\s\S]*\.js/.test(cc)) {
@@ -1079,61 +1079,61 @@
       // }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
       // console.log('html_',html_)
 
-      var cssFiles = [];
-      var regex = /<link[^>]*href\s*=\s*["']([^"']*.css)["'][^>]*>/gi;
-      var matches = str.match(regex);
-      for (var i = 0; i < matches.length; i++) {
-        var hrefMatch = matches[i].match(/href\s*=\s*["']([^"']*)["']/i);
-        if (hrefMatch) {
-          var hrefValue = hrefMatch[1];
-          cssFiles.push(hrefValue);
-        }
-      }
-      console.log('cssFiles', cssFiles);
-      var cssString = cssFiles.join(",");
-      $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
-
-      // 正则表达式匹配 CSS 样式
-      var cssContent = '';
-      var match = str.match(/<style[^>]*>([\s\S]*?)<\/style>/ig);
-      if (match && match.length > 0) {
-        cssContent = match.join('').replace(/(<([^>]+)>)/ig, '').replace(/\s+/g, ' ');
-        // 创建 style 标签，并将 CSS 样式添加到 head 中
-        $('<style>', {
-          type: 'text/css',
-          html: cssContent
-        }).appendTo('head');
-      }
-      console.log('cssContent', cssContent)
-
-      // var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
-
-      // if (result && result.length > 1) {
-      //   var body = result[1];
-      //   console.log(body);
-      //   var decodedHtml = $('<textarea />').html(body).text();
-
-      //   // 使用 append() 方法将 HTML 字符串插入到目标元素中
-      //   /* $(decodedHtml).appendTo('#container') */
-      //   $('body').append(decodedHtml);
-      // } else {
-      //   console.log('未找到 body 标签');
+      // var cssFiles = [];
+      // var regex = /<link[^>]*href\s*=\s*["']([^"']*.css)["'][^>]*>/gi;
+      // var matches = str.match(regex);
+      // for (var i = 0; i < matches.length; i++) {
+      //   var hrefMatch = matches[i].match(/href\s*=\s*["']([^"']*)["']/i);
+      //   if (hrefMatch) {
+      //     var hrefValue = hrefMatch[1];
+      //     cssFiles.push(hrefValue);
+      //   }
       // }
-      // 创建一个临时的元素并将 HTML 字符串插入到该元素中
-      var $tempEl = $('<div>').html(str);
+      // console.log('cssFiles', cssFiles);
+      // var cssString = cssFiles.join(",");
+      // $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
 
-      // 获取主体内容并将其插入到新元素中
-      var $newEl = $('<div>').html($tempEl.find('body').html());
-      // console.log($newEl)
-      // $('body').append($newEl);
-      component.append($newEl);
+      // // 正则表达式匹配 CSS 样式
+      // var cssContent = '';
+      // var match = str.match(/<style[^>]*>([\s\S]*?)<\/style>/ig);
+      // if (match && match.length > 0) {
+      //   cssContent = match.join('').replace(/(<([^>]+)>)/ig, '').replace(/\s+/g, ' ');
+      //   // 创建 style 标签，并将 CSS 样式添加到 head 中
+      //   $('<style>', {
+      //     type: 'text/css',
+      //     html: cssContent
+      //   }).appendTo('head');
+      // }
+      // console.log('cssContent', cssContent)
 
-      // var parser = new DOMParser();
-      // var doc = parser.parseFromString(str, "text/html");
-      // // var body = doc.querySelector("body");
+      // // var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
 
-      // console.log(doc.body.innerHTML);
-      // $('body').append(doc.body.innerHTML);
+      // // if (result && result.length > 1) {
+      // //   var body = result[1];
+      // //   console.log(body);
+      // //   var decodedHtml = $('<textarea />').html(body).text();
+
+      // //   // 使用 append() 方法将 HTML 字符串插入到目标元素中
+      // //   /* $(decodedHtml).appendTo('#container') */
+      // //   $('body').append(decodedHtml);
+      // // } else {
+      // //   console.log('未找到 body 标签');
+      // // }
+      // // 创建一个临时的元素并将 HTML 字符串插入到该元素中
+      // var $tempEl = $('<div>').html(str);
+
+      // // 获取主体内容并将其插入到新元素中
+      // var $newEl = $('<div>').html($tempEl.find('body').html());
+      // // console.log($newEl)
+      // // $('body').append($newEl);
+      // component.append($newEl);
+
+      // // var parser = new DOMParser();
+      // // var doc = parser.parseFromString(str, "text/html");
+      // // // var body = doc.querySelector("body");
+
+      // // console.log(doc.body.innerHTML);
+      // // $('body').append(doc.body.innerHTML);
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
