@@ -1129,10 +1129,10 @@
 
       var parser = new DOMParser();
       var doc = parser.parseFromString(str, "text/html");
-      var body = doc.querySelector("body");
-      
-      console.log(body.innerHTML);
-      $('body').append(body.innerHTML);
+      // var body = doc.querySelector("body");
+
+      console.log(doc.body.innerHTML);
+      $('body').append(doc.body.innerHTML);
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
