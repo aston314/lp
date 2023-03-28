@@ -1156,6 +1156,19 @@
 //       ${str}
 // `);
 
+Lampa.Modal.open({
+  title: '',
+  align: 'center',
+  html: `${str}`,
+  size: 'full',
+  mask: true,
+  onBack: function onBack() {
+    Lampa.Modal.close();
+    Lampa.Api.clear();
+    Lampa.Controller.toggle('content');
+  }
+});
+
       // $('body').append($('<script>')
       //   .html(joinedaa)
       // );
