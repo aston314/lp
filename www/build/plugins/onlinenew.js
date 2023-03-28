@@ -1125,12 +1125,8 @@
       // 获取主体内容并将其插入到新元素中
       var $newEl = $('<div>').html($tempEl.find('body').html());
       // console.log($newEl)
-      var content = $newEl.contents(); // 获取 body 元素中的所有子元素
-      var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
-        return this.nodeName !== 'SCRIPT';
-      }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
-      console.log('html_',html_)
-      $('body').append(html_);
+      // $('body').append($newEl);
+      component.append($newEl);
 
       // var parser = new DOMParser();
       // var doc = parser.parseFromString(str, "text/html");
