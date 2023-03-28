@@ -1049,35 +1049,37 @@
         }
       };
 
-      var cssFiles = [];
-      $('link[rel="stylesheet"]', str).each(function () {
-        cssFiles.push($(this).attr('href'));
-      });
-      console.log('cssFiles',cssFiles);
-      var cssString = cssFiles.join(",");
-      $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
+      // var cssFiles = [];
+      // $('link[rel="stylesheet"]', str).each(function () {
+      //   cssFiles.push($(this).attr('href'));
+      // });
+      // console.log('cssFiles',cssFiles);
+      // var cssString = cssFiles.join(",");
+      // $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
 
 
-      var styleTags = $('body', str).find('style'); 
-      var cssStyles = '';
-      if (styleTags.length > 0) { 
-        styleTags.each(function () {
-          cssStyles += $(this).html().replace(/[\r\n]/g, ''); // 使用正则表达式进行处理
-        });
-        $('<style>', { type: 'text/css', html: cssStyles }).appendTo('head');
-      }
-      console.log('cssStyles',cssStyles)
+      // var styleTags = $('body', str).find('style'); 
+      // var cssStyles = '';
+      // if (styleTags.length > 0) { 
+      //   styleTags.each(function () {
+      //     cssStyles += $(this).html().replace(/[\r\n]/g, ''); // 使用正则表达式进行处理
+      //   });
+      //   $('<style>', { type: 'text/css', html: cssStyles }).appendTo('head');
+      // }
+      // console.log('cssStyles',cssStyles)
 
-      // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
-      // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
-      // $('#new').html(html);
-      var wrapper = $(str); 
-      var body = wrapper.find('body'); // 获取body 元素
-      var content = body.contents(); // 获取 body 元素中的所有子元素
-      var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
-        return this.nodeName !== 'SCRIPT';
-      }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
-      console.log('html_',html_)
+      // // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
+      // // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
+      // // $('#new').html(html);
+      // var wrapper = $(str); 
+      // var body = wrapper.find('body'); // 获取body 元素
+      // var content = body.contents(); // 获取 body 元素中的所有子元素
+      // var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
+      //   return this.nodeName !== 'SCRIPT';
+      // }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
+      // console.log('html_',html_)
+
+      const greeting = `${str}`;
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
       var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
@@ -1101,103 +1103,103 @@
       // executeJSCode(joinedaa);
       
 
-      try {
-        window.eval(joinedaa);
+      // try {
+      //   window.eval(joinedaa);
         
-        // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
-        // executeFirstCode(joinedaa).then(function (result) {
-        //   console.log(result); // 输出：张三执行了第一段代码
-        //   return executeSecondCode();
-        // }).then(function () {
-        //   console.log('两段代码均已执行完毕');
-        // }).catch(function (err) {
-        //   console.error('执行代码时发生错误：', err);
-        // });
+      //   // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
+      //   // executeFirstCode(joinedaa).then(function (result) {
+      //   //   console.log(result); // 输出：张三执行了第一段代码
+      //   //   return executeSecondCode();
+      //   // }).then(function () {
+      //   //   console.log('两段代码均已执行完毕');
+      //   // }).catch(function (err) {
+      //   //   console.error('执行代码时发生错误：', err);
+      //   // });
 
 
-      } catch (e) {
-        if (e instanceof SyntaxError) {
-          console.log(e.message);
-        }
-      };
+      // } catch (e) {
+      //   if (e instanceof SyntaxError) {
+      //     console.log(e.message);
+      //   }
+      // };
 
-      if (setting_js) {
-        //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
-        // var s_js = getRemote(setting_link);
-        network["native"](setting_link, function (s_js) {
-          var b_js = s_js.match(/\.post|GET|POST/);
-          var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
-          var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
-          c_js = c_js[0].replace(/'|"/g, '');
-          var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
-          var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
-          //console.log(config.url,config.vkey,config.token,d_sj,e_js)
-          $.ajax({
-            url: d_sj,
-            type: f_js,
-            dataType: 'JSON',
-            timeout: 3000,
-            data: {
-              tm: (new Date().getTime()),
-              url: config.url,
-              vkey: config.vkey,
-              token: config.token,
-              sign: e_js
-            },
-            success: function (data) {
-              if (data.code === 200) {
-                //console.log(data)
-                var playlist = [];
-                var first = {
-                  url: getVideoInfo(data.url),
-                  timeline: view,
-                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  subtitles: element.subtitles
-                };
-                Lampa.Player.play(first);
-                playlist.push(first);
-                Lampa.Player.playlist(playlist);
-              } else {
-                //handlePlayerLoadError();
-                $(".noty").show();
-                Lampa.Noty.show('解析失败，请重试或切换线路~');
-                //console.log('解析失败，请重试或切换线路~');
-              }
-            },
-            error: function () {
-              //handlePlayerLoadError();
-              $(".noty").show();
-              Lampa.Noty.show('解析失败，请重试或切换线路~');
-              //console.log('解析失败，请重试或切换线路~');
-            }
-          });
+      // if (setting_js) {
+      //   //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
+      //   // var s_js = getRemote(setting_link);
+      //   network["native"](setting_link, function (s_js) {
+      //     var b_js = s_js.match(/\.post|GET|POST/);
+      //     var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
+      //     var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
+      //     c_js = c_js[0].replace(/'|"/g, '');
+      //     var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
+      //     var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
+      //     //console.log(config.url,config.vkey,config.token,d_sj,e_js)
+      //     $.ajax({
+      //       url: d_sj,
+      //       type: f_js,
+      //       dataType: 'JSON',
+      //       timeout: 3000,
+      //       data: {
+      //         tm: (new Date().getTime()),
+      //         url: config.url,
+      //         vkey: config.vkey,
+      //         token: config.token,
+      //         sign: e_js
+      //       },
+      //       success: function (data) {
+      //         if (data.code === 200) {
+      //           //console.log(data)
+      //           var playlist = [];
+      //           var first = {
+      //             url: getVideoInfo(data.url),
+      //             timeline: view,
+      //             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+      //             subtitles: element.subtitles
+      //           };
+      //           Lampa.Player.play(first);
+      //           playlist.push(first);
+      //           Lampa.Player.playlist(playlist);
+      //         } else {
+      //           //handlePlayerLoadError();
+      //           $(".noty").show();
+      //           Lampa.Noty.show('解析失败，请重试或切换线路~');
+      //           //console.log('解析失败，请重试或切换线路~');
+      //         }
+      //       },
+      //       error: function () {
+      //         //handlePlayerLoadError();
+      //         $(".noty").show();
+      //         Lampa.Noty.show('解析失败，请重试或切换线路~');
+      //         //console.log('解析失败，请重试或切换线路~');
+      //       }
+      //     });
 
-        }, function (a, c) {
-          Lampa.Noty.show(network.errorDecode(a, c));
-        }, false, {
-          dataType: 'text'
-        });
-      };
+      //   }, function (a, c) {
+      //     Lampa.Noty.show(network.errorDecode(a, c));
+      //   }, false, {
+      //     dataType: 'text'
+      //   });
+      // };
 
-      if (typeof urls !== "undefined") {
-        var file = urls;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
-          };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-        } else {
-          Lampa.Noty.show('无法检索链接');
-        }
-        urls = undefined;
-      };
+      // if (typeof urls !== "undefined") {
+      //   var file = urls;
+      //   //console.log(file);
+      //   if (file) {
+      //     var playlist = [];
+      //     var first = {
+      //       url: file,
+      //       timeline: view,
+      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+      //       subtitles: element.subtitles
+      //     };
+      //     Lampa.Player.play(first);
+      //     playlist.push(first);
+      //     Lampa.Player.playlist(playlist);
+      //   } else {
+      //     Lampa.Noty.show('无法检索链接');
+      //   }
+      //   urls = undefined;
+      // };
 
     };
     
