@@ -1079,7 +1079,7 @@
       // }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
       // console.log('html_',html_)
 
-
+      var cssFiles = [];
       var regex = /<link[^>]*href\s*=\s*["']([^"']*.css)["'][^>]*>/gi;
       var matches = str.match(regex);
       for (var i = 0; i < matches.length; i++) {
@@ -1092,7 +1092,6 @@
       console.log('cssFiles', cssFiles);
       var cssString = cssFiles.join(",");
       $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
-
 
       // 正则表达式匹配 CSS 样式
       var cssContent = '';
