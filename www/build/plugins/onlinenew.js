@@ -1048,6 +1048,36 @@
           setting_link = cc;
         }
       };
+      Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    <div class=\"iframe__body\">\n   </div>\n</div>");
+      var html$2 = Lampa.Template.get('playerwindow');
+
+      // html$2.find('iframe').attr('src', params.url)[0].onload = function () {
+         html$2.addClass('iframe--loaded');
+      // };
+
+      $('body').append(html$2);
+
+      $('.iframe__body').append(`
+  ${str}
+`);
+
+      toggle();
+      // html$2.removeClass('iframe--loaded');
+
+      function toggle() {
+        Lampa.Controller.add('playerwindow', {
+          toggle: function toggle() {},
+          back: close
+        });
+        Lampa.Controller.toggle('playerwindow');
+      }
+
+      function close() {
+        html$2.removeClass('iframe--loaded');
+        html$2.detach();
+        // html$2.find('iframe').attr('src', '');
+        // if (object.onBack) object.onBack();
+      }
 
       // var cssFiles = [];
       // $('link[rel="stylesheet"]', str).each(function () {
