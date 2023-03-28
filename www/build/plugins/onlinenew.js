@@ -1007,25 +1007,25 @@
         .html(jsCode)
       );
       // 执行 JavaScript 代码后在这里添加其他操作
-      if (typeof urls !== "undefined") {
-        var file = urls;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
-          };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-        } else {
-          Lampa.Noty.show('无法检索链接');
-        }
-        urls = undefined;
-      };
+      // if (typeof urls !== "undefined") {
+      //   var file = urls;
+      //   //console.log(file);
+      //   if (file) {
+      //     var playlist = [];
+      //     var first = {
+      //       url: file,
+      //       timeline: view,
+      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+      //       subtitles: element.subtitles
+      //     };
+      //     Lampa.Player.play(first);
+      //     playlist.push(first);
+      //     Lampa.Player.playlist(playlist);
+      //   } else {
+      //     Lampa.Noty.show('无法检索链接');
+      //   }
+      //   urls = undefined;
+      // };
     }
 
     function doparse(element, view, url1_, url, data) {
@@ -1069,8 +1069,14 @@
       console.log('cssStyles',cssStyles)
 
       // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
-      var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
+      // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
       // $('#new').html(html);
+      var wrapper = $(str); 
+      var body = wrapper.find('body'); // 获取body 元素
+      var content = body.contents(); // 获取 body 元素中的所有子元素
+      var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
+        return this.nodeName !== 'SCRIPT';
+      }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
       console.log('html_',html_)
 
       str = str.replace(/<!--[\s\S]*?-->/g, '');
