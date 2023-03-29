@@ -1062,6 +1062,17 @@
 `);
 
       toggle();
+
+      var promise = document.querySelector('.dplayer-video').play();
+      if (promise !== undefined) {
+        promise.catch(function (error) {
+          // Auto-play was prevented
+          // Show a UI element to let the user manually start playback
+          console.log('自动播放视频失败')
+        }).then(function () {
+          // Auto-play started
+        });
+      }
       // html$2.removeClass('iframe--loaded');
 
       function toggle() {
