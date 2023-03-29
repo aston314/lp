@@ -1050,7 +1050,7 @@
           setting_link = cc;
         }
       };
-      console.log(aa)
+      // console.log(aa)
 
       for (var i = 0; i < bbb.length; i++) {
         str = str.replace(bbb[i], aa[i]);
