@@ -1063,6 +1063,9 @@
 
       toggle();
 
+      console.log('videourl1',document.querySelector('.dplayer-video').src);
+      console.log('videourl2',$('.dplayer-video').attr('src'));
+
       var playulr =$('.dplayer-video').attr('src');
 
       if (typeof playulr !== "undefined") {
@@ -1091,8 +1094,7 @@
 
       
 
-      // console.log(document.querySelector('.dplayer-video').src);
-      // console.log($('.dplayer-video').attr('src'));
+      
 
       // var promise = document.querySelector('.dplayer-video').play();
       // if (promise !== undefined) {
