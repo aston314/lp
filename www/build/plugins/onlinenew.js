@@ -1063,20 +1063,44 @@
 
       toggle();
 
-      console.log(document.querySelector('.dplayer-video').src);
-      console.log($('.dplayer-video').attr('src'));
+      var playulr =$('.dplayer-video').attr('src');
 
-      var promise = document.querySelector('.dplayer-video').play();
-      if (promise !== undefined) {
-        promise.catch(function (error) {
-          // Auto-play was prevented
-          // Show a UI element to let the user manually start playback
-          console.log('自动播放视频失败')
-        }).then(function () {
-          // Auto-play started
-          console.log('自动播放视频成功')
-        });
-      }
+      if (typeof playulr !== "undefined") {
+        var file = playulr;
+        //console.log(file);
+        if (file) {
+          var playlist = [];
+          var first = {
+            url: file,
+            timeline: view,
+            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+            subtitles: element.subtitles
+          };
+          Lampa.Player.play(first);
+          playlist.push(first);
+          Lampa.Player.playlist(playlist);
+        } else {
+          Lampa.Noty.show('无法检索链接');
+        }
+        urls = undefined;
+      } else {
+        Lampa.Noty.show('无法检索链接');
+      };
+
+      // console.log(document.querySelector('.dplayer-video').src);
+      // console.log($('.dplayer-video').attr('src'));
+
+      // var promise = document.querySelector('.dplayer-video').play();
+      // if (promise !== undefined) {
+      //   promise.catch(function (error) {
+      //     // Auto-play was prevented
+      //     // Show a UI element to let the user manually start playback
+      //     console.log('自动播放视频失败')
+      //   }).then(function () {
+      //     // Auto-play started
+      //     console.log('自动播放视频成功')
+      //   });
+      // }
       // html$2.removeClass('iframe--loaded');
 
       function toggle() {
