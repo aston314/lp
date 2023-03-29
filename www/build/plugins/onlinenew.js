@@ -1034,6 +1034,7 @@
       var url1_ = url1_;
       var MacPlayer_ = url;
       var str = data.replace(/src="\/\//g, 'src="https://');
+      str = str.replace(/href="\/\//g, 'href="https://');
     
       var re = /<script.*?src="(.*?)"/gm;
       var match, aa = [], bbb = [],setting_js = false, setting_link;
@@ -1049,6 +1050,7 @@
           setting_link = cc;
         }
       };
+      console.log(aa)
 
       for (var i = 0; i < bbb.length; i++) {
         str = str.replace(bbb[i], aa[i]);
