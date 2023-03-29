@@ -1574,17 +1574,17 @@
                   //   Lampa.Player.playlist(playlist);
                   // };
 
-                  // var script_arr = [
-                  //   '/static/js/playerconfig.js',
-                  //   '/static/js/player.js'
-                  // ];
                   var script_arr = [
-                    proxy_url + url + '/static/js/playerconfig.js',
-                    proxy_url + url + '/static/js/player.js'
+                    '/static/js/playerconfig.js',
+                    '/static/js/player.js'
                   ];
+                  // var script_arr = [
+                  //   proxy_url + url + '/static/js/playerconfig.js',
+                  //   proxy_url + url + '/static/js/player.js'
+                  // ];
 
-                  loadScripts(script_arr).then(function() {
-                  // $.getMultiScripts(script_arr, proxy_url + url).done(function () {
+                  // loadScripts(script_arr).then(function() {
+                  $.getMultiScripts(script_arr, proxy_url + url).done(function () {
                     // all scripts loaded
                     //console.log(MacPlayer)
                     //$(".noty").hide();
