@@ -1061,7 +1061,7 @@
   ${str}
 `);
 
-      // toggle();
+      toggle();
 
       var playulr =$('.dplayer-video').attr('src');
 
@@ -1079,13 +1079,17 @@
           Lampa.Player.play(first);
           playlist.push(first);
           Lampa.Player.playlist(playlist);
+          close();
         } else {
           Lampa.Noty.show('无法检索链接');
+          close();
         }
-        urls = undefined;
       } else {
         Lampa.Noty.show('无法找到视频地址');
+        close();
       };
+
+      
 
       // console.log(document.querySelector('.dplayer-video').src);
       // console.log($('.dplayer-video').attr('src'));
