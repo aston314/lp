@@ -1036,18 +1036,24 @@
       var str = data.replace(/src="\/\//g, 'src="https://');
     
       var re = /<script.*?src="(.*?)"/gm;
-      var match, aa = [], setting_js = false, setting_link;
+      var match, aa = [], bbb = [],setting_js = false, setting_link;
       while (match = re.exec(str)) {
         var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
     
         if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
           aa.push(cc);
+          bbb.push(match[1]);
         }
         if (/setting[\s\S]*\.js/.test(cc)) {
           setting_js = true;
           setting_link = cc;
         }
       };
+
+      for (var i = 0; i < bbb.length; i++) {
+        str = str.replace(bbb[i], aa[i]);
+      }
+
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    <div class=\"iframe__body\">\n   </div>\n</div>");
       var html$2 = Lampa.Template.get('playerwindow');
 
