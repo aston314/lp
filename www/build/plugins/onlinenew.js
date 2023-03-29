@@ -51,10 +51,10 @@
         js_execute_key: ['maccms', 'player_aaaa']
       },
       {
-        name: '网站-在线之家[!]',
+        name: '网站-在线之家',
         websitelink: 'https://www.zxzjhd.com',
         listlink: true,
-        use_proxy: false,
+        use_proxy: true,
         search_url: 'https://www.zxzjhd.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
