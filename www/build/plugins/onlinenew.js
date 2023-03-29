@@ -1063,6 +1063,9 @@
 
       toggle();
 
+      console.log(document.querySelector('.dplayer-video').src);
+      console.log($('.dplayer-video').attr('src'));
+
       var promise = document.querySelector('.dplayer-video').play();
       if (promise !== undefined) {
         promise.catch(function (error) {
@@ -1071,6 +1074,7 @@
           console.log('自动播放视频失败')
         }).then(function () {
           // Auto-play started
+          console.log('自动播放视频成功')
         });
       }
       // html$2.removeClass('iframe--loaded');
