@@ -1043,30 +1043,34 @@
         return `${baseUrl.origin}${relativePath}`;
       }
 
-      // 如果是相对路径，则分别处理 ./ 和 ../
-      // let arr = currentPageUrl.split('/');
-      // let hostUrl = arr[0] + '//' + arr[2];
-      // let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
-      // temp = temp.substring(0, temp.lastIndexOf('/') + 1);
-      // while (relativePath.indexOf('../') === 0) {
-      //   temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
-      //   relativePath = relativePath.substring(3);
-      // }
+      if (relativePath.startsWith('../')) {
+        // 如果是相对路径，则分别处理 ./ 和 ../
+        let arr = currentPageUrl.split('/');
+        let hostUrl = arr[0] + '//' + arr[2];
+        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
+        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
+        while (relativePath.indexOf('../') === 0) {
+          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
+          relativePath = relativePath.substring(3);
+        }
 
-      // return `${hostUrl}${temp}${relativePath}`;
-      var stack = currentPageUrl.split('/');
-      var parts = relativePath.split('/');
-      stack.pop(); // remove current file name (or empty string)
-
-      for (var i = 0; i < parts.length; i++) {
-        if (parts[i] == '.')
-          continue;
-        if (parts[i] == '..')
-          stack.pop();
-        else
-          stack.push(parts[i]);
+        return `${hostUrl}${temp}${relativePath}`;
       }
-      return stack.join('/');
+      if (relativePath.startsWith('./')) {
+        var stack = currentPageUrl.split('/');
+        var parts = relativePath.split('/');
+        stack.pop(); // remove current file name (or empty string)
+
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i] == '.')
+            continue;
+          if (parts[i] == '..')
+            stack.pop();
+          else
+            stack.push(parts[i]);
+        }
+        return stack.join('/');
+      }
     }
 
     function getAbsolutePath(currentPageUrl, value){
