@@ -1029,7 +1029,7 @@
     }
 
     // 将相对路径转换成绝对路径
-    function resolveRelativePath_(currentPageUrl, relativePath) {
+    function resolveRelativePath(currentPageUrl, relativePath) {
       // console.log(relativePath)
       // 如果是绝对路径，则直接返回
       /* if (isAbsolutePath) {
