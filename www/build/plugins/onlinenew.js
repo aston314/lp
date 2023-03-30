@@ -1053,10 +1053,9 @@
           temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
           relativePath = relativePath.substring(3);
         }
-
         return `${hostUrl}${temp}${relativePath}`;
       }
-      
+
       if (relativePath.startsWith('./')) {
         var stack = currentPageUrl.split('/');
         var parts = relativePath.split('/');
