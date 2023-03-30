@@ -1140,6 +1140,8 @@
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
+      // var str = data.replace(/"\/\/(?:src|href)\//g, '"https://');
+      //str = data.replace(/"\/\//g, '"https://')
       var str = data.replace(/src="\/\//g, 'src="https://');
       str = str.replace(/href="\/\//g, 'href="https://');
       // var str = data;
