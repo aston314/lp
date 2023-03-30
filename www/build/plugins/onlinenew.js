@@ -1077,6 +1077,7 @@
     }
 
     function getAbsolutePath(currentPageUrl, value){
+      console.log(value)
       var absolutePath;
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
@@ -1090,9 +1091,11 @@
         // console.log('absolutePath', absolutePath)
         return absolutePath;
       } else {
+        console.log('来')
         if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
           return value;
         } else {
+          console.log('吧')
           absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
           // console.log('absolutePath', absolutePath + value)
           return absolutePath;
