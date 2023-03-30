@@ -126,24 +126,24 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      // {
-      //   name : '网站-乐猪TV[!]',
-      //   websitelink : 'http://www.lezhutv.com/',
-      //   listlink : true,
-      //   use_proxy: false,
-      //   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
-      //   search_json : false,
-      //   node_json : '',
-      //   name_json : '',
-      //   id_json : '',
-      //   first_page_json: '-1-1.html',
-      //   search_html_selector: '',
-      //   link_folder : 'play',
-      //   videoparse: 'default',
-      //   videocontainer: '.MacPlayer',
-      //   use_referer : false,
-      //   js_execute_key : ['maccms','player_aaaa']
-      // },
+      {
+        name : '网站-乐猪TV[!]',
+        websitelink : 'http://www.lezhutv.com/',
+        listlink : true,
+        use_proxy: false,
+        search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
+        search_json : false,
+        node_json : '',
+        name_json : '',
+        id_json : '',
+        first_page_json: '-1-1.html',
+        search_html_selector: '',
+        link_folder : 'play',
+        videoparse: 'default',
+        videocontainer: '.MacPlayer',
+        use_referer : false,
+        js_execute_key : ['maccms','player_aaaa']
+      },
       // {
       //   name : '9亿看看',
       //   websitelink : 'https://www.9eguoyu.com',
@@ -1028,22 +1028,114 @@
       // };
     }
 
+    // 将相对路径转换成绝对路径
+    function resolveRelativePath(currentPageUrl, relativePath) {
+      // console.log(relativePath)
+      // 如果是绝对路径，则直接返回
+      /* if (isAbsolutePath) {
+        return relativePath;
+      } */
+
+      // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
+      if (relativePath.startsWith('/')) {
+        const baseUrl = new URL(currentPageUrl);
+        return `${baseUrl.origin}${relativePath}`;
+      }
+
+      // 如果是相对路径，则分别处理 ./ 和 ../
+      let arr = currentPageUrl.split('/');
+      let hostUrl = arr[0] + '//' + arr[2];
+      let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
+      temp = temp.substring(0, temp.lastIndexOf('/') + 1);
+      while (relativePath.indexOf('../') === 0) {
+        temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
+        relativePath = relativePath.substring(3);
+      }
+
+      return `${hostUrl}${temp}${relativePath}`;
+    }
+
+    function getpath(currentPageUrl, value){
+      var absolutePath;
+      // 判断属性值是否以相对路径开头
+      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+        if (value.startsWith('//')) {
+          absolutePath = value.replace("//", "https://");
+        } else {
+          // 将相对路径转换成绝对路径
+          absolutePath = resolveRelativePath(currentPageUrl, value, isAbsolutePath);
+        }
+        // console.log('absolutePath', absolutePath)
+        return absolutePath;
+      } else {
+        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+        } else {
+          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+          // console.log('absolutePath', absolutePath + value)
+          return absolutePath;
+        }
+      }
+    }
+
     function doparse(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
-      var str = data.replace(/src="\/\//g, 'src="https://');
-      str = str.replace(/href="\/\//g, 'href="https://');
+      // var str = data.replace(/src="\/\//g, 'src="https://');
+      // str = str.replace(/href="\/\//g, 'href="https://');
+      var str = data;
+      
+
+      // 获取当前页面的 URL
+      const currentPageUrl = MacPlayer_;
+      console.log(currentPageUrl)
+      // 判断当前页面的 URL 是否是绝对路径
+      // const isAbsolutePath = Boolean(currentPageUrl.match(/^(http|https|ftp):\/\//i));
+      //console.log(isAbsolutePath)
+
+      str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
+        console.log(p1 + '=' + p2 + getpath(currentPageUrl, p3));
+        return p1 + '=' + p2 + getpath(currentPageUrl, p3);
+      });
+
+      // $(str).each(function () {
+      //   const attributes = this.attributes;
+      //   $.each(attributes, function () {
+      //     const name = this.name.toLowerCase();
+      //     const value = this.value.trim();
+      //     // 判断属性是否以 href、src 或 data- 开头
+      //     if (name.startsWith('href') || name.startsWith('src') || name.startsWith('data-')) {
+      //       // 判断属性值是否以相对路径开头
+      //       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+      //         if (value.startsWith('//')) {
+      //           absolutePath = value.replace("//", "https://");
+      //         } else {
+      //           // 将相对路径转换成绝对路径
+      //           absolutePath = resolveRelativePath(currentPageUrl, value, isAbsolutePath);
+      //         }
+      //         console.log('absolutePath', absolutePath)
+      //         $(this).val(absolutePath);
+      //       } else {
+      //         if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+      //         } else {
+      //           absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+      //           console.log('absolutePath', absolutePath + value)
+      //           $(this).val(absolutePath);
+      //         }
+      //       }
+      //     }
+      //   });
+      // });
     
       var re = /<script.*?src="(.*?)"/gm;
       var match, aa = [], bbb = [],setting_js = false, setting_link;
       while (match = re.exec(str)) {
-        var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
-    
+        // var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
+        var cc = match[1];
         if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
           aa.push(cc);
-          bbb.push(match[1]);
+          // bbb.push(match[1]);
         }
         if (/setting[\s\S]*\.js/.test(cc)) {
           setting_js = true;
@@ -1052,9 +1144,9 @@
       };
       // console.log(aa)
 
-      for (var i = 0; i < bbb.length; i++) {
-        str = str.replace(bbb[i], aa[i]);
-      }
+      // for (var i = 0; i < bbb.length; i++) {
+      //   str = str.replace(bbb[i], aa[i]);
+      // }
 
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    <div class=\"iframe__body\">\n   </div>\n</div>");
       var html$2 = Lampa.Template.get('playerwindow');
