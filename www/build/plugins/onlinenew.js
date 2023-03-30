@@ -126,24 +126,24 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      {
-        name : '网站-乐猪TV[!]',
-        websitelink : 'http://www.lezhutv.com/',
-        listlink : true,
-        use_proxy: false,
-        search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
-        search_json : false,
-        node_json : '',
-        name_json : '',
-        id_json : '',
-        first_page_json: '-1-1.html',
-        search_html_selector: '',
-        link_folder : 'play',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer : false,
-        js_execute_key : ['maccms','player_aaaa']
-      },
+      // {
+      //   name : '网站-乐猪TV[!]',
+      //   websitelink : 'http://www.lezhutv.com/',
+      //   listlink : true,
+      //   use_proxy: false,
+      //   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
+      //   search_json : false,
+      //   node_json : '',
+      //   name_json : '',
+      //   id_json : '',
+      //   first_page_json: '-1-1.html',
+      //   search_html_selector: '',
+      //   link_folder : 'play',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer : false,
+      //   js_execute_key : ['maccms','player_aaaa']
+      // },
       // {
       //   name : '9亿看看',
       //   websitelink : 'https://www.9eguoyu.com',
@@ -1146,7 +1146,7 @@
 
       // 获取当前页面的 URL
       const currentPageUrl = MacPlayer_;
-      console.log(currentPageUrl)
+      // console.log(currentPageUrl)
       // 判断当前页面的 URL 是否是绝对路径
       // const isAbsolutePath = Boolean(currentPageUrl.match(/^(http|https|ftp):\/\//i));
       //console.log(isAbsolutePath)
