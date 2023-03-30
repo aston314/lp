@@ -1029,7 +1029,7 @@
     }
 
     // 将相对路径转换成绝对路径
-    function resolveRelativePath(currentPageUrl, relativePath) {
+    function resolveRelativePath_(currentPageUrl, relativePath) {
       // console.log(relativePath)
       // 如果是绝对路径，则直接返回
       /* if (isAbsolutePath) {
@@ -1055,7 +1055,7 @@
       return `${hostUrl}${temp}${relativePath}`;
     }
 
-    function getpath(currentPageUrl, value){
+    function getpath_(currentPageUrl, value){
       var absolutePath;
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
@@ -1069,11 +1069,61 @@
         return absolutePath;
       } else {
         if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+          return value;
         } else {
           absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
           // console.log('absolutePath', absolutePath + value)
           return absolutePath;
         }
+      }
+    }
+
+    function resolveUrl(currentPageUrl) {
+      var link = $('<a>').prop('href', currentPageUrl);
+      return link[0]; // 返回原生的链接元素对象
+    }
+    
+    function resolveRelativePath(currentPageUrl, relativePath) {
+      // 如果是绝对路径，则直接返回
+      // if (isAbsolutePath) {
+      //   return relativePath;
+      // }
+    
+      var baseUrl = resolveUrl(currentPageUrl);
+      var parts = relativePath.split('/');
+    
+      for (var i = 0; i < parts.length; i++) {
+        var part = parts[i];
+    
+        if (part === '' || part === '.') {
+          // 当前路径或者相对路径不变，不需要处理
+          continue;
+        } else if (part === '..') {
+          // 相对路径上一级目录，需要移除当前路径中的最后一级目录
+          baseUrl.pathname = baseUrl.pathname.split('/').slice(0, -1).join('/');
+        } else {
+          // 当前部分是目录或者文件名，将其添加到路径中
+          baseUrl.pathname += '/' + part;
+        }
+      }
+    
+      return baseUrl.href;
+    }
+    
+    function getAbsolutePath(currentPageUrl, value) {
+      // 判断属性值是否以相对路径开头
+      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+        // 将相对路径转换成绝对路径
+        var absolutePath = resolveRelativePath(currentPageUrl, value);
+        return absolutePath;
+      } else if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+        // 属性值是绝对路径，直接返回
+        return value;
+      } else {
+        // 将属性值拼接到当前页面 URL 的基础路径上
+        var baseUrl = resolveUrl(currentPageUrl);
+        baseUrl.pathname += '/' + value;
+        return baseUrl.href;
       }
     }
 
@@ -1095,39 +1145,10 @@
       //console.log(isAbsolutePath)
 
       str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        console.log(p1 + '=' + p2 + getpath(currentPageUrl, p3));
-        return p1 + '=' + p2 + getpath(currentPageUrl, p3);
+        console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3));
+        return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
       });
 
-      // $(str).each(function () {
-      //   const attributes = this.attributes;
-      //   $.each(attributes, function () {
-      //     const name = this.name.toLowerCase();
-      //     const value = this.value.trim();
-      //     // 判断属性是否以 href、src 或 data- 开头
-      //     if (name.startsWith('href') || name.startsWith('src') || name.startsWith('data-')) {
-      //       // 判断属性值是否以相对路径开头
-      //       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
-      //         if (value.startsWith('//')) {
-      //           absolutePath = value.replace("//", "https://");
-      //         } else {
-      //           // 将相对路径转换成绝对路径
-      //           absolutePath = resolveRelativePath(currentPageUrl, value, isAbsolutePath);
-      //         }
-      //         console.log('absolutePath', absolutePath)
-      //         $(this).val(absolutePath);
-      //       } else {
-      //         if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-      //         } else {
-      //           absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
-      //           console.log('absolutePath', absolutePath + value)
-      //           $(this).val(absolutePath);
-      //         }
-      //       }
-      //     }
-      //   });
-      // });
-    
       var re = /<script.*?src="(.*?)"/gm;
       var match, aa = [], bbb = [],setting_js = false, setting_link;
       while (match = re.exec(str)) {
