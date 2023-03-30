@@ -1069,7 +1069,8 @@
           else
             stack.push(parts[i]);
         }
-        return stack.join('/');
+        // return stack.join('/');
+        return 'ffffffuck';
       }
     }
 
