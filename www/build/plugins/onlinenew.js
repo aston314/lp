@@ -1191,8 +1191,8 @@
 
       toggle();
 
-      var playulr =$('.dplayer-video').attr('src');
-
+      // var playulr =$('.dplayer-video').attr('src');
+      var playulr =$('video').attr('src');
       if (typeof playulr !== "undefined") {
         var file = playulr;
         //console.log(file);
