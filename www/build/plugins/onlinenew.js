@@ -336,7 +336,7 @@
       },
       {
         name: '网站-voflix HD',
-        websitelink: 'https://www.voflix.com',
+        websitelink: 'https://www.voflix.me',
         listlink: true,
         use_proxy: false,
         search_url: 'https://www.voflix.me/search/#msearchword----------1---.html',
