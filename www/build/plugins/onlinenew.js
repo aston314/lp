@@ -1154,9 +1154,12 @@
       //console.log(isAbsolutePath)
 
       str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3));
-        return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
+        // console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3));
+        console.log(p1 + '=' + p2 + (p3.slice(0, 2) == './' ? p3.replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (p3.slice(0, 1) !== '/' && p3.indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + p3 : p3)));
+        // return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
+        return p1 + '=' + p2 + (p3.slice(0, 2) == './' ? p3.replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (p3.slice(0, 1) !== '/' && p3.indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + p3 : p3));
       });
+      
 
       var re = /<script.*?src="(.*?)"/gm;
       var match, aa = [], bbb = [],setting_js = false, setting_link;
