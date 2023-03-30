@@ -1038,12 +1038,14 @@
 
       // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
       if (relativePath.startsWith('/')) {
+        console.log('/')
         // const baseUrl = new URL(currentPageUrl);
         var baseUrl = resolveUrl(currentPageUrl);
         return `${baseUrl.origin}${relativePath}`;
       }
 
       if (relativePath.startsWith('../')) {
+        console.log('../')
         // 如果是相对路径，则分别处理 ./ 和 ../
         let arr = currentPageUrl.split('/');
         let hostUrl = arr[0] + '//' + arr[2];
@@ -1057,6 +1059,7 @@
         return `${hostUrl}${temp}${relativePath}`;
       }
       if (relativePath.startsWith('./')) {
+        console.log('./')
         var stack = currentPageUrl.split('/');
         var parts = relativePath.split('/');
         stack.pop(); // remove current file name (or empty string)
@@ -1070,7 +1073,6 @@
             stack.push(parts[i]);
         }
         return stack.join('/');
-        // return 'ffffffuck';
       }
     }
 
@@ -1078,6 +1080,7 @@
       var absolutePath;
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+        console.log('来吧')
         if (value.startsWith('//')) {
           absolutePath = value.replace("//", "https://");
         } else {
@@ -1086,15 +1089,15 @@
         }
         // console.log('absolutePath', absolutePath)
         return absolutePath;
-      }//  else {
-      //   if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-      //     return value;
-      //   } else {
-      //     absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
-      //     // console.log('absolutePath', absolutePath + value)
-      //     return absolutePath;
-      //   }
-      // }
+      } else {
+        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+          return value;
+        } else {
+          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+          // console.log('absolutePath', absolutePath + value)
+          return absolutePath;
+        }
+      }
     }
 
     function resolveUrl(currentPageUrl) {
