@@ -347,7 +347,7 @@
         first_page_json: '-1-1.html',
         search_html_selector: 'div.module-card-item-title',
         link_folder: 'play/',
-        detail_url_selector: '.module-play-list-content',
+        detail_url_selector: 'div.module-play-list',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
