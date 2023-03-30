@@ -1043,19 +1043,19 @@
         return `${baseUrl.origin}${relativePath}`;
       }
 
-      // if (relativePath.startsWith('../')) {
-      //   // 如果是相对路径，则分别处理 ./ 和 ../
-      //   let arr = currentPageUrl.split('/');
-      //   let hostUrl = arr[0] + '//' + arr[2];
-      //   let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
-      //   temp = temp.substring(0, temp.lastIndexOf('/') + 1);
-      //   while (relativePath.indexOf('../') === 0) {
-      //     temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
-      //     relativePath = relativePath.substring(3);
-      //   }
+      if (relativePath.startsWith('../')) {
+        // 如果是相对路径，则分别处理 ./ 和 ../
+        let arr = currentPageUrl.split('/');
+        let hostUrl = arr[0] + '//' + arr[2];
+        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
+        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
+        while (relativePath.indexOf('../') === 0) {
+          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
+          relativePath = relativePath.substring(3);
+        }
 
-      //   return `${hostUrl}${temp}${relativePath}`;
-      // }
+        return `${hostUrl}${temp}${relativePath}`;
+      }
       if (relativePath.startsWith('./')) {
         var stack = currentPageUrl.split('/');
         var parts = relativePath.split('/');
@@ -1069,8 +1069,8 @@
           else
             stack.push(parts[i]);
         }
-        // return stack.join('/');
-        return 'ffffffuck';
+        return stack.join('/');
+        // return 'ffffffuck';
       }
     }
 
@@ -1086,15 +1086,15 @@
         }
         // console.log('absolutePath', absolutePath)
         return absolutePath;
-      } else {
-        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-          return value;
-        } else {
-          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
-          // console.log('absolutePath', absolutePath + value)
-          return absolutePath;
-        }
-      }
+      }//  else {
+      //   if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+      //     return value;
+      //   } else {
+      //     absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+      //     // console.log('absolutePath', absolutePath + value)
+      //     return absolutePath;
+      //   }
+      // }
     }
 
     function resolveUrl(currentPageUrl) {
