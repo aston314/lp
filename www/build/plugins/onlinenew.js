@@ -339,13 +339,13 @@
         websitelink: 'https://www.voflix.com',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://www.voflix.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-        search_json: true,
+        search_url: 'https://www.voflix.me/search/#msearchword----------1---.html',
+        search_json: false,
         node_json: 'list',
         name_json: 'name',
         id_json: 'id',
         first_page_json: '-1-1.html',
-        search_html_selector: '',
+        search_html_selector: 'div.module-card-item-title',
         link_folder: 'play/',
         detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
         videoparse: 'default',
@@ -374,10 +374,10 @@
       // },
       // {
       //   name: '厂长资源',
-      //   websitelink: 'https://www.czspp.com',
+      //   websitelink: 'https://czzy01.com',
       //   listlink: false,
       //   use_proxy: false,
-      //   search_url: 'https://www.czspp.com/xssearch?q=#msearchword',
+      //   search_url: 'https://czzy01.com/xssearch?q=#msearchword',
       //   search_json: false,
       //   node_json: '',
       //   name_json: '',
@@ -1194,6 +1194,7 @@
       toggle();
 
       // var playulr =$('.dplayer-video').attr('src');
+      // document.querySelector('video').src
       var playulr =$('video').attr('src');
       if (typeof playulr !== "undefined") {
         var file = playulr;
