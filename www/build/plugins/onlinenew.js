@@ -1111,7 +1111,7 @@
       return baseUrl.href;
     }
     
-    function getAbsolutePath(currentPageUrl, value) {
+    function getAbsolutePath_(currentPageUrl, value) {
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
         // 将相对路径转换成绝对路径
