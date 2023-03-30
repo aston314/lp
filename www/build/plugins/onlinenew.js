@@ -1055,7 +1055,7 @@
       return `${hostUrl}${temp}${relativePath}`;
     }
 
-    function getpath_(currentPageUrl, value){
+    function getAbsolutePath_(currentPageUrl, value){
       var absolutePath;
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
@@ -1063,7 +1063,7 @@
           absolutePath = value.replace("//", "https://");
         } else {
           // 将相对路径转换成绝对路径
-          absolutePath = resolveRelativePath(currentPageUrl, value, isAbsolutePath);
+          absolutePath = resolveRelativePath(currentPageUrl, value);
         }
         // console.log('absolutePath', absolutePath)
         return absolutePath;
@@ -1114,7 +1114,14 @@
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
         // 将相对路径转换成绝对路径
-        var absolutePath = resolveRelativePath(currentPageUrl, value);
+        // var absolutePath = resolveRelativePath(currentPageUrl, value);
+        var absolutePath;
+        if (value.startsWith('//')) {
+          absolutePath = value.replace("//", "https://");
+        } else {
+          // 将相对路径转换成绝对路径
+          absolutePath = resolveRelativePath(currentPageUrl, value);
+        }
         return absolutePath;
       } else if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
         // 属性值是绝对路径，直接返回
