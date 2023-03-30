@@ -1140,9 +1140,9 @@
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
-      // var str = data.replace(/src="\/\//g, 'src="https://');
-      // str = str.replace(/href="\/\//g, 'href="https://');
-      var str = data;
+      var str = data.replace(/src="\/\//g, 'src="https://');
+      str = str.replace(/href="\/\//g, 'href="https://');
+      // var str = data;
 
       // 获取当前页面的 URL
       const currentPageUrl = MacPlayer_;
@@ -1151,7 +1151,7 @@
       // const isAbsolutePath = Boolean(currentPageUrl.match(/^(http|https|ftp):\/\//i));
       //console.log(isAbsolutePath)
 
-      str = str.replace(/(src|href)=("|')((?!http|https|data:)[^"']+)/ig, function (match, p1, p2, p3) {
+      str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
         console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3));
         return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
       });
