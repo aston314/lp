@@ -1038,7 +1038,8 @@
 
       // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
       if (relativePath.startsWith('/')) {
-        const baseUrl = new URL(currentPageUrl);
+        // const baseUrl = new URL(currentPageUrl);
+        var baseUrl = resolveUrl(currentPageUrl);
         return `${baseUrl.origin}${relativePath}`;
       }
 
@@ -1055,7 +1056,7 @@
       return `${hostUrl}${temp}${relativePath}`;
     }
 
-    function getAbsolutePath_(currentPageUrl, value){
+    function getAbsolutePath(currentPageUrl, value){
       var absolutePath;
       // 判断属性值是否以相对路径开头
       if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
@@ -1083,7 +1084,7 @@
       return link[0]; // 返回原生的链接元素对象
     }
     
-    function resolveRelativePath(currentPageUrl, relativePath) {
+    function resolveRelativePath_(currentPageUrl, relativePath) {
       // 如果是绝对路径，则直接返回
       // if (isAbsolutePath) {
       //   return relativePath;
