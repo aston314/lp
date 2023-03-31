@@ -1161,6 +1161,8 @@
       //str = data.replace(/"\/\//g, '"https://')
       var str = data.replace(/src="\/\//g, 'src="https://');
       str = str.replace(/href="\/\//g, 'href="https://');
+      str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
+
       // var str = data;
 
       // 获取当前页面的 URL
@@ -1216,7 +1218,7 @@
 
       // var playulr =$('.dplayer-video').attr('src');
       // document.querySelector('video').src
-      var playulr =$('video').attr('src');
+      var playulr =$('video').attr('src')||document.querySelector('source').src;
       if (typeof playulr !== "undefined") {
         var file = playulr;
         //console.log(file);
