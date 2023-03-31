@@ -1173,10 +1173,7 @@
       //console.log(isAbsolutePath)
 
       str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        // console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3));
-        console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3));
-        // return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
-        // return p1 + '=' + p2 + getAbsolutePath(currentPageUrl, p3);
+        // console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3));
         return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
       });
       
@@ -1215,7 +1212,7 @@
 `);
 
       toggle();
-      html$2.removeClass('iframe--loaded');
+      
 
       // var playulr =$('.dplayer-video').attr('src');
       // document.querySelector('video').src
