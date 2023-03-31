@@ -1182,7 +1182,7 @@
       
 
       var re = /<script.*?src="(.*?)"/gm;
-      var match, aa = [], bbb = [],setting_js = false, setting_link, object;;
+      var match, aa = [], bbb = [],setting_js = false, setting_link;
       while (match = re.exec(str)) {
         // var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
         var cc = match[1];
@@ -1276,7 +1276,7 @@
         html$2.detach();
         Lampa.Controller.toggle('content');
         // html$2.find('iframe').attr('src', '');
-        if (object.onBack) object.onBack();
+        // if (object.onBack) object.onBack();
       }
 
       // var cssFiles = [];
