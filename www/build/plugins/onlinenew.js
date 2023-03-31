@@ -1211,7 +1211,12 @@
       $('.iframe').append(`
   ${str}
 `);
-
+// $.when($('.iframe').append(`
+//   ${str}
+// `)).then(function() {
+//   // 在append完成后触发事件
+//   html$2.removeClass('iframe--loaded');
+// });
       toggle();
       
 
