@@ -1161,6 +1161,7 @@
       //str = data.replace(/"\/\//g, '"https://')
       var str = data.replace(/src="\/\//g, 'src="https://');
       str = str.replace(/href="\/\//g, 'href="https://');
+      str = str.replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js');
       str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
 
       // var str = data;
