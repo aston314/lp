@@ -290,7 +290,7 @@
         first_page_json: '-1-1.html',
         search_html_selector: 'h4.title',
         link_folder: 'vodplay/',
-        detail_url_selector: 'div#play-box div.play-item.cont.active > ul',
+        detail_url_selector: '.stui-content + .stui-vodlist__head + .stui-content__playlist',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
