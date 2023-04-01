@@ -290,7 +290,7 @@
         first_page_json: '-1-1.html',
         search_html_selector: 'h4.title',
         link_folder: 'vodplay/',
-        detail_url_selector: '.stui-content + .stui-vodlist__head + .stui-content__playlist',
+        detail_url_selector: '.stui-vodlist__head:contains(量子云播) + ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
