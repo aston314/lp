@@ -1158,9 +1158,9 @@
       var url1_ = url1_;
       var MacPlayer_ = url;
       // var str = data.replace(/"\/\/(?:src|href)\//g, '"https://');
-      //str = data.replace(/"\/\//g, '"https://')
-      var str = data.replace(/src="\/\//g, 'src="https://');
-      str = str.replace(/href="\/\//g, 'href="https://');
+      str = data.replace(/"\/\//g, '"https://').replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
+      // var str = data.replace(/src="\/\//g, 'src="https://');
+      // str = str.replace(/href="\/\//g, 'href="https://');
       str = str.replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js');
       str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
 
@@ -1214,6 +1214,7 @@
 $.when($('.iframe').append(`
   ${str}
 `)).then(function() {
+  console.log('执行网页完成')
   // 在append完成后触发事件
   // html$2.removeClass('iframe--loaded');
   toggle();
