@@ -1162,7 +1162,8 @@
       // .replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
       var str = data.replace(/src="\/\//g, 'src="https://');
       str = str.replace(/href="\/\//g, 'href="https://');
-      str = str.replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
+      str = str.replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
+      // .replace(/<meta[^>]*>/g, '')
       str = str.replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js');
       str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
 
