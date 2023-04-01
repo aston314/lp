@@ -42,7 +42,7 @@
         id_json: 'id',
         first_page_json: '.html',
         search_html_selector: '',
-        link_folder: 'detail_',
+        link_folder: 'detail/',
         //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
         detail_url_selector: '.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul',
         videoparse: 'default',
@@ -1158,10 +1158,11 @@
       var url1_ = url1_;
       var MacPlayer_ = url;
       // var str = data.replace(/"\/\/(?:src|href)\//g, '"https://');
-      str = data.replace(/"\/\//g, '"https://')
+      // str = data.replace(/"\/\//g, '"https://');
       // .replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
-      // var str = data.replace(/src="\/\//g, 'src="https://');
-      // str = str.replace(/href="\/\//g, 'href="https://');
+      var str = data.replace(/src="\/\//g, 'src="https://');
+      str = str.replace(/href="\/\//g, 'href="https://');
+      str = str.replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
       str = str.replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js');
       str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
 
