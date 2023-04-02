@@ -236,7 +236,7 @@
         detail_url_selector: '.module-play-list:first-child',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
-        use_referer : false,
+        use_referer : true,
        js_execute_key : ['maccms','player_aaaa']
       },
       // {
