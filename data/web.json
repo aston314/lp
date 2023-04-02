@@ -73,101 +73,6 @@
       }
    },
    {
-      "title":"欧乐影院",
-      "link":"https://www.olevod.com",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
-         {
-            "title":"电影",
-            "url":"https://www.olevod.com/index.php/vod/show/id/1.html",
-            "quantity":""
-         },
-         {
-            "title":"电视剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/2.html",
-            "quantity":""
-         },
-         {
-            "title":"国产剧",
-            "url":"https://olevod.com/index.php/vod/show/id/202.html",
-            "quantity":""
-         },
-         {
-            "title":"日韩剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/204.html",
-            "quantity":""
-         },
-         {
-            "title":"欧美剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/201.html",
-            "quantity":""
-         },
-         {
-            "title":"港台剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/203.html",
-            "quantity":""
-         },
-         {
-            "title":"综艺",
-            "url":"https://www.olevod.com/index.php/vod/show/id/3.html",
-            "quantity":""
-         },
-         {
-            "title":"动漫",
-            "url":"https://www.olevod.com/index.php/vod/show/id/4.html",
-            "quantity":""
-         }
-      ],
-      "list":{
-         "page":{
-            "selector":"ul.page.text_center"
-         },
-         "videoscontainer":{
-            "selector":"ul.vodlist li",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
-         },
-         "thumb":{
-            "selector":"a",
-            "attrName":"data-original",
-            "filter":""
-         },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "detail":{
-         "videoscontainer":{
-            "selector":"div.playlist_notfull > ul > li",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
-         },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "search":{
-         "url":"https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
-      }
-   },
-   {
       "title":"LIBVIO",
       "link":"https://libvio.fun",
       "show":"portrait",
@@ -182,37 +87,37 @@
          },
          {
             "title":"电影",
-            "url":"https://libvio.fun/type_1.html",
+            "url":"https://libvio.fun/type/1.html",
             "quantity":""
          },
          {
             "title":"剧集",
-            "url":"https://libvio.fun/type_2.html",
+            "url":"https://libvio.fun/type/2.html",
             "quantity":""
          },
          {
             "title":"日韩剧",
-            "url":"https://libvio.fun/type_15.html",
+            "url":"https://libvio.fun/type/15.html",
             "quantity":""
          },
          {
             "title":"国产剧",
-            "url":"https://libvio.fun/type_13.html",
+            "url":"https://libvio.fun/type/13.html",
             "quantity":""
          },
          {
             "title":"欧美剧",
-            "url":"https://libvio.fun/type_16.html",
+            "url":"https://libvio.fun/type/16.html",
             "quantity":""
          },
          {
             "title":"港台剧",
-            "url":"https://libvio.fun/type_14.html",
+            "url":"https://libvio.fun/type/14.html",
             "quantity":""
          },
          {
             "title":"动漫",
-            "url":"https://libvio.fun/type_4.html",
+            "url":"https://libvio.fun/type/4.html",
             "quantity":""
          }
       ],
@@ -592,86 +497,6 @@
       },
       "search":{
          "url":"https://www.subaibaiys.com/grabble?q=#msearchword"
-      }
-   },
-   {
-      "title":"秋霞电影",
-      "link":"https://www.7xiady.cc",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
-         {
-            "title":"首页",
-            "url":"https://www.7xiady.cc",
-            "quantity":":gt(44)"
-         },
-         {
-            "title":"电影",
-            "url":"https://www.7xiady.cc/type/dianying",
-            "quantity":""
-         },
-         {
-            "title":"连续剧",
-            "url":"https://www.7xiady.cc/type/lianxuju",
-            "quantity":""
-         },
-         {
-            "title":"动漫",
-            "url":"https://www.7xiady.cc/type/dongman",
-            "quantity":""
-         },
-         {
-            "title":"综艺",
-            "url":"https://www.7xiady.cc/type/zongyi",
-            "quantity":""
-         }
-      ],
-      "list":{
-         "page":{
-            "selector":"ul.stui-page"
-         },
-         "videoscontainer":{
-            "selector":"li.stui-vodlist__item",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"title",
-            "filter":""
-         },
-         "thumb":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"data-original",
-            "filter":""
-         },
-         "link":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "detail":{
-         "videoscontainer":{
-            "selector":"div.stui-pannel_bd.col-pd.clearfix > ul > li",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
-         },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "search":{
-         "url":"https://www.7xiady.cc/search/#msearchword----------1---/"
       }
    },
    {
