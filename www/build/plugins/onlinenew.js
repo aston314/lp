@@ -1202,7 +1202,7 @@
       //   str = str.replace(bbb[i], aa[i]);
       // }
 
-      Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    <div class=\"iframe__body\">\n   </div>\n</div>");
+      Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       var html$2 = Lampa.Template.get('playerwindow');
 
       // html$2.find('iframe').attr('src', params.url)[0].onload = function () {
