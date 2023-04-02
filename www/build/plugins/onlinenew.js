@@ -1206,18 +1206,18 @@
       var html$2 = Lampa.Template.get('playerwindow');
 
       // html$2.find('iframe').attr('src', params.url)[0].onload = function () {
-         html$2.addClass('iframe--loaded');
+        //  html$2.addClass('iframe--loaded');
       // };
 
       $('body').append(html$2);
 
-//       $('.iframe').append(`
+//       $('.iframe').append(`i
 //   ${str}
 // `);
 $.when($('.iframe').append(`
   ${str}
 `)).then(function() {
-  console.log('执行网页完成')
+  // console.log('执行网页完成')
   // 在append完成后触发事件
   // html$2.removeClass('iframe--loaded');
   toggle();
@@ -1280,10 +1280,11 @@ $.when($('.iframe').append(`
       }
 
       function close() {
-        html$2.removeClass('iframe--loaded');
+        // html$2.removeClass('iframe--loaded');
         html$2.detach();
         Lampa.Controller.toggle('content');
         // html$2.find('iframe').attr('src', '');
+        html$2.find('iframe').html('');
         // if (object.onBack) object.onBack();
       }
 
