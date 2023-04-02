@@ -1728,8 +1728,7 @@ $.when($('.iframe').append(`
                     Lampa.Player.play(first);
                     playlist.push(first);
                     Lampa.Player.playlist(playlist);
-                  };
-
+                  } else {
                   var script_arr = [
                     '/static/js/playerconfig.js',
                     '/static/js/player.js'
@@ -1841,6 +1840,7 @@ $.when($('.iframe').append(`
                         }
                       });
                   });
+                }
                   Lampa.Modal.close();
                   Lampa.Api.clear();
                 } else component.emptyForQuery(select_title);
