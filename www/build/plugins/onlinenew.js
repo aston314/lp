@@ -232,7 +232,7 @@
         id_json : 'id',
         first_page_json: '.html',
         search_html_selector: '',
-        link_folder : 'voddetail',
+        link_folder : 'voddetail/',
         detail_url_selector: '.module-play-list:first-child',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
