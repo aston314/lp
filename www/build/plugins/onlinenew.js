@@ -80,7 +80,7 @@
         name_json: 'title',
         id_json: 'url',
         first_page_json: '',
-        search_html_selector: 'div.sr_lists > ul > li',
+        search_html_selector: 'dl > dd > p:nth-child(1) > strong',
         link_folder: '',
         detail_url_selector: '.player.ckp:first-child',
         videoparse: 'default',
