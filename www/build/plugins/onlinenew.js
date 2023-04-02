@@ -233,7 +233,7 @@
         first_page_json: '.html',
         search_html_selector: '',
         link_folder : 'voddetail',
-        detail_url_selector: 'div.module-play-list-content:first-child',
+        detail_url_selector: '.module-play-list:first-child',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer : false,
