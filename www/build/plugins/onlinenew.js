@@ -82,7 +82,7 @@
         first_page_json: '',
         search_html_selector: 'dl > dd > p:nth-child(1) > strong',
         link_folder: '',
-        detail_url_selector: '.player.ckp',
+        detail_url_selector: '.player.ckp:first-child',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
