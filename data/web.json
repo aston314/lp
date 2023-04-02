@@ -832,7 +832,7 @@
    },
    {
       "title":"Auete影视",
-      "link":"https://auete.com",
+      "link":"https://auete.org",
       "show":"portrait",
       "next":"search",
       "datasort":"",
@@ -840,27 +840,27 @@
       "category":[
          {
             "title":"电影",
-            "url":"https://auete.com/Movie/index.html",
+            "url":"https://auete.org/Movie/index.html",
             "quantity":""
          },
          {
             "title":"电视剧",
-            "url":"https://auete.com/Tv/index.html",
+            "url":"https://auete.org/Tv/index.html",
             "quantity":""
          },
          {
             "title":"综艺",
-            "url":"https://auete.com/Zy/index.html",
+            "url":"https://auete.org/Zy/index.html",
             "quantity":""
          },
          {
             "title":"动漫",
-            "url":"https://auete.com/Dm/index.html",
+            "url":"https://auete.org/Dm/index.html",
             "quantity":""
          },
          {
             "title":"其他",
-            "url":"https://auete.com/qita/index.html",
+            "url":"https://auete.org/qita/index.html",
             "quantity":""
          }
       ],
@@ -890,7 +890,7 @@
          }
       },
       "search":{
-         "url":"https://auete.com/search.php?searchword=#msearchword"
+         "url":"https://auete.org/search.php?searchword=#msearchword"
       }
    },
    {
