@@ -176,7 +176,7 @@
         search_html_selector: '.subject.break-all',
         link_folder: '',
         // detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
-        detail_url_selector: '.player_list ul',
+        detail_url_selector: '#player_list',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: false,
@@ -1717,18 +1717,18 @@ $.when($('.iframe').append(`
                     window.eval('function base64decode(str){ return atob(str); };' + a);
                   });
 
-                  // if (typeof now !== 'undefined') {
-                  //   var playlist = [];
-                  //   var first = {
-                  //     url: 'https://datas-s8pwfqdu9yystn90fb----------------cache.haozhansou.com/' + now,
-                  //     timeline: view,
-                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  //     subtitles: element.subtitles
-                  //   };
-                  //   Lampa.Player.play(first);
-                  //   playlist.push(first);
-                  //   Lampa.Player.playlist(playlist);
-                  // };
+                  if (typeof now !== 'undefined') {
+                    var playlist = [];
+                    var first = {
+                      url: now,
+                      timeline: view,
+                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                      subtitles: element.subtitles
+                    };
+                    Lampa.Player.play(first);
+                    playlist.push(first);
+                    Lampa.Player.playlist(playlist);
+                  };
 
                   var script_arr = [
                     '/static/js/playerconfig.js',
