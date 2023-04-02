@@ -74,7 +74,7 @@
         websitelink: 'https://www.lyys8.com/',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://www.lyys8.com/search.html?wd=#msearchword',
+        search_url: 'https://www.lyys8.com/s.html?wd=#msearchword',
         search_json: false,
         node_json: 'data',
         name_json: 'title',
@@ -1203,6 +1203,7 @@
       // }
 
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
+      // <div class=\"iframe__body\">\n   </div>\n
       var html$2 = Lampa.Template.get('playerwindow');
 
       // html$2.find('iframe').attr('src', params.url)[0].onload = function () {
