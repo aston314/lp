@@ -1716,7 +1716,7 @@
                 down: function down() {
                     // if (Navigator.canmove('down')) Navigator.move('down');
                     if (Navigator.canmove('down')) Navigator.move('down');
-                    else if (info.find('.view--channel').hasClass('focus')) {
+                    else if (info.find('.view--channel').hasClass('focus') || info.find('.view--category').hasClass('focus') || info.find('.open--find').hasClass('focus')) {
                         Lampa.Controller.toggle('content');
                     }
                 },
