@@ -1803,12 +1803,32 @@ $.when($('.iframe').append(`
                           } else {
                             if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
                               $(".noty").show();
-                              Lampa.Noty.show('因CORS限制，该视频只能在安卓上观看。');
+                              Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
                             };
 
                             //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                             network["native"](MacPlayer_, function (str) {
-                              doparse(element, view, url1_, MacPlayer_, str);
+                              var urlPattern = /'(http.*?\.(mp4|m3u8)(\?.*?)?)'/;
+                              var match = str.match(urlPattern);
+
+                              if (match) {
+                                var urlvideo = match[1];
+                                // console.log(urlvideo);
+                                var playlist = [];
+                                var first = {
+                                  url: urlvideo,
+                                  timeline: view,
+                                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                  subtitles: element.subtitles
+                                };
+                                Lampa.Player.play(first);
+                                playlist.push(first);
+                                Lampa.Player.playlist(playlist);
+
+                              } else {
+                                doparse(element, view, url1_, MacPlayer_, str);
+                              }
+                              
                             }, function (a, c) {
                               Lampa.Noty.show(network.errorDecode(a, c));
                             }, false, {
