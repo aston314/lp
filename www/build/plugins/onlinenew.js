@@ -1226,6 +1226,9 @@ $.when($('.iframe').append(`
 
       // var playulr =$('.dplayer-video').attr('src');
       // document.querySelector('video').src
+      // document.querySelector('.dplayer-video').pause();
+      // document.querySelector('.dplayer-video').play();
+      document.querySelector('.dplayer-video').focus();
       var playulr = $('video').attr('src')||document.querySelector('source').src;
       console.log('playulr=',playulr)
       if (typeof playulr !== "undefined") {
