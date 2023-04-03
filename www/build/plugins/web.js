@@ -1782,7 +1782,8 @@
                     });
                 },
                 onBack: function onBack() {
-                    Lampa.Controller.toggle('menu');
+                    // Lampa.Controller.toggle('menu');
+                    Lampa.Controller.toggle('content');
                 }
             });
         }
