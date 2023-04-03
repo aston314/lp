@@ -372,25 +372,25 @@
       //   use_referer: false,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
-      {
-        name: '网站-厂长资源',
-        websitelink: 'https://czzy01.com',
-        listlink: false,
-        use_proxy: false,
-        search_url: 'https://czzy01.com/xssearch?q=#msearchword',
-        search_json: false,
-        node_json: '',
-        name_json: '',
-        id_json: '',
-        first_page_json: '',
-        search_html_selector: 'h3.dytit',
-        link_folder: '',
-        detail_url_selector: 'div.paly_list_btn',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: true,
-        js_execute_key: ['maccms', 'player_aaaa']
-      },
+      // {
+      //   name: '网站-厂长资源',
+      //   websitelink: 'https://czzy01.com',
+      //   listlink: false,
+      //   use_proxy: false,
+      //   search_url: 'https://czzy01.com/xssearch?q=#msearchword',
+      //   search_json: false,
+      //   node_json: '',
+      //   name_json: '',
+      //   id_json: '',
+      //   first_page_json: '',
+      //   search_html_selector: 'h3.dytit',
+      //   link_folder: '',
+      //   detail_url_selector: 'div.paly_list_btn',
+      //   videoparse: 'default',
+      //   videocontainer: '.MacPlayer',
+      //   use_referer: true,
+      //   js_execute_key: ['maccms', 'player_aaaa']
+      // },
       // {
       //   name: '素白白',
       //   websitelink: 'https://www.subaibaiys.com',
@@ -1674,39 +1674,38 @@ $.when($('.iframe').append(`
               loadingshow();
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
+                  // var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
+                  // czspp = czspp ? czspp[0] : null;
+                  // if (czspp) {
+                  //   $(".noty").hide();
+                  //   czspp = czspp.replace('eval', 'var doczspp = ');
 
-                  var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
-                  czspp = czspp ? czspp[0] : null;
-                  if (czspp) {
-                    $(".noty").hide();
-                    czspp = czspp.replace('eval', 'var doczspp = ');
-
-                    $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
-                      .done(function () {
-                        window.eval(czspp);
-                        if (typeof doczspp !== 'undefined') {
-                          //console.log(doczspp);
-                          var v = doczspp.match(/url: "(.*?)"/);
-                          v = v ? v[1] : '';
-                          //console.log(v)
-                          if (v) {
-                            var playlist = [];
-                            var first = {
-                              url: v,
-                              timeline: view,
-                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
-                          };
-                        } else {
-                          $(".noty").show();
-                          Lampa.Noty.show('无法检索链接');
-                        };
-                      });
-                  };
+                  //   $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
+                  //     .done(function () {
+                  //       window.eval(czspp);
+                  //       if (typeof doczspp !== 'undefined') {
+                  //         //console.log(doczspp);
+                  //         var v = doczspp.match(/url: "(.*?)"/);
+                  //         v = v ? v[1] : '';
+                  //         //console.log(v)
+                  //         if (v) {
+                  //           var playlist = [];
+                  //           var first = {
+                  //             url: v,
+                  //             timeline: view,
+                  //             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  //             subtitles: element.subtitles
+                  //           };
+                  //           Lampa.Player.play(first);
+                  //           playlist.push(first);
+                  //           Lampa.Player.playlist(playlist);
+                  //         };
+                  //       } else {
+                  //         $(".noty").show();
+                  //         Lampa.Noty.show('无法检索链接');
+                  //       };
+                  //     });
+                  // };
                   //console.log(czspp);
                   $(".noty").hide();
                   var MacPlayer_, file_ = [], a;
