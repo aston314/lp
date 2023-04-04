@@ -654,6 +654,11 @@
       "use_referer":false,
       "category":[
          {
+            "title":"最近更新",
+            "url":"https://www.pipiya.cc/map.html",
+            "quantity":""
+         },
+         {
             "title":"电影",
             "url":"https://www.pipiya.cc/vodshow/20.html",
             "quantity":""
@@ -685,11 +690,6 @@
          },
          {
             "title":"其它剧",
-            "url":"https://www.dadagui.me/vodtype/4.html",
-            "quantity":""
-         },
-         {
-            "title":"综艺",
             "url":"https://www.pipiya.cc/vodshow/27.html",
             "quantity":""
          }
