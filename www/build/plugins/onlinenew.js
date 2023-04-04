@@ -334,6 +334,25 @@
         use_referer: false,
         js_execute_key: ['maccms', 'player_aaaa']
       },
+      {
+        name: '网站-皮皮鸭',
+        websitelink: 'https://www.pipiya.cc',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'https://www.pipiya.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '.html',
+        search_html_selector: '',
+        link_folder: 'voddetail/',
+        detail_url_selector: '.anthology-list-box.none.dx',
+        videoparse: 'default',
+        videocontainer: '.MacPlayer',
+        use_referer: false,
+        js_execute_key: ['maccms', 'player_aaaa']
+      },
       // {
       //   name: '网站-voflix HD',
       //   websitelink: 'https://www.voflix.me',
@@ -1228,7 +1247,7 @@ $.when($('.iframe').append(`
       // document.querySelector('video').src
       // document.querySelector('.dplayer-video').pause();
       // document.querySelector('.dplayer-video').play();
-      document.querySelector('.dplayer-video').focus();
+      // document.querySelector('.dplayer-video').focus();
       var playulr = $('video').attr('src')||document.querySelector('source').src;
       console.log('playulr=',playulr)
       if (typeof playulr !== "undefined") {
@@ -1811,7 +1830,7 @@ $.when($('.iframe').append(`
 
                             //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                             network["native"](MacPlayer_, function (str) {
-                              var urlPattern = /'(http.*?\.(mp4|m3u8)(\?.*?)?)'/;
+                              var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
                               var match = str.match(urlPattern);
 
                               if (match) {
