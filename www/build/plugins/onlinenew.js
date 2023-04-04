@@ -350,7 +350,7 @@
         detail_url_selector: 'ul.anthology-list-play:first',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
-        use_referer: false,
+        use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
       },
       // {
