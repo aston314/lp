@@ -347,7 +347,7 @@
         first_page_json: '.html',
         search_html_selector: '',
         link_folder: 'voddetail/',
-        detail_url_selector: '.anthology-list-box.none.dx',
+        detail_url_selector: 'ul.anthology-list-play:first',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: false,
