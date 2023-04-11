@@ -410,6 +410,25 @@
       //   use_referer: true,
       //   js_execute_key: ['maccms', 'player_aaaa']
       // },
+        {
+        name: '网站-麦豆TV',
+        websitelink: 'https://www.mdoutv.com',
+        listlink: false,
+        use_proxy: false,
+        search_url: 'https://www.mdoutv.com/search/#msearchword',
+        search_json: false,
+        node_json: '',
+        name_json: '',
+        id_json: '',
+        first_page_json: '',
+        search_html_selector: 'h3.dytit',
+        link_folder: '',
+        detail_url_selector: 'div.paly_list_btn',
+        videoparse: 'default',
+        videocontainer: '.viframe',
+        use_referer: false,
+        js_execute_key: []
+      },
       // {
       //   name: '素白白',
       //   websitelink: 'https://www.subaibaiys.com',
