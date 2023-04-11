@@ -151,6 +151,86 @@
       }
    },
    {
+      "title":"秋霞电影",
+      "link":"https://www.7xiady.cc",
+      "show":"portrait",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"https://www.7xiady.cc",
+            "quantity":":gt(44)"
+         },
+         {
+            "title":"电影",
+            "url":"https://www.7xiady.cc/type/dianying",
+            "quantity":""
+         },
+         {
+            "title":"连续剧",
+            "url":"https://www.7xiady.cc/type/lianxuju",
+            "quantity":""
+         },
+         {
+            "title":"动漫",
+            "url":"https://www.7xiady.cc/type/dongman",
+            "quantity":""
+         },
+         {
+            "title":"综艺",
+            "url":"https://www.7xiady.cc/type/zongyi",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":"ul.stui-page"
+         },
+         "videoscontainer":{
+            "selector":"li.stui-vodlist__item",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"a.stui-vodlist__thumb",
+            "attrName":"title",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"a.stui-vodlist__thumb",
+            "attrName":"data-original",
+            "filter":""
+         },
+         "link":{
+            "selector":"a.stui-vodlist__thumb",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":"div.stui-pannel_bd.col-pd.clearfix > ul > li",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"a",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"a",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"https://www.7xiady.cc/search/#msearchword----------1---/"
+      }
+   },
+   {
       "title":"霸王龙压制组",
       "link":"https://t-rex.tzfile.com",
       "show":"portrait",
