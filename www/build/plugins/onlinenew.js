@@ -424,7 +424,7 @@
         search_html_selector: 'h3.dytit',
         link_folder: '',
         detail_url_selector: 'div.paly_list_btn',
-        videoparse: 'default',
+        videoparse: 'browser',
         videocontainer: '.viframe',
         use_referer: false,
         js_execute_key: []
@@ -1699,18 +1699,39 @@ $.when($('.iframe').append(`
             };
             
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-            if (!!window.cordova && doreg.videoparse == 'browser') {
-              iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
-              //iabRef.addEventListener('loadstop', playershow);
-              iabRef.addEventListener('loadstop', function() {
-                playershow();
-                Lampa.Modal.close();
-                Lampa.Api.clear();
+            if (doreg.videoparse == 'browser') {//!!window.cordova && 
+              // iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
+              // //iabRef.addEventListener('loadstop', playershow);
+              // iabRef.addEventListener('loadstop', function() {
+              //   playershow();
+              //   Lampa.Modal.close();
+              //   Lampa.Api.clear();
+              // });
+              // iabRef.addEventListener('loadstart', function() {
+              //   loadingshow();
+              // });
+              // iabRef.addEventListener('exit', iabClose);
+              network["native"](proxy_url + element.file, function (str) {
+                if (str) {
+                  var iframelink = $(videocontainer, str).attr('src');
+                  Lampa.Iframe.show({
+                    //url: $('.embed-responsive-item', str).attr('src'),
+                    url: iframelink,
+                    onBack: function onBack() {
+                      Lampa.Controller.toggle('content');
+                    }
+                  });
+                  $('.iframe__body iframe').removeClass('iframe__window');
+                  $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+
+                } else component.emptyForQuery(select_title);
+
+                component.loading(false);
+              }, function (a, c) {
+                component.empty(network.errorDecode(a, c));
+              }, false, {
+                dataType: 'text'
               });
-              iabRef.addEventListener('loadstart', function() {
-                loadingshow();
-              });
-              iabRef.addEventListener('exit', iabClose);
             } else {
               loadingshow();
               network["native"](proxy_url + element.file, function (str) {
