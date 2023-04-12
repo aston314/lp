@@ -1714,19 +1714,36 @@ $.when($('.iframe').append(`
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
                   var iframelink = $(videocontainer, str).attr('src');
-                  Lampa.Iframe.show({
-                    //url: $('.embed-responsive-item', str).attr('src'),
-                    url: iframelink,
-                    onBack: function onBack() {
-                      Lampa.Controller.toggle('content');
-                    }
-                  });
+                  // if (/(v\.qq\.com|v\.youku\.com|www\.iqiyi\.com|www\.mgtv\.com)/.test(iframelink)) {
+                  //   var matchurl = iframelink.match(/url=([^&]*)/);
+                  //   if (matchurl) {
+                  //     Lampa.Iframe.show({
+                  //       //url: $('.embed-responsive-item', str).attr('src'),
+                  //       url: 'https://tv.libvio.cc/',
+                  //       onBack: function onBack() {
+                  //         Lampa.Controller.toggle('content');
+                  //       }
+                  //     });
+                  //   } else {
+                  //     Lampa.Noty.show('没有找到播放链接。');
+                  //   }
+
+                  // } else {
+                    Lampa.Iframe.show({
+                      //url: $('.embed-responsive-item', str).attr('src'),
+                      url: iframelink,
+                      onBack: function onBack() {
+                        Lampa.Controller.toggle('content');
+                      }
+                    });
+                  // }
+                  
                   $('.iframe__body iframe').removeClass('iframe__window');
                   $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
 
                 } else component.emptyForQuery(select_title);
 
-                component.loading(false);
+                // component.loading(false);
               }, function (a, c) {
                 component.empty(network.errorDecode(a, c));
               }, false, {
