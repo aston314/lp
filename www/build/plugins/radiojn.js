@@ -316,7 +316,7 @@
           button.on('hover:enter', function () {
             Lampa.Activity.push({
               url: '',
-              title: 'Радио',
+              title: '收音机',
               component: 'radio',
               page: 1
             });
