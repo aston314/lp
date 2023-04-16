@@ -277,21 +277,17 @@
                             
                         });
                         // console.log(sources)
+                        
 
+                        var html_ = $('<div></div>');
+                        var navigation = $('<div class="navigation-tabs"></div>');
+                        sources.forEach(function (tab, i) {
+                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                            button.on('hover:enter', function () {
+                                // _this.display = tab.name;
 
-
-                        Lampa.Select.show({
-                            title: '播放列表',
-                            items: sources,
-                            onSelect: function onSelect(a) {
-                                // Lampa.Activity.push({
-                                //     url: a.url,
-                                //     title: '阿里云盘播放',
-                                //     component: 'yunpan2',
-                                //     movie: element,
-                                //     page: 1
-                                // });
-                                network["native"](a.url, function (data) {
+                                // _this.open();
+                                network["native"](tab.url, function (data) {
                                     if (data.url) {
                                         var playlist = [];
                                         var first = {
@@ -308,7 +304,7 @@
                                     } else {
                                         Lampa.Noty.show('无法检索播放链接');
                                     }
-                                    Lampa.Controller.toggle('content');
+                                    // Lampa.Controller.toggle('content');
 
                                 }, function (a, c) {
                                     Lampa.Noty.show(network.errorDecode(a, c));
@@ -319,11 +315,76 @@
                                         'Referer': "https://ddys.pro/"
                                     }
                                 });
-                            },
-                            onBack: function onBack() {
-                                Lampa.Controller.toggle('content');
+                            });
+                            // if (tab.name == _this.display) button.addClass('active');
+                            if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                            if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                if (i > 0) html_.append(navigation);
+                                navigation = $('<div class="navigation-tabs"></div>');
                             }
+                            navigation.append(button);
                         });
+                        
+                        html_.append(navigation);
+
+                        Lampa.Modal.open({
+                            title: element.title,
+                            html: html_,
+                            size: 'medium',
+                            select: html.find('.navigation-tabs .active')[0],
+                            mask: true,
+                            onBack: function onBack() {
+                              Lampa.Modal.close();
+                              Lampa.Api.clear();
+                              Lampa.Controller.toggle('content');
+                            }
+                          });
+
+
+                        // Lampa.Select.show({
+                        //     title: '播放列表',
+                        //     items: sources,
+                        //     onSelect: function onSelect(a) {
+                        //         // Lampa.Activity.push({
+                        //         //     url: a.url,
+                        //         //     title: '阿里云盘播放',
+                        //         //     component: 'yunpan2',
+                        //         //     movie: element,
+                        //         //     page: 1
+                        //         // });
+                        //         network["native"](a.url, function (data) {
+                        //             if (data.url) {
+                        //                 var playlist = [];
+                        //                 var first = {
+                        //                     url: data.url,
+                        //                     //   timeline: view,
+                        //                     title: a.title,
+                        //                     subtitles: a.subtitles
+                        //                 };
+                        //                 Lampa.Player.play(first);
+
+                        //                 playlist.push(first);
+                        //                 Lampa.Player.playlist(playlist);
+
+                        //             } else {
+                        //                 Lampa.Noty.show('无法检索播放链接');
+                        //             }
+                        //             Lampa.Controller.toggle('content');
+
+                        //         }, function (a, c) {
+                        //             Lampa.Noty.show(network.errorDecode(a, c));
+                        //         }, false, {
+                        //             dataType: 'json',
+                        //             headers: {
+                        //                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                        //                 'Referer': "https://ddys.pro/"
+                        //             }
+                        //         });
+                        //     },
+                        //     onBack: function onBack() {
+                        //         Lampa.Controller.toggle('content');
+                        //     }
+                        // });
 
                         
 
