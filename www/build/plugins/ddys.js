@@ -293,8 +293,8 @@
                                         var first = {
                                             url: data.url,
                                             //   timeline: view,
-                                            title: a.title,
-                                            subtitles: a.subtitles
+                                            title: data.title,
+                                            subtitles: data.subtitles
                                         };
                                         Lampa.Player.play(first);
 
