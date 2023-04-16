@@ -278,7 +278,6 @@
                         });
                         // console.log(sources)
                         
-
                         var html_ = $('<div></div>');
                         var navigation = $('<div class="navigation-tabs"></div>');
                         sources.forEach(function (tab, i) {
@@ -317,7 +316,7 @@
                                 });
                             });
                             // if (tab.name == _this.display) button.addClass('active');
-                            if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                            if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
                             if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
                                 if (i > 0) html_.append(navigation);
                                 navigation = $('<div class="navigation-tabs"></div>');
