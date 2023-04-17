@@ -217,32 +217,78 @@
                             });
                     });
 
-                    Lampa.Select.show({
-                        title: '直播源',
-                        items: sources,
-                        onSelect: function onSelect(a) {
-                            // Lampa.Activity.push({
-                            //     url: a.url,
-                            //     title: '直播源 - ' + a.title,
-                            //     component: 'worldcup',
-                            //     type: 'live',
-                            //     content: element.title,
-                            //     page: 1
-                            // });
-                            Lampa.Iframe.show({
+                    // Lampa.Select.show({
+                    //     title: '直播源',
+                    //     items: sources,
+                    //     onSelect: function onSelect(a) {
+                    //         // Lampa.Activity.push({
+                    //         //     url: a.url,
+                    //         //     title: '直播源 - ' + a.title,
+                    //         //     component: 'worldcup',
+                    //         //     type: 'live',
+                    //         //     content: element.title,
+                    //         //     page: 1
+                    //         // });
+                    //         Lampa.Iframe.show({
+                    //             //url: $('.embed-responsive-item', str).attr('src'),
+                    //             url: a.url,
+                    //             onBack: function onBack() {
+                    //               Lampa.Controller.toggle('content');
+                    //             }
+                    //           });
+                    //           $('.iframe__body iframe').removeClass('iframe__window');
+                    //           $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                    //     },
+                    //     onBack: function onBack() {
+                    //         Lampa.Controller.toggle('content');
+                    //     }
+                    // });
+
+                    var html_ = $('<div></div>');
+                        var navigation = $('<div class="navigation-tabs"></div>');
+                        sources.forEach(function (tab, i) {
+                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                            button.on('hover:enter', function () {
+                                // _this.display = tab.name;
+
+                                // _this.open();
+                                Lampa.Iframe.show({
                                 //url: $('.embed-responsive-item', str).attr('src'),
-                                url: a.url,
+                                url: tab.url,
                                 onBack: function onBack() {
-                                  Lampa.Controller.toggle('content');
+                                //   Lampa.Controller.toggle('content');
+                                Lampa.Modal.close();
+                              Lampa.Api.clear();
+                              Lampa.Controller.toggle('content');
+                            // Lampa.Navigator.focused('.modal__content')
                                 }
                               });
                               $('.iframe__body iframe').removeClass('iframe__window');
                               $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-                        },
-                        onBack: function onBack() {
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
+                            });
+                            // if (tab.name == _this.display) button.addClass('active');
+                            if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                            if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                if (i > 0) html_.append(navigation);
+                                navigation = $('<div class="navigation-tabs"></div>');
+                            }
+                            navigation.append(button);
+                        });
+                        
+                        html_.append(navigation);
+
+                        Lampa.Modal.open({
+                            title: element.title,
+                            html: html_,
+                            size: 'medium',
+                            select: html.find('.navigation-tabs .active')[0],
+                            mask: true,
+                            onBack: function onBack() {
+                              Lampa.Modal.close();
+                              Lampa.Api.clear();
+                              Lampa.Controller.toggle('content');
+                            }
+                          });
 
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
