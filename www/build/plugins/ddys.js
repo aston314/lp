@@ -136,8 +136,10 @@
                         img: /url\((.*?)\)/.exec($('div.post-box-image', html).attr('style'))[1],
                         quantity: ' ',
                         year: '',
+                        episodes_info: $('.post-box-meta', html).text(),
                         update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
-                        score: ''//$('span.pic-tag', html).text()
+                        score: '',//$('span.pic-tag', html).text(),
+                        rate: $('i.fa.fa-star', html).length == 1?'置顶':''
                     });
                 //};
             });
@@ -175,10 +177,10 @@
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
-                if (element.episodes_info) {
-                    card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info.replace('更新至', '第'));
-                };
+                // if (element.episodes_info) {
+                //     card.find('.card__view').append('<div class="card__quality"></div>');
+                //     card.find('.card__quality').text(element.episodes_info.replace('更新至', '第'));
+                // };
 
                 card.on('hover:focus', function () {
                     last = card[0];
@@ -674,13 +676,7 @@
             }
             return '';
         };
-        this.getRemote = function (remote_url) {
-            return $.ajax({
-                type: "GET",
-                url: remote_url,
-                async: false
-            }).responseText;
-        };
+
         this.start = function () {
             // Lampa.Controller.add('content', {
             //     toggle: function toggle() {
