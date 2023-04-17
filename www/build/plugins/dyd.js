@@ -246,67 +246,153 @@
                             });
                     });
 
-                    Lampa.Select.show({
-                        title: '观看资源',
-                        items: sources,
-                        onSelect: function onSelect(a) {
-                            if (/.*www\.aliyundrive\.com.*/.test(a.url)) {
-                                Lampa.Activity.push({
-                                    url: a.url,
-                                    title: '阿里云盘播放',
-                                    component: 'yunpan2',
-                                    movie: element,
-                                    page: 1
-                                });
-                            } else {
-                                var video = {
-                                    title: element.name,
-                                    url: element.video
-                                };
+                    // Lampa.Select.show({
+                    //     title: '观看资源',
+                    //     items: sources,
+                    //     onSelect: function onSelect(a) {
+                    //         if (/.*www\.aliyundrive\.com.*/.test(a.url)) {
+                    //             Lampa.Activity.push({
+                    //                 url: a.url,
+                    //                 title: '阿里云盘播放',
+                    //                 component: 'yunpan2',
+                    //                 movie: element,
+                    //                 page: 1
+                    //             });
+                    //         } else {
+                    //             var video = {
+                    //                 title: element.name,
+                    //                 url: element.video
+                    //             };
 
-                                if (window.intentShim) {
-                                    var intentExtra = {
-                                        title: element.title,
-                                        poster: element.img,
-                                        action: "play",
-                                        data: {
-                                            lampa: true
-                                        }
-                                    };
-                                    window.plugins.intentShim.startActivity(
-                                        {
-                                            action: window.plugins.intentShim.ACTION_VIEW,
-                                            url: a.url,
-                                            extras: intentExtra
-                                        },
-                                        function () { },
-                                        function () { console.log('Failed to open magnet URL via Android Intent') }
+                    //             if (window.intentShim) {
+                    //                 var intentExtra = {
+                    //                     title: element.title,
+                    //                     poster: element.img,
+                    //                     action: "play",
+                    //                     data: {
+                    //                         lampa: true
+                    //                     }
+                    //                 };
+                    //                 window.plugins.intentShim.startActivity(
+                    //                     {
+                    //                         action: window.plugins.intentShim.ACTION_VIEW,
+                    //                         url: a.url,
+                    //                         extras: intentExtra
+                    //                     },
+                    //                     function () { },
+                    //                     function () { console.log('Failed to open magnet URL via Android Intent') }
 
-                                    );
+                    //                 );
+                    //             } else {
+                    //                 var SERVER = {
+                    //                     "object": {
+                    //                         "Title": "",
+                    //                         "MagnetUri": "",
+                    //                         "poster": ""
+                    //                     },
+                    //                     "movie": {
+                    //                         "title": "",
+                    //                     }
+                    //                 };
+                    //                 SERVER.object.MagnetUri = a.url;
+                    //                 SERVER.movie.title = element.title;
+                    //                 SERVER.object.poster = element.img;
+                    //                 Lampa.Android.openTorrent(SERVER);
+                    //             };
+                    //             Lampa.Controller.toggle('content');
+                    //         }
+
+                    //     },
+                    //     onBack: function onBack() {
+                    //         Lampa.Controller.toggle('content');
+                    //     }
+                    // });
+
+
+                    var html_ = $('<div></div>');
+                        var navigation = $('<div class="navigation-tabs"></div>');
+                        sources.forEach(function (tab, i) {
+                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                            button.on('hover:enter', function () {
+                                // _this.display = tab.name;
+
+                                // _this.open();
+                                if (/.*www\.aliyundrive\.com.*/.test(tab.url)) {
+                                    Lampa.Modal.close();
+                                    Lampa.Activity.push({
+                                        url: tab.url,
+                                        title: '阿里云盘播放',
+                                        component: 'yunpan2',
+                                        movie: element,
+                                        page: 1
+                                    });
                                 } else {
-                                    var SERVER = {
-                                        "object": {
-                                            "Title": "",
-                                            "MagnetUri": "",
-                                            "poster": ""
-                                        },
-                                        "movie": {
-                                            "title": "",
-                                        }
+                                    var video = {
+                                        title: element.name,
+                                        url: element.video
                                     };
-                                    SERVER.object.MagnetUri = a.url;
-                                    SERVER.movie.title = element.title;
-                                    SERVER.object.poster = element.img;
-                                    Lampa.Android.openTorrent(SERVER);
-                                };
+    
+                                    if (window.intentShim) {
+                                        var intentExtra = {
+                                            title: element.title,
+                                            poster: element.img,
+                                            action: "play",
+                                            data: {
+                                                lampa: true
+                                            }
+                                        };
+                                        window.plugins.intentShim.startActivity(
+                                            {
+                                                action: window.plugins.intentShim.ACTION_VIEW,
+                                                url: tab.url,
+                                                extras: intentExtra
+                                            },
+                                            function () { },
+                                            function () { console.log('Failed to open magnet URL via Android Intent') }
+    
+                                        );
+                                    } else {
+                                        var SERVER = {
+                                            "object": {
+                                                "Title": "",
+                                                "MagnetUri": "",
+                                                "poster": ""
+                                            },
+                                            "movie": {
+                                                "title": "",
+                                            }
+                                        };
+                                        SERVER.object.MagnetUri = tab.url;
+                                        SERVER.movie.title = element.title;
+                                        SERVER.object.poster = element.img;
+                                        Lampa.Android.openTorrent(SERVER);
+                                    };
+                                    // Lampa.Controller.toggle('content');
+                                }
+                            });
+                            // if (tab.name == _this.display) button.addClass('active');
+                            if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                            if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                if (i > 0) html_.append(navigation);
+                                navigation = $('<div class="navigation-tabs"></div>');
+                            }
+                            navigation.append(button);
+                        });
+                        
+                        html_.append(navigation);
+
+                        Lampa.Modal.open({
+                            title: element.title,
+                            html: html_,
+                            size: 'medium',
+                            select: html.find('.navigation-tabs .active')[0],
+                            mask: true,
+                            onBack: function onBack() {
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
                                 Lampa.Controller.toggle('content');
                             }
-
-                        },
-                        onBack: function onBack() {
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
+                        });
 
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
