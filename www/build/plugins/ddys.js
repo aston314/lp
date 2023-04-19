@@ -120,8 +120,14 @@
             //         page = object.url;
             //     };
             // };
-            //console.log(page)
-            ($('div.post-box-container', str)||$('article', str)).each(function (i, html) {
+            var listcontent;
+            if ($('div.post-box-container', str).length > 0) {
+                listcontent = $('div.post-box-container', str);
+            } else {
+                listcontent = $('div.post-content', str);
+            }
+            
+            listcontent.each(function (i, html) {
                 //if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                     var regex = /第(\d+)季/;
                     var match = regex.exec($('h2 > a', html).text()) ? regex.exec($('h2 > a', html).text())[1] + "/" : "";
@@ -133,7 +139,7 @@
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
                         url: $('h2 > a', html).attr('href') + match,
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: /url\((.*?)\)/.exec($('div.post-box-image', html).attr('style'))[1],
+                        img: /url\((.*?)\)/.exec($('div.post-box-image', html).attr('style')) ? /url\((.*?)\)/.exec($('div.post-box-image', html).attr('style'))[1] : '',
                         quantity: ' ',
                         year: '',
                         episodes_info: $('.post-box-meta', html).text(),
@@ -195,7 +201,9 @@
                     // console.log(card)
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (object.url.indexOf('post_type') == -1) {
+                        if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    }
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
@@ -262,6 +270,7 @@
                     var sources = [];
 
                     network["native"](element.url, function (str) {
+                        // console.log($('.page-links',str).children().length)
                         Lampa.Modal.close();
                         // Lampa.Api.clear();
                         // Lampa.Controller.toggle('content');
