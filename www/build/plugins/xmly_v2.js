@@ -18,7 +18,7 @@
       var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
       var isLampaTV = current_version.startsWith("7.");
       var porxy;
-      isLampaTV ? porxy ="https://f.nxcloud.uk/" : porxy = "";
+      isLampaTV ? porxy ="" : porxy = "";
 
       
       this.getQueryString = function (link,name) {
