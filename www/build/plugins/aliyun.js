@@ -69,7 +69,7 @@
             var p = {
               dataType: "json",
               headers: {
-                "content-type": "application/json;charset=utf-8",
+                "content-type": "application/json",
               },
             };
             network["native"](url, function (json) {
@@ -221,6 +221,7 @@
             _this.empty('哦，该资源还未分享');
           };
         } else {
+          _this.empty('哦，未找到阿里云盘Token，请在设置中填写。');
           var i = void 0;
           firstlogin = true;
           var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
@@ -279,7 +280,7 @@
               dataType: 'json'
           });
           }, 200);
-           _this.empty('哦，未找到阿里云盘Token，请在设置中填写。');
+          
         }
         filter.onSearch = function (value) {
           Lampa.Activity.replace({
