@@ -151,101 +151,6 @@
       }
    },
    {
-      "title":"欧乐影院",
-      "link":"https://www.olevod.com",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
-         {
-            "title":"电影",
-            "url":"https://www.olevod.com/index.php/vod/show/id/1.html",
-            "quantity":""
-         },
-         {
-            "title":"电视剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/2.html",
-            "quantity":""
-         },
-         {
-            "title":"国产剧",
-            "url":"https://olevod.com/index.php/vod/show/id/202.html",
-            "quantity":""
-         },
-         {
-            "title":"日韩剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/204.html",
-            "quantity":""
-         },
-         {
-            "title":"欧美剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/201.html",
-            "quantity":""
-         },
-         {
-            "title":"港台剧",
-            "url":"https://www.olevod.com/index.php/vod/show/id/203.html",
-            "quantity":""
-         },
-         {
-            "title":"综艺",
-            "url":"https://www.olevod.com/index.php/vod/show/id/3.html",
-            "quantity":""
-         },
-         {
-            "title":"动漫",
-            "url":"https://www.olevod.com/index.php/vod/show/id/4.html",
-            "quantity":""
-         }
-      ],
-      "list":{
-         "page":{
-            "selector":"ul.page.text_center"
-         },
-         "videoscontainer":{
-            "selector":"ul.vodlist li",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
-         },
-         "thumb":{
-            "selector":"a",
-            "attrName":"data-original",
-            "filter":""
-         },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "detail":{
-         "videoscontainer":{
-            "selector":"div.playlist_notfull > ul > li",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
-         },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "search":{
-         "url":"https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
-      }
-   },
-   {
       "title":"秋霞电影",
       "link":"https://www.7xiady.cc",
       "show":"portrait",
@@ -676,7 +581,7 @@
    },
    {
       "title":"厂长资源",
-      "link":"https://www.czspp.com",
+      "link":"https://czzy03.com",
       "show":"portrait",
       "next":"search",
       "datasort":"",
@@ -684,47 +589,47 @@
       "category":[
          {
             "title":"最近更新",
-            "url":"https://www.czspp.com",
+            "url":"https://czzy03.com",
             "quantity":":gt(5):lt(9)"
          },
          {
             "title":"电影",
-            "url":"https://www.czspp.com/zuixindianying",
+            "url":"https://czzy03.com/zuixindianying",
             "quantity":""
          },
          {
             "title":"电视剧",
-            "url":"https://www.czspp.com/dsj",
+            "url":"https://czzy03.com/dsj",
             "quantity":""
          },
          {
             "title":"美剧",
-            "url":"https://www.czspp.com/meijutt",
+            "url":"https://czzy03.com/meijutt",
             "quantity":""
          },
          {
             "title":"韩剧",
-            "url":"https://www.czspp.com/hanjutv",
+            "url":"https://czzy03.com/hanjutv",
             "quantity":""
          },
          {
             "title":"国产剧",
-            "url":"https://www.czspp.com/gcj",
+            "url":"https://czzy03.com/gcj",
             "quantity":""
          },
          {
             "title":"动漫",
-            "url":"https://www.czspp.com/dm",
+            "url":"https://czzy03.com/dm",
             "quantity":""
          },
          {
             "title":"番剧",
-            "url":"https://www.czspp.com/fanju",
+            "url":"https://czzy03.com/fanju",
             "quantity":""
          },
          {
             "title":"豆瓣电影Top250",
-            "url":"https://www.czspp.com/gaofenyingshi",
+            "url":"https://czzy03.com/gaofenyingshi",
             "quantity":""
          }
       ],
@@ -754,7 +659,7 @@
          }
       },
       "search":{
-         "url":"https://www.czspp.com/xssearch?q=#msearchword"
+         "url":"https://czzy03.com/xssearch?q=#msearchword"
       }
    },
    {
