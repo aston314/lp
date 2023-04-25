@@ -1008,7 +1008,10 @@
                         dataType: 'text',
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'User-Agent': MOBILE_UA
+                            'User-Agent': MOBILE_UA,
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                            'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                            'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
                         }
                     });
                 } else {
@@ -1088,7 +1091,10 @@
                     dataType: 'text',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'User-Agent': MOBILE_UA
+                        'User-Agent': MOBILE_UA,
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                        'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                        'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
                     }
                 });
             } else {
