@@ -580,10 +580,25 @@
     ],
     "resource_site": [
       {
-        site_name: '采集网1080',
+        site_name: '1080资源库',
         site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
         site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
       },
+      {
+        site_name: ' 量子资源网',
+        site_search_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+      },
+      {
+        site_name: '非凡资源站',
+        site_search_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+      },
+      // {
+      //   site_name: '快播资源网',
+      //   site_search_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+      //   site_detail_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=detail&ids=#id'
+      // },
       // {
       //   site_name: '多多资源网',
       //   site_search_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=search&wd=#msearchword',
@@ -2704,13 +2719,19 @@ $.when($('.iframe').append(`
 
     function parse(json) {
       rslt = [];
-      var vodlist = json.list[0].vod_play_url.split('#');
+      var vodlist;
+      if (json.list[0].vod_play_url.indexOf('$$$') !== -1) {
+        vodlist = json.list[0].vod_play_url.split('$$$')[1].split('#');
+      } else {
+        vodlist = json.list[0].vod_play_url.split('#');
+      }
+      // var vodlist = json.list[0].vod_play_url.split('#');
       vodlist.forEach(function (episode) {
 
         //if (episode.playurl.indexOf('.m3u8' !== -1)) {
         rslt.push({
           file: episode.split('$')[1],
-          quality: json.list[0].vod_play_from.toUpperCase() + ' / ' + json.list[0].vod_remarks + ' / ' + episode.split('$')[0],
+          quality: json.list[0].vod_play_from.toUpperCase().replace('$$$',' / ') + ' / ' + json.list[0].vod_remarks + ' / ' + episode.split('$')[0],
           title: episode.split('$')[0],
           season: '',
           episode: '',
