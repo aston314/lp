@@ -381,7 +381,8 @@
             var file = element.file;
                      
               //!new RegExp("^(http|https)://", "i").test(file)
-              if (file.indexOf('://') === -1) {
+              // if (file.indexOf('://') === -1) {
+              if (/^https?:\/\//i.test(file) === false) {
                   if (file.indexOf('magnet:?') !== -1) {
                       if (window.intentShim) {
                         var intentExtra = {
