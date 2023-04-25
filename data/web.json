@@ -985,12 +985,12 @@
             "filter":""
          },
          "title":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector":"a",
             "attrName":"text",
             "filter":""
          },
          "link":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector":"a",
             "attrName":"href",
             "filter":""
          }
