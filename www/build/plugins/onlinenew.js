@@ -580,14 +580,14 @@
     ],
     "resource_site": [
       {
-        site_name: '1080资源库',
-        site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
-        site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
-      },
-      {
         site_name: ' 量子资源网',
         site_search_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
         site_detail_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+      },
+      {
+        site_name: '1080资源库',
+        site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
+        site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
       },
       {
         site_name: '非凡资源站',
