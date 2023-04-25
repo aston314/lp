@@ -969,7 +969,7 @@
          },
          "thumb":{
             "selector":"img",
-            "attrName":"src",
+            "attrName":"data-src",
             "filter":""
          },
          "link":{
@@ -980,17 +980,17 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":".bottom-info",
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"",
             "filter":""
          },
          "title":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector":"",
             "attrName":"text",
             "filter":""
          },
          "link":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector":"",
             "attrName":"href",
             "filter":""
          }
