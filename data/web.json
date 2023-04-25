@@ -939,7 +939,7 @@
       "category":[
          {
             "title":"首页",
-            "url":"https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+            "url":"https://yify.bio/home",
             "quantity":":gt(23)"
          },
          {
