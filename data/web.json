@@ -980,17 +980,17 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector":"div#movie-info p:nth-child(7)",
             "attrName":"",
             "filter":""
          },
          "title":{
-            "selector":"",
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"text",
             "filter":""
          },
          "link":{
-            "selector":"",
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"href",
             "filter":""
          }
