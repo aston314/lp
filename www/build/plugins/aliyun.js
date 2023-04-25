@@ -69,7 +69,7 @@
             var p = {
               dataType: "json",
               headers: {
-                "content-type": "application/json",
+                "content-type": "application/json;charset=utf-8",
               },
             };
             network["native"](url, function (json) {
@@ -842,7 +842,7 @@
             if (Lampa.Storage.field('aliyun_play_quantity') === true) {
               var aliyun_open_token = Lampa.Storage.get('aliyun_open_token');
               if (aliyun_open_token) {
-                network.silent('http://94.191.110.184:8799/app/oauth/accessToken?refreshToken=' + aliyun_open_token, function (returnData) {
+                network.silent('http://159.75.208.47/cloudisk/api/oauth/accessToken?refreshToken=' + aliyun_open_token, function (returnData) {
                   if (returnData.refreshToken != null) {
                     // console.log(returnData.accessToken);
                     Lampa.Storage.set('aliyun_open_token', returnData.refreshToken)
@@ -1827,7 +1827,7 @@
         ping_auth = setTimeout(function () {
           network.clear();
           network.timeout(10000);
-          var qrurl = "http://94.191.110.184:8799/app/oauth/authorize/qrcode"
+          var qrurl = "http://159.75.208.47/cloudisk/api/oauth/authorize/qrcode"
           network.quiet(qrurl, function (found) {
             if (found.qrCodeUrl) {
               // c = found.qrCodeUrl;
@@ -1990,7 +1990,7 @@
       else {
         if (["LoginSuccess"].includes(found.status)) {
           clearInterval(i);
-          network.quiet("http://94.191.110.184:8799/app/oauth/accessToken?authCode=" + found.authCode, function (j) {
+          network.quiet("http://159.75.208.47/cloudisk/api/oauth/accessToken?authCode=" + found.authCode, function (j) {
             Lampa.Storage.set("aliyun_open_token", j.refreshToken);
             $('.settings [data-name="aliyun_open_token"] .settings-param__value').text(j.refreshToken);
           }, function (a, c) {
