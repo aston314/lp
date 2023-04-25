@@ -171,152 +171,152 @@
                 url: 'https://libvio.fun/search/-------------.html?wd=#msearchword&submit='
             }
         },
-        {
-            title: "欧乐影院",
-            link: "https://www.olevod.com",
-            show: "portrait",
-            next: "search",
-            datasort: "",
-            use_referer: false,
-            category: [{
-                title: "电影",
-                url: "https://www.olevod.com/index.php/vod/show/id/1.html",
-                quantity: ''
-            },
-            {
-                title: "电视剧",
-                url: "https://www.olevod.com/index.php/vod/show/id/2.html",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://olevod.com/index.php/vod/show/id/202.html",
-                quantity: ''
-            },
-            {
-                title: "日韩剧",
-                url: "https://www.olevod.com/index.php/vod/show/id/204.html",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://www.olevod.com/index.php/vod/show/id/201.html",
-                quantity: ''
-            },
-            {
-                title: "港台剧",
-                url: "https://www.olevod.com/index.php/vod/show/id/203.html",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "https://www.olevod.com/index.php/vod/show/id/3.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://www.olevod.com/index.php/vod/show/id/4.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.page.text_center"
-                },
-                videoscontainer: {
-                    selector: "ul.vodlist li",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
-            }
-        },
-        {
-            title: "在线之家",
-            link: "https://www.zxzj.org",
-            show: "portrait",
-            next: "search",
-            datasort: "",
-            use_referer: false,
-            category: [{
-                title: "首页",
-                url: "https://zxzj.org",
-                quantity: ':gt(11)'
-            }, {
-                title: "电影",
-                url: "https://zxzj.org/list/1.html",
-                quantity: ''
-            },
-            {
-                title: "美剧",
-                url: "https://zxzj.org/list/2.html",
-                quantity: ''
-            },
-            {
-                title: "韩剧",
-                url: "https://zxzj.org/list/3.html",
-                quantity: ''
-            },
-            {
-                title: "日剧",
-                url: "https://zxzj.org/list/4.html",
-                quantity: ''
-            },
-            {
-                title: "泰剧",
-                url: "https://zxzj.org/list/5.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://zxzj.org/list/6.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.stui-page__item"
-                },
-                videoscontainer: {
-                    selector: ".stui-vodlist__box",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "title",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a.stui-vodlist__thumb",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
-            }
-        },
+        // {
+        //     title: "欧乐影院",
+        //     link: "https://www.olevod.com",
+        //     show: "portrait",
+        //     next: "search",
+        //     datasort: "",
+        //     use_referer: false,
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/1.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "电视剧",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/2.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "国产剧",
+        //         url: "https://olevod.com/index.php/vod/show/id/202.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日韩剧",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/204.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/201.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "港台剧",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/203.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "综艺",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/3.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://www.olevod.com/index.php/vod/show/id/4.html",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.page.text_center"
+        //         },
+        //         videoscontainer: {
+        //             selector: "ul.vodlist li",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
+        //     }
+        // },
+        // {
+        //     title: "在线之家",
+        //     link: "https://www.zxzj.org",
+        //     show: "portrait",
+        //     next: "search",
+        //     datasort: "",
+        //     use_referer: false,
+        //     category: [{
+        //         title: "首页",
+        //         url: "https://zxzj.org",
+        //         quantity: ':gt(11)'
+        //     }, {
+        //         title: "电影",
+        //         url: "https://zxzj.org/list/1.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "美剧",
+        //         url: "https://zxzj.org/list/2.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "韩剧",
+        //         url: "https://zxzj.org/list/3.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日剧",
+        //         url: "https://zxzj.org/list/4.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "泰剧",
+        //         url: "https://zxzj.org/list/5.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://zxzj.org/list/6.html",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.stui-page__item"
+        //         },
+        //         videoscontainer: {
+        //             selector: ".stui-vodlist__box",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "title",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a.stui-vodlist__thumb",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
+        //     }
+        // },
         {
             title: "秋霞电影",
             link: "https://www.7xiady.cc",
@@ -373,148 +373,148 @@
                 url: "https://www.7xiady.cc/search/#msearchword----------1---/"
             }
         },
-        {
-            title: "低端影视",
-            link: "https://ddys.one",
-            show: "portrait",
-            next: "search",
-            datasort: "",
-            use_referer: true,
-            category: [{
-                title: "电影",
-                url: "https://ddys.one/category/movie/",
-                quantity: ''
-            },
-            {
-                title: "剧集",
-                url: "https://ddys.one/category/airing/",
-                quantity: ''
-            },
-            {
-                title: "欧美剧",
-                url: "https://ddys.one/category/drama/western-drama/",
-                quantity: ''
-            },
-            {
-                title: "韩剧",
-                url: "https://ddys.one/category/drama/kr-drama/",
-                quantity: ''
-            },
-            {
-                title: "日剧",
-                url: "https://ddys.one/category/drama/jp-drama/",
-                quantity: ''
-            },
-            {
-                title: "动画",
-                url: "https://ddys.one/category/anime/",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: ".nav-links"
-                },
-                videoscontainer: {
-                    selector: "div.post-box-container",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "h2 > a",
-                    attrName: "text",
-                    filter: "(.+?) \\("
-                },
-                thumb: {
-                    selector: "",
-                    attrName: "html",
-                    filter: '["|\(](\/.+?.jpg)'
-                },
-                link: {
-                    selector: "h2 > a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: ""
-            }
-        },
-        {
-            title: "厂长资源",
-            next: "search",
-            link: "https://www.czspp.com",
-            show: "portrait",
-            datasort: "",
-            use_referer: false,
-            category: [{
-                title: "电影",
-                url: "https://www.czspp.com/zuixindianying",
-                quantity: ''
-            },
-            {
-                title: "电视剧",
-                url: "https://www.czspp.com/dsj",
-                quantity: ''
-            },
-            {
-                title: "美剧",
-                url: "https://www.czspp.com/meijutt",
-                quantity: ''
-            },
-            {
-                title: "韩剧",
-                url: "https://www.czspp.com/hanjutv",
-                quantity: ''
-            },
-            {
-                title: "国产剧",
-                url: "https://www.czspp.com/gcj",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://www.czspp.com/dm",
-                quantity: ''
-            },
-            {
-                title: "番剧",
-                url: "https://www.czspp.com/fanju",
-                quantity: ''
-            },
-            {
-                title: "豆瓣电影Top250",
-                url: "https://www.czspp.com/gaofenyingshi",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "div.pagenavi_txt"
-                },
-                videoscontainer: {
-                    selector: "div.bt_img > ul > li",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "img",
-                    attrName: "alt",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "img",
-                    attrName: "data-original",
-                    filter: ""
-                },
-                link: {
-                    selector: "a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://www.czspp.com/xssearch?q=#msearchword"
-            }
-        },
+        // {
+        //     title: "低端影视",
+        //     link: "https://ddys.one",
+        //     show: "portrait",
+        //     next: "search",
+        //     datasort: "",
+        //     use_referer: true,
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://ddys.one/category/movie/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "剧集",
+        //         url: "https://ddys.one/category/airing/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "欧美剧",
+        //         url: "https://ddys.one/category/drama/western-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "韩剧",
+        //         url: "https://ddys.one/category/drama/kr-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "日剧",
+        //         url: "https://ddys.one/category/drama/jp-drama/",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动画",
+        //         url: "https://ddys.one/category/anime/",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: ".nav-links"
+        //         },
+        //         videoscontainer: {
+        //             selector: "div.post-box-container",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "h2 > a",
+        //             attrName: "text",
+        //             filter: "(.+?) \\("
+        //         },
+        //         thumb: {
+        //             selector: "",
+        //             attrName: "html",
+        //             filter: '["|\(](\/.+?.jpg)'
+        //         },
+        //         link: {
+        //             selector: "h2 > a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: ""
+        //     }
+        // },
+        // {
+        //     title: "厂长资源",
+        //     next: "search",
+        //     link: "https://www.czspp.com",
+        //     show: "portrait",
+        //     datasort: "",
+        //     use_referer: false,
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://www.czspp.com/zuixindianying",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "电视剧",
+        //         url: "https://www.czspp.com/dsj",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "美剧",
+        //         url: "https://www.czspp.com/meijutt",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "韩剧",
+        //         url: "https://www.czspp.com/hanjutv",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "国产剧",
+        //         url: "https://www.czspp.com/gcj",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://www.czspp.com/dm",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "番剧",
+        //         url: "https://www.czspp.com/fanju",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "豆瓣电影Top250",
+        //         url: "https://www.czspp.com/gaofenyingshi",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "div.pagenavi_txt"
+        //         },
+        //         videoscontainer: {
+        //             selector: "div.bt_img > ul > li",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "img",
+        //             attrName: "alt",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "img",
+        //             attrName: "data-original",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://www.czspp.com/xssearch?q=#msearchword"
+        //     }
+        // },
         // {
         //     title: "COKEMV影视",
         //     link: "https://cokemv.me",
