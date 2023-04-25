@@ -929,6 +929,76 @@
          "url":"https://jable.tv/search/?q=#msearchword&from_videos=1"
       }
    },
+      {
+      "title":"yify - 磁力下载",
+      "link":"https://yify.bio/home",
+      "show":"portrait",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+            "quantity":":gt(23)"
+         },
+         {
+            "title":"电影",
+            "url":"https://yify.bio/movies",
+            "quantity":""
+         },
+         {
+            "title":"电视剧",
+            "url":"https://yify.bio/series",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":".tsc_pagination"
+         },
+         "videoscontainer":{
+            "selector":"div.browse-movie-wrap",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":".browse-movie-title",
+            "attrName":"text",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"a",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":".bottom-info",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName":"text",
+            "filter":""
+         },
+         "link":{
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"https://yify.bio/movies?keyword=#msearchword&quality=&genre=&year=0&rating=0&language=&order_by=latest"
+      }
+   },
    {
       "title":"YTS.MX - 磁力下载",
       "link":"https://yts.mx",
