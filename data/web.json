@@ -986,8 +986,8 @@
          },
          "title":{
             "selector":"",
-            "attrName":"title",
-            "filter":"([0-9]+[0-9]{1,2}?p)"
+            "attrName":"text",
+            "filter":""
          },
          "link":{
             "selector":"",
