@@ -940,7 +940,7 @@
          {
             "title":"首页",
             "url":"https://yify.bio/home",
-            "quantity":":gt(23)"
+            "quantity":":lt(24)"
          },
          {
             "title":"电影",
