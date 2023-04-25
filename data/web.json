@@ -963,7 +963,7 @@
             "filter":""
          },
          "title":{
-            "selector":".browse-movie-title",
+            "selector":".browse-movie-bottom",
             "attrName":"text",
             "filter":""
          },
@@ -980,7 +980,7 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":".modal-content",
+            "selector":".modal-container",
             "attrName":"",
             "filter":""
          },
