@@ -980,17 +980,17 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":"div#movie-info p:nth-child(7)",
+            "selector":".modal-content",
             "attrName":"",
             "filter":""
          },
          "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
+            "selector":".magnet-download",
+            "attrName":"title",
+            "filter":"([0-9]+[0-9]{1,2}?p)"
          },
          "link":{
-            "selector":"a",
+            "selector":".magnet-download",
             "attrName":"href",
             "filter":""
          }
