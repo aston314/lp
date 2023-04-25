@@ -1001,7 +1001,7 @@
    },
    {
       "title":"YTS.MX - 磁力下载",
-      "link":"https://yts.mx",
+      "link":"https://yts.autos",
       "show":"portrait",
       "next":"detail",
       "datasort":"",
@@ -1009,27 +1009,27 @@
       "category":[
          {
             "title":"热门电影",
-            "url":"https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+            "url":"https://yts.autos/browse-movies/0/all/all/0/featured/0/all",
             "quantity":""
          },
          {
             "title":"今年电影",
-            "url":"https://yts.mx/browse-movies/0/all/all/0/latest/2022/all",
+            "url":"https://yts.autos/browse-movies/0/all/all/0/latest/2022/all",
             "quantity":""
          },
          {
             "title":"今日趋势",
-            "url":"https://yts.mx/trending-movies",
+            "url":"https://yts.autos/trending-movies",
             "quantity":""
          },
          {
             "title":"更新电影",
-            "url":"https://yts.mx/browse-movies",
+            "url":"https://yts.autos/browse-movies",
             "quantity":""
          },
          {
             "title":"4K电影",
-            "url":"https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all",
+            "url":"https://yts.autos/browse-movies/0/2160p/all/0/latest/0/all",
             "quantity":""
          }
       ],
@@ -1076,7 +1076,7 @@
          }
       },
       "search":{
-         "url":"https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
+         "url":"https://yts.autos/browse-movies/#msearchword/all/all/0/latest/0/all"
       }
    },
    {
