@@ -1268,7 +1268,7 @@ $.when($('.iframe').append(`
       // document.querySelector('.dplayer-video').play();
       // document.querySelector('.dplayer-video').focus();
       // var playulr = $('video').attr('src')||document.querySelector('source').src;
-      var playulr = $('video').attr('src') || $('source').attr('src');
+      var playulr = $('video').attr('src') || $('video source').attr('src');
       console.log('playulr=',playulr)
       if (typeof playulr !== "undefined") {
         var file = playulr;
