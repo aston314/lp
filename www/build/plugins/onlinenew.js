@@ -580,20 +580,30 @@
     ],
     "resource_site": [
       {
-        site_name: ' 量子资源网',
-        site_search_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
-      },
-      {
-        site_name: '1080资源库',
+        site_name: '采集-1080资源库',
         site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
         site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
       },
       {
-        site_name: '非凡资源站',
+        site_name: '采集-量子资源网',
+        site_search_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+      },
+      {
+        site_name: '采集-非凡资源站',
         site_search_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
         site_detail_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       },
+      // {
+      //   site_name: '采集-人人影视',
+      //   site_search_url: 'https://www.188zy.org/api.php/provide/vod/?ac=search&wd=#msearchword',
+      //   site_detail_url: 'https://www.188zy.org/api.php/provide/vod/?ac=detail&ids=#id'
+      // },
+      // {
+      //   site_name: '采集-人人影视',
+      //   site_search_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+      //   site_detail_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=detail&ids=#id'
+      // },
       // {
       //   site_name: '快播资源网',
       //   site_search_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=search&wd=#msearchword',
@@ -5365,10 +5375,10 @@ $.when($('.iframe').append(`
 
     var sources = {
       //   无名资源: new noname(this, object),
-      找资源: new zhaoziyuan(this, object),
+      // 找资源: new zhaoziyuan(this, object),
       小纸条: new xiaozhitiao(this, object),
       易搜: new yiso(this, object),
-      猫狸盘搜: new alipansou(this, object),
+      // 猫狸盘搜: new alipansou(this, object),
       霸王龙压制组: new trex(this, object),
       小雅的Alist: new xiaoyaalist(this, object),
       DYD: new dyd(this, object),
@@ -5421,7 +5431,7 @@ $.when($('.iframe').append(`
       source: Lampa.Lang.translate('settings_rest_source')
     };
     // , 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi'
-    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD', '找资源', '小纸条', '猫狸盘搜', '易搜']; // шаловливые ручки
+    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD', '小纸条', '易搜']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -6019,11 +6029,11 @@ $.when($('.iframe').append(`
       // sources.hdvb.destroy();
       // sources.videoapi.destroy();
       //   sources.无名资源.destroy();
-      sources.找资源.destroy();
+      // sources.找资源.destroy();
       sources.小纸条.destroy();
       sources.易搜.destroy();
       sources.霸王龙压制组.destroy();
-      sources.猫狸盘搜.destroy();
+      // sources.猫狸盘搜.destroy();
       sources.小雅的Alist.destroy();
       sources.DYD.destroy();
       doregjson.resource_site.forEach(function (elem) {
