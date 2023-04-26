@@ -5351,7 +5351,7 @@ $.when($('.iframe').append(`
     });
     var files = new Lampa.Files(object);
     var filter = new Lampa.Filter(object);
-    var balanser = Lampa.Storage.get('online_mod_balanser', '小纸条');
+    var balanser = Lampa.Storage.get('online_mod_balanser', '采集-1080资源库');
     var last_bls = Lampa.Storage.field('online_mod_save_last_balanser') === false ? {} : Lampa.Storage.cache('online_mod_last_balanser', 200, {});
     var contextmenu_all = [];
 
@@ -5438,7 +5438,7 @@ $.when($('.iframe').append(`
     filter_sources = sname.concat(filter_sources);
 
     if (filter_sources.indexOf(balanser) == -1) {
-      balanser = '小雅的Alist';
+      balanser = '采集-1080资源库';
       Lampa.Storage.set('online_mod_balanser', balanser);
     }
 
