@@ -114,7 +114,7 @@
 
         this.activity.loader(true);
         var prox = Lampa.Platform.is('webos') || Lampa.Platform.is('tizen') || Lampa.Storage.field('proxy_other') === false ? '' : 'http://proxy.cub.watch/radio/';
-        network["native"]('http://www.radiorecord.ru/api/stations/', this.build.bind(this), function () {
+        network.silent('http://www.radiorecord.ru/api/stations/', this.build.bind(this), function () {
           var empty = new Lampa.Empty();
           html.append(empty.render());
           _this.start = empty.start;
@@ -122,10 +122,6 @@
           _this.activity.loader(false);
 
           _this.activity.toggle();
-        }, function (a, c) {
-          Lampa.Noty.show(network.errorDecode(a, c));
-        }, false, {
-          dataType: "json"
         });
         Lampa.Background.immediately('');
         return this.render();
