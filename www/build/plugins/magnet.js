@@ -114,7 +114,7 @@
         card.on('hover:focus', function () {
           last = card[0];
           scroll.update(card, true);
-          info.find('.info__title').text(element.name);
+          info.find('.info__title').text(element.cname + ' ' + element.name);
           //console.log(element.oname.match(regexp));
           //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
           info.find('.info__title-original').text(myear + (element.oname.match(regexp)? ' - ' + element.oname.match(regexp).join(" ").toUpperCase(): ''));
