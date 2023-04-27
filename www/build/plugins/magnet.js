@@ -79,9 +79,9 @@
 
       data.data.forEach(function (element) {
         var card = Lampa.Template.get('card', {
-          title: element.name,
+          title: element.cname,
           //release_year: element.time + (element.quality ? ' / ' + element.quality : '')
-          release_year: element.cname
+          release_year: element.name
         });
         card.addClass('card--category');
         card.find('.card__img').attr('src', element.picture);
