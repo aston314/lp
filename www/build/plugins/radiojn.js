@@ -122,11 +122,7 @@
           _this.activity.loader(false);
 
           _this.activity.toggle();
-        }, function (a, c) {
-          Lampa.Noty.show(network.errorDecode(a, c));
-      }, false, {
-          dataType: 'json'
-      });
+        });
         Lampa.Background.immediately('');
         return this.render();
       };
