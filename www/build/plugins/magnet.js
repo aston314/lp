@@ -81,7 +81,7 @@
         var card = Lampa.Template.get('card', {
           title: element.name,
           //release_year: element.time + (element.quality ? ' / ' + element.quality : '')
-          release_year: ''
+          release_year: element.cname
         });
         card.addClass('card--category');
         card.find('.card__img').attr('src', element.picture);
