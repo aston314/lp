@@ -122,7 +122,9 @@
           _this.activity.loader(false);
 
           _this.activity.toggle();
-        });
+        }, false, false, {
+            dataType: 'json'
+          });
         Lampa.Background.immediately('');
         return this.render();
       };
