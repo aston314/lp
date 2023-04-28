@@ -1,426 +1,333 @@
+//15.04.2022 - Add proxy
+
 (function () {
-  'use strict';
+    'use strict';
 
-  function rtv(object) {
-    var network = new Lampa.Reguest();
-    var scroll = new Lampa.Scroll({
-      mask: true,
-      over: true,
-      step: 250
-    });
-    var items = [];
-    var html = $('<div></div>');
-    var body = $('<div class="category-full"></div>');
-    var info;
-    var last;
-    var waitload;
-
-    this.create = function () {
-      var _this = this;
-      this.activity.loader(true);
-
-      network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
-        var empty = new Lampa.Empty();
-        html.append(empty.render());
-        _this.start = empty.start;
-
-        _this.activity.loader(false);
-
-        _this.activity.toggle();
-      }, false, false, {
-        dataType: 'json'
+    function item(data) {
+      var item = Lampa.Template.get('radio_item', {
+        name: data.title
       });
+      var img = item.find('img')[0];
 
-      // if (!!window.cordova) {
-      //   network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
-      //     var empty = new Lampa.Empty();
-      //     html.append(empty.render());
-      //     _this.start = empty.start;
+      img.onerror = function () {
+        img.src = './img/img_broken.svg';
+      };
 
-      //     _this.activity.loader(false);
+      img.src = data.icon_gray;
 
-      //     _this.activity.toggle();
-      //   });
-      // }
-      // else {
-      //   network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
-      //     var empty = new Lampa.Empty();
-      //     html.append(empty.render());
-      //     _this.start = empty.start;
+      this.render = function () {
+        return item;
+      };
 
-      //     _this.activity.loader(false);
+      this.destroy = function () {
+        img.onerror = function () {};
 
-      //     _this.activity.toggle();
-      //   });
-      // }
+        img.onload = function () {};
 
-      return this.render();
-    };
+        img.src = '';
+        item.remove();
+      };
+    }
 
-    this.next = function () {
-      var _this2 = this;
+    function create(data) {
+      var content = Lampa.Template.get('items_line', {
+        title: data.title
+      });
+      var body = content.find('.items-line__body');
+      var scroll = new Lampa.Scroll({
+        horizontal: true,
+        step: 300
+      });
+      var player = window.radio_player;
+      var items = [];
+      var active = 0;
+      var last;
 
-      if (waitload) return;
+      this.create = function () {
+        scroll.render().find('.scroll__body').addClass('items-cards');
+        content.find('.items-line__title').text(data.title);
+        data.results.forEach(this.append.bind(this));
+        body.append(scroll.render());
+      };
 
-      if (object.page < 1) {
-        waitload = true;
-        object.page++;
-        network["native"](object.url + '?pg=' + object.page, function (result) {
-          _this2.append(result);
-
-          if (result.length) waitload = false;
-          Lampa.Controller.enable('content');
+      this.append = function (element) {
+        var item$1 = new item(element);
+        item$1.render().on('hover:focus', function () {
+          last = item$1.render()[0];
+          active = items.indexOf(item$1);
+          scroll.update(items[active].render(), true);
+        }).on('hover:enter', function () {
+          console.log(element);
+          player.play(element);
         });
-      }
-    };
+        scroll.append(item$1.render());
+        items.push(item$1);
+      };
 
-    this.append = function (data) {
-      var _this3 = this;
+      this.toggle = function () {
+        var _this = this;
 
-      data.data.forEach(function (element) {
-        var card = Lampa.Template.get('card', {
-          title: element.cname,
-          //release_year: element.time + (element.quality ? ' / ' + element.quality : '')
-          release_year: element.name
+        Lampa.Controller.add('radio_line', {
+          toggle: function toggle() {
+            Lampa.Controller.collectionSet(scroll.render());
+            Lampa.Controller.collectionFocus(last || false, scroll.render());
+          },
+          right: function right() {
+            Navigator.move('right');
+            Lampa.Controller.enable('radio_line');
+          },
+          left: function left() {
+            if (Navigator.canmove('left')) Navigator.move('left');else if (_this.onLeft) _this.onLeft();else Lampa.Controller.toggle('menu');
+          },
+          down: this.onDown,
+          up: this.onUp,
+          gone: function gone() {},
+          back: this.onBack
         });
-        card.addClass('card--category');
-        card.find('.card__img').attr('src', element.picture);
-        var regexp = /[0-9]+(\.[0-9]{1,2})?(GB|MB|gb|mb|p)/g;
+        Lampa.Controller.toggle('radio_line');
+      };
 
-        var regexp_ = /[0-9]+(\.[0-9]{1,2})?(p)/g;
-        var c = element.oname.match(regexp);
-        if (c){
-        var quality = c[0].match(regexp_) ? c[0].match(regexp_):'';
-        if (quality){
-                card.find('.card__view').append('<div class="card__quality"></div>');
-                card.find('.card__quality').text(quality);
-            };
-        };
-        /*card.addClass('card--collection').width('14.266%');
-        //card.find('.card__img').attr('src', element.picture);
-        card.find('.card__img').css({
-        'cursor': 'pointer',
-        'background-color': '#353535'
-      }).width('118.3 px').height('auto').attr('src', element.picture);
+      this.render = function () {
+        return content;
+      };
 
-        card.find('.card__view').css({
-                'padding-bottom': '150%',
-      }).width('auto');*/
-        var regexp1 = /\d{4}[\s|)|.]/g;
-        var myear = element.oname.match(regexp1) ? element.oname.match(regexp1).toString().replace(' ', '').replace('.', '').replace(')', '') : '';
-        card.find('.card__view').append('<div class="card__type"></div>');
-        card.find('.card__type').text(myear);
+      this.destroy = function () {
+        Lampa.Arrays.destroy(items);
+        scroll.destroy();
+        content.remove();
+        items = null;
+      };
+    }
 
-        card.on('hover:focus', function () {
-          last = card[0];
-          scroll.update(card, true);
-          info.find('.info__title').text(element.cname + ' ' + element.name);
-          //console.log(element.oname.match(regexp));
-          //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
-          info.find('.info__title-original').text(myear + (element.oname.match(regexp)? ' - ' + element.oname.match(regexp).join(" ").toUpperCase(): ''));
-          
-          var maxrow = Math.ceil(items.length / 7) - 1;
-          if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-          if (element.picture) Lampa.Background.change(element.picture);
-          if (Lampa.Helper) Lampa.Helper.show('magnet_detail5', '长按住 (ОК) 键下载至 PikPak', card);
+    function component() {
+      var network = new Lampa.Reguest();
+      var scroll = new Lampa.Scroll({
+        mask: true,
+        over: true
+      });
+      var items = [];
+      var html = $('<div></div>');
+      var active = 0;
+
+      this.create = function () {
+        var _this = this;
+
+        this.activity.loader(true);
+        var prox = Lampa.Platform.is('webos') || Lampa.Platform.is('tizen') || Lampa.Storage.field('proxy_other') === false ? '' : 'http://proxy.cub.watch/radio/';
+        network.native('http://www.radiorecord.ru/api/stations/', this.build.bind(this), function () {
+          var empty = new Lampa.Empty();
+          html.append(empty.render());
+          _this.start = empty.start;
+
+          _this.activity.loader(false);
+
+          _this.activity.toggle();
         });
-        card.on('hover:enter', function () {
-          var video = {
-            title: element.name,
-            url: element.video
-          };
-          
-          /*Lampa.Player.play(video);
-          Lampa.Player.playlist([video]);*/
-          
-            if (window.intentShim) {
-                var intentExtra = {
-                    title: element.name,
-                    poster: element.picture,
-                    action: "play",
-                    data: {
-                        lampa: true
-                    }
-                };
-                window.plugins.intentShim.startActivity(
-                    {
-                        action: window.plugins.intentShim.ACTION_VIEW,
-                        url: element.video,
-                        extras: intentExtra
-                    },
-                    function () { },
-                    function () { console.log('Failed to open magnet URL via Android Intent') }
+        Lampa.Background.immediately('');
+        return this.render();
+      };
 
-                );
-            } else {
-              var SERVER = {
-                  "object": {
-                      "Title": "",
-                      "MagnetUri": "",
-                      "poster": ""
-                  },
-                  "movie": {
-                      "title": "",
-                  }
-              };
-              SERVER.object.MagnetUri = element.video;
-              SERVER.movie.title = element.name;
-              SERVER.object.poster = element.picture;
-              Lampa.Android.openTorrent(SERVER);
-            };
-        });
-        card.on('hover:long', function (target, card_data) {
-          Lampa.Modal.open({
-            title: '发送到PikPak',
-            html: Lampa.Template.get('modal_loading'),
-            size: 'small',
-            mask: true,
-            onBack: function onBack() {
-              Lampa.Modal.close();
-              Lampa.Api.clear();
-              Lampa.Controller.toggle('content');
-            }
+      this.build = function (data) {
+        var _this2 = this;
+
+        scroll.minus();
+        html.append(scroll.render());
+        data.result.genre.forEach(function (element) {
+          var results = data.result.stations.filter(function (station) {
+            return station.genre.filter(function (genre) {
+              return genre.id == element.id;
+            }).length;
           });
 
-          var p;
-          var info = Lampa.Storage.get("pikpakUserInfo","");
-          
-          if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-            var url = 'https://user.mypikpak.com/v1/auth/signin';
-            var postdata =
-            {
-              "client_id": "YNxT9w7GMdWvEOKa",
-              "client_secret": "dbw2OtmVEeuUvIptb1Coyg",
-              "password": Lampa.Storage.get('pikpak_userPass', ''),
-              "username": Lampa.Storage.get('pikpak_userName', '')
-            };
-            
-            $.ajax({
-              url: url,
-              type: 'POST',
-              data: postdata,
-              async: false,
-              dataType: 'json',
-              success: function success(json) {
-                if (json && (json.access_token || json.type == 'Bearer')) {
-                  var info = {};
-                  info.loginInfo = json;
-                  if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-                    info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-                  };
-                  Lampa.Storage.set("pikpakUserInfo", info);
-                } else {
-                  Lampa.Storage.set("pikpakUserInfo", "");
-                  if (json && json.error) Lampa.Noty.show(json.details[1].message);
+          _this2.append({
+            title: element.name,
+            results: results
+          });
+        });
+        this.activity.loader(false);
+        this.activity.toggle();
+      };
+
+      this.append = function (element) {
+        var item = new create(element);
+        item.create();
+        item.onDown = this.down.bind(this);
+        item.onUp = this.up.bind(this);
+        item.onBack = this.back.bind(this);
+        scroll.append(item.render());
+        items.push(item);
+      };
+
+      this.back = function () {
+        Lampa.Activity.backward();
+      };
+
+      this.down = function () {
+        active++;
+        active = Math.min(active, items.length - 1);
+        items[active].toggle();
+        scroll.update(items[active].render());
+      };
+
+      this.up = function () {
+        active--;
+
+        if (active < 0) {
+          active = 0;
+          Lampa.Controller.toggle('head');
+        } else {
+          items[active].toggle();
+        }
+
+        scroll.update(items[active].render());
+      };
+
+      this.start = function () {
+        Lampa.Controller.add('content', {
+          toggle: function toggle() {
+            if (items.length) {
+              items[active].toggle();
+            }
+          },
+          back: this.back
+        });
+        Lampa.Controller.toggle('content');
+      };
+
+      this.pause = function () {};
+
+      this.stop = function () {};
+
+      this.render = function () {
+        return html;
+      };
+
+      this.destroy = function () {
+        network.clear();
+        Lampa.Arrays.destroy(items);
+        scroll.destroy();
+        html.remove();
+        items = null;
+        network = null;
+      };
+    }
+
+    function player() {
+      var html = Lampa.Template.get('radio_player', {});
+      var audio = new Audio();
+      var url = '';
+      var played = false;
+      var hls;
+      audio.addEventListener("play", function (event) {
+        played = true;
+        html.toggleClass('loading', false);
+      });
+
+      function prepare() {
+        if (audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.aacp') > 0) load();else if (Hls.isSupported()) {
+          try {
+            hls = new Hls();
+            hls.attachMedia(audio);
+            hls.loadSource(url);
+            hls.on(Hls.Events.ERROR, function (event, data) {
+              if (data.details === Hls.ErrorDetails.MANIFEST_PARSING_ERROR) {
+                if (data.reason === "no EXTM3U delimiter") {
+                  Lampa.Noty.show('Ошибка в загрузке потока');
                 }
-              },
-              error: function error() {
-                //Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
               }
             });
-      
-            info = Lampa.Storage.get("pikpakUserInfo","");
-            
-            if (info.loginInfo) {
-              p = {
-                dataType: "json",
-                headers: {
-                  "content-type": "application/json;charset=utf-8",
-                  authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
-                },
-              };
-            } else {
-              p = {
-                dataType: "json",
-                headers: {
-                  "content-type": "application/json;charset=utf-8",
-                },
-              };
-            };
-          } else {
-            p = {
-              dataType: "json",
-              headers: {
-                "content-type": "application/json;charset=utf-8",
-                authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
-              },
-            };
-          };
+            hls.on(Hls.Events.MANIFEST_LOADED, function () {
+              start();
+            });
+          } catch (e) {
+            Lampa.Noty.show('Ошибка в загрузке потока');
+          }
+        } else load();
+      }
 
-          var postData_ = {
-            kind: "drive#file",
-            name: "",
-            // parent_id: route.params.id || '',
-            upload_type: "UPLOAD_TYPE_URL",
-            url: {
-              url: element.video
-            },
-            params: {"from":"file"},
-            folder_type: "DOWNLOAD"
-          };
+      function load() {
+        audio.src = url;
+        audio.load();
+        start();
+      }
 
-          network.native(PikPakProxy() + 'https://api-drive.mypikpak.com/drive/v1/files', function (json) {
-            if ("error" in json) {
-              Lampa.Noty.show('哦，' + json.error_description + '，添加到 PikPak 失败。');
-            } else {
-              if (json.upload_type === "UPLOAD_TYPE_URL") {
-                Lampa.Noty.show(element.name + ' 的磁力链接已成功添加到 PikPak。');
-              };
-            }
-            Lampa.Modal.close();
-            Lampa.Controller.toggle('content');
-          }, function (a, c) {
-            Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
-            Lampa.Modal.close();
-            Lampa.Controller.toggle('content');
-          }, JSON.stringify(postData_), p);
-        });
-        
-        body.append(card);
-        items.push(card);
-      });
-    };
+      function start() {
+        var playPromise;
 
-    function PikPakProxy() {
-      var url ;
-      //https://api-pikpak.tjsky.cf/
-      Lampa.Storage.get('pikpak_proxy') ? url = 'https://cors.eu.org/': url = '';
-      return url;
-    };
+        try {
+          playPromise = audio.play();
+        } catch (e) {}
 
-    this.build = function (data) {
-      info = Lampa.Template.get('info');
-      info.find('.info__rate,.info__right').remove();
-      scroll.render().addClass('layer--wheight').data('mheight', info);
-      html.append(info);
-      html.append(scroll.render());
-      this.append(data);
-      scroll.append(body);
-      this.activity.loader(false);
-      this.activity.toggle();
-    };
-
-    this.start = function () {
-      Lampa.Controller.add('content', {
-        toggle: function toggle() {
-          Lampa.Controller.collectionSet(scroll.render());
-          Lampa.Controller.collectionFocus(last || false, scroll.render());
-        },
-        left: function left() {
-          if (Navigator.canmove('left')) Navigator.move('left');else Lampa.Controller.toggle('menu');
-        },
-        right: function right() {
-          Navigator.move('right');
-        },
-        up: function up() {
-          if (Navigator.canmove('up')) Navigator.move('up');else Lampa.Controller.toggle('head');
-        },
-        down: function down() {
-          if (Navigator.canmove('down')) Navigator.move('down');
-        },
-        back: function back() {
-          Lampa.Activity.backward();
+        if (playPromise !== undefined) {
+          playPromise.then(function () {
+            console.log('Radio', 'start plaining');
+          })["catch"](function (e) {
+            console.log('Radio', 'play promise error:', e.message);
+          });
         }
+      }
+
+      function play() {
+        html.toggleClass('loading', true);
+        html.toggleClass('stop', false);
+        prepare();
+      }
+
+      function stop() {
+        played = false;
+        html.toggleClass('stop', true);
+        html.toggleClass('loading', false);
+
+        if (hls) {
+          hls.destroy();
+          hls = false;
+        }
+
+        audio.src = '';
+      }
+
+      html.on('hover:enter', function () {
+        if (played) stop();else if (url) play();
       });
-      Lampa.Controller.toggle('content');
-    };
 
-    this.pause = function () {};
+      this.create = function () {
+        $('.head__actions .open--search').before(html);
+      };
 
-    this.stop = function () {};
+      this.play = function (data) {
+        stop();
+        url = data.stream_320 ? data.stream_320 : data.stream_128 ? data.stream_128 : data.stream_hls.replace('playlist.m3u8', '96/playlist.m3u8');
+        html.find('.radio-player__name').text(data.title);
+        html.toggleClass('hide', false);
+        play();
+      };
+    }
 
-    this.render = function () {
-      return html;
-    };
-
-    this.destroy = function () {
-      network.clear();
-      scroll.destroy();
-      if (info) info.remove();
-      html.remove();
-      body.remove();
-      network = null;
-      items = null;
-      html = null;
-      body = null;
-      info = null;
-    };
-  }
-
-  function startmagnet() {
-    window.plugin_magnet_ready = true;
-    Lampa.Component.add('magnet', rtv);
-    var catalogs = [
-    {
-      title: '今日趋势种子',
-      url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x1.json'
-    },
-    {
-      title: '今日热门种子',
-      url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x3.json'
-    },
-    {
-      title: '本周热门种子',
-      url: 'https://raw.githubusercontents.com/aston314/lampa/main/data/1337x2.json'
-    }];
-
-
-    function addSettingsMagnet() {
-      var ico = '<svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><path d="M19 3h-3c-1.103 0-2 .897-2 2v8c0 1.103-.897 2-2 2s-2-.897-2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v8c0 4.963 4.037 9 9 9s9-4.037 9-9V5c0-1.103-.897-2-2-2zm-3 2h3v3h-3V5zM5 5h3v3H5V5zm7 15c-3.859 0-7-3.141-7-7v-3h3v3c0 2.206 1.794 4 4 4s4-1.794 4-4v-3h3v3c0 3.859-3.141 7-7 7z"/></svg>';
-      var menu_item = $('<li class="menu__item selector focus" data-action="rtv"><div class="menu__ico">' + ico + '</div><div class="menu__text">磁力</div></li>');
-      menu_item.on('hover:enter', function () {
-        Lampa.Select.show({
-          title: '磁力',
-          items: catalogs,
-          onSelect: function onSelect(a) {
+    function startPlugin() {
+      window.radio = true;
+      Lampa.Component.add('radio', component);
+      Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
+      Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Radio Record</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
+      Lampa.Template.add('radio_style', "<style>\n    .radio-item {\n        width: 8em;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-item__imgbox {\n        background-color: #3E3E3E;\n        padding-bottom: 83%;\n        position: relative;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item__img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      .radio-item__name {\n        font-size: 1.1em;\n        margin-top: 0.8em;\n      }\n      .radio-item.focus .radio-item__imgbox:after {\n        border: solid 0.4em #fff;\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 0;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item + .radio-item {\n        margin-left: 1em;\n      }\n      \n      @-webkit-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-moz-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-o-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      @-webkit-keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      @-moz-keyframes sound-loading {\n        0% {\n          -moz-transform: rotate(0deg);\n               transform: rotate(0deg);\n        }\n        100% {\n          -moz-transform: rotate(360deg);\n               transform: rotate(360deg);\n        }\n      }\n      @-o-keyframes sound-loading {\n        0% {\n          -o-transform: rotate(0deg);\n             transform: rotate(0deg);\n        }\n        100% {\n          -o-transform: rotate(360deg);\n             transform: rotate(360deg);\n        }\n      }\n      @keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n             -moz-transform: rotate(0deg);\n               -o-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n             -moz-transform: rotate(360deg);\n               -o-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      .radio-player {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n        padding: 0.2em 0.8em;\n        background-color: #3e3e3e;\n      }\n      .radio-player__name {\n        margin-right: 1em;\n        white-space: nowrap;\n        overflow: hidden;\n        -o-text-overflow: ellipsis;\n           text-overflow: ellipsis;\n        max-width: 8em;\n      }\n      @media screen and (max-width: 385px) {\n        .radio-player__name {\n          display: none;\n        }\n      }\n      .radio-player__button {\n        position: relative;\n        width: 1.5em;\n        height: 1.5em;\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n           -moz-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i {\n        display: block;\n        width: 0.2em;\n        background-color: #fff;\n        margin: 0 0.1em;\n        -webkit-animation: sound 0ms -800ms linear infinite alternate;\n           -moz-animation: sound 0ms -800ms linear infinite alternate;\n             -o-animation: sound 0ms -800ms linear infinite alternate;\n                animation: sound 0ms -800ms linear infinite alternate;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i:nth-child(1) {\n        -webkit-animation-duration: 474ms;\n           -moz-animation-duration: 474ms;\n             -o-animation-duration: 474ms;\n                animation-duration: 474ms;\n      }\n      .radio-player__button i:nth-child(2) {\n        -webkit-animation-duration: 433ms;\n           -moz-animation-duration: 433ms;\n             -o-animation-duration: 433ms;\n                animation-duration: 433ms;\n      }\n      .radio-player__button i:nth-child(3) {\n        -webkit-animation-duration: 407ms;\n           -moz-animation-duration: 407ms;\n             -o-animation-duration: 407ms;\n                animation-duration: 407ms;\n      }\n      .radio-player__button i:nth-child(4) {\n        -webkit-animation-duration: 458ms;\n           -moz-animation-duration: 458ms;\n             -o-animation-duration: 458ms;\n                animation-duration: 458ms;\n      }\n      .radio-player.stop .radio-player__button {\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        border: 0.2em solid #fff;\n      }\n      .radio-player.stop .radio-player__button i {\n        display: none;\n      }\n      .radio-player.stop .radio-player__button:after {\n        content: \"\";\n        width: 0.5em;\n        height: 0.5em;\n        background-color: #fff;\n      }\n      .radio-player.loading .radio-player__button:before {\n        content: \"\";\n        display: block;\n        border-top: 0.2em solid #fff;\n        border-left: 0.2em solid transparent;\n        border-right: 0.2em solid transparent;\n        border-bottom: 0.2em solid transparent;\n        -webkit-animation: sound-loading 1s linear infinite;\n           -moz-animation: sound-loading 1s linear infinite;\n             -o-animation: sound-loading 1s linear infinite;\n                animation: sound-loading 1s linear infinite;\n        width: 0.9em;\n        height: 0.9em;\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player.loading .radio-player__button i {\n        display: none;\n      }\n      .radio-player.focus {\n        background-color: #fff;\n        color: #000;\n      }\n      .radio-player.focus .radio-player__button {\n        border-color: #000;\n      }\n      .radio-player.focus .radio-player__button i, .radio-player.focus .radio-player__button:after {\n        background-color: #000;\n      }\n      .radio-player.focus .radio-player__button:before {\n        border-top-color: #000;\n      }\n    </style>");
+      window.radio_player = new player();
+      Lampa.Listener.follow('app', function (e) {
+        if (e.type == 'ready') {
+          var button = $("<li class=\"menu__item selector\" data-action=\"radio\">\n                <div class=\"menu__ico\">\n                    <svg width=\"38\" height=\"31\" viewBox=\"0 0 38 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect x=\"17.613\" width=\"3\" height=\"16.3327\" rx=\"1.5\" transform=\"rotate(63.4707 17.613 0)\" fill=\"white\"/>\n                    <circle cx=\"13\" cy=\"19\" r=\"6\" fill=\"white\"/>\n                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 11C0 8.79086 1.79083 7 4 7H34C36.2091 7 38 8.79086 38 11V27C38 29.2091 36.2092 31 34 31H4C1.79083 31 0 29.2091 0 27V11ZM21 19C21 23.4183 17.4183 27 13 27C8.58173 27 5 23.4183 5 19C5 14.5817 8.58173 11 13 11C17.4183 11 21 14.5817 21 19ZM30.5 18C31.8807 18 33 16.8807 33 15.5C33 14.1193 31.8807 13 30.5 13C29.1193 13 28 14.1193 28 15.5C28 16.8807 29.1193 18 30.5 18Z\" fill=\"white\"/>\n                    </svg>\n                </div>\n                <div class=\"menu__text\">收音机</div>\n            </li>");
+          button.on('hover:enter', function () {
             Lampa.Activity.push({
-              url: a.url,
-              title: a.title,
-              component: 'magnet',
+              url: '',
+              title: '收音机',
+              component: 'radio',
               page: 1
             });
-          },
-          onBack: function onBack() {
-            Lampa.Controller.toggle('menu');
-          }
-        });
+          });
+          $('.menu .menu__list').eq(0).append(button);
+          $('body').append(Lampa.Template.get('radio_style', {}, true));
+          window.radio_player.create();
+        }
       });
-      $('.menu .menu__list').eq(0).append(menu_item);
     }
 
-    if (window.appready) addSettingsMagnet()
-    else {
-      Lampa.Listener.follow('app', function (e) {
-        if (e.type == 'ready') addSettingsMagnet()
-      })
-    }
-
-    // Lampa.Listener.follow('app', function (e) {
-    //   if (e.type == 'ready') {
-    //     var ico = '<svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><path d="M19 3h-3c-1.103 0-2 .897-2 2v8c0 1.103-.897 2-2 2s-2-.897-2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v8c0 4.963 4.037 9 9 9s9-4.037 9-9V5c0-1.103-.897-2-2-2zm-3 2h3v3h-3V5zM5 5h3v3H5V5zm7 15c-3.859 0-7-3.141-7-7v-3h3v3c0 2.206 1.794 4 4 4s4-1.794 4-4v-3h3v3c0 3.859-3.141 7-7 7z"/></svg>';
-    //      var menu_item = $('<li class="menu__item selector focus" data-action="rtv"><div class="menu__ico">' + ico + '</div><div class="menu__text">磁力</div></li>');
-    //     menu_item.on('hover:enter', function () {
-    //       Lampa.Select.show({
-    //         title: '磁力',
-    //         items: catalogs,
-    //         onSelect: function onSelect(a) {
-    //           Lampa.Activity.push({
-    //             url: a.url,
-    //             title: a.title,
-    //             component: 'magnet',
-    //             page: 1
-    //           });
-    //         },
-    //         onBack: function onBack() {
-    //           Lampa.Controller.toggle('menu');
-    //         }
-    //       });
-    //     });
-    //     $('.menu .menu__list').eq(0).append(menu_item);
-    //   }
-    // });
-  }
-
-  if (!window.plugin_magnet_ready) startmagnet();
+    if (!window.radio) startPlugin();
 
 })();
