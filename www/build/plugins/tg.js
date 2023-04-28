@@ -604,6 +604,9 @@
     }, {
         title: '阿里(高品质)影视',
         url: 'https://tx.me/s/alyp_1'
+    },{
+        title: 'iAliyun',
+        url: 'https://tx.me/s/iAliyun'
     },];
 
     function startTG() {
