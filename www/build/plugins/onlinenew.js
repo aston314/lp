@@ -44,7 +44,8 @@
         search_html_selector: '',
         link_folder: 'detail/',
         //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-        detail_url_selector: '.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul',
+        // detail_url_selector: '.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul',
+        detail_url_selector: '.stui-pannel__head:contains(HD播放)+ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
         use_referer: true,
@@ -5351,7 +5352,7 @@ $.when($('.iframe').append(`
     });
     var files = new Lampa.Files(object);
     var filter = new Lampa.Filter(object);
-    var balanser = Lampa.Storage.get('online_mod_balanser', '采集-1080资源库');
+    var balanser = Lampa.Storage.get('online_mod_balanser', '网站-LIBVIO');
     var last_bls = Lampa.Storage.field('online_mod_save_last_balanser') === false ? {} : Lampa.Storage.cache('online_mod_last_balanser', 200, {});
     var contextmenu_all = [];
 
@@ -5438,7 +5439,7 @@ $.when($('.iframe').append(`
     filter_sources = sname.concat(filter_sources);
 
     if (filter_sources.indexOf(balanser) == -1) {
-      balanser = '采集-1080资源库';
+      balanser = '网站-LIBVIO';
       Lampa.Storage.set('online_mod_balanser', balanser);
     }
 
