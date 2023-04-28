@@ -1308,7 +1308,7 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":"div#postlist td > table > tbody > tr > td > div a",
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"",
             "filter":""
          },
