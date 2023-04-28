@@ -1130,12 +1130,12 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":"table#cili > tbody > tr > td > a",
+            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"",
             "filter":""
          },
          "title":{
-            "selector":"span",
+            "selector":"",
             "attrName":"text",
             "filter":""
          },
