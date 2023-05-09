@@ -3403,8 +3403,8 @@ $.when($('.iframe').append(`
       network.clear();
       network.timeout(1000 * 15);
       network.silent(url1, function (json) {
-        if (json.length > 0) {
-          parse(json);
+        if (json.data.length > 0) {
+          parse(json.data);
         } else component.emptyForQuery(select_title);
 
         component.loading(false);
@@ -3412,7 +3412,8 @@ $.when($('.iframe').append(`
         component.empty(network.errorDecode(a, c));
       }, {
         action: 'search',
-        keyword: object.movie.title
+        keyword: object.movie.title,
+        from: 'web'
       }, {
         dataType: 'json',
       });
