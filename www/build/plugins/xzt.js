@@ -30,7 +30,8 @@
             action: this.getQueryString(object.url, "action"),
             cat: this.getQueryString(object.url, "cat"),
             num: this.getQueryString(object.url, "num"),
-            keyword: this.getQueryString(object.url, "keyword")
+            keyword: this.getQueryString(object.url, "keyword"),
+            from: 'web'
         };
         
         var _this = this;
@@ -200,7 +201,7 @@
                 }, function (new_value) {
                     if (new_value) {
                         //console.log(new_value)
-                        var search_tempalte = 'https://gitcafe.net/tool/alipaper/?action=search&keyword=#msearchword&cat=&num=';
+                        var search_tempalte = 'https://gitcafe.net/tool/alipaper/?action=search&from=web&keyword=#msearchword';
                         var searchurl = search_tempalte.replace('#msearchword',encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
@@ -233,6 +234,7 @@
             };
         //info.find('.info__rate,.info__right').remove();
         scroll.render().addClass('layer--wheight').data('mheight', info);
+        console.log(data)
         if (data.data.length) {
             html.append(info);
             html.append(scroll.render());
