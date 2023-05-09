@@ -38,6 +38,7 @@
         this.activity.loader(true);
         
         network.silent(object.url, this.build.bind(this), function () {
+          
           var empty = new Lampa.Empty();
           html.append(empty.render());
           _this.start = empty.start;
@@ -232,10 +233,10 @@
             };
         //info.find('.info__rate,.info__right').remove();
         scroll.render().addClass('layer--wheight').data('mheight', info);
-        if (data.length) {
+        if (data.data.length) {
             html.append(info);
             html.append(scroll.render());
-            this.append(data);
+            this.append(data.data);
             scroll.append(body);
             this.activity.loader(false);
             this.activity.toggle();
