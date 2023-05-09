@@ -57,7 +57,8 @@
             action: this.getQueryString(object.url,"action"),
             cat: this.getQueryString(object.url,"cat"),
             num: 1+object.page++,
-            keyword: this.getQueryString(object.url, "keyword")
+            keyword: this.getQueryString(object.url, "keyword"),
+            from: 'web'
         };
         
         var _this2 = this;
@@ -68,8 +69,8 @@
           waitload = true;
           //object.page++;
           network.silent(object.url, function (result) {
-            _this2.append(result);
-            if (result.length) waitload = false;
+            _this2.append(result.data);
+            if (result.data.length) waitload = false;
             Lampa.Controller.enable('content');
           }, false,postdata);
         //}
