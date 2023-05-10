@@ -1857,7 +1857,7 @@
     });
   };
 
-  function getcode_() {
+  function getcode() {
 
     // jQuery.param
     network.clear();
@@ -1918,7 +1918,7 @@
     });
   }
 
-  function getcode() {
+  function getcode_() {
 
     // jQuery.param
     network.clear();
