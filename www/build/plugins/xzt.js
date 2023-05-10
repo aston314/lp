@@ -235,7 +235,7 @@
             };
         //info.find('.info__rate,.info__right').remove();
         scroll.render().addClass('layer--wheight').data('mheight', info);
-        console.log(data)
+        // console.log(data)
         if (data.data.length) {
             html.append(info);
             html.append(scroll.render());
