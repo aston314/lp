@@ -37,7 +37,7 @@
 
             this.activity.loader(true);
 
-            network.silent(cors + object.url, function (str) {
+            network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -65,7 +65,7 @@
                 };
                 waitload = true;
                 object.page++;
-                network.silent(cors + object.url + '?before=' + object.gotopage[0], function (str) {
+                network["native"](cors + object.url + '?before=' + object.gotopage[0], function (str) {
                     var result = _this2.card(str);
                     _this2.append(result);
                     if (result.card.length) waitload = false;
