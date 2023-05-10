@@ -1857,12 +1857,12 @@
     });
   };
 
-  function getcode() {
+  function getcode_() {
 
     // jQuery.param
     network.clear();
     network.timeout(10000);
-    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network.silent("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       // console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1918,7 +1918,7 @@
     });
   }
 
-  function getcode_() {
+  function getcode() {
 
     // jQuery.param
     network.clear();
