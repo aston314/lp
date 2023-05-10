@@ -1642,7 +1642,7 @@
       },
       "detail":{
          "videoscontainer":{
-            "selector":"a[href*=\"www.aliyundrive.com\"]",
+            "selector":"a[href*=\"www.aliyundrive.com\"],a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName":"",
             "filter":""
          },
