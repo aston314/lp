@@ -38,7 +38,7 @@
 
         this.activity.loader(true);
         
-        network.silent(object.url, this.build.bind(this), function () {
+        network["native"](object.url, this.build.bind(this), function () {
           
           var empty = new Lampa.Empty();
           html.append(empty.render());
@@ -68,7 +68,7 @@
         //if (object.page < 50) {
           waitload = true;
           //object.page++;
-          network.silent(object.url, function (result) {
+          network["native"](object.url, function (result) {
             _this2.append(result.data);
             if (result.data.length) waitload = false;
             Lampa.Controller.enable('content');
