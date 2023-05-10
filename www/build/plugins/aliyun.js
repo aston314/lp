@@ -69,7 +69,7 @@
             var p = {
               dataType: "json",
               headers: {
-                "content-type": "application/json;charset=utf-8",
+                "content-type": "application/json",
               },
             };
             network["native"](url, function (json) {
