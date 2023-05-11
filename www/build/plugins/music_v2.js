@@ -187,7 +187,7 @@
                     // console.log(card)
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
