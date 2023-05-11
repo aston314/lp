@@ -179,7 +179,7 @@
 
                     scroll.update(card, true);
                     info.find('.info__title').text(element.title);
-                    info.find('.info__title-original').text(element.episodes_info);
+                    info.find('.info__title-original').text(element.year);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     var maxrow = Math.ceil(items.length / 7) - 1;
