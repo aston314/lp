@@ -14,6 +14,7 @@
         var info;
         var last;
         var waitload;
+        var player = window.radio_player_;
         var doubanitem = [];
         //var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
         var cors = 'https://cors.eu.org/';
@@ -411,17 +412,22 @@
 
                         if (match) {
                             var urlvideo = match[1];
-                            // console.log(urlvideo);
-                            var playlist = [];
-                            var first = {
+                            var data = {
                                 url: urlvideo,
-                                //   timeline: view,
-                                title: element.title,
-                                //   subtitles: element.subtitles
-                            };
-                            Lampa.Player.play(first);
-                            playlist.push(first);
-                            Lampa.Player.playlist(playlist);
+                                title: element.title
+                            }
+                            player.play(data);
+                            // // console.log(urlvideo);
+                            // var playlist = [];
+                            // var first = {
+                            //     url: urlvideo,
+                            //     //   timeline: view,
+                            //     title: element.title,
+                            //     //   subtitles: element.subtitles
+                            // };
+                            // Lampa.Player.play(first);
+                            // playlist.push(first);
+                            // Lampa.Player.playlist(playlist);
 
                         } else {
                             // doparse(element, view, url1_, MacPlayer_, str);
@@ -844,11 +850,111 @@
         url: 'https://www.fangpi.net/s/%E6%8A%96%E9%9F%B3'
     }];
 
+    function player() {
+        var html = Lampa.Template.get('radio_player', {});
+        var audio = new Audio();
+        var url = '';
+        var played = false;
+        var hls;
+        audio.addEventListener("play", function (event) {
+          played = true;
+          html.toggleClass('loading', false);
+        });
+  
+        function prepare() {
+          if (audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.mp3') > 0) load();else if (Hls.isSupported()) {
+            try {
+              hls = new Hls();
+              hls.attachMedia(audio);
+              hls.loadSource(url);
+              hls.on(Hls.Events.ERROR, function (event, data) {
+                if (data.details === Hls.ErrorDetails.MANIFEST_PARSING_ERROR) {
+                  if (data.reason === "no EXTM3U delimiter") {
+                    Lampa.Noty.show('流媒体文件加载错误');
+                  }
+                }
+              });
+              hls.on(Hls.Events.MANIFEST_LOADED, function () {
+                start();
+              });
+            } catch (e) {
+              Lampa.Noty.show('流媒体文件加载错误');
+            }
+          } else load();
+        }
+  
+        function load() {
+          audio.src = url;
+          audio.load();
+          start();
+        }
+  
+        function start() {
+          var playPromise;
+  
+          try {
+            playPromise = audio.play();
+          } catch (e) {}
+  
+          if (playPromise !== undefined) {
+            playPromise.then(function () {
+              console.log('Radio', 'start plaining');
+            })["catch"](function (e) {
+              console.log('Radio', 'play promise error:', e.message);
+            });
+          }
+        }
+  
+        function play() {
+          html.toggleClass('loading', true);
+          html.toggleClass('stop', false);
+          prepare();
+        }
+  
+        function stop() {
+          played = false;
+          html.toggleClass('stop', true);
+          html.toggleClass('loading', false);
+  
+          if (hls) {
+            hls.destroy();
+            hls = false;
+          }
+  
+          audio.src = '';
+        }
+  
+        html.on('hover:enter', function () {
+          if (played) stop();else if (url) play();
+        });
+  
+        this.create = function () {
+          $('.head__actions .open--search').before(html);
+        };
+  
+        this.play = function (data) {
+          stop();
+        //   url = data.stream_320 ? data.stream_320 : data.stream_128 ? data.stream_128 : data.stream_hls.replace('playlist.m3u8', '96/playlist.m3u8');
+        //   url = data.playUrl.ts64;
+          url = data.url;
+          html.find('.radio-player__name').text(data.title);
+          html.toggleClass('hide', false);
+          play();
+        };
+    }
+
     function startFANGPI() {
+        window.radio = true;
+      
+        Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
+        Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Radio Record</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
+        Lampa.Template.add('radio_style', "<style>\n    .radio-item {\n        width: 8em;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-item__imgbox {\n        background-color: #3E3E3E;\n        padding-bottom: 83%;\n        position: relative;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item__img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      .radio-item__name {\n        font-size: 1.1em;\n        margin-top: 0.8em;\n      }\n      .radio-item.focus .radio-item__imgbox:after {\n        border: solid 0.4em #fff;\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 0;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item + .radio-item {\n        margin-left: 1em;\n      }\n      \n      @-webkit-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-moz-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-o-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      @-webkit-keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      @-moz-keyframes sound-loading {\n        0% {\n          -moz-transform: rotate(0deg);\n               transform: rotate(0deg);\n        }\n        100% {\n          -moz-transform: rotate(360deg);\n               transform: rotate(360deg);\n        }\n      }\n      @-o-keyframes sound-loading {\n        0% {\n          -o-transform: rotate(0deg);\n             transform: rotate(0deg);\n        }\n        100% {\n          -o-transform: rotate(360deg);\n             transform: rotate(360deg);\n        }\n      }\n      @keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n             -moz-transform: rotate(0deg);\n               -o-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n             -moz-transform: rotate(360deg);\n               -o-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      .radio-player {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n        padding: 0.2em 0.8em;\n        background-color: rgb(255 255 255 / 0%);\n      }\n      .radio-player__name {\n        margin-right: 1em;\n        white-space: nowrap;\n        overflow: hidden;\n        -o-text-overflow: ellipsis;\n           text-overflow: ellipsis;\n        max-width: 8em;\n      }\n      @media screen and (max-width: 385px) {\n        .radio-player__name {\n          display: none;\n        }\n      }\n      .radio-player__button {\n        position: relative;\n        width: 1.5em;\n        height: 1.5em;\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n           -moz-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i {\n        display: block;\n        width: 0.2em;\n        background-color: #fff;\n        margin: 0 0.1em;\n        -webkit-animation: sound 0ms -800ms linear infinite alternate;\n           -moz-animation: sound 0ms -800ms linear infinite alternate;\n             -o-animation: sound 0ms -800ms linear infinite alternate;\n                animation: sound 0ms -800ms linear infinite alternate;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i:nth-child(1) {\n        -webkit-animation-duration: 474ms;\n           -moz-animation-duration: 474ms;\n             -o-animation-duration: 474ms;\n                animation-duration: 474ms;\n      }\n      .radio-player__button i:nth-child(2) {\n        -webkit-animation-duration: 433ms;\n           -moz-animation-duration: 433ms;\n             -o-animation-duration: 433ms;\n                animation-duration: 433ms;\n      }\n      .radio-player__button i:nth-child(3) {\n        -webkit-animation-duration: 407ms;\n           -moz-animation-duration: 407ms;\n             -o-animation-duration: 407ms;\n                animation-duration: 407ms;\n      }\n      .radio-player__button i:nth-child(4) {\n        -webkit-animation-duration: 458ms;\n           -moz-animation-duration: 458ms;\n             -o-animation-duration: 458ms;\n                animation-duration: 458ms;\n      }\n      .radio-player.stop .radio-player__button {\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        border: 0.2em solid #fff;\n      }\n      .radio-player.stop .radio-player__button i {\n        display: none;\n      }\n      .radio-player.stop .radio-player__button:after {\n        content: \"\";\n        width: 0.5em;\n        height: 0.5em;\n        background-color: #fff;\n      }\n      .radio-player.loading .radio-player__button:before {\n        content: \"\";\n        display: block;\n        border-top: 0.2em solid #fff;\n        border-left: 0.2em solid transparent;\n        border-right: 0.2em solid transparent;\n        border-bottom: 0.2em solid transparent;\n        -webkit-animation: sound-loading 1s linear infinite;\n           -moz-animation: sound-loading 1s linear infinite;\n             -o-animation: sound-loading 1s linear infinite;\n                animation: sound-loading 1s linear infinite;\n        width: 0.9em;\n        height: 0.9em;\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player.loading .radio-player__button i {\n        display: none;\n      }\n      .radio-player.focus {\n        background-color: #fff;\n        color: #000;\n      }\n      .radio-player.focus .radio-player__button {\n        border-color: #000;\n      }\n      .radio-player.focus .radio-player__button i, .radio-player.focus .radio-player__button:after {\n        background-color: #000;\n      }\n      .radio-player.focus .radio-player__button:before {\n        border-top-color: #000;\n      }\n    </style>");
+        
         window.plugin_fangpi_ready = true;
         Lampa.Component.add('fangpi', FANGPI);
 
         function addSettingsFANGPI() {
+            window.radio_player_ = new player();
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="channel"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
@@ -870,6 +976,7 @@
             });
             $('.menu .menu__list').eq(0).append(menu_item);
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
+            window.radio_player_.create();
         }
 
         if (window.appready) addSettingsFANGPI()
