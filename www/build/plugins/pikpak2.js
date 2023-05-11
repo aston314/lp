@@ -94,7 +94,7 @@
           postdata.ID = object.url;
           url =  "https://pikpak.kinh.cc/List.php";
 
-          network["native"](url, function (json) {
+          network.silent(url, function (json) {
             if (json.files) {
               json.files.forEach(function (item, index) {
                 if (item.mime_type.indexOf('video') != -1 || item.kind == "drive#folder") {
@@ -389,7 +389,7 @@
               
               //var chinese_title = element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : element.title.replace(/\./g,' ').replace(/\(/g,'').replace(/\)/,'').replace(/\d{4}(.+)/,'').trim();
               var chinese_title = element.title.replace(/\./g,' ').replace(/\(/g,'').replace(/\)/,'').replace(/\d{4}(.+)/,'').replace(/4K|《|【|》|】|\./g, ' ').trim()
-              // network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+              // network.silent('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
               //   var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
               //   var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
               //   if (rating_douban) {
@@ -408,7 +408,7 @@
               // }, false, {
               //   dataType: 'text'
               // });
-              network["native"](PikPakProxy() + 'https://f.nxcloud.uk/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+              network.silent(PikPakProxy() + 'https://f.nxcloud.uk/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
                 
                 if (json.results.length > 0) {
                   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
@@ -451,7 +451,7 @@
               /* console.log(element);
               console.log("取得播放地址");*/
               postdata.ID = myurl;
-              network["native"]("https://pikpak.kinh.cc/DownLoad.php", function (json) {
+              network.silent("https://pikpak.kinh.cc/DownLoad.php", function (json) {
                 if (json) {
                   //_this4.start();
                   var file = json.Link;
@@ -863,7 +863,7 @@
 
         network.clear();
         network.timeout(8000);
-        network["native"](url, function (json) {
+        network.silent(url, function (json) {
             if (json.Status) {
                 if (error) error();
             } else {
