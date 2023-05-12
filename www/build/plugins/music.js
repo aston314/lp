@@ -590,8 +590,8 @@
         title: '伊能静',
         url: 'https://meting.yany.ml/api?server=netease&type=search&id=伊能静'
     }, {
-        title: '90年代',
-        url: 'https://meting.yany.ml/api?server=netease&type=search&id=90年代'
+        title: '王力宏',
+        url: 'https://meting.yany.ml/api?server=netease&type=search&id=王力宏'
     },
     {
         title: '王菲',
