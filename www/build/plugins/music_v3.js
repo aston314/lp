@@ -116,7 +116,7 @@
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
 
-            network["native"](object.url, function (result) {
+            network.silent(object.url, function (result) {
                 _this2.append(result);
 
                 // object.type == 'list' ? datatye = result.subjects : datatye = result;
