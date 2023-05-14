@@ -244,7 +244,7 @@
                             // Lampa.Player.playlist(video);
                             var data = {
                                 url: result.data[0].url,
-                                title: element.name
+                                title: element.name + '-' +element.ar[0].name
                             }
                             player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
@@ -276,7 +276,7 @@
                                     // if (result.msg == '成功') {
                                     var data = {
                                         url: result.data.src,
-                                        title: element.name
+                                        title: element.name + '-' +result.data.name
                                     }
                                     player.play(data);
                                     card.find('.card__view').append('<div class="card__quality"></div>');
