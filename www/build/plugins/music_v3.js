@@ -221,7 +221,7 @@
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
                     if (element.privilege.flLevel !== 'none') {
-                        network["native"]('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
+                        network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
                             //console.log(result.data[0].url)
                             // var video = {
                             //     title: element.title,
@@ -244,7 +244,7 @@
                             // Lampa.Player.playlist(video);
                             var data = {
                                 url: result.data[0].url,
-                                title: element.name + '-' +element.ar[0].name
+                                title: element.name
                             }
                             player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
@@ -276,7 +276,7 @@
                                     // if (result.msg == '成功') {
                                     var data = {
                                         url: result.data.src,
-                                        title: element.name + '-' +result.data.name
+                                        title: element.name
                                     }
                                     player.play(data);
                                     card.find('.card__view').append('<div class="card__quality"></div>');
