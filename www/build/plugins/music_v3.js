@@ -18,6 +18,14 @@
         var doubanitem = [];
         var datatye;
 
+        this.getAsUriParameters = function(data) {
+            var url = '';
+            for (var prop in data) {
+               url += encodeURIComponent(prop) + '=' + 
+                   encodeURIComponent(data[prop]) + '&';
+            }
+            return url.substring(0, url.length - 1)
+         }
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
             //console.log(link)
@@ -56,7 +64,7 @@
 
             this.activity.loader(true);
 
-            network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
+            network["native"]('https://music.163.com/api/cloudsearch/pc?' +this.getAsUriParameters(postdata), this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
@@ -64,7 +72,7 @@
                 _this.activity.loader(false);
 
                 _this.activity.toggle();
-            }, postdata, {
+            }, false,false, {
                 dataType: 'json'
             });
 
@@ -116,13 +124,13 @@
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
 
-            network.silent(object.url, function (result) {
+            network["native"]('https://music.163.com/api/cloudsearch/pc?' +this.getAsUriParameters(postdata), function (result) {
                 _this2.append(result);
 
                 // object.type == 'list' ? datatye = result.subjects : datatye = result;
                 if (result.result.songs.length) waitload = false;
                 Lampa.Controller.enable('content');
-            }, false,postdata, {
+            }, false,false, {
                 dataType: 'json'
             });
 
