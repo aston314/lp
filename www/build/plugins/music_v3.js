@@ -206,7 +206,7 @@
                     if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
+                    // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     }
                     // if (Lampa.Helper) Lampa.Helper.show('db_detail', '长按住 (ОК) 键查看详情', card);
                 });
