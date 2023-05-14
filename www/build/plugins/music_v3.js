@@ -260,23 +260,32 @@
                             align: 'center',
                             mask: true,
                             onBack: function onBack() {
-                              Lampa.Modal.close();
-                              Lampa.Api.clear();
-                              Lampa.Controller.toggle('content');
-                            }
-                          });
-                          //https://diii.tk/
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name='+ encodeURIComponent(element.ar[0].name +' '+element.name)+'&n=1', function (result) {
-                            if (result.msg == '成功') {
-                                var data = {
-                                    url: result.data.src,
-                                    title: element.name
-                                }
-                                player.play(data);
-                                card.find('.card__view').append('<div class="card__quality"></div>');
-                                card.find('.card__quality').text('听');
                                 Lampa.Modal.close();
+                                Lampa.Api.clear();
                                 Lampa.Controller.toggle('content');
+                            }
+                        });
+                        //https://diii.tk/
+                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent(element.ar[0].name + ' ' + element.name), function (result) {
+                            var queryData = result.data.filter(function (fp) {
+                                return fp.name === element.ar[0].name && fp.songname === element.name
+                            })
+                            // console.log(queryData)
+                            if (queryData.length > 0) {
+                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                    // if (result.msg == '成功') {
+                                    var data = {
+                                        url: result.data.src,
+                                        title: element.name
+                                    }
+                                    player.play(data);
+                                    card.find('.card__view').append('<div class="card__quality"></div>');
+                                    card.find('.card__quality').text('听');
+                                    Lampa.Modal.close();
+                                    Lampa.Controller.toggle('content');
+                                }, false, false, {
+                                    dataType: 'json'
+                                });
                             } else {
                                 Lampa.Noty.show('找不到相关音频文件。');
                             }
@@ -285,7 +294,7 @@
                         });
                     }
 
-                    
+
 
                 });
                 body.append(card);
@@ -651,9 +660,6 @@
     },{
         title: '孙燕姿',
         url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿'
-    },{
-        title: '周杰伦',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=周杰伦'
     },{
         title: '抖音',
         url: 'https://music.163.com/api/cloudsearch/pc?s=抖音'
