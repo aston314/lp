@@ -287,7 +287,9 @@
                                     dataType: 'json'
                                 });
                             } else {
-                                Lampa.Noty.show('找不到相关音频文件。');
+                                Lampa.Modal.close();
+                                Lampa.Controller.toggle('content');
+                                Lampa.Noty.show('找不到相关歌曲音频文件。');
                             }
                         }, false, false, {
                             dataType: 'json'
