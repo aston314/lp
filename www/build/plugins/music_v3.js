@@ -56,7 +56,7 @@
 
             this.activity.loader(true);
 
-            network["native"](object.url + '?v=' + Math.random(), this.build.bind(this), function () {
+            network.silent(object.url + '?v=' + Math.random(), this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
