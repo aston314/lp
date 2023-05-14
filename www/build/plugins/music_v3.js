@@ -665,6 +665,18 @@
         url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏'
     },
     {
+        title: '陈奕迅',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅'
+    },
+    {
+        title: '林俊杰',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰'
+    },
+    {
+        title: '任贤齐',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐'
+    },
+    {
         title: '王菲',
         url: 'https://music.163.com/api/cloudsearch/pc?s=王菲'
     },{
