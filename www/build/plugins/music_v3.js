@@ -55,7 +55,7 @@
             var postdata = {
                 s: this.getQueryString(object.url, "s"),
                 type: 1,
-                limit: 48,
+                limit: 24,
                 total: "true",
                 offset: 0
             };
@@ -109,7 +109,7 @@
                 type: 1,
                 limit: 48,
                 total: "true",
-                offset: object.page*48+1
+                offset: object.page*24+1
             };
             // console.log(postdata)
 
