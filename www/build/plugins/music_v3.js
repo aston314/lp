@@ -130,7 +130,7 @@
                 // object.type == 'list' ? datatye = result.subjects : datatye = result;
                 if (result.result.songs.length) waitload = false;
                 Lampa.Controller.enable('content');
-            }, this.getAsUriParameters(postdata) , {
+            }, false, this.getAsUriParameters(postdata) , {
                 dataType: 'json'
             });
 
