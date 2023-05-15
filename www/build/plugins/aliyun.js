@@ -1857,12 +1857,35 @@
     });
   };
 
-  function getcode_() {
+
+function getAsUriParameters (data) {
+    var url = '';
+    for (var prop in data) {
+       url += encodeURIComponent(prop) + '=' + 
+           encodeURIComponent(data[prop]) + '&';
+    }
+    return url.substring(0, url.length - 1)
+ }
+
+  function getcode() {
+    var aliycode = {
+      ck: c.ck,
+      t: c.t,
+      AppName: "aliyun_drive",
+      AppEntrance: "web",
+      IsMobile: "false",
+      Lang: "zh_CN",
+      ReturnURL: "",
+      FromSite: "52",
+      BizParams: "",
+      Navlanguage: "zh-CN",
+      NavPlatform: "MacIntel",
+    }
 
     // jQuery.param
     network.clear();
     network.timeout(10000);
-    network.silent("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
+    network["native"]("https://passport.aliyundrive.com/newlogin/qrcode/query.do?appName=aliyun_drive&fromSite=52", function (found) {
       // console.log(found)
       var scaned = false;
       // NEW / SCANED / EXPIRED / CANCELED / CONFIRMED
@@ -1903,22 +1926,10 @@
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, {
-      ck: c.ck,
-      t: c.t,
-      AppName: "aliyun_drive",
-      AppEntrance: "web",
-      IsMobile: "false",
-      Lang: "zh_CN",
-      ReturnURL: "",
-      FromSite: "52",
-      BizParams: "",
-      Navlanguage: "zh-CN",
-      NavPlatform: "MacIntel",
-    });
+    }, getAsUriParameters(aliycode));
   }
 
-  function getcode() {
+  function getcode2() {
 
     // jQuery.param
     network.clear();
