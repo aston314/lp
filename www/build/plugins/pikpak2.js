@@ -102,6 +102,13 @@
             };
             postdata.AccessToken = info.loginInfo.access_token;
             Lampa.Storage.set("pikpakUserInfo", info);
+            Lampa.Activity.push({
+              url: '',
+              title: '我的PikPak',
+              component: 'pikpak',
+              movie: element,
+              page: 1
+            });
           } else {
             postdata.AccessToken = "";
             Lampa.Storage.set("pikpakUserInfo", "");
@@ -126,8 +133,30 @@
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
         
         if (postdata.AccessToken) {
+
+          // new Promise(function(resolve, reject) {
+          //   // 模拟登录过程，1 秒钟后认为登录成功
+          //   setTimeout(function() {
+          //     const username = 'admin';
+          //     const password = '123456';
+          //     if (username === 'admin' && password === '123456') {
+          //       resolve('login success');
+          //     } else {
+          //       reject('login failed');
+          //     }
+          //   }, 1000);
+          // })
+          // .then(function() {
+          //   // 登录成功后的操作
+          //   console.log('login success');
+          // })
+          // .catch(function(error) {
+          //   // 处理错误情况
+          //   console.error(error);
+          // });
+          
           postdata.ID = object.url;
-          url =  "https://pikpak.kinh.cc/List.php";
+          url = "https://pikpak.kinh.cc/List.php";
 
           network["native"](url, function (json) {
             if (json.files) {
@@ -135,7 +164,7 @@
                 if (item.mime_type.indexOf('video') != -1 || item.kind == "drive#folder") {
                   listlink.data[0].media.push({
                     translation_id: item.id,
-                    max_quality: item.mime_type.indexOf('video') != -1 ? item.file_extension.replace('.', '').toUpperCase() + ' / ' + get_size(item.size): ((item.kind == "drive#folder") ? '文件夹' : ''),
+                    max_quality: item.mime_type.indexOf('video') != -1 ? item.file_extension.replace('.', '').toUpperCase() + ' / ' + get_size(item.size) : ((item.kind == "drive#folder") ? '文件夹' : ''),
                     title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
                     type: item.kind,
                     drive_id: item.kind,
@@ -159,7 +188,7 @@
             _this.empty('哦: ' + network.errorDecode(a, c));
           }, getAsUriParameters(postdata), {
             dataType: 'json'
-        });
+          });
         } else {
           _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
           
