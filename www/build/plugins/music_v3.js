@@ -184,7 +184,7 @@
                       element.cover = 'https://images.weserv.nl/?url=' + element.cover.replace('https://','')
                     };
                   };
-                card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=300y300g");
+                card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g");
                 if (element.privilege.flLevel=='standard' || element.privilege.flLevel=='exhigh') {
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text('免费');
