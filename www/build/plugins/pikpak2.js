@@ -36,7 +36,7 @@
     var contextmenu_all = [];
 
     this.order = [{ title: '原始顺序', id: 'normal' },
-    { title: '倒序', id: 'invers' }];  
+    { title: '倒序', id: 'invers' }]; 
     
     var info = Lampa.Storage.get("pikpakUserInfo","");
 
@@ -53,13 +53,46 @@
         "Mail": Lampa.Storage.get('pikpak_userName', '')
       };
 
-      $.ajax({
-        url: "https://pikpak.kinh.cc/Login.php",
-        type: 'POST',
-        data: postdata_,
-        async: false,
-        dataType: 'json',
-        success: function success(json) {
+      // $.ajax({
+      //   url: "https://pikpak.kinh.cc/Login.php",
+      //   type: 'POST',
+      //   data: postdata_,
+      //   async: false,
+      //   dataType: 'json',
+      //   success: function success(json) {
+      //     json = JSON.parse(json.TokenData);
+      //     if (json && (json.access_token || json.type == 'Bearer')) {
+      //       var info = {};
+      //       info.loginInfo = json;
+      //       if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+      //         info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+      //       };
+      //       postdata.AccessToken = info.loginInfo.access_token;
+      //       Lampa.Storage.set("pikpakUserInfo", info);
+      //     } else {
+      //       postdata.AccessToken = "";
+      //       Lampa.Storage.set("pikpakUserInfo", "");
+      //       if (json && json.error) Lampa.Noty.show(json.details[1].message);
+      //     }
+      //   },
+      //   error: function error() {
+      //     Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+      //   }
+      // });
+
+      var url = 'https://pikpak.kinh.cc/Login.php';
+
+      // var postdata =
+      // {
+      //   "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
+      //   "Mail": Lampa.Storage.get('pikpak_userName', '')
+      // };
+
+      network.clear();
+      network.timeout(8000);
+      network.silent(url, function (json) {
+        if (json.Status) {
+        } else {
           json = JSON.parse(json.TokenData);
           if (json && (json.access_token || json.type == 'Bearer')) {
             var info = {};
@@ -74,11 +107,13 @@
             Lampa.Storage.set("pikpakUserInfo", "");
             if (json && json.error) Lampa.Noty.show(json.details[1].message);
           }
-        },
-        error: function error() {
-          Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
         }
+      }, function (a, c) {
+        Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+      }, getAsUriParameters(postdata_), {
+        dataType: 'json'
       });
+
     } else {
       postdata.AccessToken = info.loginInfo.access_token;
     };
@@ -122,7 +157,7 @@
           }, function (a, c) {
             //console.log(a.responseText,a.status)
             _this.empty('哦: ' + network.errorDecode(a, c));
-          }, postdata, {
+          }, getAsUriParameters(postdata), {
             dataType: 'json'
         });
         } else {
@@ -408,7 +443,7 @@
               // }, false, {
               //   dataType: 'text'
               // });
-              network.silent(PikPakProxy() + 'https://f.nxcloud.uk/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+              network.silent(PikPakProxy() + 'http://apitmdb.cub.watch/3/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
                 
                 if (json.results.length > 0) {
                   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
@@ -471,7 +506,7 @@
                 }
               }, function (a, c) {
                 Lampa.Noty.show(network.errorDecode(a, c));
-              }, postdata, {
+              }, getAsUriParameters(postdata), {
             dataType: 'json'
         });
 
@@ -851,6 +886,14 @@
       };
   });
 
+    function getAsUriParameters(data) {
+      var url = '';
+      for (var prop in data) {
+        url += encodeURIComponent(prop) + '=' +
+          encodeURIComponent(data[prop]) + '&';
+      }
+      return url.substring(0, url.length - 1)
+    }
 
     function PikPakLogin(success, error) {
         var url = 'https://pikpak.kinh.cc/Login.php';
@@ -885,7 +928,7 @@
         }, function (a, c) {
             Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
             if (error) error();
-        }, postdata, {
+        }, getAsUriParameters(postdata), {
             dataType: 'json'
         });
 
