@@ -102,6 +102,10 @@
             };
             postdata.AccessToken = info.loginInfo.access_token;
             Lampa.Storage.set("pikpakUserInfo", info);
+            var element = {};
+            element.img = './img/img_broken.svg';
+            element.original_title = '';
+            element.title = 'PikPak内容';
             Lampa.Activity.push({
               url: '',
               title: '我的PikPak',
