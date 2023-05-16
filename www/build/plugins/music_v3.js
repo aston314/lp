@@ -107,7 +107,7 @@
             var postdata = {
                 s: this.getQueryString(object.url, "s"),
                 type: 1,
-                limit: 48,
+                limit: 24,
                 total: "true",
                 offset: object.page*24+1
             };
@@ -203,11 +203,11 @@
                     info.find('.info__title-original').text(element.al.name);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
-                    if (object.type == 'list') {
+                    // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
-                    }
+                    // }
                     // if (Lampa.Helper) Lampa.Helper.show('db_detail', '长按住 (ОК) 键查看详情', card);
                 });
                 // card.on('hover:long', function () {
