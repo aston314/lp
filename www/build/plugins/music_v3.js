@@ -370,13 +370,15 @@
         scroll.render().addClass('layer--wheight').data('mheight', info);
         
         // object.type == 'list' ? datatye = data.subjects : datatye = data ;
-        if (data.result.songs.length) {
-            html.append(info);
-            html.append(scroll.render());
-            this.append(data);
-            scroll.append(body);
-            this.activity.loader(false);
-            this.activity.toggle();
+        if (data.result) {
+            if (data.result.songs.length) {
+                html.append(info);
+                html.append(scroll.render());
+                this.append(data);
+                scroll.append(body);
+                this.activity.loader(false);
+                this.activity.toggle();
+            }
         } else {
             html.append(scroll.render());
             _this2.empty();
