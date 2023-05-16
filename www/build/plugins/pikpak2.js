@@ -381,7 +381,7 @@
               // }, false, {
               //   dataType: 'text'
               // });
-              network["native"](PikPakProxy() + 'http://apitmdb.cub.watch/3/http://api.themoviedb.org/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+              network["native"](PikPakProxy() + 'http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
                 
                 if (json.results.length > 0) {
                   //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
