@@ -54,6 +54,10 @@
         login()
         .then(function(postdata) {
           console.log('Pikpak login success');
+          // console.log('postdata',postdata)
+          // var info = Lampa.Storage.get("pikpakUserInfo","");
+          // console.log(info)
+          // postdata.AccessToken = info.loginInfo.access_token;
           if (postdata.AccessToken) {
             postdata.ID = object.url;
             url = "https://pikpak.kinh.cc/List.php";
@@ -854,19 +858,8 @@
                   info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
                 };
                 postdata.AccessToken = info.loginInfo.access_token;
+                resolve(postdata)
                 Lampa.Storage.set("pikpakUserInfo", info);
-                // resolve('login success');
-                // var element = {};
-                // element.img = './img/img_broken.svg';
-                // element.original_title = '';
-                // element.title = 'PikPak内容';
-                // Lampa.Activity.push({
-                //   url: '',
-                //   title: '我的PikPak',
-                //   component: 'pikpak',
-                //   movie: element,
-                //   page: 1
-                // });
               } else {
                 postdata.AccessToken = "";
                 Lampa.Storage.set("pikpakUserInfo", "");
@@ -882,9 +875,9 @@
     
         } else {
           postdata.AccessToken = info.loginInfo.access_token;
+          resolve(postdata)
         };
-        // console.log(postdata)
-        resolve(postdata)
+        
       });
     }
 
