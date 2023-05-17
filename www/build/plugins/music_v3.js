@@ -125,7 +125,7 @@
                 //console.log(u);
 
             network["native"]('https://music.163.com/api/cloudsearch/pc', function (result) {
-                if (result.result) {
+                if (result.result.songCount > 0) {
                 _this2.append(result);
 
                 // object.type == 'list' ? datatye = result.subjects : datatye = result;
