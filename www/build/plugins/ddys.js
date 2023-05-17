@@ -211,7 +211,7 @@
                 });
                 card.on('hover:long', function () {
                     Lampa.Modal.open({
-                            title: '获取分季中',
+                            title: '',
                             html: Lampa.Template.get('modal_loading'),
                             size: 'small',
                             align: 'center',
