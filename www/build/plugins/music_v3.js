@@ -125,10 +125,12 @@
                 //console.log(u);
 
             network["native"]('https://music.163.com/api/cloudsearch/pc', function (result) {
+                if (result.result) {
                 _this2.append(result);
 
                 // object.type == 'list' ? datatye = result.subjects : datatye = result;
                 if (result.result.songs.length) waitload = false;
+                }
                 Lampa.Controller.enable('content');
             }, false, this.getAsUriParameters(postdata) , {
                 dataType: 'json'
