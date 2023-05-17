@@ -205,24 +205,150 @@
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     }
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
-                    //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
+                    if (Lampa.Helper) Lampa.Helper.show('ddys_detail', '长按住 (ОК) 选择分季', card);
                 });
-                // card.on('hover:long', function () {
-                // 	//contextmenu();
-                //     Lampa.Modal.open({
-                //         title: '',
-                //         html: Lampa.Template.get('modal_loading'),
-                //         size: 'small',
-                //         mask: true,
-                //         onBack: function onBack() {
-                //             Lampa.Modal.close();
-                //             Lampa.Api.clear();
-                //             Lampa.Controller.toggle('content');
-                //         }
-                //     });
+                card.on('hover:long', function () {
+                    network["native"](element.url, function (str) {
+                        var arrseason = [];
+                        if ($('.page-links', str).children().length > 0) {
+                            // console.log($('.page-links', str).children().length)
+                            // console.log($('.page-links',str).find('a').last().attr('href'))
+                            var dlink,vlink = element.url.match(/^(.*\/)\d+\/$/);
+                            if (vlink) {
+                                dlink = vlink[1]
+                            } else {
+                                dlink = element.url
+                            }
+                            
+                            for (let i = 0; i < $('.page-links', str).children().length; i++) {
+                                arrseason.push({
+                                    title: '第' + (i+1) + '季',
+                                    url: dlink + (i+1)+'/'
+                                });
+                            }
+                            Lampa.Select.show({
+                                title: '选择季',
+                                items: arrseason,
+                                onSelect: function onSelect(a) {
+                                    Lampa.Modal.open({
+                                        title: '',
+                                        html: Lampa.Template.get('modal_loading'),
+                                        size: 'small',
+                                        align: 'center',
+                                        mask: true,
+                                        onBack: function onBack() {
+                                            Lampa.Modal.close();
+                                            Lampa.Api.clear();
+                                            Lampa.Controller.toggle('content');
+                                        }
+                                    });
+                                    element.original_title = '';
+                                    element.title = mytitle;
 
-                //     _this3.find_douban(element);
-                // });
+                                    var sources = [];
+                                    network["native"](a.url, function (str) {
+                                        Lampa.Modal.close();
+                                        var playlistScript = $('.wp-playlist-script', str).text();
+                                        var playlistData = JSON.parse(playlistScript);
+
+                                        playlistData.tracks.forEach(function (html) {
+                                            sources.push({
+                                                title: html.caption,
+                                                url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
+                                                subtitles: []
+                                            });
+
+                                        });
+                                        // console.log(sources)
+                                        var html_ = $('<div></div>');
+                                        var navigation = $('<div class="navigation-tabs"></div>');
+
+                                        sources.forEach(function (tab, i) {
+                                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                                            button.on('hover:enter', function () {
+                                                // whatclick = tab.title;
+                                                // console.log(whatclick)
+                                                // if (tab.title == whatclick) button.addClass('active');
+
+                                                // _this.open();
+                                                network["native"](tab.url, function (data) {
+                                                    if (data.url) {
+                                                        var playlist = [];
+                                                        var first = {
+                                                            url: data.url,
+                                                            //   timeline: view,
+                                                            title: data.title,
+                                                            subtitles: data.subtitles
+                                                        };
+                                                        Lampa.Player.play(first);
+
+                                                        playlist.push(first);
+                                                        Lampa.Player.playlist(playlist);
+
+                                                    } else {
+                                                        Lampa.Noty.show('无法检索播放链接');
+                                                    }
+                                                    // Lampa.Controller.toggle('content');
+
+                                                }, function (a, c) {
+                                                    Lampa.Noty.show(network.errorDecode(a, c));
+                                                }, false, {
+                                                    dataType: 'json',
+                                                    headers: {
+                                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                                                        'Referer': "https://ddys.pro/"
+                                                    }
+                                                });
+                                            });
+
+                                            if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                            if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                                if (i > 0) html_.append(navigation);
+                                                navigation = $('<div class="navigation-tabs"></div>');
+                                            }
+                                            navigation.append(button);
+                                        });
+
+                                        html_.append(navigation);
+
+                                        Lampa.Modal.open({
+                                            title: element.title,
+                                            html: html_,
+                                            size: 'medium',
+                                            select: html.find('.navigation-tabs .active')[0],
+                                            mask: true,
+                                            onBack: function onBack() {
+                                                Lampa.Modal.close();
+                                                Lampa.Api.clear();
+                                                Lampa.Controller.toggle('content');
+                                            }
+                                        });
+
+                                    }, function (a, c) {
+                                        Lampa.Noty.show(network.errorDecode(a, c));
+                                    }, false, {
+                                        dataType: 'text',
+                                        headers: {
+                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                                            'Referer': "https://ddys.pro/"
+                                        }
+                                    });
+                                },
+                                onBack: function onBack() {
+                                    Lampa.Controller.toggle('content');
+                                }
+                            });
+                        }
+                    }, function (a, c) {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }, false, {
+                        dataType: 'text',
+                        headers: {
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+                            'Referer': "https://ddys.pro/"
+                        }
+                    });
+                });
                 card.on('hover:enter', function (target, card_data) {
                     Lampa.Modal.open({
                         title: '',
@@ -272,6 +398,7 @@
                     network["native"](element.url, function (str) {
                         // console.log($('.page-links',str).children().length)
                         Lampa.Modal.close();
+                        
                         // Lampa.Api.clear();
                         // Lampa.Controller.toggle('content');
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
@@ -288,13 +415,16 @@
                             
                         });
                         // console.log(sources)
-                        
+                        // var whatclick;
                         var html_ = $('<div></div>');
                         var navigation = $('<div class="navigation-tabs"></div>');
+                        
                         sources.forEach(function (tab, i) {
                             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                             button.on('hover:enter', function () {
-                                // _this.display = tab.name;
+                                // whatclick = tab.title;
+                                // console.log(whatclick)
+                                // if (tab.title == whatclick) button.addClass('active');
 
                                 // _this.open();
                                 network["native"](tab.url, function (data) {
@@ -326,7 +456,7 @@
                                     }
                                 });
                             });
-                            // if (tab.name == _this.display) button.addClass('active');
+                            
                             if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
                             if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
                                 if (i > 0) html_.append(navigation);
