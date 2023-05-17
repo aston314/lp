@@ -210,7 +210,20 @@
                     if (Lampa.Helper) Lampa.Helper.show('ddys_detail', '长按住 (ОК) 选择分季', card);
                 });
                 card.on('hover:long', function () {
+                    Lampa.Modal.open({
+                            title: '',
+                            html: Lampa.Template.get('modal_loading'),
+                            size: 'small',
+                            align: 'center',
+                            mask: true,
+                            onBack: function onBack() {
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
+                                Lampa.Controller.toggle('content');
+                            }
+                    });
                     network["native"](element.url, function (str) {
+                        Lampa.Modal.close();
                         var arrseason = [];
                         if ($('.page-links', str).children().length > 0) {
                             // console.log($('.page-links', str).children().length)
