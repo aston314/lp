@@ -184,8 +184,10 @@
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
                 if (/第(\d+)季/.exec(element.title)) {
+                    if (/第(\d+)季/.exec(element.title)[1] != "1") {
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text('季');
+                    }
                 };
 
                 card.on('hover:focus', function () {
