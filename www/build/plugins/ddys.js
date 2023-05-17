@@ -183,10 +183,10 @@
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
-                // if (element.episodes_info) {
-                //     card.find('.card__view').append('<div class="card__quality"></div>');
-                //     card.find('.card__quality').text(element.episodes_info.replace('更新至', '第'));
-                // };
+                if (/第(\d+)季/.exec(element.title)) {
+                    card.find('.card__view').append('<div class="card__quality"></div>');
+                    card.find('.card__quality').text('季');
+                };
 
                 card.on('hover:focus', function () {
                     last = card[0];
