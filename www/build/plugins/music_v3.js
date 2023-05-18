@@ -245,7 +245,7 @@
 				// });
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
-                    network.silent('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
+                    network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                             if (result.code == 200){
                                 lrcObj = {}
                                 // console.log(result.lrc.lyric)
