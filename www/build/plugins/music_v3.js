@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-
+    var lrcObj = {};
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -52,6 +52,20 @@
             // 1009 电台
             // NULL 推荐（实测失效）
             // offset: 偏移数量，用于分页
+            // http://music.163.com/api/search/get/web?csrf_token=hlpretag=&hlposttag=&s={搜索内容}&type=1&offset=0&total=true&limit=20
+            // https://blog.51cto.com/u_15064627/2597877
+            // limit：返回数据条数（每页获取的数量），默认为20，可以自行更改
+            // offset：偏移量（翻页），offset需要是limit的倍数
+
+            // type：搜索的类型
+            // type=1 单曲
+            // type=10 专辑
+            // type=100 歌手
+            // type=1000 歌单
+            // type=1002 用户
+            // type=1004 MV
+            // type=1006 歌词
+            // type=1009 主播电台
             var postdata = {
                 s: this.getQueryString(object.url, "s"),
                 type: 1,
@@ -59,6 +73,7 @@
                 total: "true",
                 offset: 0
             };
+            // console.log(this.getAsUriParameters(postdata))
 
             var _this = this;
 
@@ -202,7 +217,7 @@
                     last = card[0];
                     scroll.update(card, true);
                     info.find('.info__title').text(element.name);
-                    info.find('.info__title-original').text(element.al.name);
+                    // info.find('.info__title-original').text(element.al.name);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
@@ -230,6 +245,32 @@
 				// });
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
+                    network.silent('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
+                            if (result.code == 200){
+                                lrcObj = {}
+                                // console.log(result.lrc.lyric)
+                                if (result.lrc) {
+                                    var lyrics = result.lrc.lyric.split("\n");
+                                    for (var i = 0; i < lyrics.length; i++) {
+                                        var lyric = decodeURIComponent(lyrics[i]);
+                                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                        var timeRegExpArr = lyric.match(timeReg);
+                                        if (!timeRegExpArr) continue;
+                                        var clause = lyric.replace(timeReg, '');
+                                        for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                            var t = timeRegExpArr[k];
+                                            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                            var time = min * 60 + sec;
+                                            lrcObj[time] = clause;
+                                        }
+                                    }
+                                }
+                                // console.log(lrcObj)
+                            }
+                        }, false, false, {
+                            dataType: 'json'
+                        });
                     if (element.privilege.flLevel !== 'none') {
                         network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
                             //console.log(result.data[0].url)
@@ -763,7 +804,38 @@
   
           if (playPromise !== undefined) {
             playPromise.then(function () {
+                // console.log(lrcObj)
+                // audio.addEventListener("loadedmetadata", function () {
+                    audio.addEventListener("timeupdate", function () {
+                        
+                      var currentTime = audio.currentTime;
+                      
+                      let obj = lrcObj[Math.floor(currentTime)];
+                        if (obj != undefined) {
+                            $('.info__title-original').css('color','f3d900');
+                            $(".info__title-original").text(obj?obj:'♫...');
+                        }
+                      var duration = audio.duration;
+          
+                      var minutes = Math.floor(currentTime / 60);
+                      var seconds = Math.floor(currentTime % 60);
+          
+                      var durationMinutes = Math.floor(duration / 60);
+                      var durationSeconds = Math.floor(duration % 60);
+          
+                      var progress = (audio.currentTime / audio.duration) * 100;
+                    //   console.log(progress)
+                    //   progressBar.css("width", progress + "%");
+          
+                      // 更新进度条文本
+                      $(".info__create").text(
+                        ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
+                        // ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
+                      );
+                    });
+                //   });
               console.log('Radio', 'start plaining');
+              
             })["catch"](function (e) {
               console.log('Radio', 'play promise error:', e.message);
             });
