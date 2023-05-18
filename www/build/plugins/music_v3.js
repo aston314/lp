@@ -799,41 +799,42 @@
           var playPromise;
   
           try {
-            playPromise = audio.play();
+              playPromise = audio.play();
+              // console.log(lrcObj)
+              // audio.addEventListener("loadedmetadata", function () {
+              audio.addEventListener("timeupdate", function () {
+
+                  var currentTime = audio.currentTime;
+
+                  let obj = lrcObj[Math.floor(currentTime)];
+                  if (obj != undefined) {
+                      $('.info__title-original').css('color', 'f3d900');
+                      $(".info__title-original").text(obj ? obj : '♪...');
+                  }
+                  var duration = audio.duration;
+
+                  var minutes = Math.floor(currentTime / 60);
+                  var seconds = Math.floor(currentTime % 60);
+
+                  var durationMinutes = Math.floor(duration / 60);
+                  var durationSeconds = Math.floor(duration % 60);
+
+                  var progress = (audio.currentTime / audio.duration) * 100;
+                  //   console.log(progress)
+                  //   progressBar.css("width", progress + "%");
+
+                  // 更新进度条文本
+                  $(".info__create").text(
+                      ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
+                      // ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
+                  );
+              });
+                //   });
           } catch (e) {}
   
           if (playPromise !== undefined) {
             playPromise.then(function () {
-                console.log(lrcObj)
-                // audio.addEventListener("loadedmetadata", function () {
-                    audio.addEventListener("timeupdate", function () {
-                        
-                      var currentTime = audio.currentTime;
-                      
-                      let obj = lrcObj[Math.floor(currentTime)];
-                        if (obj != undefined) {
-                            $('.info__title-original').css('color','f3d900');
-                            $(".info__title-original").text(obj ? obj :'♪...');
-                        }
-                      var duration = audio.duration;
-          
-                      var minutes = Math.floor(currentTime / 60);
-                      var seconds = Math.floor(currentTime % 60);
-          
-                      var durationMinutes = Math.floor(duration / 60);
-                      var durationSeconds = Math.floor(duration % 60);
-          
-                      var progress = (audio.currentTime / audio.duration) * 100;
-                    //   console.log(progress)
-                    //   progressBar.css("width", progress + "%");
-          
-                      // 更新进度条文本
-                      $(".info__create").text(
-                        ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
-                        // ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
-                      );
-                    });
-                //   });
+                
               console.log('Radio', 'start plaining');
               
             })["catch"](function (e) {
