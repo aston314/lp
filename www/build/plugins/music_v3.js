@@ -804,7 +804,7 @@
   
           if (playPromise !== undefined) {
             playPromise.then(function () {
-                // console.log(lrcObj)
+                console.log(lrcObj)
                 // audio.addEventListener("loadedmetadata", function () {
                     audio.addEventListener("timeupdate", function () {
                         
