@@ -810,6 +810,8 @@
                   if (obj != undefined) {
                       $('.info__title-original').css('color', 'f3d900');
                       $(".info__title-original").text(obj ? obj : '♪...');
+                  } else {
+                      $(".info__title-original").text('');
                   }
                   var duration = audio.duration;
 
