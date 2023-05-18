@@ -800,8 +800,9 @@
   
           try {
               playPromise = audio.play();
-              // console.log(lrcObj)
-              // audio.addEventListener("loadedmetadata", function () {
+              if ((Object.keys(lrcObj).length) == 0){
+                $(".info__title-original").text('');
+              };
               audio.addEventListener("timeupdate", function () {
 
                   var currentTime = audio.currentTime;
@@ -810,9 +811,7 @@
                   if (obj != undefined) {
                       $('.info__title-original').css('color', 'f3d900');
                       $(".info__title-original").text(obj ? obj : '♪...');
-                  } else {
-                      $(".info__title-original").text('');
-                  }
+                  } 
                   var duration = audio.duration;
 
                   var minutes = Math.floor(currentTime / 60);
@@ -821,17 +820,16 @@
                   var durationMinutes = Math.floor(duration / 60);
                   var durationSeconds = Math.floor(duration % 60);
 
-                  var progress = (audio.currentTime / audio.duration) * 100;
+                //   var progress = (audio.currentTime / audio.duration) * 100;
                   //   console.log(progress)
                   //   progressBar.css("width", progress + "%");
 
                   // 更新进度条文本
                   $(".info__create").text(
                       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
-                      // ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
                   );
               });
-                //   });
+               
           } catch (e) {}
   
           if (playPromise !== undefined) {
