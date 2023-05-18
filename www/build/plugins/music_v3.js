@@ -813,7 +813,7 @@
                       let obj = lrcObj[Math.floor(currentTime)];
                         if (obj != undefined) {
                             $('.info__title-original').css('color','f3d900');
-                            $(".info__title-original").text(obj?obj:'♫...');
+                            $(".info__title-original").text(obj ? obj :'♪...');
                         }
                       var duration = audio.duration;
           
