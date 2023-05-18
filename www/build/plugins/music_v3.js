@@ -79,7 +79,7 @@
 
             this.activity.loader(true);
 
-            network["native"]('https://music.163.com/api/cloudsearch/pc', this.build.bind(this), function () {
+            network["native"]('https://music.163.com/api/cloudsearch/pc?'+this.getAsUriParameters(postdata) , this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
@@ -87,7 +87,7 @@
                 _this.activity.loader(false);
 
                 _this.activity.toggle();
-            }, this.getAsUriParameters(postdata) , {
+            }, false,false , {
                 dataType: 'json'
             });
 
@@ -139,7 +139,7 @@
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
 
-            network["native"]('https://music.163.com/api/cloudsearch/pc', function (result) {
+            network["native"]('https://music.163.com/api/cloudsearch/pc?'+this.getAsUriParameters(postdata) , function (result) {
                 if (result.result.songCount > 0) {
                 _this2.append(result);
 
@@ -147,7 +147,7 @@
                 if (result.result.songs.length) waitload = false;
                 }
                 Lampa.Controller.enable('content');
-            }, false, this.getAsUriParameters(postdata) , {
+            }, false, false, {
                 dataType: 'json'
             });
 
