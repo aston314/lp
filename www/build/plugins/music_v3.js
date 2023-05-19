@@ -94,6 +94,8 @@
                 });
             } else {
                 urlpara = '&' + this.getAsUriParameters(postdata);
+                object.code == '1' ? urlpara = '' : urlpara;
+                
                 network["native"](object.url + urlpara, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
@@ -192,7 +194,8 @@
 
             switch (object.type) {
             case 'list':
-                listdata = data.result ? data.result.songs : [];
+                object.code == '1' ? listdata = data : (listdata = data.result ? data.result.songs : []);
+                ;
                 break;
             case 'albums':
                 listdata = data.hotAlbums;
@@ -209,9 +212,10 @@
             listdata.forEach(function (element) {
                 var mytitle = element.name.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
+
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: object.type == 'list'? element.ar[0].name + ' ' + element.al.name : (object.type == 'album'? object.albumname : '')
+                    release_year: object.type == 'list'? (object.code == '1' ? element.artists[0].name + ' ' + element.album.name : element.ar[0].name + ' ' + element.al.name) : (object.type == 'album'? object.albumname : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -231,7 +235,11 @@
                   };
                   switch (object.type) {
                     case 'list':
-                        card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");
+                        if (object.code == '1'){
+                            card.find('.card__img').attr('src', element.album.picUrl+"?param=200y200g");
+                        } else {
+                            card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");
+                        }
                         break;
                     case 'albums':
                         card.find('.card__img').attr('src', element.picUrl+"?param=200y200g");
@@ -277,18 +285,18 @@
 					//contextmenu();
                     var archiveMenu = [];
                     archiveMenu.push({
-                        title: '查看'+element.ar[0].name+'所有专辑',
-                        url: 'http://music.163.com/api/artist/albums/'+element.ar[0].id+'?id='+element.ar[0].id,
-                        id: element.ar[0].id,
+                        title: '查看'+(object.code == '1' ? element.artists[0].name: element.ar[0].name)+'所有专辑',
+                        url: 'http://music.163.com/api/artist/albums/'+(object.code == '1' ? element.artists[0].id : element.ar[0].id)+'?id='+(object.code == '1' ? element.artists[0].id : element.ar[0].id),
+                        id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
                         type: 'albums',
                         albumname: ''
                     });
                     archiveMenu.push({
                         title: '查看该专辑所有歌曲',
-                        url: 'https://ncm.icodeq.com/album?id='+element.al.id,
+                        url: 'https://ncm.icodeq.com/album?id='+(object.code == '1' ? element.album.id : element.al.id),
                         id: '',
                         type: 'album',
-                        albumname: element.al.name
+                        albumname: (object.code == '1' ? element.album.name : element.al.name)
                     });
                     Lampa.Select.show({
                         title: '操作',
@@ -400,9 +408,10 @@
                                     }
                                 });
                                 //https://diii.tk/
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent(element.ar[0].name + ' ' + element.name), function (result) {
+                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
                                     var queryData = result.data.filter(function (fp) {
-                                        return fp.name === element.ar[0].name && fp.songname === element.name
+                                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                                        return fp.name === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
                                     })
                                     // console.log(queryData)
                                     if (queryData.length > 0) {
@@ -482,6 +491,7 @@
                             title: '音乐 - '+a.title,
                             component: 'music',
                             type: 'list',
+                            code: a.code,
                             page: 1
                         });
                     },
@@ -498,8 +508,13 @@
 
             switch (object.type) {
                 case 'list':
-                    listdata = data.result ? data.result.songs : [];
-                    havedata = data.result;
+                    if (object.code == '1') {
+                        listdata = data;
+                        havedata = data;
+                    } else {
+                        listdata = data.result ? data.result.songs : [];
+                        havedata = data.result;
+                    }
                     break;
                 case 'albums':
                     listdata = data.hotAlbums;
@@ -611,57 +626,77 @@
     }
 
     var catalogs = [{
+        title: '首页',
+        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E7%83%AD%E6%AD%8C%E6%A6%9C',
+        code: '1'
+    },{
         title: '伊能静',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=伊能静'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=伊能静',
+        code: ''
     }, {
         title: '王力宏',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏',
+        code: ''
     },
     {
         title: '陈奕迅',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅',
+        code: ''
     },
     {
         title: '林俊杰',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰',
+        code: ''
     },
     {
         title: '任贤齐',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐',
+        code: ''
     },
     {
         title: '王菲',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=王菲'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=王菲',
+        code: ''
     },{
         title: '孙燕姿',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿',
+        code: ''
     },{
         title: '抖音',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=抖音'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
+        code: ''
     },{
         title: '爵士',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=爵士'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
+        code: ''
     },{
         title: '轻音乐',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
+        code: ''
     }, {
         title: '乡村',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=乡村'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
+        code: ''
     },{
         title: '民谣',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=民谣'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
+        code: ''
     }, {
         title: '电子',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=电子'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
+        code: ''
     }, {
         title: '舞曲',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
+        code: ''
     }, {
         title: '说唱',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=说唱'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
+        code: ''
     }, {
         title: '流行',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=流行'
+        url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
+        code: ''
     }];
 
     function player() {
@@ -809,6 +844,7 @@
                         Lampa.Activity.push({
                             url: a.url,
                             title: '音乐 - ' + a.title,
+                            code: a.code,
                             component: 'music',
                             type: 'list',
                             page: 1
