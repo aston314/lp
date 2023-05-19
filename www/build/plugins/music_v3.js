@@ -67,7 +67,7 @@
             // type=1006 歌词
             // type=1009 主播电台
             var postdata = {
-                s: this.getQueryString(object.url, "s"),
+                // s: this.getQueryString(object.url, "s"),
                 type: 1,
                 limit: 24,
                 total: "true",
@@ -79,7 +79,7 @@
 
             this.activity.loader(true);
 
-            network["native"]('https://music.163.com/api/cloudsearch/pc?'+this.getAsUriParameters(postdata) , this.build.bind(this), function () {
+            network["native"](object.url+'&'+this.getAsUriParameters(postdata) , this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
@@ -90,29 +90,6 @@
             }, false,false , {
                 dataType: 'json'
             });
-
-            // if (!!window.cordova) {
-            //     network.silent(object.url, this.build.bind(this), function () {
-            //         var empty = new Lampa.Empty();
-            //         html.append(empty.render());
-            //         _this.start = empty.start;
-
-            //         _this.activity.loader(false);
-
-            //         _this.activity.toggle();
-            //     });
-            // } else {
-                
-            //     network["native"](object.url, this.build.bind(this), function () {
-            //         var empty = new Lampa.Empty();
-            //         html.append(empty.render());
-            //         _this.start = empty.start;
-
-            //         _this.activity.loader(false);
-
-            //         _this.activity.toggle();
-            //     });
-            // }
             
             return this.render();
         };
@@ -120,7 +97,7 @@
         this.next = function () {
             
             var postdata = {
-                s: this.getQueryString(object.url, "s"),
+                // s: this.getQueryString(object.url, "s"),
                 type: 1,
                 limit: 24,
                 total: "true",
@@ -139,51 +116,67 @@
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
 
-            network["native"]('https://music.163.com/api/cloudsearch/pc?'+this.getAsUriParameters(postdata) , function (result) {
-                if (result.result.songCount > 0) {
-                _this2.append(result);
-
-                // object.type == 'list' ? datatye = result.subjects : datatye = result;
-                if (result.result.songs.length) waitload = false;
-                }
+            network["native"](object.url+'&'+this.getAsUriParameters(postdata) , function (result) {
+                switch (object.type) {
+                    case 'list':
+                        if (result.result.songCount > 0) {
+                            _this2.append(result);
+            
+                            // object.type == 'list' ? datatye = result.subjects : datatye = result;
+                            if (result.result.songs.length) waitload = false;
+                            }
+                        break;
+                    case 'albums':
+                        _this2.append(result);
+                        if (result.hotAlbums.length) waitload = false;
+                        break;
+                    case 'album':
+                        _this2.append(result);
+                        if (result.songs.length) waitload = false;
+                        // console.log(result)
+                        break;
+                    default:
+                        if (result.result.songCount > 0) {
+                            _this2.append(result);
+            
+                            // object.type == 'list' ? datatye = result.subjects : datatye = result;
+                            if (result.result.songs.length) waitload = false;
+                            }
+                    }
                 Lampa.Controller.enable('content');
             }, false, false, {
                 dataType: 'json'
             });
-
-                // if (!!window.cordova) {
-                //     network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
-                //         _this2.append(result);
-                        
-                //         object.type == 'list' ? datatye = result.subjects : datatye = result ;
-                //         if (datatye.length) waitload = false;
-                //         Lampa.Controller.enable('content');
-                //     }, false);
-                // } else {
-                //     network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
-                //         _this2.append(result);
-                        
-                //         object.type == 'list' ? datatye = result.subjects : datatye = result ;
-                //         if (datatye.length) waitload = false;
-                //         Lampa.Controller.enable('content');
-                //     }, false);
-                // }
                 
             //}
         };
 
         this.append = function (data) {
             var _this3 = this;
+            var listdata;
 
-            
+            switch (object.type) {
+            case 'list':
+                listdata = data.result ? data.result.songs : [];
+                break;
+            case 'albums':
+                listdata = data.hotAlbums;
+                break;
+            case 'album':
+                listdata = data.songs;
+                break;
+            default:
+                listdata = data.result ? data.result.songs : [];
+            }
+
             //object.type == 'list' ? datatye = data.subjects : datatye = data ;
 
-            data.result.songs.forEach(function (element) {
+            listdata.forEach(function (element) {
                 var mytitle = element.name.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: element.ar[0].name + ' ' + element.al.name
+                    release_year: object.type == 'list'? element.ar[0].name + ' ' + element.al.name : (object.type == 'album'? object.albumname : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -201,11 +194,25 @@
                       element.cover = 'https://images.weserv.nl/?url=' + element.cover.replace('https://','')
                     };
                   };
-                card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g");
-                if (element.privilege.flLevel=='standard' || element.privilege.flLevel=='exhigh') {
-                    card.find('.card__view').append('<div class="card__type"></div>');
-                    card.find('.card__type').text('免费');
-                };
+                  switch (object.type) {
+                    case 'list':
+                        card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");
+                        break;
+                    case 'albums':
+                        card.find('.card__img').attr('src', element.picUrl+"?param=200y200g");
+                        break;
+                    case 'album':
+                        card.find('.card__img').attr('src', element.al.picUrl+"?param=200y200g");
+                        break;
+                    default:
+                        card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");                  
+                }
+                if (object.type == 'list') {
+                    if (element.privilege.flLevel == 'standard' || element.privilege.flLevel == 'exhigh') {
+                        card.find('.card__view').append('<div class="card__type"></div>');
+                        card.find('.card__type').text('免费');
+                    };
+                }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
                 if (element.episodes_info){
@@ -222,133 +229,172 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (object.type !== 'album') {
+                        if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    }
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     // }
-                    // if (Lampa.Helper) Lampa.Helper.show('db_detail', '长按住 (ОК) 键查看详情', card);
+                    if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                // card.on('hover:long', function () {
-				// 	//contextmenu();
-                //     Lampa.Modal.open({
-                //         title: '',
-                //         html: Lampa.Template.get('modal_loading'),
-                //         size: 'small',
-                //         mask: true,
-                //         onBack: function onBack() {
-                //             Lampa.Modal.close();
-                //             Lampa.Api.clear();
-                //             Lampa.Controller.toggle('content');
-                //         }
-                //     });
-
-                //     _this3.find_douban(element);
-				// });
+                if (object.type == 'list'){
+                card.on('hover:long', function () {
+                    // console.log(element.al.name)
+					//contextmenu();
+                    var archiveMenu = [];
+                    archiveMenu.push({
+                        title: '查看'+element.ar[0].name+'所有专辑',
+                        url: 'http://music.163.com/api/artist/albums/'+element.ar[0].id+'?id='+element.ar[0].id,
+                        id: element.ar[0].id,
+                        type: 'albums',
+                        albumname: ''
+                    });
+                    archiveMenu.push({
+                        title: '查看该专辑所有歌曲',
+                        url: 'https://ncm.icodeq.com/album?id='+element.al.id+'?ext=true&id='+element.al.id,
+                        id: '',
+                        type: 'album',
+                        albumname: element.al.name
+                    });
+                    Lampa.Select.show({
+                        title: '操作',
+                        items: archiveMenu,
+                        onSelect: function (sel) {
+                            // var video = {
+                            //     title: sel.title,
+                            //     url: sel.url,
+                            // }
+                            // Lampa.Controller.toggle('content');
+                            Lampa.Activity.push({
+                                url: sel.url,
+                                title: '音乐 - ' + sel.title,
+                                component: 'music',
+                                type: sel.type,
+                                albumname: sel.albumname,
+                                page: 1
+                            });
+                        },
+                        onBack: function () {
+                            Lampa.Controller.toggle('content');
+                        }
+                    })
+				});
+                }
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
-                    network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
-                            if (result.code == 200){
-                                lrcObj = {}
-                                // console.log(result.lrc.lyric)
-                                if (result.lrc) {
-                                    var lyrics = result.lrc.lyric.split("\n");
-                                    for (var i = 0; i < lyrics.length; i++) {
-                                        var lyric = decodeURIComponent(lyrics[i]);
-                                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                                        var timeRegExpArr = lyric.match(timeReg);
-                                        if (!timeRegExpArr) continue;
-                                        var clause = lyric.replace(timeReg, '');
-                                        for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                            var t = timeRegExpArr[k];
-                                            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                            var time = min * 60 + sec;
-                                            lrcObj[time] = clause;
+                    switch (object.type) {
+                        case 'albums':
+                            Lampa.Activity.push({
+                                url: 'https://ncm.icodeq.com/album?id=' + element.id + '?ext=true&id=' + element.id,
+                                title: '音乐 - 查看该专辑所有歌曲',
+                                component: 'music',
+                                type: 'album',
+                                albumname: element.name,
+                                page: 1
+                            });
+                            break;
+                        default:
+                            network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
+                                if (result.code == 200) {
+                                    lrcObj = {}
+                                    // console.log(result.lrc.lyric)
+                                    if (result.lrc) {
+                                        var lyrics = result.lrc.lyric.split("\n");
+                                        for (var i = 0; i < lyrics.length; i++) {
+                                            var lyric = decodeURIComponent(lyrics[i]);
+                                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                            var timeRegExpArr = lyric.match(timeReg);
+                                            if (!timeRegExpArr) continue;
+                                            var clause = lyric.replace(timeReg, '');
+                                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                                var t = timeRegExpArr[k];
+                                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                                var time = min * 60 + sec;
+                                                lrcObj[time] = clause;
+                                            }
                                         }
                                     }
+                                    // console.log(lrcObj)
                                 }
-                                // console.log(lrcObj)
-                            }
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                    if (element.privilege.flLevel !== 'none') {
-                        network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
-                            //console.log(result.data[0].url)
-                            // var video = {
-                            //     title: element.title,
-                            //     url: result.data[0].url,
-                            //     // plugin: plugin.component,
-                            //     tv: false
-                            // };
-                            // var playlist = [];
-                            // data.forEach(function (elem) {
-                            //     playlist.push({
-                            //         title: elem.title,
-                            //         url: elem.url,
-                            //         // plugin: plugin.component,
-                            //         tv: false
-                            //     });
-                            // });
-                            // // Lampa.Keypad.listener.destroy()
-                            // // Lampa.Keypad.listener.follow('keydown', keydown);
-                            // Lampa.Player.play(video);
-                            // Lampa.Player.playlist(video);
-                            var data = {
-                                url: result.data[0].url,
-                                title: element.name
-                            }
-                            player.play(data);
-                            card.find('.card__view').append('<div class="card__quality"></div>');
-                            card.find('.card__quality').text('听');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                    } else {
-                        Lampa.Modal.open({
-                            title: '',
-                            html: Lampa.Template.get('modal_loading'),
-                            size: 'small',
-                            align: 'center',
-                            mask: true,
-                            onBack: function onBack() {
-                                Lampa.Modal.close();
-                                Lampa.Api.clear();
-                                Lampa.Controller.toggle('content');
-                            }
-                        });
-                        //https://diii.tk/
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent(element.ar[0].name + ' ' + element.name), function (result) {
-                            var queryData = result.data.filter(function (fp) {
-                                return fp.name === element.ar[0].name && fp.songname === element.name
-                            })
-                            // console.log(queryData)
-                            if (queryData.length > 0) {
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                    // if (result.msg == '成功') {
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                            if (element.privilege.flLevel !== 'none') {
+                                network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
+                                    //console.log(result.data[0].url)
+                                    // var video = {
+                                    //     title: element.title,
+                                    //     url: result.data[0].url,
+                                    //     // plugin: plugin.component,
+                                    //     tv: false
+                                    // };
+                                    // var playlist = [];
+                                    // data.forEach(function (elem) {
+                                    //     playlist.push({
+                                    //         title: elem.title,
+                                    //         url: elem.url,
+                                    //         // plugin: plugin.component,
+                                    //         tv: false
+                                    //     });
+                                    // });
+                                    // // Lampa.Keypad.listener.destroy()
+                                    // // Lampa.Keypad.listener.follow('keydown', keydown);
+                                    // Lampa.Player.play(video);
+                                    // Lampa.Player.playlist(video);
                                     var data = {
-                                        url: result.data.src,
+                                        url: result.data[0].url,
                                         title: element.name
                                     }
                                     player.play(data);
                                     card.find('.card__view').append('<div class="card__quality"></div>');
                                     card.find('.card__quality').text('听');
-                                    Lampa.Modal.close();
-                                    Lampa.Controller.toggle('content');
                                 }, false, false, {
                                     dataType: 'json'
                                 });
                             } else {
-                                Lampa.Modal.close();
-                                Lampa.Controller.toggle('content');
-                                Lampa.Noty.show('找不到相关歌曲音频文件。');
+                                Lampa.Modal.open({
+                                    title: '',
+                                    html: Lampa.Template.get('modal_loading'),
+                                    size: 'small',
+                                    align: 'center',
+                                    mask: true,
+                                    onBack: function onBack() {
+                                        Lampa.Modal.close();
+                                        Lampa.Api.clear();
+                                        Lampa.Controller.toggle('content');
+                                    }
+                                });
+                                //https://diii.tk/
+                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent(element.ar[0].name + ' ' + element.name), function (result) {
+                                    var queryData = result.data.filter(function (fp) {
+                                        return fp.name === element.ar[0].name && fp.songname === element.name
+                                    })
+                                    // console.log(queryData)
+                                    if (queryData.length > 0) {
+                                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                            // if (result.msg == '成功') {
+                                            var data = {
+                                                url: result.data.src,
+                                                title: element.name
+                                            }
+                                            player.play(data);
+                                            card.find('.card__view').append('<div class="card__quality"></div>');
+                                            card.find('.card__quality').text('听');
+                                            Lampa.Modal.close();
+                                            Lampa.Controller.toggle('content');
+                                        }, false, false, {
+                                            dataType: 'json'
+                                        });
+                                    } else {
+                                        Lampa.Modal.close();
+                                        Lampa.Controller.toggle('content');
+                                        Lampa.Noty.show('找不到相关歌曲音频文件。');
+                                    }
+                                }, false, false, {
+                                    dataType: 'json'
+                                });
                             }
-                        }, false, false, {
-                            dataType: 'json'
-                        });
                     }
-
-
-
                 });
                 body.append(card);
                 items.push(card);
@@ -409,23 +455,42 @@
                     }
                 });
             };
-        //info.find('.info__rate,.info__right').remove();
-        scroll.render().addClass('layer--wheight').data('mheight', info);
-        
-        // object.type == 'list' ? datatye = data.subjects : datatye = data ;
-        if (data.result) {
-            if (data.result.songs.length) {
-                html.append(info);
-                html.append(scroll.render());
-                this.append(data);
-                scroll.append(body);
-                this.activity.loader(false);
-                this.activity.toggle();
+            //info.find('.info__rate,.info__right').remove();
+            scroll.render().addClass('layer--wheight').data('mheight', info);
+
+            // object.type == 'list' ? datatye = data.subjects : datatye = data ;
+            var havedata, listdata;
+
+            switch (object.type) {
+                case 'list':
+                    listdata = data.result ? data.result.songs : [];
+                    havedata = data.result;
+                    break;
+                case 'albums':
+                    listdata = data.hotAlbums;
+                    havedata = data.hotAlbums;
+                    break;
+                case 'album':
+                    listdata = data.songs;
+                    havedata = data.songs;
+                    break;
+                default:
+                    listdata = data.result ? data.result.songs : [];
+                    havedata = data.result;
             }
-        } else {
-            html.append(scroll.render());
-            _this2.empty();
-        }
+            if (havedata) {
+                if (listdata.length) {
+                    html.append(info);
+                    html.append(scroll.render());
+                    this.append(data);
+                    scroll.append(body);
+                    this.activity.loader(false);
+                    this.activity.toggle();
+                }
+            } else {
+                html.append(scroll.render());
+                _this2.empty();
+            }
         };
 
         this.empty = function () {
@@ -436,198 +501,6 @@
             this.activity.toggle();
          };
 
-        // this.finds = function (find) {
-        //     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-        //     var element = arguments.length > 1 && arguments[2] !== undefined ? arguments[2] : {};
-        //     var finded;
-        //     //console.log(element)
-
-        //     var s,a = params.title.replace(element.title, '').replace('(' + params.release_year + ')', '').replace(/(Season\s\d)/, '').replace(/‎/g, '').trim();
-
-        //     if (a === '') {
-        //         s = element.title.replace(/第(.+)季/, '');
-        //     } else {
-        //         s = a;
-        //     };
-
-        //     //console.log(s)
-
-        //     var filtred = function filtred(items) {
-        //         if (items.length == 1) {
-        //             finded =items;
-        //             //return items;
-        //         } else {
-        //             finded = items.filter(function (fp) {
-        //                 // if (params.region == '中国大陆' || params.region == '韩国' || params.region == '中国香港') {
-        //                 //     //console.log('中文')
-        //                 //     return ((fp.title || fp.name) == s || params.title.indexOf((fp.title || fp.name)) !== -1)
-        //                 // } else {
-        //                 //     return ((fp.original_title || fp.original_name) == s || params.title.indexOf((fp.original_title || fp.original_name)) !== -1)
-        //                 // }
-        //                 return ((fp.title || fp.name) == s || params.title.indexOf((fp.title || fp.name)) !== -1 || (fp.original_title || fp.original_name) == s || params.title.indexOf((fp.original_title || fp.original_name)) !== -1)
-        //             });
-        //             //console.log(finded);
-        //         }
-        //     };
-
-        //     if (params.is_tv) {
-        //         if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
-        //     } else {
-        //         if (find.movie && find.movie.results.length) filtred(find.movie.results);
-        //     };
-
-        //     return finded ? finded[0] : finded;
-        // };
-
-        // this.finds1 = function (element, find) {
-        //     var finded;
-        //     var filtred = function filtred(items) {
-        //         for (var i = 0; i < items.length; i++) {
-        //             var mytitle = element.title.replace('/', ' ');
-        //             if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
-
-        //             var item = items[i];
-        //             if ((mytitle == (item.title || item.name)) && parseInt(element.year) == (item.first_air_date || item.release_date).split('-').shift()) {
-        //                 finded = item;
-        //                 break;
-        //             }
-        //         }
-        //     };
-        //     if (find.movie && find.movie.results.length) filtred(find.movie.results);
-        //     if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
-        //     return finded;
-        // };
-        // this.find_douban = function (element) {
-        //     var _this = this;
-        //     network.clear();
-        //     network.timeout(10000);
-        //     network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + element.id, function (json) {
-        //         // console.log(json);
-        //         //doubanitem = JSON.parse(json);
-        //         _this.find_tmdb(json,element);
-        //     }, function (a, c) {
-        //         this.empty(network.errorDecode(a, c));
-        //     }, false, {
-        //         dataType: 'json'
-        //     });
-        // };
-        // this.find_tmdb = function (data,element) {
-        //     var _this1 = this;
-        //     var s, str = data.subject;
-
-        //     network["native"](str.url, function (json) {
-        //         var s = json.match(/tt(\d+)/, 'g');
-        //         s = s ? s[0] : s;
-        //         //console.log(element);
-        //         //console.log(s)
-        //         if (s) {
-        //             var dom = Lampa.Storage.field('proxy_tmdb') ? 'http://apitmdb.cub.watch/3/' : 'https://api.themoviedb.org/3/';
-        //             network.silent(dom + 'find/'+s+'?api_key=4ef0d7355d9ffb5151e987764708ce96&external_source=imdb_id&language=zh-CN', function (json) {
-                        
-        //                 var json = str.is_tv ? json.tv_results[0] :json.movie_results[0];
-        //                 //console.log(json);
-        //                 if (json){
-        //                     Lampa.Activity.push({
-        //                         url: '',
-        //                         component: 'full',
-        //                         id: json.id,
-        //                         method: str.is_tv ? 'tv' : 'movie',
-        //                         card: json
-        //                     });
-        //                     Lampa.Modal.close();
-        //                 }else{
-        //                     var a = str.title.replace(element.title,'').replace('('+str.release_year+')','').replace(/(Season\s\d)/, '').replace(/‎/g, '').trim();
-                            
-        //                     if (a === ''){
-        //                         s = element.title.replace(/第(.+)季/, '');
-        //                     }else{
-        //                         s = a.replace('II','2');
-        //                     };
-                
-        //                     //console.log(s)
-        //                     //var mysubtitle = str.sub_title.replace('/', ' ');
-        //                     //if (mysubtitle.indexOf(' ' != -1)) mysubtitle = mysubtitle.split(' ')[0]
-        //                     //console.log(s.replace(/\d$/, ''))
-                            
-        //                     Lampa.Api.search({
-        //                         //doubanitem.sub_title
-        //                         query: encodeURIComponent(s.replace(/\d$/, ''))
-        //                     }, function (find) {
-        //                         /*              console.log(find)
-        //                                       console.log(element);*/
-        //                         Lampa.Modal.close();
-        //                         var finded = _this1.finds(find, str , element);
-                
-        //                         if (finded) {
-        //                             Lampa.Activity.push({
-        //                                 url: '',
-        //                                 component: 'full',
-        //                                 id: finded.id,
-        //                                 method: finded.name ? 'tv' : 'movie',
-        //                                 card: finded
-        //                             });
-        //                         } else {
-        //                             Lampa.Noty.show('在TMDB中找不到影片信息。');
-        //                             Lampa.Controller.toggle('content');
-        //                         }
-        //                     }, function () {
-        //                         Lampa.Modal.close();
-        //                         Lampa.Noty.show('在TMDB中找不到影片信息。');
-        //                         Lampa.Controller.toggle('content');
-        //                     });  
-        //                 }
-                        
-                        
-        //             });
-        //           } else {
-        //             var a = str.title.replace(element.title, '').replace('(' + str.release_year + ')', '').replace(/(Season\s\d)/, '').replace(/‎/g, '').trim();
-
-        //             if (a === '') {
-        //                 s = element.title.replace(/第(.+)季/, '');
-        //             } else {
-        //                 s = a.replace('II','2');
-        //             };
-        
-        //             //console.log(s)
-        //             //var mysubtitle = str.sub_title.replace('/', ' ');
-        //             //if (mysubtitle.indexOf(' ' != -1)) mysubtitle = mysubtitle.split(' ')[0]
-        //             //console.log(s.replace(/\d$/, ''))
-        //             Lampa.Api.search({
-        //                 //doubanitem.sub_title
-        //                 query: encodeURIComponent(s.replace(/\d$/, ''))
-        //             }, function (find) {
-        //                 /*              console.log(find)
-        //                               console.log(element);*/
-        //                 Lampa.Modal.close();
-        //                 var finded = _this1.finds(find, str , element);
-        
-        //                 if (finded) {
-        //                     Lampa.Activity.push({
-        //                         url: '',
-        //                         component: 'full',
-        //                         id: finded.id,
-        //                         method: finded.name ? 'tv' : 'movie',
-        //                         card: finded
-        //                     });
-        //                 } else {
-        //                     Lampa.Noty.show('在TMDB中找不到影片信息。');
-        //                     Lampa.Controller.toggle('content');
-        //                 }
-        //             }, function () {
-        //                 Lampa.Modal.close();
-        //                 Lampa.Noty.show('在TMDB中找不到影片信息。');
-        //                 Lampa.Controller.toggle('content');
-        //             });
-        //           }
-        //     }, function (a, c) {
-        //         //_this1.empty(network.errorDecode(a, c));
-        //     }, false, {
-        //         dataType: 'text'
-        //     });
-
-            
-
-        // };
         function cardImgBackground(card_data) {
             if (Lampa.Storage.field('background')) {
                 return Lampa.Storage.get('background_type', 'complex') == 'poster' && card_data ? card_data : card_data;
