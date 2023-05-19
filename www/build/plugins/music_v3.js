@@ -631,8 +631,20 @@
     }
 
     var catalogs = [{
+        title: '飙升榜',
+        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E9%A3%99%E5%8D%87%E6%A6%9C',
+        code: '1'
+    },{
+        title: '新歌榜',
+        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E6%96%B0%E6%AD%8C%E6%A6%9C',
+        code: '1'
+    },{
         title: '热歌榜',
         url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E7%83%AD%E6%AD%8C%E6%A6%9C',
+        code: '1'
+    },{
+        title: '原创榜',
+        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E5%8E%9F%E5%88%9B',
         code: '1'
     },{
         title: '伊能静',
