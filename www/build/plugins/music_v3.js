@@ -250,7 +250,7 @@
                     });
                     archiveMenu.push({
                         title: '查看该专辑所有歌曲',
-                        url: 'https://ncm.icodeq.com/album?id='+element.al.id+'?ext=true&id='+element.al.id,
+                        url: 'https://ncm.icodeq.com/album?id='+element.al.id,
                         id: '',
                         type: 'album',
                         albumname: element.al.name
@@ -284,7 +284,7 @@
                     switch (object.type) {
                         case 'albums':
                             Lampa.Activity.push({
-                                url: 'https://ncm.icodeq.com/album?id=' + element.id + '?ext=true&id=' + element.id,
+                                url: 'https://ncm.icodeq.com/album?id=' + element.id,
                                 title: '音乐 - 查看该专辑所有歌曲',
                                 component: 'music',
                                 type: 'album',
