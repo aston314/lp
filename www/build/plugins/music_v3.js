@@ -157,7 +157,7 @@
                 switch (object.type) {
                     case 'list':
                         if (object.code == '1') {
-                            _this2.append(result);
+                            // _this2.append(result);
                             if (result.length) waitload = false;
                         } else {
                             if (result.result.songCount > 0) {
