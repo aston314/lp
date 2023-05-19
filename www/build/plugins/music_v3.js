@@ -626,7 +626,7 @@
     }
 
     var catalogs = [{
-        title: '首页',
+        title: '热歌榜',
         url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E7%83%AD%E6%AD%8C%E6%A6%9C',
         code: '1'
     },{
