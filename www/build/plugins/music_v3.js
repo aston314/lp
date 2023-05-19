@@ -78,8 +78,15 @@
             var _this = this;
 
             this.activity.loader(true);
+            var urlpara;
+            if (object.type == 'album') {
+                urlpara = '';
+            } else {
+                urlpara = '&' + this.getAsUriParameters(postdata);
+            }
 
-            network["native"](object.url+'&'+this.getAsUriParameters(postdata) , this.build.bind(this), function () {
+
+            network["native"](object.url + urlpara, this.build.bind(this), function () {
                 var empty = new Lampa.Empty();
                 html.append(empty.render());
                 _this.start = empty.start;
@@ -115,8 +122,13 @@
                 object.page++;
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
+                if (object.type == 'album') {
+                    urlpara = '';
+                } else {
+                    urlpara = '&' + this.getAsUriParameters(postdata);
+                }
 
-            network["native"](object.url+'&'+this.getAsUriParameters(postdata) , function (result) {
+            network["native"](object.url + urlpara , function (result) {
                 switch (object.type) {
                     case 'list':
                         if (result.result.songCount > 0) {
