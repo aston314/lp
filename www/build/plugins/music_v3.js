@@ -416,7 +416,7 @@
                                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
                                     var queryData = result.data.filter(function (fp) {
                                         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                        return fp.name === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
+                                        return fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
                                     })
                                     // console.log(queryData)
                                     if (queryData.length > 0) {
