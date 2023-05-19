@@ -430,7 +430,7 @@
                             title: '音乐 - 搜索"'+new_value+'"',
                             waitload: false,
                             component: 'music',
-                            type: 'search',
+                            type: 'list',
                             page: 1
                         });
                     }
