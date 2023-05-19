@@ -144,6 +144,7 @@
                 object.page++;
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
+                var urlpara;
                 if (object.type == 'album') {
                     urlpara = '';
                 } else {
