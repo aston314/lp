@@ -156,12 +156,17 @@
             network["native"](object.url + urlpara , function (result) {
                 switch (object.type) {
                     case 'list':
-                        if (result.result.songCount > 0) {
+                        if (object.code == '1') {
                             _this2.append(result);
-            
-                            // object.type == 'list' ? datatye = result.subjects : datatye = result;
-                            if (result.result.songs.length) waitload = false;
+                            if (result.length) waitload = false;
+                        } else {
+                            if (result.result.songCount > 0) {
+                                _this2.append(result);
+
+                                // object.type == 'list' ? datatye = result.subjects : datatye = result;
+                                if (result.result.songs.length) waitload = false;
                             }
+                        }
                         break;
                     case 'albums':
                         _this2.append(result);
