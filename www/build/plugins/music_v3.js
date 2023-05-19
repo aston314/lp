@@ -81,22 +81,44 @@
             var urlpara;
             if (object.type == 'album') {
                 urlpara = '';
+                network.silent(object.url + urlpara, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
+
+                    _this.activity.loader(false);
+
+                    _this.activity.toggle();
+                }, false, false, {
+                    dataType: 'json'
+                });
             } else {
                 urlpara = '&' + this.getAsUriParameters(postdata);
+                network["native"](object.url + urlpara, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
+
+                    _this.activity.loader(false);
+
+                    _this.activity.toggle();
+                }, false, false, {
+                    dataType: 'json'
+                });
             }
 
 
-            network["native"](object.url + urlpara, this.build.bind(this), function () {
-                var empty = new Lampa.Empty();
-                html.append(empty.render());
-                _this.start = empty.start;
+            // network["native"](object.url + urlpara, this.build.bind(this), function () {
+            //     var empty = new Lampa.Empty();
+            //     html.append(empty.render());
+            //     _this.start = empty.start;
 
-                _this.activity.loader(false);
+            //     _this.activity.loader(false);
 
-                _this.activity.toggle();
-            }, false,false , {
-                dataType: 'json'
-            });
+            //     _this.activity.toggle();
+            // }, false, false, {
+            //     dataType: 'json'
+            // });
             
             return this.render();
         };
