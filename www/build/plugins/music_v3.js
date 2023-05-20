@@ -297,7 +297,7 @@
                         albumname: ''
                     });
                     archiveMenu.push({
-                        title: '查看该专辑所有歌曲',
+                        title: '查看所属专辑歌曲',
                         url: 'https://ncm.icodeq.com/album?id='+(object.code == '1' ? element.album.id : element.al.id),
                         id: '',
                         type: 'album',
@@ -333,7 +333,7 @@
                         case 'albums':
                             Lampa.Activity.push({
                                 url: 'https://ncm.icodeq.com/album?id=' + element.id,
-                                title: '音乐 - 查看该专辑所有歌曲',
+                                title: '音乐 - 查看所属专辑歌曲',
                                 component: 'music',
                                 type: 'album',
                                 albumname: element.name,
