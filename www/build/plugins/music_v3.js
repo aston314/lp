@@ -1,6 +1,8 @@
 (function () {
     'use strict';
     var lrcObj = {};
+    var musiclist = [];
+    var currentIndex = 0;
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -79,6 +81,7 @@
 
             this.activity.loader(true);
             var urlpara;
+            musiclist = [];
             if (object.type == 'album') {
                 urlpara = '';
                 network.silent(object.url + urlpara, this.build.bind(this), function () {
@@ -204,6 +207,7 @@
                 break;
             case 'albums':
                 listdata = data.hotAlbums;
+                // $(".open--play").hide();
                 break;
             case 'album':
                 listdata = data.songs;
@@ -215,6 +219,9 @@
             //object.type == 'list' ? datatye = data.subjects : datatye = data ;
 
             listdata.forEach(function (element) {
+                if (object.type == 'list' || object.type == 'album') {
+                    musiclist.push([element.name, element.id, element.privilege.flLevel, (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
+                }
                 var mytitle = element.name.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
 
@@ -391,7 +398,8 @@
                                     // Lampa.Player.playlist(video);
                                     var data = {
                                         url: result.data[0].url,
-                                        title: element.name
+                                        title: element.name,
+                                        playall: false
                                     }
                                     player.play(data);
                                     card.find('.card__view').append('<div class="card__quality"></div>');
@@ -413,18 +421,19 @@
                                     }
                                 });
                                 //https://diii.tk/
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
+                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
                                     var queryData = result.data.filter(function (fp) {
                                         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
                                         return fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
                                     })
                                     // console.log(queryData)
                                     if (queryData.length > 0) {
-                                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
                                             // if (result.msg == '成功') {
                                             var data = {
                                                 url: result.data.src,
-                                                title: element.name
+                                                title: element.name,
+                                                playall: false
                                             }
                                             player.play(data);
                                             card.find('.card__view').append('<div class="card__quality"></div>');
@@ -448,13 +457,14 @@
                 body.append(card);
                 items.push(card);
             });
+            // console.log(musiclist)
         };
 
         this.build = function (data) {
             // console.log(data)
             var _this2 = this;
             //info = Lampa.Template.get('info');style="height:5em"
-            Lampa.Template.add('button_category', "<style>@media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div><div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+            Lampa.Template.add('button_category', "<style>@media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
 			Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
 			var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
@@ -486,9 +496,12 @@
                     else Lampa.Controller.toggle('content');
                 }) 
 			});
+            info.find('.open--play').on('hover:enter hover:click', function () {
+                playAll();
+			});
             this.selectGroup = function () {
                 Lampa.Select.show({
-                    title: '频道',
+                    title: '分类',
                     items: catalogs,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
@@ -722,6 +735,7 @@
         var url = '';
         var played = false;
         var hls;
+        var playall = false;
         audio.addEventListener("play", function (event) {
           played = true;
           html.toggleClass('loading', false);
@@ -789,16 +803,19 @@
                       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                   );
               });
+              if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
+              
+
                
           } catch (e) {}
   
           if (playPromise !== undefined) {
             playPromise.then(function () {
                 
-              console.log('Radio', 'start plaining');
+              console.log('Music', 'start plaining');
               
             })["catch"](function (e) {
-              console.log('Radio', 'play promise error:', e.message);
+              console.log('Music', 'play promise error:', e.message);
             });
           }
         }
@@ -833,17 +850,209 @@
         this.play = function (data) {
           stop();
           url = data.url;
+          playall = data.playall;
           html.find('.radio-player__name').text(data.title);
           html.toggleClass('hide', false);
           play();
         };
     }
 
+    function playEndedHandler(){
+        var network = new Lampa.Reguest();
+        var player = window.radio_player1_;
+        // var src = musiclist.pop();
+        // var src = musiclist.shift();
+        currentIndex = (currentIndex + 1) % musiclist.length;
+        // console.log(currentIndex)
+        // myAudio.src = src;
+        // musiclist.unshift(src);
+        // myAudio.play();
+        // console.log('播放完毕，准备下一首歌。')
+        network["native"]('https://music.163.com/api/song/lyric?id=' + + musiclist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
+            if (result.code == 200) {
+                lrcObj = {}
+                // console.log(result.lrc.lyric)
+                if (result.lrc) {
+                    var lyrics = result.lrc.lyric.split("\n");
+                    for (var i = 0; i < lyrics.length; i++) {
+                        var lyric = decodeURIComponent(lyrics[i]);
+                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                        var timeRegExpArr = lyric.match(timeReg);
+                        if (!timeRegExpArr) continue;
+                        var clause = lyric.replace(timeReg, '');
+                        for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                            var t = timeRegExpArr[k];
+                            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                            var time = min * 60 + sec;
+                            lrcObj[time] = clause;
+                        }
+                    }
+                }
+                // console.log(lrcObj)
+            }
+        }, false, false, {
+            dataType: 'json'
+        });
+        if (musiclist[currentIndex][2] !== 'none') {
+            network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
+                var data = {
+                    url: result.data[0].url,
+                    title: musiclist[currentIndex][0],
+                    playall: true
+                }
+                player.play(data);
+            }, false, false, {
+                dataType: 'json'
+            });
+        } else {
+            // Lampa.Modal.open({
+            //     title: '',
+            //     html: Lampa.Template.get('modal_loading'),
+            //     size: 'small',
+            //     align: 'center',
+            //     mask: true,
+            //     onBack: function onBack() {
+            //         Lampa.Modal.close();
+            //         Lampa.Api.clear();
+            //         Lampa.Controller.toggle('content');
+            //     }
+            // });
+            //https://diii.tk/
+            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                var queryData = result.data.filter(function (fp) {
+                    // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                    return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+                })
+                
+                if (queryData.length > 0) {
+                    // console.log(queryData,queryData[0].mid)
+                    network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                        // if (result.msg == '成功') {
+                        var data = {
+                            url: result.data.src,
+                            title: musiclist[currentIndex][0],
+                            playall: true
+                        }
+                        player.play(data);
+                        // Lampa.Modal.close();
+                        // Lampa.Controller.toggle('content');
+                    }, false, false, {
+                        dataType: 'json'
+                    });
+                } else {
+                    // Lampa.Modal.close();
+                    // Lampa.Controller.toggle('content');
+                    Lampa.Noty.show('找不到相关歌曲音频文件。');
+                }
+            }, false, false, {
+                dataType: 'json'
+            });
+        }
+    }
+
+    function playAll(){
+        var network = new Lampa.Reguest();
+        var player = window.radio_player1_;
+        // var src = musiclist.pop();
+        // var src = musiclist.shift();
+        // myAudio.src = src;
+        // musiclist.unshift(src);
+        // myAudio.play();
+        currentIndex = 0;
+        // console.log('播放完毕，准备下一首歌。')
+        if (musiclist.length > 0) {
+            network["native"]('https://music.163.com/api/song/lyric?id=' + + musiclist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
+                if (result.code == 200) {
+                    lrcObj = {}
+                    // console.log(result.lrc.lyric)
+                    if (result.lrc) {
+                        var lyrics = result.lrc.lyric.split("\n");
+                        for (var i = 0; i < lyrics.length; i++) {
+                            var lyric = decodeURIComponent(lyrics[i]);
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                            var timeRegExpArr = lyric.match(timeReg);
+                            if (!timeRegExpArr) continue;
+                            var clause = lyric.replace(timeReg, '');
+                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                var t = timeRegExpArr[k];
+                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                var time = min * 60 + sec;
+                                lrcObj[time] = clause;
+                            }
+                        }
+                    }
+                    // console.log(lrcObj)
+                }
+            }, false, false, {
+                dataType: 'json'
+            });
+            if (musiclist[currentIndex][2] !== 'none') {
+                network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
+                    var data = {
+                        url: result.data[0].url,
+                        title: musiclist[currentIndex][0],
+                        playall: true
+                    }
+                    player.play(data);
+                }, false, false, {
+                    dataType: 'json'
+                });
+            } else {
+                Lampa.Modal.open({
+                    title: '',
+                    html: Lampa.Template.get('modal_loading'),
+                    size: 'small',
+                    align: 'center',
+                    mask: true,
+                    onBack: function onBack() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content');
+                    }
+                });
+                //https://diii.tk/
+                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                    var queryData = result.data.filter(function (fp) {
+                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                        return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+                    })
+
+                    if (queryData.length > 0) {
+                        // console.log(queryData,queryData[0].mid)
+                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                            // if (result.msg == '成功') {
+                            var data = {
+                                url: result.data.src,
+                                title: musiclist[currentIndex][0],
+                                playall: true
+                            }
+                            player.play(data);
+                            Lampa.Modal.close();
+                            Lampa.Controller.toggle('content');
+                        }, false, false, {
+                            dataType: 'json'
+                        });
+                    } else {
+                        Lampa.Modal.close();
+                        Lampa.Controller.toggle('content');
+                        Lampa.Noty.show('找不到相关歌曲音频文件。');
+                    }
+                }, false, false, {
+                    dataType: 'json'
+                });
+            }
+        } else {
+            Lampa.Noty.show('没有可以播放的歌曲。');
+        }
+    }
+
     function startMUSIC() {
         window.radio = true;
       
         Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
-        Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Radio Record</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
+        Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Music Player</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
         Lampa.Template.add('radio_style', "<style>\n    .radio-item {\n        width: 8em;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-item__imgbox {\n        background-color: #3E3E3E;\n        padding-bottom: 83%;\n        position: relative;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item__img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      .radio-item__name {\n        font-size: 1.1em;\n        margin-top: 0.8em;\n      }\n      .radio-item.focus .radio-item__imgbox:after {\n        border: solid 0.4em #fff;\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 0;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item + .radio-item {\n        margin-left: 1em;\n      }\n      \n      @-webkit-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-moz-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-o-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      @-webkit-keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      @-moz-keyframes sound-loading {\n        0% {\n          -moz-transform: rotate(0deg);\n               transform: rotate(0deg);\n        }\n        100% {\n          -moz-transform: rotate(360deg);\n               transform: rotate(360deg);\n        }\n      }\n      @-o-keyframes sound-loading {\n        0% {\n          -o-transform: rotate(0deg);\n             transform: rotate(0deg);\n        }\n        100% {\n          -o-transform: rotate(360deg);\n             transform: rotate(360deg);\n        }\n      }\n      @keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n             -moz-transform: rotate(0deg);\n               -o-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n             -moz-transform: rotate(360deg);\n               -o-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      .radio-player {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n        padding: 0.2em 0.8em;\n        background-color: rgb(255 255 255 / 0%);\n      }\n      .radio-player__name {\n        margin-right: 1em;\n        white-space: nowrap;\n        overflow: hidden;\n        -o-text-overflow: ellipsis;\n           text-overflow: ellipsis;\n        max-width: 8em;\n      }\n      @media screen and (max-width: 385px) {\n        .radio-player__name {\n          display: none;\n        }\n      }\n      .radio-player__button {\n        position: relative;\n        width: 1.5em;\n        height: 1.5em;\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n           -moz-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i {\n        display: block;\n        width: 0.2em;\n        background-color: #fff;\n        margin: 0 0.1em;\n        -webkit-animation: sound 0ms -800ms linear infinite alternate;\n           -moz-animation: sound 0ms -800ms linear infinite alternate;\n             -o-animation: sound 0ms -800ms linear infinite alternate;\n                animation: sound 0ms -800ms linear infinite alternate;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i:nth-child(1) {\n        -webkit-animation-duration: 474ms;\n           -moz-animation-duration: 474ms;\n             -o-animation-duration: 474ms;\n                animation-duration: 474ms;\n      }\n      .radio-player__button i:nth-child(2) {\n        -webkit-animation-duration: 433ms;\n           -moz-animation-duration: 433ms;\n             -o-animation-duration: 433ms;\n                animation-duration: 433ms;\n      }\n      .radio-player__button i:nth-child(3) {\n        -webkit-animation-duration: 407ms;\n           -moz-animation-duration: 407ms;\n             -o-animation-duration: 407ms;\n                animation-duration: 407ms;\n      }\n      .radio-player__button i:nth-child(4) {\n        -webkit-animation-duration: 458ms;\n           -moz-animation-duration: 458ms;\n             -o-animation-duration: 458ms;\n                animation-duration: 458ms;\n      }\n      .radio-player.stop .radio-player__button {\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        border: 0.2em solid #fff;\n      }\n      .radio-player.stop .radio-player__button i {\n        display: none;\n      }\n      .radio-player.stop .radio-player__button:after {\n        content: \"\";\n        width: 0.5em;\n        height: 0.5em;\n        background-color: #fff;\n      }\n      .radio-player.loading .radio-player__button:before {\n        content: \"\";\n        display: block;\n        border-top: 0.2em solid #fff;\n        border-left: 0.2em solid transparent;\n        border-right: 0.2em solid transparent;\n        border-bottom: 0.2em solid transparent;\n        -webkit-animation: sound-loading 1s linear infinite;\n           -moz-animation: sound-loading 1s linear infinite;\n             -o-animation: sound-loading 1s linear infinite;\n                animation: sound-loading 1s linear infinite;\n        width: 0.9em;\n        height: 0.9em;\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player.loading .radio-player__button i {\n        display: none;\n      }\n      .radio-player.focus {\n        background-color: #fff;\n        color: #000;\n      }\n      .radio-player.focus .radio-player__button {\n        border-color: #000;\n      }\n      .radio-player.focus .radio-player__button i, .radio-player.focus .radio-player__button:after {\n        background-color: #000;\n      }\n      .radio-player.focus .radio-player__button:before {\n        border-top-color: #000;\n      }\n    </style>");
         
         window.plugin_music_ready = true;
@@ -883,33 +1092,6 @@
                 if (e.type == 'ready') addSettingsMusic()
             })
         }
-        
-        // Lampa.Listener.follow('app', function (e) {
-        //     if (e.type == 'ready') {
-        //         var ico = '<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="white"><path fill="none" d="M0 0h24v24H0z" /><path d="M15.273 15H5V7h14v8h-1.624l-1.3 4H21v2H3v-2h4.612L6.8 16.5l1.902-.618L9.715 19h4.259l1.3-4zM3.5 3h17v2h-17V3zM7 9v4h10V9H7z" fill="white"/></svg>';
-        //         var menu_item = $('<li class="menu__item selector focus" data-action="yyds"><div class="menu__ico">' + ico + '</div><div class="menu__text">豆瓣</div></li>');
-        //         menu_item.on('hover:enter', function () {
-        //             Lampa.Select.show({
-        //                 title: '豆瓣',
-        //                 items: catalogs,
-        //                 onSelect: function onSelect(a) {
-        //                     Lampa.Activity.push({
-        //                         url: a.url,
-        //                         title: '豆瓣 - '+a.title,
-        //                         component: 'db',
-        //                         type: 'list',
-        //                         page: 1
-        //                     });
-        //                 },
-        //                 onBack: function onBack() {
-        //                     Lampa.Controller.toggle('menu');
-        //                 }
-        //             });
-        //         });
-        //         //$('.menu .menu__list').eq(0).append(menu_item);
-        //         $('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
-        //     }
-        // });
     }
 
     if (!window.plugin_music_ready) startMUSIC();
