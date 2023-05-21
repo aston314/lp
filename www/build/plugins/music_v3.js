@@ -227,7 +227,7 @@
 
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: object.type == 'list'? (object.code == '1' ? element.artists[0].name + ' ' + element.album.name : element.ar[0].name + ' ' + element.al.name) : (object.type == 'album'? object.albumname : '')
+                    release_year: object.type == 'list'? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album'? object.albumname : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -642,7 +642,7 @@
             doubanitem = null;
         };
     }
-
+// 歌单接口 https://api.xtaoa.com/doc/wyygd.php
     var catalogs = [{
         title: '飙升榜',
         url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E9%A3%99%E5%8D%87%E6%A6%9C',
@@ -868,6 +868,7 @@
         // musiclist.unshift(src);
         // myAudio.play();
         // console.log('播放完毕，准备下一首歌。')
+        // https://music.163.com/api/song/media?id=2046829307
         network["native"]('https://music.163.com/api/song/lyric?id=' + + musiclist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
             if (result.code == 200) {
                 lrcObj = {}
