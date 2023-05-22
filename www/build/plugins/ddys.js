@@ -228,17 +228,17 @@
                         if ($('.page-links', str).children().length > 0) {
                             // console.log($('.page-links', str).children().length)
                             // console.log($('.page-links',str).find('a').last().attr('href'))
-                            var dlink,vlink = element.url.match(/^(.*\/)\d+\/$/);
+                            var dlink, vlink = element.url.match(/^(.*\/)\d+\/$/);
                             if (vlink) {
                                 dlink = vlink[1]
                             } else {
                                 dlink = element.url
                             }
-                            
+
                             for (let i = 0; i < $('.page-links', str).children().length; i++) {
                                 arrseason.push({
-                                    title: '第' + (i+1) + '季',
-                                    url: dlink + (i+1)+'/'
+                                    title: '第' + (i + 1) + '季',
+                                    url: dlink + (i + 1) + '/'
                                 });
                             }
                             Lampa.Select.show({
@@ -353,6 +353,8 @@
                                     Lampa.Controller.toggle('content');
                                 }
                             });
+                        } else {
+                            Lampa.Controller.toggle('content');
                         }
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
