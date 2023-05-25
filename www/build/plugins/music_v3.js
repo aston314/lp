@@ -732,7 +732,6 @@
             html = null;
             body = null;
             info = null;
-            doubanitem = null;
         };
     }
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
