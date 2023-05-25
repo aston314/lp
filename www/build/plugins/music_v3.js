@@ -221,7 +221,7 @@
                     if (data.hasOwnProperty("songs")) {
                         listdata = data.songs;
                     } else if (data.hasOwnProperty("playlist")) {
-                        data.playlist.tracks;
+                        listdata = data.playlist.tracks;
                     }
                 break;
             default:
