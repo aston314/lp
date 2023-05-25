@@ -639,7 +639,7 @@
                         listdata = data.playlist.tracks;
                         havedata = data.playlist.tracks
                     }
-                    confirm.log('fuck')
+                    console.log('fuck')
                     break;
                 default:
                     listdata = data.result ? data.result.songs : [];
