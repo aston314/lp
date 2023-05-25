@@ -218,7 +218,11 @@
                 listdata = data.playlists;
                 break;
             case 'playlist_detail':
-                listdata = data.songs || data.playlist.tracks;;
+                    if (data.hasOwnProperty("songs")) {
+                        listdata = data.songs;
+                    } else if (data.hasOwnProperty("playlist")) {
+                        data.playlist.tracks;
+                    }
                 break;
             default:
                 listdata = data.result ? data.result.songs : [];
