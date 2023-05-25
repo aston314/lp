@@ -3,7 +3,7 @@
     var lrcObj = {};
     var musiclist = [];
     var currentIndex = 0;
-    //https://mu-api.yuk0.com
+    // https://mu-api.yuk0.com
     // https://netease-cloud-music-api-psi-silk.vercel.app
     // https://api-mymusic.vercel.app
     var apiurl = 'https://mu-api.yuk0.com'
@@ -21,8 +21,6 @@
         var last;
         var waitload;
         var player = window.radio_player1_;
-        var doubanitem = [];
-        var datatye;
 
         this.getAsUriParameters = function(data) {
             var url = '';
@@ -79,7 +77,6 @@
                 total: "true",
                 offset: 0
             };
-            // console.log(this.getAsUriParameters(postdata))
 
             var _this = this;
 
@@ -102,6 +99,7 @@
             } else {
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
+                console.log("1-1",object.url + urlpara)
                 
                 network["native"](object.url + urlpara, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
@@ -115,19 +113,6 @@
                     dataType: 'json'
                 });
             }
-
-
-            // network["native"](object.url + urlpara, this.build.bind(this), function () {
-            //     var empty = new Lampa.Empty();
-            //     html.append(empty.render());
-            //     _this.start = empty.start;
-
-            //     _this.activity.loader(false);
-
-            //     _this.activity.toggle();
-            // }, false, false, {
-            //     dataType: 'json'
-            // });
             
             return this.render();
         };
@@ -232,28 +217,19 @@
                 listdata = data.playlists;
                 break;
             case 'playlist_detail':
-                listdata = data;
+                listdata = data.songs || data.playlist.tracks;;
                 break;
             default:
                 listdata = data.result ? data.result.songs : [];
             }
 
-            //object.type == 'list' ? datatye = data.subjects : datatye = data ;
-            // var otherdata;
-            
-            if (object.type == 'playlist_detail') {
-                // otherdata = listdata.privileges;
-                listdata = listdata.songs || data.playlist.tracks;
-            }
-            
+            console.log("1-2",listdata)
 
             listdata.forEach(function (element,i) {
                 if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
                     musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
                 }
-                // if (object.type == 'playlist_detail') {
-                //     musiclist.push([element.name, element.id, element.fee, (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
-                // }
+                
                 var mytitle = element.name.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
 
@@ -270,47 +246,32 @@
                 img.onerror = function (e) {
                     img.src = './img/img_broken.svg';
                 };
-                if (Lampa.Storage.field('douban_img_proxy')){
-                    //console.log(ii.indexOf('://'))
-                    //豆瓣图片域名
-                    if (element.cover.indexOf('doubanio.com') !== -1 && element.cover.indexOf('://') == 5){
-                      element.cover = 'https://images.weserv.nl/?url=' + element.cover.replace('https://','')
-                    };
-                  };
-                  switch (object.type) {
+                
+                switch (object.type) {
                     case 'list':
-                        if (object.code == '1'){
-                            card.find('.card__img').attr('src', element.album.picUrl+"?param=200y200g");
+                        if (object.code == '1') {
+                            card.find('.card__img').attr('src', element.album.picUrl + "?param=200y200g");
                         } else {
-                            card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");
+                            card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                         }
                         break;
                     case 'albums':
-                        card.find('.card__img').attr('src', element.picUrl+"?param=200y200g");
+                        card.find('.card__img').attr('src', element.picUrl + "?param=200y200g");
                         break;
                     case 'album':
-                        card.find('.card__img').attr('src', element.al.picUrl+"?param=200y200g");
+                        card.find('.card__img').attr('src', element.al.picUrl + "?param=200y200g");
                         break;
                     case 'playlist':
-                        card.find('.card__img').attr('src', element.coverImgUrl+"?param=200y200g");
+                        card.find('.card__img').attr('src', element.coverImgUrl + "?param=200y200g");
                         break;
                     default:
-                        card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");                  
+                        card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                 }
                 if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
-                    // if (object.type == 'list') {
-                    //     if (element.privilege.flLevel !== 'none') {
-                    //         card.find('.card__view').append('<div class="card__type"></div>');
-                    //         card.find('.card__type').text('免费');
-                    //     }
-                    // }
-                    // else {
-                        if (element.fee !==1 ) {
-                            card.find('.card__view').append('<div class="card__type"></div>');
-                            card.find('.card__type').text('免费');
-                        }
-                    // }
-                    
+                    if (element.fee !== 1) {
+                        card.find('.card__view').append('<div class="card__type"></div>');
+                        card.find('.card__type').text('免费');
+                    }
                 }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
@@ -404,122 +365,6 @@
                                 page: 1
                             });
                             break;
-                        // case 'playlist_detail':
-                        //     // tv表示翻译，-1是要，1是不要
-                        //     network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
-                        //         if (result.code == 200) {
-                        //             lrcObj = {}
-                        //             // console.log(result.lrc.lyric)
-                        //             if (result.lrc) {
-                        //                 var lyrics = result.lrc.lyric.split("\n");
-                        //                 for (var i = 0; i < lyrics.length; i++) {
-                        //                     var lyric = decodeURIComponent(lyrics[i]);
-                        //                     var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                        //                     var timeRegExpArr = lyric.match(timeReg);
-                        //                     if (!timeRegExpArr) continue;
-                        //                     var clause = lyric.replace(timeReg, '');
-                        //                     for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                        //                         var t = timeRegExpArr[k];
-                        //                         var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                        //                             sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                        //                         var time = min * 60 + sec;
-                        //                         lrcObj[time] = clause;
-                        //                     }
-                        //                 }
-                        //             }
-                        //             // console.log(lrcObj)
-                        //         }
-                        //     }, false, false, {
-                        //         dataType: 'json'
-                        //     });
-                        //     if (element.fee >1) {
-                        //         // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
-                        //         //     //console.log(result.data[0].url)
-                        //         //     // var video = {
-                        //         //     //     title: element.title,
-                        //         //     //     url: result.data[0].url,
-                        //         //     //     // plugin: plugin.component,
-                        //         //     //     tv: false
-                        //         //     // };
-                        //         //     // var playlist = [];
-                        //         //     // data.forEach(function (elem) {
-                        //         //     //     playlist.push({
-                        //         //     //         title: elem.title,
-                        //         //     //         url: elem.url,
-                        //         //     //         // plugin: plugin.component,
-                        //         //     //         tv: false
-                        //         //     //     });
-                        //         //     // });
-                        //         //     // // Lampa.Keypad.listener.destroy()
-                        //         //     // // Lampa.Keypad.listener.follow('keydown', keydown);
-                        //         //     // Lampa.Player.play(video);
-                        //         //     // Lampa.Player.playlist(video);
-                        //         //     var data = {
-                        //         //         url: result.data[0].url,
-                        //         //         title: element.name,
-                        //         //         playall: false
-                        //         //     }
-                        //         //     player.play(data);
-                        //         //     card.find('.card__view').append('<div class="card__quality"></div>');
-                        //         //     card.find('.card__quality').text('听');
-                        //         // }, false, false, {
-                        //         //     dataType: 'json'
-                        //         // });
-                        //         var data = {
-                        //             url: 'https://music.163.com/song/media/outer/url?id='+element.id,
-                        //             title: element.name,
-                        //             playall: false
-                        //         }
-                        //         player.play(data);
-                        //         card.find('.card__view').append('<div class="card__quality"></div>');
-                        //         card.find('.card__quality').text('听');
-                                
-                        //     } else {
-                        //         Lampa.Modal.open({
-                        //             title: '',
-                        //             html: Lampa.Template.get('modal_loading'),
-                        //             size: 'small',
-                        //             align: 'center',
-                        //             mask: true,
-                        //             onBack: function onBack() {
-                        //                 Lampa.Modal.close();
-                        //                 Lampa.Api.clear();
-                        //                 Lampa.Controller.toggle('content');
-                        //             }
-                        //         });
-                        //         //https://diii.tk/
-                        //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
-                        //             var queryData = result.data.filter(function (fp) {
-                        //                 // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        //                 return fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
-                        //             })
-                        //             // console.log(queryData)
-                        //             if (queryData.length > 0) {
-                        //                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                        //                     // if (result.msg == '成功') {
-                        //                     var data = {
-                        //                         url: result.data.src,
-                        //                         title: element.name,
-                        //                         playall: false
-                        //                     }
-                        //                     player.play(data);
-                        //                     card.find('.card__view').append('<div class="card__quality"></div>');
-                        //                     card.find('.card__quality').text('听');
-                        //                     Lampa.Modal.close();
-                        //                     Lampa.Controller.toggle('content');
-                        //                 }, false, false, {
-                        //                     dataType: 'json'
-                        //                 });
-                        //             } else {
-                        //                 Lampa.Modal.close();
-                        //                 Lampa.Controller.toggle('content');
-                        //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
-                        //             }
-                        //         }, false, false, {
-                        //             dataType: 'json'
-                        //         });
-                        //     }
-                        //     break;
                         default:
                             // tv表示翻译，-1是要，1是不要
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
@@ -853,6 +698,10 @@
                   // if (Navigator.canmove('down')) Navigator.move('down');
                   if (Navigator.canmove('down')) Navigator.move('down');
                   else if (info.find('.view--category').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  } else if (info.find('.open--play').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  } else if (info.find('.open--find').hasClass('focus')) {
                       Lampa.Controller.toggle('content');
                   }
               },
