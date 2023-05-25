@@ -6,7 +6,8 @@
     // https://mu-api.yuk0.com
     // https://netease-cloud-music-api-psi-silk.vercel.app
     // https://api-mymusic.vercel.app
-    var apiurl = 'https://mu-api.yuk0.com'
+    // https://mu-api.yuk0.com
+    var apiurl = 'https://api-mymusic.vercel.app'
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -737,27 +738,27 @@
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
     var catalogs = [{
         title: '歌单',
-        url: 'https://mu-api.yuk0.com/top/playlist',
+        url: 'https://api-mymusic.vercel.app/top/playlist',
         code: '',
         type: 'playlist'
     },{
         title: '飙升榜',
-        url: 'https://mu-api.yuk0.com/playlist/detail?id=19723756',
+        url: 'https://api-mymusic.vercel.app/playlist/detail?id=19723756',
         code: '',
         type: 'playlist_detail'
     }, {
         title: '新歌榜',
-        url: 'https://mu-api.yuk0.com/playlist/detail?id=3779629',
+        url: 'https://api-mymusic.vercel.app/playlist/detail?id=3779629',
         code: '',
         type: 'playlist_detail'
     }, {
         title: '热歌榜',
-        url: 'https://mu-api.yuk0.com/playlist/detail?id=3778678',
+        url: 'https://api-mymusic.vercel.app/playlist/detail?id=3778678',
         code: '',
         type: 'playlist_detail'
     }, {
         title: '原创榜',
-        url: 'https://mu-api.yuk0.com/playlist/detail?id=2884035',
+        url: 'https://api-mymusic.vercel.app/playlist/detail?id=2884035',
         code: '',
         type: 'playlist_detail'
     }, {
