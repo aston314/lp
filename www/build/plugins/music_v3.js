@@ -580,6 +580,7 @@
                             waitload: false,
                             component: 'music',
                             type: 'list',
+                            connectype: 'native',
                             page: 1
                         });
                     }
@@ -600,6 +601,7 @@
                             component: 'music',
                             type: a.type,
                             code: a.code,
+                            connectype: a.connectype,
                             page: 1
                         });
                     },
@@ -1339,6 +1341,7 @@
                             code: a.code,
                             component: 'music',
                             type: a.type,
+                            connectype: a.connectype,
                             page: 1
                         });
                     },
