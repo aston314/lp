@@ -169,7 +169,7 @@
                         if (result.hotAlbums.length) waitload = false;
                         break;
                     case 'album':
-                        // _this2.append(result);
+                        _this2.append(result);
                         if (result.songs.length) waitload = false;
                         // console.log(result)
                         break;
@@ -183,7 +183,7 @@
                             // console.log(result.songs.length)
                             if (result.songs.length) waitload = false;
                         } else if (result.hasOwnProperty("playlist")) {
-                            if (result.playlist.tracks.length) waitload = true;
+                            if (result.playlist.tracks.length) waitload = false;
                         }
                         break;
                     default:
@@ -295,9 +295,9 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    // if (object.type !== 'album') {
+                    if (object.type !== 'album') {
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    // }
+                    }
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
