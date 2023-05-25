@@ -84,8 +84,12 @@
             this.activity.loader(true);
             var urlpara;
             musiclist = [];
-            if (object.type == 'album') {
-                urlpara = '';
+            if (object.connectype !== 'native') {
+                if (object.type == 'album') {
+                    urlpara = '';
+                } else {
+                    urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
+                }
                 network.silent(object.url + urlpara, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
@@ -100,7 +104,6 @@
             } else {
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
-                
                 
                 network["native"](object.url + urlpara, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
@@ -228,8 +231,6 @@
                 listdata = data.result ? data.result.songs : [];
             }
 
-            console.log("1-2",listdata)
-
             listdata.forEach(function (element,i) {
                 if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
                     musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
@@ -311,7 +312,8 @@
                         url: 'http://music.163.com/api/artist/albums/'+(object.code == '1' ? element.artists[0].id : element.ar[0].id)+'?id='+(object.code == '1' ? element.artists[0].id : element.ar[0].id),
                         id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
                         type: 'albums',
-                        albumname: ''
+                        albumname: '',
+                        connectype: 'native'
                     });
                     archiveMenu.push({
                         title: '查看所属专辑歌曲',
@@ -319,6 +321,7 @@
                         url: apiurl+ '/album?id='+(object.code == '1' ? element.album.id : element.al.id),
                         id: '',
                         type: 'album',
+                        connectype: '', 
                         albumname: (object.code == '1' ? element.album.name : element.al.name)
                     });
                     Lampa.Select.show({
@@ -336,6 +339,7 @@
                                 component: 'music',
                                 type: sel.type,
                                 albumname: sel.albumname,
+                                connectype: sel.connectype, 
                                 page: 1
                             });
                         },
@@ -750,111 +754,132 @@
         title: '歌单',
         url: 'https://api-mymusic.vercel.app/top/playlist',
         code: '',
-        type: 'playlist'
+        type: 'playlist',
+        connectype: ''
     },{
         title: '飙升榜',
         url: 'https://api-mymusic.vercel.app/playlist/detail?id=19723756',
         code: '',
-        type: 'playlist_detail'
+        type: 'playlist_detail',
+        connectype: 'native'
     }, {
         title: '新歌榜',
         url: 'https://api-mymusic.vercel.app/playlist/detail?id=3779629',
         code: '',
-        type: 'playlist_detail'
+        type: 'playlist_detail',
+        connectype: 'native'
     }, {
         title: '热歌榜',
         url: 'https://api-mymusic.vercel.app/playlist/detail?id=3778678',
         code: '',
-        type: 'playlist_detail'
+        type: 'playlist_detail',
+        connectype: 'native'
     }, {
         title: '原创榜',
         url: 'https://api-mymusic.vercel.app/playlist/detail?id=2884035',
         code: '',
-        type: 'playlist_detail'
+        type: 'playlist_detail',
+        connectype: 'native'
     }, {
         title: '伊能静',
         url: 'https://music.163.com/api/cloudsearch/pc?s=伊能静',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '王力宏',
         url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     },
     {
         title: '陈奕迅',
         url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     },
     {
         title: '林俊杰',
         url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     },
     {
         title: '任贤齐',
         url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     },
     {
         title: '王菲',
         url: 'https://music.163.com/api/cloudsearch/pc?s=王菲',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '孙燕姿',
         url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '抖音',
         url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '爵士',
         url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '轻音乐',
         url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '乡村',
         url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '民谣',
         url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '电子',
         url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '舞曲',
         url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '说唱',
         url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '流行',
         url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
         code: '',
-        type: 'list'
+        type: 'list',
+        connectype: 'native'
     }];
 
     function player() {
