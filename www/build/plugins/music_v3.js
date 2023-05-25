@@ -3,6 +3,10 @@
     var lrcObj = {};
     var musiclist = [];
     var currentIndex = 0;
+    //https://mu-api.yuk0.com
+    // https://netease-cloud-music-api-psi-silk.vercel.app
+    // https://api-mymusic.vercel.app
+    var apiurl = 'https://mu-api.yuk0.com'
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -96,7 +100,7 @@
                     dataType: 'json'
                 });
             } else {
-                urlpara = '&' + this.getAsUriParameters(postdata);
+                urlpara = (object.url.includes("?") ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
                 
                 network["native"](object.url + urlpara, this.build.bind(this), function () {
@@ -153,7 +157,7 @@
                 if (object.type == 'album') {
                     urlpara = '';
                 } else {
-                    urlpara = '&' + this.getAsUriParameters(postdata);
+                    urlpara = (object.url.includes("?") ? '&' : '?') + this.getAsUriParameters(postdata);
                 }
 
             network["native"](object.url + urlpara , function (result) {
@@ -176,9 +180,22 @@
                         if (result.hotAlbums.length) waitload = false;
                         break;
                     case 'album':
-                        _this2.append(result);
+                        // _this2.append(result);
                         if (result.songs.length) waitload = false;
                         // console.log(result)
+                        break;
+                    case 'playlist':
+                        _this2.append(result);
+                        if (result.playlists.length) waitload = false;
+                        break;
+                    case 'playlist_detail':
+                        if (result.hasOwnProperty("songs")) {
+                            _this2.append(result);
+                            // console.log(result.songs.length)
+                            if (result.songs.length) waitload = false;
+                        } else if (result.hasOwnProperty("playlist")) {
+                            if (result.playlist.tracks.length) waitload = true;
+                        }
                         break;
                     default:
                         if (result.result.songCount > 0) {
@@ -203,7 +220,6 @@
             switch (object.type) {
             case 'list':
                 object.code == '1' ? listdata = data : (listdata = data.result ? data.result.songs : []);
-                ;
                 break;
             case 'albums':
                 listdata = data.hotAlbums;
@@ -212,22 +228,38 @@
             case 'album':
                 listdata = data.songs;
                 break;
+            case 'playlist':
+                listdata = data.playlists;
+                break;
+            case 'playlist_detail':
+                listdata = data;
+                break;
             default:
                 listdata = data.result ? data.result.songs : [];
             }
 
             //object.type == 'list' ? datatye = data.subjects : datatye = data ;
+            // var otherdata;
+            
+            if (object.type == 'playlist_detail') {
+                // otherdata = listdata.privileges;
+                listdata = listdata.songs || data.playlist.tracks;
+            }
+            
 
-            listdata.forEach(function (element) {
-                if (object.type == 'list' || object.type == 'album') {
-                    musiclist.push([element.name, element.id, element.privilege.flLevel, (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
+            listdata.forEach(function (element,i) {
+                if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
+                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
                 }
+                // if (object.type == 'playlist_detail') {
+                //     musiclist.push([element.name, element.id, element.fee, (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
+                // }
                 var mytitle = element.name.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
 
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: object.type == 'list'? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album'? object.albumname : '')
+                    release_year: (object.type == 'list' || object.type == 'playlist_detail')? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album'? object.albumname : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -259,20 +291,32 @@
                     case 'album':
                         card.find('.card__img').attr('src', element.al.picUrl+"?param=200y200g");
                         break;
+                    case 'playlist':
+                        card.find('.card__img').attr('src', element.coverImgUrl+"?param=200y200g");
+                        break;
                     default:
                         card.find('.card__img').attr('src', element.cover||element.img||element.pic||element.al.picUrl+"?param=200y200g"||element.blurPicUrl+"?param=200y200g");                  
                 }
-                if (object.type == 'list') {
-                    if (element.privilege.flLevel == 'standard' || element.privilege.flLevel == 'exhigh') {
-                        card.find('.card__view').append('<div class="card__type"></div>');
-                        card.find('.card__type').text('免费');
-                    };
+                if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
+                    // if (object.type == 'list') {
+                    //     if (element.privilege.flLevel !== 'none') {
+                    //         card.find('.card__view').append('<div class="card__type"></div>');
+                    //         card.find('.card__type').text('免费');
+                    //     }
+                    // }
+                    // else {
+                        if (element.fee !==1 ) {
+                            card.find('.card__view').append('<div class="card__type"></div>');
+                            card.find('.card__type').text('免费');
+                        }
+                    // }
+                    
                 }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
-                if (element.episodes_info){
+                if (element.publishTime){
                     card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info.replace('更新至','第'));
+                    card.find('.card__quality').text(new Date(element.publishTime).getFullYear());
                 };
 
                 card.on('hover:focus', function () {
@@ -284,14 +328,14 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (object.type !== 'album') {
+                    // if (object.type !== 'album') {
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    }
+                    // }
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list'){
+                if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
                     // console.log(element.al.name)
 					//contextmenu();
@@ -305,7 +349,8 @@
                     });
                     archiveMenu.push({
                         title: '查看所属专辑歌曲',
-                        url: 'https://ncm.icodeq.com/album?id='+(object.code == '1' ? element.album.id : element.al.id),
+                        // https://ncm.icodeq.com
+                        url: apiurl+ '/album?id='+(object.code == '1' ? element.album.id : element.al.id),
                         id: '',
                         type: 'album',
                         albumname: (object.code == '1' ? element.album.name : element.al.name)
@@ -339,7 +384,8 @@
                     switch (object.type) {
                         case 'albums':
                             Lampa.Activity.push({
-                                url: 'https://ncm.icodeq.com/album?id=' + element.id,
+                                // https://ncm.icodeq.com/
+                                url: apiurl+ '/album?id=' + element.id,
                                 title: '音乐 - 查看所属专辑歌曲',
                                 component: 'music',
                                 type: 'album',
@@ -347,7 +393,135 @@
                                 page: 1
                             });
                             break;
+                        case 'playlist':
+                            Lampa.Activity.push({
+                                // https://ncm.icodeq.com/
+                                url: apiurl+ '/playlist/track/all?id=' + element.id,
+                                title: '音乐 - 歌单详情',
+                                component: 'music',
+                                type: 'playlist_detail',
+                                albumname: element.name,
+                                page: 1
+                            });
+                            break;
+                        // case 'playlist_detail':
+                        //     // tv表示翻译，-1是要，1是不要
+                        //     network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
+                        //         if (result.code == 200) {
+                        //             lrcObj = {}
+                        //             // console.log(result.lrc.lyric)
+                        //             if (result.lrc) {
+                        //                 var lyrics = result.lrc.lyric.split("\n");
+                        //                 for (var i = 0; i < lyrics.length; i++) {
+                        //                     var lyric = decodeURIComponent(lyrics[i]);
+                        //                     var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                        //                     var timeRegExpArr = lyric.match(timeReg);
+                        //                     if (!timeRegExpArr) continue;
+                        //                     var clause = lyric.replace(timeReg, '');
+                        //                     for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                        //                         var t = timeRegExpArr[k];
+                        //                         var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                        //                             sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                        //                         var time = min * 60 + sec;
+                        //                         lrcObj[time] = clause;
+                        //                     }
+                        //                 }
+                        //             }
+                        //             // console.log(lrcObj)
+                        //         }
+                        //     }, false, false, {
+                        //         dataType: 'json'
+                        //     });
+                        //     if (element.fee >1) {
+                        //         // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
+                        //         //     //console.log(result.data[0].url)
+                        //         //     // var video = {
+                        //         //     //     title: element.title,
+                        //         //     //     url: result.data[0].url,
+                        //         //     //     // plugin: plugin.component,
+                        //         //     //     tv: false
+                        //         //     // };
+                        //         //     // var playlist = [];
+                        //         //     // data.forEach(function (elem) {
+                        //         //     //     playlist.push({
+                        //         //     //         title: elem.title,
+                        //         //     //         url: elem.url,
+                        //         //     //         // plugin: plugin.component,
+                        //         //     //         tv: false
+                        //         //     //     });
+                        //         //     // });
+                        //         //     // // Lampa.Keypad.listener.destroy()
+                        //         //     // // Lampa.Keypad.listener.follow('keydown', keydown);
+                        //         //     // Lampa.Player.play(video);
+                        //         //     // Lampa.Player.playlist(video);
+                        //         //     var data = {
+                        //         //         url: result.data[0].url,
+                        //         //         title: element.name,
+                        //         //         playall: false
+                        //         //     }
+                        //         //     player.play(data);
+                        //         //     card.find('.card__view').append('<div class="card__quality"></div>');
+                        //         //     card.find('.card__quality').text('听');
+                        //         // }, false, false, {
+                        //         //     dataType: 'json'
+                        //         // });
+                        //         var data = {
+                        //             url: 'https://music.163.com/song/media/outer/url?id='+element.id,
+                        //             title: element.name,
+                        //             playall: false
+                        //         }
+                        //         player.play(data);
+                        //         card.find('.card__view').append('<div class="card__quality"></div>');
+                        //         card.find('.card__quality').text('听');
+                                
+                        //     } else {
+                        //         Lampa.Modal.open({
+                        //             title: '',
+                        //             html: Lampa.Template.get('modal_loading'),
+                        //             size: 'small',
+                        //             align: 'center',
+                        //             mask: true,
+                        //             onBack: function onBack() {
+                        //                 Lampa.Modal.close();
+                        //                 Lampa.Api.clear();
+                        //                 Lampa.Controller.toggle('content');
+                        //             }
+                        //         });
+                        //         //https://diii.tk/
+                        //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
+                        //             var queryData = result.data.filter(function (fp) {
+                        //                 // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                        //                 return fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) && fp.songname === element.name
+                        //             })
+                        //             // console.log(queryData)
+                        //             if (queryData.length > 0) {
+                        //                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                        //                     // if (result.msg == '成功') {
+                        //                     var data = {
+                        //                         url: result.data.src,
+                        //                         title: element.name,
+                        //                         playall: false
+                        //                     }
+                        //                     player.play(data);
+                        //                     card.find('.card__view').append('<div class="card__quality"></div>');
+                        //                     card.find('.card__quality').text('听');
+                        //                     Lampa.Modal.close();
+                        //                     Lampa.Controller.toggle('content');
+                        //                 }, false, false, {
+                        //                     dataType: 'json'
+                        //                 });
+                        //             } else {
+                        //                 Lampa.Modal.close();
+                        //                 Lampa.Controller.toggle('content');
+                        //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
+                        //             }
+                        //         }, false, false, {
+                        //             dataType: 'json'
+                        //         });
+                        //     }
+                        //     break;
                         default:
+                            // tv表示翻译，-1是要，1是不要
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                                 if (result.code == 200) {
                                     lrcObj = {}
@@ -374,39 +548,48 @@
                             }, false, false, {
                                 dataType: 'json'
                             });
-                            if (element.privilege.flLevel !== 'none') {
-                                network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
-                                    //console.log(result.data[0].url)
-                                    // var video = {
-                                    //     title: element.title,
-                                    //     url: result.data[0].url,
-                                    //     // plugin: plugin.component,
-                                    //     tv: false
-                                    // };
-                                    // var playlist = [];
-                                    // data.forEach(function (elem) {
-                                    //     playlist.push({
-                                    //         title: elem.title,
-                                    //         url: elem.url,
-                                    //         // plugin: plugin.component,
-                                    //         tv: false
-                                    //     });
-                                    // });
-                                    // // Lampa.Keypad.listener.destroy()
-                                    // // Lampa.Keypad.listener.follow('keydown', keydown);
-                                    // Lampa.Player.play(video);
-                                    // Lampa.Player.playlist(video);
-                                    var data = {
-                                        url: result.data[0].url,
-                                        title: element.name,
-                                        playall: false
-                                    }
-                                    player.play(data);
-                                    card.find('.card__view').append('<div class="card__quality"></div>');
-                                    card.find('.card__quality').text('听');
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
+                            if (element.fee !== 1) {
+                                // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
+                                //     //console.log(result.data[0].url)
+                                //     // var video = {
+                                //     //     title: element.title,
+                                //     //     url: result.data[0].url,
+                                //     //     // plugin: plugin.component,
+                                //     //     tv: false
+                                //     // };
+                                //     // var playlist = [];
+                                //     // data.forEach(function (elem) {
+                                //     //     playlist.push({
+                                //     //         title: elem.title,
+                                //     //         url: elem.url,
+                                //     //         // plugin: plugin.component,
+                                //     //         tv: false
+                                //     //     });
+                                //     // });
+                                //     // // Lampa.Keypad.listener.destroy()
+                                //     // // Lampa.Keypad.listener.follow('keydown', keydown);
+                                //     // Lampa.Player.play(video);
+                                //     // Lampa.Player.playlist(video);
+                                //     var data = {
+                                //         url: result.data[0].url,
+                                //         title: element.name,
+                                //         playall: false
+                                //     }
+                                //     player.play(data);
+                                //     card.find('.card__view').append('<div class="card__quality"></div>');
+                                //     card.find('.card__quality').text('听');
+                                // }, false, false, {
+                                //     dataType: 'json'
+                                // });
+                                var data = {
+                                    url: 'https://music.163.com/song/media/outer/url?id='+element.id,
+                                    title: element.name,
+                                    playall: false
+                                }
+                                player.play(data);
+                                card.find('.card__view').append('<div class="card__quality"></div>');
+                                card.find('.card__quality').text('听');
+                                
                             } else {
                                 Lampa.Modal.open({
                                     title: '',
@@ -451,6 +634,58 @@
                                 }, false, false, {
                                     dataType: 'json'
                                 });
+
+                                // network["native"]('https://www.fangpi.net/s/'+ encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (str) {
+                                //     var musc_list = [];
+                                //     str = str.replace(/\n/g, '');
+                                    
+                                //     $('a.text-primary', str).each(function (i, html) {
+                                //         musc_list.push('https://www.fangpi.net' +  $(html).attr('href'));
+                                //     });
+                                //     // console.log(musc_list)
+
+                                //     if (musc_list.length > 0) {
+                                //         network["native"](musc_list[1], function (str) {
+                                //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+                                //             var match = str.match(urlPattern);
+
+                                //             if (match) {
+                                //                 var urlvideo = match[1];
+                                //                 var data = {
+                                //                     url: urlvideo,
+                                //                     title: element.name,
+                                //                     playall: false
+                                //                 }
+                                //                 player.play(data);
+                                //                 card.find('.card__view').append('<div class="card__quality"></div>');
+                                //                 card.find('.card__quality').text('听');
+                                //             } else {
+                                //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
+                                //             }
+                                //             Lampa.Modal.close();
+                                //             Lampa.Controller.toggle('content');
+                                //         }, function (a, c) {
+                                //             Lampa.Noty.show(network.errorDecode(a, c));
+                                //         }, false, {
+                                //             dataType: 'text',
+                                //             headers: {
+                                //                 'Referer': 'https://www.fangpi.net/'
+                                //             }
+                                //         });
+                                //     } else {
+                                //         Lampa.Modal.close();
+                                //         Lampa.Controller.toggle('content');
+                                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+                                //     }
+
+                                // }, function (a, c) {
+                                //     Lampa.Noty.show(network.errorDecode(a, c));
+                                // }, false, {
+                                //     dataType: 'text',
+                                //     headers: {
+                                //         'Referer': 'https://www.fangpi.net/'
+                                //     }
+                                // });
                             }
                     }
                 });
@@ -508,7 +743,7 @@
                             url: a.url,
                             title: '音乐 - '+a.title,
                             component: 'music',
-                            type: 'list',
+                            type: a.type,
                             code: a.code,
                             page: 1
                         });
@@ -541,6 +776,14 @@
                 case 'album':
                     listdata = data.songs;
                     havedata = data.songs;
+                    break;
+                case 'playlist':
+                    listdata = data.playlists;
+                    havedata = data.playlists;
+                    break;
+                case 'playlist_detail':
+                    listdata = data.songs || data.playlist.tracks;
+                    havedata = data.songs || data.playlist.tracks;
                     break;
                 default:
                     listdata = data.result ? data.result.songs : [];
@@ -644,89 +887,114 @@
     }
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
     var catalogs = [{
+        title: '歌单',
+        url: 'https://mu-api.yuk0.com/top/playlist',
+        code: '',
+        type: 'playlist'
+    },{
         title: '飙升榜',
-        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E9%A3%99%E5%8D%87%E6%A6%9C',
-        code: '1'
-    },{
+        url: 'https://mu-api.yuk0.com/playlist/detail?id=19723756',
+        code: '',
+        type: 'playlist_detail'
+    }, {
         title: '新歌榜',
-        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E6%96%B0%E6%AD%8C%E6%A6%9C',
-        code: '1'
-    },{
+        url: 'https://mu-api.yuk0.com/playlist/detail?id=3779629',
+        code: '',
+        type: 'playlist_detail'
+    }, {
         title: '热歌榜',
-        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E7%83%AD%E6%AD%8C%E6%A6%9C',
-        code: '1'
-    },{
+        url: 'https://mu-api.yuk0.com/playlist/detail?id=3778678',
+        code: '',
+        type: 'playlist_detail'
+    }, {
         title: '原创榜',
-        url: 'https://api.vvhan.com/api/rand.music?type=all&sort=%E5%8E%9F%E5%88%9B',
-        code: '1'
-    },{
+        url: 'https://mu-api.yuk0.com/playlist/detail?id=2884035',
+        code: '',
+        type: 'playlist_detail'
+    }, {
         title: '伊能静',
         url: 'https://music.163.com/api/cloudsearch/pc?s=伊能静',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '王力宏',
         url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏',
-        code: ''
+        code: '',
+        type: 'list'
     },
     {
         title: '陈奕迅',
         url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅',
-        code: ''
+        code: '',
+        type: 'list'
     },
     {
         title: '林俊杰',
         url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰',
-        code: ''
+        code: '',
+        type: 'list'
     },
     {
         title: '任贤齐',
         url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐',
-        code: ''
+        code: '',
+        type: 'list'
     },
     {
         title: '王菲',
         url: 'https://music.163.com/api/cloudsearch/pc?s=王菲',
-        code: ''
-    },{
+        code: '',
+        type: 'list'
+    }, {
         title: '孙燕姿',
         url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿',
-        code: ''
-    },{
+        code: '',
+        type: 'list'
+    }, {
         title: '抖音',
         url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
-        code: ''
-    },{
+        code: '',
+        type: 'list'
+    }, {
         title: '爵士',
         url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
-        code: ''
-    },{
+        code: '',
+        type: 'list'
+    }, {
         title: '轻音乐',
         url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '乡村',
         url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
-        code: ''
-    },{
+        code: '',
+        type: 'list'
+    }, {
         title: '民谣',
         url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '电子',
         url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '舞曲',
         url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '说唱',
         url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
-        code: ''
+        code: '',
+        type: 'list'
     }, {
         title: '流行',
         url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
-        code: ''
+        code: '',
+        type: 'list'
     }];
 
     function player() {
@@ -742,7 +1010,7 @@
         });
   
         function prepare() {
-          if (audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.mp3') > 0) load();else if (Hls.isSupported()) {
+          if (audio.canPlayType('audio/mpeg;') || audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.mp3') > 0) load();else if (Hls.isSupported()) {
             try {
               hls = new Hls();
               hls.attachMedia(audio);
@@ -896,16 +1164,22 @@
             dataType: 'json'
         });
         if (musiclist[currentIndex][2] !== 'none') {
-            network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
-                var data = {
-                    url: result.data[0].url,
-                    title: musiclist[currentIndex][0],
-                    playall: true
-                }
-                player.play(data);
-            }, false, false, {
-                dataType: 'json'
-            });
+            // network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
+            //     var data = {
+            //         url: result.data[0].url,
+            //         title: musiclist[currentIndex][0],
+            //         playall: true
+            //     }
+            //     player.play(data);
+            // }, false, false, {
+            //     dataType: 'json'
+            // });
+            var data = {
+                url: 'https://music.163.com/song/media/outer/url?id=' + musiclist[currentIndex][1],
+                title: musiclist[currentIndex][0],
+                playall: true
+            }
+            player.play(data);
         } else {
             // Lampa.Modal.open({
             //     title: '',
@@ -920,34 +1194,83 @@
             //     }
             // });
             //https://diii.tk/
-            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
-                var queryData = result.data.filter(function (fp) {
-                    // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                    return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
-                })
+            // network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+            //     var queryData = result.data.filter(function (fp) {
+            //         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+            //         return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+            //     })
                 
-                if (queryData.length > 0) {
-                    // console.log(queryData,queryData[0].mid)
-                    network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                        // if (result.msg == '成功') {
-                        var data = {
-                            url: result.data.src,
-                            title: musiclist[currentIndex][0],
-                            playall: true
+            //     if (queryData.length > 0) {
+            //         // console.log(queryData,queryData[0].mid)
+            //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+            //             // if (result.msg == '成功') {
+            //             var data = {
+            //                 url: result.data.src,
+            //                 title: musiclist[currentIndex][0],
+            //                 playall: true
+            //             }
+            //             player.play(data);
+            //             // Lampa.Modal.close();
+            //             // Lampa.Controller.toggle('content');
+            //         }, false, false, {
+            //             dataType: 'json'
+            //         });
+            //     } else {
+            //         // Lampa.Modal.close();
+            //         // Lampa.Controller.toggle('content');
+            //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+            //     }
+            // }, false, false, {
+            //     dataType: 'json'
+            // });
+            network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
+                var musc_list = [];
+                str = str.replace(/\n/g, '');
+
+                $('a.text-primary', str).each(function (i, html) {
+                    musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
+                });
+                // console.log(musc_list)
+
+                if (musc_list.length > 0) {
+                    network["native"](musc_list[1], function (str) {
+                        var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+                        var match = str.match(urlPattern);
+
+                        if (match) {
+                            var urlvideo = match[1];
+                            var data = {
+                                url: urlvideo,
+                                title: musiclist[currentIndex][0],
+                                playall: false
+                            }
+                            player.play(data);
+                        } else {
+                            Lampa.Noty.show('找不到相关歌曲音频文件。');
                         }
-                        player.play(data);
                         // Lampa.Modal.close();
                         // Lampa.Controller.toggle('content');
-                    }, false, false, {
-                        dataType: 'json'
+                    }, function (a, c) {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }, false, {
+                        dataType: 'text',
+                        headers: {
+                            'Referer': 'https://www.fangpi.net/'
+                        }
                     });
                 } else {
                     // Lampa.Modal.close();
                     // Lampa.Controller.toggle('content');
                     Lampa.Noty.show('找不到相关歌曲音频文件。');
                 }
-            }, false, false, {
-                dataType: 'json'
+
+            }, function (a, c) {
+                Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, {
+                dataType: 'text',
+                headers: {
+                    'Referer': 'https://www.fangpi.net/'
+                }
             });
         }
     }
@@ -989,17 +1312,23 @@
             }, false, false, {
                 dataType: 'json'
             });
-            if (musiclist[currentIndex][2] !== 'none') {
-                network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
-                    var data = {
-                        url: result.data[0].url,
-                        title: musiclist[currentIndex][0],
-                        playall: true
-                    }
-                    player.play(data);
-                }, false, false, {
-                    dataType: 'json'
-                });
+            if (musiclist[currentIndex][2] !== 1) {
+                // network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
+                //     var data = {
+                //         url: result.data[0].url,
+                //         title: musiclist[currentIndex][0],
+                //         playall: true
+                //     }
+                //     player.play(data);
+                // }, false, false, {
+                //     dataType: 'json'
+                // });
+                var data = {
+                    url: 'https://music.163.com/song/media/outer/url?id='+musiclist[currentIndex][1],
+                    title: musiclist[currentIndex][0],
+                    playall: true
+                }
+                player.play(data);
             } else {
                 Lampa.Modal.open({
                     title: '',
@@ -1014,34 +1343,84 @@
                     }
                 });
                 //https://diii.tk/
-                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
-                    var queryData = result.data.filter(function (fp) {
-                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
-                    })
+                // network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                //     var queryData = result.data.filter(function (fp) {
+                //         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                //         return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+                //     })
 
-                    if (queryData.length > 0) {
-                        // console.log(queryData,queryData[0].mid)
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: musiclist[currentIndex][0],
-                                playall: true
+                //     if (queryData.length > 0) {
+                //         // console.log(queryData,queryData[0].mid)
+                //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                //             // if (result.msg == '成功') {
+                //             var data = {
+                //                 url: result.data.src,
+                //                 title: musiclist[currentIndex][0],
+                //                 playall: true
+                //             }
+                //             player.play(data);
+                //             Lampa.Modal.close();
+                //             Lampa.Controller.toggle('content');
+                //         }, false, false, {
+                //             dataType: 'json'
+                //         });
+                //     } else {
+                //         Lampa.Modal.close();
+                //         Lampa.Controller.toggle('content');
+                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+                //     }
+                // }, false, false, {
+                //     dataType: 'json'
+                // });
+
+                network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
+                    var musc_list = [];
+                    str = str.replace(/\n/g, '');
+
+                    $('a.text-primary', str).each(function (i, html) {
+                        musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
+                    });
+                    // console.log(musc_list)
+
+                    if (musc_list.length > 0) {
+                        network["native"](musc_list[1], function (str) {
+                            var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+                            var match = str.match(urlPattern);
+
+                            if (match) {
+                                var urlvideo = match[1];
+                                var data = {
+                                    url: urlvideo,
+                                    title: musiclist[currentIndex][0],
+                                    playall: false
+                                }
+                                player.play(data);
+                            } else {
+                                Lampa.Noty.show('找不到相关歌曲音频文件。');
                             }
-                            player.play(data);
                             Lampa.Modal.close();
                             Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: 'text',
+                            headers: {
+                                'Referer': 'https://www.fangpi.net/'
+                            }
                         });
                     } else {
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                         Lampa.Noty.show('找不到相关歌曲音频文件。');
                     }
-                }, false, false, {
-                    dataType: 'json'
+
+                }, function (a, c) {
+                    Lampa.Noty.show(network.errorDecode(a, c));
+                }, false, {
+                    dataType: 'text',
+                    headers: {
+                        'Referer': 'https://www.fangpi.net/'
+                    }
                 });
             }
         } else {
@@ -1065,7 +1444,7 @@
             var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
                 Lampa.Select.show({
-                    title: '音乐',
+                    title: '分类',
                     items: catalogs,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
@@ -1073,7 +1452,7 @@
                             title: '音乐 - ' + a.title,
                             code: a.code,
                             component: 'music',
-                            type: 'list',
+                            type: a.type,
                             page: 1
                         });
                     },
