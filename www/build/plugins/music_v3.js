@@ -100,7 +100,7 @@
                     dataType: 'json'
                 });
             } else {
-                urlpara = (object.url.includes("?") ? '&' : '?') + this.getAsUriParameters(postdata);
+                urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
                 
                 network["native"](object.url + urlpara, this.build.bind(this), function () {
@@ -157,7 +157,7 @@
                 if (object.type == 'album') {
                     urlpara = '';
                 } else {
-                    urlpara = (object.url.includes("?") ? '&' : '?') + this.getAsUriParameters(postdata);
+                    urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 }
 
             network["native"](object.url + urlpara , function (result) {
