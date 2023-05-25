@@ -639,11 +639,13 @@
                         listdata = data.playlist.tracks;
                         havedata = data.playlist.tracks
                     }
+                    confirm.log('fuck')
                     break;
                 default:
                     listdata = data.result ? data.result.songs : [];
                     havedata = data.result;
             }
+            console.log("1-3",havedata)
             if (havedata) {
                 if (listdata.length) {
                     html.append(info);
