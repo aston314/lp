@@ -769,10 +769,10 @@
 // https://music.163.com/api/playlist/list
     var catalogs = [{
         title: '歌单',
-        url: 'https://music.163.com/api/playlist/list',
+        url: 'https://ncm.icodeq.com/top/playlist',
         code: '',
         type: 'playlist',
-        connectype: 'native'
+        connectype: ''
     },{
         title: '飙升榜',
         url: 'https://ncm.icodeq.com/playlist/detail?id=19723756',
