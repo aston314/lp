@@ -767,16 +767,16 @@
     }
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
     var catalogs = [{
-        title: '歌单',
-        url: 'https://music.163.com/api/playlist/list',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
         title: '飙升榜',
         url: 'https://www.mylapi.icu/playlist/detail?id=19723756',
         code: '',
         type: 'playlist_detail',
+        connectype: 'native'
+    },{
+        title: '歌单',
+        url: 'https://music.163.com/api/playlist/list',
+        code: '',
+        type: 'playlist',
         connectype: 'native'
     }, {
         title: '新歌榜',
