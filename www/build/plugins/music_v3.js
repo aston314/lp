@@ -1051,7 +1051,7 @@
         }, false, false, {
             dataType: 'json'
         });
-        if (musiclist[currentIndex][2] !== 'none') {
+        if (musiclist[currentIndex][2] !== 1) {
             // network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
             //     var data = {
             //         url: result.data[0].url,
@@ -1082,84 +1082,84 @@
             //     }
             // });
             //https://diii.tk/
-            // network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
-            //     var queryData = result.data.filter(function (fp) {
-            //         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-            //         return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
-            //     })
+            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                var queryData = result.data.filter(function (fp) {
+                    // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                    return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+                })
                 
-            //     if (queryData.length > 0) {
-            //         // console.log(queryData,queryData[0].mid)
-            //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-            //             // if (result.msg == '成功') {
-            //             var data = {
-            //                 url: result.data.src,
-            //                 title: musiclist[currentIndex][0],
-            //                 playall: true
-            //             }
-            //             player.play(data);
-            //             // Lampa.Modal.close();
-            //             // Lampa.Controller.toggle('content');
-            //         }, false, false, {
-            //             dataType: 'json'
-            //         });
-            //     } else {
-            //         // Lampa.Modal.close();
-            //         // Lampa.Controller.toggle('content');
-            //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-            //     }
-            // }, false, false, {
-            //     dataType: 'json'
-            // });
-            network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
-                var musc_list = [];
-                str = str.replace(/\n/g, '');
-
-                $('a.text-primary', str).each(function (i, html) {
-                    musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
-                });
-                // console.log(musc_list)
-
-                if (musc_list.length > 0) {
-                    network["native"](musc_list[1], function (str) {
-                        var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                        var match = str.match(urlPattern);
-
-                        if (match) {
-                            var urlvideo = match[1];
-                            var data = {
-                                url: urlvideo,
-                                title: musiclist[currentIndex][0],
-                                playall: false
-                            }
-                            player.play(data);
-                        } else {
-                            Lampa.Noty.show('找不到相关歌曲音频文件。');
+                if (queryData.length > 0) {
+                    // console.log(queryData,queryData[0].mid)
+                    network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                        // if (result.msg == '成功') {
+                        var data = {
+                            url: result.data.src,
+                            title: musiclist[currentIndex][0],
+                            playall: true
                         }
+                        player.play(data);
                         // Lampa.Modal.close();
                         // Lampa.Controller.toggle('content');
-                    }, function (a, c) {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    }, false, {
-                        dataType: 'text',
-                        headers: {
-                            'Referer': 'https://www.fangpi.net/'
-                        }
+                    }, false, false, {
+                        dataType: 'json'
                     });
                 } else {
                     // Lampa.Modal.close();
                     // Lampa.Controller.toggle('content');
                     Lampa.Noty.show('找不到相关歌曲音频文件。');
                 }
-
-            }, function (a, c) {
-                Lampa.Noty.show(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'text',
-                headers: {
-                    'Referer': 'https://www.fangpi.net/'
-                }
+            }, false, false, {
+                dataType: 'json'
             });
+            // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
+            //     var musc_list = [];
+            //     str = str.replace(/\n/g, '');
+
+            //     $('a.text-primary', str).each(function (i, html) {
+            //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
+            //     });
+            //     // console.log(musc_list)
+
+            //     if (musc_list.length > 0) {
+            //         network["native"](musc_list[1], function (str) {
+            //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+            //             var match = str.match(urlPattern);
+
+            //             if (match) {
+            //                 var urlvideo = match[1];
+            //                 var data = {
+            //                     url: urlvideo,
+            //                     title: musiclist[currentIndex][0],
+            //                     playall: false
+            //                 }
+            //                 player.play(data);
+            //             } else {
+            //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
+            //             }
+            //             // Lampa.Modal.close();
+            //             // Lampa.Controller.toggle('content');
+            //         }, function (a, c) {
+            //             Lampa.Noty.show(network.errorDecode(a, c));
+            //         }, false, {
+            //             dataType: 'text',
+            //             headers: {
+            //                 'Referer': 'https://www.fangpi.net/'
+            //             }
+            //         });
+            //     } else {
+            //         // Lampa.Modal.close();
+            //         // Lampa.Controller.toggle('content');
+            //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+            //     }
+
+            // }, function (a, c) {
+            //     Lampa.Noty.show(network.errorDecode(a, c));
+            // }, false, {
+            //     dataType: 'text',
+            //     headers: {
+            //         'Referer': 'https://www.fangpi.net/'
+            //     }
+            // });
         }
     }
 
@@ -1231,85 +1231,85 @@
                     }
                 });
                 //https://diii.tk/
-                // network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
-                //     var queryData = result.data.filter(function (fp) {
-                //         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                //         return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
-                //     })
+                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                    var queryData = result.data.filter(function (fp) {
+                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                        return fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] && fp.songname === musiclist[currentIndex][0]
+                    })
 
-                //     if (queryData.length > 0) {
-                //         // console.log(queryData,queryData[0].mid)
-                //         network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                //             // if (result.msg == '成功') {
-                //             var data = {
-                //                 url: result.data.src,
-                //                 title: musiclist[currentIndex][0],
-                //                 playall: true
-                //             }
-                //             player.play(data);
-                //             Lampa.Modal.close();
-                //             Lampa.Controller.toggle('content');
-                //         }, false, false, {
-                //             dataType: 'json'
-                //         });
-                //     } else {
-                //         Lampa.Modal.close();
-                //         Lampa.Controller.toggle('content');
-                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-                //     }
-                // }, false, false, {
-                //     dataType: 'json'
-                // });
-
-                network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
-                    var musc_list = [];
-                    str = str.replace(/\n/g, '');
-
-                    $('a.text-primary', str).each(function (i, html) {
-                        musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
-                    });
-                    // console.log(musc_list)
-
-                    if (musc_list.length > 0) {
-                        network["native"](musc_list[1], function (str) {
-                            var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                            var match = str.match(urlPattern);
-
-                            if (match) {
-                                var urlvideo = match[1];
-                                var data = {
-                                    url: urlvideo,
-                                    title: musiclist[currentIndex][0],
-                                    playall: false
-                                }
-                                player.play(data);
-                            } else {
-                                Lampa.Noty.show('找不到相关歌曲音频文件。');
+                    if (queryData.length > 0) {
+                        // console.log(queryData,queryData[0].mid)
+                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                            // if (result.msg == '成功') {
+                            var data = {
+                                url: result.data.src,
+                                title: musiclist[currentIndex][0],
+                                playall: true
                             }
+                            player.play(data);
                             Lampa.Modal.close();
                             Lampa.Controller.toggle('content');
-                        }, function (a, c) {
-                            Lampa.Noty.show(network.errorDecode(a, c));
-                        }, false, {
-                            dataType: 'text',
-                            headers: {
-                                'Referer': 'https://www.fangpi.net/'
-                            }
+                        }, false, false, {
+                            dataType: 'json'
                         });
                     } else {
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                         Lampa.Noty.show('找不到相关歌曲音频文件。');
                     }
-
-                }, function (a, c) {
-                    Lampa.Noty.show(network.errorDecode(a, c));
-                }, false, {
-                    dataType: 'text',
-                    headers: {
-                        'Referer': 'https://www.fangpi.net/'
-                    }
+                }, false, false, {
+                    dataType: 'json'
                 });
+
+                // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (str) {
+                //     var musc_list = [];
+                //     str = str.replace(/\n/g, '');
+
+                //     $('a.text-primary', str).each(function (i, html) {
+                //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
+                //     });
+                //     // console.log(musc_list)
+
+                //     if (musc_list.length > 0) {
+                //         network["native"](musc_list[1], function (str) {
+                //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+                //             var match = str.match(urlPattern);
+
+                //             if (match) {
+                //                 var urlvideo = match[1];
+                //                 var data = {
+                //                     url: urlvideo,
+                //                     title: musiclist[currentIndex][0],
+                //                     playall: false
+                //                 }
+                //                 player.play(data);
+                //             } else {
+                //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
+                //             }
+                //             Lampa.Modal.close();
+                //             Lampa.Controller.toggle('content');
+                //         }, function (a, c) {
+                //             Lampa.Noty.show(network.errorDecode(a, c));
+                //         }, false, {
+                //             dataType: 'text',
+                //             headers: {
+                //                 'Referer': 'https://www.fangpi.net/'
+                //             }
+                //         });
+                //     } else {
+                //         Lampa.Modal.close();
+                //         Lampa.Controller.toggle('content');
+                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+                //     }
+
+                // }, function (a, c) {
+                //     Lampa.Noty.show(network.errorDecode(a, c));
+                // }, false, {
+                //     dataType: 'text',
+                //     headers: {
+                //         'Referer': 'https://www.fangpi.net/'
+                //     }
+                // });
             }
         } else {
             Lampa.Noty.show('没有可以播放的歌曲。');
