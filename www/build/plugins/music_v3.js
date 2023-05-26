@@ -771,7 +771,7 @@
         url: 'https://music.163.com/api/playlist/list',
         code: '',
         type: 'playlist',
-        connectype: 'native'
+        connectype: ''
     },{
         title: '飙升榜',
         url: 'https://www.mylapi.icu/playlist/detail?id=19723756',
