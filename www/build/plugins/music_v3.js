@@ -7,8 +7,8 @@
     // https://ncm.icodeq.com/
     // https://netease-cloud-music-api-psi-silk.vercel.app
     // https://api-mymusic.vercel.app
-    // https://mu-api.yuk0.com
-    var apiurl = 'https://ncm.icodeq.com'
+    // https://www.mylapi.icu
+    var apiurl = 'https://www.mylapi.icu'
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -774,25 +774,25 @@
         connectype: 'native'
     },{
         title: '飙升榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=19723756',
+        url: 'https://www.mylapi.icu/playlist/detail?id=19723756',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
     }, {
         title: '新歌榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=3779629',
+        url: 'https://www.mylapi.icu/playlist/detail?id=3779629',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
     }, {
         title: '热歌榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=3778678',
+        url: 'https://www.mylapi.icu/playlist/detail?id=3778678',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
     }, {
         title: '原创榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=2884035',
+        url: 'https://www.mylapi.icu/playlist/detail?id=2884035',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
