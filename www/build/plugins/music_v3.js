@@ -7,8 +7,8 @@
     // https://ncm.icodeq.com/
     // https://netease-cloud-music-api-psi-silk.vercel.app
     // https://api-mymusic.vercel.app
-    // https://www.mylapi.icu
-    var apiurl = 'https://www.mylapi.icu'
+    // https://mu-api.yuk0.com
+    var apiurl = 'https://ncm.icodeq.com'
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -766,33 +766,34 @@
         };
     }
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
+// https://music.163.com/api/playlist/list
     var catalogs = [{
+        title: '歌单',
+        url: 'https://ncm.icodeq.com/top/playlist',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
         title: '飙升榜',
-        url: 'https://www.mylapi.icu/playlist/detail?id=19723756',
+        url: 'https://ncm.icodeq.com/playlist/detail?id=19723756',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
-    },{
-        title: '歌单',
-        url: 'https://music.163.com/api/playlist/list',
-        code: '',
-        type: 'playlist',
-        connectype: 'native'
     }, {
         title: '新歌榜',
-        url: 'https://www.mylapi.icu/playlist/detail?id=3779629',
+        url: 'https://ncm.icodeq.com/playlist/detail?id=3779629',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
     }, {
         title: '热歌榜',
-        url: 'https://www.mylapi.icu/playlist/detail?id=3778678',
+        url: 'https://ncm.icodeq.com/playlist/detail?id=3778678',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
     }, {
         title: '原创榜',
-        url: 'https://www.mylapi.icu/playlist/detail?id=2884035',
+        url: 'https://ncm.icodeq.com/playlist/detail?id=2884035',
         code: '',
         type: 'playlist_detail',
         connectype: 'native'
