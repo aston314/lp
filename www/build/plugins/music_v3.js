@@ -1144,7 +1144,7 @@
                         var data = {
                             url: result.data.src,
                             title: element.name,
-                            playall: false
+                            playall: true
                         }
                         player.play(data);
                         Lampa.Modal.close();
@@ -1304,7 +1304,7 @@
                             var data = {
                                 url: result.data.src,
                                 title: element.name,
-                                playall: false
+                                playall: true
                             }
                             player.play(data);
                             Lampa.Modal.close();
@@ -1312,8 +1312,8 @@
                         }, false, false, {
                             dataType: 'json'
                         });
-                        Lampa.Modal.close();
-                        Lampa.Controller.toggle('content');
+                        // Lampa.Modal.close();
+                        // Lampa.Controller.toggle('content');
                         // Lampa.Noty.show('找不到相关歌曲音频文件。');
                     }
                 }, false, false, {
