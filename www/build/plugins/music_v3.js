@@ -85,9 +85,9 @@
             this.activity.loader(true);
             var urlpara;
             musiclist = [];
-            var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
-            var isLampaTV = current_version.startsWith("7.");
-            if (isLampaTV) {
+            // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
+            // var isLampaTV = current_version.startsWith("7.");
+            if (!!window.cordova) {
                 if (object.type == 'album') {
                     urlpara = '';
                 } else {
@@ -151,17 +151,17 @@
                 } else {
                     urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 }
-            var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
-            var isLampaTV = current_version.startsWith("7.");
-            if (isLampaTV) {
-                network["native"](object.url + urlpara, function (result) {
+            // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
+            // var isLampaTV = current_version.startsWith("7.");
+            if (!!window.cordova) {
+                network.silent(object.url + urlpara, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, false, false, {
                     dataType: 'json'
                 });
             } else {
-                network.silent(object.url + urlpara, function (result) {
+                network["native"](object.url + urlpara, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, false, false, {
