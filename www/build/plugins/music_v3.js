@@ -1147,8 +1147,6 @@
                             playall: false
                         }
                         player.play(data);
-                        card.find('.card__view').append('<div class="card__quality"></div>');
-                        card.find('.card__quality').text('听');
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     }, false, false, {
@@ -1309,8 +1307,6 @@
                                 playall: false
                             }
                             player.play(data);
-                            card.find('.card__view').append('<div class="card__quality"></div>');
-                            card.find('.card__quality').text('听');
                             Lampa.Modal.close();
                             Lampa.Controller.toggle('content');
                         }, false, false, {
