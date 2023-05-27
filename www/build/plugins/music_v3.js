@@ -474,10 +474,10 @@
                                     }
                                 });
                                 //https://diii.tk/
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (result) {
+                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name.replace('(Live)','')), function (result) {
                                     var queryData = result.data.filter(function (fp) {
                                         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                        return (fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) || fp.name.indexOf((object.code == '1' ? element.artists[0].name: element.ar[0].name)) !== -1) && fp.songname === element.name
+                                        return (fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) || fp.name.indexOf((object.code == '1' ? element.artists[0].name: element.ar[0].name)) !== -1) && fp.songname === element.name.replace('(Live)','')
                                     })
                                     // console.log(queryData)
                                     if (queryData.length > 0) {
@@ -1115,12 +1115,12 @@
             //     }
             // });
             //https://diii.tk/
-            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0].replace('(Live)','')), function (result) {
                 var queryData = result.data.filter(function (fp) {
                     // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                    return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] || fp.name.indexOf(musiclist[currentIndex][3]) !== -1) && fp.songname === musiclist[currentIndex][0]
+                    return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] || fp.name.indexOf(musiclist[currentIndex][3]) !== -1) && fp.songname === musiclist[currentIndex][0].replace('(Live)','')
                 })
-                
+
                 if (queryData.length > 0) {
                     // console.log(queryData,queryData[0].mid)
                     network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
@@ -1277,10 +1277,10 @@
                     }
                 });
                 //https://diii.tk/
-                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0]), function (result) {
+                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(musiclist[currentIndex][3] + ' ' + musiclist[currentIndex][0].replace('(Live)','')), function (result) {
                     var queryData = result.data.filter(function (fp) {
                         // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] || fp.name.indexOf(musiclist[currentIndex][3]) !== -1) && fp.songname === musiclist[currentIndex][0]
+                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === musiclist[currentIndex][3] || fp.name.indexOf(musiclist[currentIndex][3]) !== -1) && fp.songname === musiclist[currentIndex][0].replace('(Live)','')
                     })
 
                     if (queryData.length > 0) {
