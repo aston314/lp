@@ -43,8 +43,9 @@
         first_page_json: '.html',
         search_html_selector: '',
         link_folder: 'detail/',
-        //detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-        detail_url_selector: '.stui-pannel__head:contains(BD2播放)+ul,.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul',
+        // detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
+        // .stui-pannel__head:contains(BD2播放)+ul,.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul 
+        detail_url_selector: 'ul.stui-content__playlist',
         // detail_url_selector: '.stui-pannel__head:contains(HD播放)+ul',
         videoparse: 'default',
         videocontainer: '.MacPlayer',
