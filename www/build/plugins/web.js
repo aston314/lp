@@ -959,7 +959,7 @@
             s = '<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style>';
             s_name = 'freetv_n ';
         } else {
-            s = '<style>.freetv.category-full{padding-bottom:3em;}</style>';
+            s = '<style>.freetv.category-full{padding-bottom:2.5em;}</style>';
             s_name = 'freetv ';
         }
 
