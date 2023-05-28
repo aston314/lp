@@ -15,7 +15,7 @@
         });
         var items = [];
         var html = $('<div></div>');
-        var body = $('<div class="category-full"></div>');
+        var body = $('<div class="freetv category-full"></div>');
         var info;
         var last;
         var waitload;
@@ -284,11 +284,11 @@
                             select: html.find('.navigation-tabs .active')[0],
                             mask: true,
                             onBack: function onBack() {
-                              Lampa.Modal.close();
-                              Lampa.Api.clear();
-                              Lampa.Controller.toggle('content');
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
+                                Lampa.Controller.toggle('content');
                             }
-                          });
+                        });
 
                     }, function (a, c) {
                         Lampa.Noty.show(network.errorDecode(a, c));
@@ -305,7 +305,7 @@
         this.build = function (data) {
             var _this2 = this;
             //info = Lampa.Template.get('info');style="height:5em"
-            Lampa.Template.add('button_category', "<style>@media screen and (max-width: 2560px) {.card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  </div>");
+            Lampa.Template.add('button_category', "<style>.freetv.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  </div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
