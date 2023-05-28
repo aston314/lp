@@ -289,7 +289,7 @@
     };
 
     this.build = function (data) {
-      Lampa.Template.add('_style', '<style>.freetv.category-full{padding-bottom:8em;}</style>');
+      Lampa.Template.add('_style', '<style>.freetv.category-full{padding-bottom:2.5em;}</style>');
       $('body').append(Lampa.Template.get('_style', {}, true));
       info = Lampa.Template.get('info');
       info.find('.info__rate,.info__right').remove();
