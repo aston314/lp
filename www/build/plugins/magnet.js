@@ -10,7 +10,7 @@
     });
     var items = [];
     var html = $('<div></div>');
-    var body = $('<div class="category-full"></div>');
+    var body = $('<div class="freetv category-full"></div>');
     var info;
     var last;
     var waitload;
@@ -289,6 +289,8 @@
     };
 
     this.build = function (data) {
+      Lampa.Template.add('_style', '<style>.freetv.category-full{padding-bottom:8em;}</style>');
+      $('body').append(Lampa.Template.get('_style', {}, true));
       info = Lampa.Template.get('info');
       info.find('.info__rate,.info__right').remove();
       scroll.render().addClass('layer--wheight').data('mheight', info);
