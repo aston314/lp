@@ -956,11 +956,11 @@
 
         var s, s_name;
         if (object.show == 'minilandscape') {
-            s = '<style>@media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style>';
+            s = '<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style>';
             s_name = 'freetv_n ';
         } else {
-            s = '';
-            s_name = '';
+            s = '<style>.freetv.category-full{padding-bottom:3em;}</style>';
+            s_name = 'freetv ';
         }
 
         //console.log(object)
@@ -1009,9 +1009,9 @@
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
                             'User-Agent': MOBILE_UA,
-                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                            'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
-                            'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
+                            // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                            // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                            // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
                         }
                     });
                 } else {
@@ -1092,9 +1092,9 @@
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
                         'User-Agent': MOBILE_UA,
-                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                        'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
-                        'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
+                        // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                        // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                        // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
                     }
                 });
             } else {
