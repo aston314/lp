@@ -174,9 +174,20 @@
                     card.addClass('card--loaded');
                 };
                 img.onerror = function (e) {
-                    img.src = './img/img_broken.svg';
+                    // img.src = './img/img_broken.svg';
+                    var hex = (Lampa.Utils.hash(element.title) * 1).toString(16);
+                    while (hex.length < 6) hex += hex;
+                    hex = hex.substring(0, 6);
+                    var r = parseInt(hex.slice(0, 2), 16),
+                        g = parseInt(hex.slice(2, 4), 16),
+                        b = parseInt(hex.slice(4, 6), 16);
+                    var hexText = (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? '#000000' : '#FFFFFF';
+                    card.find('.card__img').replaceWith('<div class="card__img">' + element.title.replace("-", " ") + '</div>');
+                    card.find('.card__view').css({ 'background-color': '#' + hex, 'color': hexText });
+                    card.addClass('card--loaded');
                 };
-                card.find('.card__img').attr('src', element.img);
+                if (element.img) img.src = element.img;else img.onerror();
+                // card.find('.card__img').attr('src', element.img);
                 if (element.rate) {
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text(element.rate);
@@ -305,7 +316,7 @@
         this.build = function (data) {
             var _this2 = this;
             //info = Lampa.Template.get('info');style="height:5em"
-            Lampa.Template.add('button_category', "<style>.freetv.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  </div>");
+            Lampa.Template.add('button_category', "<style>.freetv.category-full{ padding-bottom:8em } .freetv div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv.square_icons div.card__view{ padding-bottom:100% } .freetv img.card__img,.freetv div.card__img{ text-align: center;background-color:unset; border-radius:unset; max-height:100%; max-width:100%; height:auto; width:auto; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:2em } .freetv.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  </div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
