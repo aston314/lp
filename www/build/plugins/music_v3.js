@@ -367,6 +367,7 @@
                 }
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
+                    // console.log(items.indexOf(card))
                     switch (object.type) {
                         case 'albums':
                             Lampa.Activity.push({
@@ -795,6 +796,36 @@
         type: 'playlist',
         connectype: ''
     },{
+        title: '歌单-华语',
+        url: 'https://music.163.com/api/playlist/list/?cat=华语',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '歌单-粤语',
+        url: 'https://music.163.com/api/playlist/list/?cat=粤语',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '歌单-欧美',
+        url: 'https://music.163.com/api/playlist/list/?cat=欧美',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '歌单-日语',
+        url: 'https://music.163.com/api/playlist/list/?cat=日语',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '歌单-韩语',
+        url: 'https://music.163.com/api/playlist/list/?cat=韩语',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
         title: '飙升榜',
         url: 'https://ncm.icodeq.com/playlist/detail?id=19723756',
         code: '',
@@ -865,60 +896,140 @@
         type: 'list',
         connectype: 'native'
     }, {
-        title: '抖音',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '爵士',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '轻音乐',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '乡村',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '民谣',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '电子',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '舞曲',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '说唱',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
         title: '流行',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
+        url: 'https://music.163.com/api/playlist/list/?cat=流行',
         code: '',
-        type: 'list',
-        connectype: 'native'
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '摇滚',
+        url: 'https://music.163.com/api/playlist/list/?cat=摇滚',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '民谣',
+        url: 'https://music.163.com/api/playlist/list/?cat=民谣',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '电子',
+        url: 'https://music.163.com/api/playlist/list/?cat=电子',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '舞曲',
+        url: 'https://music.163.com/api/playlist/list/?cat=舞曲',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '说唱',
+        url: 'https://music.163.com/api/playlist/list/?cat=说唱',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '轻音乐',
+        url: 'https://music.163.com/api/playlist/list/?cat=轻音乐',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '爵士',
+        url: 'https://music.163.com/api/playlist/list/?cat=爵士',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '古典',
+        url: 'https://music.163.com/api/playlist/list/?cat=古典',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '民族',
+        url: 'https://music.163.com/api/playlist/list/?cat=民族',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '英伦',
+        url: 'https://music.163.com/api/playlist/list/?cat=英伦',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '金属',
+        url: 'https://music.163.com/api/playlist/list/?cat=金属',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '朋克',
+        url: 'https://music.163.com/api/playlist/list/?cat=朋克',
+        code: '',
+        type: 'playlist',
+        connectype: ''
     }];
+
+    // ,{
+    //     title: '抖音',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '爵士',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '轻音乐',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '乡村',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '民谣',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '电子',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '舞曲',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '说唱',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }, {
+    //     title: '流行',
+    //     url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
+    //     code: '',
+    //     type: 'list',
+    //     connectype: 'native'
+    // }
 
     function player() {
         var html = Lampa.Template.get('radio_player', {});
