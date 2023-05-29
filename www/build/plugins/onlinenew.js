@@ -32,10 +32,10 @@
       // },
       {
         name: '网站-LIBVIO',
-        websitelink: 'https://libvio.top',
+        websitelink: 'https://libvio.cc',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://libvio.top/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_url: 'https://libvio.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
         name_json: 'name',
