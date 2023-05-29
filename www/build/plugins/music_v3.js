@@ -249,7 +249,7 @@
 
             listdata.forEach(function (element,i) {
                 if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)])
+                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)],element.copyright)
                 }
                 
                 var mytitle = element.name.replace('/', ' ');
@@ -290,7 +290,7 @@
                         card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                 }
                 if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
-                    if (element.fee !== 1) {
+                    if (element.fee !== 1 && element.copyright == 1) {
                         card.find('.card__view').append('<div class="card__type"></div>');
                         card.find('.card__type').text('免费');
                     }
@@ -418,7 +418,8 @@
                             }, false, false, {
                                 dataType: 'json'
                             });
-                            if (element.fee !== 1) {
+                            
+                            if (element.fee !== 1 && element.copyright == 1) {
                                 // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
                                 //     //console.log(result.data[0].url)
                                 //     // var video = {
@@ -1086,7 +1087,7 @@
         }, false, false, {
             dataType: 'json'
         });
-        if (musiclist[currentIndex][2] !== 1) {
+        if (musiclist[currentIndex][2] !== 1 && musiclist[currentIndex][4] == 1) {
             // network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
             //     var data = {
             //         url: result.data[0].url,
@@ -1248,7 +1249,7 @@
             }, false, false, {
                 dataType: 'json'
             });
-            if (musiclist[currentIndex][2] !== 1) {
+            if (musiclist[currentIndex][2] !== 1 && musiclist[currentIndex][4] == 1) {
                 // network.silent('https://ncm.icodeq.com/song/url?id=' + musiclist[currentIndex][1], function (result) {
                 //     var data = {
                 //         url: result.data[0].url,
