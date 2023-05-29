@@ -1001,6 +1001,86 @@
    },
    {
       "title":"YTS.MX - 磁力下载",
+      "link":"https://yts.mx",
+      "show":"portrait",
+      "next":"detail",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"热门电影",
+            "url":"https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+            "quantity":""
+         },
+         {
+            "title":"今年电影",
+            "url":"https://yts.mx/browse-movies/0/all/all/0/latest/2022/all",
+            "quantity":""
+         },
+         {
+            "title":"今日趋势",
+            "url":"https://yts.mx/trending-movies",
+            "quantity":""
+         },
+         {
+            "title":"更新电影",
+            "url":"https://yts.mx/browse-movies",
+            "quantity":""
+         },
+         {
+            "title":"4K电影",
+            "url":"https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":"div:nth-child(5) > ul"
+         },
+         "videoscontainer":{
+            "selector":".browse-movie-wrap",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":".browse-movie-bottom",
+            "attrName":"text",
+            "filter":""
+         },
+         "thumb":{
+            "selector":".img-responsive",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":".browse-movie-title",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "detail":{
+         "videoscontainer":{
+            "selector":".modal-torrent",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":".magnet-download",
+            "attrName":"title",
+            "filter":"([0-9]+[0-9]{1,2}?p)"
+         },
+         "link":{
+            "selector":".magnet-download",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
+      }
+   },
+   {
+      "title":"YTS.AUTOS - 磁力下载",
       "link":"https://yts.autos",
       "show":"portrait",
       "next":"detail",
