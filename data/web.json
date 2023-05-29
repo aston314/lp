@@ -1,7 +1,7 @@
 [
    {
       "title":"LIBVIO",
-      "link":"https://libvio.top",
+      "link":"https://libvio.cc",
       "show":"portrait",
       "next":"search",
       "datasort":"",
@@ -9,42 +9,42 @@
       "category":[
          {
             "title":"最近更新",
-            "url":"https://libvio.top",
+            "url":"https://libvio.cc",
             "quantity":":lt(12)"
          },
          {
             "title":"电影",
-            "url":"https://libvio.top/type/1.html",
+            "url":"https://libvio.cc/type/1.html",
             "quantity":""
          },
          {
             "title":"剧集",
-            "url":"https://libvio.fun/type/2.html",
+            "url":"https://libvio.cc/type/2.html",
             "quantity":""
          },
          {
             "title":"日韩剧",
-            "url":"https://libvio.top/type/15.html",
+            "url":"https://libvio.cc/type/15.html",
             "quantity":""
          },
          {
             "title":"国产剧",
-            "url":"https://libvio.top/type/13.html",
+            "url":"https://libvio.cc/type/13.html",
             "quantity":""
          },
          {
             "title":"欧美剧",
-            "url":"https://libvio.top/type/16.html",
+            "url":"https://libvio.cc/type/16.html",
             "quantity":""
          },
          {
             "title":"港台剧",
-            "url":"https://libvio.top/type/14.html",
+            "url":"https://libvio.cc/type/14.html",
             "quantity":""
          },
          {
             "title":"动漫",
-            "url":"https://libvio.top/type/4.html",
+            "url":"https://libvio.cc/type/4.html",
             "quantity":""
          }
       ],
@@ -74,7 +74,7 @@
          }
       },
       "search":{
-         "url":"https://libvio.top/search/-------------.html?wd=#msearchword&submit="
+         "url":"https://libvio.cc/search/-------------.html?wd=#msearchword&submit="
       }
    },
    {
