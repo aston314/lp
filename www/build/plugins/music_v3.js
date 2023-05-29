@@ -630,15 +630,75 @@
                     title: '分类',
                     items: catalogs,
                     onSelect: function onSelect(a) {
-                        Lampa.Activity.push({
-                            url: a.url,
-                            title: '音乐 - '+a.title,
-                            component: 'music',
-                            type: a.type,
-                            code: a.code,
-                            connectype: a.connectype,
-                            page: 1
+                        if (a.title == '歌单') {
+                            var sources = [];
+                            var songling = '华语,粤语,欧美,日语,韩语,流行,摇滚,民谣,电子,舞曲,说唱,轻音乐,爵士,乡村,R&B/Soul,古典,民族,英伦,金属,朋克,蓝调,雷鬼,世界音乐,拉丁,New Age,古风,后摇,Bossa Nova,清晨,夜晚,学习,工作,午休,下午茶,地铁,驾车,运动,旅行,散步,酒吧,怀旧,清新,浪漫,伤感,治愈,放松,孤独,感动,兴奋,快乐,安静,思念,综艺,影视原声,ACG,儿童,校园,游戏,70后,80后,90后,网络歌曲,KTV,经典,翻唱,吉他,钢琴,器乐,榜单,00后'
+                            var playlistData = songling.split(',');
+                            // console.log(playlistData)
+
+                            playlistData.forEach(function (html) {
+                                sources.push({
+                                    title: html,
+                                    url: "https://music.163.com/api/playlist/list/?cat=" + html
+                                });
+
+                            });
+                            // console.log(sources)
+                            // var whatclick;
+                            var html_ = $('<div></div>');
+                            var navigation = $('<div class="navigation-tabs"></div>');
+
+                            sources.forEach(function (tab, i) {
+                                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                                button.on('hover:enter', function () {
+                                    Lampa.Activity.push({
+                                        url: tab.url,
+                                        title: '音乐 - 歌单 - ' + tab.title,
+                                        code: '',
+                                        component: 'music',
+                                        type: 'playlist',
+                                        connectype: '',
+                                        page: 1
+                                    });
+                                    Lampa.Modal.close();
+                                });
+
+                                if (i > 0 && i % 5 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                if (i % 5 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                    if (i > 0) html_.append(navigation);
+                                    navigation = $('<div class="navigation-tabs"></div>');
+                                }
+                                navigation.append(button);
+                            });
+
+                            html_.append(navigation);
+                            // console.log(navigation)
+
+                            Lampa.Modal.open({
+                                title: '歌单分类',
+                                html: html_,
+                                size: 'medium',
+                                // align: 'center',
+                                // select: html.find('.navigation-tabs .active')[0],
+                                mask: true,
+                                onBack: function onBack() {
+                                    Lampa.Modal.close();
+                                    Lampa.Api.clear();
+                                    Lampa.Controller.toggle('content');
+                                }
                         });
+                        
+                        } else {
+                            Lampa.Activity.push({
+                                url: a.url,
+                                title: '音乐 - ' + a.title,
+                                code: a.code,
+                                component: 'music',
+                                type: a.type,
+                                connectype: a.connectype,
+                                page: 1
+                            });
+                        }
                     },
                     onBack: function onBack() {
                         Lampa.Controller.toggle('content');
@@ -790,38 +850,14 @@
 // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
 // https://music.163.com/api/playlist/list
     var catalogs = [{
-        title: '歌单',
+        title: '首页',
         url: 'https://music.163.com/api/playlist/list',
         code: '',
         type: 'playlist',
         connectype: ''
     },{
-        title: '歌单-华语',
-        url: 'https://music.163.com/api/playlist/list/?cat=华语',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '歌单-粤语',
-        url: 'https://music.163.com/api/playlist/list/?cat=粤语',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '歌单-欧美',
-        url: 'https://music.163.com/api/playlist/list/?cat=欧美',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '歌单-日语',
-        url: 'https://music.163.com/api/playlist/list/?cat=日语',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '歌单-韩语',
-        url: 'https://music.163.com/api/playlist/list/?cat=韩语',
+        title: '歌单',
+        url: 'https://music.163.com/api/playlist/list',
         code: '',
         type: 'playlist',
         connectype: ''
@@ -895,141 +931,63 @@
         code: '',
         type: 'list',
         connectype: 'native'
+    }, ,{
+        title: '抖音',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '爵士',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '轻音乐',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '乡村',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '民谣',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '电子',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '舞曲',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
+        code: '',
+        type: 'list',
+        connectype: 'native'
+    }, {
+        title: '说唱',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
+        code: '',
+        type: 'list',
+        connectype: 'native'
     }, {
         title: '流行',
-        url: 'https://music.163.com/api/playlist/list/?cat=流行',
+        url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
         code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '摇滚',
-        url: 'https://music.163.com/api/playlist/list/?cat=摇滚',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '民谣',
-        url: 'https://music.163.com/api/playlist/list/?cat=民谣',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '电子',
-        url: 'https://music.163.com/api/playlist/list/?cat=电子',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '舞曲',
-        url: 'https://music.163.com/api/playlist/list/?cat=舞曲',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '说唱',
-        url: 'https://music.163.com/api/playlist/list/?cat=说唱',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '轻音乐',
-        url: 'https://music.163.com/api/playlist/list/?cat=轻音乐',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '爵士',
-        url: 'https://music.163.com/api/playlist/list/?cat=爵士',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '古典',
-        url: 'https://music.163.com/api/playlist/list/?cat=古典',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '民族',
-        url: 'https://music.163.com/api/playlist/list/?cat=民族',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '英伦',
-        url: 'https://music.163.com/api/playlist/list/?cat=英伦',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '金属',
-        url: 'https://music.163.com/api/playlist/list/?cat=金属',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    },{
-        title: '朋克',
-        url: 'https://music.163.com/api/playlist/list/?cat=朋克',
-        code: '',
-        type: 'playlist',
-        connectype: ''
+        type: 'list',
+        connectype: 'native'
     }];
 
-    // ,{
-    //     title: '抖音',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '爵士',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '轻音乐',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '乡村',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '民谣',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '电子',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '舞曲',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '说唱',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }, {
-    //     title: '流行',
-    //     url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
-    //     code: '',
-    //     type: 'list',
-    //     connectype: 'native'
-    // }
+    
 
     function player() {
         var html = Lampa.Template.get('radio_player', {});
@@ -1508,15 +1466,75 @@
                     title: '分类',
                     items: catalogs,
                     onSelect: function onSelect(a) {
-                        Lampa.Activity.push({
-                            url: a.url,
-                            title: '音乐 - ' + a.title,
-                            code: a.code,
-                            component: 'music',
-                            type: a.type,
-                            connectype: a.connectype,
-                            page: 1
+                        if (a.title == '歌单') {
+                            var sources = [];
+                            var songling = '华语,粤语,欧美,日语,韩语,流行,摇滚,民谣,电子,舞曲,说唱,轻音乐,爵士,乡村,R&B/Soul,古典,民族,英伦,金属,朋克,蓝调,雷鬼,世界音乐,拉丁,New Age,古风,后摇,Bossa Nova,清晨,夜晚,学习,工作,午休,下午茶,地铁,驾车,运动,旅行,散步,酒吧,怀旧,清新,浪漫,伤感,治愈,放松,孤独,感动,兴奋,快乐,安静,思念,综艺,影视原声,ACG,儿童,校园,游戏,70后,80后,90后,网络歌曲,KTV,经典,翻唱,吉他,钢琴,器乐,榜单,00后'
+                            var playlistData = songling.split(',');
+                            // console.log(playlistData)
+
+                            playlistData.forEach(function (html) {
+                                sources.push({
+                                    title: html,
+                                    url: "https://music.163.com/api/playlist/list/?cat=" + html
+                                });
+
+                            });
+                            // console.log(sources)
+                            // var whatclick;
+                            var html_ = $('<div></div>');
+                            var navigation = $('<div class="navigation-tabs"></div>');
+
+                            sources.forEach(function (tab, i) {
+                                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                                button.on('hover:enter', function () {
+                                    Lampa.Activity.push({
+                                        url: tab.url,
+                                        title: '音乐 - 歌单 - ' + tab.title,
+                                        code: '',
+                                        component: 'music',
+                                        type: 'playlist',
+                                        connectype: '',
+                                        page: 1
+                                    });
+                                    Lampa.Modal.close();
+                                });
+
+                                if (i > 0 && i % 5 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                if (i % 5 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                    if (i > 0) html_.append(navigation);
+                                    navigation = $('<div class="navigation-tabs"></div>');
+                                }
+                                navigation.append(button);
+                            });
+
+                            html_.append(navigation);
+                            // console.log(navigation)
+
+                            Lampa.Modal.open({
+                                title: '歌单分类',
+                                html: html_,
+                                size: 'medium',
+                                // align: 'center',
+                                // select: html.find('.navigation-tabs .active')[0],
+                                mask: true,
+                                onBack: function onBack() {
+                                    Lampa.Modal.close();
+                                    Lampa.Api.clear();
+                                    Lampa.Controller.toggle('content');
+                                }
                         });
+                        
+                        } else {
+                            Lampa.Activity.push({
+                                url: a.url,
+                                title: '音乐 - ' + a.title,
+                                code: a.code,
+                                component: 'music',
+                                type: a.type,
+                                connectype: a.connectype,
+                                page: 1
+                            });
+                        }
                     },
                     onBack: function onBack() {
                         Lampa.Controller.toggle('menu');
