@@ -95,27 +95,27 @@
             card.addClass('card--loaded');
           };
           img.onerror = function (e) {
-            // img.src = './img/img_broken.svg';
-            var name = element.title
-              .replace(/\s+\(([+-]?\d+)\)/, ' $1').replace(/[-.()\s]+/g, ' ').replace(/(^|\s+)(TV|ТВ)(\s+|$)/i, '$3');
-            var fl = name.replace(/\s+/g, '').length > 5
-              ? name.split(/\s+/).map(function (v) { return v.match(/^(\+?\d+|[UF]?HD|4K|1080P)$/i) ? v : v.substring(0, 1).toUpperCase() }).join('').substring(0, 6)
-              : name.replace(/\s+/g, '')
-              ;
-            fl = fl.replace(/([UF]?HD|1080P|4k|\+\d+)$/i, '<sup>$1</sup>');
-            var hex = (Lampa.Utils.hash(element.title) * 1).toString(16);
-            while (hex.length < 6) hex += hex;
-            hex = hex.substring(0, 6);
-            var r = parseInt(hex.slice(0, 2), 16),
-                g = parseInt(hex.slice(2, 4), 16),
-                b = parseInt(hex.slice(4, 6), 16);
-            var hexText = (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? '#000000' : '#FFFFFF';
-            card.find('.card__img').replaceWith('<div class="card__img">' + fl+ '</div>');
-            card.find('.card__view').css({ 'background-color': '#' + hex, 'color': hexText });
-            card.addClass('card--loaded');
+            img.src = './img/img_broken.svg';
+            // var name = element.title
+            //   .replace(/\s+\(([+-]?\d+)\)/, ' $1').replace(/[-.()\s]+/g, ' ').replace(/(^|\s+)(TV|ТВ)(\s+|$)/i, '$3');
+            // var fl = name.replace(/\s+/g, '').length > 5
+            //   ? name.split(/\s+/).map(function (v) { return v.match(/^(\+?\d+|[UF]?HD|4K|1080P)$/i) ? v : v.substring(0, 1).toUpperCase() }).join('').substring(0, 6)
+            //   : name.replace(/\s+/g, '')
+            //   ;
+            // fl = fl.replace(/([UF]?HD|1080P|4k|\+\d+)$/i, '<sup>$1</sup>');
+            // var hex = (Lampa.Utils.hash(element.title) * 1).toString(16);
+            // while (hex.length < 6) hex += hex;
+            // hex = hex.substring(0, 6);
+            // var r = parseInt(hex.slice(0, 2), 16),
+            //     g = parseInt(hex.slice(2, 4), 16),
+            //     b = parseInt(hex.slice(4, 6), 16);
+            // var hexText = (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? '#000000' : '#FFFFFF';
+            // card.find('.card__img').replaceWith('<div class="card__img">' + fl+ '</div>');
+            // card.find('.card__view').css({ 'background-color': '#' + hex, 'color': hexText });
+            // card.addClass('card--loaded');
         };
-        if (element.img) img.src = element.img;else img.onerror();
-          // card.find('.card__img').attr('src', element.cover);
+        // if (element.img) img.src = element.img;else img.onerror();
+          card.find('.card__img').attr('src', element.cover);
           if (element.subtitle){
             card.find('.card__view').append('<div class="card__quality"></div>');
             card.find('.card__quality').text(element.subtitle.split(' ')[0]);
