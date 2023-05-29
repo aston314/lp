@@ -249,7 +249,7 @@
 
             listdata.forEach(function (element,i) {
                 if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name)],element.copyright)
+                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name),element.copyright])
                 }
                 
                 var mytitle = element.name.replace('/', ' ');
