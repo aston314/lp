@@ -210,7 +210,7 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    if (element.img) Lampa.Background.change(cardImgBackground(element.img));
+                    // if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
                 //console.log(element.url)
