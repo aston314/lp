@@ -402,6 +402,7 @@
                             break;
                         default:
                             // tv表示翻译，-1是要，1是不要
+                            currentplaylist = null;
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                                 if (result.code == 200) {
                                     lrcObj = {}
@@ -1054,6 +1055,71 @@
   
         html.on('hover:enter', function () {
           if (played) stop();else if (url) play();
+        });
+
+        html.on('hover:long', function () {
+            if (currentplaylist) {
+                console.log(html.find('.radio-player__name').text())
+                var sources = [];
+                var num = 3;
+                var playlistData = currentplaylist;
+                // console.log(playlistData)
+
+                playlistData.forEach(function (html,i) {
+                    sources.push({
+                        title: currentplaylist[i][3] + '-' +currentplaylist[i][0],
+                        url: currentplaylist[i][0]
+                    });
+
+                });
+                // console.log(sources)
+                var html_ = $('<div></div>');
+                var navigation = $('<div class="navigation-tabs"></div>');
+
+                sources.forEach(function (tab, i) {
+                    // console.log(html.find('.radio-player__name').text(),tab.url,(html.find('.radio-player__name').text() === tab.url))
+                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
+                    var button = $('<div class="navigation-tabs__button '+ifplaynow+'">' + tab.title + '</div>');
+                    button.on('hover:enter', function () {
+                        // Lampa.Activity.push({
+                        //     url: tab.url,
+                        //     title: '音乐 - ' + titlename + ' - ' + tab.title,
+                        //     code: '',
+                        //     component: 'music',
+                        //     type: gotype,
+                        //     connectype: '',
+                        //     page: 1
+                        // });
+                        // Lampa.Modal.close();
+                    });
+
+                    if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                    if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                        if (i > 0) html_.append(navigation);
+                        navigation = $('<div class="navigation-tabs"></div>');
+                    }
+                    navigation.append(button);
+                });
+
+                html_.append(navigation);
+                // console.log(navigation)
+
+                Lampa.Modal.open({
+                    title: '当前播放列表',
+                    html: html_,
+                    size: 'medium',
+                    // align: 'center',
+                    // select: html.find('.navigation-tabs .active')[0],
+                    mask: true,
+                    onBack: function onBack() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content');
+                    }
+                });
+                sources = null;
+                playlistData = null;
+            }
         });
   
         this.create = function () {
