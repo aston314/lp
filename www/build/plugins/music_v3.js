@@ -639,161 +639,132 @@
 				_this2.selectGroup();
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
-                
-                Lampa.Input.edit({
-                    title: '音乐 - 搜索',
-                    value: '',
-                    free: true,
-                    nosave: true
-                }, function (new_value) {
-                    if (new_value) {
-                        // console.log(new_value)
-                        var skey = [], searchkey, searchtype, codetype, listype, titlename;
-                        if (new_value.indexOf('||||') !== -1) {
-                            skey = new_value.split('||||');
-                            searchkey = skey[0];
-                            searchtype = skey[1]
-                        } else {
-                            searchkey = new_value;
-                            searchtype = '1'
-                        };
+                // Lampa.Keypad.listener.follow('keydown', function (event) {
+                //     var code = event.code;
+                //     if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
+                //         $(".simple-keyboard-input").blur();
 
-                        if (searchtype === '1') {
+                //         // sources = null;
+                //         // playlistData = null;
+
+                //     } 
+                //     // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
+                //     //     // $(".simple-keyboard-input").focus();
+                //     // }
+                // });
+                // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
+                var searchcat = [{
+                    title: '单曲',
+                    value: 1
+                }, {
+                    title: '专辑',
+                    value: 10
+                }, {
+                    title: '歌单',
+                    value: 1000
+                },];
+                // Lampa.Select.show({
+                //     title: '选择搜索类型',
+                //     items: searchcat,
+                //     onSelect: function onSelect(a) {
+                //         var currentVal = $(".simple-keyboard-input").val();
+                //         if (currentVal === "") {
+                //             Lampa.Noty.show('请先输入搜索关键词。')
+                //             // $(".simple-keyboard-input").focus();
+                //         } else {
+                //             var newVal;
+                //             if (currentVal.indexOf('||||') !== -1) {
+                //                 newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
+                //             } else {
+                //                 newVal = currentVal + "||||" + a.value;
+                //             }
+                //             // var newVal = currentVal + "||||"+ a.value;
+                //             $(".simple-keyboard-input").val(newVal);
+                //             // $(".simple-keyboard-input").focus();
+                //         }
+                //         $(".simple-keyboard-input").focus();
+                //     },
+                //     onBack: function onBack() {
+                //         $(".simple-keyboard-input").focus();
+                //         // Lampa.Controller.toggle('content');
+                //     }
+                // });
+
+                var num = 3;
+
+                var html_ = $('<div></div>');
+                var navigation = $('<div class="navigation-tabs"></div>');
+
+                searchcat.forEach(function (tab, i) {
+                    var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                    button.on('hover:enter', function () {
+                        var listype, titlename;
+                        if (tab.value === 1) {
                             // codetype = '';
                             titlename = '单曲';
                             listype = 'list';
-                        } else if (searchtype === '10') {
+                        } else if (tab.value === 10) {
                             // codetype = '2';
                             titlename = '专辑';
                             listype = 'albums';
-                        } else if (searchtype === '1000') {
+                        } else if (tab.value === 1000) {
                             // codetype = '2';
                             titlename = '歌单';
                             listype = 'playlist';
                         }
 
-                        var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
-                        var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(searchkey)).replace('#searchtype', encodeURIComponent(searchtype));
-                        Lampa.Activity.push({
-                            //	url: cors + a.url,
-                            url: searchurl,
-                            title: '音乐 - 搜索' + titlename + '"' + searchkey + '"',
-                            waitload: false,
-                            component: 'music',
-                            type: listype,
-                            connectype: 'native',
-                            code: '',
-                            page: 1
+                        Lampa.Input.edit({
+                            title: '音乐 - 搜索' + titlename,
+                            value: '',
+                            free: true,
+                            nosave: true
+                        }, function (new_value) {
+                            if (new_value) {
+                                // console.log(new_value)
+                                var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
+                                var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value)).replace('#searchtype', encodeURIComponent(tab.value));
+                                Lampa.Activity.push({
+                                    url: searchurl,
+                                    title: '音乐 - 搜索' + titlename + '"' + new_value + '"',
+                                    waitload: false,
+                                    component: 'music',
+                                    type: listype,
+                                    connectype: 'native',
+                                    code: '',
+                                    page: 1
+                                });
+                            }
+                            else Lampa.Controller.toggle('content');
                         });
+
+                        Lampa.Modal.close();
+                    });
+
+                    if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                    if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                        if (i > 0) html_.append(navigation);
+                        navigation = $('<div class="navigation-tabs"></div>');
                     }
-                    else Lampa.Controller.toggle('content');
+                    navigation.append(button);
                 });
 
-                // var isFocus = false;  // 初始化标记为 false
-                // $(".simple-keyboard").focus(function() {  // 输入框获取焦点时
-                //   isFocus = true;  // 将标记设置为 true
-                // });
+                html_.append(navigation);
+                // console.log(navigation)
 
-                $(".simple-keyboard-input").focus();
-                Lampa.Keypad.listener.follow('keydown', function (event) {
-                    var code = event.code;
-                    if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
-                        $(".simple-keyboard-input").blur();
-                        var searchcat = [{
-                            title: '单曲',
-                            value: 1
-                        }, {
-                            title: '专辑',
-                            value: 10
-                        }, {
-                            title: '歌单',
-                            value: 1000
-                        },];
-                        // Lampa.Select.show({
-                        //     title: '选择搜索类型',
-                        //     items: searchcat,
-                        //     onSelect: function onSelect(a) {
-                        //         var currentVal = $(".simple-keyboard-input").val();
-                        //         if (currentVal === "") {
-                        //             Lampa.Noty.show('请先输入搜索关键词。')
-                        //             // $(".simple-keyboard-input").focus();
-                        //         } else {
-                        //             var newVal;
-                        //             if (currentVal.indexOf('||||') !== -1) {
-                        //                 newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
-                        //             } else {
-                        //                 newVal = currentVal + "||||" + a.value;
-                        //             }
-                        //             // var newVal = currentVal + "||||"+ a.value;
-                        //             $(".simple-keyboard-input").val(newVal);
-                        //             // $(".simple-keyboard-input").focus();
-                        //         }
-                        //         $(".simple-keyboard-input").focus();
-                        //     },
-                        //     onBack: function onBack() {
-                        //         $(".simple-keyboard-input").focus();
-                        //         // Lampa.Controller.toggle('content');
-                        //     }
-                        // });
-
-                        var num = 3;
-
-                        var html_ = $('<div></div>');
-                        var navigation = $('<div class="navigation-tabs"></div>');
-
-                        searchcat.forEach(function (tab, i) {
-                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
-                            button.on('hover:enter', function () {
-                                var currentVal = $(".simple-keyboard-input").val();
-                                if (currentVal === "") {
-                                    Lampa.Noty.show('请先输入搜索关键词。')
-                                } else {
-                                    var newVal;
-                                    if (currentVal.indexOf('||||') !== -1) {
-                                        newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + tab.value;
-                                    } else {
-                                        newVal = currentVal + "||||" + tab.value;
-                                    }
-                                    $(".simple-keyboard-input").val(newVal);
-                                }
-                                $(".simple-keyboard-input").focus();
-                                Lampa.Modal.close();
-                            });
-
-                            if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
-                            if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
-                                if (i > 0) html_.append(navigation);
-                                navigation = $('<div class="navigation-tabs"></div>');
-                            }
-                            navigation.append(button);
-                        });
-
-                        html_.append(navigation);
-                        // console.log(navigation)
-
-                        Lampa.Modal.open({
-                            title: '搜索类型',
-                            html: html_,
-                            size: 'small',
-                            // align: 'center',
-                            // select: html.find('.navigation-tabs .active')[0],
-                            mask: true,
-                            onBack: function onBack() {
-                                Lampa.Modal.close();
-                                Lampa.Api.clear();
-                                $(".simple-keyboard-input").focus();
-                            }
-                        });
-                        // sources = null;
-                        // playlistData = null;
-
-                    } 
-                    // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                    //     // $(".simple-keyboard-input").focus();
-                    // }
+                Lampa.Modal.open({
+                    title: '搜索类型',
+                    html: html_,
+                    size: 'small',
+                    // align: 'center',
+                    // select: html.find('.navigation-tabs .active')[0],
+                    mask: true,
+                    onBack: function onBack() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content')
+                    }
                 });
-                Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
-			});
+            });
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
 			});
