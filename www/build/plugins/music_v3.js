@@ -183,7 +183,7 @@
                         if (result.result.songCount > 0) {
                             _this2.append(result);
                             if (currentplaylist) {
-                                if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                                if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                             };
                             // console.log(currentplaylist)
                             if (result.result.songs.length) waitload = false;
@@ -197,7 +197,7 @@
                 case 'album':
                     _this2.append(result);
                     if (currentplaylist) {
-                        if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                        if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                     };
                     // console.log(currentplaylist)
                     if (result.songs.length) waitload = false;
@@ -211,7 +211,7 @@
                     if (result.hasOwnProperty("songs")) {
                         _this2.append(result);
                         if (currentplaylist) {
-                            if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                            if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                         };
                         // console.log(currentplaylist)
                         // console.log(result.songs.length)
@@ -1401,6 +1401,13 @@
         } else {
             Lampa.Noty.show('没有可以播放的歌曲。');
         }
+    }
+
+    function compareFirstArray(array1, array2) {
+        if (array1.length === 0 || array2.length === 0) {
+            return false;
+        }
+        return array1[0] === array2[0];
     }
 
     function popupWindows(playlistname, gourl, num, gotype, titlename) {
