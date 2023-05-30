@@ -729,7 +729,6 @@
                                     // $(".simple-keyboard-input").focus();
                                 }
                                 $(".simple-keyboard-input").focus();
-                                Lampa.Activity.backward();
                             },
                             onBack: function onBack() {
                                 $(".simple-keyboard-input").focus();
