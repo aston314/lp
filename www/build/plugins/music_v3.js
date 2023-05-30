@@ -698,7 +698,7 @@
                 Lampa.Keypad.listener.follow('keydown', function (event) {
                     var code = event.code;
                     if (((code === 39 || code === 5) && $('.simple-keyboard').length)) {
-                        // $(".simple-keyboard-input").blur();
+                        $(".simple-keyboard-input").blur();
                         var searchcat = [{
                             title: '单曲',
                             value: 1
@@ -736,7 +736,7 @@
                             }
                         });
                     } else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                        console.log('fuck')
+                        $(".simple-keyboard-input").focus();
                     }
                 });
 			});
