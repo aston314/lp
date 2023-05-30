@@ -728,15 +728,21 @@
                                     $(".simple-keyboard-input").val(newVal);
                                     // $(".simple-keyboard-input").focus();
                                 }
-                                $(".simple-keyboard-input").focus();
+                                $(document).ready(function() {
+                                    $(".simple-keyboard-input").focus();
+                                  });
                             },
                             onBack: function onBack() {
-                                $(".simple-keyboard-input").focus();
+                                $(document).ready(function() {
+                                    $(".simple-keyboard-input").focus();
+                                  });
                                 // Lampa.Controller.toggle('content');
                             }
                         });
                     } else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                        $(".simple-keyboard-input").focus();
+                        $(document).ready(function() {
+                            $(".simple-keyboard-input").focus();
+                          });
                     }
                 });
 			});
