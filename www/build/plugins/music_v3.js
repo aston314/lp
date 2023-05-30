@@ -689,10 +689,10 @@
                     else Lampa.Controller.toggle('content');
                 });
 
-                var isFocus = false;  // 初始化标记为 false
-                $(".simple-keyboard").focus(function() {  // 输入框获取焦点时
-                  isFocus = true;  // 将标记设置为 true
-                });
+                // var isFocus = false;  // 初始化标记为 false
+                // $(".simple-keyboard").focus(function() {  // 输入框获取焦点时
+                //   isFocus = true;  // 将标记设置为 true
+                // });
 
                 $(".simple-keyboard-input").focus();
                 Lampa.Keypad.listener.follow('keydown', function (event) {
