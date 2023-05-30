@@ -182,9 +182,10 @@
                     } else {
                         if (result.result.songCount > 0) {
                             _this2.append(result);
-                            currentplaylist = musiclist;
-
-                            // object.type == 'list' ? datatye = result.subjects : datatye = result;
+                            if (currentplaylist) {
+                                if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                            };
+                            // console.log(currentplaylist)
                             if (result.result.songs.length) waitload = false;
                         }
                     }
@@ -195,7 +196,10 @@
                     break;
                 case 'album':
                     _this2.append(result);
-                    currentplaylist = musiclist;
+                    if (currentplaylist) {
+                        if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                    };
+                    // console.log(currentplaylist)
                     if (result.songs.length) waitload = false;
                     // console.log(result)
                     break;
@@ -206,7 +210,10 @@
                 case 'playlist_detail':
                     if (result.hasOwnProperty("songs")) {
                         _this2.append(result);
-                        currentplaylist = musiclist;
+                        if (currentplaylist) {
+                            if (currentplaylist[0][3] == musiclist[0][3]) { currentplaylist = musiclist; }
+                        };
+                        // console.log(currentplaylist)
                         // console.log(result.songs.length)
                         if (result.songs.length) waitload = false;
                     } else if (result.hasOwnProperty("playlist")) {
@@ -216,8 +223,6 @@
                 default:
                     if (result.result.songCount > 0) {
                         _this2.append(result);
-
-                        // object.type == 'list' ? datatye = result.subjects : datatye = result;
                         if (result.result.songs.length) waitload = false;
                     }
             }
@@ -253,7 +258,7 @@
 
             listdata.forEach(function (element,i) {
                 if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name),element.copyright])
+                    musiclist.push([element.name, element.id, element.fee , (object.code == '1' ? element.artists[0].name : element.ar[0].name), element.copyright])
                 }
                 
                 var mytitle = element.name.replace('/', ' ');
@@ -935,8 +940,6 @@
         type: 'list',
         connectype: 'native'
     }];
-
-    
 
     function player() {
         var html = Lampa.Template.get('radio_player', {});
