@@ -716,7 +716,7 @@
                                 var currentVal = $(".simple-keyboard-input").val();
                                 if (currentVal === "") {
                                     Lampa.Noty.show('请先输入搜索关键词。')
-                                    $(".simple-keyboard-input").focus();
+                                    // $(".simple-keyboard-input").focus();
                                 } else {
                                     var newVal;
                                     if (currentVal.indexOf('||||') !== -1) {
@@ -726,8 +726,9 @@
                                     }
                                     // var newVal = currentVal + "||||"+ a.value;
                                     $(".simple-keyboard-input").val(newVal);
-                                    $(".simple-keyboard-input").focus();
+                                    // $(".simple-keyboard-input").focus();
                                 }
+                                $(".simple-keyboard-input").focus();
                             },
                             onBack: function onBack() {
                                 $(".simple-keyboard-input").focus();
