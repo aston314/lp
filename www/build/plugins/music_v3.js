@@ -1082,6 +1082,7 @@
                     button.on('hover:enter', function () {
                         playEndedHandler_(i-1);
                         Lampa.Modal.close();
+                        Lampa.Controller.toggle('content');
                     });
 
                     if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
