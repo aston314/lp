@@ -641,7 +641,7 @@
             info.find('.open--find').on('hover:enter hover:click', function () {
                 
                 Lampa.Input.edit({
-                    title: '音乐 - 搜索 (试试按左方向键)',
+                    title: '音乐 - 搜索 (试试按右方向键)',
                     value: '',
                     free: true,
                     nosave: true
@@ -693,7 +693,7 @@
                 $(".simple-keyboard").focus(function() {  // 输入框获取焦点时
                   isFocus = true;  // 将标记设置为 true
                 });
-                
+
                 $(".simple-keyboard-input").focus();
                 Lampa.Keypad.listener.follow('keydown', function (event) {
                     var code = event.code;
