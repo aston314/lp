@@ -641,7 +641,7 @@
             info.find('.open--find').on('hover:enter hover:click', function () {
                 
                 Lampa.Input.edit({
-                    title: '音乐 - 搜索 (试试按右方向键)',
+                    title: '音乐 - 搜索',
                     value: '',
                     free: true,
                     nosave: true
@@ -697,7 +697,7 @@
                 $(".simple-keyboard-input").focus();
                 Lampa.Keypad.listener.follow('keydown', function (event) {
                     var code = event.code;
-                    if (((code === 39 || code === 5) && $('.simple-keyboard').length)) {
+                    if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
                         $(".simple-keyboard-input").blur();
                         var searchcat = [{
                             title: '单曲',
@@ -709,42 +709,90 @@
                             title: '歌单',
                             value: 1000
                         },];
-                        Lampa.Select.show({
-                            title: '选择搜索类型',
-                            items: searchcat,
-                            onSelect: function onSelect(a) {
+                        // Lampa.Select.show({
+                        //     title: '选择搜索类型',
+                        //     items: searchcat,
+                        //     onSelect: function onSelect(a) {
+                        //         var currentVal = $(".simple-keyboard-input").val();
+                        //         if (currentVal === "") {
+                        //             Lampa.Noty.show('请先输入搜索关键词。')
+                        //             // $(".simple-keyboard-input").focus();
+                        //         } else {
+                        //             var newVal;
+                        //             if (currentVal.indexOf('||||') !== -1) {
+                        //                 newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
+                        //             } else {
+                        //                 newVal = currentVal + "||||" + a.value;
+                        //             }
+                        //             // var newVal = currentVal + "||||"+ a.value;
+                        //             $(".simple-keyboard-input").val(newVal);
+                        //             // $(".simple-keyboard-input").focus();
+                        //         }
+                        //         $(".simple-keyboard-input").focus();
+                        //     },
+                        //     onBack: function onBack() {
+                        //         $(".simple-keyboard-input").focus();
+                        //         // Lampa.Controller.toggle('content');
+                        //     }
+                        // });
+
+                        var num = 3;
+
+                        var html_ = $('<div></div>');
+                        var navigation = $('<div class="navigation-tabs"></div>');
+
+                        searchcat.forEach(function (tab, i) {
+                            var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                            button.on('hover:enter', function () {
                                 var currentVal = $(".simple-keyboard-input").val();
                                 if (currentVal === "") {
                                     Lampa.Noty.show('请先输入搜索关键词。')
-                                    // $(".simple-keyboard-input").focus();
                                 } else {
                                     var newVal;
                                     if (currentVal.indexOf('||||') !== -1) {
-                                        newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
+                                        newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + tab.value;
                                     } else {
-                                        newVal = currentVal + "||||" + a.value;
+                                        newVal = currentVal + "||||" + tab.value;
                                     }
-                                    // var newVal = currentVal + "||||"+ a.value;
                                     $(".simple-keyboard-input").val(newVal);
-                                    // $(".simple-keyboard-input").focus();
                                 }
-                                $(document).ready(function() {
-                                    $(".simple-keyboard-input").focus();
-                                  });
-                            },
+                                $(".simple-keyboard-input").focus();
+                                Lampa.Modal.close();
+                            });
+
+                            if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                            if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                if (i > 0) html_.append(navigation);
+                                navigation = $('<div class="navigation-tabs"></div>');
+                            }
+                            navigation.append(button);
+                        });
+
+                        html_.append(navigation);
+                        // console.log(navigation)
+
+                        Lampa.Modal.open({
+                            title: '搜索类型',
+                            html: html_,
+                            size: 'small',
+                            // align: 'center',
+                            // select: html.find('.navigation-tabs .active')[0],
+                            mask: true,
                             onBack: function onBack() {
-                                $(document).ready(function() {
-                                    $(".simple-keyboard-input").focus();
-                                  });
-                                // Lampa.Controller.toggle('content');
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
+                                $(".simple-keyboard-input").focus();
                             }
                         });
-                    } else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                        $(document).ready(function() {
-                            $(".simple-keyboard-input").focus();
-                          });
-                    }
+                        // sources = null;
+                        // playlistData = null;
+
+                    } 
+                    // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
+                    //     // $(".simple-keyboard-input").focus();
+                    // }
                 });
+                Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
 			});
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
