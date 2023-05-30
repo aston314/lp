@@ -191,8 +191,16 @@
                     }
                     break;
                 case 'albums':
-                    _this2.append(result);
-                    if (result.hotAlbums.length) waitload = false;
+                    
+                    if (result.hasOwnProperty("hotAlbums")) {
+                        _this2.append(result);
+                        if (result.hotAlbums.length) waitload = false;
+                    } else {
+                        if (result.result.albumCount > 0) {
+                            _this2.append(result);
+                            if (result.result.albums.length) waitload = false;
+                        }
+                    }
                     break;
                 case 'album':
                     _this2.append(result);
@@ -204,8 +212,15 @@
                     // console.log(result)
                     break;
                 case 'playlist':
-                    _this2.append(result);
-                    if (result.playlists.length) waitload = false;
+                    if (result.hasOwnProperty("playlists")) {
+                        _this2.append(result);
+                        if (result.playlists.length) waitload = false;
+                    } else {
+                        if (result.result.playlistCount > 0) {
+                            _this2.append(result);
+                            if (result.result.playlists.length) waitload = false;
+                        }
+                    }
                     break;
                 case 'playlist_detail':
                     if (result.hasOwnProperty("songs")) {
@@ -234,16 +249,32 @@
             switch (object.type) {
             case 'list':
                 object.code == '1' ? listdata = data : (listdata = data.result ? data.result.songs : []);
+                // if (data.result.hasOwnProperty("songs")) {
+                //     listdata = data.result.songs;
+                // } else if (data.result.hasOwnProperty("albums")) {
+                //     listdata = data.result.albums;
+                // } else if (data.result.hasOwnProperty("playlists")) {
+                //     listdata = data.result.playlists;
+                // }
                 break;
             case 'albums':
-                listdata = data.hotAlbums;
+                // listdata = data.hotAlbums;
+                if (data.hasOwnProperty("hotAlbums")) {
+                    listdata = data.hotAlbums;
+                } else {
+                    listdata = data.result.albums;
+                }
                 // $(".open--play").hide();
                 break;
             case 'album':
                 listdata = data.songs;
                 break;
             case 'playlist':
-                listdata = data.playlists;
+                if (data.hasOwnProperty("playlists")) {
+                    listdata = data.playlists;
+                } else {
+                    listdata = data.result.playlists;
+                }
                 break;
             case 'playlist_detail':
                     if (data.hasOwnProperty("songs")) {
@@ -608,29 +639,97 @@
 				_this2.selectGroup();
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
+                
                 Lampa.Input.edit({
-                    title: '音乐 - 搜索',
+                    title: '音乐 - 搜索 (试试按左方向键)',
                     value: '',
                     free: true,
                     nosave: true
                 }, function (new_value) {
                     if (new_value) {
-                        //console.log(new_value)
-                        var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword';
-                        var searchurl = search_tempalte.replace('#msearchword',encodeURIComponent(new_value));
+                        // console.log(new_value)
+                        var skey = [], searchkey, searchtype, codetype, listype, titlename;
+                        if (new_value.indexOf('||||') !== -1) {
+                            skey = new_value.split('||||');
+                            searchkey = skey[0];
+                            searchtype = skey[1]
+                        } else {
+                            searchkey = new_value;
+                            searchtype = '1'
+                        };
+
+                        if (searchtype === '1') {
+                            // codetype = '';
+                            titlename = '单曲';
+                            listype = 'list';
+                        } else if (searchtype === '10') {
+                            // codetype = '2';
+                            titlename = '专辑';
+                            listype = 'albums';
+                        } else if (searchtype === '1000') {
+                            // codetype = '2';
+                            titlename = '歌单';
+                            listype = 'playlist';
+                        }
+
+                        var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
+                        var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(searchkey)).replace('#searchtype', encodeURIComponent(searchtype));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: searchurl,
-                            title: '音乐 - 搜索"'+new_value+'"',
+                            title: '音乐 - 搜索' + titlename + '"' + searchkey + '"',
                             waitload: false,
                             component: 'music',
-                            type: 'list',
+                            type: listype,
                             connectype: 'native',
+                            code: '',
                             page: 1
                         });
                     }
                     else Lampa.Controller.toggle('content');
-                }) 
+                });
+
+                Lampa.Keypad.listener.follow('keydown', function (event) {
+                    var code = event.code;
+                    if (((code === 39 || code === 5) && $('.simple-keyboard').length)) {
+                        $(".simple-keyboard-input").blur();
+                        var searchcat = [{
+                            title: '单曲',
+                            value: 1
+                        }, {
+                            title: '专辑',
+                            value: 10
+                        }, {
+                            title: '歌单',
+                            value: 1000
+                        },];
+                        Lampa.Select.show({
+                            title: '选择搜索类型',
+                            items: searchcat,
+                            onSelect: function onSelect(a) {
+                                var currentVal = $(".simple-keyboard-input").val();
+                                if (currentVal === "") {
+                                    Lampa.Noty.show('请先输入搜索关键词。')
+                                    $(".simple-keyboard-input").focus();
+                                } else {
+                                    var newVal;
+                                    if (currentVal.indexOf('||||') !== -1) {
+                                        newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
+                                    } else {
+                                        newVal = currentVal + "||||" + a.value;
+                                    }
+                                    // var newVal = currentVal + "||||"+ a.value;
+                                    $(".simple-keyboard-input").val(newVal);
+                                    $(".simple-keyboard-input").focus();
+                                }
+                            },
+                            onBack: function onBack() {
+                                $(".simple-keyboard-input").focus();
+                                // Lampa.Controller.toggle('content');
+                            }
+                        });
+                    }
+                });
 			});
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
@@ -673,20 +772,42 @@
                         havedata = data;
                     } else {
                         listdata = data.result ? data.result.songs : [];
+                        // if (data.result.hasOwnProperty("songs")) {
+                        //     listdata = data.result.songs;
+                        //     havedata = data.result.songs;
+                        // } else if (data.result.hasOwnProperty("albums")) {
+                        //     listdata = data.result.albums;
+                        //     havedata = data.result.albums
+                        // } else if (data.result.hasOwnProperty("playlists")) {
+                        //     listdata = data.result.playlists;
+                        //     havedata = data.result.playlists
+                        // }
                         havedata = data.result;
                     }
                     break;
                 case 'albums':
-                    listdata = data.hotAlbums;
-                    havedata = data.hotAlbums;
+                    // listdata = data.hotAlbums;
+                    // havedata = data.hotAlbums;
+                    if (data.hasOwnProperty("hotAlbums")) {
+                        listdata = data.hotAlbums;
+                        havedata = data.hotAlbums;
+                    } else {
+                        listdata = data.result.albums;
+                        havedata = data.result.albums;
+                    }
                     break;
                 case 'album':
                     listdata = data.songs;
                     havedata = data.songs;
                     break;
                 case 'playlist':
-                    listdata = data.playlists;
-                    havedata = data.playlists;
+                    if (data.hasOwnProperty("playlists")) {
+                        listdata = data.playlists;
+                        havedata = data.playlists;
+                    } else {
+                        listdata = data.result.playlists;
+                        havedata = data.result.playlists;
+                    }
                     break;
                 case 'playlist_detail':
                     if (data.hasOwnProperty("songs")) {
@@ -1555,7 +1676,7 @@
                             // if (result.msg == '成功') {
                             var data = {
                                 url: result.data.src,
-                                title: element.name,
+                                title: currentplaylist[currentIndex][0],
                                 playall: true
                             }
                             player.play(data);
@@ -1632,6 +1753,14 @@
             return false;
         }
         return array1[0] === array2[0];
+    }
+
+    function removeAfterDelimiter(str, delimiter) {
+        const index = str.indexOf(delimiter);
+        if (index !== -1) {
+            return str.substring(0, index);
+        }
+        return str;
     }
 
     function popupWindows(playlistname, gourl, num, gotype, titlename) {
