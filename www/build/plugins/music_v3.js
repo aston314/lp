@@ -1081,15 +1081,6 @@
                     var button = $('<div class="navigation-tabs__button '+ifplaynow+'">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
                         playEndedHandler_(i-1);
-                        // Lampa.Activity.push({
-                        //     url: tab.url,
-                        //     title: '音乐 - ' + titlename + ' - ' + tab.title,
-                        //     code: '',
-                        //     component: 'music',
-                        //     type: gotype,
-                        //     connectype: '',
-                        //     page: 1
-                        // });
                         Lampa.Modal.close();
                     });
 
