@@ -1059,7 +1059,6 @@
 
         html.on('hover:long', function () {
             if (currentplaylist) {
-                console.log(html.find('.radio-player__name').text())
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist;
@@ -1081,6 +1080,7 @@
                     var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button '+ifplaynow+'">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
+                        playEndedHandler_(i-1);
                         // Lampa.Activity.push({
                         //     url: tab.url,
                         //     title: '音乐 - ' + titlename + ' - ' + tab.title,
@@ -1090,7 +1090,7 @@
                         //     connectype: '',
                         //     page: 1
                         // });
-                        // Lampa.Modal.close();
+                        Lampa.Modal.close();
                     });
 
                     if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
@@ -1142,6 +1142,172 @@
             var player = window.radio_player1_;
             // var src = currentplaylist.pop();
             // var src = currentplaylist.shift();
+            currentIndex = (currentIndex + 1) % currentplaylist.length;
+            // console.log(currentIndex)
+            // myAudio.src = src;
+            // currentplaylist.unshift(src);
+            // myAudio.play();
+            // console.log('播放完毕，准备下一首歌。')
+            // https://music.163.com/api/song/media?id=2046829307
+            network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
+                if (result.code == 200) {
+                    lrcObj = {}
+                    // console.log(result.lrc.lyric)
+                    if (result.lrc) {
+                        var lyrics = result.lrc.lyric.split("\n");
+                        for (var i = 0; i < lyrics.length; i++) {
+                            var lyric = decodeURIComponent(lyrics[i]);
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                            var timeRegExpArr = lyric.match(timeReg);
+                            if (!timeRegExpArr) continue;
+                            var clause = lyric.replace(timeReg, '');
+                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                var t = timeRegExpArr[k];
+                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                var time = min * 60 + sec;
+                                lrcObj[time] = clause;
+                            }
+                        }
+                    }
+                    // console.log(lrcObj)
+                }
+            }, false, false, {
+                dataType: 'json'
+            });
+            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] == 1) {
+                // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
+                //     var data = {
+                //         url: result.data[0].url,
+                //         title: currentplaylist[currentIndex][0],
+                //         playall: true
+                //     }
+                //     player.play(data);
+                // }, false, false, {
+                //     dataType: 'json'
+                // });
+                var data = {
+                    url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
+                    title: currentplaylist[currentIndex][0],
+                    playall: true
+                }
+                player.play(data);
+            } else {
+                // Lampa.Modal.open({
+                //     title: '',
+                //     html: Lampa.Template.get('modal_loading'),
+                //     size: 'small',
+                //     align: 'center',
+                //     mask: true,
+                //     onBack: function onBack() {
+                //         Lampa.Modal.close();
+                //         Lampa.Api.clear();
+                //         Lampa.Controller.toggle('content');
+                //     }
+                // });
+                //https://diii.tk/
+                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
+                    var queryData = result.data.filter(function (fp) {
+                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
+                    })
+
+                    if (queryData.length > 0) {
+                        // console.log(queryData,queryData[0].mid)
+                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                            // if (result.msg == '成功') {
+                            var data = {
+                                url: result.data.src,
+                                title: currentplaylist[currentIndex][0],
+                                playall: true
+                            }
+                            player.play(data);
+                            // Lampa.Modal.close();
+                            // Lampa.Controller.toggle('content');
+                        }, false, false, {
+                            dataType: 'json'
+                        });
+                    } else {
+                        // Lampa.Modal.close();
+                        // Lampa.Controller.toggle('content');
+                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
+                            // if (result.msg == '成功') {
+                            var data = {
+                                url: result.data.src,
+                                title: currentplaylist[currentIndex][0],
+                                playall: true
+                            }
+                            player.play(data);
+                            Lampa.Modal.close();
+                            Lampa.Controller.toggle('content');
+                        }, false, false, {
+                            dataType: 'json'
+                        });
+                        // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                    }
+                }, false, false, {
+                    dataType: 'json'
+                });
+                // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0]), function (str) {
+                //     var musc_list = [];
+                //     str = str.replace(/\n/g, '');
+
+                //     $('a.text-primary', str).each(function (i, html) {
+                //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
+                //     });
+                //     // console.log(musc_list)
+
+                //     if (musc_list.length > 0) {
+                //         network["native"](musc_list[1], function (str) {
+                //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
+                //             var match = str.match(urlPattern);
+
+                //             if (match) {
+                //                 var urlvideo = match[1];
+                //                 var data = {
+                //                     url: urlvideo,
+                //                     title: currentplaylist[currentIndex][0],
+                //                     playall: false
+                //                 }
+                //                 player.play(data);
+                //             } else {
+                //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
+                //             }
+                //             // Lampa.Modal.close();
+                //             // Lampa.Controller.toggle('content');
+                //         }, function (a, c) {
+                //             Lampa.Noty.show(network.errorDecode(a, c));
+                //         }, false, {
+                //             dataType: 'text',
+                //             headers: {
+                //                 'Referer': 'https://www.fangpi.net/'
+                //             }
+                //         });
+                //     } else {
+                //         // Lampa.Modal.close();
+                //         // Lampa.Controller.toggle('content');
+                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
+                //     }
+
+                // }, function (a, c) {
+                //     Lampa.Noty.show(network.errorDecode(a, c));
+                // }, false, {
+                //     dataType: 'text',
+                //     headers: {
+                //         'Referer': 'https://www.fangpi.net/'
+                //     }
+                // });
+            }
+        }
+    }
+
+    function playEndedHandler_(pos){
+        if (currentplaylist.length > 0) {
+            var network = new Lampa.Reguest();
+            var player = window.radio_player1_;
+            // var src = currentplaylist.pop();
+            // var src = currentplaylist.shift();
+            currentIndex = pos;
             currentIndex = (currentIndex + 1) % currentplaylist.length;
             // console.log(currentIndex)
             // myAudio.src = src;
