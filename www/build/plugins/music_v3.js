@@ -1229,8 +1229,8 @@
                                 playall: true
                             }
                             player.play(data);
-                            Lampa.Modal.close();
-                            Lampa.Controller.toggle('content');
+                            // Lampa.Modal.close();
+                            // Lampa.Controller.toggle('content');
                         }, false, false, {
                             dataType: 'json'
                         });
@@ -1395,8 +1395,8 @@
                                 playall: true
                             }
                             player.play(data);
-                            Lampa.Modal.close();
-                            Lampa.Controller.toggle('content');
+                            // Lampa.Modal.close();
+                            // Lampa.Controller.toggle('content');
                         }, false, false, {
                             dataType: 'json'
                         });
