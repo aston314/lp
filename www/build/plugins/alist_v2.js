@@ -110,7 +110,7 @@
             if (json.message == "success") {
                 var datatype;
                 (ver == 3) ? datatype = json.data.content : datatype = json.data.files;
-
+                
                 datatype.forEach(function (item, index) {
                     //if (item.type ==1 || item.type ==3) {
                     listlink.data[0].media.push({
@@ -119,7 +119,7 @@
                         title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
                         type: item.type,
                         drive_id: item.type,
-                        file_id: item.thumb || item.url,
+                        file_id: item.thumb || item.url || item.name,
                         share_id: ''
                     });
                     //}
