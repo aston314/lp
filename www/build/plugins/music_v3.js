@@ -752,7 +752,7 @@
                 // console.log(navigation)
 
                 Lampa.Modal.open({
-                    title: '搜索类型',
+                    title: '搜索',
                     html: html_,
                     size: 'small',
                     // align: 'center',
@@ -764,6 +764,7 @@
                         Lampa.Controller.toggle('content')
                     }
                 });
+                searchcat = null;
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
