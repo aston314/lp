@@ -330,7 +330,7 @@
                         card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                 }
                 if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
-                    if (element.fee !== 1 && element.copyright == 1) {
+                    if (element.fee !== 1 && element.copyright <= 1) {
                         card.find('.card__view').append('<div class="card__type"></div>');
                         card.find('.card__type').text('免费');
                     }
@@ -461,7 +461,7 @@
                                 dataType: 'json'
                             });
                             
-                            if (element.fee !== 1 && element.copyright == 1) {
+                            if (element.fee !== 1 && element.copyright <= 1) {
                                 // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
                                 //     //console.log(result.data[0].url)
                                 //     // var video = {
@@ -518,46 +518,52 @@
                                 });
                                 //https://diii.tk/
                                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name.replace('(Live)','')), function (result) {
-                                    var queryData = result.data.filter(function (fp) {
-                                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                        return (fp.name.replace('G.E.M. 邓紫棋' , 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name: element.ar[0].name) || fp.name.indexOf((object.code == '1' ? element.artists[0].name: element.ar[0].name)) !== -1) && fp.songname === element.name.replace('(Live)','')
-                                    })
-                                    // console.log(queryData)
-                                    if (queryData.length > 0) {
-                                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                            // if (result.msg == '成功') {
-                                            var data = {
-                                                url: result.data.src,
-                                                title: element.name,
-                                                playall: false
-                                            }
-                                            player.play(data);
-                                            card.find('.card__view').append('<div class="card__quality"></div>');
-                                            card.find('.card__quality').text('听');
+                                    if (result.code === 0) {
+                                        var queryData = result.data.filter(function (fp) {
+                                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name : element.ar[0].name) || fp.name.indexOf((object.code == '1' ? element.artists[0].name : element.ar[0].name)) !== -1) && fp.songname === element.name.replace('(Live)', '')
+                                        })
+                                        // console.log(queryData)
+                                        if (queryData.length > 0) {
+                                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                                // if (result.msg == '成功') {
+                                                var data = {
+                                                    url: result.data.src,
+                                                    title: element.name,
+                                                    playall: false
+                                                }
+                                                player.play(data);
+                                                card.find('.card__view').append('<div class="card__quality"></div>');
+                                                card.find('.card__quality').text('听');
+                                                Lampa.Modal.close();
+                                                Lampa.Controller.toggle('content');
+                                            }, false, false, {
+                                                dataType: 'json'
+                                            });
+                                        } else {
+                                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
+                                                // if (result.msg == '成功') {
+                                                var data = {
+                                                    url: result.data.src,
+                                                    title: element.name,
+                                                    playall: false
+                                                }
+                                                player.play(data);
+                                                card.find('.card__view').append('<div class="card__quality"></div>');
+                                                card.find('.card__quality').text('听');
+                                                Lampa.Modal.close();
+                                                Lampa.Controller.toggle('content');
+                                            }, false, false, {
+                                                dataType: 'json'
+                                            });
                                             Lampa.Modal.close();
                                             Lampa.Controller.toggle('content');
-                                        }, false, false, {
-                                            dataType: 'json'
-                                        });
+                                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                                        }
                                     } else {
-                                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                                            // if (result.msg == '成功') {
-                                            var data = {
-                                                url: result.data.src,
-                                                title: element.name,
-                                                playall: false
-                                            }
-                                            player.play(data);
-                                            card.find('.card__view').append('<div class="card__quality"></div>');
-                                            card.find('.card__quality').text('听');
-                                            Lampa.Modal.close();
-                                            Lampa.Controller.toggle('content');
-                                        }, false, false, {
-                                            dataType: 'json'
-                                        });
+                                        Lampa.Noty.show('找不到相关歌曲音频文件。');
                                         Lampa.Modal.close();
                                         Lampa.Controller.toggle('content');
-                                        // Lampa.Noty.show('找不到相关歌曲音频文件。');
                                     }
                                 }, false, false, {
                                     dataType: 'json'
@@ -1323,7 +1329,7 @@
             }, false, false, {
                 dataType: 'json'
             });
-            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] == 1) {
+            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
                 // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
                 //     var data = {
                 //         url: result.data[0].url,
@@ -1355,43 +1361,45 @@
                 // });
                 //https://diii.tk/
                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                    var queryData = result.data.filter(function (fp) {
-                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                    })
+                    if (result.code === 0) {
+                        var queryData = result.data.filter(function (fp) {
+                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
+                        })
 
-                    if (queryData.length > 0) {
-                        // console.log(queryData,queryData[0].mid)
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
+                        if (queryData.length > 0) {
+                            // console.log(queryData,queryData[0].mid)
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                // Lampa.Modal.close();
+                                // Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                        } else {
                             // Lampa.Modal.close();
                             // Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                    } else {
-                        // Lampa.Modal.close();
-                        // Lampa.Controller.toggle('content');
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
-                            // Lampa.Modal.close();
-                            // Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                        // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                // Lampa.Modal.close();
+                                // Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                        }
                     }
                 }, false, false, {
                     dataType: 'json'
@@ -1489,7 +1497,7 @@
             }, false, false, {
                 dataType: 'json'
             });
-            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] == 1) {
+            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
                 // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
                 //     var data = {
                 //         url: result.data[0].url,
@@ -1521,43 +1529,45 @@
                 // });
                 //https://diii.tk/
                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                    var queryData = result.data.filter(function (fp) {
-                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                    })
+                    if (result.code === 0) {
+                        var queryData = result.data.filter(function (fp) {
+                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
+                        })
 
-                    if (queryData.length > 0) {
-                        // console.log(queryData,queryData[0].mid)
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
+                        if (queryData.length > 0) {
+                            // console.log(queryData,queryData[0].mid)
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                // Lampa.Modal.close();
+                                // Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                        } else {
                             // Lampa.Modal.close();
                             // Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                    } else {
-                        // Lampa.Modal.close();
-                        // Lampa.Controller.toggle('content');
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
-                            // Lampa.Modal.close();
-                            // Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                        // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                // Lampa.Modal.close();
+                                // Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                        }
                     }
                 }, false, false, {
                     dataType: 'json'
@@ -1654,7 +1664,7 @@
             }, false, false, {
                 dataType: 'json'
             });
-            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] == 1) {
+            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
                 // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
                 //     var data = {
                 //         url: result.data[0].url,
@@ -1686,43 +1696,45 @@
                 });
                 //https://diii.tk/
                 network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                    var queryData = result.data.filter(function (fp) {
-                        // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                        return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                    })
+                    if (result.code === 0) {
+                        var queryData = result.data.filter(function (fp) {
+                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
+                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
+                        })
 
-                    if (queryData.length > 0) {
-                        // console.log(queryData,queryData[0].mid)
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
-                            Lampa.Modal.close();
-                            Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                    } else {
-                        network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                            // if (result.msg == '成功') {
-                            var data = {
-                                url: result.data.src,
-                                title: currentplaylist[currentIndex][0],
-                                playall: true
-                            }
-                            player.play(data);
-                            Lampa.Modal.close();
-                            Lampa.Controller.toggle('content');
-                        }, false, false, {
-                            dataType: 'json'
-                        });
-                        // Lampa.Modal.close();
-                        // Lampa.Controller.toggle('content');
-                        // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                        if (queryData.length > 0) {
+                            // console.log(queryData,queryData[0].mid)
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                Lampa.Modal.close();
+                                Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                        } else {
+                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
+                                // if (result.msg == '成功') {
+                                var data = {
+                                    url: result.data.src,
+                                    title: currentplaylist[currentIndex][0],
+                                    playall: true
+                                }
+                                player.play(data);
+                                Lampa.Modal.close();
+                                Lampa.Controller.toggle('content');
+                            }, false, false, {
+                                dataType: 'json'
+                            });
+                            // Lampa.Modal.close();
+                            // Lampa.Controller.toggle('content');
+                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
+                        }
                     }
                 }, false, false, {
                     dataType: 'json'
