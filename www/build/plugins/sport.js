@@ -141,7 +141,7 @@
                         url: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开' : 'http://www.88kanqiu.top' + (typeof $('a.btn[target=\'_blank\']',html).attr('href') !== 'undefined' ? $('a.btn[target=\'_blank\']',html).attr('href') : $('a',html).attr('href')) ,
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: typeof $('div.text-right + div.col-xs-1 img',html).attr('src') !== 'undefined' ? ($('div.text-right + div.col-xs-1 img',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('div.text-right + div.col-xs-1 img',html).attr('src')) : ($('img.img-responsive',html).attr('src') =='/static/img/default-img.png' ? 'http://www.88kanqiu.top/static/img/default-img.png' : $('img.img-responsive',html).attr('src')),
-                        quantity: $('.game-type',html).text(),
+                        quantity: $('.game-type',html).text().replace(/\n/g,''),
                         year: '',
                         rate:$('.category-game-time',html).text().replace(/\n/g,''),
                         episodes_info: $('.pay-btn',html).text().indexOf('暂无') != -1 ? '未开始' : $('.pay-btn',html).text(),
@@ -192,12 +192,16 @@
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text(element.rate);
                 };
+                // console.log(element.quantity.length)
                 if (element.quantity) {
                     // var icon = document.createElement('div');
                     // icon.classList.add('card__icon');
                     // icon.classList.add('icon--sport');
                     // card.find('.card__icons-inner').append(icon);
                     card.find('.card__icons-inner').text(element.quantity)
+                    card.find('.card__icons-inner').css({'padding': '0.4em 0.4em'})
+                    // card.find('.card__view').append('<div class="card__icons"></div>');
+                    // card.find('.card__icons-inner').text(element.quantity);
                 }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
