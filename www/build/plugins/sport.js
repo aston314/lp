@@ -192,6 +192,13 @@
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text(element.rate);
                 };
+                if (element.quantity) {
+                    var icon = document.createElement('div');
+                    icon.classList.add('card__icon');
+                    icon.classList.add('icon--sport');
+                    // card.find('.card__icons-inner').append(icon);
+                    card.find('.card__icons-inner').text(element.quantity)
+                }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
                 if (element.episodes_info) {
