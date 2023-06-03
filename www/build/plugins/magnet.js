@@ -109,7 +109,7 @@
         var regexp1 = /\d{4}[\s|)|.]/g;
         var myear = element.oname.match(regexp1) ? element.oname.match(regexp1).toString().replace(' ', '').replace('.', '').replace(')', '') : '';
         card.find('.card__view').append('<div class="card__type"></div>');
-        card.find('.card__type').text((element.release_date ? new Date(element.release_date).getFullYear() :  myear )+ '\n' +parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'')+ '分');
+        card.find('.card__type').text((element.release_date ? new Date(element.release_date).getFullYear() :  myear ));
 
         card.on('hover:focus', function () {
           last = card[0];
@@ -118,6 +118,8 @@
           //console.log(element.oname.match(regexp));
           //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
           info.find('.info__title-original').text(myear + (element.oname.match(regexp)? ' - ' + element.oname.match(regexp).join(" ").toUpperCase(): ''));
+          info.find('.info__rate span').text(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,''));
+          // info.find('.info__rate').toggleClass('hide', !(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'') > 0));
           
           var maxrow = Math.ceil(items.length / 7) - 1;
           if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
@@ -289,10 +291,12 @@
     };
 
     this.build = function (data) {
+      // $(".info__left").before('<div class="info__rate"><span></span></div>')
       Lampa.Template.add('_style', '<style>.freetv.category-full{padding-bottom:8em;}</style>');
+      Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
       $('body').append(Lampa.Template.get('_style', {}, true));
-      info = Lampa.Template.get('info');
-      info.find('.info__rate,.info__right').remove();
+      info = Lampa.Template.get('info_web');
+      // info.find('.info__rate,.info__right').remove();
       scroll.render().addClass('layer--wheight').data('mheight', info);
       html.append(info);
       html.append(scroll.render());
