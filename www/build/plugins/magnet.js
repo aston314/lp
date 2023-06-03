@@ -109,7 +109,7 @@
         var regexp1 = /\d{4}[\s|)|.]/g;
         var myear = element.oname.match(regexp1) ? element.oname.match(regexp1).toString().replace(' ', '').replace('.', '').replace(')', '') : '';
         card.find('.card__view').append('<div class="card__type"></div>');
-        card.find('.card__type').text(myear);
+        card.find('.card__type').text((element.release_date ? new Date(element.release_date).getFullYear() :  myear )+ '\n' +parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'')+ '分');
 
         card.on('hover:focus', function () {
           last = card[0];
@@ -169,112 +169,112 @@
               Lampa.Android.openTorrent(SERVER);
             };
         });
-        card.on('hover:long', function (target, card_data) {
-          Lampa.Modal.open({
-            title: '发送到PikPak',
-            html: Lampa.Template.get('modal_loading'),
-            size: 'small',
-            mask: true,
-            onBack: function onBack() {
-              Lampa.Modal.close();
-              Lampa.Api.clear();
-              Lampa.Controller.toggle('content');
-            }
-          });
+        // card.on('hover:long', function (target, card_data) {
+        //   Lampa.Modal.open({
+        //     title: '发送到PikPak',
+        //     html: Lampa.Template.get('modal_loading'),
+        //     size: 'small',
+        //     mask: true,
+        //     onBack: function onBack() {
+        //       Lampa.Modal.close();
+        //       Lampa.Api.clear();
+        //       Lampa.Controller.toggle('content');
+        //     }
+        //   });
 
-          var p;
-          var info = Lampa.Storage.get("pikpakUserInfo","");
+        //   var p;
+        //   var info = Lampa.Storage.get("pikpakUserInfo","");
           
-          if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-            var url = 'https://user.mypikpak.com/v1/auth/signin';
-            var postdata =
-            {
-              "client_id": "YNxT9w7GMdWvEOKa",
-              "client_secret": "dbw2OtmVEeuUvIptb1Coyg",
-              "password": Lampa.Storage.get('pikpak_userPass', ''),
-              "username": Lampa.Storage.get('pikpak_userName', '')
-            };
+        //   if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
+        //     var url = 'https://user.mypikpak.com/v1/auth/signin';
+        //     var postdata =
+        //     {
+        //       "client_id": "YNxT9w7GMdWvEOKa",
+        //       "client_secret": "dbw2OtmVEeuUvIptb1Coyg",
+        //       "password": Lampa.Storage.get('pikpak_userPass', ''),
+        //       "username": Lampa.Storage.get('pikpak_userName', '')
+        //     };
             
-            $.ajax({
-              url: url,
-              type: 'POST',
-              data: postdata,
-              async: false,
-              dataType: 'json',
-              success: function success(json) {
-                if (json && (json.access_token || json.type == 'Bearer')) {
-                  var info = {};
-                  info.loginInfo = json;
-                  if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-                    info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-                  };
-                  Lampa.Storage.set("pikpakUserInfo", info);
-                } else {
-                  Lampa.Storage.set("pikpakUserInfo", "");
-                  if (json && json.error) Lampa.Noty.show(json.details[1].message);
-                }
-              },
-              error: function error() {
-                //Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-              }
-            });
+        //     $.ajax({
+        //       url: url,
+        //       type: 'POST',
+        //       data: postdata,
+        //       async: false,
+        //       dataType: 'json',
+        //       success: function success(json) {
+        //         if (json && (json.access_token || json.type == 'Bearer')) {
+        //           var info = {};
+        //           info.loginInfo = json;
+        //           if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+        //             info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+        //           };
+        //           Lampa.Storage.set("pikpakUserInfo", info);
+        //         } else {
+        //           Lampa.Storage.set("pikpakUserInfo", "");
+        //           if (json && json.error) Lampa.Noty.show(json.details[1].message);
+        //         }
+        //       },
+        //       error: function error() {
+        //         //Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+        //       }
+        //     });
       
-            info = Lampa.Storage.get("pikpakUserInfo","");
+        //     info = Lampa.Storage.get("pikpakUserInfo","");
             
-            if (info.loginInfo) {
-              p = {
-                dataType: "json",
-                headers: {
-                  "content-type": "application/json;charset=utf-8",
-                  authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
-                },
-              };
-            } else {
-              p = {
-                dataType: "json",
-                headers: {
-                  "content-type": "application/json;charset=utf-8",
-                },
-              };
-            };
-          } else {
-            p = {
-              dataType: "json",
-              headers: {
-                "content-type": "application/json;charset=utf-8",
-                authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
-              },
-            };
-          };
+        //     if (info.loginInfo) {
+        //       p = {
+        //         dataType: "json",
+        //         headers: {
+        //           "content-type": "application/json;charset=utf-8",
+        //           authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
+        //         },
+        //       };
+        //     } else {
+        //       p = {
+        //         dataType: "json",
+        //         headers: {
+        //           "content-type": "application/json;charset=utf-8",
+        //         },
+        //       };
+        //     };
+        //   } else {
+        //     p = {
+        //       dataType: "json",
+        //       headers: {
+        //         "content-type": "application/json;charset=utf-8",
+        //         authorization: info.loginInfo.token_type + ' ' + info.loginInfo.access_token
+        //       },
+        //     };
+        //   };
 
-          var postData_ = {
-            kind: "drive#file",
-            name: "",
-            // parent_id: route.params.id || '',
-            upload_type: "UPLOAD_TYPE_URL",
-            url: {
-              url: element.video
-            },
-            params: {"from":"file"},
-            folder_type: "DOWNLOAD"
-          };
+        //   var postData_ = {
+        //     kind: "drive#file",
+        //     name: "",
+        //     // parent_id: route.params.id || '',
+        //     upload_type: "UPLOAD_TYPE_URL",
+        //     url: {
+        //       url: element.video
+        //     },
+        //     params: {"from":"file"},
+        //     folder_type: "DOWNLOAD"
+        //   };
 
-          network.native(PikPakProxy() + 'https://api-drive.mypikpak.com/drive/v1/files', function (json) {
-            if ("error" in json) {
-              Lampa.Noty.show('哦，' + json.error_description + '，添加到 PikPak 失败。');
-            } else {
-              if (json.upload_type === "UPLOAD_TYPE_URL") {
-                Lampa.Noty.show(element.name + ' 的磁力链接已成功添加到 PikPak。');
-              };
-            }
-            Lampa.Modal.close();
-            Lampa.Controller.toggle('content');
-          }, function (a, c) {
-            Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
-            Lampa.Modal.close();
-            Lampa.Controller.toggle('content');
-          }, JSON.stringify(postData_), p);
-        });
+        //   network.native(PikPakProxy() + 'https://api-drive.mypikpak.com/drive/v1/files', function (json) {
+        //     if ("error" in json) {
+        //       Lampa.Noty.show('哦，' + json.error_description + '，添加到 PikPak 失败。');
+        //     } else {
+        //       if (json.upload_type === "UPLOAD_TYPE_URL") {
+        //         Lampa.Noty.show(element.name + ' 的磁力链接已成功添加到 PikPak。');
+        //       };
+        //     }
+        //     Lampa.Modal.close();
+        //     Lampa.Controller.toggle('content');
+        //   }, function (a, c) {
+        //     Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+        //     Lampa.Modal.close();
+        //     Lampa.Controller.toggle('content');
+        //   }, JSON.stringify(postData_), p);
+        // });
         
         body.append(card);
         items.push(card);
