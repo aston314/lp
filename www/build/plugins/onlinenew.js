@@ -3405,7 +3405,7 @@ $.when($('.iframe').append(`
       network.clear();
       network.timeout(1000 * 15);
       network.silent(url1, function (json) {
-        if (json.data.length > 0) {
+        if (json.success && json.data != null) {
           parse(json.data);
         } else component.emptyForQuery(select_title);
 
@@ -3415,6 +3415,7 @@ $.when($('.iframe').append(`
       }, {
         action: 'search',
         keyword: object.movie.title,
+        token: '5d3a89654ff212178413c01f2d688317534479',
         from: 'web'
       }, {
         dataType: 'json',
