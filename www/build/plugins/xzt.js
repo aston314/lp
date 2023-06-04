@@ -70,7 +70,7 @@
           //object.page++;
           network.silent(object.url, function (result) {
             _this2.append(result.data);
-            if (result.data.length) waitload = false;
+            if (result.success && result.data != null) waitload = false;
             Lampa.Controller.enable('content');
           }, false,postdata);
         //}
@@ -254,7 +254,7 @@
         //info.find('.info__rate,.info__right').remove();
         scroll.render().addClass('layer--wheight').data('mheight', info);
         // console.log(data)
-        if (data.data.length) {
+        if (data.success && data.data != null) {
             html.append(info);
             html.append(scroll.render());
             this.append(data.data);
