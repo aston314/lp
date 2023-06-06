@@ -37,8 +37,11 @@
             postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:1, include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};
         } else {
             //postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + object.page + "){\n      contents\n    }\n  }" }
-            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ object.page + "&pageSize=48"
-
+          if (object.cid) {
+            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum=" + object.page + "&pageSize=48"
+          } else {
+            postdata = object.url;
+          }
         };
         
         var _this = this;
@@ -69,8 +72,12 @@
             postdata = postdata = { "query": "{\n        searchResultsPage(keyword:\""+ object.keyword +"\", page:"+ (parseInt(object.page++)+1) +", include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }"};;
         } else {
             //postdata = { "query": "{\n    radioPage(cid:" + object.cid + ", page:" + (parseInt(object.page++)+1) + "){\n      contents\n    }\n  }" };
-            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum="+ (parseInt(object.page++)+1) + "&pageSize=48"
-        };
+          if (object.cid) {
+            postdata = porxy + "https://mobile.ximalaya.com/radio-first-page-app/search?locationId=0&locationTypeId=0&categoryId=" + object.cid + "&pageNum=" + (parseInt(object.page++) + 1) + "&pageSize=48"
+          } else {
+            postdata = object.url;
+          }
+          };
         
         // console.log(postdata)
         
@@ -304,44 +311,6 @@
      };
 
 
-      this.finds = function(find) {
-        var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-        var finded;
-
-        var filtred = function filtred(items) {
-          for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-
-            if (params.original_title == item.original_title || params.title == item.title || params.original_title == item.name) {
-              finded = item;
-              break;
-            }
-          }
-        };
-
-        if (find.movie && find.movie.results.length) filtred(find.movie.results);
-        if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
-        return finded;
-      }
-
-      this.finds1 = function (element, find) {
-      var finded;
-      var filtred = function filtred(items) {
-        for (var i = 0; i < items.length; i++) {
-          var mytitle = element.title.replace('/',' ');
-          if(mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
-
-          var item = items[i];
-          if (( mytitle == (item.title || item.name)) && parseInt(element.year) == (item.first_air_date || item.release_date).split('-').shift()) {
-            finded = item;
-            break;
-          }
-        }
-      };
-      if (find.movie && find.movie.results.length) filtred(find.movie.results);
-      if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
-      return finded;
-    };
       this.start = function () {
           var _this = this;
           Lampa.Controller.add('content', {
@@ -417,6 +386,11 @@
     var list_radio_id = class_url.split('&');
     
     var catalogs = [];
+    catalogs.push({
+      title: '华语台',
+      url: 'https://raw.gitmirror.com/aston314/lampa/main/data/radios.json',
+      cid: '',
+    });
     $.each(list_radio_name, function (i, val) {
         catalogs.push({
             title: val,
@@ -426,6 +400,7 @@
     }); 
 
     function player() {
+      
         var html = Lampa.Template.get('radio_player', {});
         var audio = new Audio();
         var url = '';
@@ -437,7 +412,7 @@
         });
   
         function prepare() {
-          if (audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.aacp') > 0) load();else if (Hls.isSupported()) {
+          if (audio.canPlayType('audio/mpeg;') || audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.aacp') > 0 || url.indexOf('.mp3') > 0) load();else if (Hls.isSupported()) {
             try {
               hls = new Hls();
               hls.attachMedia(audio);
