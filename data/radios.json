@@ -77,10 +77,10 @@
         "nextProgramName": null,
         "playCount": 0,
         "playUrl": {
-          "aac24": "http://live.ximalaya.com/radio-first-page-app/live/713/24.m3u8",
-          "ts24": "http://live.ximalaya.com/radio-first-page-app/live/713/24.m3u8?transcode=ts",
-          "aac64": "http://live.ximalaya.com/radio-first-page-app/live/713/64.m3u8",
-          "ts64": "http://live.ximalaya.com/radio-first-page-app/live/713/64.m3u8?transcode=ts"
+          "aac24": "https://playerservices.streamtheworld.com/api/livestream-redirect/YES933.mp3",
+          "ts24": "https://playerservices.streamtheworld.com/api/livestream-redirect/YES933.mp3",
+          "aac64": "https://playerservices.streamtheworld.com/api/livestream-redirect/YES933.mp3",
+          "ts64": "https://playerservices.streamtheworld.com/api/livestream-redirect/YES933.mp3"
         },
         "fmUid": 75159553,
         "type": "SEARCH",
