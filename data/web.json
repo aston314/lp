@@ -882,6 +882,64 @@
       }
    },
    {
+      "title":"奇米奇米",
+      "link":"http://www.qimiqimi.net",
+      "show":"portrait",
+      "next":"search",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"新番连载",
+            "url":"http://www.qimiqimi.net/type/xinfan.html",
+            "quantity":""
+         },
+         {
+            "title":"完结番组",
+            "url":"http://www.qimiqimi.net/type/riman.html",
+            "quantity":""
+         },
+         {
+            "title":"热门国漫",
+            "url":"http://www.qimiqimi.net/type/guoman.html",
+            "quantity":""
+         },
+         {
+            "title":"剧场&OVA",
+            "url":"http://www.qimiqimi.net/type/jcdm.html",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":".page_info"
+         },
+         "videoscontainer":{
+            "selector":".img-list,.show-list",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"a,.play-txt a",
+            "attrName":"title",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"a,.play-img img",
+            "attrName":"data-original",
+            "filter":""
+         },
+         "link":{
+            "selector":"a,.play-txt a",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"http://www.qimiqimi.net/vod/search.html?wd=#msearchword&submit="
+      }
+   },
+   {
       "title":"JableTV",
       "link":"https://jable.tv",
       "show":"landscape",
