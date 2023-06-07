@@ -915,7 +915,7 @@
             "selector":".page_info"
          },
          "videoscontainer":{
-            "selector":"ul.img-list > li > a,div.play-txt h2 a",
+            "selector":"ul.img-list > li > a,ul.show-list > li > a",
             "attrName":"",
             "filter":""
          },
@@ -925,8 +925,8 @@
             "filter":""
          },
          "thumb":{
-            "selector":"",
-            "attrName":"data-original",
+            "selector":"img",
+            "attrName":"src",
             "filter":""
          },
          "link":{
