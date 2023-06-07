@@ -915,7 +915,7 @@
             "selector":".page_info"
          },
          "videoscontainer":{
-            "selector":"ul.img-list > li > a,ul.show-list > li > a",
+            "selector":"ul.show-list > li > a,ul.img-list > li > a",
             "attrName":"",
             "filter":""
          },
