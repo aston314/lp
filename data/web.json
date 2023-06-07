@@ -915,22 +915,22 @@
             "selector":".page_info"
          },
          "videoscontainer":{
-            "selector":".img-list,.show-list",
+            "selector":"ul.img-list > li > a,div.play-txt h2 a",
             "attrName":"",
             "filter":""
          },
          "title":{
-            "selector":"a,.play-txt a",
+            "selector":"",
             "attrName":"title",
             "filter":""
          },
          "thumb":{
-            "selector":"a,.play-img img",
+            "selector":"",
             "attrName":"data-original",
             "filter":""
          },
          "link":{
-            "selector":"a,.play-txt a",
+            "selector":"",
             "attrName":"href",
             "filter":""
          }
