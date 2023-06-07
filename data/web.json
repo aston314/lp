@@ -892,7 +892,7 @@
          {
             "title":"首页",
             "url":"http://www.qimiqimi.net",
-            "quantity":":gt(23):lt(55)"
+            "quantity":""
          },
          {
             "title":"新番连载",
@@ -920,7 +920,7 @@
             "selector":".page_info"
          },
          "videoscontainer":{
-            "selector":"ul.show-list > li > a,ul.img-list > li > a",
+            "selector":"ul.show-list > li > a,.box_con > ul.img-list > li > a",
             "attrName":"",
             "filter":""
          },
