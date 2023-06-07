@@ -890,6 +890,11 @@
       "use_referer":false,
       "category":[
          {
+            "title":"首页",
+            "url":"http://www.qimiqimi.net",
+            "quantity":":gt(23):lt(32)"
+         },
+         {
             "title":"新番连载",
             "url":"http://www.qimiqimi.net/type/xinfan.html",
             "quantity":""
