@@ -464,7 +464,7 @@
                         quantity: $(catalogs1[0].list.game_type.selector,html).text().replace(/\n/g,''),
                         year: '',
                         rate:$(catalogs1[0].list.game_time.selector,html).text().trim().replace(/\n/g,'').replace(/\S+\s+/g, ''),
-                        episodes_info: ($(catalogs1[0].list.game_status.selector,html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector,html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_status.selector,html).text().replace("'",""),
+                        episodes_info: ($(catalogs1[0].list.game_status.selector,html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector,html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_time.selector,html).text().trim().replace(/\s.*$/, ''),
                         update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                         score: '',//$('span.pic-tag', html).text()
                     });
