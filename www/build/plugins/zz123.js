@@ -211,8 +211,8 @@
                 card.on('hover:enter', function (target, card_data) {
                     currentplaylist_ = null;
                     var songurl = 'https://zz123.com/ajax/?act=songinfo&lang=&id=' + element.id
-                    console.log(element.id)
-                    network["native"](songurl, function (result) {
+                    // console.log(element.id)
+                    network["native"]('https://zz123.com/ajax/', function (result) {
                         if (result.status == 200) {
                             lrcObj = {}
                             // console.log(result.lrc.lyric)
@@ -661,6 +661,8 @@
                     }
                     player.play(data);
                 }
+            }, function (a, c) {
+                Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
@@ -705,6 +707,8 @@
                     }
                     player.play(data);
                 }
+            }, function (a, c) {
+                Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
@@ -750,6 +754,8 @@
                     }
                     player.play(data);
                 }
+            }, function (a, c) {
+                Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
