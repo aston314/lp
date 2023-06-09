@@ -465,7 +465,7 @@
                         year: '',
                         rate:$(catalogs1[0].list.game_time.selector,html).text().trim().replace(/\n/g,'').replace(/\S+\s+/g, ''),
                         episodes_info: ($(catalogs1[0].list.game_status.selector,html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector,html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_status.selector,html).text().replace("'",""),
-                        update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
+                        update: $(catalogs1[0].list.game_time.selector,html).text().replace(/\s.*$/, ''),//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                         score: '',//$('span.pic-tag', html).text()
                     });
                 }
@@ -527,9 +527,9 @@
                 }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
-                if (element.episodes_info) {
+                if (element.episodes_info || element.update) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info);
+                    card.find('.card__quality').text(element.episodes_info|| element.update);
                 };
 
                 card.on('hover:focus', function () {
@@ -548,7 +548,7 @@
                 });
                 //console.log(element.url)
                 //console.log((element.episodes_info.trim().indexOf('直播中') !== -1))
-                if (element.episodes_info.trim() == '直播中' || element.episodes_info.trim() ==''){
+                if (element.episodes_info.trim() == '直播中' || element.title.indexOf('纬来体育')!==-1 || element.episodes_info.trim() ==''){
                 card.on('hover:enter', function (target, card_data) {
                     var balanser = Lampa.Storage.get('online_sport_balanser');
                     var catalogs1 = catalogs.filter(function (fp) {
