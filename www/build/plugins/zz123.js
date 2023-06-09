@@ -170,7 +170,7 @@
                     last = card[0];
                     scroll.update(card, true);
                     info.find('.info__title').text(element.mname);
-                    // info.find('.info__title-original').text(element.al.name);
+                    info.find('.info__title-original').text(element.sname);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
@@ -748,7 +748,7 @@
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    'Referer': 'https://zz123.com/ajax/',
                 }
 
             });
@@ -764,7 +764,6 @@
         // console.log(playlistData)
 
         playlistData.forEach(function (html) {
-            console.log(html[0])
             sources.push({
                 title: html[0],
                 cat:html[1],
