@@ -101,11 +101,13 @@
         };
 
         this.next = function () {
+            
             var _this2 = this;
 
             if (waitload) return;
             waitload = true;
             object.page++;
+            console.log(this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`))
             if (!!window.cordova) {
                 network.silent(object.url, function (result) {
                     _this2.donext(result);
