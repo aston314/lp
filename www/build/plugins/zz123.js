@@ -138,9 +138,7 @@
         this.append = function (data) {
             var _this3 = this;
             data.data.forEach(function (element,i) {
-                // if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist_.push([element.mname, element.id, element.fee , element.sname, element.copyright])
-                // }
+                musiclist_.push([element.mname, element.id, element.mp3 , element.sname])
                 
                 var mytitle = element.mname.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
@@ -177,7 +175,6 @@
                     info.find('.info__title-original').text(element.sname);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
-                    // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     
@@ -237,8 +234,8 @@
                                 }
                             }
                             var data = {
-                                url: 'https://zz123.com/ajax'+result.data.mp3,
-                                title: result.data.mname,
+                                url: element.mp3,
+                                title: element.mname,
                                 playall: false
                             }
                             player.play(data);
@@ -246,6 +243,8 @@
                             card.find('.card__quality').text('听');
                             // console.log(lrcObj)
                         }
+                    }, function (a, c) {
+                        Lampa.Noty.show('无法取得播放链接');
                     }, 'act=songinfo&lang=&id=' + element.id, {
                         dataType: 'json',
                         headers: {
@@ -495,7 +494,7 @@
 
                   var currentTime = audio.currentTime;
 
-                  let obj = lrcObj[Math.floor(currentTime)];
+                  var obj = lrcObj[Math.floor(currentTime)];
                   if (obj != undefined) {
                       $('.info__title-original').css('color', 'f3d900');
                       $(".info__title-original").text(obj ? obj : '♪...');
@@ -656,7 +655,7 @@
                         }
                     }
                     var data = {
-                        url: 'https://zz123.com/ajax' + result.data.mp3,
+                        url: currentplaylist_[currentIndex][2],
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
@@ -700,7 +699,7 @@
                         }
                     }
                     var data = {
-                        url: 'https://zz123.com/ajax' + result.data.mp3,
+                        url: currentplaylist_[currentIndex][2],
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
@@ -745,7 +744,7 @@
                         }
                     }
                     var data = {
-                        url: 'https://zz123.com/ajax' + result.data.mp3,
+                        url: currentplaylist_[currentIndex][2],
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
