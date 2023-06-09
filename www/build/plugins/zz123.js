@@ -245,7 +245,7 @@
                             card.find('.card__quality').text('听');
                             // console.log(lrcObj)
                         }
-                    }, this.getUrlParamsAndBuildQueryString(songurl), {
+                    }, _this3.getUrlParamsAndBuildQueryString(songurl), {
                         dataType: 'json',
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
