@@ -157,7 +157,7 @@
                     img.src = './img/img_broken.svg';
                 };
                 
-                card.find('.card__img').attr('src', element.pic);
+                card.find('.card__img').attr('src', element.pic.replace('w_50,h_50,','w_200,h_200,'));
                 if (element.play_time) {
                 card.find('.card__view').append('<div class="card__type"></div>');
                 card.find('.card__type').text(element.play_time);
