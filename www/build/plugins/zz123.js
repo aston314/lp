@@ -214,6 +214,7 @@
                 card.on('hover:enter', function (target, card_data) {
                     currentplaylist_ = null;
                     var songurl = 'https://zz123.com/ajax/?act=songinfo&lang=&id=' + element.id
+                    console.log(element.id)
                     network["native"](songurl, function (result) {
                         if (result.status == 200) {
                             lrcObj = {}
@@ -237,7 +238,7 @@
                             }
                             var data = {
                                 url: 'https://zz123.com/ajax'+result.data.mp3,
-                                title: element.name,
+                                title: result.data.mname,
                                 playall: false
                             }
                             player.play(data);
@@ -245,7 +246,7 @@
                             card.find('.card__quality').text('听');
                             // console.log(lrcObj)
                         }
-                    }, _this3.getUrlParamsAndBuildQueryString(songurl), {
+                    }, 'act=songinfo&lang=&id=' + element.id, {
                         dataType: 'json',
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
