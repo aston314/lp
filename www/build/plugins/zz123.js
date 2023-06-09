@@ -199,43 +199,22 @@
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('zz123_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list' || object.type == 'playlist_detail'){
+                // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
-                    // console.log(element.al.name)
-					//contextmenu();
                     var archiveMenu = [];
                     archiveMenu.push({
-                        title: '查看'+(object.code == '1' ? element.artists[0].name: element.ar[0].name)+'所有专辑',
-                        url: 'http://music.163.com/api/artist/albums/'+(object.code == '1' ? element.artists[0].id : element.ar[0].id)+'?id='+(object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                        id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                        type: 'albums',
-                        albumname: '',
+                        title: '查看'+element.sname+'所有歌曲',
+                        url: 'https://zz123.com/ajax/?act=search&key='+element.sname+'&lang=&page=1',
                         connectype: 'native'
-                    });
-                    archiveMenu.push({
-                        title: '查看所属专辑歌曲',
-                        // https://ncm.icodeq.com
-                        url: apiurl+ '/album?id='+(object.code == '1' ? element.album.id : element.al.id),
-                        id: '',
-                        type: 'album',
-                        connectype: '', 
-                        albumname: (object.code == '1' ? element.album.name : element.al.name)
                     });
                     Lampa.Select.show({
                         title: '操作',
                         items: archiveMenu,
                         onSelect: function (sel) {
-                            // var video = {
-                            //     title: sel.title,
-                            //     url: sel.url,
-                            // }
-                            // Lampa.Controller.toggle('content');
                             Lampa.Activity.push({
                                 url: sel.url,
                                 title: '音乐 - ' + sel.title,
                                 component: 'ZZMUSIC',
-                                type: sel.type,
-                                albumname: sel.albumname,
                                 connectype: sel.connectype, 
                                 page: 1
                             });
@@ -245,7 +224,7 @@
                         }
                     })
 				});
-                }
+                // }
                 card.on('hover:enter', function (target, card_data) {
                     // var ids = element.url.match(/id=([^&]+)/)[1];
                     // console.log(items.indexOf(card))
@@ -368,8 +347,6 @@
                     items: catalogs,
                     onSelect: function onSelect(a) {
                         if (a.title == '歌单') {
-                            // var playlistname = '首页,随便听听,我的收藏,我的关注,我的歌单,历史播放,榜单,老歌,古风,Soul,儿童,乡村,助眠,纯音乐,茶道,抖音,DJ,00后,场景,语种,心情,神曲,广场舞,网络,相声,流行,影视,铃声,戏曲,基督教,佛教,民谣,说唱,健身,女声,KTV,欧美,HIFI,婚礼,红歌,好听,民歌,军旅,精选,酒廊情歌,圣诞节,情人节,新年,商业,叫声,年龄,最火,年代';
-                            // '/', '/suibian', '/my/collection', '/my/follow', '/my/sheet', '/my/history', '/list/vszs', '/list/azz', '/list/mv', '/list/akda', '/list/zud', '/list/aku', '/list/d', '/list/az', '/list/vadqm', '/list/mszm', '/list/msdm', '/list/msuv', '/list/zxzxu', '/list/vmvav', '/list/kuau', '/list/asx', '/list/ssmma', '/list/sxuus', '/list/qdsam', '/list/quvma', '/list/qdk', '/list/szdd', '/list/saak', '/list/vamau', '/list/azss', '/list/ms', '/list/qz', '/list/qqs', '/list/uz', '/list/akka', '/list/ka', '/list/qmkv', '/list/aaq', '/list/mqmz', '/list/aza', '/list/mqvk', '/list/mkzmx', '/list/mdz', '/list/mqms', '/list/mxqv', '/list/asuuq', '/list/qux', '/list/aqsvau', '/list/aqsvmx', '/list/aqsvms', '/list/qda', '/list/vvxmx'
                             var playlistname =[
                                 [
                                     "榜单",
