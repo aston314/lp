@@ -19,43 +19,47 @@
         var waitload;
         var player = window.radio_player1_;
 
-        this.getUrlParamsAndBuildQueryString = function (url) {
-            const queryString = url.split('?')[1]; // 获取问号后面的查询字符串
-            const params = new URLSearchParams(queryString); // 创建 URLSearchParams 对象
-
-            const paramObject = {};
-
-            // 遍历参数，将其添加到 paramObject 对象中
-            for (const [key, value] of params) {
-                if (paramObject[key]) {
-                    // 如果参数名已经存在，将值转换为数组并追加新值
-                    if (!Array.isArray(paramObject[key])) {
-                        paramObject[key] = [paramObject[key]];
-                    }
-                    paramObject[key].push(value);
-                } else {
-                    // 参数名不存在，直接赋值
-                    paramObject[key] = value;
+        this.getUrlParamsAndBuildQueryString = function(url) {
+            var queryString = url.split('?')[1]; // 获取问号后面的查询字符串
+          
+            var paramObject = {};
+          
+            // 解析查询字符串为参数对象
+            queryString.replace(/([^&=]+)=([^&]*)/g, function(match, key, value) {
+              key = decodeURIComponent(key);
+              value = decodeURIComponent(value);
+              if (paramObject[key]) {
+                // 如果参数名已经存在，将值转换为数组并追加新值
+                if (!Array.isArray(paramObject[key])) {
+                  paramObject[key] = [paramObject[key]];
                 }
-            }
-
-            const urlParams = new URLSearchParams();
-
-            // 遍历参数对象，将参数添加到 URLSearchParams 对象中
-            for (const key in paramObject) {
-                if (Array.isArray(paramObject[key])) {
-                    // 如果值是数组，将每个值都添加到参数中
-                    for (const value of paramObject[key]) {
-                        urlParams.append(key, value);
-                    }
+                paramObject[key].push(value);
+              } else {
+                // 参数名不存在，直接赋值
+                paramObject[key] = value;
+              }
+            });
+          
+            var urlParams = [];
+          
+            // 遍历参数对象，将参数添加到数组中
+            for (var paramKey in paramObject) {
+              if (paramObject.hasOwnProperty(paramKey)) {
+                var paramValue = paramObject[paramKey];
+                if (Array.isArray(paramValue)) {
+                  // 如果值是数组，将每个值都添加到参数中
+                  for (var i = 0; i < paramValue.length; i++) {
+                    urlParams.push(encodeURIComponent(paramKey) + '=' + encodeURIComponent(paramValue[i]));
+                  }
                 } else {
-                    // 单个值的情况
-                    urlParams.append(key, paramObject[key]);
+                  // 单个值的情况
+                  urlParams.push(encodeURIComponent(paramKey) + '=' + encodeURIComponent(paramValue));
                 }
+              }
             }
-
-            return urlParams.toString(); // 获取生成的查询字符串
-        }
+          
+            return urlParams.join('&'); // 获取生成的查询字符串
+        };
 
         this.create = function () {
             var _this = this;
@@ -209,7 +213,8 @@
                 // }
                 card.on('hover:enter', function (target, card_data) {
                     currentplaylist_ = null;
-                    network["native"]('https://zz123.com/ajax/', function (result) {
+                    var songurl = 'https://zz123.com/ajax/?act=songinfo&lang=&id=' + element.id
+                    network["native"](songurl, function (result) {
                         if (result.status == 200) {
                             lrcObj = {}
                             // console.log(result.lrc.lyric)
@@ -240,7 +245,7 @@
                             card.find('.card__quality').text('听');
                             // console.log(lrcObj)
                         }
-                    }, 'act=songinfo&lang=&id='+element.id, {
+                    }, this.getUrlParamsAndBuildQueryString(songurl), {
                         dataType: 'json',
                         headers: {
                             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
