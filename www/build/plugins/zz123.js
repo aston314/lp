@@ -335,105 +335,29 @@
 				_this2.selectGroup();
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
-                // Lampa.Keypad.listener.follow('keydown', function (event) {
-                //     var code = event.code;
-                //     if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
-                //         $(".simple-keyboard-input").blur();
-
-                //         // sources = null;
-                //         // playlistData = null;
-
-                //     } 
-                //     // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                //     //     // $(".simple-keyboard-input").focus();
-                //     // }
-                // });
-                // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
-                var searchcat = [{
-                    title: '单曲',
-                    value: 1
-                }, {
-                    title: '专辑',
-                    value: 10
-                }, {
-                    title: '歌单',
-                    value: 1000
-                },];
-                var num = 3;
-
-                var html_ = $('<div></div>');
-                var navigation = $('<div class="navigation-tabs"></div>');
-
-                searchcat.forEach(function (tab, i) {
-                    var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
-                    button.on('hover:enter', function () {
-                        var listype, titlename;
-                        if (tab.value === 1) {
-                            // codetype = '';
-                            titlename = '单曲';
-                            listype = 'list';
-                        } else if (tab.value === 10) {
-                            // codetype = '2';
-                            titlename = '专辑';
-                            listype = 'albums';
-                        } else if (tab.value === 1000) {
-                            // codetype = '2';
-                            titlename = '歌单';
-                            listype = 'playlist';
-                        }
-
-                        Lampa.Input.edit({
-                            title: '音乐 - 搜索' + titlename,
-                            value: '',
-                            free: true,
-                            nosave: true
-                        }, function (new_value) {
-                            if (new_value) {
-                                // console.log(new_value)
-                                var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
-                                var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value)).replace('#searchtype', encodeURIComponent(tab.value));
-                                Lampa.Activity.push({
-                                    url: searchurl,
-                                    title: '音乐 - 搜索' + titlename + '"' + new_value + '"',
-                                    waitload: false,
-                                    component: 'ZZMUSIC',
-                                    type: listype,
-                                    connectype: 'native',
-                                    code: '',
-                                    page: 1
-                                });
-                            }
-                            else Lampa.Controller.toggle('content');
+                Lampa.Input.edit({
+                    title: '音乐 - 搜索',
+                    value: '',
+                    free: true,
+                    nosave: true
+                }, function (new_value) {
+                    if (new_value) {
+                        // console.log(new_value)
+                        var search_tempalte = 'https://zz123.com/ajax/?act=search&key=#msearchword&lang=&page=1';
+                        var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
+                        Lampa.Activity.push({
+                            url: searchurl,
+                            title: '音乐 - 搜索"' + new_value + '"',
+                            waitload: false,
+                            component: 'ZZMUSIC',
+                            type: listype,
+                            connectype: 'native',
+                            code: '',
+                            page: 1
                         });
-
-                        Lampa.Modal.close();
-                    });
-
-                    if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
-                    if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
-                        if (i > 0) html_.append(navigation);
-                        navigation = $('<div class="navigation-tabs"></div>');
                     }
-                    navigation.append(button);
+                    else Lampa.Controller.toggle('content');
                 });
-
-                html_.append(navigation);
-                // console.log(navigation)
-
-                Lampa.Modal.open({
-                    title: '搜索',
-                    html: html_,
-                    size: 'small',
-                    // align: 'center',
-                    // select: html.find('.navigation-tabs .active')[0],
-                    mask: true,
-                    onBack: function onBack() {
-                        Lampa.Modal.close();
-                        Lampa.Api.clear();
-                        Lampa.Controller.toggle('content')
-                    }
-                });
-                searchcat = null;
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
