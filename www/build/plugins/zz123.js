@@ -213,7 +213,7 @@
                         onSelect: function (sel) {
                             Lampa.Activity.push({
                                 url: sel.url,
-                                title: '音乐 - ' + sel.title,
+                                title: '听歌 - ' + sel.title,
                                 component: 'ZZMUSIC',
                                 connectype: sel.connectype, 
                                 page: 1
@@ -226,72 +226,45 @@
 				});
                 // }
                 card.on('hover:enter', function (target, card_data) {
-                    // var ids = element.url.match(/id=([^&]+)/)[1];
-                    // console.log(items.indexOf(card))
-                    switch (object.type) {
-                        case 'albums':
-                            Lampa.Activity.push({
-                                // https://ncm.icodeq.com/
-                                url: apiurl+ '/album?id=' + element.id,
-                                title: '音乐 - 查看所属专辑歌曲',
-                                component: 'ZZMUSIC',
-                                type: 'album',
-                                albumname: element.name,
-                                page: 1
-                            });
-                            break;
-                        case 'playlist':
-                            Lampa.Activity.push({
-                                // https://ncm.icodeq.com/
-                                url: apiurl+ '/playlist/track/all?id=' + element.id,
-                                title: '音乐 - 歌单详情',
-                                component: 'ZZMUSIC',
-                                type: 'playlist_detail',
-                                albumname: element.name,
-                                page: 1
-                            });
-                            break;
-                        default:
-                            currentplaylist = null;
-                            network["native"]('https://zz123.com/ajax/', function (result) {
-                                if (result.status == 200) {
-                                    lrcObj = {}
-                                    // console.log(result.lrc.lyric)
-                                    if (result.data.lrc) {
-                                        var lyrics = result.data.lrc.split("\n");
-                                        for (var i = 0; i < lyrics.length; i++) {
-                                            var lyric = decodeURIComponent(lyrics[i]);
-                                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                                            var timeRegExpArr = lyric.match(timeReg);
-                                            if (!timeRegExpArr) continue;
-                                            var clause = lyric.replace(timeReg, '');
-                                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                                var t = timeRegExpArr[k];
-                                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                                var time = min * 60 + sec;
-                                                lrcObj[time] = clause;
-                                            }
-                                        }
+                    currentplaylist = null;
+                    network["native"]('https://zz123.com/ajax/', function (result) {
+                        if (result.status == 200) {
+                            lrcObj = {}
+                            // console.log(result.lrc.lyric)
+                            if (result.data.lrc) {
+                                var lyrics = result.data.lrc.split("\n");
+                                for (var i = 0; i < lyrics.length; i++) {
+                                    var lyric = decodeURIComponent(lyrics[i]);
+                                    var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                    var timeRegExpArr = lyric.match(timeReg);
+                                    if (!timeRegExpArr) continue;
+                                    var clause = lyric.replace(timeReg, '');
+                                    for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                        var t = timeRegExpArr[k];
+                                        var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                            sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                        var time = min * 60 + sec;
+                                        lrcObj[time] = clause;
                                     }
-                                    var data = {
-                                        url: 'https://zz123.com/ajax'+result.data.mp3,
-                                        title: element.name,
-                                        playall: false
-                                    }
-                                    player.play(data);
-                                    card.find('.card__view').append('<div class="card__quality"></div>');
-                                    card.find('.card__quality').text('听');
-                                    // console.log(lrcObj)
                                 }
-                            }, 'act=songinfo&lang=&id='+element.id, {
-                                dataType: 'json',
-                                headers: {
-                                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                                }
+                            }
+                            var data = {
+                                url: 'https://zz123.com/ajax'+result.data.mp3,
+                                title: element.name,
+                                playall: false
+                            }
+                            player.play(data);
+                            card.find('.card__view').append('<div class="card__quality"></div>');
+                            card.find('.card__quality').text('听');
+                            // console.log(lrcObj)
+                        }
+                    }, 'act=songinfo&lang=&id='+element.id, {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        }
 
-                            });
-                    }
+                    });
                 });
                 body.append(card);
                 items.push(card);
@@ -315,7 +288,7 @@
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
-                    title: '音乐 - 搜索',
+                    title: '听歌 - 搜索',
                     value: '',
                     free: true,
                     nosave: true
@@ -326,7 +299,7 @@
                         var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             url: searchurl,
-                            title: '音乐 - 搜索"' + new_value + '"',
+                            title: '听歌 - 搜索"' + new_value + '"',
                             waitload: false,
                             component: 'ZZMUSIC',
                             type: listype,
@@ -554,7 +527,7 @@
                         } else {
                             Lampa.Activity.push({
                                 url: a.url,
-                                title: '音乐 - ' + a.title,
+                                title: '听歌 - ' + a.title,
                                 code: a.code,
                                 component: 'ZZMUSIC',
                                 type: a.type,
@@ -1033,7 +1006,7 @@
             button.on('hover:enter', function () {
                 Lampa.Activity.push({
                     url: tab.url+'?act=tag_music&type=tuijian&lang=&page=1&tid='+tab.cat,
-                    title: '音乐 - '+ titlename +' - ' + tab.title,
+                    title: '听歌 - '+ titlename +' - ' + tab.title,
                     code: '',
                     component: 'ZZMUSIC',
                     type: gotype,
@@ -1286,7 +1259,7 @@
                         } else {
                             Lampa.Activity.push({
                                 url: a.url,
-                                title: '音乐 - ' + a.title,
+                                title: '听歌 - ' + a.title,
                                 code: a.code,
                                 component: 'ZZMUSIC',
                                 type: a.type,
