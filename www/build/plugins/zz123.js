@@ -655,7 +655,7 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2],
+                        url: currentplaylist_[currentIndex][2] || result.data.mp3,
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
@@ -701,7 +701,7 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2],
+                        url: currentplaylist_[currentIndex][2] || result.data.mp3,
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
@@ -748,7 +748,7 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2],
+                        url: currentplaylist_[currentIndex][2] || result.data.mp3,
                         title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
