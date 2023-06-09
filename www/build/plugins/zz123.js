@@ -1,10 +1,9 @@
 (function () {
     'use strict';
     var lrcObj = {};
-    var musiclist = [];
-    var currentplaylist = [];
+    var musiclist_ = [];
+    var currentplaylist_ = [];
     var currentIndex = 0;
-    var apiurl = 'https://ncm.icodeq.com'
     function ZZMUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -20,23 +19,6 @@
         var waitload;
         var player = window.radio_player1_;
 
-        this.getAsUriParameters = function(data) {
-            var url = '';
-            for (var prop in data) {
-               url += encodeURIComponent(prop) + '=' + 
-                   encodeURIComponent(data[prop]) + '&';
-            }
-            return url.substring(0, url.length - 1)
-         }
-        this.getQueryString = function (link, name) {
-            let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
-            //console.log(link)
-            let r = link.match(reg);
-            if (r != null) {
-                return decodeURIComponent(r[2]);
-            };
-            return null;
-        };
         this.getUrlParamsAndBuildQueryString = function (url) {
             const queryString = url.split('?')[1]; // 获取问号后面的查询字符串
             const params = new URLSearchParams(queryString); // 创建 URLSearchParams 对象
@@ -79,7 +61,7 @@
             var _this = this;
 
             this.activity.loader(true);
-            musiclist = [];
+            musiclist_ = [];
             if (!!window.cordova) {
                 network.silent(object.url, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
@@ -153,7 +135,7 @@
             var _this3 = this;
             data.data.forEach(function (element,i) {
                 // if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist.push([element.mname, element.id, element.fee , element.sname, element.copyright])
+                    musiclist_.push([element.mname, element.id, element.fee , element.sname, element.copyright])
                 // }
                 
                 var mytitle = element.mname.replace('/', ' ');
@@ -226,7 +208,7 @@
 				});
                 // }
                 card.on('hover:enter', function (target, card_data) {
-                    currentplaylist = null;
+                    currentplaylist_ = null;
                     network["native"]('https://zz123.com/ajax/', function (result) {
                         if (result.status == 200) {
                             lrcObj = {}
@@ -269,7 +251,7 @@
                 body.append(card);
                 items.push(card);
             });
-            // console.log(musiclist)
+            // console.log(musiclist_)
         };
 
         this.build = function (data) {
@@ -315,231 +297,18 @@
                 playAll();
 			});
             this.selectGroup = function () {
-                Lampa.Select.show({
-                    title: '分类',
-                    items: catalogs,
-                    onSelect: function onSelect(a) {
-                        if (a.title == '歌单') {
-                            var playlistname =[
-                                [
-                                    "榜单",
-                                    "vszs"
-                                ],
-                                [
-                                    "老歌",
-                                    "azz"
-                                ],
-                                [
-                                    "古风",
-                                    "mv"
-                                ],
-                                [
-                                    "Soul",
-                                    "akda"
-                                ],
-                                [
-                                    "儿童",
-                                    "zud"
-                                ],
-                                [
-                                    "乡村",
-                                    "aku"
-                                ],
-                                [
-                                    "助眠",
-                                    "d"
-                                ],
-                                [
-                                    "纯音乐",
-                                    "az"
-                                ],
-                                [
-                                    "茶道",
-                                    "vadqm"
-                                ],
-                                [
-                                    "抖音",
-                                    "mszm"
-                                ],
-                                [
-                                    "DJ",
-                                    "msdm"
-                                ],
-                                [
-                                    "00后",
-                                    "msuv"
-                                ],
-                                [
-                                    "场景",
-                                    "zxzxu"
-                                ],
-                                [
-                                    "语种",
-                                    "vmvav"
-                                ],
-                                [
-                                    "心情",
-                                    "kuau"
-                                ],
-                                [
-                                    "神曲",
-                                    "asx"
-                                ],
-                                [
-                                    "广场舞",
-                                    "ssmma"
-                                ],
-                                [
-                                    "网络",
-                                    "sxuus"
-                                ],
-                                [
-                                    "相声",
-                                    "qdsam"
-                                ],
-                                [
-                                    "流行",
-                                    "quvma"
-                                ],
-                                [
-                                    "影视",
-                                    "qdk"
-                                ],
-                                [
-                                    "铃声",
-                                    "szdd"
-                                ],
-                                [
-                                    "戏曲",
-                                    "saak"
-                                ],
-                                [
-                                    "基督教",
-                                    "vamau"
-                                ],
-                                [
-                                    "佛教",
-                                    "azss"
-                                ],
-                                [
-                                    "民谣",
-                                    "ms"
-                                ],
-                                [
-                                    "说唱",
-                                    "qz"
-                                ],
-                                [
-                                    "健身",
-                                    "qqs"
-                                ],
-                                [
-                                    "女声",
-                                    "uz"
-                                ],
-                                [
-                                    "KTV",
-                                    "akka"
-                                ],
-                                [
-                                    "欧美",
-                                    "ka"
-                                ],
-                                [
-                                    "HIFI",
-                                    "qmkv"
-                                ],
-                                [
-                                    "婚礼",
-                                    "aaq"
-                                ],
-                                [
-                                    "红歌",
-                                    "mqmz"
-                                ],
-                                [
-                                    "好听",
-                                    "aza"
-                                ],
-                                [
-                                    "民歌",
-                                    "mqvk"
-                                ],
-                                [
-                                    "军旅",
-                                    "mkzmx"
-                                ],
-                                [
-                                    "精选",
-                                    "mdz"
-                                ],
-                                [
-                                    "酒廊情歌",
-                                    "mqms"
-                                ],
-                                [
-                                    "圣诞节",
-                                    "mxqv"
-                                ],
-                                [
-                                    "情人节",
-                                    "asuuq"
-                                ],
-                                [
-                                    "新年",
-                                    "qux"
-                                ],
-                                [
-                                    "商业",
-                                    "aqsvau"
-                                ],
-                                [
-                                    "叫声",
-                                    "aqsvmx"
-                                ],
-                                [
-                                    "年龄",
-                                    "aqsvms"
-                                ],
-                                [
-                                    "最火",
-                                    "qda"
-                                ],
-                                [
-                                    "年代",
-                                    "vvxmx"
-                                ]
-                            ]
+                // let result = [];
 
-                            // let result = [];
+                // $('.aside-menu-list.channel a.menu-link').each(function () {
+                //     let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
+                //     let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
 
-                            // $('.aside-menu-list.channel a.menu-link').each(function () {
-                            //     let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
-                            //     let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
+                //     let subArray = [value, value1];  // 创建包含两个值的子数组
+                //     result.push(subArray);  // 将子数组添加到结果数组中
+                // });
 
-                            //     let subArray = [value, value1];  // 创建包含两个值的子数组
-                            //     result.push(subArray);  // 将子数组添加到结果数组中
-                            // });
-
-                            // console.log(result);
-
-                            popupWindows(playlistname, "https://zz123.com/ajax/", 5, "playlist", "分类") 
-                        } else {
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '听歌 - ' + a.title,
-                                code: a.code,
-                                component: 'ZZMUSIC',
-                                type: a.type,
-                                connectype: a.connectype,
-                                page: 1
-                            });
-                        }
-                    },
-                    onBack: function onBack() {
-                        Lampa.Controller.toggle('content');
-                    }
-                });
+                // console.log(result);
+                listmenu();
             };
             //info.find('.info__rate,.info__right').remove();
             scroll.render().addClass('layer--wheight').data('mheight', info);
@@ -656,6 +425,12 @@
         connectype: ''
     },{
         title: '歌单',
+        url: 'https://zz123.com/ajax/',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '榜单',
         url: 'https://zz123.com/ajax/',
         code: '',
         type: 'playlist',
@@ -778,16 +553,16 @@
         });
 
         html.on('hover:long', function () {
-            if (currentplaylist) {
+            if (currentplaylist_) {
                 var sources = [];
                 var num = 3;
-                var playlistData = currentplaylist;
+                var playlistData = currentplaylist_;
                 // console.log(playlistData)
 
                 playlistData.forEach(function (html,i) {
                     sources.push({
-                        title: currentplaylist[i][3] + '-' +currentplaylist[i][0],
-                        url: currentplaylist[i][0]
+                        title: currentplaylist_[i][3] + '-' +currentplaylist_[i][0],
+                        url: currentplaylist_[i][0]
                     });
 
                 });
@@ -849,10 +624,10 @@
     }
 
     function playEndedHandler(){
-        if (currentplaylist.length > 0) {
+        if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
-            currentIndex = (currentIndex + 1) % currentplaylist.length;
+            currentIndex = (currentIndex + 1) % currentplaylist_.length;
             network["native"]('https://zz123.com/ajax/', function (result) {
                 if (result.status == 200) {
                     lrcObj = {}
@@ -876,12 +651,12 @@
                     }
                     var data = {
                         url: 'https://zz123.com/ajax' + result.data.mp3,
-                        title: currentplaylist[currentIndex][0],
+                        title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
                     player.play(data);
                 }
-            }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
                     'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -892,11 +667,11 @@
     }
 
     function playEndedHandler_(pos){
-        if (currentplaylist.length > 0) {
+        if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             currentIndex = pos;
-            currentIndex = (currentIndex + 1) % currentplaylist.length;
+            currentIndex = (currentIndex + 1) % currentplaylist_.length;
             network["native"]('https://zz123.com/ajax/', function (result) {
                 if (result.status == 200) {
                     lrcObj = {}
@@ -920,12 +695,12 @@
                     }
                     var data = {
                         url: 'https://zz123.com/ajax' + result.data.mp3,
-                        title: currentplaylist[currentIndex][0],
+                        title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
                     player.play(data);
                 }
-            }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
                     'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -935,8 +710,8 @@
     }
 
     function playAll(){
-        currentplaylist = musiclist;
-        if (currentplaylist.length > 0) {
+        currentplaylist_ = musiclist_;
+        if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             currentIndex = 0;
@@ -965,12 +740,12 @@
                     }
                     var data = {
                         url: 'https://zz123.com/ajax' + result.data.mp3,
-                        title: currentplaylist[currentIndex][0],
+                        title: currentplaylist_[currentIndex][0],
                         playall: true
                     }
                     player.play(data);
                 }
-            }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
                     'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -1045,6 +820,485 @@
 
     }
 
+    function listmenu(){
+        Lampa.Select.show({
+            title: '分类',
+            items: catalogs,
+            onSelect: function onSelect(a) {
+                if (a.title == '歌单') {
+                    var playlistname =[
+                        [
+                            "榜单",
+                            "vszs"
+                        ],
+                        [
+                            "老歌",
+                            "azz"
+                        ],
+                        [
+                            "古风",
+                            "mv"
+                        ],
+                        [
+                            "Soul",
+                            "akda"
+                        ],
+                        [
+                            "儿童",
+                            "zud"
+                        ],
+                        [
+                            "乡村",
+                            "aku"
+                        ],
+                        [
+                            "助眠",
+                            "d"
+                        ],
+                        [
+                            "纯音乐",
+                            "az"
+                        ],
+                        [
+                            "茶道",
+                            "vadqm"
+                        ],
+                        [
+                            "抖音",
+                            "mszm"
+                        ],
+                        [
+                            "DJ",
+                            "msdm"
+                        ],
+                        [
+                            "00后",
+                            "msuv"
+                        ],
+                        [
+                            "场景",
+                            "zxzxu"
+                        ],
+                        [
+                            "语种",
+                            "vmvav"
+                        ],
+                        [
+                            "心情",
+                            "kuau"
+                        ],
+                        [
+                            "神曲",
+                            "asx"
+                        ],
+                        [
+                            "广场舞",
+                            "ssmma"
+                        ],
+                        [
+                            "网络",
+                            "sxuus"
+                        ],
+                        [
+                            "相声",
+                            "qdsam"
+                        ],
+                        [
+                            "流行",
+                            "quvma"
+                        ],
+                        [
+                            "影视",
+                            "qdk"
+                        ],
+                        [
+                            "铃声",
+                            "szdd"
+                        ],
+                        [
+                            "戏曲",
+                            "saak"
+                        ],
+                        [
+                            "基督教",
+                            "vamau"
+                        ],
+                        [
+                            "佛教",
+                            "azss"
+                        ],
+                        [
+                            "民谣",
+                            "ms"
+                        ],
+                        [
+                            "说唱",
+                            "qz"
+                        ],
+                        [
+                            "健身",
+                            "qqs"
+                        ],
+                        [
+                            "女声",
+                            "uz"
+                        ],
+                        [
+                            "KTV",
+                            "akka"
+                        ],
+                        [
+                            "欧美",
+                            "ka"
+                        ],
+                        [
+                            "HIFI",
+                            "qmkv"
+                        ],
+                        [
+                            "婚礼",
+                            "aaq"
+                        ],
+                        [
+                            "红歌",
+                            "mqmz"
+                        ],
+                        [
+                            "好听",
+                            "aza"
+                        ],
+                        [
+                            "民歌",
+                            "mqvk"
+                        ],
+                        [
+                            "军旅",
+                            "mkzmx"
+                        ],
+                        [
+                            "精选",
+                            "mdz"
+                        ],
+                        [
+                            "酒廊情歌",
+                            "mqms"
+                        ],
+                        [
+                            "圣诞节",
+                            "mxqv"
+                        ],
+                        [
+                            "情人节",
+                            "asuuq"
+                        ],
+                        [
+                            "新年",
+                            "qux"
+                        ],
+                        [
+                            "商业",
+                            "aqsvau"
+                        ],
+                        [
+                            "叫声",
+                            "aqsvmx"
+                        ],
+                        [
+                            "年龄",
+                            "aqsvms"
+                        ],
+                        [
+                            "最火",
+                            "qda"
+                        ],
+                        [
+                            "年代",
+                            "vvxmx"
+                        ]
+                    ]
+                    popupWindows(playlistname, "https://zz123.com/ajax/", 5, "playlist", "分类") 
+                } else if (a.title == '榜单'){
+                    var playlistname1 =[
+                        [
+                            "热歌榜",
+                            "mxuxuu"
+                        ],
+                        [
+                            "新歌榜",
+                            "mxuxzv"
+                        ],
+                        [
+                            "抖音歌曲榜",
+                            "mxuxkm"
+                        ],
+                        [
+                            "DJ嗨歌榜",
+                            "mxuxds"
+                        ],
+                        [
+                            "极品电音榜",
+                            "mxuxkd"
+                        ],
+                        [
+                            "流行趋势榜",
+                            "mxuxkz"
+                        ],
+                        [
+                            "彩铃榜",
+                            "mxuass"
+                        ],
+                        [
+                            "尖叫热歌榜",
+                            "mxuask"
+                        ],
+                        [
+                            "飙升榜",
+                            "mxuxvd"
+                        ],
+                        [
+                            "台湾地区榜",
+                            "mxuxqk"
+                        ],
+                        [
+                            "欧美榜",
+                            "mxuxqq"
+                        ],
+                        [
+                            "韩国榜",
+                            "mxuaxv"
+                        ],
+                        [
+                            "香港地区榜",
+                            "mxuaxd"
+                        ],
+                        [
+                            "日本榜",
+                            "mxuaaa"
+                        ],
+                        [
+                            "内地榜",
+                            "mxuaak"
+                        ],
+                        [
+                            "港台榜",
+                            "mxuasv"
+                        ],
+                        [
+                            "越南语榜",
+                            "mxuxux"
+                        ],
+                        [
+                            "Beatport全球电子舞曲榜",
+                            "mxuxuk"
+                        ],
+                        [
+                            "日本Oricon榜",
+                            "mxuxuq"
+                        ],
+                        [
+                            "美国BillBoard榜",
+                            "mxuamx"
+                        ],
+                        [
+                            "美国iTunes榜",
+                            "mxuavu"
+                        ],
+                        [
+                            "听歌识曲榜",
+                            "mxuxda"
+                        ],
+                        [
+                            "睡前放松榜",
+                            "mxuxdd"
+                        ],
+                        [
+                            "禅心佛乐榜",
+                            "mxuxku"
+                        ],
+                        [
+                            "酷我铃声榜",
+                            "mxuxdz"
+                        ],
+                        [
+                            "酷我热评榜",
+                            "mxuxdk"
+                        ],
+                        [
+                            "酷我综艺榜",
+                            "mxuxkx"
+                        ],
+                        [
+                            "酷我新歌榜",
+                            "mxuasq"
+                        ],
+                        [
+                            "酷我飙升榜",
+                            "mxuavx"
+                        ],
+                        [
+                            "酷我热歌榜",
+                            "mxuava"
+                        ],
+                        [
+                            "酷狗音乐人原创榜",
+                            "mxuaxm"
+                        ],
+                        [
+                            "酷狗分享榜",
+                            "mxuaad"
+                        ],
+                        [
+                            "酷狗飙升榜",
+                            "mxuams"
+                        ],
+                        [
+                            "云音乐韩语榜",
+                            "mxuxud"
+                        ],
+                        [
+                            "云音乐古典榜",
+                            "mxuxzx"
+                        ],
+                        [
+                            "云音乐ACGVOCALOID榜",
+                            "mxuxza"
+                        ],
+                        [
+                            "云音乐ACG动画榜",
+                            "mxuxzk"
+                        ],
+                        [
+                            "云音乐国电榜",
+                            "mxuxvk"
+                        ],
+                        [
+                            "云音乐欧美热歌榜",
+                            "mxuxvq"
+                        ],
+                        [
+                            "云音乐欧美新歌榜",
+                            "mxuxum"
+                        ],
+                        [
+                            "云音乐ACG游戏榜",
+                            "mxuxus"
+                        ],
+                        [
+                            "原创榜",
+                            "mxuxuz"
+                        ],
+                        [
+                            "潜力爆款榜",
+                            "mxuxzm"
+                        ],
+                        [
+                            "最强翻唱榜",
+                            "mxuxdv"
+                        ],
+                        [
+                            "通勤路上榜",
+                            "mxuxdu"
+                        ],
+                        [
+                            "网红新歌榜",
+                            "mxuxdq"
+                        ],
+                        [
+                            "会员畅听榜",
+                            "mxuxka"
+                        ],
+                        [
+                            "冬日恋曲榜",
+                            "mxuxks"
+                        ],
+                        [
+                            "宝宝哄睡榜",
+                            "mxuxkv"
+                        ],
+                        [
+                            "经典怀旧榜",
+                            "mxuxkk"
+                        ],
+                        [
+                            "跑步健身榜",
+                            "mxuxkq"
+                        ],
+                        [
+                            "古风音乐榜",
+                            "mxuxqx"
+                        ],
+                        [
+                            "KTV点唱榜",
+                            "mxuxqa"
+                        ],
+                        [
+                            "车载嗨曲榜",
+                            "mxuxqm"
+                        ],
+                        [
+                            "熬夜修仙榜",
+                            "mxuxqs"
+                        ],
+                        [
+                            "Vlog必备榜",
+                            "mxuxqv"
+                        ],
+                        [
+                            "爆笑相声榜",
+                            "mxuxqu"
+                        ],
+                        [
+                            "DJ热歌榜",
+                            "mxuaax"
+                        ],
+                        [
+                            "快手热歌榜",
+                            "mxuaas"
+                        ],
+                        [
+                            "尖叫新歌榜",
+                            "mxuaav"
+                        ],
+                        [
+                            "影视金曲榜",
+                            "mxuaau"
+                        ],
+                        [
+                            "俄语榜",
+                            "mxuavm"
+                        ],
+                        [
+                            "KTV榜",
+                            "mxuavz"
+                        ],
+                        [
+                            "尖叫原创榜",
+                            "mxuavd"
+                        ],
+                        [
+                            "法国NRJVosHits周榜",
+                            "mxuxua"
+                        ]
+                    ]
+                    popupWindows(playlistname1, "https://zz123.com/ajax/", 5, "playlist", "榜单") 
+                } else {
+                    Lampa.Activity.push({
+                        url: a.url,
+                        title: '听歌 - ' + a.title,
+                        code: a.code,
+                        component: 'ZZMUSIC',
+                        type: a.type,
+                        connectype: a.connectype,
+                        page: 1
+                    });
+                }
+            },
+            onBack: function onBack() {
+                Lampa.Controller.toggle('menu');
+            }
+        });
+    }
+
     function startZZMUSIC() {
         window.radio = true;
       
@@ -1060,218 +1314,7 @@
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="ZZMUSIC"><div class="menu__ico">' + ico + '</div><div class="menu__text">听歌</div></li>');
             menu_item.on('hover:enter', function () {
-                Lampa.Select.show({
-                    title: '分类',
-                    items: catalogs,
-                    onSelect: function onSelect(a) {
-                        if (a.title == '歌单') {
-                            var playlistname =[
-                                [
-                                    "榜单",
-                                    "vszs"
-                                ],
-                                [
-                                    "老歌",
-                                    "azz"
-                                ],
-                                [
-                                    "古风",
-                                    "mv"
-                                ],
-                                [
-                                    "Soul",
-                                    "akda"
-                                ],
-                                [
-                                    "儿童",
-                                    "zud"
-                                ],
-                                [
-                                    "乡村",
-                                    "aku"
-                                ],
-                                [
-                                    "助眠",
-                                    "d"
-                                ],
-                                [
-                                    "纯音乐",
-                                    "az"
-                                ],
-                                [
-                                    "茶道",
-                                    "vadqm"
-                                ],
-                                [
-                                    "抖音",
-                                    "mszm"
-                                ],
-                                [
-                                    "DJ",
-                                    "msdm"
-                                ],
-                                [
-                                    "00后",
-                                    "msuv"
-                                ],
-                                [
-                                    "场景",
-                                    "zxzxu"
-                                ],
-                                [
-                                    "语种",
-                                    "vmvav"
-                                ],
-                                [
-                                    "心情",
-                                    "kuau"
-                                ],
-                                [
-                                    "神曲",
-                                    "asx"
-                                ],
-                                [
-                                    "广场舞",
-                                    "ssmma"
-                                ],
-                                [
-                                    "网络",
-                                    "sxuus"
-                                ],
-                                [
-                                    "相声",
-                                    "qdsam"
-                                ],
-                                [
-                                    "流行",
-                                    "quvma"
-                                ],
-                                [
-                                    "影视",
-                                    "qdk"
-                                ],
-                                [
-                                    "铃声",
-                                    "szdd"
-                                ],
-                                [
-                                    "戏曲",
-                                    "saak"
-                                ],
-                                [
-                                    "基督教",
-                                    "vamau"
-                                ],
-                                [
-                                    "佛教",
-                                    "azss"
-                                ],
-                                [
-                                    "民谣",
-                                    "ms"
-                                ],
-                                [
-                                    "说唱",
-                                    "qz"
-                                ],
-                                [
-                                    "健身",
-                                    "qqs"
-                                ],
-                                [
-                                    "女声",
-                                    "uz"
-                                ],
-                                [
-                                    "KTV",
-                                    "akka"
-                                ],
-                                [
-                                    "欧美",
-                                    "ka"
-                                ],
-                                [
-                                    "HIFI",
-                                    "qmkv"
-                                ],
-                                [
-                                    "婚礼",
-                                    "aaq"
-                                ],
-                                [
-                                    "红歌",
-                                    "mqmz"
-                                ],
-                                [
-                                    "好听",
-                                    "aza"
-                                ],
-                                [
-                                    "民歌",
-                                    "mqvk"
-                                ],
-                                [
-                                    "军旅",
-                                    "mkzmx"
-                                ],
-                                [
-                                    "精选",
-                                    "mdz"
-                                ],
-                                [
-                                    "酒廊情歌",
-                                    "mqms"
-                                ],
-                                [
-                                    "圣诞节",
-                                    "mxqv"
-                                ],
-                                [
-                                    "情人节",
-                                    "asuuq"
-                                ],
-                                [
-                                    "新年",
-                                    "qux"
-                                ],
-                                [
-                                    "商业",
-                                    "aqsvau"
-                                ],
-                                [
-                                    "叫声",
-                                    "aqsvmx"
-                                ],
-                                [
-                                    "年龄",
-                                    "aqsvms"
-                                ],
-                                [
-                                    "最火",
-                                    "qda"
-                                ],
-                                [
-                                    "年代",
-                                    "vvxmx"
-                                ]
-                            ]
-                            popupWindows(playlistname, "https://zz123.com/ajax/", 5, "playlist", "分类") 
-                        } else {
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '听歌 - ' + a.title,
-                                code: a.code,
-                                component: 'ZZMUSIC',
-                                type: a.type,
-                                connectype: a.connectype,
-                                page: 1
-                            });
-                        }
-                    },
-                    onBack: function onBack() {
-                        Lampa.Controller.toggle('menu');
-                    }
-                });
+                listmenu();
             });
             $('.menu .menu__list').eq(0).append(menu_item);
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
@@ -1287,6 +1330,6 @@
     }
 
     if (!window.plugin_ZZMUSIC_ready) startZZMUSIC();
-    musiclist = null;
-    currentplaylist = null;
+    musiclist_ = null;
+    currentplaylist_ = null;
 })();
