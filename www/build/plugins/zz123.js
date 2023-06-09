@@ -249,7 +249,7 @@
                     }, 'act=songinfo&lang=&id=' + element.id, {
                         dataType: 'json',
                         headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Referer': 'https://zz123.com/ajax/',
                         }
 
                     });
@@ -665,7 +665,7 @@
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    'Referer': 'https://zz123.com/ajax/',
                 }
 
             });
@@ -709,7 +709,7 @@
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    'Referer': 'https://zz123.com/ajax/',
                 }
             });
         }
