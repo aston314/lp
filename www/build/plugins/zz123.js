@@ -108,12 +108,13 @@
             if (waitload) return;
             waitload = true;
             object.page++;
-            console.log(this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page)
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
+            console.log(postdata)
             if (!!window.cordova) {
                 network.silent(aipurl, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page, {
+                }, postdata , {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -123,7 +124,7 @@
                 network["native"](aipurl, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page, {
+                }, postdata , {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
