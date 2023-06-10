@@ -109,7 +109,7 @@
             waitload = true;
             object.page++;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
-            console.log(postdata)
+            console.log(this.getUrlParamsAndBuildQueryString(object.url),postdata)
             if (!!window.cordova) {
                 network.silent(aipurl, function (result) {
                     _this2.donext(result);
