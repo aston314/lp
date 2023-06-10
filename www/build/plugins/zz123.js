@@ -302,17 +302,17 @@
                 playAll();
 			});
             this.selectGroup = function () {
-                // let result = [];
+                let result = [];
 
-                // $('.aside-menu-list.channel a.menu-link').each(function () {
-                //     let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
-                //     let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
+                $('.aside-menu-list.channel a.menu-link').each(function () {
+                    let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
+                    let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
 
-                //     let subArray = [value, value1];  // 创建包含两个值的子数组
-                //     result.push(subArray);  // 将子数组添加到结果数组中
-                // });
+                    let subArray = [value, value1];  // 创建包含两个值的子数组
+                    result.push(subArray);  // 将子数组添加到结果数组中
+                });
 
-                // console.log(result);
+                console.log(result);
                 listmenu();
             };
             //info.find('.info__rate,.info__right').remove();
@@ -436,6 +436,24 @@
         connectype: ''
     },{
         title: '榜单',
+        url: 'https://zz123.com/ajax/',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '老歌',
+        url: 'https://zz123.com/ajax/',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '年代',
+        url: 'https://zz123.com/ajax/',
+        code: '',
+        type: 'playlist',
+        connectype: ''
+    },{
+        title: '流行',
         url: 'https://zz123.com/ajax/',
         code: '',
         type: 'playlist',
@@ -770,7 +788,7 @@
 
     function popupWindows(playlistname, gourl, num, gotype, titlename) {
         var sources = [];
-        var songling = playlistname;
+        // var songling = playlistname;
         var playlistData = playlistname;//songling.split(',');
         // console.log(playlistData)
 
@@ -813,7 +831,7 @@
         // console.log(navigation)
 
         Lampa.Modal.open({
-            title: '歌单分类',
+            title: titlename,
             html: html_,
             size: 'medium',
             // align: 'center',
@@ -1026,7 +1044,7 @@
                             "年代",
                             "vvxmx"
                         ]
-                    ]
+                    ];
                     popupWindows(playlistname, aipurl, 5, "playlist", "分类") 
                 } else if (a.title == '榜单'){
                     playlistname =[
@@ -1290,9 +1308,110 @@
                             "法国NRJVosHits周榜",
                             "mxuxua"
                         ]
-                    ]
+                    ];
                     popupWindows(playlistname, aipurl, 5, "playlist", "榜单") 
-                } else {
+                } else if (a.title == '老歌') {
+                    playlistname = [
+                        [
+                            "老歌",
+                            "azz"
+                        ],
+                        [
+                            "热门",
+                            "aaxu"
+                        ],
+                        [
+                            "经典歌曲",
+                            "mmak"
+                        ],
+                        [
+                            "经典老歌",
+                            "ddda"
+                        ],
+                        [
+                            "欧美经典",
+                            "maak"
+                        ],
+                        [
+                            "经典女声",
+                            "suzd"
+                        ],
+                        [
+                            "经典粤语歌",
+                            "vkms"
+                        ],
+                        [
+                            "流行经典",
+                            "mzsk"
+                        ],
+                        [
+                            "不朽的经典",
+                            "dzmd"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl, 5, "playlist", "老歌") 
+                } else if (a.title == '年代') {
+                    playlistname = [
+                        [
+                            "学生年代",
+                            "avzd"
+                        ],
+                        [
+                            "80年代",
+                            "avqs"
+                        ],
+                        [
+                            "90年代",
+                            "avqv"
+                        ],
+                        [
+                            "50年代",
+                            "mquv"
+                        ],
+                        [
+                            "70年代",
+                            "ssvu"
+                        ],
+                        [
+                            "00年代",
+                            "vmzus"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl, 5, "playlist", "年代") 
+                } else if (a.title == '流行') {
+                    playlistname = [
+                        [
+                            "流行",
+                            "quvma"
+                        ],
+                        [
+                            "国语流行",
+                            "vsk"
+                        ],
+                        [
+                            "欧美流行",
+                            "mdv"
+                        ],
+                        [
+                            "粤语流行",
+                            "adqs"
+                        ],
+                        [
+                            "日本流行",
+                            "asa"
+                        ],
+                        [
+                            "韩语流行",
+                            "vkz"
+                        ],
+                        [
+                            "独立流行",
+                            "sdss"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl, 5, "playlist", "年代") 
+                }
+                else {
                     Lampa.Activity.push({
                         url: a.url,
                         title: '听歌 - ' + a.title,
