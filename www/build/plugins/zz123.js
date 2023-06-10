@@ -67,6 +67,7 @@
 
             this.activity.loader(true);
             musiclist_ = [];
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             if (!!window.cordova) {
                 network.silent(aipurl, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
@@ -76,7 +77,7 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, this.getUrlParamsAndBuildQueryString(object.url) + '&page=' + object.page, {
+                }, postdata, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -91,7 +92,7 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, this.getUrlParamsAndBuildQueryString(object.url) + '&page=' + object.page, {
+                }, postdata, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -108,7 +109,8 @@
             if (waitload) return;
             waitload = true;
             object.page++;
-            var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
+            // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             console.log(this.getUrlParamsAndBuildQueryString(object.url),postdata)
             if (!!window.cordova) {
                 network.silent(aipurl, function (result) {
@@ -192,7 +194,7 @@
                     var archiveMenu = [];
                     archiveMenu.push({
                         title: '查看'+element.sname+'所有歌曲',
-                        url: aipurl + '?act=search&key='+element.sname+'&lang=',
+                        url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
                         connectype: 'native'
                     });
                     Lampa.Select.show({
@@ -284,7 +286,7 @@
                 }, function (new_value) {
                     if (new_value) {
                         // console.log(new_value)
-                        var search_tempalte = aipurl + '?act=search&key=#msearchword&lang=';
+                        var search_tempalte = aipurl + '?act=search&key=#msearchword&lang=&page=1';
                         var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             url: searchurl,
@@ -426,7 +428,7 @@
 
     var catalogs = [{
         title: '首页',
-        url: 'https://zz123.com/ajax/?act=index_faxian&lang=',
+        url: 'https://zz123.com/ajax/?act=index_faxian&lang=&page=1',
         code: '',
         type: 'playlist',
         connectype: ''
@@ -810,7 +812,7 @@
             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
             button.on('hover:enter', function () {
                 Lampa.Activity.push({
-                    url: tab.url+'?act=tag_music&type=tuijian&lang=&tid='+tab.cat,
+                    url: tab.url+'?act=tag_music&type=tuijian&lang=&page=1&tid='+tab.cat,
                     title: '听歌 - '+ titlename +' - ' + tab.title,
                     code: '',
                     component: 'ZZMUSIC',
