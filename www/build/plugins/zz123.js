@@ -247,7 +247,7 @@
                             // console.log(lrcObj)
                         }
                     }, function (a, c) {
-                        Lampa.Noty.show('无法取得播放链接');
+                        // Lampa.Noty.show('无法取得播放链接');
                     }, 'act=songinfo&lang=&id=' + element.id, {
                         dataType: 'json',
                         headers: {
@@ -689,7 +689,7 @@
                     player.play(data);
                 }
             }, function (a, c) {
-                Lampa.Noty.show('无法取得播放链接');
+                // Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
@@ -735,7 +735,7 @@
                     player.play(data);
                 }
             }, function (a, c) {
-                Lampa.Noty.show('无法取得播放链接');
+                // Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
@@ -782,7 +782,7 @@
                     player.play(data);
                 }
             }, function (a, c) {
-                Lampa.Noty.show('无法取得播放链接');
+                // Lampa.Noty.show('无法取得播放链接');
             }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
