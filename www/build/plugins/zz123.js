@@ -111,7 +111,7 @@
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
+            // console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
             if (!!window.cordova) {
                 network.silent(aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
@@ -136,7 +136,6 @@
         };
         this.donext = function (result) {
             var _this2 = this;
-            console.log(result,'fff')
             if (result.data.length > 0) {
                 _this2.append(result);
                 if (result.data.length) waitload = false;
