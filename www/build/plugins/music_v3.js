@@ -1221,8 +1221,9 @@
 
         html.on('hover:long', function () {
             var balanser_ = Lampa.Storage.get('online_music_balanser');
-            console.log(balanser_,currentplaylist)
-            if (currentplaylist && balanser_ === 'neteasemusic') {
+            // console.log(balanser_,currentplaylist)
+            //  && balanser_ === 'neteasemusic'
+            if (currentplaylist) {
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist;
