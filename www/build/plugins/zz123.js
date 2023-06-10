@@ -278,7 +278,7 @@
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
-                    title: '听歌 - 搜索',
+                    title: '听歌 - 搜索 歌曲名、歌手名、风格标签',
                     value: '',
                     free: true,
                     nosave: true
@@ -1421,7 +1421,7 @@
                             "sdss"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "年代") 
+                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "流行") 
                 } else if (a.title == '热门歌手') {
                     playlistname =[
                         [
