@@ -1220,7 +1220,8 @@
         });
 
         html.on('hover:long', function () {
-            if (currentplaylist) {
+            var balanser_ = Lampa.Storage.get('online_music_balanser');
+            if (currentplaylist && balanser_ === 'netease_music') {
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist;
@@ -1628,6 +1629,7 @@
     function playAll(){
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
+            Lampa.Storage.set('online_music_balanser', 'netease_music');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             // var src = currentplaylist.pop();
