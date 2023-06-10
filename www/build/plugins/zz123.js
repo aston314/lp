@@ -3454,7 +3454,7 @@
         
         function addSettingsZZMUSIC() {
             window.radio_player1_ = new player();
-            var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
+            var ico = '<svg width="32px" height="32px" viewBox="0 0 0.72 0.72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.18 0.36c0 -0.067 0.036 -0.125 0.09 -0.156m0.27 0.15c0 0.067 -0.036 0.125 -0.09 0.156m0.18 -0.15a0.27 0.27 0 1 1 -0.54 0 0.27 0.27 0 0 1 0.54 0Zm-0.21 0a0.06 0.06 0 1 1 -0.12 0 0.06 0.06 0 0 1 0.12 0Z" stroke="currentColor" stroke-width="0.06" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="ZZMUSIC"><div class="menu__ico">' + ico + '</div><div class="menu__text">听歌</div></li>');
             menu_item.on('hover:enter', function () {
                 listmenu();
