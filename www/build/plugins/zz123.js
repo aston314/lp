@@ -69,7 +69,7 @@
             musiclist_ = [];
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             if (!!window.cordova) {
-                network.silent(aipurl, this.build.bind(this), function () {
+                network.silent(aipurl + '?' + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -84,7 +84,7 @@
                     }
                 });
             } else {
-                network["native"](aipurl, this.build.bind(this), function () {
+                network["native"](aipurl + '?' + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -111,9 +111,9 @@
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            console.log(this.getUrlParamsAndBuildQueryString(object.url),postdata)
+            console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
             if (!!window.cordova) {
-                network.silent(aipurl, function (result) {
+                network.silent(aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, postdata , {
@@ -123,7 +123,7 @@
                     }
                 });
             } else {
-                network["native"](aipurl, function (result) {
+                network["native"](aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, postdata , {
