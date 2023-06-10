@@ -134,6 +134,7 @@
         };
         this.donext = function (result) {
             var _this2 = this;
+            console.log(result,'fff')
             if (result.data.length > 0) {
                 _this2.append(result);
                 if (result.data.length) waitload = false;
