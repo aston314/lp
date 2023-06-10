@@ -586,7 +586,8 @@
 
         html.on('hover:long', function () {
             var balanser_ = Lampa.Storage.get('online_music_balanser');
-            if (currentplaylist_ && balanser_ === 'zz123') {
+            // && balanser_ === 'zz123'
+            if (currentplaylist_) {
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist_;
@@ -749,6 +750,7 @@
     function playAll(){
         currentplaylist_ = musiclist_;
         if (currentplaylist_.length > 0) {
+            $('.radio-player').remove();
             Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
