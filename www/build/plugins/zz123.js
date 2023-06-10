@@ -219,29 +219,41 @@
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
                             lrcObj_ = {}
-                            if (result.data.lrc) {
-                                var lyrics = result.data.lrc.split("\n");
-                                for (var i = 0; i < lyrics.length; i++) {
-                                    var lyric = decodeURIComponent(lyrics[i]);
-                                    var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                                    var timeRegExpArr = lyric.match(timeReg);
-                                    if (!timeRegExpArr) continue;
-                                    var clause = lyric.replace(timeReg, '');
-                                    for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                        var t = timeRegExpArr[k];
-                                        var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                            sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                        var time = min * 60 + sec;
-                                        lrcObj_[time] = clause;
-                                    }
-                                }
-                            }
-                            var data = {
-                                url: element.mp3,
-                                title: element.mname,
-                                playall: false
-                            }
-                            player.play(data);
+                            // if (result.data.lrc) {
+                            //     var lyrics = result.data.lrc.split("\n");
+                            //     for (var i = 0; i < lyrics.length; i++) {
+                            //         var lyric = decodeURIComponent(lyrics[i]);
+                            //         var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                            //         var timeRegExpArr = lyric.match(timeReg);
+                            //         if (!timeRegExpArr) continue;
+                            //         var clause = lyric.replace(timeReg, '');
+                            //         for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                            //             var t = timeRegExpArr[k];
+                            //             var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                            //                 sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                            //             var time = min * 60 + sec;
+                            //             lrcObj_[time] = clause;
+                            //         }
+                            //     }
+                            // }
+                            processLrc(result)
+                            .then(function(lrcObj_) {
+                                var data = {
+                                    url: element.mp3,
+                                    title: element.mname,
+                                    playall: false
+                                };
+                                player.play(data);
+                            })
+                            .catch(function(error) {
+                                console.error(error);
+                            });
+                            // var data = {
+                            //     url: element.mp3,
+                            //     title: element.mname,
+                            //     playall: false
+                            // }
+                            // player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
                             card.find('.card__quality').text('听');
                             // console.log(lrcObj_)
@@ -261,6 +273,30 @@
             });
             // console.log(musiclist_)
         };
+
+        function processLrc(result) {
+            return new Promise(function (resolve, reject) {
+                if (result.data.lrc) {
+                    var lyrics = result.data.lrc.split("\n");
+                    for (var i = 0; i < lyrics.length; i++) {
+                        var lyric = decodeURIComponent(lyrics[i]);
+                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                        var timeRegExpArr = lyric.match(timeReg);
+                        if (!timeRegExpArr) continue;
+                        var clause = lyric.replace(timeReg, '');
+                        for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                            var t = timeRegExpArr[k];
+                            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                            var time = min * 60 + sec;
+                            lrcObj_[time] = clause;
+                        }
+                    }
+                } else {
+                    reject('No lrc data available.');
+                }
+            });
+        }
 
         this.build = function (data) {
             var _this2 = this;
