@@ -64,6 +64,15 @@
       "release_date": "2005-06-01"
     },
     {
+      "tmdbrate": 7.31,
+      "picture": "http://image.tmdb.org/t/p/w200/9RpVwxMrfuIGlNSTdjluRPhb45C.jpg",
+      "name": "The Hangover",
+      "video": "magnet:?xt=urn:btih:30B9353628D2FACC44A943C20D48CF974ACA5EF0&dn=The+Hangover+%282009%29+Unrated+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Hangover (2009) Unrated (1080p BluRay x265 HEVC 10bit AAC 5.1...",
+      "cname": "宿醉 ",
+      "release_date": "2009-06-02"
+    },
+    {
       "tmdbrate": 6.463,
       "picture": "http://image.tmdb.org/t/p/w200/jrP9zmdSUpOzzUXpEqPqg3dryUr.jpg",
       "name": "The Hangover Part II",
@@ -71,6 +80,15 @@
       "oname": "The Hangover Part II (2011) (1080p BluRay x265 HEVC 10bit AAC 5.1...",
       "cname": "宿醉2 ",
       "release_date": "2011-05-25"
+    },
+    {
+      "tmdbrate": 6.214,
+      "picture": "http://image.tmdb.org/t/p/w200/vtxuPWkdllLNLVyGjKYa267ntuH.jpg",
+      "name": "The Hangover Part III",
+      "video": "magnet:?xt=urn:btih:E9D5E5E0572BAF2F3856493E2C79FC7B45472807&dn=The+Hangover+Part+III+%282013%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Hangover Part III (2013) (1080p BluRay x265 HEVC 10bit AAC 5....",
+      "cname": "宿醉3 ",
+      "release_date": "2013-05-23"
     },
     {
       "tmdbrate": 6.6,
