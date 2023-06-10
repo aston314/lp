@@ -3,7 +3,8 @@
     var lrcObj = {};
     var musiclist_ = [];
     var currentplaylist_ = [];
-    var currentIndex = 0;
+    var currentIndex_ = 0;
+    var aipurl = 'https://zz123.com/ajax/';
     function ZZMUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -67,7 +68,7 @@
             this.activity.loader(true);
             musiclist_ = [];
             if (!!window.cordova) {
-                network.silent(object.url, this.build.bind(this), function () {
+                network.silent(aipurl, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -75,14 +76,14 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, this.getUrlParamsAndBuildQueryString(object.url), {
+                }, this.getUrlParamsAndBuildQueryString(object.url) + '&page=' + object.page, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
                     }
                 });
             } else {
-                network["native"](object.url, this.build.bind(this), function () {
+                network["native"](aipurl, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -90,7 +91,7 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, this.getUrlParamsAndBuildQueryString(object.url), {
+                }, this.getUrlParamsAndBuildQueryString(object.url) + '&page=' + object.page, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -107,22 +108,22 @@
             if (waitload) return;
             waitload = true;
             object.page++;
-            console.log(this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`))
+            console.log(this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page)
             if (!!window.cordova) {
-                network.silent(object.url, function (result) {
+                network.silent(aipurl, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`), {
+                }, this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
                     }
                 });
             } else {
-                network["native"](object.url, function (result) {
+                network["native"](aipurl, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`), {
+                }, this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
@@ -189,7 +190,7 @@
                     var archiveMenu = [];
                     archiveMenu.push({
                         title: '查看'+element.sname+'所有歌曲',
-                        url: 'https://zz123.com/ajax/?act=search&key='+element.sname+'&lang=&page=1',
+                        url: aipurl + '?act=search&key='+element.sname+'&lang=',
                         connectype: 'native'
                     });
                     Lampa.Select.show({
@@ -212,12 +213,9 @@
                 // }
                 card.on('hover:enter', function (target, card_data) {
                     currentplaylist_ = null;
-                    var songurl = 'https://zz123.com/ajax/?act=songinfo&lang=&id=' + element.id
-                    // console.log(element.id)
-                    network["native"]('https://zz123.com/ajax/', function (result) {
+                    network["native"](aipurl, function (result) {
                         if (result.status == 200) {
                             lrcObj = {}
-                            // console.log(result.lrc.lyric)
                             if (result.data.lrc) {
                                 var lyrics = result.data.lrc.split("\n");
                                 for (var i = 0; i < lyrics.length; i++) {
@@ -250,7 +248,7 @@
                     }, 'act=songinfo&lang=&id=' + element.id, {
                         dataType: 'json',
                         headers: {
-                            'Referer': 'https://zz123.com/ajax/',
+                            'Referer': aipurl,
                         }
 
                     });
@@ -284,7 +282,7 @@
                 }, function (new_value) {
                     if (new_value) {
                         // console.log(new_value)
-                        var search_tempalte = 'https://zz123.com/ajax/?act=search&key=#msearchword&lang=&page=1';
+                        var search_tempalte = aipurl + '?act=search&key=#msearchword&lang=';
                         var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             url: searchurl,
@@ -426,7 +424,7 @@
 
     var catalogs = [{
         title: '首页',
-        url: 'https://zz123.com/ajax/?act=index_faxian&lang=&page=1',
+        url: 'https://zz123.com/ajax/?act=index_faxian&lang=',
         code: '',
         type: 'playlist',
         connectype: ''
@@ -634,8 +632,8 @@
         if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
-            currentIndex = (currentIndex + 1) % currentplaylist_.length;
-            network["native"]('https://zz123.com/ajax/', function (result) {
+            currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+            network["native"](aipurl, function (result) {
                 if (result.status == 200) {
                     lrcObj = {}
                     // console.log(result.lrc.lyric)
@@ -657,18 +655,18 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex][0],
+                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist_[currentIndex_][0],
                         playall: true
                     }
                     player.play(data);
                 }
             }, function (a, c) {
                 Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': 'https://zz123.com/ajax/',
+                    'Referer': aipurl,
                 }
 
             });
@@ -679,9 +677,9 @@
         if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
-            currentIndex = pos;
-            currentIndex = (currentIndex + 1) % currentplaylist_.length;
-            network["native"]('https://zz123.com/ajax/', function (result) {
+            currentIndex_ = pos;
+            currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+            network["native"](aipurl, function (result) {
                 if (result.status == 200) {
                     lrcObj = {}
                     // console.log(result.lrc.lyric)
@@ -703,18 +701,18 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex][0],
+                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist_[currentIndex_][0],
                         playall: true
                     }
                     player.play(data);
                 }
             }, function (a, c) {
                 Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': 'https://zz123.com/ajax/',
+                    'Referer': aipurl,
                 }
             });
         }
@@ -725,10 +723,10 @@
         if (currentplaylist_.length > 0) {
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
-            currentIndex = 0;
+            currentIndex_ = 0;
             // console.log('播放完毕，准备下一首歌。')
 
-            network["native"]('https://zz123.com/ajax/', function (result) {
+            network["native"](aipurl, function (result) {
                 if (result.status == 200) {
                     lrcObj = {}
                     // console.log(result.lrc.lyric)
@@ -750,18 +748,18 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex][0],
+                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist_[currentIndex_][0],
                         playall: true
                     }
                     player.play(data);
                 }
             }, function (a, c) {
                 Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
                 dataType: 'json',
                 headers: {
-                    'Referer': 'https://zz123.com/ajax/',
+                    'Referer': aipurl,
                 }
 
             });
@@ -792,7 +790,7 @@
             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
             button.on('hover:enter', function () {
                 Lampa.Activity.push({
-                    url: tab.url+'?act=tag_music&type=tuijian&lang=&page=1&tid='+tab.cat,
+                    url: tab.url+'?act=tag_music&type=tuijian&lang=&tid='+tab.cat,
                     title: '听歌 - '+ titlename +' - ' + tab.title,
                     code: '',
                     component: 'ZZMUSIC',
@@ -833,12 +831,13 @@
     }
 
     function listmenu(){
+        var playlistname;
         Lampa.Select.show({
             title: '分类',
             items: catalogs,
             onSelect: function onSelect(a) {
                 if (a.title == '歌单') {
-                    var playlistname =[
+                    playlistname =[
                         [
                             "榜单",
                             "vszs"
@@ -1028,9 +1027,9 @@
                             "vvxmx"
                         ]
                     ]
-                    popupWindows(playlistname, "https://zz123.com/ajax/", 5, "playlist", "分类") 
+                    popupWindows(playlistname, aipurl, 5, "playlist", "分类") 
                 } else if (a.title == '榜单'){
-                    var playlistname1 =[
+                    playlistname =[
                         [
                             "热歌榜",
                             "mxuxuu"
@@ -1292,7 +1291,7 @@
                             "mxuxua"
                         ]
                     ]
-                    popupWindows(playlistname1, "https://zz123.com/ajax/", 5, "playlist", "榜单") 
+                    popupWindows(playlistname, aipurl, 5, "playlist", "榜单") 
                 } else {
                     Lampa.Activity.push({
                         url: a.url,
