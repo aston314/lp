@@ -750,7 +750,6 @@
     function playAll(){
         currentplaylist_ = musiclist_;
         if (currentplaylist_.length > 0) {
-            $('.radio-player').remove();
             Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
