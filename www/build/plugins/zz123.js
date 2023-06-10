@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    var lrcObj = {};
+    var lrcObj_ = {};
     var musiclist_ = [];
     var currentplaylist_ = [];
     var currentIndex_ = 0;
@@ -218,7 +218,7 @@
                     currentplaylist_ = null;
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
-                            lrcObj = {}
+                            lrcObj_ = {}
                             if (result.data.lrc) {
                                 var lyrics = result.data.lrc.split("\n");
                                 for (var i = 0; i < lyrics.length; i++) {
@@ -232,7 +232,7 @@
                                         var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                             sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                         var time = min * 60 + sec;
-                                        lrcObj[time] = clause;
+                                        lrcObj_[time] = clause;
                                     }
                                 }
                             }
@@ -244,7 +244,7 @@
                             player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
                             card.find('.card__quality').text('听');
-                            // console.log(lrcObj)
+                            // console.log(lrcObj_)
                         }
                     }, function (a, c) {
                         // Lampa.Noty.show('无法取得播放链接');
@@ -514,14 +514,14 @@
   
           try {
               playPromise = audio.play();
-              if ((Object.keys(lrcObj).length) == 0){
+              if ((Object.keys(lrcObj_).length) == 0){
                 $(".info__title-original").text('');
               };
               audio.addEventListener("timeupdate", function () {
 
                   var currentTime = audio.currentTime;
 
-                  var obj = lrcObj[Math.floor(currentTime)];
+                  var obj = lrcObj_[Math.floor(currentTime)];
                   if (obj != undefined) {
                       $('.info__title-original').css('color', 'f3d900');
                       $(".info__title-original").text(obj ? obj : '♪...');
@@ -663,7 +663,7 @@
             currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
             network["native"](aipurl, function (result) {
                 if (result.status == 200) {
-                    lrcObj = {}
+                    lrcObj_ = {}
                     // console.log(result.lrc.lyric)
                     if (result.data.lrc) {
                         var lyrics = result.data.lrc.split("\n");
@@ -678,7 +678,7 @@
                                 var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                     sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                 var time = min * 60 + sec;
-                                lrcObj[time] = clause;
+                                lrcObj_[time] = clause;
                             }
                         }
                     }
@@ -709,7 +709,7 @@
             currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
             network["native"](aipurl, function (result) {
                 if (result.status == 200) {
-                    lrcObj = {}
+                    lrcObj_ = {}
                     // console.log(result.lrc.lyric)
                     if (result.data.lrc) {
                         var lyrics = result.data.lrc.split("\n");
@@ -724,7 +724,7 @@
                                 var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                     sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                 var time = min * 60 + sec;
-                                lrcObj[time] = clause;
+                                lrcObj_[time] = clause;
                             }
                         }
                     }
@@ -757,7 +757,7 @@
 
             network["native"](aipurl, function (result) {
                 if (result.status == 200) {
-                    lrcObj = {}
+                    lrcObj_ = {}
                     // console.log(result.lrc.lyric)
                     if (result.data.lrc) {
                         var lyrics = result.data.lrc.split("\n");
@@ -772,7 +772,7 @@
                                 var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                     sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                 var time = min * 60 + sec;
-                                lrcObj[time] = clause;
+                                lrcObj_[time] = clause;
                             }
                         }
                     }
