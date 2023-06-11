@@ -194,7 +194,7 @@
                     archiveMenu.push({
                         title: '查看'+element.sname+'所有歌曲',
                         url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
-                        connectype: 'native'
+                        // connectype: 'native'
                     });
                     Lampa.Select.show({
                         title: '操作',
@@ -204,7 +204,7 @@
                                 url: sel.url,
                                 title: '听歌 - ' + sel.title,
                                 component: 'ZZMUSIC',
-                                connectype: sel.connectype, 
+                                // connectype: sel.connectype, 
                                 page: 1
                             });
                         },
@@ -290,11 +290,9 @@
                         Lampa.Activity.push({
                             url: searchurl,
                             title: '听歌 - 搜索"' + new_value + '"',
-                            waitload: false,
+                            // waitload: false,
                             component: 'ZZMUSIC',
-                            type: listype,
-                            connectype: 'native',
-                            code: '',
+                            // connectype: 'native',
                             page: 1
                         });
                     }
@@ -822,10 +820,10 @@
                 Lampa.Activity.push({
                     url: tab.url+tab.cat,
                     title: '听歌 - '+ titlename +' - ' + tab.title,
-                    code: '',
+                    // code: '',
                     component: 'ZZMUSIC',
                     type: gotype,
-                    connectype: '',
+                    // connectype: '',
                     page: 1
                 });
                 Lampa.Modal.close();
@@ -3431,10 +3429,10 @@
                     Lampa.Activity.push({
                         url: a.url,
                         title: '听歌 - ' + a.title,
-                        code: a.code,
+                        // code: a.code,
                         component: 'ZZMUSIC',
                         type: a.type,
-                        connectype: a.connectype,
+                        // connectype: a.connectype,
                         page: 1
                     });
                 }
