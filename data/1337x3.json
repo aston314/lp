@@ -127,6 +127,15 @@
       "release_date": "2022-09-23"
     },
     {
+      "tmdbrate": 7.365,
+      "picture": "http://image.tmdb.org/t/p/w200/7ujqyF96Zg3rfrsh9M0cEF0Yzqj.jpg",
+      "name": "Falling Down",
+      "video": "magnet:?xt=urn:btih:3FF9B264459108B02291D4D3B476D70692E48CCB&dn=Falling.Down.1993.1080p.BluRay.x265.Dolby.TrueHD.2.0-N0DS13&tr=http%3A%2F%2Fatrack.pow7.com%2Fannounce&tr=http%3A%2F%2Fopen.acgtracker.com%3A1096%2Fannounce&tr=http%3A%2F%2Fpow7.com%3A80%2Fannounce&tr=http%3A%2F%2Ft1.pow7.com%2Fannounce&tr=http%3A%2F%2Ft2.pow7.com%2Fannounce&tr=http%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.skyts.net%3A6969%2Fannounce&tr=udp%3A%2F%2Feddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Falling.Down.1993.1080p.BluRay.x265.Dolby.TrueHD.2.0-N0DS13",
+      "cname": "城市英雄 ",
+      "release_date": "1993-02-26"
+    },
+    {
       "tmdbrate": 5.798,
       "picture": "http://image.tmdb.org/t/p/w200/nJCPWN1NZCKmA4cfJNgGdyC6r9K.jpg",
       "name": "The Djinn",
@@ -161,6 +170,15 @@
       "oname": "Tomorrowland – Il Mondo Di Domani (2015) 720p H264 Ita Eng E-Ac3 ...",
       "cname": "明日世界 ",
       "release_date": "2015-05-19"
+    },
+    {
+      "tmdbrate": 7.029,
+      "picture": "http://image.tmdb.org/t/p/w200/oT1L8vxBEgsWWMWQadyirKY9o6i.jpg",
+      "name": "Legend",
+      "video": "magnet:?xt=urn:btih:FE69FFEFB07FA599425D54E1D59C5202EE477928&dn=Legend.2015.1080p.10bit.BluRay.DDP5.1.HEVC-WiCK&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Legend.2015.1080p.10bit.BluRay.DDP5.1.HEVC-WiCK",
+      "cname": "传奇 ",
+      "release_date": "2015-09-09"
     }
   ]
 }
