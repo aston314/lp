@@ -216,47 +216,47 @@
                 // }
                 card.on('hover:enter', function (target, card_data) {
                     // console.log(items.indexOf(card))
-                    playEndedHandler_(items.indexOf(card));
-                    // currentplaylist_ = null;
-                    // network["native"](aipurl, function (result) {
-                    //     if (result.status == 200) {
-                    //         lrcObj_ = {}
-                    //         if (result.data.lrc) {
-                    //             var lyrics = result.data.lrc.split("\n");
-                    //             for (var i = 0; i < lyrics.length; i++) {
-                    //                 var lyric = decodeURIComponent(lyrics[i]);
-                    //                 var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                    //                 var timeRegExpArr = lyric.match(timeReg);
-                    //                 if (!timeRegExpArr) continue;
-                    //                 var clause = lyric.replace(timeReg, '');
-                    //                 for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                    //                     var t = timeRegExpArr[k];
-                    //                     var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                    //                         sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                    //                     var time = min * 60 + sec;
-                    //                     lrcObj_[time] = clause;
-                    //                 }
-                    //             }
-                    //         }
-                    //         var data = {
-                    //             url: element.mp3 || 'https://zz123.com'+result.data.mp3,
-                    //             title: element.mname,
-                    //             playall: false
-                    //         }
-                    //         player.play(data);
-                    //         card.find('.card__view').append('<div class="card__quality"></div>');
-                    //         card.find('.card__quality').text('听');
-                    //         // console.log(lrcObj_)
-                    //     }
-                    // }, function (a, c) {
-                    //     // Lampa.Noty.show('无法取得播放链接');
-                    // }, 'act=songinfo&lang=&id=' + element.id, {
-                    //     dataType: 'json',
-                    //     headers: {
-                    //         'Referer': aipurl,
-                    //     }
+                    // playEndedHandler_(items.indexOf(card));
+                    currentplaylist_ = null;
+                    network["native"](aipurl, function (result) {
+                        if (result.status == 200) {
+                            lrcObj_ = {}
+                            if (result.data.lrc) {
+                                var lyrics = result.data.lrc.split("\n");
+                                for (var i = 0; i < lyrics.length; i++) {
+                                    var lyric = decodeURIComponent(lyrics[i]);
+                                    var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                    var timeRegExpArr = lyric.match(timeReg);
+                                    if (!timeRegExpArr) continue;
+                                    var clause = lyric.replace(timeReg, '');
+                                    for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                        var t = timeRegExpArr[k];
+                                        var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                            sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                        var time = min * 60 + sec;
+                                        lrcObj_[time] = clause;
+                                    }
+                                }
+                            }
+                            var data = {
+                                url: element.mp3 || 'https://zz123.com'+result.data.mp3,
+                                title: element.mname,
+                                playall: false
+                            }
+                            player.play(data);
+                            card.find('.card__view').append('<div class="card__quality"></div>');
+                            card.find('.card__quality').text('听');
+                            // console.log(lrcObj_)
+                        }
+                    }, function (a, c) {
+                        // Lampa.Noty.show('无法取得播放链接');
+                    }, 'act=songinfo&lang=&id=' + element.id, {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': aipurl,
+                        }
 
-                    // });
+                    });
                 });
                 body.append(card);
                 items.push(card);
