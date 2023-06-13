@@ -237,7 +237,7 @@
                                 }
                             }
                             var data = {
-                                url: element.mp3,
+                                url: element.mp3 || 'https://zz123.com'+result.data.mp3,
                                 title: element.mname,
                                 playall: false
                             }
