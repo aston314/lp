@@ -71,8 +71,8 @@
 
             var headercontent = {};
 
-            if (object.hasOwnProperty("login")) {
-                if (object.login) {
+            if (object.hasOwnProperty("login") || object.hasOwnProperty("type")) {
+                if (object.login || object.type === 'favorite') {
                     headercontent = {
                         dataType: 'json',
                         headers: {
@@ -137,8 +137,8 @@
 
             var headercontent = {};
 
-            if (object.hasOwnProperty("login")) {
-                if (object.login) {
+            if (object.hasOwnProperty("login") || object.hasOwnProperty("type")) {
+                if (object.login || object.type === 'favorite') {
                     headercontent = {
                         dataType: 'json',
                         headers: {
@@ -243,11 +243,22 @@
                 // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
                     var archiveMenu = [];
-                    archiveMenu.push({
-                        title: '收藏 ' + element.mname,
-                        url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
-                        // connectype: 'native'
-                    });
+                    if (object.hasOwnProperty("type")){
+                        if (object.type === 'favorite') {
+                            archiveMenu.push({
+                                title: '删除 ' + element.mname,
+                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=&sheet_type=0&lang=',
+                                // connectype: 'native'
+                            });
+                        }
+                    } else {
+                        archiveMenu.push({
+                            title: '收藏 ' + element.mname,
+                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                            // connectype: 'native'
+                        });
+                    }
+                    
                     archiveMenu.push({
                         title: '查看 '+element.sname+' 所有歌曲',
                         url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
@@ -361,13 +372,36 @@
 			});
             info.find('.open--favorite').on('hover:enter hover:click', function () {
                 // console.log('Lampa.Storage.get("zz123_my_pop_sheet")',Lampa.Storage.get("zz123_my_pop_sheet"))
-                Lampa.Activity.push({
-                    url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=vqqvdz&sheettype=0&lang=&page=1',
-                    title: '听歌 - 我的收藏',
-                    component: 'ZZMUSIC',
-                    login: true, 
-                    page: 1
+                // Lampa.Activity.push({
+                //     url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=vqqvdz&sheettype=0&lang=&page=1',
+                //     title: '听歌 - 我的收藏',
+                //     component: 'ZZMUSIC',
+                //     login: true, 
+                //     page: 1
+                // });
+
+                var playlistname =[];
+                network["native"]('https://zz123.com/myajax/', function (json) {
+                    if (json.status == 200) {
+                        json.data.forEach(function (element, i) {
+                            playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
+                        })
+                    } else {
+                        Lampa.Noty.show(json.msg);
+                        Lampa.Controller.toggle('content');
+                    }
+                }, function (a, c) {
+                }, 'act=my_pop_sheet&lang=', {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
                 });
+                if (playlistname.length) {
+                    popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "选择歌单")
+                }
 				
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
