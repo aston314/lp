@@ -3454,9 +3454,20 @@
         
         window.plugin_ZZMUSIC_ready = true;
         Lampa.Component.add('ZZMUSIC', ZZMUSIC);
+
+        Lampa.Params.select('zz123_userName', '', '');
+        Lampa.Params.select('zz123_userPass', '', '');
+        Lampa.Template.add('settings_mod_zz123', "<div>\n  <div class=\"settings-param selector\" data-name=\"zz123_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">邮箱</div> <div class=\"settings-param__value\">zz123.com用户名</div> <div class=\"settings-param__descr\">请输入有效邮箱地址</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"zz123_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">验证码</div>\n    <div class=\"settings-param__descr\">请输入验证码</div> </div>\n           <div class=\"settings-param selector\" data-name=\"online_mod_zz123_sendcode\" data-static=\"true\"> <div class=\"settings-param__name\">发送验证码</div> <div class=\"settings-param__status\"></div> </div>\n\n  <div class=\"settings-param selector\" data-name=\"online_mod_zz123_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆/注册</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_zz123_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
+
         
         function addSettingsZZMUSIC() {
             window.radio_player1_ = new player();
+
+            if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_zz123"]').length) {
+                let field = $(Lampa.Lang.translate("<div class=\"settings-folder selector\" data-component=\"mod_zz123\">\n            <div class=\"settings-folder__icon\">\n                <svg width=\"32px\" height=\"32px\" viewBox=\"0 0 0.72 0.72\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.18 0.36c0 -0.067 0.036 -0.125 0.09 -0.156m0.27 0.15c0 0.067 -0.036 0.125 -0.09 0.156m0.18 -0.15a0.27 0.27 0 1 1 -0.54 0 0.27 0.27 0 0 1 0.54 0Zm-0.21 0a0.06 0.06 0 1 1 -0.12 0 0.06 0.06 0 0 1 0.12 0Z\" stroke=\"currentColor\" stroke-width=\"0.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n            </div>\n            <div class=\"settings-folder__name\">听歌</div>\n        </div>"));
+                Lampa.Settings.main().render().find('[data-component="more"]').after(field)
+                Lampa.Settings.main().update()
+            };
             var ico = '<svg width="32px" height="32px" viewBox="0 0 0.72 0.72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.18 0.36c0 -0.067 0.036 -0.125 0.09 -0.156m0.27 0.15c0 0.067 -0.036 0.125 -0.09 0.156m0.18 -0.15a0.27 0.27 0 1 1 -0.54 0 0.27 0.27 0 0 1 0.54 0Zm-0.21 0a0.06 0.06 0 1 1 -0.12 0 0.06 0.06 0 0 1 0.12 0Z" stroke="currentColor" stroke-width="0.06" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="ZZMUSIC"><div class="menu__ico">' + ico + '</div><div class="menu__text">听歌</div></li>');
             menu_item.on('hover:enter', function () {
@@ -3478,4 +3489,139 @@
     if (!window.plugin_ZZMUSIC_ready) startZZMUSIC();
     musiclist_ = null;
     currentplaylist_ = null;
+
+    var network = new Lampa.Reguest();
+    Lampa.Settings.listener.follow('open', function (e) {
+      if (e.name == 'mod_zz123') {
+        var zz123_login = e.body.find('[data-name="online_mod_zz123_login"]');
+        
+        zz123_login.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
+          zz123Login(function () {
+            zz123_login_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_login_status.removeClass('active error wait').addClass('error');
+          });
+        });
+        var zz123_logout = e.body.find('[data-name="online_mod_zz123_logout"]');
+        zz123_logout.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_logout_status = $('.settings-param__status', zz123_logout).removeClass('active error wait').addClass('wait');
+          zz123Logout(function () {
+            zz123_logout_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_logout_status.removeClass('active error wait').addClass('error');
+          });
+        });
+
+        var zz123_sendcode = e.body.find('[data-name="online_mod_zz123_sendcode"]');
+        
+        zz123_sendcode.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_sendcode_status = $('.settings-param__status', zz123_sendcode).removeClass('active error wait').addClass('wait');
+          zz123Sendcode(function () {
+            zz123_sendcode_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_sendcode_status.removeClass('active error wait').addClass('error');
+          });
+        });
+      }
+    });
+
+    Lampa.Storage.listener.follow('change', function (e) {
+      if (e.name == 'zz123_userPass' || e.name == 'zz123_userName') {
+        if (Lampa.Storage.field('zz123_userName').length > 0 && Lampa.Storage.field('zz123_userPass').length > 0) {
+          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
+          zz123Login(function () {
+            zz123_login_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_login_status.removeClass('active error wait').addClass('error');
+          });
+        } else {
+          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('error');
+        };
+      };
+  });
+
+    function getAsUriParameters(data) {
+      var url = '';
+      for (var prop in data) {
+        url += encodeURIComponent(prop) + '=' +
+          encodeURIComponent(data[prop]) + '&';
+      }
+      return url.substring(0, url.length - 1)
+    }
+
+    function zz123Login(success, error) {
+        var url = 'https://zz123.com/ajax/login';
+
+        var postdata =
+        {
+            "act": 'email_login',
+            "code": Lampa.Storage.get('zz123_userPass', ''),
+            "email": Lampa.Storage.get('zz123_userName', ''),
+            "lang": '',
+        };
+
+        network.clear();
+        network.timeout(8000);
+        network["native"](url, function (json) {
+            if (json.status == 200) {
+                var userData = json.data
+                if (success) success();
+                Lampa.Storage.set("zz123UserInfo", "test=1; visitref=https://zz123.com/; play_status=pause; login_uid="+userData.uid+"; login_usin="+userData.token+"; ");
+            } else {
+                Lampa.Noty.show(json.msg);
+                if (error) error();
+            }
+        }, function (a, c) {
+            Lampa.Noty.show('请在设置中使用正确的邮箱和验证码。');
+            if (error) error();
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': aipurl,
+            }
+        });
+
+    }
+
+    function zz123Sendcode(success, error) {
+        var url = 'https://zz123.com/ajax/login';
+
+        var postdata =
+        {
+            "act": 'get_email_code',
+            "email": Lampa.Storage.get('zz123_userName', ''),
+            "lang": '',
+        };
+
+        network.clear();
+        network.timeout(8000);
+        network["native"](url, function (json) {
+            if (json.status == 200) {
+                if (success) success();
+                Lampa.Noty.show(json.msg);
+            } else {
+                if (error) error();
+                Lampa.Noty.show(json.msg);
+            }
+        }, function (a, c) {
+            Lampa.Noty.show('请在设置中使用正确的邮箱。');
+            if (error) error();
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': aipurl,
+            }
+        });
+
+    }
+  
+    function zz123Logout(success, error) {
+      Lampa.Storage.set('zz123_userPass', '');
+    //   Lampa.Storage.set('zz123_userName', '');
+      Lampa.Storage.set("zz123UserInfo","");
+      if (success) success();
+    };
 })();
