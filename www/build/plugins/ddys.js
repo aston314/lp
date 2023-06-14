@@ -53,7 +53,7 @@
                 dataType: 'text',
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                    'Referer': "https://ddys.art/"
+                    'Referer': "https://ddys.pro/"
                 }
             });
             return this.render();
@@ -81,7 +81,7 @@
                     dataType: 'text',
                     headers: {
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                        'Referer': "https://ddys.art/"
+                        'Referer': "https://ddys.pro/"
                     }
                 });
             //}
@@ -269,7 +269,7 @@
                                         playlistData.tracks.forEach(function (html) {
                                             sources.push({
                                                 title: html.caption,
-                                                url: "https://ddys.art/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
+                                                url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
                                                 subtitles: []
                                             });
 
@@ -311,7 +311,7 @@
                                                     dataType: 'json',
                                                     headers: {
                                                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                                                        'Referer': "https://ddys.art/"
+                                                        'Referer': "https://ddys.pro/"
                                                     }
                                                 });
                                             });
@@ -345,7 +345,7 @@
                                         dataType: 'text',
                                         headers: {
                                             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                                            'Referer': "https://ddys.art/"
+                                            'Referer': "https://ddys.pro/"
                                         }
                                     });
                                 },
@@ -362,7 +362,7 @@
                         dataType: 'text',
                         headers: {
                             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                            'Referer': "https://ddys.art/"
+                            'Referer': "https://ddys.pro/"
                         }
                     });
                 });
@@ -426,7 +426,7 @@
                         playlistData.tracks.forEach(function (html) {
                             sources.push({
                                 title: html.caption,
-                                url: "https://ddys.art/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
+                                url: "https://ddys.pro/getvddr/video?dim=1080P&type=mix&id=" + html.src1,
                                 subtitles: []
                             });
                             
@@ -469,7 +469,7 @@
                                     dataType: 'json',
                                     headers: {
                                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                                        'Referer': "https://ddys.art/"
+                                        'Referer': "https://ddys.pro/"
                                     }
                                 });
                             });
@@ -534,7 +534,7 @@
                         //             dataType: 'json',
                         //             headers: {
                         //                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                        //                 'Referer': "https://ddys.art/"
+                        //                 'Referer': "https://ddys.pro/"
                         //             }
                         //         });
                         //     },
@@ -551,7 +551,7 @@
                         dataType: 'text',
                         headers: {
                             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
-                            'Referer': "https://ddys.art/"
+                            'Referer': "https://ddys.pro/"
                         }
                     });
                 });
@@ -580,7 +580,7 @@
                 }, function (new_value) {
                     if (new_value) {
                         //console.log(new_value)
-                        var search_tempalte = 'https://ddys.art/?s=#msearchword&post_type=post';
+                        var search_tempalte = 'https://ddys.pro/?s=#msearchword&post_type=post';
                         var searchurl = search_tempalte.replace('#msearchword',encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
@@ -924,31 +924,31 @@
     var catalogs = [
     {
         title: '首页',
-        url: 'https://ddys.art/'
+        url: 'https://ddys.pro/'
     },
     {
         title: '电影',
-        url: 'https://ddys.art/category/movie/'
+        url: 'https://ddys.pro/category/movie/'
     },
     {
         title: '剧集',
-        url: 'https://ddys.art/category/airing/'
+        url: 'https://ddys.pro/category/airing/'
     },
     {
         title: '欧美剧',
-        url: 'https://ddys.art/category/drama/western-drama/'
+        url: 'https://ddys.pro/category/drama/western-drama/'
     },
     {
         title: '韩剧',
-        url: 'https://ddys.art/category/drama/kr-drama/'
+        url: 'https://ddys.pro/category/drama/kr-drama/'
     },
     {
         title: '日剧',
-        url: 'https://ddys.art/category/drama/jp-drama/'
+        url: 'https://ddys.pro/category/drama/jp-drama/'
     },
     {
         title: '动画',
-        url: 'https://ddys.art/category/anime/'
+        url: 'https://ddys.pro/category/anime/'
     }];
 
     function startDDYS() {
