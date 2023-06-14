@@ -170,6 +170,7 @@
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+            console.log(object.url.substring(0, object.url.indexOf('?') + 1)+postdata)
             // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
             if (!!window.cordova) {
                 network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
