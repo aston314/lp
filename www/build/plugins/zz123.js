@@ -128,71 +128,107 @@
             return this.render();
         };
 
+        // this.next = function () {
+            
+        //     var _this2 = this;
+
+        //     var headercontent = {};
+
+        //     if (object.hasOwnProperty("login")) {
+        //         if (object.login) {
+        //             headercontent = {
+        //                 dataType: 'json',
+        //                 headers: {
+        //                     'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //                     'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+        //                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        //                 }
+        //             };
+        //         } else {
+        //             headercontent = {
+        //                 dataType: 'json',
+        //                 headers: {
+        //                     'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //                     'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+        //                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        //                 }
+        //             };
+        //         }
+        //     } else {
+        //         headercontent = {
+        //             dataType: 'json',
+        //             headers: {
+        //                 'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //                 'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+        //                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        //             }
+        //         };
+        //     }
+
+        //     if (waitload) return;
+        //     waitload = true;
+        //     object.page++;
+        //     // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
+        //     var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+        //     console.log(object.url.substring(0, object.url.indexOf('?') + 1)+postdata)
+        //     // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
+        //     if (!!window.cordova) {
+        //         network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+        //             _this2.donext(result);
+        //             Lampa.Controller.enable('content');
+        //         }, postdata , {
+        //             dataType: 'json',
+        //             headers: {
+        //                 'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //                 'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+        //                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        //             }
+        //         });
+        //     } else {
+        //         network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+        //             _this2.donext(result);
+        //             Lampa.Controller.enable('content');
+        //         }, postdata , {
+        //             dataType: 'json',
+        //             headers: {
+        //                 'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //                 'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+        //                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        //             }
+        //         });
+        //     }
+        // };
         this.next = function () {
             
             var _this2 = this;
-
-            var headercontent = {};
-
-            if (object.hasOwnProperty("login")) {
-                if (object.login) {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
-                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                        }
-                    };
-                } else {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                        }
-                    };
-                }
-            } else {
-                headercontent = {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                    }
-                };
-            }
 
             if (waitload) return;
             waitload = true;
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            console.log(object.url.substring(0, object.url.indexOf('?') + 1)+postdata)
-            // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
+            // console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
             if (!!window.cordova) {
-                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+                network.silent(aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, postdata , {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
             } else {
-                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+                network["native"](aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, postdata , {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
