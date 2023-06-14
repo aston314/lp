@@ -266,6 +266,12 @@
                                 url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheet_id') + '&sheet_type=0&lang=',
                                 // connectype: 'native'
                             });
+                        } else {
+                            archiveMenu.push({
+                                title: '收藏 ' + element.mname,
+                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                                // connectype: 'native'
+                            });
                         }
                     } else {
                         archiveMenu.push({
