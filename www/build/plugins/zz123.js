@@ -428,11 +428,12 @@
                         }
                     } else {
                         Lampa.Noty.show(json.msg);
-                        // Lampa.Controller.toggle('content');
+                        Lampa.Controller.toggle('content');
                     }
                 }, function (a, c) {
                     Lampa.Modal.close();
                     Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
+                    Lampa.Controller.toggle('content');
                 }, 'act=my_pop_sheet&lang=', {
                     dataType: 'json',
                     headers: {
