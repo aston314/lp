@@ -102,6 +102,9 @@
                 };
             }
             
+            console.log(object.url)
+            console.log(Lampa.Storage.get("zz123UserInfo", ""))
+            console.log(postdata)
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
             if (!!window.cordova) {
@@ -168,9 +171,7 @@
             if (waitload) return;
             waitload = true;
             object.page++;
-            // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
             if (!!window.cordova) {
                 network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
