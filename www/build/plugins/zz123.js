@@ -101,7 +101,7 @@
                     }
                 };
             }
-            console.log(headercontent)
+            
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
             if (!!window.cordova) {
@@ -170,34 +170,19 @@
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            console.log(object.url.substring(0, object.url.indexOf('?') + 1)+postdata)
             // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
             if (!!window.cordova) {
                 network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, function (a, c) {
-                }, postdata , {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                    }
-                });
+                }, postdata , headercontent);
             } else {
                 network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, function (a, c) {
-                }, postdata , {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                    }
-                });
+                }, postdata , headercontent);
             }
         };
         this.donext = function (result) {
@@ -412,15 +397,15 @@
             this.selectGroup = function () {
                 let result = [];
 
-                $('.aside-menu-list.channel a.menu-link').each(function () {
-                    let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
-                    let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
+                // $('.aside-menu-list.channel a.menu-link').each(function () {
+                //     let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
+                //     let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
 
-                    let subArray = [value, value1];  // 创建包含两个值的子数组
-                    result.push(subArray);  // 将子数组添加到结果数组中
-                });
+                //     let subArray = [value, value1];  // 创建包含两个值的子数组
+                //     result.push(subArray);  // 将子数组添加到结果数组中
+                // });
 
-                console.log(result);
+                // console.log(result);
                 listmenu();
             };
             //info.find('.info__rate,.info__right').remove();
