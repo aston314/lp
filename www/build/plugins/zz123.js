@@ -380,12 +380,13 @@
                 //     page: 1
                 // });
 
-                var playlistname =[];
+                var playlistname ={};
                 network["native"]('https://zz123.com/myajax/', function (json) {
-                    console.log(json)
+
                     if (json.status == 200) {
                         json.data.forEach(function (element, i) {
-                            playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
+                            // playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
+                            playlistname[i] = [element.name + ' 共' + element.song_num + '首', element.id];
                         })
                     } else {
                         Lampa.Noty.show(json.msg);
@@ -401,9 +402,9 @@
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
-                console.log('playlistname',playlistname)
+                console.log('playlistname',Object.values(playlistname))
                 if (playlistname.length) {
-                    popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "选择歌单")
+                    popupWindows(Object.values(playlistname), 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "选择歌单")
                 }
 				
 			});
