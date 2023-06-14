@@ -1020,7 +1020,7 @@
             items: catalogs,
             onSelect: function onSelect(a) {
                 if (a.title == '歌单') {
-                    playlistname =[
+                    playlistname = [
                         [
                             "榜单",
                             "vszs"
@@ -1210,9 +1210,9 @@
                             "vvxmx"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "分类") 
-                } else if (a.title == '榜单'){
-                    playlistname =[
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "分类")
+                } else if (a.title == '榜单') {
+                    playlistname = [
                         [
                             "热歌榜",
                             "mxuxuu"
@@ -1474,7 +1474,7 @@
                             "mxuxua"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "榜单") 
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "榜单")
                 } else if (a.title == '老歌') {
                     playlistname = [
                         [
@@ -1514,7 +1514,7 @@
                             "dzmd"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "老歌") 
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "老歌")
                 } else if (a.title == '年代') {
                     playlistname = [
                         [
@@ -1542,7 +1542,7 @@
                             "vmzus"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "年代") 
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "年代")
                 } else if (a.title == '流行') {
                     playlistname = [
                         [
@@ -1574,9 +1574,9 @@
                             "sdss"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "流行") 
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "流行")
                 } else if (a.title == '热门歌手') {
-                    playlistname =[
+                    playlistname = [
                         [
                             "周杰伦",
                             "dqk"
@@ -3578,9 +3578,9 @@
                             "zmzvs"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=geshou_music&lang=&page=1&id=', 6, "playlist", "热门歌手") 
-                }else if (a.title == '特色榜单') {
-                    playlistname =[
+                    popupWindows(playlistname, aipurl + '?act=geshou_music&lang=&page=1&id=', 6, "playlist", "热门歌手")
+                } else if (a.title == '特色榜单') {
+                    playlistname = [
                         [
                             "猜你喜欢",
                             "age"
@@ -3618,7 +3618,7 @@
                             "hot_comment_music"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl+'?act=featured_list&lang=&page=1&t=', 6, "playlist", "特色榜单") 
+                    popupWindows(playlistname, aipurl + '?act=featured_list&lang=&page=1&t=', 6, "playlist", "特色榜单")
                 }
                 else {
                     Lampa.Activity.push({
