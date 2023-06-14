@@ -81,6 +81,7 @@
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
             } else {
@@ -96,6 +97,7 @@
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
             }
@@ -120,6 +122,7 @@
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
             } else {
@@ -130,6 +133,7 @@
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
             }
@@ -192,6 +196,11 @@
                 card.on('hover:long', function () {
                     var archiveMenu = [];
                     archiveMenu.push({
+                        title: '收藏' + element.sname,
+                        url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=vqqvdz&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                        // connectype: 'native'
+                    });
+                    archiveMenu.push({
                         title: '查看'+element.sname+'所有歌曲',
                         url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
                         // connectype: 'native'
@@ -200,13 +209,33 @@
                         title: '操作',
                         items: archiveMenu,
                         onSelect: function (sel) {
-                            Lampa.Activity.push({
-                                url: sel.url,
-                                title: '听歌 - ' + sel.title,
-                                component: 'ZZMUSIC',
-                                // connectype: sel.connectype, 
-                                page: 1
-                            });
+                            if (sel.title.indexOf('收藏') !== -1) {
+                                network["native"](sel.url, function (json) {
+                                    if (json.status == 200) {
+                                        Lampa.Noty.show(json.msg);
+                                    } else {
+                                        Lampa.Noty.show(json.msg);
+                                    }
+                                }, function (a, c) {
+                                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录网站。');
+                                }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
+                                    dataType: 'json',
+                                    headers: {
+                                        'Referer': 'https://zz123.com/',
+                                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                                    }
+                                });
+
+                            } else {
+                                Lampa.Activity.push({
+                                    url: sel.url,
+                                    title: '听歌 - ' + sel.title,
+                                    component: 'ZZMUSIC',
+                                    // connectype: sel.connectype, 
+                                    page: 1
+                                });
+                            };
                         },
                         onBack: function () {
                             Lampa.Controller.toggle('content');
@@ -254,6 +283,7 @@
                         dataType: 'json',
                         headers: {
                             'Referer': aipurl,
+                            'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                         }
 
                     });
@@ -696,6 +726,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                 }
 
             });
@@ -742,6 +773,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                 }
             });
         }
@@ -790,6 +822,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                 }
 
             });
@@ -3570,6 +3603,8 @@
                 var userData = json.data
                 if (success) success();
                 Lampa.Storage.set("zz123UserInfo", "test=1; visitref=https://zz123.com/; play_status=pause; login_uid="+userData.uid+"; login_usin="+userData.token+"; ");
+                Lampa.Storage.set('zz123_userPass', '');
+                Lampa.Noty.show(json.msg);
             } else {
                 Lampa.Noty.show(json.msg);
                 if (error) error();
@@ -3581,7 +3616,8 @@
             dataType: 'json',
             headers: {
                 'Referer': 'https://zz123.com/',
-                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
             }
         });
 
@@ -3616,7 +3652,8 @@
             dataType: 'json',
             headers: {
                 'Referer': 'https://zz123.com/',
-                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
             }
         });
 
