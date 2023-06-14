@@ -403,7 +403,7 @@
                             playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                         })
                         if (playlistname.length) {
-                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "我的收藏")
+                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "收藏")
                         }
                     } else {
                         Lampa.Noty.show(json.msg);
