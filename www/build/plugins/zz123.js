@@ -258,6 +258,7 @@
                 card.on('hover:long', function () {
                     // console.log(object)
                     var archiveMenu = [];
+                    console.log('object.hasOwnProperty("type")',object.hasOwnProperty("type"))
                     if (object.hasOwnProperty("type")){
                         if (object.type === 'favorite') {
                             archiveMenu.push({
