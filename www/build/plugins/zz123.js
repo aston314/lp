@@ -3613,7 +3613,7 @@
             }
         });
 
-        var postdata =
+        postdata =
         {
             "act": 'my_pop_sheet',
             "lang": '',
@@ -3646,8 +3646,6 @@
             "email": Lampa.Storage.get('zz123_userName', ''),
             "lang": '',
         };
-
-        console.log(getAsUriParameters(postdata))
 
         network.clear();
         network.timeout(8000);
