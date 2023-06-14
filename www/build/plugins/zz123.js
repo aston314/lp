@@ -66,50 +66,25 @@
             var _this = this;
 
             this.activity.loader(true);
-            
             musiclist_ = [];
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+            if (!!window.cordova) {
+                network.silent(aipurl + '?' + postdata, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
 
-            var headercontent = {};
+                    _this.activity.loader(false);
 
-            if (object.hasOwnProperty("login")) {
-                if (object.login) {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'Cookie': Lampa.Storage.get("zz123UserInfo", "")
-                        }
-                    };
-                } else {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        }
-                    };
-                }
-            } else {
-                headercontent = {
+                    _this.activity.toggle();
+                }, postdata, {
                     dataType: 'json',
                     headers: {
                         'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
                     }
-                };
-            }
-            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            
-            if (!!window.cordova) {
-                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
-                    var empty = new Lampa.Empty();
-                    html.append(empty.render());
-                    _this.start = empty.start;
-
-                    _this.activity.loader(false);
-
-                    _this.activity.toggle();
-                }, postdata, headercontent);
+                });
             } else {
-                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
+                network["native"](aipurl + '?' + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -117,7 +92,12 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, postdata, headercontent);
+                }, postdata, {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    }
+                });
             }
             return this.render();
         };
@@ -126,50 +106,32 @@
             
             var _this2 = this;
 
-            var headercontent = {};
-
-            if (object.hasOwnProperty("login")) {
-                if (object.login) {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'Cookie': Lampa.Storage.get("zz123UserInfo", "")
-                        }
-                    };
-                } else {
-                    headercontent = {
-                        dataType: 'json',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        }
-                    };
-                }
-            } else {
-                headercontent = {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    }
-                };
-            }
-
             if (waitload) return;
             waitload = true;
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
+            // console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
             if (!!window.cordova) {
-                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+                network.silent(aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , headercontent);
+                }, postdata , {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    }
+                });
             } else {
-                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+                network["native"](aipurl + '?' + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , headercontent);
+                }, postdata , {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    }
+                });
             }
         };
         this.donext = function (result) {
@@ -230,12 +192,7 @@
                 card.on('hover:long', function () {
                     var archiveMenu = [];
                     archiveMenu.push({
-                        title: '收藏 ' + element.mname,
-                        url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id='+Lampa.Storage.get("zz123_my_pop_sheet", "")+'&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
-                        // connectype: 'native'
-                    });
-                    archiveMenu.push({
-                        title: '查看 '+element.sname+' 所有歌曲',
+                        title: '查看'+element.sname+'所有歌曲',
                         url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
                         // connectype: 'native'
                     });
@@ -243,34 +200,13 @@
                         title: '操作',
                         items: archiveMenu,
                         onSelect: function (sel) {
-                            if (sel.title.indexOf('收藏') !== -1) {
-                                network["native"](sel.url, function (json) {
-                                    if (json.status == 200) {
-                                        Lampa.Noty.show(json.msg);
-                                        Lampa.Controller.toggle('content');
-                                    } else {
-                                        Lampa.Noty.show(json.msg);
-                                        Lampa.Controller.toggle('content');
-                                    }
-                                }, function (a, c) {
-                                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录网站。');
-                                    Lampa.Controller.toggle('content');
-                                }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
-                                    dataType: 'json',
-                                    headers: {
-                                        'Referer': aipurl,
-                                        'Cookie': Lampa.Storage.get("zz123UserInfo", "")
-                                    }
-                                });
-                            } else {
-                                Lampa.Activity.push({
-                                    url: sel.url,
-                                    title: '听歌 - ' + sel.title,
-                                    component: 'ZZMUSIC',
-                                    // connectype: sel.connectype, 
-                                    page: 1
-                                });
-                            };
+                            Lampa.Activity.push({
+                                url: sel.url,
+                                title: '听歌 - ' + sel.title,
+                                component: 'ZZMUSIC',
+                                // connectype: sel.connectype, 
+                                page: 1
+                            });
                         },
                         onBack: function () {
                             Lampa.Controller.toggle('content');
@@ -334,23 +270,13 @@
             // $('body').append(Lampa.Template.get('_style', {}, true));
             //info = Lampa.Template.get('info');style="height:5em"
             // <div class="info__lyric" style="position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); width: 800px; height: 80px; background-color: rgba(0, 0, 0, 0.8); color: rgb(243, 217, 0); text-align: center; border-radius: 1em; display: flex; justify-content: center; align-items: center; z-index: 9999; font-size: 3em; font-size: 1.8em; line-height: 1.3; white-space: nowrap; overflow: hidden;"></div>
-            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div> <div class=\"full-start__button selector open--favorite\"><svg fill=\"currentColor\" width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.66 0.29a0.03 0.03 0 0 0 -0.026 -0.02l-0.171 -0.025L0.387 0.09a0.03 0.03 0 0 0 -0.054 0L0.257 0.245 0.086 0.27a0.03 0.03 0 0 0 -0.024 0.02 0.03 0.03 0 0 0 0.007 0.03l0.124 0.12 -0.03 0.17a0.03 0.03 0 0 0 0.044 0.032l0.153 -0.08 0.153 0.08a0.028 0.028 0 0 0 0.014 0.004 0.03 0.03 0 0 0 0.018 -0.006 0.03 0.03 0 0 0 0.012 -0.03l-0.03 -0.17 0.124 -0.12A0.03 0.03 0 0 0 0.66 0.29Zm-0.184 0.12a0.03 0.03 0 0 0 -0.009 0.026l0.022 0.126 -0.113 -0.06a0.032 0.032 0 0 0 -0.028 0l-0.113 0.06 0.022 -0.126a0.03 0.03 0 0 0 -0.009 -0.026l-0.09 -0.09 0.126 -0.018a0.03 0.03 0 0 0 0.023 -0.017L0.36 0.171l0.056 0.115a0.03 0.03 0 0 0 0.023 0.017l0.126 0.018Z\"/></svg>   <span>收藏</span>\n    </div>           <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
 			Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
 			var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
             info.find('#web_filtr').append(btn);
             info.find('.view--category').on('hover:enter hover:click', function () {
 				_this2.selectGroup();
-			});
-            info.find('.open--favorite').on('hover:enter hover:click', function () {
-                Lampa.Activity.push({
-                    url: 'https://zz123.com/myajax/?act=sheetsong&sheetid='+Lampa.Storage.get("zz123_my_pop_sheet", "")+'&sheettype=0&lang=&page=1',
-                    title: '听歌 - 我的收藏',
-                    component: 'ZZMUSIC',
-                    login: true, 
-                    page: 1
-                });
-				
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
@@ -3528,20 +3454,9 @@
         
         window.plugin_ZZMUSIC_ready = true;
         Lampa.Component.add('ZZMUSIC', ZZMUSIC);
-
-        Lampa.Params.select('zz123_userName', '', '');
-        Lampa.Params.select('zz123_userPass', '', '');
-        Lampa.Template.add('settings_mod_zz123', "<div>\n<div class=\"settings-param-title settings--token\"><span>获取验证码</span></div>\n  <div class=\"settings-param selector\" data-name=\"zz123_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">邮箱</div> <div class=\"settings-param__value\">zz123.com用户名</div> <div class=\"settings-param__descr\">邮箱地址</div> </div>\n \n <div class=\"settings-param selector\" data-name=\"online_mod_zz123_sendcode\" data-static=\"true\"> <div class=\"settings-param__name\">发送验证码</div> <div class=\"settings-param__status\"></div> </div>\n\n <div class=\"settings-param-title settings--token\"><span>邮箱验证码登录</span></div>\n     <div class=\"settings-param selector\" data-name=\"zz123_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">验证码</div>\n    <div class=\"settings-param__descr\">请输入验证码</div> </div>\n             <div class=\"settings-param selector\" data-name=\"online_mod_zz123_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆/注册</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n<div class=\"settings-param-title settings--token\"><span>退出登录</span></div>\n     <div class=\"settings-param selector\" data-name=\"online_mod_zz123_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
-
         
         function addSettingsZZMUSIC() {
             window.radio_player1_ = new player();
-
-            if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_zz123"]').length) {
-                let field = $(Lampa.Lang.translate("<div class=\"settings-folder selector\" data-component=\"mod_zz123\">\n            <div class=\"settings-folder__icon\">\n                <svg width=\"32px\" height=\"32px\" viewBox=\"0 0 0.72 0.72\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.18 0.36c0 -0.067 0.036 -0.125 0.09 -0.156m0.27 0.15c0 0.067 -0.036 0.125 -0.09 0.156m0.18 -0.15a0.27 0.27 0 1 1 -0.54 0 0.27 0.27 0 0 1 0.54 0Zm-0.21 0a0.06 0.06 0 1 1 -0.12 0 0.06 0.06 0 0 1 0.12 0Z\" stroke=\"currentColor\" stroke-width=\"0.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n            </div>\n            <div class=\"settings-folder__name\">听歌</div>\n        </div>"));
-                Lampa.Settings.main().render().find('[data-component="more"]').after(field)
-                Lampa.Settings.main().update()
-            };
             var ico = '<svg width="32px" height="32px" viewBox="0 0 0.72 0.72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.18 0.36c0 -0.067 0.036 -0.125 0.09 -0.156m0.27 0.15c0 0.067 -0.036 0.125 -0.09 0.156m0.18 -0.15a0.27 0.27 0 1 1 -0.54 0 0.27 0.27 0 0 1 0.54 0Zm-0.21 0a0.06 0.06 0 1 1 -0.12 0 0.06 0.06 0 0 1 0.12 0Z" stroke="currentColor" stroke-width="0.06" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="ZZMUSIC"><div class="menu__ico">' + ico + '</div><div class="menu__text">听歌</div></li>');
             menu_item.on('hover:enter', function () {
@@ -3563,166 +3478,4 @@
     if (!window.plugin_ZZMUSIC_ready) startZZMUSIC();
     musiclist_ = null;
     currentplaylist_ = null;
-
-    var network = new Lampa.Reguest();
-    Lampa.Settings.listener.follow('open', function (e) {
-      if (e.name == 'mod_zz123') {
-        var zz123_login = e.body.find('[data-name="online_mod_zz123_login"]');
-        
-        zz123_login.unbind('hover:enter').on('hover:enter', function () {
-          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
-          zz123Login(function () {
-            zz123_login_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            zz123_login_status.removeClass('active error wait').addClass('error');
-          });
-        });
-        var zz123_logout = e.body.find('[data-name="online_mod_zz123_logout"]');
-        zz123_logout.unbind('hover:enter').on('hover:enter', function () {
-          var zz123_logout_status = $('.settings-param__status', zz123_logout).removeClass('active error wait').addClass('wait');
-          zz123Logout(function () {
-            zz123_logout_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            zz123_logout_status.removeClass('active error wait').addClass('error');
-          });
-        });
-
-        var zz123_sendcode = e.body.find('[data-name="online_mod_zz123_sendcode"]');
-        
-        zz123_sendcode.unbind('hover:enter').on('hover:enter', function () {
-          var zz123_sendcode_status = $('.settings-param__status', zz123_sendcode).removeClass('active error wait').addClass('wait');
-          zz123Sendcode(function () {
-            zz123_sendcode_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            zz123_sendcode_status.removeClass('active error wait').addClass('error');
-          });
-        });
-      }
-    });
-
-    Lampa.Storage.listener.follow('change', function (e) {
-      if (e.name == 'zz123_userPass' || e.name == 'zz123_userName') {
-        if (Lampa.Storage.field('zz123_userName').length > 0 && Lampa.Storage.field('zz123_userPass').length > 0) {
-          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
-          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
-          zz123Login(function () {
-            zz123_login_status.removeClass('active error wait').addClass('active');
-          }, function () {
-            zz123_login_status.removeClass('active error wait').addClass('error');
-          });
-        } else {
-          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
-          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('error');
-        };
-      };
-  });
-
-    function getAsUriParameters(data) {
-      var url = '';
-      for (var prop in data) {
-        url += encodeURIComponent(prop) + '=' +
-          encodeURIComponent(data[prop]) + '&';
-      }
-      return url.substring(0, url.length - 1)
-    }
-
-    function zz123Login(success, error) {
-        var url = 'https://zz123.com/ajax/login';
-
-        var postdata =
-        {
-            "act": 'email_login',
-            "code": Lampa.Storage.get('zz123_userPass', ''),
-            "email": Lampa.Storage.get('zz123_userName', ''),
-            "lang": '',
-        };
-
-        network.clear();
-        network.timeout(8000);
-        network["native"](url, function (json) {
-            if (json.status == 200) {
-                var userData = json.data
-                if (success) success();
-                Lampa.Storage.set("zz123UserInfo", "test=1; visitref=https://zz123.com/; play_status=pause; login_uid="+userData.uid+"; login_usin="+userData.token+"; ");
-                Lampa.Storage.set('zz123_userPass', '');
-                Lampa.Noty.show(json.msg);
-            } else {
-                Lampa.Noty.show(json.msg);
-                if (error) error();
-            }
-        }, function (a, c) {
-            Lampa.Noty.show('请填写正确的邮箱和验证码。');
-            if (error) error();
-        }, getAsUriParameters(postdata), {
-            dataType: 'json',
-            headers: {
-                'Referer': 'https://zz123.com/',
-                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
-            }
-        });
-
-        postdata =
-        {
-            "act": 'my_pop_sheet',
-            "lang": '',
-        };
-
-        network["native"]('https://zz123.com/myajax/', function (json) {
-            if (json.status == 200) {
-                Lampa.Storage.set("zz123_my_pop_sheet", json.data[0].id);
-                // Lampa.Noty.show(json.msg);
-            } else {
-                // Lampa.Noty.show(json.msg);
-            }
-        }, function (a, c) {
-        }, getAsUriParameters(postdata), {
-            dataType: 'json',
-            headers: {
-                'Referer': aipurl,
-                'Cookie': Lampa.Storage.get("zz123UserInfo", "")
-            }
-        });
-
-    }
-
-    function zz123Sendcode(success, error) {
-        var url = 'https://zz123.com/ajax/login';
-
-        var postdata =
-        {
-            "act": 'get_email_code',
-            "email": Lampa.Storage.get('zz123_userName', ''),
-            "lang": '',
-        };
-
-        network.clear();
-        network.timeout(8000);
-        network["native"](url, function (json) {
-            if (json.status == 200) {
-                if (success) success();
-                Lampa.Noty.show(json.msg);
-            } else {
-                if (error) error();
-                Lampa.Noty.show(json.msg);
-            }
-        }, function (a, c) {
-            Lampa.Noty.show('请填写正确的邮箱。');
-            if (error) error();
-        }, getAsUriParameters(postdata), {
-            dataType: 'json',
-            headers: {
-                'Referer': 'https://zz123.com/',
-                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
-            }
-        });
-
-    }
-  
-    function zz123Logout(success, error) {
-      Lampa.Storage.set('zz123_userPass', '');
-    //   Lampa.Storage.set('zz123_userName', '');
-      Lampa.Storage.set("zz123UserInfo","");
-      Lampa.Storage.set("zz123_my_pop_sheet","");
-      if (success) success();
-    };
 })();
