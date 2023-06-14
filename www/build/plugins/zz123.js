@@ -101,6 +101,7 @@
                     }
                 };
             }
+            console.log(headercontent)
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
             if (!!window.cordova) {
