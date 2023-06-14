@@ -258,7 +258,6 @@
                 card.on('hover:long', function () {
                     // console.log(object)
                     var archiveMenu = [];
-                    console.log('object.hasOwnProperty("type")',object.hasOwnProperty("type"))
                     if (object.hasOwnProperty("type")){
                         if (object.type === 'favorite') {
                             archiveMenu.push({
@@ -588,45 +587,24 @@
     var catalogs = [{
         title: '首页',
         url: 'https://zz123.com/ajax/?act=index_faxian&lang=&page=1',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '热门歌手',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '歌单',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '榜单',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '老歌',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '年代',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },{
         title: '流行',
         url: 'https://zz123.com/ajax/',
-        code: '',
-        type: 'playlist',
-        connectype: ''
     },];
 
     function player() {
@@ -988,10 +966,8 @@
                 Lampa.Activity.push({
                     url: tab.url+tab.cat,
                     title: '听歌 - '+ titlename +' - ' + tab.title,
-                    // code: '',
                     component: 'ZZMUSIC',
                     type: gotype,
-                    // connectype: '',
                     page: 1
                 });
                 Lampa.Modal.close();
