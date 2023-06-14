@@ -3581,6 +3581,7 @@
             dataType: 'json',
             headers: {
                 'Referer': 'https://zz123.com/',
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
             }
         });
 
@@ -3615,6 +3616,7 @@
             dataType: 'json',
             headers: {
                 'Referer': 'https://zz123.com/',
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
             }
         });
 
