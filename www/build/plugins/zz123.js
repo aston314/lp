@@ -3457,7 +3457,7 @@
 
         Lampa.Params.select('zz123_userName', '', '');
         Lampa.Params.select('zz123_userPass', '', '');
-        Lampa.Template.add('settings_mod_zz123', "<div>\n  <div class=\"settings-param selector\" data-name=\"zz123_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">邮箱</div> <div class=\"settings-param__value\">zz123.com用户名</div> <div class=\"settings-param__descr\">请输入有效邮箱地址</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"zz123_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">验证码</div>\n    <div class=\"settings-param__descr\">请输入验证码</div> </div>\n           <div class=\"settings-param selector\" data-name=\"online_mod_zz123_sendcode\" data-static=\"true\"> <div class=\"settings-param__name\">发送验证码</div> <div class=\"settings-param__status\"></div> </div>\n\n  <div class=\"settings-param selector\" data-name=\"online_mod_zz123_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆/注册</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_zz123_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
+        Lampa.Template.add('settings_mod_zz123', "<div>\n  <div class=\"settings-param selector\" data-name=\"zz123_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">邮箱</div> <div class=\"settings-param__value\">zz123.com用户名</div> <div class=\"settings-param__descr\">邮箱地址</div> </div>\n \n    <div class=\"settings-param selector\" data-name=\"zz123_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">验证码</div>\n    <div class=\"settings-param__descr\">请输入验证码</div> </div>\n           <div class=\"settings-param selector\" data-name=\"online_mod_zz123_sendcode\" data-static=\"true\"> <div class=\"settings-param__name\">发送验证码</div> <div class=\"settings-param__status\"></div> </div>\n\n  <div class=\"settings-param selector\" data-name=\"online_mod_zz123_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆/注册</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_zz123_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
 
         
         function addSettingsZZMUSIC() {
@@ -3575,12 +3575,12 @@
                 if (error) error();
             }
         }, function (a, c) {
-            Lampa.Noty.show('请在设置中使用正确的邮箱和验证码。');
+            Lampa.Noty.show('请填写正确的邮箱和验证码。');
             if (error) error();
         }, getAsUriParameters(postdata), {
             dataType: 'json',
             headers: {
-                'Referer': aipurl,
+                'Referer': 'https://zz123.com/',
             }
         });
 
@@ -3596,6 +3596,8 @@
             "lang": '',
         };
 
+        console.log(getAsUriParameters(postdata))
+
         network.clear();
         network.timeout(8000);
         network["native"](url, function (json) {
@@ -3607,12 +3609,12 @@
                 Lampa.Noty.show(json.msg);
             }
         }, function (a, c) {
-            Lampa.Noty.show('请在设置中使用正确的邮箱。');
+            Lampa.Noty.show('请填写正确的邮箱。');
             if (error) error();
         }, getAsUriParameters(postdata), {
             dataType: 'json',
             headers: {
-                'Referer': aipurl,
+                'Referer': 'https://zz123.com/',
             }
         });
 
