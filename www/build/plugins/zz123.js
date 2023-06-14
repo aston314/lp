@@ -258,26 +258,27 @@
                 card.on('hover:long', function () {
                     // console.log(object)
                     var archiveMenu = [];
+                    console.log('object.hasOwnProperty("type")',object.hasOwnProperty("type"))
                     if (object.hasOwnProperty("type")){
                         if (object.type === 'favorite') {
                             archiveMenu.push({
                                 title: '删除 ' + element.mname,
                                 url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheet_id') + '&sheet_type=0&lang=',
-                                // connectype: 'native'
+                                
                             });
                         }
                     } else {
                         archiveMenu.push({
                             title: '收藏 ' + element.mname,
                             url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
-                            // connectype: 'native'
+                            
                         });
                     }
                     
                     archiveMenu.push({
                         title: '查看 '+element.sname+' 所有歌曲',
                         url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
-                        // connectype: 'native'
+                        
                     });
                     Lampa.Select.show({
                         title: '操作',
@@ -309,7 +310,6 @@
                                     url: sel.url,
                                     title: '听歌 - ' + sel.title,
                                     component: 'ZZMUSIC',
-                                    // connectype: sel.connectype, 
                                     page: 1
                                 });
                             };
@@ -387,15 +387,6 @@
 				_this2.selectGroup();
 			});
             info.find('.open--favorite').on('hover:enter hover:click', function () {
-                // console.log('Lampa.Storage.get("zz123_my_pop_sheet")',Lampa.Storage.get("zz123_my_pop_sheet"))
-                // Lampa.Activity.push({
-                //     url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=vqqvdz&sheettype=0&lang=&page=1',
-                //     title: '听歌 - 我的收藏',
-                //     component: 'ZZMUSIC',
-                //     login: true, 
-                //     page: 1
-                // });
-
                 Lampa.Modal.open({
                     title: '',
                     html: Lampa.Template.get('modal_loading'),
@@ -453,7 +444,7 @@
                             title: '听歌 - 搜索"' + new_value + '"',
                             // waitload: false,
                             component: 'ZZMUSIC',
-                            // connectype: 'native',
+                            ,
                             page: 1
                         });
                     }
