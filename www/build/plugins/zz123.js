@@ -322,6 +322,7 @@
                         dataType: 'json',
                         headers: {
                             'Referer': aipurl,
+                            'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
                         }
 
                     });
@@ -774,6 +775,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
                 }
 
             });
@@ -820,6 +822,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
                 }
             });
         }
@@ -868,6 +871,7 @@
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
+                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; '
                 }
 
             });
