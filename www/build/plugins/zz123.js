@@ -268,7 +268,7 @@
                         title: '操作',
                         items: archiveMenu,
                         onSelect: function (sel) {
-                            if (sel.title.indexOf('收藏') !== -1) {
+                            if (sel.title.indexOf('收藏') !== -1 || sel.title.indexOf('删除') !== -1) {
                                 network["native"](sel.url, function (json) {
                                     if (json.status == 200) {
                                         Lampa.Noty.show(json.msg);
@@ -288,7 +288,8 @@
                                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                                     }
                                 });
-                            } else {
+                            } 
+                            else {
                                 Lampa.Activity.push({
                                     url: sel.url,
                                     title: '听歌 - ' + sel.title,
