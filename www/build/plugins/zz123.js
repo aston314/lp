@@ -66,25 +66,40 @@
             var _this = this;
 
             this.activity.loader(true);
+            
             musiclist_ = [];
-            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            if (!!window.cordova) {
-                network.silent(aipurl + '?' + postdata, this.build.bind(this), function () {
-                    var empty = new Lampa.Empty();
-                    html.append(empty.render());
-                    _this.start = empty.start;
 
-                    _this.activity.loader(false);
+            var headercontent = {};
 
-                    _this.activity.toggle();
-                }, postdata, {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    }
-                });
+            if (object.hasOwnProperty("login")) {
+                if (object.login) {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie': Lampa.Storage.get("zz123UserInfo", "")
+                        }
+                    };
+                } else {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        }
+                    };
+                }
             } else {
-                network["native"](aipurl + '?' + postdata, this.build.bind(this), function () {
+                headercontent = {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    }
+                };
+            }
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+            
+            if (!!window.cordova) {
+                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -92,12 +107,17 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, postdata, {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    }
-                });
+                }, postdata, headercontent);
+            } else {
+                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
+
+                    _this.activity.loader(false);
+
+                    _this.activity.toggle();
+                }, postdata, headercontent);
             }
             return this.render();
         };
@@ -106,32 +126,50 @@
             
             var _this2 = this;
 
+            var headercontent = {};
+
+            if (object.hasOwnProperty("login")) {
+                if (object.login) {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie': Lampa.Storage.get("zz123UserInfo", "")
+                        }
+                    };
+                } else {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        }
+                    };
+                }
+            } else {
+                headercontent = {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    }
+                };
+            }
+
             if (waitload) return;
             waitload = true;
             object.page++;
             // var postdata = this.getUrlParamsAndBuildQueryString(object.url)+ '&page=' + object.page;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            // console.log(this.getUrlParamsAndBuildQueryString(object.url),aipurl + '?' + postdata)
+            // console.log(this.getUrlParamsAndBuildQueryString(object.url),object.url.substring(0, object.url.indexOf('?') + 1) + postdata)
             if (!!window.cordova) {
-                network.silent(aipurl + '?' + postdata, function (result) {
+                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    }
-                });
+                }, postdata , headercontent);
             } else {
-                network["native"](aipurl + '?' + postdata, function (result) {
+                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , {
-                    dataType: 'json',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    }
-                });
+                }, postdata , headercontent);
             }
         };
         this.donext = function (result) {
@@ -192,7 +230,7 @@
                 card.on('hover:long', function () {
                     var archiveMenu = [];
                     archiveMenu.push({
-                        title: '收藏' + element.mname,
+                        title: '收藏 ' + element.mname,
                         url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id='+Lampa.Storage.get("zz123_my_pop_sheet", "")+'&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
                         // connectype: 'native'
                     });
@@ -296,13 +334,23 @@
             // $('body').append(Lampa.Template.get('_style', {}, true));
             //info = Lampa.Template.get('info');style="height:5em"
             // <div class="info__lyric" style="position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); width: 800px; height: 80px; background-color: rgba(0, 0, 0, 0.8); color: rgb(243, 217, 0); text-align: center; border-radius: 1em; display: flex; justify-content: center; align-items: center; z-index: 9999; font-size: 3em; font-size: 1.8em; line-height: 1.3; white-space: nowrap; overflow: hidden;"></div>
-            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div> <div class=\"full-start__button selector open--favorite\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>收藏</span>\n    </div>           <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
 			Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
 			var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
             info.find('#web_filtr').append(btn);
             info.find('.view--category').on('hover:enter hover:click', function () {
 				_this2.selectGroup();
+			});
+            info.find('.open--favorite').on('hover:enter hover:click', function () {
+                Lampa.Activity.push({
+                    url: 'https://zz123.com/myajax/?act=sheetsong&url=%2Fmyajax%2F&sheetid='+Lampa.Storage.get("zz123_my_pop_sheet", "")+'&sheettype=0&lang=&page=1',
+                    title: '听歌 - 我的收藏',
+                    component: 'ZZMUSIC',
+                    login: true, 
+                    page: 1
+                });
+				
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
