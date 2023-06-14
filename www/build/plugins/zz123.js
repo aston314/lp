@@ -396,7 +396,21 @@
                 //     page: 1
                 // });
 
+                Lampa.Modal.open({
+                    title: '',
+                    html: Lampa.Template.get('modal_loading'),
+                    size: 'small',
+                    align: 'center',
+                    mask: true,
+                    onBack: function onBack() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content');
+                    }
+                });
+
                 network["native"]('https://zz123.com/myajax/', function (json) {
+                    Lampa.Modal.close();
                     var playlistname = [];
                     if (json.status == 200) {
                         json.data.forEach(function (element, i) {
@@ -410,6 +424,7 @@
                         // Lampa.Controller.toggle('content');
                     }
                 }, function (a, c) {
+                    Lampa.Modal.close();
                     Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
                 }, 'act=my_pop_sheet&lang=', {
                     dataType: 'json',
