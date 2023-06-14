@@ -174,12 +174,26 @@
                 network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , headercontent);
+                }, postdata , {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                });
             } else {
                 network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
-                }, postdata , headercontent);
+                }, postdata , {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                });
             }
         };
         this.donext = function (result) {
