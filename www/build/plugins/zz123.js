@@ -242,6 +242,7 @@
                 });
                 // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
+                    console.log(object)
                     var archiveMenu = [];
                     if (object.hasOwnProperty("type")){
                         if (object.type === 'favorite') {
