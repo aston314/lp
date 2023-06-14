@@ -62,6 +62,20 @@
             return urlParams.join('&'); // 获取生成的查询字符串
         };
 
+        this.getQueryParamValue = function (url, param) {
+            var queryString = url.split('?')[1];
+            if (queryString) {
+                var queryParams = queryString.split('&');
+                for (var i = 0; i < queryParams.length; i++) {
+                    var paramParts = queryParams[i].split('=');
+                    if (paramParts[0] === param) {
+                        return paramParts[1];
+                    }
+                }
+            }
+            return null;
+        }
+
         this.create = function () {
             var _this = this;
 
@@ -102,8 +116,8 @@
                 };
             }
             
-            console.log(object.url)
-            console.log(Lampa.Storage.get("zz123UserInfo", ""))
+            // console.log(object.url)
+            // console.log(Lampa.Storage.get("zz123UserInfo", ""))
             
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
@@ -242,13 +256,13 @@
                 });
                 // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
-                    console.log(object)
+                    // console.log(object)
                     var archiveMenu = [];
                     if (object.hasOwnProperty("type")){
                         if (object.type === 'favorite') {
                             archiveMenu.push({
                                 title: '删除 ' + element.mname,
-                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=&sheet_type=0&lang=',
+                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheet_id') + '&sheet_type=0&lang=',
                                 // connectype: 'native'
                             });
                         }
