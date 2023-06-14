@@ -104,7 +104,7 @@
             
             console.log(object.url)
             console.log(Lampa.Storage.get("zz123UserInfo", ""))
-            console.log(postdata)
+            
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
             if (!!window.cordova) {
@@ -360,9 +360,9 @@
 				_this2.selectGroup();
 			});
             info.find('.open--favorite').on('hover:enter hover:click', function () {
-                console.log('Lampa.Storage.get("zz123_my_pop_sheet")',Lampa.Storage.get("zz123_my_pop_sheet"))
+                // console.log('Lampa.Storage.get("zz123_my_pop_sheet")',Lampa.Storage.get("zz123_my_pop_sheet"))
                 Lampa.Activity.push({
-                    url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheettype=0&lang=&page=1',
+                    url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=vqqvdz&sheettype=0&lang=&page=1',
                     title: '听歌 - 我的收藏',
                     component: 'ZZMUSIC',
                     login: true, 
