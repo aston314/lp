@@ -596,6 +596,9 @@
         title: '首页',
         url: 'https://zz123.com/ajax/?act=index_faxian&lang=&page=1',
     },{
+        title: '特色榜单',
+        url: 'https://zz123.com/ajax/',
+    },{
         title: '热门歌手',
         url: 'https://zz123.com/ajax/',
     },{
@@ -3576,6 +3579,46 @@
                         ]
                     ];
                     popupWindows(playlistname, aipurl+'?act=geshou_music&lang=&page=1&id=', 6, "playlist", "热门歌手") 
+                }else if (a.title == '特色榜单') {
+                    playlistname =[
+                        [
+                            "猜你喜欢",
+                            "age"
+                        ],
+                        [
+                            "香港地区日榜",
+                            "city"
+                        ],
+                        [
+                            "昨日热搜榜",
+                            "hotsearch"
+                        ],
+                        [
+                            "女神听歌周榜",
+                            "girl"
+                        ],
+                        [
+                            "男神听歌周榜",
+                            "boy"
+                        ],
+                        [
+                            "古怪双子座榜",
+                            "constellation"
+                        ],
+                        [
+                            "会员收藏日榜",
+                            "collect_tuijian"
+                        ],
+                        [
+                            "会员下载日榜",
+                            "download_rank"
+                        ],
+                        [
+                            "近30天热评榜",
+                            "hot_comment_music"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl+'?act=featured_list&lang=&page=1&t=', 6, "playlist", "特色榜单") 
                 }
                 else {
                     Lampa.Activity.push({
