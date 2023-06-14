@@ -380,20 +380,21 @@
                 //     page: 1
                 // });
 
-                var playlistname ={};
                 network["native"]('https://zz123.com/myajax/', function (json) {
-
+                    var playlistname = [];
                     if (json.status == 200) {
                         json.data.forEach(function (element, i) {
-                            // playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
-                            playlistname[i] = [element.name + ' 共' + element.song_num + '首', element.id];
+                            playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                         })
+                        if (playlistname.length) {
+                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "我的收藏")
+                        }
                     } else {
                         Lampa.Noty.show(json.msg);
-                        Lampa.Controller.toggle('content');
+                        // Lampa.Controller.toggle('content');
                     }
                 }, function (a, c) {
-                    Lampa.Noty.show(network.errorDecode(a, c));
+                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录网站。');
                 }, 'act=my_pop_sheet&lang=', {
                     dataType: 'json',
                     headers: {
@@ -402,10 +403,7 @@
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
-                console.log('playlistname',Object.values(playlistname))
-                if (playlistname.length) {
-                    popupWindows(Object.values(playlistname), 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "选择歌单")
-                }
+                // console.log('playlistname',playlistname)
 				
 			});
             info.find('.open--find').on('hover:enter hover:click', function () {
