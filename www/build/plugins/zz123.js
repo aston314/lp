@@ -192,8 +192,8 @@
                 card.on('hover:long', function () {
                     var archiveMenu = [];
                     archiveMenu.push({
-                        title: '收藏' + element.sname,
-                        url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=vqqvdz&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                        title: '收藏' + element.mname,
+                        url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id='+Lampa.Storage.get("zz123_my_pop_sheet", "")+'&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
                         // connectype: 'native'
                     });
                     archiveMenu.push({
@@ -221,11 +221,9 @@
                                     dataType: 'json',
                                     headers: {
                                         'Referer': aipurl,
-                                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
-                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                                        'Cookie': Lampa.Storage.get("zz123UserInfo", "")
                                     }
                                 });
-
                             } else {
                                 Lampa.Activity.push({
                                     url: sel.url,
@@ -3615,6 +3613,28 @@
             }
         });
 
+        var postdata =
+        {
+            "act": 'my_pop_sheet',
+            "lang": '',
+        };
+
+        network["native"]('https://zz123.com/myajax/', function (json) {
+            if (json.status == 200) {
+                Lampa.Storage.set("zz123_my_pop_sheet", json.data[0].id);
+                // Lampa.Noty.show(json.msg);
+            } else {
+                // Lampa.Noty.show(json.msg);
+            }
+        }, function (a, c) {
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': aipurl,
+                'Cookie': Lampa.Storage.get("zz123UserInfo", "")
+            }
+        });
+
     }
 
     function zz123Sendcode(success, error) {
@@ -3656,6 +3676,7 @@
       Lampa.Storage.set('zz123_userPass', '');
     //   Lampa.Storage.set('zz123_userName', '');
       Lampa.Storage.set("zz123UserInfo","");
+      Lampa.Storage.set("zz123_my_pop_sheet","");
       if (success) success();
     };
 })();
