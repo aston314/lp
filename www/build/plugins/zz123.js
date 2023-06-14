@@ -3618,7 +3618,7 @@
                             "hot_comment_music"
                         ]
                     ];
-                    popupWindows(playlistname, aipurl + '?act=featured_list&lang=&page=1&t=', 6, "playlist", "特色榜单")
+                    popupWindows(playlistname, aipurl + '?act=featured_list&lang=&page=1&t=', 3, "playlist", "特色榜单")
                 }
                 else {
                     Lampa.Activity.push({
