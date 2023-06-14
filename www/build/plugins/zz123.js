@@ -209,11 +209,14 @@
                                 network["native"](sel.url, function (json) {
                                     if (json.status == 200) {
                                         Lampa.Noty.show(json.msg);
+                                        Lampa.Controller.toggle('content');
                                     } else {
                                         Lampa.Noty.show(json.msg);
+                                        Lampa.Controller.toggle('content');
                                     }
                                 }, function (a, c) {
                                     Lampa.Noty.show('你还没有登录，请在设置-听歌中登录网站。');
+                                    Lampa.Controller.toggle('content');
                                 }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
                                     dataType: 'json',
                                     headers: {
