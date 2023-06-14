@@ -382,6 +382,7 @@
 
                 var playlistname =[];
                 network["native"]('https://zz123.com/myajax/', function (json) {
+                    console.log(json)
                     if (json.status == 200) {
                         json.data.forEach(function (element, i) {
                             playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
@@ -391,6 +392,7 @@
                         Lampa.Controller.toggle('content');
                     }
                 }, function (a, c) {
+                    Lampa.Noty.show(network.errorDecode(a, c));
                 }, 'act=my_pop_sheet&lang=', {
                     dataType: 'json',
                     headers: {
@@ -399,6 +401,7 @@
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
                 });
+                console.log('playlistname',playlistname)
                 if (playlistname.length) {
                     popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "选择歌单")
                 }
