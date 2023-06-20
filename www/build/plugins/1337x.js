@@ -659,7 +659,7 @@
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
-                            title: 'x1337 - ' + a.title,
+                            title: '1337x - ' + a.title,
                             component: 'x1337',
                             page: 1
                         });
