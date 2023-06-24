@@ -87,42 +87,42 @@
         // },
         {
             title: "LIBVIO",
-            link: "https://libvio.fun",
+            link: "https://libvio.cc",
             show: "portrait",
             next: "search",
             datasort: "",
             use_referer: true,
             category: [{
                 title: '最近更新',
-                url: 'https://libvio.fun/',
+                url: 'https://libvio.cc/',
                 quantity: ':lt(12)'
             }, {
                 title: '电影',
-                url: 'https://libvio.fun/type/1.html',
+                url: 'https://libvio.cc/type/1.html',
                 quantity: ''
             }, {
                 title: '剧集',
-                url: 'https://libvio.fun/type/2.html',
+                url: 'https://libvio.cc/type/2.html',
                 quantity: ''
             }, {
                 title: '日韩剧',
-                url: 'https://libvio.fun/type/15.html',
+                url: 'https://libvio.cc/type/15.html',
                 quantity: ''
             }, {
                 title: '国产剧',
-                url: 'https://libvio.fun/type/13.html',
+                url: 'https://libvio.cc/type/13.html',
                 quantity: ''
             }, {
                 title: '欧美剧',
-                url: 'https://libvio.fun/type/16.html',
+                url: 'https://libvio.cc/type/16.html',
                 quantity: ''
             }, {
                 title: '港台剧',
-                url: 'https://libvio.fun/type/14.html',
+                url: 'https://libvio.cc/type/14.html',
                 quantity: ''
             }, {
                 title: '动漫',
-                url: 'https://libvio.fun/type/4.html',
+                url: 'https://libvio.cc/type/4.html',
                 quantity: ''
             }],
             list: {
@@ -168,7 +168,7 @@
                 }
             },
             search: {
-                url: 'https://libvio.fun/search/-------------.html?wd=#msearchword&submit='
+                url: 'https://libvio.cc/search/-------------.html?wd=#msearchword&submit='
             }
         },
         // {
@@ -637,67 +637,67 @@
                 url: "http://www.lezhutv.com/search-pg-1-wd-#msearchword.html"
             }
         },
-        {
-            title: "Auete影视",
-            link: "https://auete.com",
-            show: "portrait",
-            next: "search",
-            datasort: "",
-            use_referer: false,
-            category: [{
-                title: "电影",
-                url: "https://auete.com/Movie/index.html",
-                quantity: ''
-            },
-            {
-                title: "电视剧",
-                url: "https://auete.com/Tv/index.html",
-                quantity: ''
-            },
-            {
-                title: "综艺",
-                url: "https://auete.com/Zy/index.html",
-                quantity: ''
-            },
-            {
-                title: "动漫",
-                url: "https://auete.com/Dm/index.html",
-                quantity: ''
-            },
-            {
-                title: "其他",
-                url: "https://auete.com/qita/index.html",
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: "ul.pagination"
-                },
-                videoscontainer: {
-                    selector: "ul.threadlist > li.trans_3",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: "img",
-                    attrName: "alt",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "img",
-                    attrName: "src",
-                    filter: ""
-                },
-                link: {
-                    selector: "a",
-                    attrName: "href",
-                    filter: ""
-                }
-            },
-            search: {
-                url: "https://auete.com/search.php?searchword=#msearchword"
-            }
-        },
+        // {
+        //     title: "Auete影视",
+        //     link: "https://auete.com",
+        //     show: "portrait",
+        //     next: "search",
+        //     datasort: "",
+        //     use_referer: false,
+        //     category: [{
+        //         title: "电影",
+        //         url: "https://auete.com/Movie/index.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "电视剧",
+        //         url: "https://auete.com/Tv/index.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "综艺",
+        //         url: "https://auete.com/Zy/index.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "动漫",
+        //         url: "https://auete.com/Dm/index.html",
+        //         quantity: ''
+        //     },
+        //     {
+        //         title: "其他",
+        //         url: "https://auete.com/qita/index.html",
+        //         quantity: ''
+        //     }],
+        //     list: {
+        //         page: {
+        //             selector: "ul.pagination"
+        //         },
+        //         videoscontainer: {
+        //             selector: "ul.threadlist > li.trans_3",
+        //             attrName: "",
+        //             filter: ""
+        //         },
+        //         title: {
+        //             selector: "img",
+        //             attrName: "alt",
+        //             filter: ""
+        //         },
+        //         thumb: {
+        //             selector: "img",
+        //             attrName: "src",
+        //             filter: ""
+        //         },
+        //         link: {
+        //             selector: "a",
+        //             attrName: "href",
+        //             filter: ""
+        //         }
+        //     },
+        //     search: {
+        //         url: "https://auete.com/search.php?searchword=#msearchword"
+        //     }
+        // },
         // {
         //     title: "JableTV",
         //     link: "https://jable.tv",
