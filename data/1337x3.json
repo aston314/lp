@@ -141,6 +141,15 @@
       "release_date": "2023-02-01"
     },
     {
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/win0vNPBDJ0DFzaGSluIrmi9IhD.jpg",
+      "name": "Love Served Here",
+      "video": "magnet:?xt=urn:btih:F658D8AC50D3416C62C6BE1670F3C8F8A3A6CA6A&dn=Love.Served.Here.2022.1080p.PB.NOW.WEB-DL.DD5.1.x264-CRO-DiAMOND&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Love.Served.Here.2022.1080p.PB.NOW.WEB-DL.DD5.1.x264-CRO-DiAMOND",
+      "cname": "Love Served Here ",
+      "release_date": "2022-06-01"
+    },
+    {
       "tmdbrate": 7.817,
       "picture": "http://image.tmdb.org/t/p/w200/bvVBnlcb4ttDDnWqIrVc6AbKgek.jpg",
       "name": "Harry Potter and the Goblet of Fire",
