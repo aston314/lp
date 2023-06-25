@@ -3764,6 +3764,7 @@
                 if (success) success();
                 Lampa.Storage.set("zz123UserInfo", "test=1; visitref=https://zz123.com/; play_status=pause; login_uid="+userData.uid+"; login_usin="+userData.token+"; ");
                 Lampa.Storage.set('zz123_userPass', '');
+                if (success) success();
                 Lampa.Noty.show(json.msg);
             } else {
                 Lampa.Noty.show(json.msg);
