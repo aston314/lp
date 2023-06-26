@@ -121,17 +121,17 @@
             
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
             
-            if (!!window.cordova) {
-                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
-                    var empty = new Lampa.Empty();
-                    html.append(empty.render());
-                    _this.start = empty.start;
+            // if (!!window.cordova) {
+            //     network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
+            //         var empty = new Lampa.Empty();
+            //         html.append(empty.render());
+            //         _this.start = empty.start;
 
-                    _this.activity.loader(false);
+            //         _this.activity.loader(false);
 
-                    _this.activity.toggle();
-                }, postdata, headercontent);
-            } else {
+            //         _this.activity.toggle();
+            //     }, postdata, headercontent);
+            // } else {
                 network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
@@ -141,7 +141,7 @@
 
                     _this.activity.toggle();
                 }, postdata, headercontent);
-            }
+            // }
             return this.render();
         };
 
@@ -186,19 +186,19 @@
             waitload = true;
             object.page++;
             var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
-            if (!!window.cordova) {
-                network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
-                    _this2.donext(result);
-                    Lampa.Controller.enable('content');
-                }, function (a, c) {
-                }, postdata , headercontent);
-            } else {
+            // if (!!window.cordova) {
+            //     network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+            //         _this2.donext(result);
+            //         Lampa.Controller.enable('content');
+            //     }, function (a, c) {
+            //     }, postdata , headercontent);
+            // } else {
                 network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     Lampa.Controller.enable('content');
                 }, function (a, c) {
                 }, postdata , headercontent);
-            }
+            // }
         };
         this.donext = function (result) {
             var _this2 = this;
