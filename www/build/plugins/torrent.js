@@ -233,7 +233,7 @@
                         descr: '哦，无法获取 ' + object.title + ' 的内容。'
                     });
                     html.append(empty.render());
-                    empty.render().find('.empty__descr').text('哦，无法获取 ' + object.title + ' 的内容。');
+                    
                     var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
                     var ft = $('<div class="empty__footer"></div>');
                     bn.on('hover:enter', function () {
