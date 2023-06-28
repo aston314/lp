@@ -227,7 +227,7 @@
                 // html.append(empty.render());
                 
                 // console.log(a)
-                Lampa.Noty.show(network.errorDecode(a, c));
+                // Lampa.Noty.show(network.errorDecode(a, c));
                 if (a.hasOwnProperty("responseText")) {
                     var empty = new Lampa.Empty({
                         descr: '哦，无法获取 ' + object.title + ' 的内容。'
@@ -237,11 +237,11 @@
                     empty.render().find('.torrentclick').on('hover:enter', function () {
                         _this.selectGroup();
                     });
-                    if (a.hasOwnProperty("responseJSON")) {
-                        Lampa.Noty.show(a.responseJSON.error);
-                    } else {
-                        Lampa.Noty.show(a.statusText);
-                    }
+                    // if (a.hasOwnProperty("responseJSON")) {
+                    //     Lampa.Noty.show(a.responseJSON.error);
+                    // } else {
+                    //     Lampa.Noty.show(a.statusText);
+                    // }
                     // Lampa.Storage.set('online_torrentsite_balanser', catalogs[0].Keyword);
                 }
                 _this.start = empty.start;
