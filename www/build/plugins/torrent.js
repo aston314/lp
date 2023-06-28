@@ -222,7 +222,7 @@
             var _this = this;
             this.activity.loader(true);
 
-            network.silent(geturl, this.build.bind(this), function (a,c) {
+            network["native"](geturl, this.build.bind(this), function (a,c) {
                 // var empty = new Lampa.Empty();
                 // html.append(empty.render());
                 
@@ -276,7 +276,7 @@
             //   if (object.page < 1) {
             waitload = true;
             object.page++;
-            network.silent(geturl + '&page=' + object.page, function (result) {
+            network["native"](geturl + '&page=' + object.page, function (result) {
                 _this2.append(result);
 
                 if (result.data.length) waitload = false;
