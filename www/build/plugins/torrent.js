@@ -341,7 +341,7 @@
                     var maxrow = Math.ceil(items.length / 7) - 1;
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     if (element.picture) Lampa.Background.change(element.picture);
-                    if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
+                    // if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
                 });
                 card.on('hover:enter', function () {
                     var video = {
