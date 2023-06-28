@@ -994,12 +994,22 @@
                             descr: '哦，无法获取 ' + object.title + ' 的内容。'
                         });
                         html.append(empty.render());
-                        $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        //console.log(object)
-                        empty.render().find('.simple-button').on('hover:enter', function () {
-                            //$(".empty__footer").on('hover:enter hover:click', function () {
+                        // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                        // //console.log(object)
+                        // empty.render().find('.simple-button').on('hover:enter', function () {
+                        //     //$(".empty__footer").on('hover:enter hover:click', function () {
+                        //     _this.selectGroup();
+                        // });
+
+                        var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                        var ft = $('<div class="empty__footer"></div>');
+                        bn.on('hover:enter', function () {
                             _this.selectGroup();
                         });
+                        ft.append(bn);
+                        empty.append(ft);
+                        html.append(empty)
+
                         _this.start = empty.start;
                         _this.activity.loader(false);
                         _this.activity.toggle();
