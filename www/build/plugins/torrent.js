@@ -248,7 +248,7 @@
                     // Lampa.Storage.set('online_torrentsite_balanser', catalogs[0].Keyword);
                 } else {
                     var empty = new Lampa.Empty({
-                        descr: '在 ' + object.keyword + ' 中没有找到 ' + object.search_two + ' 的磁力内容。'
+                        descr: '在 ' + object.keyword + ' 中没有找到 ' + object.search + ' 的磁力内容。'
                     });
                     html.append(empty.render());
                     
