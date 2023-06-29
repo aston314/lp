@@ -348,10 +348,10 @@
                 card.on('hover:focus', function () {
                     last = card[0];
                     scroll.update(card, true);
-                    info.find('.info__title').text(element.name + ' ' + element.name);
+                    info.find('.info__title').text(element.name);
                     //console.log(element.oname.match(regexp));
                     //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
-                    info.find('.info__title-original').text(myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''):'') : ''));
+                    info.find('.info__title-original').text(element.size +' ' + myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''):'') : ''));
                     // info.find('.info__rate span').text(parseFloat((element.tmdbrate ? element.tmdbrate : 0)).toPrecision(2).replace(/\.0+$/, ''));
                     // info.find('.info__rate').toggleClass('hide', !(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'') > 0));
 
