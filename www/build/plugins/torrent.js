@@ -305,7 +305,7 @@
                 card.find('.card__img').attr('src', element.picture);
                 var regexp = /[0-9]+(\.[0-9]{1,2})?(GB|MB|gb|mb|p)/g;
 
-                var regexp_ = /[0-9]+(\.[0-9]{1,2})?(p)/g;
+                var regexp_ = /([0-9]{3,4}[pi])/g;
                 if (element.name) {
                     var c = element.name.match(regexp);
                     if (c) {
@@ -335,7 +335,7 @@
                     }
                 };
 
-                var regexp2 = /(?:PPV.)?[HP]DTV|(?:HD)?TC|[cC]am|(?:HD)?CAM|B[rR]Rip|WEBRip|WEB|TS|(?:PPV )?WEB-?DL(?: DVDRip)?|H[dD]Rip|DVDRip|DVDRiP|DVDRIP|CamRip|W[EB]B[rR]ip|[Bb]lu[Rr]ay|DvDScr|hdtv/;
+                var regexp2 = /(?:PPV.)?[HP]DTV|(?:HD)?TC|[cC]am|(?:HD)?CAM|B[rR]Rip|WEBRip|WEB-Rip|WEB-DL|WEB|TS|(?:PPV )?WEB-?DL(?: DVDRip)?|H[dD]Rip|DVDRip|DVDRiP|DVDRIP|CamRip|W[EB]B[rR]ip|[Bb]lu[Rr]ay|DvDScr|hdtv/;
                 if (element.name) {
                     var quality = element.name.match(regexp2) ? element.name.match(regexp2).toString().replace(/ |\.|\(|\)/g, '') : '';
                     if (quality) {
