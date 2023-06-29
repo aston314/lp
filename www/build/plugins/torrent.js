@@ -120,18 +120,18 @@
                 type: 'trending',
             },],
         },
-        {
-            title: 'YTS',
-            Keyword: 'yts',
-            limit: 20,
-            category: [{
-                title: '最新',
-                type: 'recent'
-            }, {
-                title: '热门',
-                type: 'trending',
-            },],
-        },
+        // {
+        //     title: 'YTS',
+        //     Keyword: 'yts',
+        //     limit: 20,
+        //     category: [{
+        //         title: '最新',
+        //         type: 'recent'
+        //     }, {
+        //         title: '热门',
+        //         type: 'trending',
+        //     },],
+        // },
         {
             title: 'Limetorrent',
             Keyword: 'limetorrent',
@@ -312,7 +312,7 @@
                         var quality = c[0].match(regexp_) ? c[0].match(regexp_) : '';
                         if (quality) {
                             card.find('.card__view').append('<div class="card__quality"></div>');
-                            card.find('.card__quality').text(quality);
+                            card.find('.card__quality').text(quality.toString().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''));
                         };
                     };
                 };
@@ -326,7 +326,7 @@
                 card.find('.card__view').css({
                         'padding-bottom': '150%',
               }).width('auto');*/
-                var regexp1 = /([\[\(]?((?:19[0-9]|20[0-9])[0-9])[\]\)]?)/g;
+                var regexp1 = /([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/g;
                 if (element.name) {
                     var myear = element.name.match(regexp1) ? element.name.match(regexp1).toString().replace(/ |\.|\(|\)/g, '') : '';
                     if (myear !== '') {
@@ -335,13 +335,23 @@
                     }
                 };
 
+                var regexp2 = /(?:PPV.)?[HP]DTV|(?:HD)?TC|[cC]am|(?:HD)?CAM|B[rR]Rip|WEBRip|WEB|TS|(?:PPV )?WEB-?DL(?: DVDRip)?|H[dD]Rip|DVDRip|DVDRiP|DVDRIP|CamRip|W[EB]B[rR]ip|[Bb]lu[Rr]ay|DvDScr|hdtv/;
+                if (element.name) {
+                    var quality = element.name.match(regexp2) ? element.name.match(regexp2).toString().replace(/ |\.|\(|\)/g, '') : '';
+                    if (quality) {
+                        card.find('.card__icons-inner').text(quality)
+                        card.find('.card__icons-inner').css({ 'padding': '0.4em 0.4em' })
+                    }
+                    
+                } 
+
                 card.on('hover:focus', function () {
                     last = card[0];
                     scroll.update(card, true);
                     info.find('.info__title').text(element.name + ' ' + element.name);
                     //console.log(element.oname.match(regexp));
                     //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
-                    info.find('.info__title-original').text(myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase():'') : ''));
+                    info.find('.info__title-original').text(myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''):'') : ''));
                     // info.find('.info__rate span').text(parseFloat((element.tmdbrate ? element.tmdbrate : 0)).toPrecision(2).replace(/\.0+$/, ''));
                     // info.find('.info__rate').toggleClass('hide', !(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'') > 0));
 
