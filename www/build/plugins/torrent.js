@@ -738,7 +738,7 @@
                     var balanser = Lampa.Storage.get('online_torrentsite_balanser');
                     Lampa.Activity.push({
                         url: '',
-                        title: '磁力搜索 - ' + e.data.movie.title,
+                        title: '磁力搜索 - ' + balanser + ' - ' + e.data.movie.title,
                         component: 'torrentapi',
                         search: e.data.movie.title,
                         search_one: e.data.movie.title,
