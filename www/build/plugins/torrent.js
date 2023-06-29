@@ -240,7 +240,6 @@
                     empty.append(ft);
                     html.append(empty)
                     
-                    
                     // if (a.hasOwnProperty("responseJSON")) {
                     //     Lampa.Noty.show(a.responseJSON.error);
                     // } else {
@@ -248,8 +247,22 @@
                     // }
                     // Lampa.Storage.set('online_torrentsite_balanser', catalogs[0].Keyword);
                 } else {
-                    var empty = new Lampa.Empty();
+                    var empty = new Lampa.Empty({
+                        descr: '在 ' + object.keyword + ' 中没有找到 ' + object.title + ' 的磁力内容。'
+                    });
                     html.append(empty.render());
+                    
+                    var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                    var ft = $('<div class="empty__footer"></div>');
+                    bn.on('hover:enter', function () {
+                        _this.selectGroup();
+                    });
+                    ft.append(bn);
+                    empty.append(ft);
+                    html.append(empty)
+                    // var empty = new Lampa.Empty();
+                    // html.append(empty.render());
+                    // html.find('.empty__descr').text('在'+object.keyword+'中没有找到相关磁力内容');
                 }
                 _this.start = empty.start;
 
