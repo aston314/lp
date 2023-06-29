@@ -606,7 +606,7 @@
                 right: function right() {
                     // Navigator.move('right');
                     if (Navigator.canmove('right')) Navigator.move('right');
-                    else _this.selectGroup();
+                    else listNavigation();//_this.selectGroup();
                 },
                 up: function up() {
                     // if (Navigator.canmove('up')) Navigator.move('up');
