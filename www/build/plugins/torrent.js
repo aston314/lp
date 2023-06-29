@@ -222,10 +222,7 @@
             var _this = this;
             this.activity.loader(true);
 
-            network["native"](geturl, this.build.bind(this), function (a,c) {
-                // var empty = new Lampa.Empty();
-                // html.append(empty.render());
-                
+            network["native"](geturl, this.build.bind(this), function (a,c) {                
                 // console.log(a)
                 // Lampa.Noty.show(network.errorDecode(a, c));
                 if (a.hasOwnProperty("responseText")) {
@@ -250,6 +247,9 @@
                     //     Lampa.Noty.show(a.statusText);
                     // }
                     // Lampa.Storage.set('online_torrentsite_balanser', catalogs[0].Keyword);
+                } else {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
                 }
                 _this.start = empty.start;
 
