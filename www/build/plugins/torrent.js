@@ -4,192 +4,241 @@
         {
             title: '1337x',
             Keyword: '1337x',
+            search_available: false,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'Torrent Galaxy',
             Keyword: 'tgx',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
-        }, {
+        }, 
+        {
             title: 'Torlock',
             Keyword: 'torlock',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'PirateBay',
             Keyword: 'piratebay',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'Nyaasi',
             Keyword: 'nyaasi',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: false
             },],
         },
         {
             title: 'Zooqle',
             Keyword: 'zooqle',
+            search_available: false,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'KickAss',
             Keyword: 'kickass',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'Bitsearch',
             Keyword: 'bitsearch',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: false
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'MagnetDL',
             Keyword: 'magnetdl',
+            search_available: false,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'Libgen',
             Keyword: 'libgen',
+            search_available: false,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
-        // {
-        //     title: 'YTS',
-        //     Keyword: 'yts',
-        //     limit: 20,
-        //     category: [{
-        //         title: '最新',
-        //         type: 'recent'
-        //     }, {
-        //         title: '热门',
-        //         type: 'trending',
-        //     },],
-        // },
+        {
+            title: 'YTS',
+            Keyword: 'yts',
+            search_available: true,
+            limit: 20,
+            category: [{
+                title: '最新',
+                type: 'recent',
+                category_available: true
+            }, {
+                title: '热门',
+                type: 'trending',
+                category_available: true
+            },],
+        },
         {
             title: 'Limetorrent',
             Keyword: 'limetorrent',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'TorrentFunk',
             Keyword: 'torrentfunk',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'Glodls',
             Keyword: 'glodls',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'TorrentProject',
             Keyword: 'torrentproject',
+            search_available: false,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },
         {
             title: 'YourBittorrent',
             Keyword: 'ybt',
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
-                type: 'recent'
+                type: 'recent',
+                category_available: true
             }, {
                 title: '热门',
                 type: 'trending',
+                category_available: true
             },],
         },];
     function torrentapi(object) {
@@ -311,22 +360,27 @@
             data.data.forEach(function (element) {
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: element.size + ' ' + element.leechers + ' ' +element.seeders + ' ' + element.date
+                    release_year: (element.size ? element.size : '') + ' ' + (element.leechers ? element.leechers : '') + ' ' + (element.seeders ? element.seeders : '') + ' ' + (element.date ? element.date : '')
                 });
                 card.addClass('card--category');
-                card.find('.card__img').attr('src', element.picture);
+                card.find('.card__img').attr('src', element.poster);
                 var regexp = /[0-9]+(\.[0-9]{1,2})?(GB|MB|gb|mb|p)/g;
 
                 var regexp_ = /([0-9]{3,4}[pi])/g;
                 if (element.name) {
-                    var c = element.name.match(regexp);
-                    if (c) {
-                        var quality = c[0].match(regexp_) ? c[0].match(regexp_) : '';
-                        if (quality) {
-                            card.find('.card__view').append('<div class="card__quality"></div>');
-                            card.find('.card__quality').text(quality.toString().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''));
+                    if (element.rating) {
+                        card.find('.card__view').append('<div class="card__quality"></div>');
+                        card.find('.card__quality').text(element.rating);
+                     } else {
+                        var c = element.name.match(regexp);
+                        if (c) {
+                            var quality = c[0].match(regexp_) ? c[0].match(regexp_) : '';
+                            if (quality) {
+                                card.find('.card__view').append('<div class="card__quality"></div>');
+                                card.find('.card__quality').text(quality.toString().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''));
+                            };
                         };
-                    };
+                    }
                 };
                 /*card.addClass('card--collection').width('14.266%');
                 //card.find('.card__img').attr('src', element.picture);
@@ -363,7 +417,7 @@
                     info.find('.info__title').text(element.name);
                     //console.log(element.oname.match(regexp));
                     //info.find('.info__title-original').text(element.time + (element.quality ? ' / ' + element.quality : ''));
-                    info.find('.info__title-original').text(element.size +' ' + myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''):'') : ''));
+                    info.find('.info__title-original').text((element.size?element.size:'') +' ' + myear + (element.name.match(regexp) ? ' ' +(element.name.match(regexp)?element.name.match(regexp).join(" ").toUpperCase().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''):'') : ''));
                     // info.find('.info__rate span').text(parseFloat((element.tmdbrate ? element.tmdbrate : 0)).toPrecision(2).replace(/\.0+$/, ''));
                     // info.find('.info__rate').toggleClass('hide', !(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,'') > 0));
 
@@ -373,49 +427,132 @@
                     // if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
                 });
                 card.on('hover:enter', function () {
-                    var video = {
-                        title: element.name,
-                        url: element.video
-                    };
+                    if (element.torrents){
+                        if (element.torrents.length){
+                            var sources = [];
+                            element.torrents.forEach(function(item, index, array) {
+                                sources.push({
+                                    title: item.quality + ' ' + (item.type ? item.type : '') + ' ' + (item.size ? item.size : ''),
+                                    url: item.magnet,
+                                });
+                            });
+                            var html_ = $('<div></div>');
+                            var navigation = $('<div class="navigation-tabs"></div>');
+                            sources.forEach(function (tab, i) {
+                                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                                button.on('hover:enter', function () {
+                                    var mlink = tab.url;
+                                    var video = {
+                                        title: element.title,
+                                        url: element.video
+                                    };
 
-                    /*Lampa.Player.play(video);
-                    Lampa.Player.playlist([video]);*/
+                                    if (window.intentShim) {
+                                        var intentExtra = {
+                                            title: element.name,
+                                            poster: element.poster,
+                                            action: "play",
+                                            data: {
+                                                lampa: true
+                                            }
+                                        };
+                                        window.plugins.intentShim.startActivity(
+                                            {
+                                                action: window.plugins.intentShim.ACTION_VIEW,
+                                                url: mlink,
+                                                extras: intentExtra
+                                            },
+                                            function () { },
+                                            function () { console.log('Failed to open magnet URL via Android Intent') }
 
-                    if (window.intentShim) {
-                        var intentExtra = {
-                            title: element.name,
-                            poster: element.picture,
-                            action: "play",
-                            data: {
-                                lampa: true
-                            }
-                        };
-                        window.plugins.intentShim.startActivity(
-                            {
-                                action: window.plugins.intentShim.ACTION_VIEW,
-                                url: element.magnet,
-                                extras: intentExtra
-                            },
-                            function () { },
-                            function () { console.log('Failed to open magnet URL via Android Intent') }
+                                        );
+                                    } else {
+                                        var SERVER = {
+                                            "object": {
+                                                "Title": "",
+                                                "MagnetUri": "",
+                                                "poster": ""
+                                            },
+                                            "movie": {
+                                                "title": "",
+                                            }
+                                        };
+                                        SERVER.object.MagnetUri = mlink;
+                                        SERVER.movie.title = element.name;
+                                        SERVER.object.poster = element.poster;
+                                        Lampa.Android.openTorrent(SERVER);
+                                    };
 
-                        );
+                                });
+                                // if (tab.name == _this.display) button.addClass('active');
+                                if (i > 0 && i % 2 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                if (i % 2 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                    if (i > 0) html_.append(navigation);
+                                    navigation = $('<div class="navigation-tabs"></div>');
+                                }
+                                navigation.append(button);
+                            });
+
+                            html_.append(navigation);
+
+                            Lampa.Modal.open({
+                                title: element.name,
+                                html: html_,
+                                size: 'medium',
+                                select: html.find('.navigation-tabs .active')[0],
+                                mask: true,
+                                onBack: function onBack() {
+                                    Lampa.Modal.close();
+                                    Lampa.Api.clear();
+                                    Lampa.Controller.toggle('content');
+                                }
+                            });
+                        }
                     } else {
-                        var SERVER = {
-                            "object": {
-                                "Title": "",
-                                "MagnetUri": "",
-                                "poster": ""
-                            },
-                            "movie": {
-                                "title": "",
-                            }
+                        var video = {
+                            title: element.name,
+                            url: element.video
                         };
-                        SERVER.object.MagnetUri = element.magnet;
-                        SERVER.movie.title = element.name;
-                        SERVER.object.poster = element.picture;
-                        Lampa.Android.openTorrent(SERVER);
-                    };
+    
+                        /*Lampa.Player.play(video);
+                        Lampa.Player.playlist([video]);*/
+    
+                        if (window.intentShim) {
+                            var intentExtra = {
+                                title: element.name,
+                                poster: element.picture,
+                                action: "play",
+                                data: {
+                                    lampa: true
+                                }
+                            };
+                            window.plugins.intentShim.startActivity(
+                                {
+                                    action: window.plugins.intentShim.ACTION_VIEW,
+                                    url: element.magnet,
+                                    extras: intentExtra
+                                },
+                                function () { },
+                                function () { console.log('Failed to open magnet URL via Android Intent') }
+    
+                            );
+                        } else {
+                            var SERVER = {
+                                "object": {
+                                    "Title": "",
+                                    "MagnetUri": "",
+                                    "poster": ""
+                                },
+                                "movie": {
+                                    "title": "",
+                                }
+                            };
+                            SERVER.object.MagnetUri = element.magnet;
+                            SERVER.movie.title = element.name;
+                            SERVER.object.poster = element.picture;
+                            Lampa.Android.openTorrent(SERVER);
+                        };
+                    } 
                 });
                 // card.on('hover:long', function (target, card_data) {
                 //   Lampa.Modal.open({
@@ -565,7 +702,9 @@
             Lampa.Select.show({
                 title: '网站',
                 // items: catalogs,
-                items: catalogs.map(function (elem, index) {
+                items: catalogs.filter(function (n){
+                    return n.search_available == true;
+                }).map(function (elem, index) {
                     elem.selected = balanser_ == elem.Keyword;
                     // console.log(balanser_,elem)
                     return elem;
@@ -687,7 +826,9 @@
 
         Lampa.Select.show({
             title: catalogs1[0].title,
-            items: catalogs1[0].category,
+            items: catalogs1[0].category.filter(function (fp) {
+            return fp.category_available == true
+        }),
             onSelect: function onSelect(a) {
                 Lampa.Activity.push({
                     type: a.type,
