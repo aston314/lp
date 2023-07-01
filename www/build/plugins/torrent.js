@@ -428,7 +428,6 @@
                     // if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
                 });
                 card.on('hover:enter', function () {
-                    console.log(object)
                     if (element.torrents){
                         if (element.torrents.length){
                             var sources = [];
