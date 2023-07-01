@@ -256,6 +256,7 @@
         var waitload;
 
         this.create = function () {
+            // https://tapi3.onrender.com
             var geturl = 'https://torrentapipy-1-x2651286.deta.app/api/v1/';
             switch (object.type) {
                 case 'search':
@@ -427,6 +428,7 @@
                     // if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
                 });
                 card.on('hover:enter', function () {
+                    console.log(object)
                     if (element.torrents){
                         if (element.torrents.length){
                             var sources = [];
@@ -464,7 +466,6 @@
                                             },
                                             function () { },
                                             function () { console.log('Failed to open magnet URL via Android Intent') }
-
                                         );
                                     } else {
                                         var SERVER = {
@@ -479,7 +480,7 @@
                                         };
                                         SERVER.object.MagnetUri = mlink;
                                         SERVER.movie.title = element.name;
-                                        SERVER.object.poster = element.poster;
+                                        SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
                                         Lampa.Android.openTorrent(SERVER);
                                     };
 
@@ -534,7 +535,6 @@
                                 },
                                 function () { },
                                 function () { console.log('Failed to open magnet URL via Android Intent') }
-    
                             );
                         } else {
                             var SERVER = {
@@ -549,7 +549,7 @@
                             };
                             SERVER.object.MagnetUri = element.magnet;
                             SERVER.movie.title = element.name;
-                            SERVER.object.poster = element.picture;
+                            SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
                             Lampa.Android.openTorrent(SERVER);
                         };
                     } 
