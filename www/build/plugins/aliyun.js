@@ -212,7 +212,7 @@
                   // 如果登录或获取签名失败，则打印错误信息
                   console.error('Error: ' + error);
                 });
-              } else _this.empty('哦, 阿里云盘Token失效了，请在设置中重新填写。');
+              } else _this.empty1('哦, 阿里云盘Token失效了，请在设置中重新填写。');
             }, function (a, c) {
               _this.empty('哦: ' + network.errorDecode(a, c));
             }, JSON.stringify(jsonsearch), p);
@@ -221,65 +221,8 @@
             _this.empty('哦，该资源还未分享');
           };
         } else {
-          _this.empty('哦，未找到阿里云盘Token，请在设置中填写。');
-          var i = void 0;
-          firstlogin = true;
-          var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
-          Lampa.Modal.open({
-            title: '',
-            html: modal,
-            mask: true,
-            onBack: function onBack() {
-              Lampa.Modal.close();
-              //Lampa.Controller.toggle('settings_component');
-              //clearInterval(ping_auth);
-					    Lampa.Controller.toggle('content');
-              clearInterval(i);
-            },
-          });
-          ping_auth = setTimeout(function () {
-            network.clear();
-            network.timeout(10000);
-            var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
-              "appName=aliyun_drive" +
-              "&fromSite=52" +
-              "&appName=aliyun_drive" +
-              "&appEntrance=web" +
-              "&isMobile=false" +
-              "&lang=zh_CN" +
-              "&returnUrl=" +
-              "&fromSite=52" +
-              "&bizParams=" +
-              "&_bx-v=2.0.31"
-            // var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
-            network["native"](qrurl, function (found) {
-              if (found.content.success) {
-                c = found.content.data;
-                if (typeof QRCode == 'undefined') {
-                  $.loadScript('https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js', function () {
-                    //Stuff to do after someScript has loaded   
-                    var qrc = new QRCode(
-                      document.getElementById("qrcode-container"),
-                      found.content.data.codeContent
-                    );
-                    i = setInterval(getcode, 2500);
-                  })
-                } else {
-                  var qrc = new QRCode(
-                    document.getElementById("qrcode-container"),
-                    found.content.data.codeContent
-                  );
-                  i = setInterval(getcode, 2500);
-                };
-              } else {
-                Lampa.Noty.show(found);
-              }
-            }, function (a, c) {
-              Lampa.Noty.show(network.errorDecode(a, c));
-            }, false, false, {
-              dataType: 'json'
-          });
-          }, 200);
+          _this.empty1('哦，未找到阿里云盘Token，请在设置中填写。');
+          
           
         }
         filter.onSearch = function (value) {
@@ -1036,10 +979,88 @@
         var empty = new Lampa.Empty({
           descr: descr
         });
-        files.append(empty.render(filter.empty()));
+        files.append(empty.render());
+        // files.append(empty.render(filter.empty()));
         this.start = empty.start;
         this.activity.loader(false);
         this.activity.toggle();
+      };
+
+      this.empty1 = function (descr) {
+        var empty = new Lampa.Empty({
+          descr: descr
+        });
+
+        var bn = $('<div class="simple-button selector"><span>登录云盘</span></div>');
+        var ft = $('<div class="empty__footer"></div>');
+        bn.on('hover:enter', function () {
+          var i = void 0;
+          firstlogin = true;
+          var modal = $('<div><div class="broadcast__text">请用阿里云盘 App 扫码</div><div class="broadcast__device selector" style="text-align: center;"><div id="qrcode-container"  style="display: flex; justify-content: center; align-items: center;"></div></div><div class="broadcast__scan"><div></div></div></div></div>');
+          Lampa.Modal.open({
+            title: '',
+            html: modal,
+            mask: true,
+            onBack: function onBack() {
+              Lampa.Modal.close();
+              //Lampa.Controller.toggle('settings_component');
+              //clearInterval(ping_auth);
+              Lampa.Controller.toggle('content');
+              clearInterval(i);
+            },
+          });
+          ping_auth = setTimeout(function () {
+            network.clear();
+            network.timeout(10000);
+            var qrurl = "https://passport.aliyundrive.com/newlogin/qrcode/generate.do?" +
+              "appName=aliyun_drive" +
+              "&fromSite=52" +
+              "&appName=aliyun_drive" +
+              "&appEntrance=web" +
+              "&isMobile=false" +
+              "&lang=zh_CN" +
+              "&returnUrl=" +
+              "&fromSite=52" +
+              "&bizParams=" +
+              "&_bx-v=2.0.31"
+            // var q = 'https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&fromSite=52&appName=aliyun_drive&appEntrance=web&_csrf_token=IpKi8OVx0jll143OHXI8l3&umidToken=ae5ade1374e4fc0550f57becbf9e30524e8a9385&isMobile=false&lang=zh_CN&returnUrl=&hsiz=1e60c0224917cae8309e7e64540a536d&fromSite=52&bizParams='
+            network["native"](qrurl, function (found) {
+              if (found.content.success) {
+                c = found.content.data;
+                if (typeof QRCode == 'undefined') {
+                  $.loadScript('https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js', function () {
+                    //Stuff to do after someScript has loaded   
+                    var qrc = new QRCode(
+                      document.getElementById("qrcode-container"),
+                      found.content.data.codeContent
+                    );
+                    i = setInterval(getcode, 2500);
+                  })
+                } else {
+                  var qrc = new QRCode(
+                    document.getElementById("qrcode-container"),
+                    found.content.data.codeContent
+                  );
+                  i = setInterval(getcode, 2500);
+                };
+              } else {
+                Lampa.Noty.show(found);
+              }
+            }, function (a, c) {
+              Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, false, {
+              dataType: 'json'
+            });
+          }, 200);
+        });
+        ft.append(bn);
+        empty.append(ft);
+
+        files.append(empty.render());
+        this.start = empty.start;
+        this.activity.loader(false);
+        this.activity.toggle();
+        
       };
 
       this.buildFilterd = function (select_season) {
