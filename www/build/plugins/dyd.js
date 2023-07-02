@@ -36,7 +36,7 @@
 
             this.activity.loader(true);
 
-            network["native"](object.url, function (str) {
+            network["native"]('https://api.allorigins.win/raw?url='+object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -66,7 +66,7 @@
                 waitload = true;
                 object.page++;
                 // console.log(object.page)
-                network["native"](object.url + 'page/' + object.page, function (str) {
+                network["native"]('https://api.allorigins.win/raw?url='+object.url + 'page/' + object.page, function (str) {
                     var result = _this2.card(str);
                     _this2.append(result);
                     if (result.card.length) waitload = false;
