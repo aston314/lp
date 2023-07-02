@@ -36,7 +36,7 @@
 
             this.activity.loader(true);
 
-            network["native"]('https://api.allorigins.win/raw?url='+object.url, function (str) {
+            network.silent('https://api.allorigins.win/raw?url='+object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
