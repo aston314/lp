@@ -31,7 +31,8 @@
             cat: this.getQueryString(object.url, "cat"),
             num: this.getQueryString(object.url, "num"),
             keyword: this.getQueryString(object.url, "keyword"),
-            from: 'web'
+            from: 'web',
+            token: '495ab9ace612994408f37860af2ec0223ddbd8'
         };
         
         var _this = this;
@@ -58,7 +59,8 @@
             cat: this.getQueryString(object.url,"cat"),
             num: 1+object.page++,
             keyword: this.getQueryString(object.url, "keyword"),
-            from: 'web'
+            from: 'web',
+            token: '495ab9ace612994408f37860af2ec0223ddbd8'
         };
         
         var _this2 = this;
@@ -187,7 +189,7 @@
             element.original_title = '';
             element.title = mytitle;
             Lampa.Activity.push({
-                url: 'https://www.aliyundrive.com/s/' + element.key,
+                url: 'https://www.aliyundrive.com/s/' + element.alikey,
                 title: '阿里云盘播放',
                 component: 'yunpan2',
                 movie: element,
