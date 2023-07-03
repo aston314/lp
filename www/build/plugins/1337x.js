@@ -342,6 +342,9 @@
                 html.append(info);
                 scroll.minus();
                 html.append(scroll.render());
+                scroll.onEnd = function () {
+                    _this2.next();
+                };
                 this.append(data);
                 scroll.append(body);
                 this.activity.loader(false);
