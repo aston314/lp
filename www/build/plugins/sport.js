@@ -315,12 +315,12 @@
         var info;
         var last;
         var waitload;
-        var cors;
-        if (Lampa.Platform.is('android')) {
-            cors = '';
-        } else {
-            cors = 'https://cors.eu.org/';
-        }
+        var cors = '';
+        // if (Lampa.Platform.is('android')) {
+        //     cors = '';
+        // } else {
+        //     cors = 'https://cors.eu.org/';
+        // }
 
         this.create = function () {
             //console.log(object.url)
