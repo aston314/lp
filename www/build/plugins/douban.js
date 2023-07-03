@@ -99,11 +99,11 @@
                 //console.log(u);
 
             network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
-                _this2.append(result);
+                _this2.append(result,true);
 
                 object.type == 'list' ? datatye = result.subjects : datatye = result;
                 if (datatye.length) waitload = false;
-                Lampa.Controller.enable('content');
+                // Lampa.Controller.enable('content');
             }, false, false, {
                 dataType: 'json'
             });
@@ -129,7 +129,7 @@
             //}
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
 
             
@@ -217,6 +217,7 @@
                     });  
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -281,6 +282,9 @@
         if (datatye.length) {
             html.append(info);
             html.append(scroll.render());
+            scroll.onEnd = function () {
+                _this2.next();
+            };
             this.append(data);
             scroll.append(body);
             this.activity.loader(false);
