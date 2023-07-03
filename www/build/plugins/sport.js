@@ -315,6 +315,12 @@
         var info;
         var last;
         var waitload;
+        var cors;
+        if (Lampa.Platform.is('android')) {
+            cors = 'https://api.allorigins.win/raw?url=';
+        } else {
+            cors = '';
+        }
 
         this.create = function () {
             //console.log(object.url)
@@ -322,7 +328,7 @@
 
             this.activity.loader(true);
 
-            network["native"](object.url, function (str) {
+            network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
                 if (object.type == 'live') {
                     //console.log($('.embed-responsive-item', str).attr('src'))
@@ -557,7 +563,7 @@
                     var sources = [];
                     var url = catalogs1[0].title =='88看球' ? element.url+'-url' : element.url ;
                     var datatype = catalogs1[0].title =='88看球' ? 'json' : 'text' ;
-                    network["native"](url, function (str) {
+                    network["native"](cors + url, function (str) {
                         if (catalogs1[0].title == '88看球') {
                             str.forEach(function (element) {
                                 sources.push({
