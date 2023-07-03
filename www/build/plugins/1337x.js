@@ -281,7 +281,8 @@
                         dataType: 'text'
                     });
                 });
-                body.append(card);
+                // body.append(card);
+                body.append(card.render());
                 items.push(card);
             });
         };
