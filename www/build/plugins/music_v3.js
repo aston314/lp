@@ -157,14 +157,14 @@
             if (!!window.cordova) {
                 network.silent(object.url + urlpara, function (result) {
                     _this2.donext(result);
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 }, false, false, {
                     dataType: 'json'
                 });
             } else {
                 network["native"](object.url + urlpara, function (result) {
                     _this2.donext(result);
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 }, false, false, {
                     dataType: 'json'
                 });
@@ -181,7 +181,7 @@
                         if (result.length) waitload = false;
                     } else {
                         if (result.result.songCount > 0) {
-                            _this2.append(result);
+                            _this2.append(result,true);
                             if (currentplaylist) {
                                 if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                             };
@@ -197,13 +197,13 @@
                         if (result.hotAlbums.length) waitload = false;
                     } else {
                         if (result.result.albumCount > 0) {
-                            _this2.append(result);
+                            _this2.append(result,true);
                             if (result.result.albums.length) waitload = false;
                         }
                     }
                     break;
                 case 'album':
-                    _this2.append(result);
+                    _this2.append(result,true);
                     if (currentplaylist) {
                         if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                     };
@@ -213,18 +213,18 @@
                     break;
                 case 'playlist':
                     if (result.hasOwnProperty("playlists")) {
-                        _this2.append(result);
+                        _this2.append(result,true);
                         if (result.playlists.length) waitload = false;
                     } else {
                         if (result.result.playlistCount > 0) {
-                            _this2.append(result);
+                            _this2.append(result,true);
                             if (result.result.playlists.length) waitload = false;
                         }
                     }
                     break;
                 case 'playlist_detail':
                     if (result.hasOwnProperty("songs")) {
-                        _this2.append(result);
+                        _this2.append(result,true);
                         if (currentplaylist) {
                             if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
                         };
@@ -237,12 +237,12 @@
                     break;
                 default:
                     if (result.result.songCount > 0) {
-                        _this2.append(result);
+                        _this2.append(result,true);
                         if (result.result.songs.length) waitload = false;
                     }
             }
         }
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             var listdata;
 
@@ -624,6 +624,7 @@
                     }
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
             // console.log(musiclist)
@@ -869,6 +870,9 @@
                 if (listdata.length) {
                     html.append(info);
                     html.append(scroll.render());
+                    scroll.onEnd = function () {
+                        _this2.next();
+                    };
                     this.append(data);
                     scroll.append(body);
                     this.activity.loader(false);
