@@ -277,15 +277,13 @@
                     if (!Lampa.Controller.own(_this2)) _this2.start();
                     if (step > 0) Navigator.move('down'); else Navigator.move('up');
                 };
-                // html.append(scroll.render());
-                html.appendChild(scroll.render(true));
+                html.append(scroll.render());
                 this.append(data);
                 scroll.append(body);
                 this.activity.loader(false);
                 this.activity.toggle();
             } else {
-                // html.append(scroll.render());
-                html.appendChild(scroll.render(true));
+                html.append(scroll.render());
                 _this2.empty();
             }
         };
