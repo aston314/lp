@@ -4,7 +4,7 @@
         {
             title: '1337x',
             Keyword: '1337x',
-            search_available: false,
+            search_available: true,
             limit: 20,
             category: [{
                 title: '最新',
