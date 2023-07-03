@@ -271,7 +271,7 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
-                // scroll.onEnd = _this2.next();
+                scroll.onEnd = _this2.next();
                 scroll.onWheel = function (step) {
                     if (!Lampa.Controller.own(_this2)) _this2.start();
                     if (step > 0) Navigator.move('down'); else Navigator.move('up');
