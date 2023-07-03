@@ -72,7 +72,7 @@
                 // console.log(object.page)
                 network["native"](object.url + 'page/' + object.page+'/', function (str) {
                     var result = _this2.card(str);
-                    _this2.append(result);
+                    _this2.append(result,true);
                     if (result.card.length) waitload = false;
                     Lampa.Controller.enable('content');
                 },function (a, c) {
@@ -156,7 +156,7 @@
             };
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             //console.log(data)
             data.card.forEach(function (element) {
@@ -204,7 +204,8 @@
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
                     if (object.url.indexOf('post_type') == -1) {
-                        if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                        // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                        if (scroll.isEnd()) _this3.next();
                     }
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     if (Lampa.Helper) Lampa.Helper.show('ddys_detail', '长按住 (ОК) 选择分季', card);
@@ -556,6 +557,7 @@
                     });
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -616,6 +618,9 @@
                 html.append(info);
                 scroll.minus();
                 html.append(scroll.render());
+                scroll.onEnd = function () {
+                    _this2.next();
+                };
                 this.append(data);
                 scroll.append(body);
                 this.activity.loader(false);
