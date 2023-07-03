@@ -17,7 +17,7 @@
         var doubanitem = [];
         //var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
         // var cors = 'https://cors.eu.org/';
-        var cors = '';
+        var cors = 'https://api.allorigins.win/raw?url=';
 
 
 
