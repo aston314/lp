@@ -23,7 +23,6 @@
         } else {
             cors = 'https://cors.eu.org/';
         }
-        console.log(cors)
 
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
@@ -41,7 +40,7 @@
 
             this.activity.loader(true);
 
-            network["native"](object.url, function (str) {
+            network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -71,7 +70,7 @@
                 waitload = true;
                 object.page++;
                 // console.log(object.page)
-                network["native"](object.url + 'page/' + object.page, function (str) {
+                network["native"](cors + object.url + 'page/' + object.page, function (str) {
                     var result = _this2.card(str);
                     _this2.append(result,true);
                     if (result.card.length) waitload = false;
@@ -222,7 +221,7 @@
                     //     movie: element,
                     //     page: 1
                     // });
-                    // network["native"](element.url, function (json) {
+                    // network["native"](cors + element.url, function (json) {
                     //     if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
                     //         var link = json.match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0];
                     //         //element.img = object.element.img;
@@ -243,7 +242,7 @@
                     // });
                     var sources = [];
 
-                    network["native"](element.url, function (str) {
+                    network["native"](cors + element.url, function (str) {
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
                             $('a[href*="www.aliyundrive.com"],a[href*="magnet:?xt=urn:btih:"]', str).each(function (i, html) {
                             sources.push({
