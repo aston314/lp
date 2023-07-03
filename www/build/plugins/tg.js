@@ -269,6 +269,7 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
+                scroll.onEnd = _this2.next();
                 html.append(scroll.render());
                 this.append(data);
                 scroll.append(body);
