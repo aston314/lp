@@ -347,15 +347,15 @@
             waitload = true;
             object.page++;
             network["native"](geturl + '&page=' + object.page, function (result) {
-                _this2.append(result);
+                _this2.append(result,true);
 
                 if (result.data.length) waitload = false;
-                Lampa.Controller.enable('content');
+                // Lampa.Controller.enable('content');
             });
             //   }
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
 
             data.data.forEach(function (element) {
@@ -661,6 +661,7 @@
                 // });
 
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -689,6 +690,9 @@
             scroll.render().addClass('layer--wheight').data('mheight', info);
             html.append(info);
             html.append(scroll.render());
+            scroll.onEnd = function () {
+                _this2.next();
+            };
             this.append(data);
             scroll.append(body);
             this.activity.loader(false);
