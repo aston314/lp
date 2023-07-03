@@ -460,6 +460,10 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
+                scroll.onWheel = function (step) {
+                    if (!Lampa.Controller.own(_this2)) _this2.start();
+                    if (step > 0) Navigator.move('down'); else Navigator.move('up');
+                };
                 html.append(scroll.render());
                 this.append(data);
                 scroll.append(body);
