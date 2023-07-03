@@ -36,7 +36,7 @@
 
             this.activity.loader(true);
 
-            network["native"](cors+object.url, function (str) {
+            network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -60,22 +60,23 @@
             var _this2 = this;
             if (waitload) return;
             //if (object.gotopage) {
-                // var postdata = {
-                //     //before: object.gotopage[0],
-                // };
-                waitload = true;
-                object.page++;
-                // console.log(object.page)
-                network["native"](cors+object.url.replace(/\/\d+\//, '/'+object.page+'/'), function (str) {
-                    var result = _this2.card(str);
-                    _this2.append(result);
-                    if (result.card.length) waitload = false;
-                    Lampa.Controller.enable('content');
-                },function (a, c) {
-                    Lampa.Noty.show(network.errorDecode(a, c));
-                }, false, {
-                    dataType: 'text'
-                });
+            // var postdata = {
+            //     //before: object.gotopage[0],
+            // };
+            waitload = true;
+            object.page++;
+            // console.log(object.page)
+            network["native"](cors + object.url.replace(/\/\d+\//, '/' + object.page + '/'), function (str) {
+                var result = _this2.card(str);
+                _this2.append(result, true);
+                if (result.card.length) waitload = false;
+                // Lampa.Controller.enable('content');
+                _this2.activity.loader(false);
+            }, function (a, c) {
+                Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, {
+                dataType: 'text'
+            });
             //}
         };
 
@@ -88,22 +89,22 @@
             str = str.replace(/\n/g, '');
             $('div.library-box ul li', str).each(function (i, html) {
                 //if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-                    card.push({
-                        //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
-                        title: $('div.modal-header > h3 > a', html).text(),
-                        original_title: '',
-                        title_org: '',
-                        //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: 'https://www.1377x.to' + $('div.modal-header > h3 > a', html).attr('href'),
-                        //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: 'https://www.1377x.to'+$('img.lazy', html).attr('data-original'),
-                        quantity: '',
-                        year: '',
-                        release_year:$('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//) ? $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//)[1]:'',
-                        update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
-                        score: ( $('span.rating > i', html).attr('style').replace(/width: |%;/g,'')/ 10).toFixed(1),//$('span.pic-tag', html).text(),
-                        episodes_info: $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//) ? $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//)[1]:''
-                    });
+                card.push({
+                    //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
+                    title: $('div.modal-header > h3 > a', html).text(),
+                    original_title: '',
+                    title_org: '',
+                    //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
+                    url: 'https://www.1377x.to' + $('div.modal-header > h3 > a', html).attr('href'),
+                    //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
+                    img: 'https://www.1377x.to' + $('img.lazy', html).attr('data-original'),
+                    quantity: '',
+                    year: '',
+                    release_year: $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//) ? $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//)[1] : '',
+                    update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
+                    score: ($('span.rating > i', html).attr('style').replace(/width: |%;/g, '') / 10).toFixed(1),//$('span.pic-tag', html).text(),
+                    episodes_info: $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//) ? $('div.modal-header > h3 > a', html).attr('href').match(/-(\d{4})\//)[1] : ''
+                });
                 //};
             });
             return {
@@ -113,7 +114,7 @@
             };
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             //console.log(data)
             data.card.forEach(function (element) {
@@ -158,12 +159,13 @@
                     // console.log(card)
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (scroll.isEnd()) _this3.next();
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     if (Lampa.Helper) Lampa.Helper.show('x1337_detail', '长按住 (ОК) 键查看详情', card);
                 });
                 card.on('hover:long', function () {
-                	//contextmenu();
+                    //contextmenu();
                     Lampa.Modal.open({
                         title: '',
                         html: Lampa.Template.get('modal_loading'),
@@ -183,22 +185,22 @@
                     element.original_title = '';
                     var sources = [];
 
-                    network["native"](cors+element.url, function (str) {
+                    network["native"](cors + element.url, function (str) {
                         //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
-                            $('tbody tr', str).each(function (i, html) {
+                        $('tbody tr', str).each(function (i, html) {
                             sources.push({
-                                title: $('td.coll-1.name > a',html).text()+' / '+ $('td.seeds',html).text()+' / '+$('td.leeches',html).text()+' / '+$('td.mob-uploader',html).text(),
-                                url: 'https://www.1377x.to'+$('td.coll-1.name > a:nth-child(2)',html).attr('href'),
+                                title: $('td.coll-1.name > a', html).text() + ' / ' + $('td.seeds', html).text() + ' / ' + $('td.leeches', html).text() + ' / ' + $('td.mob-uploader', html).text(),
+                                url: 'https://www.1377x.to' + $('td.coll-1.name > a:nth-child(2)', html).attr('href'),
                             });
-                    });
+                        });
 
-                    var html_ = $('<div></div>');
+                        var html_ = $('<div></div>');
                         var navigation = $('<div class="navigation-tabs"></div>');
                         sources.forEach(function (tab, i) {
                             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                             button.on('hover:enter', function () {
                                 console.log(element)
-                                network["native"](cors+tab.url, function (str) {
+                                network["native"](cors + tab.url, function (str) {
                                     $('a.torrentdown1', str).each(function (i, html) {
                                         var mlink = html.href;
 
@@ -259,7 +261,7 @@
                             }
                             navigation.append(button);
                         });
-                        
+
                         html_.append(navigation);
 
                         Lampa.Modal.open({
@@ -281,8 +283,8 @@
                         dataType: 'text'
                     });
                 });
-                // body.append(card);
-                body.append(card.render());
+                body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -308,7 +310,7 @@
                     if (new_value) {
                         //console.log(new_value)
                         var search_tempalte = 'http://www.dydhhy.com/?s=#msearchword';
-                        var searchurl = search_tempalte.replace('#msearchword',encodeURIComponent(new_value));
+                        var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: searchurl,
@@ -574,7 +576,7 @@
             }
             return '';
         };
-        
+
         this.start = function () {
             var _this = this;
             Lampa.Controller.add('content', {
