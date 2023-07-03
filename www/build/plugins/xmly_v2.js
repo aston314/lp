@@ -97,11 +97,11 @@
             } else {
                 new_data = result.data.radios;
             };
-            _this2.append(new_data);
+            _this2.append(new_data,true);
             waitload = false
             }
             // if (new_data.length) waitload = false;
-            Lampa.Controller.enable('content');
+            // Lampa.Controller.enable('content');
           }, false, false, {
             dataType: 'json',
             headers: {
@@ -119,7 +119,7 @@
         return num;
       }
       
-      this.append = function (data) {
+      this.append = function (data,append) {
         var _this3 = this;
 
         data.forEach(function (element) {
@@ -224,6 +224,7 @@
           });
 
           body.append(card);
+          if (append) Lampa.Controller.collectionAppend(card);
           items.push(card);
         });
       };
@@ -292,6 +293,9 @@
         if (new_data.length) {
             html.append(info);
             html.append(scroll.render());
+            scroll.onEnd = function () {
+              _this2.next();
+            };
             this.append(new_data);
             scroll.append(body);
             this.activity.loader(false);
