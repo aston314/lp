@@ -6,8 +6,7 @@
         var scroll = new Lampa.Scroll({
             mask: true,
             over: true,
-            step: 250,
-            end_ratio: 2
+            step: 250
         });
         var items = [];
         var html = $('<div></div>');
@@ -16,10 +15,14 @@
         var last;
         var waitload;
         var doubanitem = [];
-        //var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
-        var cors = 'https://cors.eu.org/';
-
-
+        var cors;
+        //  = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
+        // var cors = 'https://cors.eu.org/';
+        if (Lampa.Platform.is('android') || Lampa.Storage.get('platform', 'noname') === 'noname') {
+            cors = '';
+        } else {
+            cors = 'https://cors.eu.org/';
+        }
 
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
@@ -37,7 +40,7 @@
 
             this.activity.loader(true);
 
-            network["native"]('https://api.allorigins.win/raw?url='+object.url, function (str) {
+            network["native"](object.url, function (str) {
                 //this.build.bind(this)
                 var data = _this.card(str);
                 _this.build(data);
@@ -67,11 +70,11 @@
                 waitload = true;
                 object.page++;
                 // console.log(object.page)
-                network["native"]('https://api.allorigins.win/raw?url='+object.url + 'page/' + object.page, function (str) {
+                network["native"](object.url + 'page/' + object.page, function (str) {
                     var result = _this2.card(str);
-                    _this2.append(result);
+                    _this2.append(result,true);
                     if (result.card.length) waitload = false;
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 },function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
@@ -139,7 +142,7 @@
             };
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             //console.log(data)
             data.card.forEach(function (element) {
@@ -184,7 +187,8 @@
                     // console.log(card)
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (scroll.isEnd()) _this3.next();
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
@@ -402,6 +406,7 @@
                     });
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -461,11 +466,10 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
-                scroll.onWheel = function (step) {
-                    if (!Lampa.Controller.own(_this2)) _this2.start();
-                    if (step > 0) Navigator.move('down'); else Navigator.move('up');
-                };
                 html.append(scroll.render());
+                scroll.onEnd = function () {
+                    _this2.next();
+                };
                 this.append(data);
                 scroll.append(body);
                 this.activity.loader(false);
