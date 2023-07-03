@@ -6,7 +6,8 @@
         var scroll = new Lampa.Scroll({
             mask: true,
             over: true,
-            step: 250
+            step: 250,
+            end_ratio: 2
         });
         var items = [];
         var html = $('<div></div>');
@@ -65,6 +66,7 @@
                 };
                 waitload = true;
                 object.page++;
+                console.log(object.page)
                 network["native"](cors + object.url + '?before=' + object.gotopage[0], function (str) {
                     var result = _this2.card(str);
                     _this2.append(result);
@@ -269,7 +271,11 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
-                scroll.onEnd = _this2.next();
+                // scroll.onEnd = _this2.next();
+                scroll.onWheel = function (step) {
+                    if (!Lampa.Controller.own(_this2)) _this2.start();
+                    if (step > 0) Navigator.move('down'); else Navigator.move('up');
+                };
                 html.append(scroll.render());
                 this.append(data);
                 scroll.append(body);
