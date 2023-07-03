@@ -69,9 +69,9 @@
                 console.log(object.page)
                 network["native"](cors + object.url + '?before=' + object.gotopage[0], function (str) {
                     var result = _this2.card(str);
-                    _this2.append(result);
+                    _this2.append(result,true);
                     if (result.card.length) waitload = false;
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 }, false, postdata, {
                     dataType: 'text'
                 });
@@ -137,7 +137,7 @@
             };
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             //console.log(data)
             data.card.forEach(function (element) {
@@ -178,7 +178,8 @@
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (scroll.isEnd()) _this3.next();
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
@@ -213,6 +214,7 @@
                     });
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -271,11 +273,14 @@
             if (data.card.length) {
                 html.append(info);
                 scroll.minus();
-                scroll.onEnd = _this2.next();
+                // scroll.onEnd = _this2.next();
                 // scroll.onScroll = _this2.next();
-                scroll.onWheel = function (step) {
-                    if (!Lampa.Controller.own(_this2)) _this2.start();
-                    if (step > 0) Navigator.move('down'); else Navigator.move('up');
+                // scroll.onWheel = function (step) {
+                //     if (!Lampa.Controller.own(_this2)) _this2.start();
+                //     if (step > 0) Navigator.move('down'); else Navigator.move('up');
+                // };
+                scroll.onEnd = function () {
+                    _this2.next();
                 };
                 html.append(scroll.render());
                 this.append(data);
