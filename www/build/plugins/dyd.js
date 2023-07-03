@@ -6,7 +6,8 @@
         var scroll = new Lampa.Scroll({
             mask: true,
             over: true,
-            step: 250
+            step: 250,
+            end_ratio: 2
         });
         var items = [];
         var html = $('<div></div>');
