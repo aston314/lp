@@ -1091,9 +1091,9 @@
                 network["native"](cors + page, function (result) {
                     var data = _this2.card(result);
                     object.data = data;
-                    _this2.append(data);
+                    _this2.append(data,true);
                     if (data.card.length) waitload = false;
-                    Lampa.Controller.toggle('content');
+                    // Lampa.Controller.toggle('content');
                     _this2.activity.loader(false);
                 }, function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
@@ -1111,9 +1111,9 @@
                 network["native"](cors + page, function (result) {
                     var data = _this2.card(result);
                     object.data = data;
-                    _this2.append(data);
+                    _this2.append(data,true);
                     if (data.card.length) waitload = false;
-                    Lampa.Controller.toggle('content');
+                    // Lampa.Controller.toggle('content');
                     _this2.activity.loader(false);
                 }, function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
@@ -1123,7 +1123,7 @@
             };
         };
 
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this2 = this;
             data.card.forEach(function (element) {
                 var card = Lampa.Template.get('card', {
@@ -1168,6 +1168,8 @@
                     if (!Lampa.Storage.field('light_version')) {
                         var maxrow = Math.ceil(items.length / 7) - 1;
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this2.next(data.page);
+                        // if (scroll.isEnd()) _this2.next(data.page);
+                        // console.log(scroll.isEnd())
                     };
                     info.find(".info__title-original").text(element.title);
                     if (element.img) Lampa.Background.change(element.img);
@@ -1277,6 +1279,7 @@
                     }
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
         };
@@ -1332,6 +1335,9 @@
                 html.append(info.append());
                 scroll.minus();
                 html.append(scroll.render());
+                scroll.onEnd = function () {
+                    _this2.next(data.page);
+                };
                 this.append(data);
                 if (Lampa.Storage.field('light_version')) this.more(data);
                 scroll.append(body);
