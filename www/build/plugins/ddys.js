@@ -292,7 +292,7 @@
                                                         var first = {
                                                             url: data.url,
                                                             //   timeline: view,
-                                                            title: element.title,
+                                                            title: element.title + ' ' + tab.title,
                                                             subtitles: data.subtitles
                                                         };
                                                         Lampa.Player.play(first);
@@ -450,7 +450,7 @@
                                         var first = {
                                             url: data.url,
                                             //   timeline: view,
-                                            title: element.title,
+                                            title: element.title + ' ' + tab.title,
                                             subtitles: data.subtitles
                                         };
                                         Lampa.Player.play(first);
