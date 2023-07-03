@@ -317,9 +317,9 @@
         var waitload;
         var cors;
         if (Lampa.Platform.is('android')) {
-            cors = 'https://api.allorigins.win/raw?url=';
-        } else {
             cors = '';
+        } else {
+            cors = 'https://cors.eu.org/';
         }
 
         this.create = function () {
