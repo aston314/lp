@@ -195,7 +195,7 @@
             // } else {
                 network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 }, function (a, c) {
                 }, postdata , headercontent);
             // }
@@ -203,11 +203,11 @@
         this.donext = function (result) {
             var _this2 = this;
             if (result.data.length > 0) {
-                _this2.append(result);
+                _this2.append(result,true);
                 if (result.data.length) waitload = false;
             }
         }
-        this.append = function (data) {
+        this.append = function (data,append) {
             var _this3 = this;
             data.data.forEach(function (element,i) {
                 musiclist_.push([element.mname, element.id, element.mp3 , element.sname])
@@ -374,6 +374,7 @@
                     });
                 });
                 body.append(card);
+                if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
             // console.log(musiclist_)
@@ -496,6 +497,9 @@
                 if (listdata.length) {
                     html.append(info);
                     html.append(scroll.render());
+                    scroll.onEnd = function () {
+                        _this2.next();
+                    };
                     this.append(data);
                     scroll.append(body);
                     this.activity.loader(false);
