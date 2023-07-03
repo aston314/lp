@@ -23,6 +23,7 @@
         } else {
             cors = 'https://cors.eu.org/';
         }
+        console.log(cors)
 
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
