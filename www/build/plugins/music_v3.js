@@ -193,7 +193,7 @@
                 case 'albums':
                     
                     if (result.hasOwnProperty("hotAlbums")) {
-                        _this2.append(result);
+                        _this2.append(result,true);
                         if (result.hotAlbums.length) waitload = false;
                     } else {
                         if (result.result.albumCount > 0) {
