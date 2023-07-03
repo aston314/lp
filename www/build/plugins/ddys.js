@@ -74,7 +74,7 @@
                     var result = _this2.card(str);
                     _this2.append(result,true);
                     if (result.card.length) waitload = false;
-                    Lampa.Controller.enable('content');
+                    // Lampa.Controller.enable('content');
                 },function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
