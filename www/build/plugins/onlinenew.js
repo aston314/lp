@@ -1922,7 +1922,7 @@ $.when($('.iframe').append(`
 
                               if (match) {
                                 var urlvideo = match[1];
-                                // console.log(urlvideo);
+                                console.log('播放链接',urlvideo);
                                 var playlist = [];
                                 var first = {
                                   url: urlvideo,
@@ -1935,6 +1935,7 @@ $.when($('.iframe').append(`
                                 Lampa.Player.playlist(playlist);
 
                               } else {
+                                console.log('没有找到播放链接')
                                 doparse(element, view, url1_, MacPlayer_, str);
                               }
                               
