@@ -1925,7 +1925,7 @@ $.when($('.iframe').append(`
 
                               if (match) {
                                 // console.log(match)
-                                var urlvideo = match[1] || match[1];
+                                var urlvideo = match[1] || match[2];
                                 // console.log('播放链接1', urlvideo);
                                 var playlist = [];
                                 var first = {
