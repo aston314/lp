@@ -51,7 +51,7 @@
         this.activity.loader(true);
         Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
         
-        login()
+        _this.login()
         .then(function(postdata) {
           console.log('Pikpak login success');
           // console.log('postdata',postdata)
@@ -676,6 +676,56 @@
         Lampa.Controller.toggle('content');
       };
 
+      this.login = function () {
+        var _this = this;
+        return new Promise(function(resolve, reject) {
+          var info = Lampa.Storage.get("pikpakUserInfo","");
+          // console.log(info)
+          if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
+            var postdata_ =
+            {
+              "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
+              "Mail": Lampa.Storage.get('pikpak_userName', '')
+            };
+      
+            var url = 'https://pikpak.kinh.cc/Login.php';    
+            network.clear();
+            network.timeout(8000);
+            network["native"](url, function (json) {
+              if (json.Status) {
+                _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
+              } else {
+                json = JSON.parse(json.TokenData);
+                if (json && (json.access_token || json.type == 'Bearer')) {
+                  var info = {};
+                  info.loginInfo = json;
+                  if (!info.loginInfo.expires && info.loginInfo.expires_in) {
+                    info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
+                  };
+                  postdata.AccessToken = info.loginInfo.access_token;
+                  resolve(postdata)
+                  Lampa.Storage.set("pikpakUserInfo", info);
+                } else {
+                  postdata.AccessToken = "";
+                  Lampa.Storage.set("pikpakUserInfo", "");
+                  if (json && json.error) Lampa.Noty.show(json.details[1].message);
+                  // reject('login failed');
+                }
+              }
+            }, function (a, c) {
+              Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+            }, getAsUriParameters(postdata_), {
+              dataType: 'json'
+            });
+      
+          } else {
+            postdata.AccessToken = info.loginInfo.access_token;
+            resolve(postdata)
+          };
+          
+        });
+      }
+
       this.pause = function () {};
 
       this.stop = function () {};
@@ -827,58 +877,10 @@
     function getAsUriParameters(data) {
       var url = '';
       for (var prop in data) {
-        url += encodeURIComponent(prop) + '=' +
-          encodeURIComponent(data[prop]) + '&';
+        url += prop + '=' +
+        data[prop] + '&';
       }
       return url.substring(0, url.length - 1)
-    }
-
-    function login() {
-      return new Promise(function(resolve, reject) {
-        var info = Lampa.Storage.get("pikpakUserInfo","");
-        // console.log(info)
-        if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-          var postdata_ =
-          {
-            "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
-            "Mail": Lampa.Storage.get('pikpak_userName', '')
-          };
-    
-          var url = 'https://pikpak.kinh.cc/Login.php';    
-          network.clear();
-          network.timeout(8000);
-          network["native"](url, function (json) {
-            if (json.Status) {
-            } else {
-              json = JSON.parse(json.TokenData);
-              if (json && (json.access_token || json.type == 'Bearer')) {
-                var info = {};
-                info.loginInfo = json;
-                if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-                  info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-                };
-                postdata.AccessToken = info.loginInfo.access_token;
-                resolve(postdata)
-                Lampa.Storage.set("pikpakUserInfo", info);
-              } else {
-                postdata.AccessToken = "";
-                Lampa.Storage.set("pikpakUserInfo", "");
-                if (json && json.error) Lampa.Noty.show(json.details[1].message);
-                // reject('login failed');
-              }
-            }
-          }, function (a, c) {
-            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-          }, getAsUriParameters(postdata_), {
-            dataType: 'json'
-          });
-    
-        } else {
-          postdata.AccessToken = info.loginInfo.access_token;
-          resolve(postdata)
-        };
-        
-      });
     }
 
     function PikPakLogin(success, error) {
@@ -912,8 +914,8 @@
                 }
             }
         }, function (a, c) {
-            // Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-            Lampa.Noty.show(network.errorDecode(a, c));
+            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+            // Lampa.Noty.show(network.errorDecode(a, c));
             if (error) error();
         }, getAsUriParameters(postdata), {
             dataType: 'json'
