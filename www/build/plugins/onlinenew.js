@@ -1917,15 +1917,16 @@ $.when($('.iframe').append(`
 
                             //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                             network["native"](MacPlayer_, function (str) {
-                              console.log(str)
+                              // console.log(str)
                               // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
+                              var match = str.match(urlPattern);
                               var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
                               var match = str.match(urlPattern);
 
                               if (match) {
-                                console.log(match)
-                                var urlvideo = match[1];
-                                console.log('播放链接1', urlvideo);
+                                // console.log(match)
+                                var urlvideo = match[1] || match[1];
+                                // console.log('播放链接1', urlvideo);
                                 var playlist = [];
                                 var first = {
                                   url: urlvideo,
@@ -1938,26 +1939,26 @@ $.when($('.iframe').append(`
                                 Lampa.Player.playlist(playlist);
 
                               } else {
-                                var urlPattern = /var vid = '(.+?)';/;
-                                var match = str.match(urlPattern);
+                                // var urlPattern = /var vid = '(.+?)';/;
+                                // var match = str.match(urlPattern);
 
-                                if (match) {
-                                  var urlvideo = match[1];
-                                  console.log('播放链接2', urlvideo);
-                                  var playlist = [];
-                                  var first = {
-                                    url: urlvideo,
-                                    timeline: view,
-                                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                    subtitles: element.subtitles
-                                  };
-                                  Lampa.Player.play(first);
-                                  playlist.push(first);
-                                  Lampa.Player.playlist(playlist);
-                                } else {
-                                  console.log('没有找到播放链接')
+                                // if (match) {
+                                //   var urlvideo = match[1];
+                                //   // console.log('播放链接2', urlvideo);
+                                //   var playlist = [];
+                                //   var first = {
+                                //     url: urlvideo,
+                                //     timeline: view,
+                                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                //     subtitles: element.subtitles
+                                //   };
+                                //   Lampa.Player.play(first);
+                                //   playlist.push(first);
+                                //   Lampa.Player.playlist(playlist);
+                                // } else {
+                                  // console.log('没有找到播放链接')
                                   doparse(element, view, url1_, MacPlayer_, str);
-                                }
+                                // }
                               }
 
 
