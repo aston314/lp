@@ -91,7 +91,10 @@
               //console.log(a.responseText,a.status)
               _this.empty('哦: ' + network.errorDecode(a, c));
             }, getAsUriParameters(postdata), {
-              dataType: 'json'
+              dataType: 'json',
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+              }
             });
           } else {
             _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
@@ -445,7 +448,10 @@
               }, function (a, c) {
                 Lampa.Noty.show(network.errorDecode(a, c));
               }, getAsUriParameters(postdata), {
-            dataType: 'json'
+            dataType: 'json',
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+            }
         });
 
 
@@ -714,10 +720,12 @@
               }
             }, function (a, c) {
               Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-            }, 'Mail=astonhe@gmail.com&PassWord=197346hty', {
-              dataType: 'json'
+            }, getAsUriParameters(postdata_), {
+              dataType: 'json',
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+              }
             });
-            // getAsUriParameters(postdata_)
 
           } else {
             postdata.AccessToken = info.loginInfo.access_token;
