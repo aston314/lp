@@ -811,96 +811,100 @@
     }
 
     function playEndedHandler(){
-        if (currentplaylist_.length > 0) {
-            var network = new Lampa.Reguest();
-            var player = window.radio_player1_;
-            currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
-            network["native"](aipurl, function (result) {
-                if (result.status == 200) {
-                    lrcObj_ = {}
-                    // console.log(result.lrc.lyric)
-                    if (result.data.lrc) {
-                        var lyrics = result.data.lrc.split("\n");
-                        for (var i = 0; i < lyrics.length; i++) {
-                            var lyric = decodeURIComponent(lyrics[i]);
-                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                            var timeRegExpArr = lyric.match(timeReg);
-                            if (!timeRegExpArr) continue;
-                            var clause = lyric.replace(timeReg, '');
-                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                var t = timeRegExpArr[k];
-                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                var time = min * 60 + sec;
-                                lrcObj_[time] = clause;
+        if (currentplaylist_ != null ) {
+            if (currentplaylist_.length > 0) {
+                var network = new Lampa.Reguest();
+                var player = window.radio_player1_;
+                currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+                network["native"](aipurl, function (result) {
+                    if (result.status == 200) {
+                        lrcObj_ = {}
+                        // console.log(result.lrc.lyric)
+                        if (result.data.lrc) {
+                            var lyrics = result.data.lrc.split("\n");
+                            for (var i = 0; i < lyrics.length; i++) {
+                                var lyric = decodeURIComponent(lyrics[i]);
+                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                var timeRegExpArr = lyric.match(timeReg);
+                                if (!timeRegExpArr) continue;
+                                var clause = lyric.replace(timeReg, '');
+                                for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                    var t = timeRegExpArr[k];
+                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    var time = min * 60 + sec;
+                                    lrcObj_[time] = clause;
+                                }
                             }
                         }
+                        var data = {
+                            url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist_[currentIndex_][0],
+                            playall: true
+                        }
+                        player.play(data);
                     }
-                    var data = {
-                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex_][0],
-                        playall: true
+                }, function (a, c) {
+                    // Lampa.Noty.show('无法取得播放链接');
+                }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
-                    player.play(data);
-                }
-            }, function (a, c) {
-                // Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
-                dataType: 'json',
-                headers: {
-                    'Referer': aipurl,
-                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                }
 
-            });
+                });
+            }
         }
     }
 
     function playEndedHandler_(pos){
-        if (currentplaylist_.length > 0) {
-            var network = new Lampa.Reguest();
-            var player = window.radio_player1_;
-            currentIndex_ = pos;
-            currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
-            network["native"](aipurl, function (result) {
-                if (result.status == 200) {
-                    lrcObj_ = {}
-                    // console.log(result.lrc.lyric)
-                    if (result.data.lrc) {
-                        var lyrics = result.data.lrc.split("\n");
-                        for (var i = 0; i < lyrics.length; i++) {
-                            var lyric = decodeURIComponent(lyrics[i]);
-                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                            var timeRegExpArr = lyric.match(timeReg);
-                            if (!timeRegExpArr) continue;
-                            var clause = lyric.replace(timeReg, '');
-                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                var t = timeRegExpArr[k];
-                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                var time = min * 60 + sec;
-                                lrcObj_[time] = clause;
+        if (currentplaylist_ != null) {
+            if (currentplaylist_.length > 0) {
+                var network = new Lampa.Reguest();
+                var player = window.radio_player1_;
+                currentIndex_ = pos;
+                currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+                network["native"](aipurl, function (result) {
+                    if (result.status == 200) {
+                        lrcObj_ = {}
+                        // console.log(result.lrc.lyric)
+                        if (result.data.lrc) {
+                            var lyrics = result.data.lrc.split("\n");
+                            for (var i = 0; i < lyrics.length; i++) {
+                                var lyric = decodeURIComponent(lyrics[i]);
+                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                var timeRegExpArr = lyric.match(timeReg);
+                                if (!timeRegExpArr) continue;
+                                var clause = lyric.replace(timeReg, '');
+                                for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                    var t = timeRegExpArr[k];
+                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    var time = min * 60 + sec;
+                                    lrcObj_[time] = clause;
+                                }
                             }
                         }
+                        var data = {
+                            url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist_[currentIndex_][0],
+                            playall: true
+                        }
+                        player.play(data);
                     }
-                    var data = {
-                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex_][0],
-                        playall: true
+                }, function (a, c) {
+                    // Lampa.Noty.show('无法取得播放链接');
+                }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
                     }
-                    player.play(data);
-                }
-            }, function (a, c) {
-                // Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
-                dataType: 'json',
-                headers: {
-                    'Referer': aipurl,
-                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                }
-            });
+                });
+            }
         }
     }
 
