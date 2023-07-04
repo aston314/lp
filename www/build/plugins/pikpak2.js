@@ -869,7 +869,7 @@
             }
           }, function (a, c) {
             Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-          }, 'Mail=' + encodeURIComponent(Lampa.Storage.get('pikpak_userName', '')) + '&PassWord=' + Lampa.Storage.get('pikpak_userPass', ''), {
+          }, getAsUriParameters(postdata_), {
             dataType: 'json'
           });
     
@@ -912,9 +912,10 @@
                 }
             }
         }, function (a, c) {
-            Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+            // Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
+            Lampa.Noty.show(network.errorDecode(a, c));
             if (error) error();
-        }, 'Mail=' + encodeURIComponent(Lampa.Storage.get('pikpak_userName', '')) + '&PassWord=' + Lampa.Storage.get('pikpak_userPass', ''), {
+        }, getAsUriParameters(postdata), {
             dataType: 'json'
         });
 
