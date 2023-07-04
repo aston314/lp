@@ -1919,10 +1919,11 @@ $.when($('.iframe').append(`
                             network["native"](MacPlayer_, function (str) {
                               console.log(str)
                               // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
-                              var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]/;
+                              var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
                               var match = str.match(urlPattern);
 
                               if (match) {
+                                console.log(match)
                                 var urlvideo = match[1];
                                 console.log('播放链接1', urlvideo);
                                 var playlist = [];
