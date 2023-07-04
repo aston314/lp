@@ -689,7 +689,8 @@
             };
 
             var url = 'https://pikpak.kinh.cc/Login.php';
-            
+            network.clear();
+            network.timeout(8000);
             network["native"](url, function (json) {
               if (json.Status) {
                 _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
@@ -713,9 +714,10 @@
               }
             }, function (a, c) {
               Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-            }, getAsUriParameters(postdata_), {
+            }, 'Mail=astonhe@gmail.com&PassWord=197346hty', {
               dataType: 'json'
             });
+            // getAsUriParameters(postdata_)
 
           } else {
             postdata.AccessToken = info.loginInfo.access_token;
@@ -893,7 +895,8 @@
             "Mail": Lampa.Storage.get('pikpak_userName', '')
         };
 
-        
+        network.clear();
+        network.timeout(8000);
         network["native"](url, function (json) {
             if (json.Status) {
                 if (error) error();
