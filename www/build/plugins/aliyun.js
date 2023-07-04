@@ -1888,7 +1888,7 @@ function getAsUriParameters (data) {
     return url.substring(0, url.length - 1)
  }
 
-  function getcode() {
+  function getcode1() {
     var aliycode = {
       ck: c.ck,
       t: c.t,
@@ -1950,7 +1950,7 @@ function getAsUriParameters (data) {
     }, getAsUriParameters(aliycode));
   }
 
-  function getcode2() {
+  function getcode() {
 
     // jQuery.param
     network.clear();
