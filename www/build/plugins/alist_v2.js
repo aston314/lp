@@ -150,7 +150,8 @@
         var empty = new Lampa.Empty({
           descr: descr
         });
-        files.append(empty.render(filter.empty()));
+        // filter.empty()
+        files.append(empty.render());
         this.start = empty.start;
         this.activity.loader(false);
         this.activity.toggle();
