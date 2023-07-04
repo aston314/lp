@@ -1888,7 +1888,7 @@ function getAsUriParameters (data) {
     return url.substring(0, url.length - 1)
  }
 
-  function getcode1() {
+  function getcode() {
     var aliycode = {
       ck: c.ck,
       t: c.t,
@@ -1947,10 +1947,12 @@ function getAsUriParameters (data) {
       }
     }, function (a, c) {
       Lampa.Noty.show(network.errorDecode(a, c));
-    }, getAsUriParameters(aliycode));
+    }, getAsUriParameters(aliycode), {
+      dataType: 'json'
+    });
   }
 
-  function getcode() {
+  function getcode2() {
 
     // jQuery.param
     network.clear();
