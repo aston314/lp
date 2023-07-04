@@ -264,7 +264,7 @@
                     if (object.movie.release_date){
                         myear = ' ' + new Date(object.movie.release_date).getFullYear();
                     }
-                    geturl = geturl + object.type + '?site=' + object.keyword + '&query='+ object.search_two + myear +'&limit=' + object.limit;
+                    geturl = geturl + object.type + '?site=' + object.keyword + '&query='+ encodeURIComponent(object.search_two + myear) +'&limit=' + object.limit;
                     break;
                 default:
                     geturl = geturl + object.type + '?site=' + object.keyword + '&limit=' + object.limit;
@@ -337,7 +337,7 @@
                     if (object.movie.release_date){
                         myear = ' ' + new Date(object.movie.release_date).getFullYear();
                     }
-                    geturl = geturl + object.type + '?site=' + object.keyword + '&query='+ object.search_two + myear +'&limit=' + object.limit;
+                    geturl = geturl + object.type + '?site=' + object.keyword + '&query='+ encodeURIComponent(object.search_two + myear) +'&limit=' + object.limit;
                     break;
                 default:
                     geturl = geturl + object.type + '?site=' + object.keyword + '&limit=' + object.limit;
