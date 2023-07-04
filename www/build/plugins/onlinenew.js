@@ -1916,6 +1916,7 @@ $.when($('.iframe').append(`
 
                             //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                             network["native"](MacPlayer_, function (str) {
+                              console.log(str)
                               // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
                               var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]/;
                               var match = str.match(urlPattern);
