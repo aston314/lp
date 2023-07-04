@@ -1034,14 +1034,14 @@
                       document.getElementById("qrcode-container"),
                       found.content.data.codeContent
                     );
-                    i = setInterval(getcode(c), 2500);
+                    i = setInterval(getcode, 2500);
                   })
                 } else {
                   var qrc = new QRCode(
                     document.getElementById("qrcode-container"),
                     found.content.data.codeContent
                   );
-                  i = setInterval(getcode(c), 2500);
+                  i = setInterval(getcode, 2500);
                 };
               } else {
                 Lampa.Noty.show(found);
@@ -1813,14 +1813,14 @@
                     document.getElementById("qrcode-container"),
                     found.content.data.codeContent
                   );
-                  i = setInterval(getcode(c), 2500);
+                  i = setInterval(getcode, 2500);
                 })
               } else {
                 var qrc = new QRCode(
                   document.getElementById("qrcode-container"),
                   found.content.data.codeContent
                 );
-                i = setInterval(getcode(c), 2500);
+                i = setInterval(getcode, 2500);
               };
             } else {
               Lampa.Noty.show(found);
@@ -1888,7 +1888,7 @@ function getAsUriParameters (data) {
     return url.substring(0, url.length - 1)
  }
 
-  function getcode(c) {
+  function getcode() {
     var aliycode = {
       ck: c.ck,
       t: c.t,
@@ -1950,7 +1950,7 @@ function getAsUriParameters (data) {
     }, getAsUriParameters(aliycode));
   }
 
-  function getcode2(c) {
+  function getcode2() {
 
     // jQuery.param
     network.clear();
