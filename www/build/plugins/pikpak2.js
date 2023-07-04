@@ -68,7 +68,7 @@
                   if (item.mime_type.indexOf('video') != -1 || item.kind == "drive#folder") {
                     listlink.data[0].media.push({
                       translation_id: item.id,
-                      max_quality: item.mime_type.indexOf('video') != -1 ? item.file_extension.replace('.', '').toUpperCase() + ' / ' + get_size(item.size) : ((item.kind == "drive#folder") ? '文件夹' : ''),
+                      max_quality: item.mime_type.indexOf('video') != -1 ? item.file_extension.replace('.', '').toUpperCase() + ' / ' + _this.get_size(item.size) : ((item.kind == "drive#folder") ? '文件夹' : ''),
                       title: item.name.replace("\.mp4", "").replace("\.mkv", ""),
                       type: item.kind,
                       drive_id: item.kind,
@@ -687,10 +687,9 @@
               "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
               "Mail": Lampa.Storage.get('pikpak_userName', '')
             };
-      
-            var url = 'https://pikpak.kinh.cc/Login.php';    
-            network.clear();
-            network.timeout(8000);
+
+            var url = 'https://pikpak.kinh.cc/Login.php';
+            
             network["native"](url, function (json) {
               if (json.Status) {
                 _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
@@ -717,7 +716,7 @@
             }, getAsUriParameters(postdata_), {
               dataType: 'json'
             });
-      
+
           } else {
             postdata.AccessToken = info.loginInfo.access_token;
             resolve(postdata)
@@ -741,26 +740,28 @@
         results = null;
         network = null;
       };
+
+      this.get_size = function (sz) {
+        if (sz <= 0) return "";
+        let filesize = "";
+        if (sz > 1024 * 1024 * 1024 * 1024.0) {
+          sz /= (1024 * 1024 * 1024 * 1024.0);
+          filesize = "TB";
+        } else if (sz > 1024 * 1024 * 1024.0) {
+          sz /= (1024 * 1024 * 1024.0);
+          filesize = "GB";
+        } else if (sz > 1024 * 1024.0) {
+          sz /= (1024 * 1024.0);
+          filesize = "MB";
+        } else {
+          sz /= 1024.0;
+          filesize = "KB";
+        }
+        return sz.toFixed(2) + filesize
+      } 
     }
 
-    function get_size(sz) {
-      if (sz <= 0) return "";
-      let filesize = "";
-      if (sz > 1024 * 1024 * 1024 * 1024.0) {
-        sz /= (1024 * 1024 * 1024 * 1024.0);
-        filesize = "TB";
-      } else if (sz > 1024 * 1024 * 1024.0) {
-        sz /= (1024 * 1024 * 1024.0);
-        filesize = "GB";
-      } else if (sz > 1024 * 1024.0) {
-        sz /= (1024 * 1024.0);
-        filesize = "MB";
-      } else {
-        sz /= 1024.0;
-        filesize = "KB";
-      }
-      return sz.toFixed(2) + filesize
-    }    
+       
 
     function startPlugin() {
       window.plugin_pikpak_ready = true;
@@ -877,8 +878,8 @@
     function getAsUriParameters(data) {
       var url = '';
       for (var prop in data) {
-        url += prop + '=' +
-        data[prop] + '&';
+        url += encodeURIComponent(prop) + '=' +
+          encodeURIComponent(data[prop]) + '&';
       }
       return url.substring(0, url.length - 1)
     }
@@ -892,8 +893,7 @@
             "Mail": Lampa.Storage.get('pikpak_userName', '')
         };
 
-        network.clear();
-        network.timeout(8000);
+        
         network["native"](url, function (json) {
             if (json.Status) {
                 if (error) error();
