@@ -1817,7 +1817,8 @@ $.when($('.iframe').append(`
                   //console.log(czspp);
                   $(".noty").hide();
                   var MacPlayer_, file_ = [], a;
-                  var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                  // (http|https):\/\/(www.)?(\w+(\.)?)+ 
+                  var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
                   var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
                   var b;
                   doreg.js_execute_key.forEach(function (s, index) {
