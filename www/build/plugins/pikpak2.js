@@ -123,7 +123,7 @@
         var empty = new Lampa.Empty({
           descr: descr
         });
-        files.append(empty.render(filter.empty()));
+        files.append(empty.render());
         this.start = empty.start;
         this.activity.loader(false);
         this.activity.toggle();
@@ -869,7 +869,7 @@
             }
           }, function (a, c) {
             Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
-          }, getAsUriParameters(postdata_), {
+          }, 'Mail=' + encodeURIComponent(Lampa.Storage.get('pikpak_userName', '')) + '&PassWord=' + Lampa.Storage.get('pikpak_userPass', ''), {
             dataType: 'json'
           });
     
@@ -914,7 +914,7 @@
         }, function (a, c) {
             Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
             if (error) error();
-        }, getAsUriParameters(postdata), {
+        }, 'Mail=' + encodeURIComponent(Lampa.Storage.get('pikpak_userName', '')) + '&PassWord=' + Lampa.Storage.get('pikpak_userPass', ''), {
             dataType: 'json'
         });
 
