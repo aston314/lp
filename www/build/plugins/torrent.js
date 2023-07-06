@@ -532,6 +532,7 @@
                         Lampa.Player.playlist([video]);*/
     
                         if (window.intentShim) {
+                            if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
                             var intentExtra = {
                                 title: element.name,
                                 poster: element.picture,
