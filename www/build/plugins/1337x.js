@@ -204,42 +204,42 @@
                                     $('a.torrentdown1', str).each(function (i, html) {
                                         var mlink = html.href;
 
-                                        var video = {
-                                            title: element.title,
-                                            url: element.video
-                                        };
+                                        // var video = {
+                                        //     title: element.title,
+                                        //     url: element.video
+                                        // };
 
-                                        if (window.intentShim) {
-                                            var intentExtra = {
-                                                title: element.title,
-                                                poster: element.img,
-                                                action: "play",
-                                                data: {
-                                                    lampa: true
-                                                }
-                                            };
-                                            window.plugins.intentShim.startActivity(
-                                                {
-                                                    action: window.plugins.intentShim.ACTION_VIEW,
-                                                    url: mlink,
-                                                    extras: intentExtra
-                                                },
-                                                function () { },
-                                                function () { console.log('Failed to open magnet URL via Android Intent') }
+                                        // if (window.intentShim) {
+                                        //     var intentExtra = {
+                                        //         title: element.title,
+                                        //         poster: element.img,
+                                        //         action: "play",
+                                        //         data: {
+                                        //             lampa: true
+                                        //         }
+                                        //     };
+                                        //     window.plugins.intentShim.startActivity(
+                                        //         {
+                                        //             action: window.plugins.intentShim.ACTION_VIEW,
+                                        //             url: mlink,
+                                        //             extras: intentExtra
+                                        //         },
+                                        //         function () { },
+                                        //         function () { console.log('Failed to open magnet URL via Android Intent') }
 
-                                            );
-                                        } else {
+                                        //     );
+                                        // } else {
                                             last = card[0];
-                                            var SERVER = {
-                                                "object": {
-                                                    "Title": "",
-                                                    "MagnetUri": "",
-                                                    "poster": ""
-                                                },
-                                                "movie": {
-                                                    "title": "",
-                                                }
-                                            };
+                                            // var SERVER = {
+                                            //     "object": {
+                                            //         "Title": "",
+                                            //         "MagnetUri": "",
+                                            //         "poster": ""
+                                            //     },
+                                            //     "movie": {
+                                            //         "title": "",
+                                            //     }
+                                            // };
                                             var SERVER1 = {
                                                 "title": "",
                                                 "MagnetUri": "",
@@ -249,15 +249,15 @@
                                             SERVER1.title = element.title;
                                             SERVER1.poster = element.img;
                                             
-                                            SERVER.object.MagnetUri = mlink;
-                                            SERVER.movie.title = element.title;
-                                            SERVER.object.poster = element.img;
+                                            // SERVER.object.MagnetUri = mlink;
+                                            // SERVER.movie.title = element.title;
+                                            // SERVER.object.poster = element.img;
                                             // console.log(SERVER1)
                                             // Lampa.Android.openTorrent(SERVER);
                                             Lampa.Torrent.start(SERVER1,{
                                                 title: element.title
                                             });
-                                        };
+                                        // };
                                     });
 
                                 }, function (a, c) {
