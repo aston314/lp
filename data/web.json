@@ -882,7 +882,7 @@
       }
    },
    {
-      "title":"动漫-奇米奇米",
+      "title":"动漫 - 奇米奇米",
       "link":"http://www.qimiqimi.net",
       "show":"portrait",
       "next":"search",
@@ -945,7 +945,7 @@
       }
    },
    {
-      "title":"动漫-樱花动漫",
+      "title":"动漫 - 樱花动漫",
       "link":"http://www.yinghuavideo.com",
       "show":"portrait",
       "next":"search",
@@ -1000,69 +1000,6 @@
       },
       "search":{
          "url":"http://www.yinghuavideo.com/search/#msearchword/"
-      }
-   },
-   {
-      "title":"动漫-嘶哩嘶哩",
-      "link":"https://www.silisilifun.com/",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
-         {
-            "title":"首页",
-            "url":"https://www.silisilifun.com",
-            "quantity":""
-         },
-         {
-            "title":"新番日漫",
-            "url":"https://www.silisilifun.com/vodtype/xinfanriman/",
-            "quantity":""
-         },
-         {
-            "title":"新番国漫",
-            "url":"https://www.silisilifun.com/vodtype/xinfanguoman/",
-            "quantity":""
-         },
-         {
-            "title":"动漫番剧",
-            "url":"https://www.silisilifun.com/vodtype/dongmanfanju/",
-            "quantity":""
-         },
-         {
-            "title":"剧场动漫",
-            "url":"https://www.silisilifun.com/vodtype/juchang/",
-            "quantity":""
-         }
-      ],
-      "list":{
-         "page":{
-            "selector":".page.row_tom"
-         },
-         "videoscontainer":{
-            "selector":"div.row.wall article,div#content article",
-            "attrName":"",
-            "filter":""
-         },
-         "title":{
-            "selector":".entry-title a",
-            "attrName":"text",
-            "filter":""
-         },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
-         },
-         "link":{
-            "selector":".entry-title a",
-            "attrName":"href",
-            "filter":""
-         }
-      },
-      "search":{
-         "url":"https://www.silisilifun.com/vodsearch/?wd=#msearchword"
       }
    },
    {
