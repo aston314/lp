@@ -229,6 +229,7 @@
 
                                             );
                                         } else {
+                                            last = card[0];
                                             var SERVER = {
                                                 "object": {
                                                     "Title": "",
