@@ -444,6 +444,9 @@
                                 var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                                 button.on('hover:enter', function () {
                                     last = card[0];
+                                    if (!Lampa.Platform.is("android")) {
+                                        Lampa.Modal.close();
+                                    }
                                     var SERVER1 = {
                                         "title": "",
                                         "MagnetUri": "",
@@ -452,9 +455,6 @@
                                     SERVER1.MagnetUri = tab.url;
                                     SERVER1.title = element.name;
                                     SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-
-
-                                    Lampa.Modal.close();
                                     Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
                                         title: element.name
                                     }));
