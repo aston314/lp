@@ -527,34 +527,31 @@
                             });
                         }
                     } else {
-                        var video = {
-                            title: element.name,
-                            url: element.video
-                        };
+                        
     
                         /*Lampa.Player.play(video);
                         Lampa.Player.playlist([video]);*/
     
-                        if (window.intentShim) {
-                            if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
-                            var intentExtra = {
-                                title: element.name,
-                                poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
-                                action: "play",
-                                data: {
-                                    lampa: true
-                                }
-                            };
-                            window.plugins.intentShim.startActivity(
-                                {
-                                    action: window.plugins.intentShim.ACTION_VIEW,
-                                    url: element.magnet,
-                                    extras: intentExtra
-                                },
-                                function () { },
-                                function () { console.log('Failed to open magnet URL via Android Intent') }
-                            );
-                        } else {
+                        // if (window.intentShim) {
+                        //     if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+                        //     var intentExtra = {
+                        //         title: element.name,
+                        //         poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
+                        //         action: "play",
+                        //         data: {
+                        //             lampa: true
+                        //         }
+                        //     };
+                        //     window.plugins.intentShim.startActivity(
+                        //         {
+                        //             action: window.plugins.intentShim.ACTION_VIEW,
+                        //             url: element.magnet,
+                        //             extras: intentExtra
+                        //         },
+                        //         function () { },
+                        //         function () { console.log('Failed to open magnet URL via Android Intent') }
+                        //     );
+                        // } else {
                             last = card[0];
                             // var SERVER = {
                             //     "object": {
@@ -587,7 +584,7 @@
                             // Lampa.Torrent.back(line.toggle.bind(line));
 
                         };
-                    } 
+                    // } 
                 });
                 // card.on('hover:long', function (target, card_data) {
                 //   Lampa.Modal.open({
