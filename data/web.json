@@ -1041,7 +1041,7 @@
             "selector":".page.row_tom"
          },
          "videoscontainer":{
-            "selector":"div#content article",
+            "selector":"article.post,div#content article",
             "attrName":"",
             "filter":""
          },
