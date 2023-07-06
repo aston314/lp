@@ -1518,9 +1518,6 @@
                     if (page.indexOf('#') !== -1) {
                         page = object.url;
                     };
-                    if (page.indexOf('/1') !== -1) {
-                        page = object.url;
-                    };
                 } else {
                     page = object.url;
                     if (page.indexOf('/1') !== -1) {
