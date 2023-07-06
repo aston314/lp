@@ -127,44 +127,45 @@
           if (Lampa.Helper) Lampa.Helper.show('magnet_detail5', '长按住 (ОК) 键下载至 PikPak', card);
         });
         card.on('hover:enter', function () {
-          var video = {
-            title: element.name,
-            url: element.video
-          };
+          // var video = {
+          //   title: element.name,
+          //   url: element.video
+          // };
           
           /*Lampa.Player.play(video);
           Lampa.Player.playlist([video]);*/
           
-            if (window.intentShim) {
-                var intentExtra = {
-                    title: element.name,
-                    poster: element.picture,
-                    action: "play",
-                    data: {
-                        lampa: true
-                    }
-                };
-                window.plugins.intentShim.startActivity(
-                    {
-                        action: window.plugins.intentShim.ACTION_VIEW,
-                        url: element.video,
-                        extras: intentExtra
-                    },
-                    function () { },
-                    function () { console.log('Failed to open magnet URL via Android Intent') }
+          //   if (window.intentShim) {
+          //       var intentExtra = {
+          //           title: element.name,
+          //           poster: element.picture,
+          //           action: "play",
+          //           data: {
+          //               lampa: true
+          //           }
+          //       };
+          //       window.plugins.intentShim.startActivity(
+          //           {
+          //               action: window.plugins.intentShim.ACTION_VIEW,
+          //               url: element.video,
+          //               extras: intentExtra
+          //           },
+          //           function () { },
+          //           function () { console.log('Failed to open magnet URL via Android Intent') }
 
-                );
-          } else {
-            var SERVER = {
-              "object": {
-                "Title": "",
-                "MagnetUri": "",
-                "poster": ""
-              },
-              "movie": {
-                "title": "",
-              }
-            };
+          //       );
+          // } else {
+            last = card[0];
+            // var SERVER = {
+            //   "object": {
+            //     "Title": "",
+            //     "MagnetUri": "",
+            //     "poster": ""
+            //   },
+            //   "movie": {
+            //     "title": "",
+            //   }
+            // };
             var SERVER1 = {
               "title": "",
               "MagnetUri": "",
@@ -174,15 +175,15 @@
             SERVER1.title = element.name;
             SERVER1.poster = element.picture;
 
-            SERVER.object.MagnetUri = element.video;
-            SERVER.movie.title = element.name;
-            SERVER.object.poster = element.picture;
+            // SERVER.object.MagnetUri = element.video;
+            // SERVER.movie.title = element.name;
+            // SERVER.object.poster = element.picture;
             // console.log(SERVER1)
             // Lampa.Android.openTorrent(SERVER);
             Lampa.Torrent.start(SERVER1, {
               title: element.name
             });
-          };
+          // };
         });
         // card.on('hover:long', function (target, card_data) {
         //   Lampa.Modal.open({
