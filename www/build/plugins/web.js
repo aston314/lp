@@ -1055,9 +1055,12 @@
             return this.render();
         };
         this.next = function (page) {
+            
             var _this2 = this;
             if (total_pages == 1 || total_pages == 0) waitload = true;
+            
             if (waitload) return;
+            
             waitload = true;
             object.page++;
             //console.log(object.page);
@@ -1065,17 +1068,19 @@
             network.timeout(1000 * 40);
             if (typeof page == 'undefined') return;
             if (page.indexOf('undefined') != -1) return;
-            //console.log(page);
+            
             //var page1 = page.match(new RegExp('-([0-9])\.', ''))[0];
             //console.log(page1[0]);
             //page = page.replace(page.match(/-(\d+)/)[0],'-'+ object.page)
             //console.log(page.match(/[0-9]+(?=[^0-9]*$)(.+)/))
             //var ext = page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '';
+            
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
                 const regex = /page=(\d+)/;  // 正则表达式
                 const match = page.match(regex);  // 使用 match() 方法来匹配
+                
 
                 if (match) {
                     //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
@@ -1513,11 +1518,18 @@
                     if (page.indexOf('#') !== -1) {
                         page = object.url;
                     };
+                    if (page.indexOf('/1') !== -1) {
+                        page = object.url;
+                    };
                 } else {
                     page = object.url;
-                    //console.log(/[0-9]+(?=[^0-9]*$)(.*)/i.test(page))
-                    if (/[0-9]+(?=[^0-9]*$)(.*)/i.test(page) && object.url !== object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]) {
-                        total_pages = 1;
+                    if (page.indexOf('/1') !== -1) {
+                        total_pages = 2;
+                    } else {
+                        // console.log(/[0-9]+(?=[^0-9]*$)(.*)/i.test(page))
+                        if (/[0-9]+(?=[^0-9]*$)(.*)/i.test(page) && object.url !== object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]) {
+                            total_pages = 1;
+                        };
                     };
                 };
 
