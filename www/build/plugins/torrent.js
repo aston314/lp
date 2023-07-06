@@ -477,10 +477,23 @@
                                                 "title": "",
                                             }
                                         };
-                                        SERVER.object.MagnetUri = mlink;
+                                        var SERVER1 = {
+                                            "title": "",
+                                            "MagnetUri": "",
+                                            "poster": ""
+                                        };
+                                        SERVER1.MagnetUri = element.magnet;
+                                        SERVER1.title = element.name;
+                                        SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
+                                        
+                                        SERVER.object.MagnetUri = element.magnet;
                                         SERVER.movie.title = element.name;
                                         SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                                        Lampa.Android.openTorrent(SERVER);
+                                        // console.log(SERVER1)
+                                        // Lampa.Android.openTorrent(SERVER);
+                                        Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
+                                            title: element.name
+                                        }));
                                     };
 
                                 });
@@ -546,10 +559,23 @@
                                     "title": "",
                                 }
                             };
+                            var SERVER1 = {
+                                "title": "",
+                                "MagnetUri": "",
+                                "poster": ""
+                            };
+                            SERVER1.MagnetUri = element.magnet;
+                            SERVER1.title = element.name;
+                            SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
+                            
                             SERVER.object.MagnetUri = element.magnet;
                             SERVER.movie.title = element.name;
                             SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                            Lampa.Android.openTorrent(SERVER);
+                            // console.log(SERVER1)
+                            // Lampa.Android.openTorrent(SERVER);
+                            Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
+                                title: element.name
+                            }));
                         };
                     } 
                 });
