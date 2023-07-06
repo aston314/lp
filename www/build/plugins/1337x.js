@@ -199,7 +199,7 @@
                         sources.forEach(function (tab, i) {
                             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                             button.on('hover:enter', function () {
-                                console.log(element)
+                                // console.log(element)
                                 network["native"](cors + tab.url, function (str) {
                                     $('a.torrentdown1', str).each(function (i, html) {
                                         var mlink = html.href;
@@ -229,6 +229,9 @@
 
                                         //     );
                                         // } else {
+                                            if (!Lampa.Platform.is("android")) {
+                                                Lampa.Modal.close();
+                                            }
                                             last = card[0];
                                             // var SERVER = {
                                             //     "object": {
