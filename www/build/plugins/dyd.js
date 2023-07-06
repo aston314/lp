@@ -371,7 +371,9 @@
                                         // SERVER.movie.title = element.title;
                                         // SERVER.object.poster = element.img;
                                         // Lampa.Android.openTorrent(SERVER);
-                                        Lampa.Modal.close();
+                                        if (!Lampa.Platform.is("android")) {
+                                            Lampa.Modal.close();
+                                        }
                                         last = card[0];
                                         var SERVER1 = {
                                             "title": "",
