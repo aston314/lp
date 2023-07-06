@@ -187,8 +187,8 @@
                     // console.log(card)
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
-                    // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    if (scroll.isEnd()) _this3.next();
+                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    // if (scroll.isEnd()) _this3.next();
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
                 });
@@ -332,46 +332,60 @@
                                         page: 1
                                     });
                                 } else {
-                                    var video = {
-                                        title: element.name,
-                                        url: element.video
-                                    };
+                                    // var video = {
+                                    //     title: element.name,
+                                    //     url: element.video
+                                    // };
     
-                                    if (window.intentShim) {
-                                        var intentExtra = {
+                                    // if (window.intentShim) {
+                                    //     var intentExtra = {
+                                    //         title: element.title,
+                                    //         poster: element.img,
+                                    //         action: "play",
+                                    //         data: {
+                                    //             lampa: true
+                                    //         }
+                                    //     };
+                                    //     window.plugins.intentShim.startActivity(
+                                    //         {
+                                    //             action: window.plugins.intentShim.ACTION_VIEW,
+                                    //             url: tab.url,
+                                    //             extras: intentExtra
+                                    //         },
+                                    //         function () { },
+                                    //         function () { console.log('Failed to open magnet URL via Android Intent') }
+    
+                                    //     );
+                                    // } else {
+                                        // var SERVER = {
+                                        //     "object": {
+                                        //         "Title": "",
+                                        //         "MagnetUri": "",
+                                        //         "poster": ""
+                                        //     },
+                                        //     "movie": {
+                                        //         "title": "",
+                                        //     }
+                                        // };
+                                        // SERVER.object.MagnetUri = tab.url;
+                                        // SERVER.movie.title = element.title;
+                                        // SERVER.object.poster = element.img;
+                                        // Lampa.Android.openTorrent(SERVER);
+                                        Lampa.Modal.close();
+                                        last = card[0];
+                                        var SERVER1 = {
+                                            "title": "",
+                                            "MagnetUri": "",
+                                            "poster": ""
+                                        };
+                                        SERVER1.MagnetUri = tab.url;
+                                        SERVER1.title = element.title;
+                                        SERVER1.poster = element.img;
+                                        Lampa.Torrent.start(SERVER1,{
                                             title: element.title,
-                                            poster: element.img,
-                                            action: "play",
-                                            data: {
-                                                lampa: true
-                                            }
-                                        };
-                                        window.plugins.intentShim.startActivity(
-                                            {
-                                                action: window.plugins.intentShim.ACTION_VIEW,
-                                                url: tab.url,
-                                                extras: intentExtra
-                                            },
-                                            function () { },
-                                            function () { console.log('Failed to open magnet URL via Android Intent') }
-    
-                                        );
-                                    } else {
-                                        var SERVER = {
-                                            "object": {
-                                                "Title": "",
-                                                "MagnetUri": "",
-                                                "poster": ""
-                                            },
-                                            "movie": {
-                                                "title": "",
-                                            }
-                                        };
-                                        SERVER.object.MagnetUri = tab.url;
-                                        SERVER.movie.title = element.title;
-                                        SERVER.object.poster = element.img;
-                                        Lampa.Android.openTorrent(SERVER);
-                                    };
+                                            poster: element.img
+                                        });
+                                    // };
                                     // Lampa.Controller.toggle('content');
                                 }
                             });
