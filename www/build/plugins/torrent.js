@@ -364,7 +364,7 @@
                     release_year: (element.size ? element.size : '') + ' ' + (element.leechers ? element.leechers : '') + ' ' + (element.seeders ? element.seeders : '') + ' ' + (element.date ? element.date : '')
                 });
                 card.addClass('card--category');
-                card.find('.card__img').attr('src', element.poster);
+                card.find('.card__img').attr('src', element.poster ? element.poster.replace('large', 'medium') : './img/img_load.svg');
                 var regexp = /[0-9]+(\.[0-9]{1,2})?(GB|MB|gb|mb|p)/g;
 
                 var regexp_ = /([0-9]{3,4}[pi])/g;
@@ -443,63 +443,22 @@
                             sources.forEach(function (tab, i) {
                                 var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                                 button.on('hover:enter', function () {
-                                    var mlink = tab.url;
-                                    var video = {
-                                        title: element.title,
-                                        url: element.video
+                                    last = card[0];
+                                    var SERVER1 = {
+                                        "title": "",
+                                        "MagnetUri": "",
+                                        "poster": ""
                                     };
+                                    SERVER1.MagnetUri = tab.url;
+                                    SERVER1.title = element.name;
+                                    SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
 
-                                    if (window.intentShim) {
-                                        if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
-                                        var intentExtra = {
-                                            title: element.name,
-                                            poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
-                                            action: "play",
-                                            data: {
-                                                lampa: true
-                                            }
-                                        };
-                                        window.plugins.intentShim.startActivity(
-                                            {
-                                                action: window.plugins.intentShim.ACTION_VIEW,
-                                                url: tab.url,
-                                                extras: intentExtra
-                                            },
-                                            function () { },
-                                            function () { console.log('Failed to open magnet URL via Android Intent') }
-                                        );
-                                    } else {
-                                        last = card[0];
-                                        // var SERVER = {
-                                        //     "object": {
-                                        //         "Title": "",
-                                        //         "MagnetUri": "",
-                                        //         "poster": ""
-                                        //     },
-                                        //     "movie": {
-                                        //         "title": "",
-                                        //     }
-                                        // };
-                                        var SERVER1 = {
-                                            "title": "",
-                                            "MagnetUri": "",
-                                            "poster": ""
-                                        };
-                                        SERVER1.MagnetUri = tab.url;
-                                        SERVER1.title = element.name;
-                                        SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
-                                        
-                                        // SERVER.object.MagnetUri = tab.url;
-                                        // SERVER.movie.title = element.name;
-                                        // SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                                        
-                                        // Lampa.Android.openTorrent(SERVER);
-                                        Lampa.Modal.close();
-                                        Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
-                                            title: element.name
-                                        }));
-                                        // Lampa.Torrent.back(console.log('ddddd'));
-                                    };
+
+                                    Lampa.Modal.close();
+                                    Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
+                                        title: element.name
+                                    }));
+
 
                                 });
                                 // if (tab.name == _this.display) button.addClass('active');
@@ -527,63 +486,20 @@
                             });
                         }
                     } else {
-                        
-    
-                        /*Lampa.Player.play(video);
-                        Lampa.Player.playlist([video]);*/
-    
-                        // if (window.intentShim) {
-                        //     if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
-                        //     var intentExtra = {
-                        //         title: element.name,
-                        //         poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
-                        //         action: "play",
-                        //         data: {
-                        //             lampa: true
-                        //         }
-                        //     };
-                        //     window.plugins.intentShim.startActivity(
-                        //         {
-                        //             action: window.plugins.intentShim.ACTION_VIEW,
-                        //             url: element.magnet,
-                        //             extras: intentExtra
-                        //         },
-                        //         function () { },
-                        //         function () { console.log('Failed to open magnet URL via Android Intent') }
-                        //     );
-                        // } else {
-                            last = card[0];
-                            // var SERVER = {
-                            //     "object": {
-                            //         "Title": "",
-                            //         "MagnetUri": "",
-                            //         "poster": ""
-                            //     },
-                            //     "movie": {
-                            //         "title": "",
-                            //     }
-                            // };
-                            var SERVER1 = {
-                                "title": "",
-                                "MagnetUri": "",
-                                "poster": ""
-                            };
-                            SERVER1.MagnetUri = element.magnet;
-                            SERVER1.title = element.name;
-                            SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
-                            
-                            // SERVER.object.MagnetUri = element.magnet;
-                            // SERVER.movie.title = element.name;
-                            // SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                            // console.log(SERVER1)
-                            // Lampa.Android.openTorrent(SERVER);
-                            Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
-                                title: element.name
-                            }));
-                            // var line = card[0];
-                            // Lampa.Torrent.back(line.toggle.bind(line));
-
+                        last = card[0];
+                        var SERVER1 = {
+                            "title": "",
+                            "MagnetUri": "",
+                            "poster": ""
                         };
+                        SERVER1.MagnetUri = element.magnet;
+                        SERVER1.title = element.name;
+                        SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
+
+                        Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
+                            title: element.name
+                        }));
+                    };
                     // } 
                 });
                 // card.on('hover:long', function (target, card_data) {
