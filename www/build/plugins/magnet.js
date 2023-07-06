@@ -172,7 +172,7 @@
               "poster": ""
             };
             SERVER1.MagnetUri = element.video;
-            SERVER1.title = element.name;
+            SERVER1.title = element.cname;
             SERVER1.poster = element.picture;
 
             // SERVER.object.MagnetUri = element.video;
@@ -181,7 +181,7 @@
             // console.log(SERVER1)
             // Lampa.Android.openTorrent(SERVER);
             Lampa.Torrent.start(SERVER1, {
-              title: element.name
+              title: element.cname
             });
           // };
         });
