@@ -1101,7 +1101,11 @@
                     // Lampa.Controller.toggle('content');
                     _this2.activity.loader(false);
                 }, function (a, c) {
-                    Lampa.Noty.show(network.errorDecode(a, c));
+                    if (a.status == 404) {
+                        // Lampa.Noty.show('ohh,已经是最后一页了');
+                    } else {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }
                 }, false, {
                     dataType: 'text',
                     headers: {
@@ -1121,7 +1125,11 @@
                     // Lampa.Controller.toggle('content');
                     _this2.activity.loader(false);
                 }, function (a, c) {
-                    Lampa.Noty.show(network.errorDecode(a, c));
+                    if (a.status == 404) {
+                        // Lampa.Noty.show('ohh,已经是最后一页了');
+                    } else {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }
                 }, false, {
                     dataType: 'text'
                 });
