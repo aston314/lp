@@ -1011,6 +1011,11 @@
       "use_referer":false,
       "category":[
          {
+            "title":"首页",
+            "url":"https://www.silisilifun.com",
+            "quantity":""
+         },
+         {
             "title":"新番日漫",
             "url":"https://www.silisilifun.com/vodtype/xinfanriman/",
             "quantity":""
@@ -1036,7 +1041,7 @@
             "selector":".page.row_tom"
          },
          "videoscontainer":{
-            "selector":"div#content article",
+            "selector":"div.row.wall article,div#content article",
             "attrName":"",
             "filter":""
          },
