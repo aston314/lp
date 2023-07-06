@@ -1051,7 +1051,7 @@
             "filter":""
          },
          "thumb":{
-            "selector":"img",
+            "selector":"img,srcset",
             "attrName":"src",
             "filter":""
          },
