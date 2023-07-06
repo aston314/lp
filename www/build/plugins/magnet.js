@@ -154,22 +154,35 @@
                     function () { console.log('Failed to open magnet URL via Android Intent') }
 
                 );
-            } else {
-              var SERVER = {
-                  "object": {
-                      "Title": "",
-                      "MagnetUri": "",
-                      "poster": ""
-                  },
-                  "movie": {
-                      "title": "",
-                  }
-              };
-              SERVER.object.MagnetUri = element.video;
-              SERVER.movie.title = element.name;
-              SERVER.object.poster = element.picture;
-              Lampa.Android.openTorrent(SERVER);
+          } else {
+            var SERVER = {
+              "object": {
+                "Title": "",
+                "MagnetUri": "",
+                "poster": ""
+              },
+              "movie": {
+                "title": "",
+              }
             };
+            var SERVER1 = {
+              "title": "",
+              "MagnetUri": "",
+              "poster": ""
+            };
+            SERVER1.MagnetUri = element.video;
+            SERVER1.title = element.name;
+            SERVER1.poster = element.picture;
+
+            SERVER.object.MagnetUri = element.video;
+            SERVER.movie.title = element.name;
+            SERVER.object.poster = element.picture;
+            // console.log(SERVER1)
+            // Lampa.Android.openTorrent(SERVER);
+            Lampa.Torrent.start(SERVER1, {
+              title: element.name
+            });
+          };
         });
         // card.on('hover:long', function (target, card_data) {
         //   Lampa.Modal.open({
