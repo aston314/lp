@@ -449,9 +449,10 @@
                                     };
 
                                     if (window.intentShim) {
+                                        if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
                                         var intentExtra = {
                                             title: element.name,
-                                            poster: element.poster,
+                                            poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
                                             action: "play",
                                             data: {
                                                 lampa: true
@@ -535,7 +536,7 @@
                             if (object.movie && object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
                             var intentExtra = {
                                 title: element.name,
-                                poster: element.picture,
+                                poster: element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :''),
                                 action: "play",
                                 data: {
                                     lampa: true
