@@ -661,7 +661,7 @@
                 // });
                 // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
                 var searchcat = [{
-                    title: '单曲',
+                    title: '单曲/歌手',
                     value: 1
                 }, {
                     title: '专辑',
