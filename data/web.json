@@ -1706,8 +1706,28 @@
       "use_referer":false,
       "category":[
          {
-            "title":"最新更新",
+            "title":"首页",
             "url":"https://www.tvbox.one/page/1",
+            "quantity":""
+         },
+         {
+            "title":"应用",
+            "url":"https://www.tvbox.one/apps/page/1",
+            "quantity":""
+         },
+         {
+            "title":"游戏",
+            "url":"https://www.tvbox.one/games/page/1",
+            "quantity":""
+         },
+         {
+            "title":"工具",
+            "url":"https://www.tvbox.one/utilities/page/1",
+            "quantity":""
+         },
+         {
+            "title":"手机",
+            "url":"https://www.tvbox.one/mobile/page/1",
             "quantity":""
          }
       ],
