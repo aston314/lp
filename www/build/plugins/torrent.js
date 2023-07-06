@@ -439,6 +439,7 @@
                             });
                             var html_ = $('<div></div>');
                             var navigation = $('<div class="navigation-tabs"></div>');
+                            
                             sources.forEach(function (tab, i) {
                                 var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
                                 button.on('hover:enter', function () {
@@ -461,41 +462,43 @@
                                         window.plugins.intentShim.startActivity(
                                             {
                                                 action: window.plugins.intentShim.ACTION_VIEW,
-                                                url: mlink,
+                                                url: tab.url,
                                                 extras: intentExtra
                                             },
                                             function () { },
                                             function () { console.log('Failed to open magnet URL via Android Intent') }
                                         );
                                     } else {
-                                        var SERVER = {
-                                            "object": {
-                                                "Title": "",
-                                                "MagnetUri": "",
-                                                "poster": ""
-                                            },
-                                            "movie": {
-                                                "title": "",
-                                            }
-                                        };
+                                        last = card[0];
+                                        // var SERVER = {
+                                        //     "object": {
+                                        //         "Title": "",
+                                        //         "MagnetUri": "",
+                                        //         "poster": ""
+                                        //     },
+                                        //     "movie": {
+                                        //         "title": "",
+                                        //     }
+                                        // };
                                         var SERVER1 = {
                                             "title": "",
                                             "MagnetUri": "",
                                             "poster": ""
                                         };
-                                        SERVER1.MagnetUri = element.magnet;
+                                        SERVER1.MagnetUri = tab.url;
                                         SERVER1.title = element.name;
                                         SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
                                         
-                                        SERVER.object.MagnetUri = element.magnet;
-                                        SERVER.movie.title = element.name;
-                                        SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                                        // console.log(SERVER1)
+                                        // SERVER.object.MagnetUri = tab.url;
+                                        // SERVER.movie.title = element.name;
+                                        // SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
+                                        
                                         // Lampa.Android.openTorrent(SERVER);
+                                        Lampa.Modal.close();
                                         Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
                                             title: element.name
                                         }));
-                                        Lampa.Torrent.back(console.log('ddddd'));
+                                        // Lampa.Torrent.back(console.log('ddddd'));
                                     };
 
                                 });
@@ -553,16 +556,16 @@
                             );
                         } else {
                             last = card[0];
-                            var SERVER = {
-                                "object": {
-                                    "Title": "",
-                                    "MagnetUri": "",
-                                    "poster": ""
-                                },
-                                "movie": {
-                                    "title": "",
-                                }
-                            };
+                            // var SERVER = {
+                            //     "object": {
+                            //         "Title": "",
+                            //         "MagnetUri": "",
+                            //         "poster": ""
+                            //     },
+                            //     "movie": {
+                            //         "title": "",
+                            //     }
+                            // };
                             var SERVER1 = {
                                 "title": "",
                                 "MagnetUri": "",
@@ -572,9 +575,9 @@
                             SERVER1.title = element.name;
                             SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path :'');
                             
-                            SERVER.object.MagnetUri = element.magnet;
-                            SERVER.movie.title = element.name;
-                            SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
+                            // SERVER.object.MagnetUri = element.magnet;
+                            // SERVER.movie.title = element.name;
+                            // SERVER.object.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
                             // console.log(SERVER1)
                             // Lampa.Android.openTorrent(SERVER);
                             Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
