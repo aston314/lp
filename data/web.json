@@ -882,7 +882,7 @@
       }
    },
    {
-      "title":"奇米奇米",
+      "title":"动漫-奇米奇米",
       "link":"http://www.qimiqimi.net",
       "show":"portrait",
       "next":"search",
@@ -942,6 +942,64 @@
       },
       "search":{
          "url":"http://www.qimiqimi.net/vod/search.html?wd=#msearchword&submit="
+      }
+   },
+   {
+      "title":"动漫-樱花动漫",
+      "link":"http://www.yinghuavideo.com",
+      "show":"portrait",
+      "next":"search",
+      "datasort":"",
+      "use_referer":false,
+      "category":[
+         {
+            "title":"首页",
+            "url":"http://www.yinghuavideo.com",
+            "quantity":""
+         },
+         {
+            "title":"日本动漫",
+            "url":"http://www.yinghuavideo.com/japan/",
+            "quantity":""
+         },
+         {
+            "title":"国产动漫",
+            "url":"http://www.yinghuavideo.com/china/",
+            "quantity":""
+         },
+         {
+            "title":"美国动漫",
+            "url":"http://www.yinghuavideo.com/american/",
+            "quantity":""
+         }
+      ],
+      "list":{
+         "page":{
+            "selector":".pages"
+         },
+         "videoscontainer":{
+            "selector":"div.lpic > ul > li,div.img > ul > li",
+            "attrName":"",
+            "filter":""
+         },
+         "title":{
+            "selector":"img",
+            "attrName":"alt",
+            "filter":""
+         },
+         "thumb":{
+            "selector":"img",
+            "attrName":"src",
+            "filter":""
+         },
+         "link":{
+            "selector":"a",
+            "attrName":"href",
+            "filter":""
+         }
+      },
+      "search":{
+         "url":"http://www.yinghuavideo.com/search/#msearchword/"
       }
    },
    {
