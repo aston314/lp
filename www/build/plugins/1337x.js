@@ -239,10 +239,23 @@
                                                     "title": "",
                                                 }
                                             };
+                                            var SERVER1 = {
+                                                "title": "",
+                                                "MagnetUri": "",
+                                                "poster": ""
+                                            };
+                                            SERVER1.MagnetUri = mlink;
+                                            SERVER1.title = element.title;
+                                            SERVER1.poster = element.img;
+                                            
                                             SERVER.object.MagnetUri = mlink;
                                             SERVER.movie.title = element.title;
                                             SERVER.object.poster = element.img;
-                                            Lampa.Android.openTorrent(SERVER);
+                                            // console.log(SERVER1)
+                                            // Lampa.Android.openTorrent(SERVER);
+                                            Lampa.Torrent.start(SERVER1,{
+                                                title: element.title
+                                            });
                                         };
                                     });
 
