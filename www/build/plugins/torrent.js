@@ -494,6 +494,7 @@
                                         Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
                                             title: element.name
                                         }));
+                                        Lampa.Torrent.back(console.log('ddddd'));
                                     };
 
                                 });
@@ -549,6 +550,7 @@
                                 function () { console.log('Failed to open magnet URL via Android Intent') }
                             );
                         } else {
+                            last = card[0];
                             var SERVER = {
                                 "object": {
                                     "Title": "",
@@ -576,6 +578,9 @@
                             Lampa.Torrent.start(SERVER1,(object.movie ? object.movie :{
                                 title: element.name
                             }));
+                            // var line = card[0];
+                            // Lampa.Torrent.back(line.toggle.bind(line));
+
                         };
                     } 
                 });
