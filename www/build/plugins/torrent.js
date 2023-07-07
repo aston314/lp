@@ -368,21 +368,20 @@
                 var regexp = /[0-9]+(\.[0-9]{1,2})?(GB|MB|gb|mb|p)/g;
 
                 var regexp_ = /([0-9]{3,4}[pi])/g;
-                if (element.name) {
-                    if (element.rating) {
-                        card.find('.card__view').append('<div class="card__quality"></div>');
-                        card.find('.card__quality').text(element.rating);
-                     } else {
-                        var c = element.name.match(regexp);
-                        if (c) {
-                            var quality = c[0].match(regexp_) ? c[0].match(regexp_) : '';
-                            if (quality) {
-                                card.find('.card__view').append('<div class="card__quality"></div>');
-                                card.find('.card__quality').text(quality.toString().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''));
-                            };
-                        };
+                if (element.name && element.rating) {
+                    card.find('.card__view').append('<div class="card__quality"></div>');
+                    card.find('.card__quality').text(element.rating);
+                } else if (element.name) {
+                    var c = element.name.match(regexp);
+                    if (c) {
+                        var quality = c[0].match(regexp_) || '';
+                        if (quality) {
+                            card.find('.card__view').append('<div class="card__quality"></div>');
+                            card.find('.card__quality').text(quality.toString().replace(/([\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?)/, ''));
+                        }
                     }
-                };
+                }
+                
                 /*card.addClass('card--collection').width('14.266%');
                 //card.find('.card__img').attr('src', element.picture);
                 card.find('.card__img').css({
@@ -427,81 +426,79 @@
                     if (element.picture) Lampa.Background.change(element.picture);
                     // if (Lampa.Helper) Lampa.Helper.show('torrentapi_detail5', '长按住 (ОК) 键下载至 PikPak', card);
                 });
-                card.on('hover:enter', function () {
-                    if (element.torrents){
-                        if (element.torrents.length){
-                            var sources = [];
-                            element.torrents.forEach(function(item, index, array) {
-                                sources.push({
-                                    title: item.quality + ' ' + (item.type ? item.type : '') + ' ' + (item.size ? item.size : ''),
-                                    url: item.magnet,
-                                });
-                            });
-                            var html_ = $('<div></div>');
-                            var navigation = $('<div class="navigation-tabs"></div>');
-                            
-                            sources.forEach(function (tab, i) {
-                                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
-                                button.on('hover:enter', function () {
-                                    last = card[0];
-                                    if (!Lampa.Platform.is("android")) {
-                                        Lampa.Modal.close();
-                                    }
-                                    var SERVER1 = {
-                                        "title": "",
-                                        "MagnetUri": "",
-                                        "poster": ""
-                                    };
-                                    SERVER1.MagnetUri = tab.url;
-                                    SERVER1.title = element.name;
-                                    SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-                                    Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
-                                        title: element.name
-                                    }));
-
-
-                                });
-                                // if (tab.name == _this.display) button.addClass('active');
-                                if (i > 0 && i % 2 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
-                                if (i % 2 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
-                                    if (i > 0) html_.append(navigation);
-                                    navigation = $('<div class="navigation-tabs"></div>');
-                                }
-                                navigation.append(button);
-                            });
-
-                            html_.append(navigation);
-
-                            Lampa.Modal.open({
-                                title: element.name,
-                                html: html_,
-                                size: 'medium',
-                                select: html.find('.navigation-tabs .active')[0],
-                                mask: true,
-                                onBack: function onBack() {
-                                    Lampa.Modal.close();
-                                    Lampa.Api.clear();
-                                    Lampa.Controller.toggle('content');
-                                }
-                            });
-                        }
-                    } else {
+                card.on('hover:enter', function() {
+                  if (element.torrents && element.torrents.length) {
+                    var sources = element.torrents.map(function(item) {
+                      return {
+                        title: item.quality + ' ' + (item.type ? item.type : '') + ' ' + (item.size ? item.size : ''),
+                        url: item.magnet
+                      };
+                    });
+                
+                    var html_ = $('<div></div>');
+                    var navigation = $('<div class="navigation-tabs"></div>');
+                
+                    sources.forEach(function(tab, i) {
+                      var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                      button.on('hover:enter', function() {
                         last = card[0];
+                        if (!Lampa.Platform.is("android")) {
+                          Lampa.Modal.close();
+                        }
+                
                         var SERVER1 = {
-                            "title": "",
-                            "MagnetUri": "",
-                            "poster": ""
+                          "title": element.name,
+                          "MagnetUri": tab.url,
+                          "poster": element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '')
                         };
-                        SERVER1.MagnetUri = element.magnet;
-                        SERVER1.title = element.name;
-                        SERVER1.poster = element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '');
-
+                
                         Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
-                            title: element.name
+                          title: element.name
                         }));
+                      });
+                
+                      if (i > 0 && i % 2 != 0) {
+                        navigation.append('<div class="navigation-tabs__split">|</div>');
+                      }
+                
+                      if (i % 2 == 0) {
+                        if (i > 0) {
+                          html_.append(navigation);
+                        }
+                        navigation = $('<div class="navigation-tabs"></div>');
+                      }
+                
+                      navigation.append(button);
+                    });
+                
+                    html_.append(navigation);
+                
+                    Lampa.Modal.open({
+                      title: element.name,
+                      html: html_,
+                      size: 'medium',
+                      select: html_.find('.navigation-tabs .active')[0],
+                      mask: true,
+                      onBack: function() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content');
+                      }
+                    });
+                  } else {
+                    last = card[0];
+                    var SERVER1 = {
+                      "title": element.name,
+                      "MagnetUri": element.magnet,
+                      "poster": element.poster || (object.movie ? Lampa.Utils.protocol() + 'imagetmdb.com/t/p/w200' + object.movie.poster_path : '')
                     };
-                    // } 
+                
+                    Lampa.Torrent.start(SERVER1, (object.movie ? object.movie : {
+                      title: element.name
+                    }));
+                  }
                 });
+                
                 // card.on('hover:long', function (target, card_data) {
                 //   Lampa.Modal.open({
                 //     title: '发送到PikPak',
