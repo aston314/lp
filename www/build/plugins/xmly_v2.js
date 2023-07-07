@@ -313,52 +313,97 @@
         this.activity.loader(false);
         this.activity.toggle();
      };
-     
+
+
       this.start = function () {
-        var _this = this;
-        Lampa.Controller.add('content', {
-          toggle: function toggle() {
-            Lampa.Controller.collectionSet(scroll.render());
-            Lampa.Controller.collectionFocus(last || false, scroll.render());
-          },
-          left: function left() {
-            if (Navigator.canmove('left')) Navigator.move('left');
-            else Lampa.Controller.toggle('menu');
-          },
-          right: function right() {
-            // Navigator.move('right');
-            if (Navigator.canmove('right')) Navigator.move('right');
-            else listNavigation();//_this.selectGroup();
-          },
-          up: function up() {
-            // if (Navigator.canmove('up')) Navigator.move('up');
-            // else Lampa.Controller.toggle('head');
-            if (Navigator.canmove('up')) {
-              Navigator.move('up');
-            } else {
-              if (info) {
-                if (!info.find('.view--category').hasClass('focus')) {
-                  Lampa.Controller.collectionSet(info);
-                  Navigator.move('right')
-                } else Lampa.Controller.toggle('head');
-              } else Lampa.Controller.toggle('head');
-            }
-          },
-          down: function down() {
-            // if (Navigator.canmove('down')) Navigator.move('down');
-            if (Navigator.canmove('down')) Navigator.move('down');
-            else if (info) {
-              if (info.find('.view--category').hasClass('focus')) {
-                Lampa.Controller.toggle('content');
+          var _this = this;
+          Lampa.Controller.add('content', {
+              toggle: function toggle() {
+                  Lampa.Controller.collectionSet(scroll.render());
+                  Lampa.Controller.collectionFocus(last || false, scroll.render());
+              },
+              left: function left() {
+                  if (Navigator.canmove('left')) Navigator.move('left');
+                  else Lampa.Controller.toggle('menu');
+              },
+              right: function right() {
+                  // Navigator.move('right');
+                  if (Navigator.canmove('right')) Navigator.move('right');
+                  else _this.selectGroup();
+              },
+              up: function up() {
+                  // if (Navigator.canmove('up')) Navigator.move('up');
+                  // else Lampa.Controller.toggle('head');
+                  if (Navigator.canmove('up')) {
+                      Navigator.move('up');
+                  } else {
+                      if (!info.find('.view--category').hasClass('focus')) {
+                          if (!info.find('.view--category').hasClass('focus')) {
+                              Lampa.Controller.collectionSet(info);
+                              Navigator.move('right')
+                          }
+                      } else Lampa.Controller.toggle('head');
+                  }
+              },
+              down: function down() {
+                  // if (Navigator.canmove('down')) Navigator.move('down');
+                  if (Navigator.canmove('down')) Navigator.move('down');
+                  else if (info.find('.view--category').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  }
+              },
+              back: function back() {
+                  Lampa.Activity.backward();
               }
-            }
-          },
-          back: function back() {
-            Lampa.Activity.backward();
-          }
-        });
+          });
         Lampa.Controller.toggle('content');
       };
+      
+      this.start = function () {
+            var _this = this;
+            Lampa.Controller.add('content', {
+                toggle: function toggle() {
+                    Lampa.Controller.collectionSet(scroll.render());
+                    Lampa.Controller.collectionFocus(last || false, scroll.render());
+                },
+                left: function left() {
+                    if (Navigator.canmove('left')) Navigator.move('left');
+                    else Lampa.Controller.toggle('menu');
+                },
+                right: function right() {
+                    // Navigator.move('right');
+                    if (Navigator.canmove('right')) Navigator.move('right');
+                    else _this.selectGroup();
+                },
+                up: function up() {
+                    // if (Navigator.canmove('up')) Navigator.move('up');
+                    // else Lampa.Controller.toggle('head');
+                    if (Navigator.canmove('up')) {
+                        Navigator.move('up');
+                    } else {
+                        if (info) {
+                            if (!info.find('.view--category').hasClass('focus')) {
+                                Lampa.Controller.collectionSet(info);
+                                Navigator.move('right')
+                            } else Lampa.Controller.toggle('head');
+                        } else Lampa.Controller.toggle('head');
+                    }
+                },
+                down: function down() {
+                    // if (Navigator.canmove('down')) Navigator.move('down');
+                    if (Navigator.canmove('down')) Navigator.move('down');
+                    else if (info) {
+                        if (info.find('.view--category').hasClass('focus')) {
+                            Lampa.Controller.toggle('content');
+                        }
+                    }
+                },
+                back: function back() {
+                    Lampa.Activity.backward();
+                }
+            });
+            Lampa.Controller.toggle('content');
+        };
 
       this.pause = function () {};
 
