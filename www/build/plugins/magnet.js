@@ -232,7 +232,7 @@
           }, function (a, c) {
             //console.log(a.responseText,a.status)
             if (a.status == 200) {
-              Lampa.Noty.show(a.responseText);
+              Lampa.Noty.show('登录成功');
             } else {
               Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
             }
