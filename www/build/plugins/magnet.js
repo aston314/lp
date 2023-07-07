@@ -185,109 +185,110 @@
             });
           // };
         });
-        card.on('hover:long', function (target, card_data) {
-          var data = new FormData();
-          data.append("urls", element.video);
-          data.append("autoTMM", "true");
-          // data.append("category", category);
-          data.append("paused", "false");
-          data.append("root_folder", "true");
-          data.append("username", 'stnh');
-          data.append("password", '197346');
+        // card.on('hover:long', function (target, card_data) {
+        //   var data = new FormData();
+        //   data.append("urls", element.video);
+        //   data.append("autoTMM", "true");
+        //   // data.append("category", category);
+        //   data.append("paused", "false");
+        //   data.append("root_folder", "true");
+        //   data.append("username", 'stnh');
+        //   data.append("password", '197346');
           
-          // network["native"]('http://192.168.2.173:8989/api/v2/auth/login', function (result) {
-          //   console.log(result)
-          // }, false,'username=stnh&password=197346', {
-          //   headers: {
-          //     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-          //     "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
-          //     "Cache-Control": "max-age=0",
-          //     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-          //     // WARNING: Cookies will be stripped away by the browser before sending the request.
-          //   }
-          // });
+        //   // network["native"]('http://192.168.2.173:8989/api/v2/auth/login', function (result) {
+        //   //   console.log(result)
+        //   // }, false,'username=stnh&password=197346', {
+        //   //   headers: {
+        //   //     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        //   //     "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
+        //   //     "Cache-Control": "max-age=0",
+        //   //     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        //   //     // WARNING: Cookies will be stripped away by the browser before sending the request.
+        //   //   }
+        //   // });
 
-          // $.ajax({
-          //   url: `http://192.168.2.173:8989/api/v2/auth/login`,
-          //   method: "POST",
-          //   contentType: "application/x-www-form-urlencoded; charset=utf-8",
-          //   data: 'username=stnh&password=197346',
-          //   dataType: "json",
-          //   xhrFields: {
-          //     withCredentials: true
-          //   },
-          //   success: function (response) {
-          //     if (response.status === 200) {
-          //       // localStorage.setItem('config', JSON.stringify({ userName, password, url }));
-          //       // window.close();
-          //     }
-          //   },
-          //   error: function (err) {
-          //     alert('Cannot connect to server');
-          //   }
-          // });
+        //   // $.ajax({
+        //   //   url: `http://192.168.2.173:8989/api/v2/auth/login`,
+        //   //   method: "POST",
+        //   //   contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        //   //   data: 'username=stnh&password=197346',
+        //   //   dataType: "json",
+        //   //   xhrFields: {
+        //   //     withCredentials: true
+        //   //   },
+        //   //   success: function (response) {
+        //   //     if (response.status === 200) {
+        //   //       // localStorage.setItem('config', JSON.stringify({ userName, password, url }));
+        //   //       // window.close();
+        //   //     }
+        //   //   },
+        //   //   error: function (err) {
+        //   //     alert('Cannot connect to server');
+        //   //   }
+        //   // });
 
-          network["native"]('http://192.168.2.173:8989/api/v2/auth/login', function (result) {
-            console.log(result)
-          }, function (a, c) {
-            //console.log(a.responseText,a.status)
-            if (a.status == 200) {
-              // Lampa.Noty.show('登录成功');
-              Lampa.Noty.show(a.getResponseHeader('set-cookie'));
-            } else {
-              Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
-            }
+        //   network["native"]('http://192.168.2.173:8989/api/v2/auth/login', function (result) {
+        //     console.log(result)
+        //   }, function (a, c) {
+        //     //console.log(a.responseText,a.status)
+        //     if (a.status == 200) {
+        //       // Lampa.Noty.show('登录成功');
+        //       // Lampa.Noty.show(a.getResponseHeader('set-cookie'));
+        //     } else {
+        //       Lampa.Noty.show('哦: ' + network.errorDecode(a, c));
+        //       console.log(a)
+        //     }
 
-          },'username=stnh&password=197346'),{
-            headers: {
-                  "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                  "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
-                  "Cache-Control": "max-age=0",
-                  "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                  "Referer": "http://192.168.2.173:8989/" 
-                  // WARNING: Cookies will be stripped away by the browser before sending the request.
-                }
+        //   },'username=stnh&password=197346'),{
+        //     headers: {
+        //           "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        //           "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
+        //           "Cache-Control": "max-age=0",
+        //           "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        //           "Referer": "http://192.168.2.173:8989/" 
+        //           // WARNING: Cookies will be stripped away by the browser before sending the request.
+        //         }
 
-          };
+        //   };
           
 
-          // $.ajax({
-          //   url: `http://192.168.2.173:8989/api/v2/torrents/add`,
-          //   type: "POST",
-          //   headers: {
-          //     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-          //     "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
-          //     "Cache-Control": "max-age=0"
-          //     // WARNING: Cookies will be stripped away by the browser before sending the request.
-          //   },
-          //   xhrFields: {
-          //     withCredentials: true
-          //   },
-          //   data: data,
-          //   async: true,
-          //   cache: false,
-          //   contentType: false,
-          //   enctype: 'multipart/form-data',
-          //   processData: false,
+        //   // $.ajax({
+        //   //   url: `http://192.168.2.173:8989/api/v2/torrents/add`,
+        //   //   type: "POST",
+        //   //   headers: {
+        //   //     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        //   //     "Accept-Language": "en-US,en;q=0.9,nl-BE;q=0.8,nl;q=0.7,fr;q=0.6,sd;q=0.5",
+        //   //     "Cache-Control": "max-age=0"
+        //   //     // WARNING: Cookies will be stripped away by the browser before sending the request.
+        //   //   },
+        //   //   xhrFields: {
+        //   //     withCredentials: true
+        //   //   },
+        //   //   data: data,
+        //   //   async: true,
+        //   //   cache: false,
+        //   //   contentType: false,
+        //   //   enctype: 'multipart/form-data',
+        //   //   processData: false,
 
-          //   // processData: false,
-          //   // contentType: false,
-          //   // data: data,
-          //   success: function (response) {
-          //     if (response.status === 200) {
-          //       Lampa.Noty.show(' started downloading');
-          //     } else {
-          //       Lampa.Noty.show('Something went wrong');
-          //     }
-          //   },
-          //   error: function () {
-          //     Lampa.Noty.show('Something went wrong');
-          //   }
-          // });
+        //   //   // processData: false,
+        //   //   // contentType: false,
+        //   //   // data: data,
+        //   //   success: function (response) {
+        //   //     if (response.status === 200) {
+        //   //       Lampa.Noty.show(' started downloading');
+        //   //     } else {
+        //   //       Lampa.Noty.show('Something went wrong');
+        //   //     }
+        //   //   },
+        //   //   error: function () {
+        //   //     Lampa.Noty.show('Something went wrong');
+        //   //   }
+        //   // });
 
 
 
-        });
+        // });
         // card.on('hover:long', function (target, card_data) {
         //   Lampa.Modal.open({
         //     title: '发送到PikPak',
