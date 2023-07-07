@@ -384,42 +384,62 @@
               // if (file.indexOf('://') === -1) {
               if (/^https?:\/\//i.test(file) === false) {
                   if (file.indexOf('magnet:?') !== -1) {
-                      if (window.intentShim) {
-                        var intentExtra = {
-                          title: element.title,
-                          poster: object.movie.img,
-                          action: "play",
-                          data: {
-                            lampa: true
-                          }
-                        };
-                        window.plugins.intentShim.startActivity(
-                          {
-                            action: window.plugins.intentShim.ACTION_VIEW,
-                            url: file,
-                            extras: intentExtra
-                          },
-                          function () { },
-                          function () { console.log('Failed to open magnet URL via Android Intent') }
+                      // if (window.intentShim) {
+                      //   var intentExtra = {
+                      //     title: element.title,
+                      //     poster: object.movie.img,
+                      //     action: "play",
+                      //     data: {
+                      //       lampa: true
+                      //     }
+                      //   };
+                      //   window.plugins.intentShim.startActivity(
+                      //     {
+                      //       action: window.plugins.intentShim.ACTION_VIEW,
+                      //       url: file,
+                      //       extras: intentExtra
+                      //     },
+                      //     function () { },
+                      //     function () { console.log('Failed to open magnet URL via Android Intent') }
 
-                        );
-                      } else {
-                          //Lampa.Noty.show('只能在安卓平台上打开磁力链接。');
-                          var SERVER = {
-                            "object": {
-                                "Title": "",
-                                "MagnetUri": "",
-                                "poster": ""
-                            },
-                            "movie": {
-                                "title": "",
-                            }
+                      //   );
+                      // } else {
+                        //Lampa.Noty.show('只能在安卓平台上打开磁力链接。');
+                        //   var SERVER = {
+                        //     "object": {
+                        //         "Title": "",
+                        //         "MagnetUri": "",
+                        //         "poster": ""
+                        //     },
+                        //     "movie": {
+                        //         "title": "",
+                        //     }
+                        // };
+                        // SERVER.object.MagnetUri = file;
+                        // SERVER.movie.title = element.title;
+                        // SERVER.object.poster = object.movie.img;
+                        // Lampa.Android.openTorrent(SERVER);
+
+                        var SERVER1 = {
+                          "title": "",
+                          "MagnetUri": "",
+                          "poster": ""
                         };
-                        SERVER.object.MagnetUri = file;
-                        SERVER.movie.title = element.title;
-                        SERVER.object.poster = object.movie.img;
-                        Lampa.Android.openTorrent(SERVER);
-                      }
+                        SERVER1.MagnetUri = file;
+                        SERVER1.title = element.title;
+                        SERVER1.poster = object.movie.img;
+
+                        // SERVER.object.MagnetUri = mlink;
+                        // SERVER.movie.title = element.title;
+                        // SERVER.object.poster = element.img;
+                        // console.log(SERVER1)
+                        // Lampa.Android.openTorrent(SERVER);
+                        Lampa.Torrent.start(SERVER1, {
+                          title: element.title,
+                          poster: object.movie.img
+                        });
+
+                      // }
                   } else {
                     if (window.intentShim) {
                         window.plugins.intentShim.startActivity(
