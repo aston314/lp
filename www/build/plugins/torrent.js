@@ -717,19 +717,21 @@
                     if (Navigator.canmove('up')) {
                         Navigator.move('up');
                     } else {
-                        if (!info.find('.view--category').hasClass('focus')) {
+                        if (info) {
                             if (!info.find('.view--category').hasClass('focus')) {
                                 Lampa.Controller.collectionSet(info);
                                 Navigator.move('right')
-                            }
+                            } else Lampa.Controller.toggle('head');
                         } else Lampa.Controller.toggle('head');
                     }
                 },
                 down: function down() {
                     // if (Navigator.canmove('down')) Navigator.move('down');
                     if (Navigator.canmove('down')) Navigator.move('down');
-                    else if (info.find('.view--category').hasClass('focus')) {
-                        Lampa.Controller.toggle('content');
+                    else if (info) {
+                        if (info.find('.view--category').hasClass('focus')) {
+                            Lampa.Controller.toggle('content');
+                        }
                     }
                 },
                 back: function back() {
