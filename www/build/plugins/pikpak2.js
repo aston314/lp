@@ -682,43 +682,42 @@
         Lampa.Controller.toggle('content');
       };
 
-      this.login = function () {
-        var _this = this;
+      this.login = function() {
         return new Promise(function(resolve, reject) {
-          var info = Lampa.Storage.get("pikpakUserInfo","");
-          // console.log(info)
-          if (!info.loginInfo || info.loginInfo.expires < new Date().getTime()) {
-            var postdata_ =
-            {
+          var info = Lampa.Storage.get("pikpakUserInfo", "");
+          
+          if (!info.loginInfo || info.loginInfo.expires < Date.now()) {
+            var postdata_ = {
               "PassWord": Lampa.Storage.get('pikpak_userPass', ''),
               "Mail": Lampa.Storage.get('pikpak_userName', '')
             };
-
+            
             var url = 'https://pikpak.kinh.cc/Login.php';
             network.clear();
             network.timeout(8000);
-            network["native"](url, function (json) {
+            network["native"](url, function(json) {
               if (json.Status) {
                 _this.empty('哦，您还未登录PikPak，请在设置-PikPak中登录。');
               } else {
                 json = JSON.parse(json.TokenData);
-                if (json && (json.access_token || json.type == 'Bearer')) {
-                  var info = {};
+                if (json && (json.access_token || json.type === 'Bearer')) {
                   info.loginInfo = json;
                   if (!info.loginInfo.expires && info.loginInfo.expires_in) {
-                    info.loginInfo.expires = new Date().getTime() + 1000 * info.loginInfo.expires_in;
-                  };
+                    info.loginInfo.expires = Date.now() + 1000 * info.loginInfo.expires_in;
+                  }
                   postdata.AccessToken = info.loginInfo.access_token;
-                  resolve(postdata)
                   Lampa.Storage.set("pikpakUserInfo", info);
+                  resolve(postdata);
                 } else {
                   postdata.AccessToken = "";
                   Lampa.Storage.set("pikpakUserInfo", "");
-                  if (json && json.error) Lampa.Noty.show(json.details[1].message);
+                  if (json && json.error) {
+                    Lampa.Noty.show(json.details[1].message);
+                  }
                   // reject('login failed');
                 }
               }
-            }, function (a, c) {
+            }, function(a, c) {
               Lampa.Noty.show('请在设置中使用正确的用户名和密码登陆PikPak。');
             }, getAsUriParameters(postdata_), {
               dataType: 'json',
@@ -726,14 +725,13 @@
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
               }
             });
-
           } else {
             postdata.AccessToken = info.loginInfo.access_token;
-            resolve(postdata)
-          };
-          
+            resolve(postdata);
+          }
         });
-      }
+      };
+      
 
       this.pause = function () {};
 
@@ -751,24 +749,24 @@
         network = null;
       };
 
-      this.get_size = function (sz) {
-        if (sz <= 0) return "";
-        let filesize = "";
-        if (sz > 1024 * 1024 * 1024 * 1024.0) {
-          sz /= (1024 * 1024 * 1024 * 1024.0);
-          filesize = "TB";
-        } else if (sz > 1024 * 1024 * 1024.0) {
-          sz /= (1024 * 1024 * 1024.0);
-          filesize = "GB";
-        } else if (sz > 1024 * 1024.0) {
-          sz /= (1024 * 1024.0);
-          filesize = "MB";
-        } else {
-          sz /= 1024.0;
-          filesize = "KB";
+      this.get_size = function(sz) {
+        if (sz <= 0) {
+          return "";
         }
-        return sz.toFixed(2) + filesize
-      } 
+        
+        let units = ["KB", "MB", "GB", "TB"];
+        let base = 1024;
+        
+        for (let i = 0; i < units.length; i++) {
+          if (sz < base) {
+            return sz.toFixed(2) + units[i];
+          }
+          sz /= base;
+        }
+        
+        return sz.toFixed(2) + units[units.length - 1];
+      }
+       
     }
 
        
