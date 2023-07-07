@@ -204,8 +204,8 @@
                     // console.log(items.indexOf(card))
                     // console.log(Math.ceil(items.indexOf(card) / 7))
                     if (object.url.indexOf('post_type') == -1) {
-                        // if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                        if (scroll.isEnd()) _this3.next();
+                        if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                        // if (scroll.isEnd()) _this3.next();
                     }
                     if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     if (Lampa.Helper) Lampa.Helper.show('ddys_detail', '长按住 (ОК) 选择分季', card);
@@ -881,19 +881,21 @@
                     if (Navigator.canmove('up')) {
                         Navigator.move('up');
                     } else {
-                        if (!info.find('.view--category').hasClass('focus')) {
+                        if (info) {
                             if (!info.find('.view--category').hasClass('focus')) {
                                 Lampa.Controller.collectionSet(info);
                                 Navigator.move('right')
-                            }
+                            } else Lampa.Controller.toggle('head');
                         } else Lampa.Controller.toggle('head');
                     }
                 },
                 down: function down() {
                     // if (Navigator.canmove('down')) Navigator.move('down');
                     if (Navigator.canmove('down')) Navigator.move('down');
-                    else if (info.find('.view--category').hasClass('focus')) {
-                        Lampa.Controller.toggle('content');
+                    else if (info) {
+                        if (info.find('.view--category').hasClass('focus')) {
+                            Lampa.Controller.toggle('content');
+                        }
                     }
                 },
                 back: function back() {
