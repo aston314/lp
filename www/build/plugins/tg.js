@@ -600,10 +600,7 @@
     }, {
         title: '阿里云盘发布频道2',
         url: 'https://tx.me/s/shareAliyun'
-    }, {
-        title: '阿里云盘盘',
-        url: 'https://tx.me/s/yunpanpan'
-    },
+    }, 
     {
         title: '阿里云盘4K影视',
         url: 'https://tx.me/s/Aliyun_4K_Movies'
