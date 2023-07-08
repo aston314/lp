@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    var lrcObj = {};
     var musiclist = [];
     var currentplaylist = [];
     var currentIndex = 0;
@@ -23,7 +22,7 @@
         var info;
         var last;
         var waitload;
-        var player = window.radio_player2_;
+        var player = window.radio_player1_;
 
         this.getAsUriParameters = function (data) {
             var url = '';
@@ -434,9 +433,9 @@
                         default:
                             // tv表示翻译，-1是要，1是不要
                             currentplaylist = null;
+                            var lrcObj = {};
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                                 if (result.code == 200) {
-                                    lrcObj = {}
                                     // console.log(result.lrc.lyric)
                                     if (result.lrc) {
                                         var lyrics = result.lrc.lyric.split("\n");
@@ -497,7 +496,8 @@
                                 var data = {
                                     url: 'https://music.163.com/song/media/outer/url?id=' + element.id,
                                     title: element.name,
-                                    playall: false
+                                    playall: false,
+                                    lrc: lrcObj
                                 }
                                 player.play(data);
                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -530,7 +530,8 @@
                                                 var data = {
                                                     url: result.data.src,
                                                     title: element.name,
-                                                    playall: false
+                                                    playall: false,
+                                                    lrc: lrcObj
                                                 }
                                                 player.play(data);
                                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -546,7 +547,8 @@
                                                 var data = {
                                                     url: result.data.src,
                                                     title: element.name,
-                                                    playall: false
+                                                    playall: false,
+                                                    lrc: lrcObj
                                                 }
                                                 player.play(data);
                                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -1115,6 +1117,7 @@
         var played = false;
         var hls;
         var playall = false;
+        var lrc = {};
         audio.addEventListener("play", function (event) {
             played = true;
             html.toggleClass('loading', false);
@@ -1154,14 +1157,15 @@
             try {
                 playPromise = audio.play();
 
-                if ((Object.keys(lrcObj).length) == 0) {
+                if ((Object.keys(lrc).length) == 0) {
                     $(".info__title-original").text('');
                 };
+
                 audio.addEventListener("timeupdate", function () {
 
                     var currentTime = audio.currentTime;
 
-                    let obj = lrcObj[Math.floor(currentTime)];
+                    let obj = lrc[Math.floor(currentTime)];
                     if (obj != undefined) {
                         $('.info__title-original').css('color', 'f3d900');
                         $(".info__title-original").text(obj ? obj : '♪...');
@@ -1292,6 +1296,7 @@
             stop();
             url = data.url;
             playall = data.playall;
+            lrc = data.lrc;
             html.find('.radio-player__name').text(data.title);
             html.toggleClass('hide', false);
             play();
@@ -1301,8 +1306,9 @@
     function playEndedHandler() {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
+                var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player2_;
+                var player = window.radio_player1_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
@@ -1314,7 +1320,6 @@
                 // https://music.163.com/api/song/media?id=2046829307
                 network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
                     if (result.code == 200) {
-                        lrcObj = {}
                         // console.log(result.lrc.lyric)
                         if (result.lrc && result.lrc.lyric) {
                             var lyrics = result.lrc.lyric.split("\n");
@@ -1353,7 +1358,8 @@
                     var data = {
                         url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                         title: currentplaylist[currentIndex][0],
-                        playall: true
+                        playall: true,
+                        lrc: lrcObj
                     }
                     player.play(data);
                 } else {
@@ -1384,7 +1390,8 @@
                                     var data = {
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
-                                        playall: true
+                                        playall: true,
+                                        lrc: lrcObj
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1400,7 +1407,8 @@
                                     var data = {
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
-                                        playall: true
+                                        playall: true,
+                                        lrc: lrcObj
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1471,8 +1479,9 @@
     function playEndedHandler_(pos) {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
+                var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player2_;
+                var player = window.radio_player1_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = pos;
@@ -1485,7 +1494,6 @@
                 // https://music.163.com/api/song/media?id=2046829307
                 network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
                     if (result.code == 200) {
-                        lrcObj = {}
                         // console.log(result.lrc.lyric)
                         if (result.lrc && result.lrc.lyric) {
                             var lyrics = result.lrc.lyric.split("\n");
@@ -1524,7 +1532,8 @@
                     var data = {
                         url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                         title: currentplaylist[currentIndex][0],
-                        playall: true
+                        playall: true,
+                        lrc: lrcObj
                     }
                     player.play(data);
                 } else {
@@ -1555,7 +1564,8 @@
                                     var data = {
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
-                                        playall: true
+                                        playall: true,
+                                        lrc: lrcObj
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1571,7 +1581,8 @@
                                     var data = {
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
-                                        playall: true
+                                        playall: true,
+                                        lrc: lrcObj
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1642,9 +1653,10 @@
     function playAll() {
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
+            var lrcObj = {};
             Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
-            var player = window.radio_player2_;
+            var player = window.radio_player1_;
             // var src = currentplaylist.pop();
             // var src = currentplaylist.shift();
             // myAudio.src = src;
@@ -1655,7 +1667,6 @@
 
             network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
                 if (result.code == 200) {
-                    lrcObj = {}
                     // console.log(result.lrc.lyric)
                     if (result.lrc && result.lrc.lyric) {
                         var lyrics = result.lrc.lyric.split("\n");
@@ -1694,7 +1705,8 @@
                 var data = {
                     url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                     title: currentplaylist[currentIndex][0],
-                    playall: true
+                    playall: true,
+                    lrc: lrcObj
                 }
                 player.play(data);
             } else {
@@ -1725,7 +1737,8 @@
                                 var data = {
                                     url: result.data.src,
                                     title: currentplaylist[currentIndex][0],
-                                    playall: true
+                                    playall: true,
+                                    lrc: lrcObj
                                 }
                                 player.play(data);
                                 Lampa.Modal.close();
@@ -1739,7 +1752,8 @@
                                 var data = {
                                     url: result.data.src,
                                     title: currentplaylist[currentIndex][0],
-                                    playall: true
+                                    playall: true,
+                                    lrc: lrcObj
                                 }
                                 player.play(data);
                                 Lampa.Modal.close();
@@ -1988,7 +2002,7 @@
         Lampa.Component.add('music', MUSIC);
 
         function addSettingsMusic() {
-            window.radio_player2_ = new player();
+            window.radio_player1_ = new player();
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
@@ -2020,7 +2034,7 @@
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             addFilter();
             $('body').append(Lampa.Template.get('radio_style', {}, true));
-            window.radio_player2_.create();
+            window.radio_player1_.create();
         }
 
         if (window.appready) addSettingsMusic()
