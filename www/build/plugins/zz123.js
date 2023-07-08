@@ -1,8 +1,8 @@
 (function () {
     'use strict';
-    var musiclist_ = [];
-    var currentplaylist_ = [];
-    var currentIndex_ = 0;
+    var musiclist = [];
+    var currentplaylist = [];
+    var currentIndex = 0;
     var aipurl = 'https://zz123.com/ajax/';
     function ZZMUSIC(object) {
         var network = new Lampa.Reguest();
@@ -80,7 +80,7 @@
 
             this.activity.loader(true);
             
-            musiclist_ = [];
+            musiclist = [];
 
             var headercontent = {};
 
@@ -209,7 +209,7 @@
         this.append = function (data,append) {
             var _this3 = this;
             data.data.forEach(function (element,i) {
-                musiclist_.push([element.mname, element.id, element.mp3 , element.sname])
+                musiclist.push([element.mname, element.id, element.mp3 , element.sname])
                 
                 var mytitle = element.mname.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
@@ -329,7 +329,7 @@
                 card.on('hover:enter', function (target, card_data) {
                     // console.log(items.indexOf(card))
                     // playEndedHandler_(items.indexOf(card));
-                    currentplaylist_ = null;
+                    currentplaylist = null;
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
                             var lrcObj = {};
@@ -377,7 +377,7 @@
                 if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
-            // console.log(musiclist_)
+            // console.log(musiclist)
         };
 
         this.build = function (data) {
@@ -741,16 +741,16 @@
         html.on('hover:long', function () {
             var balanser_ = Lampa.Storage.get('online_music_balanser');
             // && balanser_ === 'zz123'
-            if (currentplaylist_) {
+            if (currentplaylist) {
                 var sources = [];
                 var num = 3;
-                var playlistData = currentplaylist_;
+                var playlistData = currentplaylist;
                 // console.log(playlistData)
 
                 playlistData.forEach(function (html,i) {
                     sources.push({
-                        title: currentplaylist_[i][3] + '-' +currentplaylist_[i][0],
-                        url: currentplaylist_[i][0]
+                        title: currentplaylist[i][3] + '-' +currentplaylist[i][0],
+                        url: currentplaylist[i][0]
                     });
 
                 });
@@ -813,11 +813,11 @@
     }
 
     function playEndedHandler(){
-        if (currentplaylist_ != null ) {
-            if (currentplaylist_.length > 0) {
+        if (currentplaylist != null ) {
+            if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
                 var player = window.radio_player1_;
-                currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+                currentIndex = (currentIndex + 1) % currentplaylist.length;
                 network["native"](aipurl, function (result) {
                     if (result.status == 200) {
                         var lrcObj = {};
@@ -840,8 +840,8 @@
                             }
                         }
                         var data = {
-                            url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
-                            title: currentplaylist_[currentIndex_][0],
+                            url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist[currentIndex][0],
                             playall: true,
                             lrc: lrcObj
                         }
@@ -849,7 +849,7 @@
                     }
                 }, function (a, c) {
                     // Lampa.Noty.show('无法取得播放链接');
-                }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+                }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
                     dataType: 'json',
                     headers: {
                         'Referer': aipurl,
@@ -863,12 +863,12 @@
     }
 
     function playEndedHandler_(pos){
-        if (currentplaylist_ != null) {
-            if (currentplaylist_.length > 0) {
+        if (currentplaylist != null) {
+            if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
                 var player = window.radio_player1_;
-                currentIndex_ = pos;
-                currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
+                currentIndex = pos;
+                currentIndex = (currentIndex + 1) % currentplaylist.length;
                 network["native"](aipurl, function (result) {
                     if (result.status == 200) {
                         var lrcObj = {};
@@ -891,8 +891,8 @@
                             }
                         }
                         var data = {
-                            url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
-                            title: currentplaylist_[currentIndex_][0],
+                            url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist[currentIndex][0],
                             playall: true,
                             lrc: lrcObj
                         }
@@ -900,7 +900,7 @@
                     }
                 }, function (a, c) {
                     // Lampa.Noty.show('无法取得播放链接');
-                }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+                }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
                     dataType: 'json',
                     headers: {
                         'Referer': aipurl,
@@ -913,12 +913,12 @@
     }
 
     function playAll(){
-        currentplaylist_ = musiclist_;
-        if (currentplaylist_.length > 0) {
+        currentplaylist = musiclist;
+        if (currentplaylist.length > 0) {
             Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
-            currentIndex_ = 0;
+            currentIndex = 0;
             // console.log('播放完毕，准备下一首歌。')
 
             network["native"](aipurl, function (result) {
@@ -943,8 +943,8 @@
                         }
                     }
                     var data = {
-                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
-                        title: currentplaylist_[currentIndex_][0],
+                        url: currentplaylist[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist[currentIndex][0],
                         playall: true,
                         lrc: lrcObj
                     }
@@ -952,7 +952,7 @@
                 }
             }, function (a, c) {
                 // Lampa.Noty.show('无法取得播放链接');
-            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+            }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
                 dataType: 'json',
                 headers: {
                     'Referer': aipurl,
@@ -3662,17 +3662,17 @@
         // });
 
         button.hide().on('hover:enter', function () {
-            if (activi && currentplaylist_) {
+            if (activi && currentplaylist) {
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
                 var num = 3;
-                var playlistData = currentplaylist_;
+                var playlistData = currentplaylist;
 
                 playlistData.forEach(function (html, i) {
                     sources.push({
-                        title: currentplaylist_[i][3] + '-' + currentplaylist_[i][0],
-                        url: currentplaylist_[i][0]
+                        title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
+                        url: currentplaylist[i][0]
                     });
                 });
 
@@ -3785,8 +3785,8 @@
     }
 
     if (!window.plugin_ZZMUSIC_ready) startZZMUSIC();
-    musiclist_ = null;
-    currentplaylist_ = null;
+    musiclist = null;
+    currentplaylist = null;
 
     var network = new Lampa.Reguest();
     Lampa.Settings.listener.follow('open', function (e) {
