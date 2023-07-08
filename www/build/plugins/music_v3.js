@@ -779,7 +779,7 @@
                 searchcat = null;
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
-                playAll();
+                playAll(musiclist);
             });
             this.selectGroup = function () {
                 Lampa.Select.show({
@@ -1192,7 +1192,12 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) { audio.addEventListener("ended", playEndedHandler(currentplaylist), false); }
+                if (playall) { 
+                    // audio.addEventListener("ended", playEndedHandler(), false);
+                    audio.addEventListener('ended',function(){
+                        playEndedHandler(currentplaylist);
+                    });
+                 }
 
 
 
@@ -1258,7 +1263,7 @@
                     var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
-                        playEndedHandler_(i - 1);
+                        playEndedHandler_(currentplaylist,i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
@@ -1484,7 +1489,7 @@
         }
     }
 
-    function playEndedHandler_(pos) {
+    function playEndedHandler_(currentplaylist , pos) {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
@@ -1661,11 +1666,11 @@
         }
     }
 
-    function playAll() {
-        currentplaylist = musiclist;
+    function playAll(musiclist) {
+         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
             var lrcObj = {};
-            Lampa.Storage.set('online_music_balanser', 'neteasemusic');
+            // Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             // var src = currentplaylist.pop();
@@ -1948,7 +1953,7 @@
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
-                        playEndedHandler_(i - 1);
+                        playEndedHandler_(currentplaylist,i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
