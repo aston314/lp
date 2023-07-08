@@ -471,7 +471,7 @@
                 });
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
-                playAll(musiclist);
+                playAll();
 			});
             this.selectGroup = function () {
                 let result = [];
@@ -631,7 +631,7 @@
         var hls;
         var playall = false;
         var lrc = {};
-        var list = [];
+        var currentplaylist = [];
         audio.addEventListener("play", function (event) {
           played = true;
           html.toggleClass('loading', false);
@@ -700,13 +700,7 @@
                       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                   );
               });
-              if (playall) { 
-                // audio.addEventListener("ended", playEndedHandler(currentplaylist), false); 
-                audio.addEventListener('ended',function(){
-                    currentIndex = (currentIndex + 1) % currentplaylist.length;
-                    playEndedHandler_(currentIndex-1);
-                });
-            }
+              if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
               
 
                
@@ -749,16 +743,16 @@
         html.on('hover:long', function () {
             // var balanser_ = Lampa.Storage.get('online_music_balanser');
             // && balanser_ === 'zz123'
-            if (list) {
+            if (currentplaylist) {
                 var sources = [];
                 var num = 3;
-                var playlistData = list;
+                var playlistData = currentplaylist;
                 // console.log(playlistData)
 
                 playlistData.forEach(function (html,i) {
                     sources.push({
-                        title: list[i][3] + '-' +list[i][0],
-                        url: list[i][0]
+                        title: currentplaylist[i][3] + '-' +currentplaylist[i][0],
+                        url: currentplaylist[i][0]
                     });
 
                 });
@@ -814,7 +808,7 @@
           url = data.url;
           playall = data.playall;
           lrc = data.lrc;
-          list = data.list;
+          currentplaylist = data.list;
           html.find('.radio-player__name').text(data.title);
           html.toggleClass('hide', false);
           play();
@@ -926,7 +920,7 @@
     function playAll(){
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
-            // Lampa.Storage.set('online_music_balanser', 'zz123');
+            Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             currentIndex = 0;
@@ -3696,7 +3690,7 @@
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
-                        playEndedHandler_(currentplaylist,i - 1);
+                        playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
