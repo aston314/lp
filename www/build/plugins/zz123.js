@@ -738,6 +738,7 @@
         });
 
         html.on('hover:long', function () {
+            var html = Lampa.Template.get('radio_player', {});
             var balanser_ = Lampa.Storage.get('online_music_balanser');
             // && balanser_ === 'zz123'
             if (currentplaylist_) {
@@ -3664,7 +3665,7 @@
         // });
 
         button.hide().on('hover:enter', function () {
-            if (activi) {
+            if (activi && currentplaylist_) {
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
@@ -3725,7 +3726,7 @@
         });
 
 
-        $('.head .open--search').before(button);
+        $('.head__actions .open--search').before(button);
         Lampa.Listener.follow('activity', function (e) {
             if (e.type == 'start') activi = e.object;
             clearTimeout(timer);
