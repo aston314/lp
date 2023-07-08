@@ -354,7 +354,8 @@
                                 url: element.mp3 || 'https://zz123.com'+result.data.mp3,
                                 title: element.mname,
                                 playall: false,
-                                lrc: lrcObj
+                                lrc: lrcObj,
+                                list: null
                             }
                             player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
@@ -630,6 +631,7 @@
         var hls;
         var playall = false;
         var lrc = {};
+        var currentplaylist = [];
         audio.addEventListener("play", function (event) {
           played = true;
           html.toggleClass('loading', false);
@@ -739,7 +741,7 @@
         });
 
         html.on('hover:long', function () {
-            var balanser_ = Lampa.Storage.get('online_music_balanser');
+            // var balanser_ = Lampa.Storage.get('online_music_balanser');
             // && balanser_ === 'zz123'
             if (currentplaylist) {
                 var sources = [];
@@ -806,6 +808,7 @@
           url = data.url;
           playall = data.playall;
           lrc = data.lrc;
+          currentplaylist = data.list;
           html.find('.radio-player__name').text(data.title);
           html.toggleClass('hide', false);
           play();
@@ -843,7 +846,8 @@
                             url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
                             title: currentplaylist[currentIndex][0],
                             playall: true,
-                            lrc: lrcObj
+                            lrc: lrcObj,
+                            list: currentplaylist
                         }
                         player.play(data);
                     }
@@ -894,7 +898,8 @@
                             url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
                             title: currentplaylist[currentIndex][0],
                             playall: true,
-                            lrc: lrcObj
+                            lrc: lrcObj,
+                            list: currentplaylist
                         }
                         player.play(data);
                     }
@@ -946,7 +951,8 @@
                         url: currentplaylist[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
                         title: currentplaylist[currentIndex][0],
                         playall: true,
-                        lrc: lrcObj
+                        lrc: lrcObj,
+                        list: currentplaylist
                     }
                     player.play(data);
                 }
