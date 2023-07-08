@@ -497,7 +497,8 @@
                                     url: 'https://music.163.com/song/media/outer/url?id=' + element.id,
                                     title: element.name,
                                     playall: false,
-                                    lrc: lrcObj
+                                    lrc: lrcObj,
+                                    list: null
                                 }
                                 player.play(data);
                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -531,7 +532,8 @@
                                                     url: result.data.src,
                                                     title: element.name,
                                                     playall: false,
-                                                    lrc: lrcObj
+                                                    lrc: lrcObj,
+                                                    list: null
                                                 }
                                                 player.play(data);
                                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -548,7 +550,8 @@
                                                     url: result.data.src,
                                                     title: element.name,
                                                     playall: false,
-                                                    lrc: lrcObj
+                                                    lrc: lrcObj,
+                                                    list: null
                                                 }
                                                 player.play(data);
                                                 card.find('.card__view').append('<div class="card__quality"></div>');
@@ -1118,6 +1121,7 @@
         var hls;
         var playall = false;
         var lrc = {};
+        var currentplaylist = [];
         audio.addEventListener("play", function (event) {
             played = true;
             html.toggleClass('loading', false);
@@ -1229,7 +1233,7 @@
         });
 
         html.on('hover:long', function () {
-            var balanser_ = Lampa.Storage.get('online_music_balanser');
+            // var balanser_ = Lampa.Storage.get('online_music_balanser');
             // console.log(balanser_,currentplaylist)
             //  && balanser_ === 'neteasemusic'
             if (currentplaylist) {
@@ -1297,6 +1301,7 @@
             url = data.url;
             playall = data.playall;
             lrc = data.lrc;
+            currentplaylist = data.list;
             html.find('.radio-player__name').text(data.title);
             html.toggleClass('hide', false);
             play();
@@ -1359,7 +1364,8 @@
                         url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                         title: currentplaylist[currentIndex][0],
                         playall: true,
-                        lrc: lrcObj
+                        lrc: lrcObj,
+                        list: currentplaylist
                     }
                     player.play(data);
                 } else {
@@ -1391,7 +1397,8 @@
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
                                         playall: true,
-                                        lrc: lrcObj
+                                        lrc: lrcObj,
+                                        list: currentplaylist
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1408,7 +1415,8 @@
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
                                         playall: true,
-                                        lrc: lrcObj
+                                        lrc: lrcObj,
+                                        list: currentplaylist
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1533,7 +1541,8 @@
                         url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                         title: currentplaylist[currentIndex][0],
                         playall: true,
-                        lrc: lrcObj
+                        lrc: lrcObj,
+                        list: currentplaylist
                     }
                     player.play(data);
                 } else {
@@ -1565,7 +1574,8 @@
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
                                         playall: true,
-                                        lrc: lrcObj
+                                        lrc: lrcObj,
+                                        list: currentplaylist
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1582,7 +1592,8 @@
                                         url: result.data.src,
                                         title: currentplaylist[currentIndex][0],
                                         playall: true,
-                                        lrc: lrcObj
+                                        lrc: lrcObj,
+                                        list: currentplaylist
                                     }
                                     player.play(data);
                                     // Lampa.Modal.close();
@@ -1706,7 +1717,8 @@
                     url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
                     title: currentplaylist[currentIndex][0],
                     playall: true,
-                    lrc: lrcObj
+                    lrc: lrcObj,
+                    list: currentplaylist
                 }
                 player.play(data);
             } else {
@@ -1738,7 +1750,8 @@
                                     url: result.data.src,
                                     title: currentplaylist[currentIndex][0],
                                     playall: true,
-                                    lrc: lrcObj
+                                    lrc: lrcObj,
+                                    list: currentplaylist
                                 }
                                 player.play(data);
                                 Lampa.Modal.close();
@@ -1753,7 +1766,8 @@
                                     url: result.data.src,
                                     title: currentplaylist[currentIndex][0],
                                     playall: true,
-                                    lrc: lrcObj
+                                    lrc: lrcObj,
+                                    list: currentplaylist
                                 }
                                 player.play(data);
                                 Lampa.Modal.close();
