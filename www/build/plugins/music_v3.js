@@ -1316,19 +1316,20 @@
                     if (result.code == 200) {
                         lrcObj = {}
                         // console.log(result.lrc.lyric)
-                        if (result.lrc) {
+                        if (result.lrc && result.lrc.lyric) {
                             var lyrics = result.lrc.lyric.split("\n");
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                             for (var i = 0; i < lyrics.length; i++) {
                                 var lyric = decodeURIComponent(lyrics[i]);
-                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                                 var timeRegExpArr = lyric.match(timeReg);
                                 if (!timeRegExpArr) continue;
                                 var clause = lyric.replace(timeReg, '');
+                                var min, sec, time;
                                 for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                     var t = timeRegExpArr[k];
-                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                    var time = min * 60 + sec;
+                                    min = Number(String(t.match(/\[\d*/i)).slice(1));
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    time = min * 60 + sec;
                                     lrcObj[time] = clause;
                                 }
                             }
@@ -1486,19 +1487,20 @@
                     if (result.code == 200) {
                         lrcObj = {}
                         // console.log(result.lrc.lyric)
-                        if (result.lrc) {
+                        if (result.lrc && result.lrc.lyric) {
                             var lyrics = result.lrc.lyric.split("\n");
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                             for (var i = 0; i < lyrics.length; i++) {
                                 var lyric = decodeURIComponent(lyrics[i]);
-                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                                 var timeRegExpArr = lyric.match(timeReg);
                                 if (!timeRegExpArr) continue;
                                 var clause = lyric.replace(timeReg, '');
+                                var min, sec, time;
                                 for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                     var t = timeRegExpArr[k];
-                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                    var time = min * 60 + sec;
+                                    min = Number(String(t.match(/\[\d*/i)).slice(1));
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    time = min * 60 + sec;
                                     lrcObj[time] = clause;
                                 }
                             }
@@ -1655,19 +1657,20 @@
                 if (result.code == 200) {
                     lrcObj = {}
                     // console.log(result.lrc.lyric)
-                    if (result.lrc) {
+                    if (result.lrc && result.lrc.lyric) {
                         var lyrics = result.lrc.lyric.split("\n");
+                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                         for (var i = 0; i < lyrics.length; i++) {
                             var lyric = decodeURIComponent(lyrics[i]);
-                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                             var timeRegExpArr = lyric.match(timeReg);
                             if (!timeRegExpArr) continue;
                             var clause = lyric.replace(timeReg, '');
+                            var min, sec, time;
                             for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                 var t = timeRegExpArr[k];
-                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                var time = min * 60 + sec;
+                                min = Number(String(t.match(/\[\d*/i)).slice(1));
+                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                time = min * 60 + sec;
                                 lrcObj[time] = clause;
                             }
                         }
@@ -1913,7 +1916,7 @@
                 var navigation = $('<div class="navigation-tabs"></div>');
 
                 sources.forEach(function (tab, i) {
-                    var ifplaynow = ($('.radio-player__name').eq(2).text() === tab.url || $('.radio-player__name').eq(3).text() === tab.url) ? "active" : "selector";
+                    var ifplaynow = ($('.radio-player__name').text().replace(/Radio Record|Music Player/g,'') === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
@@ -2018,6 +2021,7 @@
             $('.menu .menu__list').eq(0).append(menu_item);
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             addFilter();
+            $('body').append(Lampa.Template.get('radio_style', {}, true));
             window.radio_player2_.create();
         }
     
