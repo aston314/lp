@@ -471,7 +471,6 @@
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
-                addFilter(); 
 			});
             this.selectGroup = function () {
                 let result = [];
@@ -3775,6 +3774,7 @@
                 listmenu();
             });
             $('.menu .menu__list').eq(0).append(menu_item);
+            addFilter(); 
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             window.radio_player1_.create();
         }
