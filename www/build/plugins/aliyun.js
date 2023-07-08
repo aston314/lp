@@ -1745,7 +1745,7 @@
 
                 //     );
                 // };
-                  Lampa.Activity.backward();
+                  // Lampa.Activity.backward();
                   var SERVER1 = {
                     "title": '',
                     "MagnetUri": new_value,
@@ -1755,7 +1755,7 @@
                   Lampa.Torrent.start(SERVER1, {
                     title: ''
                   });
-                // Lampa.Controller.toggle('content');
+                Lampa.Controller.toggle('content');
                 };
                 
                   // Lampa.Activity.push({
