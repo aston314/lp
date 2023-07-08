@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    var lrcObj_ = {};
     var musiclist_ = [];
     var currentplaylist_ = [];
     var currentIndex_ = 0;
@@ -333,7 +332,7 @@
                     currentplaylist_ = null;
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
-                            lrcObj_ = {}
+                            var lrcObj = {};
                             if (result.data.lrc) {
                                 var lyrics = result.data.lrc.split("\n");
                                 for (var i = 0; i < lyrics.length; i++) {
@@ -347,19 +346,20 @@
                                         var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                             sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                         var time = min * 60 + sec;
-                                        lrcObj_[time] = clause;
+                                        lrcObj[time] = clause;
                                     }
                                 }
                             }
                             var data = {
                                 url: element.mp3 || 'https://zz123.com'+result.data.mp3,
                                 title: element.mname,
-                                playall: false
+                                playall: false,
+                                lrc: lrcObj
                             }
                             player.play(data);
                             card.find('.card__view').append('<div class="card__quality"></div>');
                             card.find('.card__quality').text('听');
-                            // console.log(lrcObj_)
+                            // console.log(lrcObj)
                         }
                     }, function (a, c) {
                         // Lampa.Noty.show('无法取得播放链接');
@@ -629,6 +629,7 @@
         var played = false;
         var hls;
         var playall = false;
+        var lrc = {};
         audio.addEventListener("play", function (event) {
           played = true;
           html.toggleClass('loading', false);
@@ -667,14 +668,14 @@
   
           try {
               playPromise = audio.play();
-              if ((Object.keys(lrcObj_).length) == 0){
+              if ((Object.keys(lrc).length) == 0){
                 $(".info__title-original").text('');
               };
               audio.addEventListener("timeupdate", function () {
 
                   var currentTime = audio.currentTime;
 
-                  var obj = lrcObj_[Math.floor(currentTime)];
+                  var obj = lrc[Math.floor(currentTime)];
                   if (obj != undefined) {
                       $('.info__title-original').css('color', 'f3d900');
                       $(".info__title-original").text(obj ? obj : '♪...');
@@ -804,6 +805,7 @@
           stop();
           url = data.url;
           playall = data.playall;
+          lrc = data.lrc;
           html.find('.radio-player__name').text(data.title);
           html.toggleClass('hide', false);
           play();
@@ -818,7 +820,7 @@
                 currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
                 network["native"](aipurl, function (result) {
                     if (result.status == 200) {
-                        lrcObj_ = {}
+                        var lrcObj = {};
                         // console.log(result.lrc.lyric)
                         if (result.data.lrc) {
                             var lyrics = result.data.lrc.split("\n");
@@ -833,14 +835,15 @@
                                     var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                         sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                     var time = min * 60 + sec;
-                                    lrcObj_[time] = clause;
+                                    lrcObj[time] = clause;
                                 }
                             }
                         }
                         var data = {
                             url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
                             title: currentplaylist_[currentIndex_][0],
-                            playall: true
+                            playall: true,
+                            lrc: lrcObj
                         }
                         player.play(data);
                     }
@@ -868,7 +871,7 @@
                 currentIndex_ = (currentIndex_ + 1) % currentplaylist_.length;
                 network["native"](aipurl, function (result) {
                     if (result.status == 200) {
-                        lrcObj_ = {}
+                        var lrcObj = {};
                         // console.log(result.lrc.lyric)
                         if (result.data.lrc) {
                             var lyrics = result.data.lrc.split("\n");
@@ -883,14 +886,15 @@
                                     var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                         sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                     var time = min * 60 + sec;
-                                    lrcObj_[time] = clause;
+                                    lrcObj[time] = clause;
                                 }
                             }
                         }
                         var data = {
                             url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
                             title: currentplaylist_[currentIndex_][0],
-                            playall: true
+                            playall: true,
+                            lrc: lrcObj
                         }
                         player.play(data);
                     }
@@ -919,7 +923,7 @@
 
             network["native"](aipurl, function (result) {
                 if (result.status == 200) {
-                    lrcObj_ = {}
+                    var lrcObj = {};
                     // console.log(result.lrc.lyric)
                     if (result.data.lrc) {
                         var lyrics = result.data.lrc.split("\n");
@@ -934,14 +938,15 @@
                                 var min = Number(String(t.match(/\[\d*/i)).slice(1)),
                                     sec = Number(String(t.match(/\:\d*/i)).slice(1));
                                 var time = min * 60 + sec;
-                                lrcObj_[time] = clause;
+                                lrcObj[time] = clause;
                             }
                         }
                     }
                     var data = {
                         url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
                         title: currentplaylist_[currentIndex_][0],
-                        playall: true
+                        playall: true,
+                        lrc: lrcObj
                     }
                     player.play(data);
                 }
