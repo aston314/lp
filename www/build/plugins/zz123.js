@@ -3649,7 +3649,7 @@
     function addFilter() {
         var activi;
         var timer;
-        var button = $("<div class=\"head__action head__settings selector\">\n            <svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <rect x=\"1.5\" y=\"1.5\" width=\"35\" height=\"33\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"3\"></rect>\n                <rect x=\"7\" y=\"8\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"></rect>\n                <rect x=\"7\" y=\"16\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"></rect>\n                <rect x=\"7\" y=\"25\" width=\"24\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"></rect>\n                <circle cx=\"13.5\" cy=\"17.5\" r=\"3.5\" fill=\"currentColor\"></circle>\n                <circle cx=\"23.5\" cy=\"26.5\" r=\"3.5\" fill=\"currentColor\"></circle>\n                <circle cx=\"21.5\" cy=\"9.5\" r=\"3.5\" fill=\"currentColor\"></circle>\n            </svg>\n        </div>");
+        var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
         // button.hide().on('hover:enter', function () {
         //   if (activi) {
         //     activi.activity.component().filter();
