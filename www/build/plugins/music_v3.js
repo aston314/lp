@@ -23,7 +23,7 @@
         var info;
         var last;
         var waitload;
-        var player = window.radio_player1_;
+        var player = window.radio_player2_;
 
         this.getAsUriParameters = function(data) {
             var url = '';
@@ -1153,6 +1153,7 @@
   
           try {
               playPromise = audio.play();
+
               if ((Object.keys(lrcObj).length) == 0){
                 $(".info__title-original").text('');
               };
@@ -1301,7 +1302,7 @@
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = window.radio_player2_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
@@ -1470,7 +1471,7 @@
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = window.radio_player2_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = pos;
@@ -1641,7 +1642,7 @@
         if (currentplaylist.length > 0) {
             Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
-            var player = window.radio_player1_;
+            var player = window.radio_player2_;
             // var src = currentplaylist.pop();
             // var src = currentplaylist.shift();
             // myAudio.src = src;
@@ -1883,8 +1884,100 @@
 
     }
 
+    function addFilter() {
+        var activi;
+        var timer;
+        var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
+        // button.hide().on('hover:enter', function () {
+        //   if (activi) {
+        //     activi.activity.component().filter();
+        //   }
+        // });
+
+        button.hide().on('hover:enter', function () {
+            if (activi && currentplaylist) {
+                var balanser_ = Lampa.Storage.get('online_music_balanser');
+                // && balanser_ === 'zz123'
+                var sources = [];
+                var num = 3;
+                var playlistData = currentplaylist;
+
+                playlistData.forEach(function (html, i) {
+                    sources.push({
+                        title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
+                        url: currentplaylist[i][0]
+                    });
+                });
+
+                var html_ = $('<div></div>');
+                var navigation = $('<div class="navigation-tabs"></div>');
+
+                sources.forEach(function (tab, i) {
+                    var ifplaynow = ($('.radio-player__name').eq(2).text() === tab.url || $('.radio-player__name').eq(3).text() === tab.url) ? "active" : "selector";
+                    var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
+
+                    button.on('hover:enter', function () {
+                        playEndedHandler_(i - 1);
+                        Lampa.Modal.close();
+                        Lampa.Controller.toggle('content');
+                    });
+
+                    if (i > 0 && i % num !== 0) {
+                        navigation.append('<div class="navigation-tabs__split">|</div>');
+                    }
+
+                    if (i % num === 0) {
+                        if (i > 0) {
+                            html_.append(navigation);
+                        }
+                        navigation = $('<div class="navigation-tabs"></div>');
+                    }
+
+                    navigation.append(button);
+                });
+
+                html_.append(navigation);
+
+                Lampa.Modal.open({
+                    title: '当前播放列表',
+                    html: html_,
+                    size: 'medium',
+                    mask: true,
+                    onBack: function () {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content');
+                    }
+                });
+
+                sources = null;
+                playlistData = null;
+            }
+        });
+
+
+        $('.head__actions .open--search').before(button);
+        Lampa.Listener.follow('activity', function (e) {
+            if (e.type == 'start') activi = e.object;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (activi) {
+                    if (activi.component !== 'music') {
+                        button.hide();
+                        activi = false;
+                    }
+                }
+            }, 1000);
+
+            if (e.type == 'start' && e.component == 'music') {
+                button.show();
+                activi = e.object;
+            }
+        });
+    };
+
     function startMUSIC() {
-        window.radio = true;
+        // window.radio = true;
       
         Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
         Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Music Player</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
@@ -1894,7 +1987,7 @@
         Lampa.Component.add('music', MUSIC);
         
         function addSettingsMusic() {
-            window.radio_player1_ = new player();
+            window.radio_player2_ = new player();
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
@@ -1924,7 +2017,8 @@
             });
             $('.menu .menu__list').eq(0).append(menu_item);
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
-            window.radio_player1_.create();
+            addFilter();
+            window.radio_player2_.create();
         }
     
         if (window.appready) addSettingsMusic()
