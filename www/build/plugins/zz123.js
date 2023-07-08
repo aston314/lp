@@ -915,55 +915,58 @@
     }
     
 
-    function playAll() {
-      if (musiclist_.length > 0) {
-        Lampa.Storage.set('online_music_balanser', 'zz123');
-        var network = new Lampa.Reguest();
-        var player = window.radio_player1_;
-        var currentIndex_ = 0;
-    
-        network["native"](aipurl, function(result) {
-          if (result.status == 200) {
-            var lrcObj_ = {};
-            if (result.data.lrc) {
-              var lyrics = result.data.lrc.split("\n");
-              var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-              for (var i = 0; i < lyrics.length; i++) {
-                var lyric = decodeURIComponent(lyrics[i]);
-                var timeRegExpArr = lyric.match(timeReg);
-                if (!timeRegExpArr) continue;
-                var clause = lyric.replace(timeReg, '');
-                for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                  var t = timeRegExpArr[k];
-                  var min = Number(t.match(/\[\d*/i)[0].slice(1));
-                  var sec = Number(t.match(/\:\d*/i)[0].slice(1));
-                  var time = min * 60 + sec;
-                  lrcObj_[time] = clause;
+    function playAll(){
+        currentplaylist_ = musiclist_;
+        if (currentplaylist_.length > 0) {
+            Lampa.Storage.set('online_music_balanser', 'zz123');
+            var network = new Lampa.Reguest();
+            var player = window.radio_player1_;
+            currentIndex_ = 0;
+            // console.log('播放完毕，准备下一首歌。')
+
+            network["native"](aipurl, function (result) {
+                if (result.status == 200) {
+                    lrcObj_ = {}
+                    // console.log(result.lrc.lyric)
+                    if (result.data.lrc) {
+                        var lyrics = result.data.lrc.split("\n");
+                        for (var i = 0; i < lyrics.length; i++) {
+                            var lyric = decodeURIComponent(lyrics[i]);
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                            var timeRegExpArr = lyric.match(timeReg);
+                            if (!timeRegExpArr) continue;
+                            var clause = lyric.replace(timeReg, '');
+                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                var t = timeRegExpArr[k];
+                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                var time = min * 60 + sec;
+                                lrcObj_[time] = clause;
+                            }
+                        }
+                    }
+                    var data = {
+                        url: currentplaylist_[currentIndex_][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist_[currentIndex_][0],
+                        playall: true
+                    }
+                    player.play(data);
                 }
-              }
-            }
-            var data = {
-              url: currentplaylist_[currentIndex_][2] || 'https://zz123.com' + result.data.mp3,
-              title: currentplaylist_[currentIndex_][0],
-              playall: true
-            };
-            player.play(data);
-          }
-        }, function(a, c) {
-          // Lampa.Noty.show('无法取得播放链接');
-        }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
-          dataType: 'json',
-          headers: {
-            'Referer': aipurl,
-            'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-          }
-        });
-      } else {
-        Lampa.Noty.show('没有可以播放的歌曲。');
-      }
+            }, function (a, c) {
+                // Lampa.Noty.show('无法取得播放链接');
+            }, 'act=songinfo&lang=&id=' + currentplaylist_[currentIndex_][1], {
+                dataType: 'json',
+                headers: {
+                    'Referer': aipurl,
+                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                }
+
+            });
+        } else {
+            Lampa.Noty.show('没有可以播放的歌曲。');
+        }
     }
-    
 
     function popupWindows(playlistname, gourl, num, gotype, titlename) {
         var sources = [];
@@ -3648,7 +3651,7 @@
                 Lampa.Controller.toggle('menu');
             }
         });
-    }
+    };
 
     function addFilter() {
         var activi;
@@ -3660,87 +3663,87 @@
         //   }
         // });
 
-        button.hide().on('hover:enter', function() {
+        button.hide().on('hover:enter', function () {
             if (activi && currentplaylist_) {
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist_;
-                
-                playlistData.forEach(function(html, i) {
+
+                playlistData.forEach(function (html, i) {
                     sources.push({
                         title: currentplaylist_[i][3] + '-' + currentplaylist_[i][0],
                         url: currentplaylist_[i][0]
                     });
                 });
-                
+
                 var html_ = $('<div></div>');
                 var navigation = $('<div class="navigation-tabs"></div>');
-                
-                sources.forEach(function(tab, i) {
+
+                sources.forEach(function (tab, i) {
                     var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
-                    
-                    button.on('hover:enter', function() {
+
+                    button.on('hover:enter', function () {
                         playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
-                    
+
                     if (i > 0 && i % num !== 0) {
                         navigation.append('<div class="navigation-tabs__split">|</div>');
                     }
-                    
+
                     if (i % num === 0) {
                         if (i > 0) {
                             html_.append(navigation);
                         }
                         navigation = $('<div class="navigation-tabs"></div>');
                     }
-                    
+
                     navigation.append(button);
                 });
-                
+
                 html_.append(navigation);
-                
+
                 Lampa.Modal.open({
                     title: '当前播放列表',
                     html: html_,
                     size: 'medium',
                     mask: true,
-                    onBack: function() {
+                    onBack: function () {
                         Lampa.Modal.close();
                         Lampa.Api.clear();
                         Lampa.Controller.toggle('content');
                     }
                 });
-                
+
                 sources = null;
                 playlistData = null;
             }
         });
-        
+
 
         if (currentplaylist_) $('.head .open--search').before(button);
         Lampa.Listener.follow('activity', function (e) {
-          if (e.type == 'start') activi = e.object;
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            if (activi) {
-              if (activi.component !== 'ZZMUSIC') {
-                button.hide();
-                activi = false;
-              }
-            }
-          }, 1000);
+            if (e.type == 'start') activi = e.object;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (activi) {
+                    if (activi.component !== 'ZZMUSIC') {
+                        button.hide();
+                        activi = false;
+                    }
+                }
+            }, 1000);
 
-          if (e.type == 'start' && e.component == 'ZZMUSIC') {
-            button.show();
-            activi = e.object;
-          }
+            if (e.type == 'start' && e.component == 'ZZMUSIC') {
+                button.show();
+                activi = e.object;
+            }
         });
-      }
+    }
 
     function startZZMUSIC() {
         window.radio = true;
@@ -3771,7 +3774,7 @@
                 listmenu();
             });
             $('.menu .menu__list').eq(0).append(menu_item);
-            addFilter();
+            addFilter(); 
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             window.radio_player1_.create();
         }
