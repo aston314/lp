@@ -3665,7 +3665,6 @@
 
         button.hide().on('hover:enter', function () {
             if (activi && currentplaylist_) {
-                var html = Lampa.Template.get('radio_player', {});
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
@@ -3683,7 +3682,7 @@
                 var navigation = $('<div class="navigation-tabs"></div>');
 
                 sources.forEach(function (tab, i) {
-                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
+                    var ifplaynow = ($('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
