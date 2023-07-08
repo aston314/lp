@@ -1121,7 +1121,7 @@
         var hls;
         var playall = false;
         var lrc = {};
-        var list = [];
+        var currentplaylist = [];
         audio.addEventListener("play", function (event) {
             played = true;
             html.toggleClass('loading', false);
@@ -1192,14 +1192,7 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) { 
-                    // audio.addEventListener("ended", playEndedHandler(), false);
-                    audio.addEventListener('ended',function(){
-                        // playEndedHandler();
-                        currentIndex = (currentIndex + 1) % currentplaylist.length;
-                        playEndedHandler_(currentIndex-1);
-                    });
-                 }
+                if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
 
 
 
@@ -1240,19 +1233,19 @@
         });
 
         html.on('hover:long', function () {
-            // var balanser_ = Lampa.Storage.get('online_music_balanser');
-            // console.log(balanser_,list)
+            var balanser_ = Lampa.Storage.get('online_music_balanser');
+            // console.log(balanser_,currentplaylist)
             //  && balanser_ === 'neteasemusic'
-            if (list) {
+            if (currentplaylist) {
                 var sources = [];
                 var num = 3;
-                var playlistData = list;
+                var playlistData = currentplaylist;
                 // console.log(playlistData)
 
                 playlistData.forEach(function (html, i) {
                     sources.push({
-                        title: list[i][3] + '-' + list[i][0],
-                        url: list[i][0]
+                        title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
+                        url: currentplaylist[i][0]
                     });
 
                 });
@@ -1308,7 +1301,7 @@
             url = data.url;
             playall = data.playall;
             lrc = data.lrc;
-            list = data.list;
+            currentplaylist = data.list;
             html.find('.radio-player__name').text(data.title);
             html.toggleClass('hide', false);
             play();
@@ -1669,10 +1662,10 @@
     }
 
     function playAll() {
-         currentplaylist = musiclist;
+        currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
             var lrcObj = {};
-            // Lampa.Storage.set('online_music_balanser', 'neteasemusic');
+            Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
             // var src = currentplaylist.pop();
@@ -1934,7 +1927,7 @@
 
         button.hide().on('hover:enter', function () {
             if (activi && currentplaylist) {
-                // var balanser_ = Lampa.Storage.get('online_music_balanser');
+                var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
                 var num = 3;
