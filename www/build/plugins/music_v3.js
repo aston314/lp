@@ -779,7 +779,7 @@
                 searchcat = null;
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
-                playAll(musiclist);
+                playAll();
             });
             this.selectGroup = function () {
                 Lampa.Select.show({
@@ -1121,7 +1121,7 @@
         var hls;
         var playall = false;
         var lrc = {};
-        var currentplaylist = [];
+        var list = [];
         audio.addEventListener("play", function (event) {
             played = true;
             html.toggleClass('loading', false);
@@ -1195,7 +1195,9 @@
                 if (playall) { 
                     // audio.addEventListener("ended", playEndedHandler(), false);
                     audio.addEventListener('ended',function(){
-                        playEndedHandler(currentplaylist);
+                        // playEndedHandler();
+                        currentIndex = (currentIndex + 1) % currentplaylist.length;
+                        playEndedHandler_(currentIndex-1);
                     });
                  }
 
@@ -1239,18 +1241,18 @@
 
         html.on('hover:long', function () {
             // var balanser_ = Lampa.Storage.get('online_music_balanser');
-            // console.log(balanser_,currentplaylist)
+            // console.log(balanser_,list)
             //  && balanser_ === 'neteasemusic'
-            if (currentplaylist) {
+            if (list) {
                 var sources = [];
                 var num = 3;
-                var playlistData = currentplaylist;
+                var playlistData = list;
                 // console.log(playlistData)
 
                 playlistData.forEach(function (html, i) {
                     sources.push({
-                        title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
-                        url: currentplaylist[i][0]
+                        title: list[i][3] + '-' + list[i][0],
+                        url: list[i][0]
                     });
 
                 });
@@ -1263,7 +1265,7 @@
                     var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
-                        playEndedHandler_(currentplaylist,i - 1);
+                        playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
@@ -1306,14 +1308,14 @@
             url = data.url;
             playall = data.playall;
             lrc = data.lrc;
-            currentplaylist = data.list;
+            list = data.list;
             html.find('.radio-player__name').text(data.title);
             html.toggleClass('hide', false);
             play();
         };
     }
 
-    function playEndedHandler(currentplaylist) {
+    function playEndedHandler() {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
@@ -1489,7 +1491,7 @@
         }
     }
 
-    function playEndedHandler_(currentplaylist , pos) {
+    function playEndedHandler_(pos) {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
@@ -1666,7 +1668,7 @@
         }
     }
 
-    function playAll(musiclist) {
+    function playAll() {
          currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
             var lrcObj = {};
@@ -1932,7 +1934,7 @@
 
         button.hide().on('hover:enter', function () {
             if (activi && currentplaylist) {
-                var balanser_ = Lampa.Storage.get('online_music_balanser');
+                // var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
                 var num = 3;
@@ -1953,7 +1955,7 @@
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
-                        playEndedHandler_(currentplaylist,i - 1);
+                        playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
