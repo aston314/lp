@@ -738,7 +738,6 @@
         });
 
         html.on('hover:long', function () {
-            var html = Lampa.Template.get('radio_player', {});
             var balanser_ = Lampa.Storage.get('online_music_balanser');
             // && balanser_ === 'zz123'
             if (currentplaylist_) {
@@ -3666,6 +3665,7 @@
 
         button.hide().on('hover:enter', function () {
             if (activi && currentplaylist_) {
+                var html = Lampa.Template.get('radio_player', {});
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
