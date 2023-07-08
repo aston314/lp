@@ -471,6 +471,7 @@
             });
             info.find('.open--play').on('hover:enter hover:click', function () {
                 playAll();
+                addFilter(); 
 			});
             this.selectGroup = function () {
                 let result = [];
@@ -3664,7 +3665,7 @@
         // });
 
         button.hide().on('hover:enter', function () {
-            if (activi && currentplaylist_) {
+            if (activi) {
                 var balanser_ = Lampa.Storage.get('online_music_balanser');
                 // && balanser_ === 'zz123'
                 var sources = [];
@@ -3725,7 +3726,7 @@
         });
 
 
-        if (currentplaylist_) $('.head .open--search').before(button);
+        $('.head .open--search').before(button);
         Lampa.Listener.follow('activity', function (e) {
             if (e.type == 'start') activi = e.object;
             clearTimeout(timer);
@@ -3774,7 +3775,6 @@
                 listmenu();
             });
             $('.menu .menu__list').eq(0).append(menu_item);
-            addFilter(); 
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             window.radio_player1_.create();
         }
