@@ -1734,18 +1734,28 @@
                     page: 1
                   });
                 } else if (/^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/i.test(new_value)) {
-                  if (window.intentShim) {
-                    window.plugins.intentShim.startActivity(
-                        {
-                            action: window.plugins.intentShim.ACTION_VIEW,
-                            url: new_value
-                        },
-                        function () { },
-                        function () { console.log('Failed to open URL via Android Intent') }
+                //   if (window.intentShim) {
+                //     window.plugins.intentShim.startActivity(
+                //         {
+                //             action: window.plugins.intentShim.ACTION_VIEW,
+                //             url: new_value
+                //         },
+                //         function () { },
+                //         function () { console.log('Failed to open URL via Android Intent') }
 
-                    );
-                };
-                Lampa.Controller.toggle('content');
+                //     );
+                // };
+                  Lampa.Activity.backward();
+                  var SERVER1 = {
+                    "title": '',
+                    "MagnetUri": new_value,
+                    "poster": ''
+                  };
+
+                  Lampa.Torrent.start(SERVER1, {
+                    title: ''
+                  });
+                // Lampa.Controller.toggle('content');
                 };
                 
                   // Lampa.Activity.push({
