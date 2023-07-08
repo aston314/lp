@@ -1192,7 +1192,7 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
+                if (playall) { audio.addEventListener("ended", playEndedHandler(currentplaylist), false); }
 
 
 
@@ -1308,7 +1308,7 @@
         };
     }
 
-    function playEndedHandler() {
+    function playEndedHandler(currentplaylist) {
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
