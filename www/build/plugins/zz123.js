@@ -625,8 +625,8 @@
         url: 'https://zz123.com/ajax/',
     },];
 
-    var musichtml = Lampa.Template.get('radio_player', {});
     function player() {
+        var html = Lampa.Template.get('radio_player', {});
         var audio = new Audio();
         var url = '';
         var played = false;
@@ -636,7 +636,7 @@
         var currentplaylist = [];
         audio.addEventListener("play", function (event) {
             played = true;
-            musichtml.toggleClass('loading', false);
+            html.toggleClass('loading', false);
         });
 
         function prepare() {
@@ -704,7 +704,7 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) {
+                if (playall) { 
                     audio.addEventListener("ended", playEndedHandler, false);
                     // audio.addEventListener("ended", function () {
                     //     playEndedHandler(currentplaylist);
@@ -727,15 +727,15 @@
         }
 
         function play() {
-            musichtml.toggleClass('loading', true);
-            musichtml.toggleClass('stop', false);
+            html.toggleClass('loading', true);
+            html.toggleClass('stop', false);
             prepare();
         }
 
         function stop() {
             played = false;
-            musichtml.toggleClass('stop', true);
-            musichtml.toggleClass('loading', false);
+            html.toggleClass('stop', true);
+            html.toggleClass('loading', false);
 
             if (hls) {
                 hls.destroy();
@@ -745,11 +745,11 @@
             audio.src = '';
         }
 
-        musichtml.on('hover:enter', function () {
+        html.on('hover:enter', function () {
             if (played) stop(); else if (url) play();
         });
 
-        musichtml.on('hover:long', function () {
+        html.on('hover:long', function () {
             var balanser_ = Lampa.Storage.get('online_music_balanser');
             // console.log(balanser_,currentplaylist)
             //  && balanser_ === 'neteasemusic'
@@ -759,7 +759,7 @@
                 var playlistData = currentplaylist;
                 // console.log(playlistData)
 
-                playlistData.forEach(function (musichtml, i) {
+                playlistData.forEach(function (html, i) {
                     sources.push({
                         title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
                         url: currentplaylist[i][0]
@@ -771,8 +771,8 @@
                 var navigation = $('<div class="navigation-tabs"></div>');
 
                 sources.forEach(function (tab, i) {
-                    // console.log(musichtml.find('.radio-player__name').text(),tab.url,(musichtml.find('.radio-player__name').text() === tab.url))
-                    var ifplaynow = (musichtml.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
+                    // console.log(html.find('.radio-player__name').text(),tab.url,(html.find('.radio-player__name').text() === tab.url))
+                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
                         playEndedHandler_(i - 1);
@@ -793,10 +793,10 @@
 
                 Lampa.Modal.open({
                     title: '当前播放列表',
-                    musichtml: html_,
+                    html: html_,
                     size: 'medium',
                     // align: 'center',
-                    // select: musichtml.find('.navigation-tabs .active')[0],
+                    // select: html.find('.navigation-tabs .active')[0],
                     mask: true,
                     onBack: function onBack() {
                         Lampa.Modal.close();
@@ -810,7 +810,7 @@
         });
 
         this.create = function () {
-            if ($('.music-player').length == 0 ) $('.head__actions .open--search').before(musichtml);
+            $('.head__actions .open--search').before(html);
         };
 
         this.play = function (data) {
@@ -819,8 +819,8 @@
             playall = data.playall;
             lrc = data.lrc;
             currentplaylist = data.list;
-            musichtml.find('.radio-player__name').text(data.title);
-            musichtml.toggleClass('hide', false);
+            html.find('.radio-player__name').text(data.title);
+            html.toggleClass('hide', false);
             play();
         };
     }
@@ -3762,7 +3762,7 @@
 
     function startZZMUSIC() {
         Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
-        Lampa.Template.add('radio_player', "<div class=\"selector music-player radio-player stop hide\">\n        <div class=\"radio-player__name\">Music Player</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
+        Lampa.Template.add('radio_player', "<div class=\"selector radio-player stop hide\">\n        <div class=\"radio-player__name\">Music Player</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
         Lampa.Template.add('radio_style', "<style>\n    .radio-item {\n        width: 8em;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-item__imgbox {\n        background-color: #3E3E3E;\n        padding-bottom: 83%;\n        position: relative;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item__img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      .radio-item__name {\n        font-size: 1.1em;\n        margin-top: 0.8em;\n      }\n      .radio-item.focus .radio-item__imgbox:after {\n        border: solid 0.4em #fff;\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 0;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item + .radio-item {\n        margin-left: 1em;\n      }\n      \n      @-webkit-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-moz-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-o-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      @-webkit-keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      @-moz-keyframes sound-loading {\n        0% {\n          -moz-transform: rotate(0deg);\n               transform: rotate(0deg);\n        }\n        100% {\n          -moz-transform: rotate(360deg);\n               transform: rotate(360deg);\n        }\n      }\n      @-o-keyframes sound-loading {\n        0% {\n          -o-transform: rotate(0deg);\n             transform: rotate(0deg);\n        }\n        100% {\n          -o-transform: rotate(360deg);\n             transform: rotate(360deg);\n        }\n      }\n      @keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n             -moz-transform: rotate(0deg);\n               -o-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n             -moz-transform: rotate(360deg);\n               -o-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      .radio-player {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n        padding: 0.2em 0.8em;\n        background-color: rgb(255 255 255 / 0%);\n      }\n      .radio-player__name {\n        margin-right: 1em;\n        white-space: nowrap;\n        overflow: hidden;\n        -o-text-overflow: ellipsis;\n           text-overflow: ellipsis;\n        max-width: 8em;\n      }\n      @media screen and (max-width: 385px) {\n        .radio-player__name {\n          display: none;\n        }\n      }\n      .radio-player__button {\n        position: relative;\n        width: 1.5em;\n        height: 1.5em;\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n           -moz-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i {\n        display: block;\n        width: 0.2em;\n        background-color: #fff;\n        margin: 0 0.1em;\n        -webkit-animation: sound 0ms -800ms linear infinite alternate;\n           -moz-animation: sound 0ms -800ms linear infinite alternate;\n             -o-animation: sound 0ms -800ms linear infinite alternate;\n                animation: sound 0ms -800ms linear infinite alternate;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i:nth-child(1) {\n        -webkit-animation-duration: 474ms;\n           -moz-animation-duration: 474ms;\n             -o-animation-duration: 474ms;\n                animation-duration: 474ms;\n      }\n      .radio-player__button i:nth-child(2) {\n        -webkit-animation-duration: 433ms;\n           -moz-animation-duration: 433ms;\n             -o-animation-duration: 433ms;\n                animation-duration: 433ms;\n      }\n      .radio-player__button i:nth-child(3) {\n        -webkit-animation-duration: 407ms;\n           -moz-animation-duration: 407ms;\n             -o-animation-duration: 407ms;\n                animation-duration: 407ms;\n      }\n      .radio-player__button i:nth-child(4) {\n        -webkit-animation-duration: 458ms;\n           -moz-animation-duration: 458ms;\n             -o-animation-duration: 458ms;\n                animation-duration: 458ms;\n      }\n      .radio-player.stop .radio-player__button {\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        border: 0.2em solid #fff;\n      }\n      .radio-player.stop .radio-player__button i {\n        display: none;\n      }\n      .radio-player.stop .radio-player__button:after {\n        content: \"\";\n        width: 0.5em;\n        height: 0.5em;\n        background-color: #fff;\n      }\n      .radio-player.loading .radio-player__button:before {\n        content: \"\";\n        display: block;\n        border-top: 0.2em solid #fff;\n        border-left: 0.2em solid transparent;\n        border-right: 0.2em solid transparent;\n        border-bottom: 0.2em solid transparent;\n        -webkit-animation: sound-loading 1s linear infinite;\n           -moz-animation: sound-loading 1s linear infinite;\n             -o-animation: sound-loading 1s linear infinite;\n                animation: sound-loading 1s linear infinite;\n        width: 0.9em;\n        height: 0.9em;\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player.loading .radio-player__button i {\n        display: none;\n      }\n      .radio-player.focus {\n        background-color: #fff;\n        color: #000;\n      }\n      .radio-player.focus .radio-player__button {\n        border-color: #000;\n      }\n      .radio-player.focus .radio-player__button i, .radio-player.focus .radio-player__button:after {\n        background-color: #000;\n      }\n      .radio-player.focus .radio-player__button:before {\n        border-top-color: #000;\n      }\n    </style>");
         
         window.plugin_ZZMUSIC_ready = true;
