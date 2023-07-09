@@ -3,7 +3,6 @@
     var musiclist = [];
     var currentplaylist = [];
     var currentIndex = 0;
-    var radio_player1_;
     // https://mu-api.yuk0.com
     // https://ncm.icodeq.com/
     // https://netease-cloud-music-api-psi-silk.vercel.app
@@ -436,7 +435,7 @@
                             button.hide();
                             currentplaylist = null;
                             var lrcObj = {};
-                            var player = radio_player1_;
+                            var player = window.radio_player2_;
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                                 if (result.code == 200) {
                                     // console.log(result.lrc.lyric)
@@ -1321,7 +1320,7 @@
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = radio_player1_;
+                var player = window.radio_player2_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
@@ -1497,7 +1496,7 @@
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = radio_player1_;
+                var player = window.radio_player2_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = pos;
@@ -1676,7 +1675,7 @@
             var lrcObj = {};
             Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
-            var player = radio_player1_;
+            var player = window.radio_player2_;
             // var src = currentplaylist.pop();
             // var src = currentplaylist.shift();
             // myAudio.src = src;
@@ -2025,7 +2024,7 @@
         Lampa.Component.add('music', MUSIC);
 
         function addSettingsMusic() {
-            radio_player1_ = new player();
+            window.radio_player2_ = new player();
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
@@ -2057,7 +2056,7 @@
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             addFilter();
             $('body').append(Lampa.Template.get('radio_style', {}, true));
-            radio_player1_.create();
+            window.radio_player2_.create();
         }
 
         if (window.appready) addSettingsMusic()
