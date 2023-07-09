@@ -3,6 +3,7 @@
     var musiclist = [];
     var currentplaylist = [];
     var currentIndex = 0;
+    var radio_player1_;
     var aipurl = 'https://zz123.com/ajax/';
     function ZZMUSIC(object) {
         var network = new Lampa.Reguest();
@@ -330,7 +331,7 @@
                     // console.log(items.indexOf(card))
                     // playEndedHandler_(items.indexOf(card));
                     button.show();
-                    var player = window.radio_player1_;
+                    var player = radio_player1_;
                     currentplaylist = null;
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
@@ -829,7 +830,7 @@
         if (currentplaylist != null ) {
             if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = radio_player1_;
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
                 network["native"](aipurl, function (result) {
                     if (result.status == 200) {
@@ -880,7 +881,7 @@
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = radio_player1_;
                 currentIndex = pos;
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
                 network["native"](aipurl, function (result) {
@@ -933,7 +934,7 @@
             button.show();
             Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
-            var player = window.radio_player1_;
+            var player = radio_player1_;
             currentIndex = 0;
             // console.log('播放完毕，准备下一首歌。')
 
@@ -3774,7 +3775,7 @@
 
         
         function addSettingsZZMUSIC() {
-            window.radio_player1_ = new player();
+            radio_player1_ = new player();
 
             if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_zz123"]').length) {
                 let field = $(Lampa.Lang.translate("<div class=\"settings-folder selector\" data-component=\"mod_zz123\">\n            <div class=\"settings-folder__icon\">\n                <svg fill=\"currentColor\" width=\"32px\" height=\"32px\" viewBox=\"0 0 1.4 1.4\" data-name=\"Layer 2\" id=\"b8328bbd-98ea-4513-8b81-ef401a1abb0b\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.699 0.948a0.08 0.08 0 1 1 0.08 -0.08 0.08 0.08 0 0 1 -0.08 0.08Zm0 -0.08h0.04Z\"/><path d=\"M1.143 1.389H0.257A0.168 0.168 0 0 1 0.089 1.221V0.177A0.168 0.168 0 0 1 0.257 0.009h0.885a0.168 0.168 0 0 1 0.168 0.168v1.045a0.168 0.168 0 0 1 -0.168 0.168ZM0.257 0.109a0.068 0.068 0 0 0 -0.068 0.068v1.045a0.068 0.068 0 0 0 0.068 0.068h0.885A0.068 0.068 0 0 0 1.211 1.223V0.177A0.068 0.068 0 0 0 1.143 0.109Z\"/><path d=\"M0.699 1.197A0.329 0.329 0 1 1 1.028 0.868a0.331 0.331 0 0 1 -0.329 0.329Zm0 -0.56A0.229 0.229 0 1 0 0.928 0.867 0.231 0.231 0 0 0 0.699 0.637Z\"/><path d=\"M0.7 0.415a0.08 0.08 0 1 1 0.08 -0.08 0.08 0.08 0 0 1 -0.08 0.08Zm0 -0.08h0.04Z\"/></svg>\n            </div>\n            <div class=\"settings-folder__name\">听歌</div>\n        </div>"));
@@ -3790,7 +3791,7 @@
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             $('body').append(Lampa.Template.get('radio_style', {}, true));
             addFilter();
-            window.radio_player1_.create();
+            radio_player1_.create();
         }
     
         if (window.appready) addSettingsZZMUSIC()
