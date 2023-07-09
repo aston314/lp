@@ -1299,6 +1299,37 @@
             }
         });
 
+        html.onMenu = function (target, data) {
+            console.log('ddd')
+            var items = [];
+            items.push({
+                title: '关闭',
+                subtitle: '退出该播放',
+                a: 'exit'
+            });
+            Lampa.Select.show({
+                title: Lampa.Lang.translate('title_action'),
+                items: items,
+                onBack: function onBack() {
+                    Lampa.Controller.toggle(enabled);
+                },
+                onSelect: function onSelect(a) {
+                    if (a.where == 'exit') {  
+                        html.hide();
+                        played = false;
+
+                        if (hls) {
+                            hls.destroy();
+                            hls = false;
+                        }
+
+                        audio.src = '';
+                    }
+                    Lampa.Controller.toggle(enabled);
+                }
+            });
+        }
+
         this.create = function () {
             $('.head__actions .open--search').before(html);
         };
