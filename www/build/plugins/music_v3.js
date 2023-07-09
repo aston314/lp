@@ -3,6 +3,7 @@
     var musiclist = [];
     var currentplaylist = [];
     var currentIndex = 0;
+    var radio_player1_;
     // https://mu-api.yuk0.com
     // https://ncm.icodeq.com/
     // https://netease-cloud-music-api-psi-silk.vercel.app
@@ -22,7 +23,7 @@
         var info;
         var last;
         var waitload;
-        var player = window.radio_player1_;
+        
 
         this.getAsUriParameters = function (data) {
             var url = '';
@@ -432,8 +433,10 @@
                             break;
                         default:
                             // tv表示翻译，-1是要，1是不要
+                            button.hide();
                             currentplaylist = null;
                             var lrcObj = {};
+                            var player = radio_player1_;
                             network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
                                 if (result.code == 200) {
                                     // console.log(result.lrc.lyric)
@@ -1192,7 +1195,12 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
+                if (playall) { 
+                    audio.addEventListener("ended", playEndedHandler, false); 
+                    // audio.addEventListener("ended", function () {
+                    //     playEndedHandler(currentplaylist);
+                    // }, false);
+                }
 
 
 
@@ -1313,7 +1321,7 @@
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = radio_player1_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
@@ -1489,7 +1497,7 @@
             if (currentplaylist.length > 0) {
                 var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player1_;
+                var player = radio_player1_;
                 // var src = currentplaylist.pop();
                 // var src = currentplaylist.shift();
                 currentIndex = pos;
@@ -1664,10 +1672,11 @@
     function playAll() {
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
+            button.show();
             var lrcObj = {};
             Lampa.Storage.set('online_music_balanser', 'neteasemusic');
             var network = new Lampa.Reguest();
-            var player = window.radio_player1_;
+            var player = radio_player1_;
             // var src = currentplaylist.pop();
             // var src = currentplaylist.shift();
             // myAudio.src = src;
@@ -1914,11 +1923,11 @@
         playlistData = null;
 
     }
+    var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
 
     function addFilter() {
         var activi;
         var timer;
-        var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
         // button.hide().on('hover:enter', function () {
         //   if (activi) {
         //     activi.activity.component().filter();
@@ -2000,7 +2009,7 @@
                 }
             }, 1000);
 
-            if (e.type == 'start' && e.component == 'music') {
+            if (e.type == 'start' && e.component == 'music' && currentplaylist) {
                 button.show();
                 activi = e.object;
             }
@@ -2016,7 +2025,7 @@
         Lampa.Component.add('music', MUSIC);
 
         function addSettingsMusic() {
-            window.radio_player1_ = new player();
+            radio_player1_ = new player();
             var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
             var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
             menu_item.on('hover:enter', function () {
@@ -2048,7 +2057,7 @@
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
             addFilter();
             $('body').append(Lampa.Template.get('radio_style', {}, true));
-            window.radio_player1_.create();
+            radio_player1_.create();
         }
 
         if (window.appready) addSettingsMusic()
