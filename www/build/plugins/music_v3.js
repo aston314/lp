@@ -1116,7 +1116,16 @@
     }];
 
     function player() {
-        var html = Lampa.Template.get('radio_player', {});
+        
+        var html;
+        if ($('.musicplayer').length === 0) {
+            console.log('1')
+            html = Lampa.Template.get('radio_player', {});
+        } else {
+            console.log('2')
+            html = $('.musicplayer');
+        };
+
         var audio = new Audio();
         var url = '';
         var played = false;
@@ -1331,6 +1340,7 @@
         // }
 
         this.create = function () {
+            console.log('music',$('.musicplayer'))
             if ($('.musicplayer').length === 0) $('.head__actions .open--search').before(html);
         };
 
