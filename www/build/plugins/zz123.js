@@ -329,7 +329,7 @@
                 card.on('hover:enter', function (target, card_data) {
                     // console.log(items.indexOf(card))
                     // playEndedHandler_(items.indexOf(card));
-                    button.show();
+                    button.hide();
                     var player = window.radio_player1_;
                     currentplaylist = null;
                     network["native"](aipurl, function (result) {
