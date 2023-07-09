@@ -3,13 +3,8 @@
     var musiclist = [];
     var currentplaylist = [];
     var currentIndex = 0;
-    // https://mu-api.yuk0.com
-    // https://ncm.icodeq.com/
-    // https://netease-cloud-music-api-psi-silk.vercel.app
-    // https://api-mymusic.vercel.app
-    // https://mu-api.yuk0.com
-    var apiurl = 'https://ncm.icodeq.com'
-    function MUSIC(object) {
+    var aipurl = 'https://zz123.com/ajax/';
+    function ZZMUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
             mask: true,
@@ -24,91 +19,119 @@
         var waitload;
         
 
-        this.getAsUriParameters = function (data) {
-            var url = '';
-            for (var prop in data) {
-                url += encodeURIComponent(prop) + '=' +
-                    encodeURIComponent(data[prop]) + '&';
+        this.getUrlParamsAndBuildQueryString = function(url) {
+            var queryString = url.split('?')[1]; // 获取问号后面的查询字符串
+          
+            var paramObject = {};
+          
+            // 解析查询字符串为参数对象
+            queryString.replace(/([^&=]+)=([^&]*)/g, function(match, key, value) {
+              key = decodeURIComponent(key);
+              value = decodeURIComponent(value);
+              if (paramObject[key]) {
+                // 如果参数名已经存在，将值转换为数组并追加新值
+                if (!Array.isArray(paramObject[key])) {
+                  paramObject[key] = [paramObject[key]];
+                }
+                paramObject[key].push(value);
+              } else {
+                // 参数名不存在，直接赋值
+                paramObject[key] = value;
+              }
+            });
+          
+            var urlParams = [];
+          
+            // 遍历参数对象，将参数添加到数组中
+            for (var paramKey in paramObject) {
+              if (paramObject.hasOwnProperty(paramKey)) {
+                var paramValue = paramObject[paramKey];
+                if (Array.isArray(paramValue)) {
+                  // 如果值是数组，将每个值都添加到参数中
+                  for (var i = 0; i < paramValue.length; i++) {
+                    urlParams.push(encodeURIComponent(paramKey) + '=' + encodeURIComponent(paramValue[i]));
+                  }
+                } else {
+                  // 单个值的情况
+                  urlParams.push(encodeURIComponent(paramKey) + '=' + encodeURIComponent(paramValue));
+                }
+              }
             }
-            return url.substring(0, url.length - 1)
-        }
-        this.getQueryString = function (link, name) {
-            let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
-            //console.log(link)
-            let r = link.match(reg);
-            if (r != null) {
-                return decodeURIComponent(r[2]);
-            };
-            return null;
+          
+            return urlParams.join('&'); // 获取生成的查询字符串
         };
 
+        this.getQueryParamValue = function (url, param) {
+            var queryString = url.split('?')[1];
+            if (queryString) {
+                var queryParams = queryString.split('&');
+                for (var i = 0; i < queryParams.length; i++) {
+                    var paramParts = queryParams[i].split('=');
+                    if (paramParts[0] === param) {
+                        return paramParts[1];
+                    }
+                }
+            }
+            return null;
+        }
+
         this.create = function () {
-            //console.log(object.url)
-            //s: 关键字
-
-            // limit: 返回数据条数限制
-
-            // type: 搜索类型
-
-            // 1 单曲
-            // 10 专辑
-            // 100 歌手
-            // 1000 歌单
-            // 1002 用户
-            // 1009 电台
-            // NULL 推荐（实测失效）
-            // offset: 偏移数量，用于分页
-            // http://music.163.com/api/search/get/web?csrf_token=hlpretag=&hlposttag=&s={搜索内容}&type=1&offset=0&total=true&limit=20
-            // https://blog.51cto.com/u_15064627/2597877
-            // limit：返回数据条数（每页获取的数量），默认为20，可以自行更改
-            // offset：偏移量（翻页），offset需要是limit的倍数
-
-            // type：搜索的类型
-            // type=1 单曲
-            // type=10 专辑
-            // type=100 歌手
-            // type=1000 歌单
-            // type=1002 用户
-            // type=1004 MV
-            // type=1006 歌词
-            // type=1009 主播电台
-            var postdata = {
-                // s: this.getQueryString(object.url, "s"),
-                type: 1,
-                limit: 24,
-                total: "true",
-                offset: 0
-            };
-
             var _this = this;
 
             this.activity.loader(true);
-            var urlpara;
+            
             musiclist = [];
-            // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
-            // var isLampaTV = current_version.startsWith("7.");
-            if (!!window.cordova) {
-                if (object.type == 'album') {
-                    urlpara = '';
+
+            var headercontent = {};
+
+            if (object.hasOwnProperty("login") || object.hasOwnProperty("type")) {
+                if (object.login || object.type === 'favorite') {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    };
                 } else {
-                    urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    };
                 }
-                network.silent(object.url + urlpara, this.build.bind(this), function () {
-                    var empty = new Lampa.Empty();
-                    html.append(empty.render());
-                    _this.start = empty.start;
-
-                    _this.activity.loader(false);
-
-                    _this.activity.toggle();
-                }, false, false, {
-                    dataType: 'json'
-                });
             } else {
-                urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
-                object.code == '1' ? urlpara = '' : urlpara;
+                headercontent = {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                };
+            }
+            
+            // console.log(object.url)
+            // console.log(Lampa.Storage.get("zz123UserInfo", ""))
+            
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+            
+            // if (!!window.cordova) {
+            //     network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
+            //         var empty = new Lampa.Empty();
+            //         html.append(empty.render());
+            //         _this.start = empty.start;
 
-                network["native"](object.url + urlpara, this.build.bind(this), function () {
+            //         _this.activity.loader(false);
+
+            //         _this.activity.toggle();
+            //     }, postdata, headercontent);
+            // } else {
+                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, this.build.bind(this), function () {
                     var empty = new Lampa.Empty();
                     html.append(empty.render());
                     _this.start = empty.start;
@@ -116,187 +139,84 @@
                     _this.activity.loader(false);
 
                     _this.activity.toggle();
-                }, false, false, {
-                    dataType: 'json'
-                });
-            }
-
+                }, postdata, headercontent);
+            // }
             return this.render();
         };
 
         this.next = function () {
-
-            var postdata = {
-                // s: this.getQueryString(object.url, "s"),
-                type: 1,
-                limit: 24,
-                total: "true",
-                offset: object.page * 24 + 1
-            };
-            // console.log(postdata)
-
+            
             var _this2 = this;
 
+            var headercontent = {};
+
+            if (object.hasOwnProperty("login") || object.hasOwnProperty("type")) {
+                if (object.login || object.type === 'favorite') {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    };
+                } else {
+                    headercontent = {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                            'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    };
+                }
+            } else {
+                headercontent = {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                };
+            }
+
             if (waitload) return;
-
-
-            //if (object.page < 300) {
             waitload = true;
             object.page++;
-            //var u = new URLSearchParams(postdata).toString();
-            //console.log(u);
-            var urlpara;
-            if (object.type == 'album') {
-                urlpara = '';
-            } else {
-                urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
-            }
-            // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
-            // var isLampaTV = current_version.startsWith("7.");
-            if (!!window.cordova) {
-                network.silent(object.url + urlpara, function (result) {
+            var postdata = this.getUrlParamsAndBuildQueryString(object.url).replace(/(page=)\d+/g, `$1${object.page}`);
+            // if (!!window.cordova) {
+            //     network.silent(object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
+            //         _this2.donext(result);
+            //         Lampa.Controller.enable('content');
+            //     }, function (a, c) {
+            //     }, postdata , headercontent);
+            // } else {
+                network["native"](object.url.substring(0, object.url.indexOf('?') + 1) + postdata, function (result) {
                     _this2.donext(result);
                     // Lampa.Controller.enable('content');
-                }, false, false, {
-                    dataType: 'json'
-                });
-            } else {
-                network["native"](object.url + urlpara, function (result) {
-                    _this2.donext(result);
-                    // Lampa.Controller.enable('content');
-                }, false, false, {
-                    dataType: 'json'
-                });
-            }
-
-            //}
+                }, function (a, c) {
+                }, postdata , headercontent);
+            // }
         };
         this.donext = function (result) {
             var _this2 = this;
-            switch (object.type) {
-                case 'list':
-                    if (object.code == '1') {
-                        // _this2.append(result);
-                        if (result.length) waitload = false;
-                    } else {
-                        if (result.result.songCount > 0) {
-                            _this2.append(result, true);
-                            if (currentplaylist) {
-                                if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
-                            };
-                            // console.log(currentplaylist)
-                            if (result.result.songs.length) waitload = false;
-                        }
-                    }
-                    break;
-                case 'albums':
-
-                    if (result.hasOwnProperty("hotAlbums")) {
-                        _this2.append(result, true);
-                        if (result.hotAlbums.length) waitload = false;
-                    } else {
-                        if (result.result.albumCount > 0) {
-                            _this2.append(result, true);
-                            if (result.result.albums.length) waitload = false;
-                        }
-                    }
-                    break;
-                case 'album':
-                    _this2.append(result, true);
-                    if (currentplaylist) {
-                        if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
-                    };
-                    // console.log(currentplaylist)
-                    if (result.songs.length) waitload = false;
-                    // console.log(result)
-                    break;
-                case 'playlist':
-                    if (result.hasOwnProperty("playlists")) {
-                        _this2.append(result, true);
-                        if (result.playlists.length) waitload = false;
-                    } else {
-                        if (result.result.playlistCount > 0) {
-                            _this2.append(result, true);
-                            if (result.result.playlists.length) waitload = false;
-                        }
-                    }
-                    break;
-                case 'playlist_detail':
-                    if (result.hasOwnProperty("songs")) {
-                        _this2.append(result, true);
-                        if (currentplaylist) {
-                            if (compareFirstArray(currentplaylist, musiclist)) { currentplaylist = musiclist; }
-                        };
-                        // console.log(currentplaylist)
-                        // console.log(result.songs.length)
-                        if (result.songs.length) waitload = false;
-                    } else if (result.hasOwnProperty("playlist")) {
-                        if (result.playlist.tracks.length) waitload = false;
-                    }
-                    break;
-                default:
-                    if (result.result.songCount > 0) {
-                        _this2.append(result, true);
-                        if (result.result.songs.length) waitload = false;
-                    }
+            if (result.data.length > 0) {
+                _this2.append(result,true);
+                if (result.data.length) waitload = false;
             }
         }
-        this.append = function (data, append) {
+        this.append = function (data,append) {
             var _this3 = this;
-            var listdata;
-
-            switch (object.type) {
-                case 'list':
-                    object.code == '1' ? listdata = data : (listdata = data.result ? data.result.songs : []);
-                    // if (data.result.hasOwnProperty("songs")) {
-                    //     listdata = data.result.songs;
-                    // } else if (data.result.hasOwnProperty("albums")) {
-                    //     listdata = data.result.albums;
-                    // } else if (data.result.hasOwnProperty("playlists")) {
-                    //     listdata = data.result.playlists;
-                    // }
-                    break;
-                case 'albums':
-                    // listdata = data.hotAlbums;
-                    if (data.hasOwnProperty("hotAlbums")) {
-                        listdata = data.hotAlbums;
-                    } else {
-                        listdata = data.result.albums;
-                    }
-                    // $(".open--play").hide();
-                    break;
-                case 'album':
-                    listdata = data.songs;
-                    break;
-                case 'playlist':
-                    if (data.hasOwnProperty("playlists")) {
-                        listdata = data.playlists;
-                    } else {
-                        listdata = data.result.playlists;
-                    }
-                    break;
-                case 'playlist_detail':
-                    if (data.hasOwnProperty("songs")) {
-                        listdata = data.songs;
-                    } else if (data.hasOwnProperty("playlist")) {
-                        listdata = data.playlist.tracks;
-                    }
-                    break;
-                default:
-                    listdata = data.result ? data.result.songs : [];
-            }
-
-            listdata.forEach(function (element, i) {
-                if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
-                    musiclist.push([element.name, element.id, element.fee, (object.code == '1' ? element.artists[0].name : element.ar[0].name), element.copyright])
-                }
-
-                var mytitle = element.name.replace('/', ' ');
+            data.data.forEach(function (element,i) {
+                musiclist.push([element.mname, element.id, element.mp3 , element.sname])
+                
+                var mytitle = element.mname.replace('/', ' ');
                 if (mytitle.indexOf(' ' != -1)) mytitle = mytitle.split(' ')[0]
 
                 var card = Lampa.Template.get('card', {
-                    title: element.name,
-                    release_year: (object.type == 'list' || object.type == 'playlist_detail') ? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album' ? object.albumname : '')
+                    title: element.mname,
+                    release_year: element.sname
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -307,35 +227,13 @@
                 img.onerror = function (e) {
                     img.src = './img/img_broken.svg';
                 };
+                
+                card.find('.card__img').attr('src', element.pic.replace('w_50,h_50,','w_200,h_200,'));
+                if (element.play_time) {
+                card.find('.card__view').append('<div class="card__type"></div>');
+                card.find('.card__type').text(element.play_time);
+                }
 
-                switch (object.type) {
-                    case 'list':
-                        if (object.code == '1') {
-                            card.find('.card__img').attr('src', element.album.picUrl + "?param=200y200g");
-                        } else {
-                            card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
-                        }
-                        break;
-                    case 'albums':
-                        card.find('.card__img').attr('src', element.picUrl + "?param=200y200g");
-                        break;
-                    case 'album':
-                        card.find('.card__img').attr('src', element.al.picUrl + "?param=200y200g");
-                        break;
-                    case 'playlist':
-                        card.find('.card__img').attr('src', element.coverImgUrl + "?param=200y200g");
-                        break;
-                    default:
-                        card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
-                }
-                if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
-                    if (element.fee !== 1 && element.copyright <= 1) {
-                        card.find('.card__view').append('<div class="card__type"></div>');
-                        card.find('.card__type').text('免费');
-                    }
-                }
-                /*card.find('.card__view').append('<div class="card__quality"></div>');
-                card.find('.card__quality').text(element.score);*/
                 if (element.publishTime) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text(new Date(element.publishTime).getFullYear());
@@ -344,291 +242,139 @@
                 card.on('hover:focus', function () {
                     last = card[0];
                     scroll.update(card, true);
-                    info.find('.info__title').text(element.name);
-                    // info.find('.info__title-original').text(element.al.name);
+                    info.find('.info__title').text(element.mname);
+                    info.find('.info__title-original').text(element.sname);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
-                    // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (object.type !== 'album') {
-                        if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
-                    }
+                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     // }
-                    if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
+                    if (Lampa.Helper) Lampa.Helper.show('zz123_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list' || object.type == 'playlist_detail') {
-                    card.on('hover:long', function () {
-                        // console.log(element.al.name)
-                        //contextmenu();
-                        var archiveMenu = [];
+                // if (object.type == 'list' || object.type == 'playlist_detail'){
+                card.on('hover:long', function () {
+                    // console.log(object)
+                    var archiveMenu = [];
+                    
+                    if (object.hasOwnProperty("type")){
+                        if (object.type === 'favorite') {
+                            archiveMenu.push({
+                                title: '删除 ' + element.mname,
+                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheet_id') + '&sheet_type=0&lang=',
+                                // connectype: 'native'
+                            });
+                        } else {
+                            archiveMenu.push({
+                                title: '收藏 ' + element.mname,
+                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                                // connectype: 'native'
+                            });
+                        }
+                    } else {
                         archiveMenu.push({
-                            title: '查看' + (object.code == '1' ? element.artists[0].name : element.ar[0].name) + '所有专辑',
-                            url: 'http://music.163.com/api/artist/albums/' + (object.code == '1' ? element.artists[0].id : element.ar[0].id) + '?id=' + (object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                            id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                            type: 'albums',
-                            albumname: '',
-                            connectype: 'native'
+                            title: '收藏 ' + element.mname,
+                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                            // connectype: 'native'
                         });
-                        archiveMenu.push({
-                            title: '查看所属专辑歌曲',
-                            // https://ncm.icodeq.com
-                            url: apiurl + '/album?id=' + (object.code == '1' ? element.album.id : element.al.id),
-                            id: '',
-                            type: 'album',
-                            connectype: '',
-                            albumname: (object.code == '1' ? element.album.name : element.al.name)
-                        });
-                        Lampa.Select.show({
-                            title: '操作',
-                            items: archiveMenu,
-                            onSelect: function (sel) {
-                                // var video = {
-                                //     title: sel.title,
-                                //     url: sel.url,
-                                // }
-                                // Lampa.Controller.toggle('content');
+                    }
+                    
+                    archiveMenu.push({
+                        title: '查看 '+element.sname+' 所有歌曲',
+                        url: aipurl + '?act=search&key='+element.sname+'&lang=&page=1',
+                        // connectype: 'native'
+                    });
+                    Lampa.Select.show({
+                        title: '操作',
+                        items: archiveMenu,
+                        onSelect: function (sel) {
+                            if (sel.title.indexOf('收藏') !== -1 || sel.title.indexOf('删除') !== -1) {
+                                network["native"](sel.url, function (json) {
+                                    if (json.status == 200) {
+                                        Lampa.Noty.show(json.msg);
+                                        Lampa.Controller.toggle('content');
+                                    } else {
+                                        Lampa.Noty.show(json.msg);
+                                        Lampa.Controller.toggle('content');
+                                    }
+                                }, function (a, c) {
+                                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
+                                    Lampa.Controller.toggle('content');
+                                }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
+                                    dataType: 'json',
+                                    headers: {
+                                        'Referer': aipurl,
+                                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                                    }
+                                });
+                            } 
+                            else {
                                 Lampa.Activity.push({
                                     url: sel.url,
-                                    title: '音乐 - ' + sel.title,
-                                    component: 'music',
-                                    type: sel.type,
-                                    albumname: sel.albumname,
-                                    connectype: sel.connectype,
+                                    title: '听歌 - ' + sel.title,
+                                    component: 'ZZMUSIC',
+                                    // connectype: sel.connectype, 
                                     page: 1
                                 });
-                            },
-                            onBack: function () {
-                                Lampa.Controller.toggle('content');
-                            }
-                        })
-                    });
-                }
+                            };
+                        },
+                        onBack: function () {
+                            Lampa.Controller.toggle('content');
+                        }
+                    })
+				});
+                // }
                 card.on('hover:enter', function (target, card_data) {
-                    // var ids = element.url.match(/id=([^&]+)/)[1];
                     // console.log(items.indexOf(card))
-                    switch (object.type) {
-                        case 'albums':
-                            Lampa.Activity.push({
-                                // https://ncm.icodeq.com/
-                                url: apiurl + '/album?id=' + element.id,
-                                title: '音乐 - 查看所属专辑歌曲',
-                                component: 'music',
-                                type: 'album',
-                                albumname: element.name,
-                                page: 1
-                            });
-                            break;
-                        case 'playlist':
-                            Lampa.Activity.push({
-                                // https://ncm.icodeq.com/
-                                url: apiurl + '/playlist/track/all?id=' + element.id,
-                                title: '音乐 - 歌单详情',
-                                component: 'music',
-                                type: 'playlist_detail',
-                                albumname: element.name,
-                                page: 1
-                            });
-                            break;
-                        default:
-                            // tv表示翻译，-1是要，1是不要
-                            button.hide();
-                            currentplaylist = null;
+                    // playEndedHandler_(items.indexOf(card));
+                    button.hide();
+                    var player = window.radio_player1_;
+                    currentplaylist = null;
+                    network["native"](aipurl, function (result) {
+                        if (result.status == 200) {
                             var lrcObj = {};
-                            var player = window.radio_player2_;
-                            network["native"]('https://music.163.com/api/song/lyric?id=' + + element.id + '&lv=1&kv=1&tv=-1', function (result) {
-                                if (result.code == 200) {
-                                    // console.log(result.lrc.lyric)
-                                    if (result.lrc) {
-                                        var lyrics = result.lrc.lyric.split("\n");
-                                        for (var i = 0; i < lyrics.length; i++) {
-                                            var lyric = decodeURIComponent(lyrics[i]);
-                                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
-                                            var timeRegExpArr = lyric.match(timeReg);
-                                            if (!timeRegExpArr) continue;
-                                            var clause = lyric.replace(timeReg, '');
-                                            for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
-                                                var t = timeRegExpArr[k];
-                                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
-                                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                                var time = min * 60 + sec;
-                                                lrcObj[time] = clause;
-                                            }
-                                        }
+                            if (result.data.lrc) {
+                                var lyrics = result.data.lrc.split("\n");
+                                for (var i = 0; i < lyrics.length; i++) {
+                                    var lyric = decodeURIComponent(lyrics[i]);
+                                    var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                                    var timeRegExpArr = lyric.match(timeReg);
+                                    if (!timeRegExpArr) continue;
+                                    var clause = lyric.replace(timeReg, '');
+                                    for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
+                                        var t = timeRegExpArr[k];
+                                        var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                            sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                        var time = min * 60 + sec;
+                                        lrcObj[time] = clause;
                                     }
-                                    // console.log(lrcObj)
                                 }
-                            }, false, false, {
-                                dataType: 'json'
-                            });
-
-                            if (element.fee !== 1 && element.copyright <= 1) {
-                                // network.silent('https://ncm.icodeq.com/song/url?id=' + element.id, function (result) {
-                                //     //console.log(result.data[0].url)
-                                //     // var video = {
-                                //     //     title: element.title,
-                                //     //     url: result.data[0].url,
-                                //     //     // plugin: plugin.component,
-                                //     //     tv: false
-                                //     // };
-                                //     // var playlist = [];
-                                //     // data.forEach(function (elem) {
-                                //     //     playlist.push({
-                                //     //         title: elem.title,
-                                //     //         url: elem.url,
-                                //     //         // plugin: plugin.component,
-                                //     //         tv: false
-                                //     //     });
-                                //     // });
-                                //     // // Lampa.Keypad.listener.destroy()
-                                //     // // Lampa.Keypad.listener.follow('keydown', keydown);
-                                //     // Lampa.Player.play(video);
-                                //     // Lampa.Player.playlist(video);
-                                //     var data = {
-                                //         url: result.data[0].url,
-                                //         title: element.name,
-                                //         playall: false
-                                //     }
-                                //     player.play(data);
-                                //     card.find('.card__view').append('<div class="card__quality"></div>');
-                                //     card.find('.card__quality').text('听');
-                                // }, false, false, {
-                                //     dataType: 'json'
-                                // });
-                                var data = {
-                                    url: 'https://music.163.com/song/media/outer/url?id=' + element.id,
-                                    title: element.name,
-                                    playall: false,
-                                    lrc: lrcObj,
-                                    list: null
-                                }
-                                player.play(data);
-                                card.find('.card__view').append('<div class="card__quality"></div>');
-                                card.find('.card__quality').text('听');
-
-                            } else {
-                                Lampa.Modal.open({
-                                    title: '',
-                                    html: Lampa.Template.get('modal_loading'),
-                                    size: 'small',
-                                    align: 'center',
-                                    mask: true,
-                                    onBack: function onBack() {
-                                        Lampa.Modal.close();
-                                        Lampa.Api.clear();
-                                        Lampa.Controller.toggle('content');
-                                    }
-                                });
-                                //https://diii.tk/
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent((object.code == '1' ? element.artists[0].name : element.ar[0].name) + ' ' + element.name.replace('(Live)', '')), function (result) {
-                                    if (result.code === 0) {
-                                        var queryData = result.data.filter(function (fp) {
-                                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === (object.code == '1' ? element.artists[0].name : element.ar[0].name) || fp.name.indexOf((object.code == '1' ? element.artists[0].name : element.ar[0].name)) !== -1) && fp.songname === element.name.replace('(Live)', '')
-                                        })
-                                        // console.log(queryData)
-                                        if (queryData.length > 0) {
-                                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                                // if (result.msg == '成功') {
-                                                var data = {
-                                                    url: result.data.src,
-                                                    title: element.name,
-                                                    playall: false,
-                                                    lrc: lrcObj,
-                                                    list: null
-                                                }
-                                                player.play(data);
-                                                card.find('.card__view').append('<div class="card__quality"></div>');
-                                                card.find('.card__quality').text('听');
-                                                Lampa.Modal.close();
-                                                Lampa.Controller.toggle('content');
-                                            }, false, false, {
-                                                dataType: 'json'
-                                            });
-                                        } else {
-                                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                                                // if (result.msg == '成功') {
-                                                var data = {
-                                                    url: result.data.src,
-                                                    title: element.name,
-                                                    playall: false,
-                                                    lrc: lrcObj,
-                                                    list: null
-                                                }
-                                                player.play(data);
-                                                card.find('.card__view').append('<div class="card__quality"></div>');
-                                                card.find('.card__quality').text('听');
-                                                Lampa.Modal.close();
-                                                Lampa.Controller.toggle('content');
-                                            }, false, false, {
-                                                dataType: 'json'
-                                            });
-                                            Lampa.Modal.close();
-                                            Lampa.Controller.toggle('content');
-                                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
-                                        }
-                                    } else {
-                                        Lampa.Noty.show('找不到相关歌曲音频文件。');
-                                        Lampa.Modal.close();
-                                        Lampa.Controller.toggle('content');
-                                    }
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
-
-                                // network["native"]('https://www.fangpi.net/s/'+ encodeURIComponent((object.code == '1' ? element.artists[0].name: element.ar[0].name) + ' ' + element.name), function (str) {
-                                //     var musc_list = [];
-                                //     str = str.replace(/\n/g, '');
-
-                                //     $('a.text-primary', str).each(function (i, html) {
-                                //         musc_list.push('https://www.fangpi.net' +  $(html).attr('href'));
-                                //     });
-                                //     // console.log(musc_list)
-
-                                //     if (musc_list.length > 0) {
-                                //         network["native"](musc_list[1], function (str) {
-                                //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                                //             var match = str.match(urlPattern);
-
-                                //             if (match) {
-                                //                 var urlvideo = match[1];
-                                //                 var data = {
-                                //                     url: urlvideo,
-                                //                     title: element.name,
-                                //                     playall: false
-                                //                 }
-                                //                 player.play(data);
-                                //                 card.find('.card__view').append('<div class="card__quality"></div>');
-                                //                 card.find('.card__quality').text('听');
-                                //             } else {
-                                //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
-                                //             }
-                                //             Lampa.Modal.close();
-                                //             Lampa.Controller.toggle('content');
-                                //         }, function (a, c) {
-                                //             Lampa.Noty.show(network.errorDecode(a, c));
-                                //         }, false, {
-                                //             dataType: 'text',
-                                //             headers: {
-                                //                 'Referer': 'https://www.fangpi.net/'
-                                //             }
-                                //         });
-                                //     } else {
-                                //         Lampa.Modal.close();
-                                //         Lampa.Controller.toggle('content');
-                                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-                                //     }
-
-                                // }, function (a, c) {
-                                //     Lampa.Noty.show(network.errorDecode(a, c));
-                                // }, false, {
-                                //     dataType: 'text',
-                                //     headers: {
-                                //         'Referer': 'https://www.fangpi.net/'
-                                //     }
-                                // });
                             }
-                    }
+                            var data = {
+                                url: element.mp3 || 'https://zz123.com'+result.data.mp3,
+                                title: element.mname,
+                                playall: false,
+                                lrc: lrcObj,
+                                list: null
+                            }
+                            player.play(data);
+                            card.find('.card__view').append('<div class="card__quality"></div>');
+                            card.find('.card__quality').text('听');
+                            // console.log(lrcObj)
+                        }
+                    }, function (a, c) {
+                        // Lampa.Noty.show('无法取得播放链接');
+                    }, 'act=songinfo&lang=&id=' + element.id, {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': aipurl,
+                            'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+
+                    });
                 });
                 body.append(card);
                 if (append) Lampa.Controller.collectionAppend(card);
@@ -638,241 +384,118 @@
         };
 
         this.build = function (data) {
-
             var _this2 = this;
             // Lampa.Template.add('_style', '<style>.freetv_n.category-full{padding-bottom:10em}</style>');
             // $('body').append(Lampa.Template.get('_style', {}, true));
             //info = Lampa.Template.get('info');style="height:5em"
             // <div class="info__lyric" style="position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); width: 800px; height: 80px; background-color: rgba(0, 0, 0, 0.8); color: rgb(243, 217, 0); text-align: center; border-radius: 1em; display: flex; justify-content: center; align-items: center; z-index: 9999; font-size: 3em; font-size: 1.8em; line-height: 1.3; white-space: nowrap; overflow: hidden;"></div>
-            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
-            Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
-            var btn = Lampa.Template.get('button_category');
+            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div> <div class=\"full-start__button selector open--favorite\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 0.54 0.54\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.135 0.27C0.135 0.22 0.162 0.176 0.203 0.153m0.203 0.112A0.134 0.134 0 0 1 0.338 0.383M0.473 0.27a0.203 0.203 0 1 1 -0.405 0 0.203 0.203 0 0 1 0.405 0Zm-0.158 0a0.045 0.045 0 1 1 -0.09 0 0.045 0.045 0 0 1 0.09 0Z\" stroke=\"currentColor\" stroke-width=\"0.045\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>   <span>收藏</span>\n    </div>           <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+			Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
+			var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
             info.find('#web_filtr').append(btn);
             info.find('.view--category').on('hover:enter hover:click', function () {
-                _this2.selectGroup();
-            });
-            info.find('.open--find').on('hover:enter hover:click', function () {
-                // Lampa.Keypad.listener.follow('keydown', function (event) {
-                //     var code = event.code;
-                //     if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
-                //         $(".simple-keyboard-input").blur();
-
-                //         // sources = null;
-                //         // playlistData = null;
-
-                //     } 
-                //     // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                //     //     // $(".simple-keyboard-input").focus();
-                //     // }
+				_this2.selectGroup();
+			});
+            info.find('.open--favorite').on('hover:enter hover:click', function () {
+                // console.log('Lampa.Storage.get("zz123_my_pop_sheet")',Lampa.Storage.get("zz123_my_pop_sheet"))
+                // Lampa.Activity.push({
+                //     url: 'https://zz123.com/myajax/?act=sheetsong&sheetid=vqqvdz&sheettype=0&lang=&page=1',
+                //     title: '听歌 - 我的收藏',
+                //     component: 'ZZMUSIC',
+                //     login: true, 
+                //     page: 1
                 // });
-                // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
-                var searchcat = [{
-                    title: '单曲/歌手',
-                    value: 1
-                }, {
-                    title: '专辑',
-                    value: 10
-                }, {
-                    title: '歌单',
-                    value: 1000
-                },];
-                // Lampa.Select.show({
-                //     title: '选择搜索类型',
-                //     items: searchcat,
-                //     onSelect: function onSelect(a) {
-                //         var currentVal = $(".simple-keyboard-input").val();
-                //         if (currentVal === "") {
-                //             Lampa.Noty.show('请先输入搜索关键词。')
-                //             // $(".simple-keyboard-input").focus();
-                //         } else {
-                //             var newVal;
-                //             if (currentVal.indexOf('||||') !== -1) {
-                //                 newVal = removeAfterDelimiter(currentVal, "||||") + "||||" + a.value;
-                //             } else {
-                //                 newVal = currentVal + "||||" + a.value;
-                //             }
-                //             // var newVal = currentVal + "||||"+ a.value;
-                //             $(".simple-keyboard-input").val(newVal);
-                //             // $(".simple-keyboard-input").focus();
-                //         }
-                //         $(".simple-keyboard-input").focus();
-                //     },
-                //     onBack: function onBack() {
-                //         $(".simple-keyboard-input").focus();
-                //         // Lampa.Controller.toggle('content');
-                //     }
-                // });
-
-                var num = 3;
-
-                var html_ = $('<div></div>');
-                var navigation = $('<div class="navigation-tabs"></div>');
-
-                searchcat.forEach(function (tab, i) {
-                    var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
-                    button.on('hover:enter', function () {
-                        var listype, titlename;
-                        if (tab.value === 1) {
-                            // codetype = '';
-                            titlename = '单曲';
-                            listype = 'list';
-                        } else if (tab.value === 10) {
-                            // codetype = '2';
-                            titlename = '专辑';
-                            listype = 'albums';
-                        } else if (tab.value === 1000) {
-                            // codetype = '2';
-                            titlename = '歌单';
-                            listype = 'playlist';
-                        }
-
-                        Lampa.Input.edit({
-                            title: '音乐 - 搜索' + titlename,
-                            value: '',
-                            free: true,
-                            nosave: true
-                        }, function (new_value) {
-                            if (new_value) {
-                                // console.log(new_value)
-                                var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
-                                var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value)).replace('#searchtype', encodeURIComponent(tab.value));
-                                Lampa.Activity.push({
-                                    url: searchurl,
-                                    title: '音乐 - 搜索' + titlename + '"' + new_value + '"',
-                                    waitload: false,
-                                    component: 'music',
-                                    type: listype,
-                                    connectype: 'native',
-                                    code: '',
-                                    page: 1
-                                });
-                            }
-                            else Lampa.Controller.toggle('content');
-                        });
-
-                        Lampa.Modal.close();
-                    });
-
-                    if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
-                    if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
-                        if (i > 0) html_.append(navigation);
-                        navigation = $('<div class="navigation-tabs"></div>');
-                    }
-                    navigation.append(button);
-                });
-
-                html_.append(navigation);
-                // console.log(navigation)
 
                 Lampa.Modal.open({
-                    title: '搜索',
-                    html: html_,
+                    title: '',
+                    html: Lampa.Template.get('modal_loading'),
                     size: 'small',
-                    // align: 'center',
-                    // select: html.find('.navigation-tabs .active')[0],
+                    align: 'center',
                     mask: true,
                     onBack: function onBack() {
                         Lampa.Modal.close();
                         Lampa.Api.clear();
-                        Lampa.Controller.toggle('content')
-                    }
-                });
-                searchcat = null;
-            });
-            info.find('.open--play').on('hover:enter hover:click', function () {
-                playAll();
-            });
-            this.selectGroup = function () {
-                Lampa.Select.show({
-                    title: '分类',
-                    items: catalogs,
-                    onSelect: function onSelect(a) {
-                        if (a.title == '歌单') {
-                            var playlistname = '华语,粤语,欧美,日语,韩语,流行,摇滚,民谣,电子,舞曲,说唱,轻音乐,爵士,乡村,R&B/Soul,古典,民族,英伦,金属,朋克,蓝调,雷鬼,世界音乐,拉丁,New Age,古风,后摇,Bossa Nova,清晨,夜晚,学习,工作,午休,下午茶,地铁,驾车,运动,旅行,散步,酒吧,怀旧,清新,浪漫,伤感,治愈,放松,孤独,感动,兴奋,快乐,安静,思念,综艺,影视原声,ACG,儿童,校园,游戏,70后,80后,90后,网络歌曲,KTV,经典,翻唱,吉他,钢琴,器乐,榜单,00后';
-                            popupWindows(playlistname, "https://music.163.com/api/playlist/list/?cat=", 5, "playlist", "歌单")
-                        } else {
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '音乐 - ' + a.title,
-                                code: a.code,
-                                component: 'music',
-                                type: a.type,
-                                connectype: a.connectype,
-                                page: 1
-                            });
-                        }
-                    },
-                    onBack: function onBack() {
                         Lampa.Controller.toggle('content');
                     }
                 });
+
+                network["native"]('https://zz123.com/myajax/', function (json) {
+                    Lampa.Modal.close();
+                    var playlistname = [];
+                    if (json.status == 200) {
+                        json.data.forEach(function (element, i) {
+                            playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
+                        })
+                        if (playlistname.length) {
+                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "收藏")
+                        }
+                    } else {
+                        Lampa.Noty.show(json.msg);
+                        Lampa.Controller.toggle('content');
+                    }
+                }, function (a, c) {
+                    Lampa.Modal.close();
+                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
+                    Lampa.Controller.toggle('content');
+                }, 'act=my_pop_sheet&lang=', {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                });
+                // console.log('playlistname',playlistname)
+				
+			});
+            info.find('.open--find').on('hover:enter hover:click', function () {
+                Lampa.Input.edit({
+                    title: '听歌 - 搜索 歌曲名、歌手名、风格标签',
+                    value: '',
+                    free: true,
+                    nosave: true
+                }, function (new_value) {
+                    if (new_value) {
+                        // console.log(new_value)
+                        var search_tempalte = aipurl + '?act=search&key=#msearchword&lang=&page=1';
+                        var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value));
+                        Lampa.Activity.push({
+                            url: searchurl,
+                            title: '听歌 - 搜索"' + new_value + '"',
+                            // waitload: false,
+                            component: 'ZZMUSIC',
+                            // connectype: 'native',
+                            page: 1
+                        });
+                    }
+                    else Lampa.Controller.toggle('content');
+                });
+            });
+            info.find('.open--play').on('hover:enter hover:click', function () {
+                playAll();
+			});
+            this.selectGroup = function () {
+                let result = [];
+
+                // $('.aside-menu-list.channel a.menu-link').each(function () {
+                //     let value = $(this).text().replace(/\n/g, ',').replace(/\s/g, '').replace(/,,/g, '');  // 取出元素的值
+                //     let value1 = $(this).attr('href').replace(/\.htm/g, '');  // 取出元素的值
+
+                //     let subArray = [value, value1];  // 创建包含两个值的子数组
+                //     result.push(subArray);  // 将子数组添加到结果数组中
+                // });
+
+                // console.log(result);
+                listmenu();
             };
             //info.find('.info__rate,.info__right').remove();
             scroll.render().addClass('layer--wheight').data('mheight', info);
 
-            // object.type == 'list' ? datatye = data.subjects : datatye = data ;
             var havedata, listdata;
-
-            switch (object.type) {
-                case 'list':
-                    if (object.code == '1') {
-                        listdata = data;
-                        havedata = data;
-                    } else {
-                        listdata = data.result ? data.result.songs : [];
-                        // if (data.result.hasOwnProperty("songs")) {
-                        //     listdata = data.result.songs;
-                        //     havedata = data.result.songs;
-                        // } else if (data.result.hasOwnProperty("albums")) {
-                        //     listdata = data.result.albums;
-                        //     havedata = data.result.albums
-                        // } else if (data.result.hasOwnProperty("playlists")) {
-                        //     listdata = data.result.playlists;
-                        //     havedata = data.result.playlists
-                        // }
-                        havedata = data.result;
-                    }
-                    break;
-                case 'albums':
-                    // listdata = data.hotAlbums;
-                    // havedata = data.hotAlbums;
-                    if (data.hasOwnProperty("hotAlbums")) {
-                        listdata = data.hotAlbums;
-                        havedata = data.hotAlbums;
-                    } else {
-                        listdata = data.result.albums;
-                        havedata = data.result.albums;
-                    }
-                    break;
-                case 'album':
-                    listdata = data.songs;
-                    havedata = data.songs;
-                    break;
-                case 'playlist':
-                    if (data.hasOwnProperty("playlists")) {
-                        listdata = data.playlists;
-                        havedata = data.playlists;
-                    } else {
-                        listdata = data.result.playlists;
-                        havedata = data.result.playlists;
-                    }
-                    break;
-                case 'playlist_detail':
-                    if (data.hasOwnProperty("songs")) {
-                        listdata = data.songs;
-                        havedata = data.songs;
-                    } else if (data.hasOwnProperty("playlist")) {
-                        listdata = data.playlist.tracks;
-                        havedata = data.playlist.tracks
-                    }
-
-                    break;
-                default:
-                    listdata = data.result ? data.result.songs : [];
-                    havedata = data.result;
-            }
-
+            listdata = data.data;
+            havedata = data.data;
+            
             if (havedata) {
                 if (listdata.length) {
                     html.append(info);
@@ -897,7 +520,7 @@
             this.start = empty.start;
             this.activity.loader(false);
             this.activity.toggle();
-        };
+         };
 
         function cardImgBackground(card_data) {
             if (Lampa.Storage.field('background')) {
@@ -908,49 +531,49 @@
 
         this.start = function () {
             var _this = this;
-            Lampa.Controller.add('content', {
-                toggle: function toggle() {
-                    Lampa.Controller.collectionSet(scroll.render());
-                    Lampa.Controller.collectionFocus(last || false, scroll.render());
-                },
-                left: function left() {
-                    if (Navigator.canmove('left')) Navigator.move('left');
-                    else Lampa.Controller.toggle('menu');
-                },
-                right: function right() {
-                    // Navigator.move('right');
-                    if (Navigator.canmove('right')) Navigator.move('right');
-                    else _this.selectGroup();
-                },
-                up: function up() {
-                    // if (Navigator.canmove('up')) Navigator.move('up');
-                    // else Lampa.Controller.toggle('head');
-                    if (Navigator.canmove('up')) {
-                        Navigator.move('up');
-                    } else {
-                        if (!info.find('.view--category').hasClass('focus')) {
-                            if (!info.find('.view--category').hasClass('focus')) {
-                                Lampa.Controller.collectionSet(info);
-                                Navigator.move('right')
-                            }
-                        } else Lampa.Controller.toggle('head');
-                    }
-                },
-                down: function down() {
-                    // if (Navigator.canmove('down')) Navigator.move('down');
-                    if (Navigator.canmove('down')) Navigator.move('down');
-                    else if (info.find('.view--category').hasClass('focus')) {
-                        Lampa.Controller.toggle('content');
-                    } else if (info.find('.open--play').hasClass('focus')) {
-                        Lampa.Controller.toggle('content');
-                    } else if (info.find('.open--find').hasClass('focus')) {
-                        Lampa.Controller.toggle('content');
-                    }
-                },
-                back: function back() {
-                    Lampa.Activity.backward();
-                }
-            });
+          Lampa.Controller.add('content', {
+              toggle: function toggle() {
+                  Lampa.Controller.collectionSet(scroll.render());
+                  Lampa.Controller.collectionFocus(last || false, scroll.render());
+              },
+              left: function left() {
+                  if (Navigator.canmove('left')) Navigator.move('left');
+                  else Lampa.Controller.toggle('menu');
+              },
+              right: function right() {
+                  // Navigator.move('right');
+                  if (Navigator.canmove('right')) Navigator.move('right');
+                  else _this.selectGroup();
+              },
+              up: function up() {
+                  // if (Navigator.canmove('up')) Navigator.move('up');
+                  // else Lampa.Controller.toggle('head');
+                  if (Navigator.canmove('up')) {
+                      Navigator.move('up');
+                  } else {
+                      if (!info.find('.view--category').hasClass('focus')) {
+                          if (!info.find('.view--category').hasClass('focus')) {
+                              Lampa.Controller.collectionSet(info);
+                              Navigator.move('right')
+                          }
+                      } else Lampa.Controller.toggle('head');
+                  }
+              },
+              down: function down() {
+                  // if (Navigator.canmove('down')) Navigator.move('down');
+                  if (Navigator.canmove('down')) Navigator.move('down');
+                  else if (info.find('.view--category').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  } else if (info.find('.open--play').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  } else if (info.find('.open--find').hasClass('focus')) {
+                      Lampa.Controller.toggle('content');
+                  }
+              },
+              back: function back() {
+                  Lampa.Activity.backward();
+              }
+          });
             Lampa.Controller.toggle('content');
         };
 
@@ -975,148 +598,34 @@
             info = null;
         };
     }
-    // 歌单接口 https://api.xtaoa.com/doc/wyygd.php
-    // https://music.163.com/api/playlist/list
+
     var catalogs = [{
-        title: '推荐',
-        url: 'https://music.163.com/api/playlist/list',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    }, {
+        title: '首页',
+        url: 'https://zz123.com/ajax/?act=index_faxian&lang=&page=1',
+    },{
+        title: '特色榜单',
+        url: 'https://zz123.com/ajax/',
+    },{
+        title: '热门歌手',
+        url: 'https://zz123.com/ajax/',
+    },{
         title: '歌单',
-        url: 'https://music.163.com/api/playlist/list',
-        code: '',
-        type: 'playlist',
-        connectype: ''
-    }, {
-        title: '飙升榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=19723756',
-        code: '',
-        type: 'playlist_detail',
-        connectype: 'native'
-    }, {
-        title: '新歌榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=3779629',
-        code: '',
-        type: 'playlist_detail',
-        connectype: 'native'
-    }, {
-        title: '热歌榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=3778678',
-        code: '',
-        type: 'playlist_detail',
-        connectype: 'native'
-    }, {
-        title: '原创榜',
-        url: 'https://ncm.icodeq.com/playlist/detail?id=2884035',
-        code: '',
-        type: 'playlist_detail',
-        connectype: 'native'
-    }, {
-        title: '伊能静',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=伊能静',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '王力宏',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=王力宏',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    },
-    {
-        title: '陈奕迅',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=陈奕迅',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    },
-    {
-        title: '林俊杰',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=林俊杰',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    },
-    {
-        title: '任贤齐',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=任贤齐',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    },
-    {
-        title: '王菲',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=王菲',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '孙燕姿',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=孙燕姿',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, , {
-        title: '抖音',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=抖音',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '爵士',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=爵士',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '轻音乐',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=轻音乐',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '乡村',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=乡村',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '民谣',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=民谣',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '电子',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=电子',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '舞曲',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=舞曲',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
-        title: '说唱',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=说唱',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }, {
+        url: 'https://zz123.com/ajax/',
+    },{
+        title: '榜单',
+        url: 'https://zz123.com/ajax/',
+    },{
+        title: '老歌',
+        url: 'https://zz123.com/ajax/',
+    },{
+        title: '年代',
+        url: 'https://zz123.com/ajax/',
+    },{
         title: '流行',
-        url: 'https://music.163.com/api/cloudsearch/pc?s=流行',
-        code: '',
-        type: 'list',
-        connectype: 'native'
-    }];
+        url: 'https://zz123.com/ajax/',
+    },];
 
     function player() {
-        
         var html;
         if ($('.musicplayer').length === 0) {
             console.log('1')
@@ -1125,7 +634,7 @@
             console.log('2')
             html = $('.musicplayer');
         };
-
+        html
         var audio = new Audio();
         var url = '';
         var played = false;
@@ -1204,7 +713,7 @@
                     );
                 });
                 if (playall) { 
-                    audio.addEventListener("ended", playEndedHandler, false); 
+                    audio.addEventListener("ended", playEndedHandler, false);
                     // audio.addEventListener("ended", function () {
                     //     playEndedHandler(currentplaylist);
                     // }, false);
@@ -1308,39 +817,8 @@
             }
         });
 
-        // html.onMenu = function (target, data) {
-        //     console.log('ddd')
-        //     var items = [];
-        //     items.push({
-        //         title: '关闭',
-        //         subtitle: '退出该播放',
-        //         a: 'exit'
-        //     });
-        //     Lampa.Select.show({
-        //         title: Lampa.Lang.translate('title_action'),
-        //         items: items,
-        //         onBack: function onBack() {
-        //             Lampa.Controller.toggle(enabled);
-        //         },
-        //         onSelect: function onSelect(a) {
-        //             if (a.where == 'exit') {  
-        //                 html.hide();
-        //                 played = false;
-
-        //                 if (hls) {
-        //                     hls.destroy();
-        //                     hls = false;
-        //                 }
-
-        //                 audio.src = '';
-        //             }
-        //             Lampa.Controller.toggle(enabled);
-        //         }
-        //     });
-        // }
-
         this.create = function () {
-            console.log('music',$('.musicplayer'))
+            console.log('zz123',$('.musicplayer'))
             if ($('.musicplayer').length === 0) $('.head__actions .open--search').before(html);
         };
 
@@ -1356,580 +834,190 @@
         };
     }
 
-    function playEndedHandler() {
-        if (currentplaylist != null) {
+    function playEndedHandler(){
+        if (currentplaylist != null ) {
             if (currentplaylist.length > 0) {
-                var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player2_;
-                // var src = currentplaylist.pop();
-                // var src = currentplaylist.shift();
+                var player = window.radio_player1_;
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
-                // console.log(currentIndex)
-                // myAudio.src = src;
-                // currentplaylist.unshift(src);
-                // myAudio.play();
-                // console.log('播放完毕，准备下一首歌。')
-                // https://music.163.com/api/song/media?id=2046829307
-                network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
-                    if (result.code == 200) {
+                network["native"](aipurl, function (result) {
+                    if (result.status == 200) {
+                        var lrcObj = {};
                         // console.log(result.lrc.lyric)
-                        if (result.lrc && result.lrc.lyric) {
-                            var lyrics = result.lrc.lyric.split("\n");
-                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                        if (result.data.lrc) {
+                            var lyrics = result.data.lrc.split("\n");
                             for (var i = 0; i < lyrics.length; i++) {
                                 var lyric = decodeURIComponent(lyrics[i]);
+                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                                 var timeRegExpArr = lyric.match(timeReg);
                                 if (!timeRegExpArr) continue;
                                 var clause = lyric.replace(timeReg, '');
-                                var min, sec, time;
                                 for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                     var t = timeRegExpArr[k];
-                                    min = Number(String(t.match(/\[\d*/i)).slice(1));
-                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                    time = min * 60 + sec;
+                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    var time = min * 60 + sec;
                                     lrcObj[time] = clause;
                                 }
                             }
                         }
-                        // console.log(lrcObj)
-                    }
-                }, false, false, {
-                    dataType: 'json'
-                });
-                if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
-                    // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
-                    //     var data = {
-                    //         url: result.data[0].url,
-                    //         title: currentplaylist[currentIndex][0],
-                    //         playall: true
-                    //     }
-                    //     player.play(data);
-                    // }, false, false, {
-                    //     dataType: 'json'
-                    // });
-                    var data = {
-                        url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
-                        title: currentplaylist[currentIndex][0],
-                        playall: true,
-                        lrc: lrcObj,
-                        list: currentplaylist
-                    }
-                    player.play(data);
-                } else {
-                    // Lampa.Modal.open({
-                    //     title: '',
-                    //     html: Lampa.Template.get('modal_loading'),
-                    //     size: 'small',
-                    //     align: 'center',
-                    //     mask: true,
-                    //     onBack: function onBack() {
-                    //         Lampa.Modal.close();
-                    //         Lampa.Api.clear();
-                    //         Lampa.Controller.toggle('content');
-                    //     }
-                    // });
-                    //https://diii.tk/
-                    network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                        if (result.code === 0) {
-                            var queryData = result.data.filter(function (fp) {
-                                // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                            })
-
-                            if (queryData.length > 0) {
-                                // console.log(queryData,queryData[0].mid)
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                    // if (result.msg == '成功') {
-                                    var data = {
-                                        url: result.data.src,
-                                        title: currentplaylist[currentIndex][0],
-                                        playall: true,
-                                        lrc: lrcObj,
-                                        list: currentplaylist
-                                    }
-                                    player.play(data);
-                                    // Lampa.Modal.close();
-                                    // Lampa.Controller.toggle('content');
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
-                            } else {
-                                // Lampa.Modal.close();
-                                // Lampa.Controller.toggle('content');
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                                    // if (result.msg == '成功') {
-                                    var data = {
-                                        url: result.data.src,
-                                        title: currentplaylist[currentIndex][0],
-                                        playall: true,
-                                        lrc: lrcObj,
-                                        list: currentplaylist
-                                    }
-                                    player.play(data);
-                                    // Lampa.Modal.close();
-                                    // Lampa.Controller.toggle('content');
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
-                                // Lampa.Noty.show('找不到相关歌曲音频文件。');
-                            }
+                        var data = {
+                            url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist[currentIndex][0],
+                            playall: true,
+                            lrc: lrcObj,
+                            list: currentplaylist
                         }
-                    }, false, false, {
-                        dataType: 'json'
-                    });
-                    // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0]), function (str) {
-                    //     var musc_list = [];
-                    //     str = str.replace(/\n/g, '');
+                        player.play(data);
+                    }
+                }, function (a, c) {
+                    // Lampa.Noty.show('无法取得播放链接');
+                }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
 
-                    //     $('a.text-primary', str).each(function (i, html) {
-                    //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
-                    //     });
-                    //     // console.log(musc_list)
-
-                    //     if (musc_list.length > 0) {
-                    //         network["native"](musc_list[1], function (str) {
-                    //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                    //             var match = str.match(urlPattern);
-
-                    //             if (match) {
-                    //                 var urlvideo = match[1];
-                    //                 var data = {
-                    //                     url: urlvideo,
-                    //                     title: currentplaylist[currentIndex][0],
-                    //                     playall: false
-                    //                 }
-                    //                 player.play(data);
-                    //             } else {
-                    //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
-                    //             }
-                    //             // Lampa.Modal.close();
-                    //             // Lampa.Controller.toggle('content');
-                    //         }, function (a, c) {
-                    //             Lampa.Noty.show(network.errorDecode(a, c));
-                    //         }, false, {
-                    //             dataType: 'text',
-                    //             headers: {
-                    //                 'Referer': 'https://www.fangpi.net/'
-                    //             }
-                    //         });
-                    //     } else {
-                    //         // Lampa.Modal.close();
-                    //         // Lampa.Controller.toggle('content');
-                    //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-                    //     }
-
-                    // }, function (a, c) {
-                    //     Lampa.Noty.show(network.errorDecode(a, c));
-                    // }, false, {
-                    //     dataType: 'text',
-                    //     headers: {
-                    //         'Referer': 'https://www.fangpi.net/'
-                    //     }
-                    // });
-                }
+                });
             }
         }
     }
 
-    function playEndedHandler_(pos) {
+    function playEndedHandler_(pos){
         if (currentplaylist != null) {
             if (currentplaylist.length > 0) {
-                var lrcObj = {};
                 var network = new Lampa.Reguest();
-                var player = window.radio_player2_;
-                // var src = currentplaylist.pop();
-                // var src = currentplaylist.shift();
+                var player = window.radio_player1_;
                 currentIndex = pos;
                 currentIndex = (currentIndex + 1) % currentplaylist.length;
-                // console.log(currentIndex)
-                // myAudio.src = src;
-                // currentplaylist.unshift(src);
-                // myAudio.play();
-                // console.log('播放完毕，准备下一首歌。')
-                // https://music.163.com/api/song/media?id=2046829307
-                network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
-                    if (result.code == 200) {
+                network["native"](aipurl, function (result) {
+                    if (result.status == 200) {
+                        var lrcObj = {};
                         // console.log(result.lrc.lyric)
-                        if (result.lrc && result.lrc.lyric) {
-                            var lyrics = result.lrc.lyric.split("\n");
-                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                        if (result.data.lrc) {
+                            var lyrics = result.data.lrc.split("\n");
                             for (var i = 0; i < lyrics.length; i++) {
                                 var lyric = decodeURIComponent(lyrics[i]);
+                                var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                                 var timeRegExpArr = lyric.match(timeReg);
                                 if (!timeRegExpArr) continue;
                                 var clause = lyric.replace(timeReg, '');
-                                var min, sec, time;
                                 for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                     var t = timeRegExpArr[k];
-                                    min = Number(String(t.match(/\[\d*/i)).slice(1));
-                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                    time = min * 60 + sec;
+                                    var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                        sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                    var time = min * 60 + sec;
                                     lrcObj[time] = clause;
                                 }
                             }
                         }
-                        // console.log(lrcObj)
-                    }
-                }, false, false, {
-                    dataType: 'json'
-                });
-                if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
-                    // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
-                    //     var data = {
-                    //         url: result.data[0].url,
-                    //         title: currentplaylist[currentIndex][0],
-                    //         playall: true
-                    //     }
-                    //     player.play(data);
-                    // }, false, false, {
-                    //     dataType: 'json'
-                    // });
-                    var data = {
-                        url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
-                        title: currentplaylist[currentIndex][0],
-                        playall: true,
-                        lrc: lrcObj,
-                        list: currentplaylist
-                    }
-                    player.play(data);
-                } else {
-                    // Lampa.Modal.open({
-                    //     title: '',
-                    //     html: Lampa.Template.get('modal_loading'),
-                    //     size: 'small',
-                    //     align: 'center',
-                    //     mask: true,
-                    //     onBack: function onBack() {
-                    //         Lampa.Modal.close();
-                    //         Lampa.Api.clear();
-                    //         Lampa.Controller.toggle('content');
-                    //     }
-                    // });
-                    //https://diii.tk/
-                    network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                        if (result.code === 0) {
-                            var queryData = result.data.filter(function (fp) {
-                                // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                                return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                            })
-
-                            if (queryData.length > 0) {
-                                // console.log(queryData,queryData[0].mid)
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                    // if (result.msg == '成功') {
-                                    var data = {
-                                        url: result.data.src,
-                                        title: currentplaylist[currentIndex][0],
-                                        playall: true,
-                                        lrc: lrcObj,
-                                        list: currentplaylist
-                                    }
-                                    player.play(data);
-                                    // Lampa.Modal.close();
-                                    // Lampa.Controller.toggle('content');
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
-                            } else {
-                                // Lampa.Modal.close();
-                                // Lampa.Controller.toggle('content');
-                                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                                    // if (result.msg == '成功') {
-                                    var data = {
-                                        url: result.data.src,
-                                        title: currentplaylist[currentIndex][0],
-                                        playall: true,
-                                        lrc: lrcObj,
-                                        list: currentplaylist
-                                    }
-                                    player.play(data);
-                                    // Lampa.Modal.close();
-                                    // Lampa.Controller.toggle('content');
-                                }, false, false, {
-                                    dataType: 'json'
-                                });
-                                // Lampa.Noty.show('找不到相关歌曲音频文件。');
-                            }
+                        var data = {
+                            url: currentplaylist[currentIndex][2] || 'https://zz123.com' + result.data.mp3,
+                            title: currentplaylist[currentIndex][0],
+                            playall: true,
+                            lrc: lrcObj,
+                            list: currentplaylist
                         }
-                    }, false, false, {
-                        dataType: 'json'
-                    });
-                    // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0]), function (str) {
-                    //     var musc_list = [];
-                    //     str = str.replace(/\n/g, '');
-
-                    //     $('a.text-primary', str).each(function (i, html) {
-                    //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
-                    //     });
-                    //     // console.log(musc_list)
-
-                    //     if (musc_list.length > 0) {
-                    //         network["native"](musc_list[1], function (str) {
-                    //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                    //             var match = str.match(urlPattern);
-
-                    //             if (match) {
-                    //                 var urlvideo = match[1];
-                    //                 var data = {
-                    //                     url: urlvideo,
-                    //                     title: currentplaylist[currentIndex][0],
-                    //                     playall: false
-                    //                 }
-                    //                 player.play(data);
-                    //             } else {
-                    //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
-                    //             }
-                    //             // Lampa.Modal.close();
-                    //             // Lampa.Controller.toggle('content');
-                    //         }, function (a, c) {
-                    //             Lampa.Noty.show(network.errorDecode(a, c));
-                    //         }, false, {
-                    //             dataType: 'text',
-                    //             headers: {
-                    //                 'Referer': 'https://www.fangpi.net/'
-                    //             }
-                    //         });
-                    //     } else {
-                    //         // Lampa.Modal.close();
-                    //         // Lampa.Controller.toggle('content');
-                    //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-                    //     }
-
-                    // }, function (a, c) {
-                    //     Lampa.Noty.show(network.errorDecode(a, c));
-                    // }, false, {
-                    //     dataType: 'text',
-                    //     headers: {
-                    //         'Referer': 'https://www.fangpi.net/'
-                    //     }
-                    // });
-                }
+                        player.play(data);
+                    }
+                }, function (a, c) {
+                    // Lampa.Noty.show('无法取得播放链接');
+                }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+                    dataType: 'json',
+                    headers: {
+                        'Referer': aipurl,
+                        'Cookie': 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                });
             }
         }
     }
 
-    function playAll() {
+    function playAll(){
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
             button.show();
-            var lrcObj = {};
-            Lampa.Storage.set('online_music_balanser', 'neteasemusic');
+            Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
-            var player = window.radio_player2_;
-            // var src = currentplaylist.pop();
-            // var src = currentplaylist.shift();
-            // myAudio.src = src;
-            // currentplaylist.unshift(src);
-            // myAudio.play();
+            var player = window.radio_player1_;
             currentIndex = 0;
             // console.log('播放完毕，准备下一首歌。')
 
-            network["native"]('https://music.163.com/api/song/lyric?id=' + + currentplaylist[currentIndex][1] + '&lv=1&kv=1&tv=-1', function (result) {
-                if (result.code == 200) {
+            network["native"](aipurl, function (result) {
+                if (result.status == 200) {
+                    var lrcObj = {};
                     // console.log(result.lrc.lyric)
-                    if (result.lrc && result.lrc.lyric) {
-                        var lyrics = result.lrc.lyric.split("\n");
-                        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+                    if (result.data.lrc) {
+                        var lyrics = result.data.lrc.split("\n");
                         for (var i = 0; i < lyrics.length; i++) {
                             var lyric = decodeURIComponent(lyrics[i]);
+                            var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
                             var timeRegExpArr = lyric.match(timeReg);
                             if (!timeRegExpArr) continue;
                             var clause = lyric.replace(timeReg, '');
-                            var min, sec, time;
                             for (var k = 0, h = timeRegExpArr.length; k < h; k++) {
                                 var t = timeRegExpArr[k];
-                                min = Number(String(t.match(/\[\d*/i)).slice(1));
-                                sec = Number(String(t.match(/\:\d*/i)).slice(1));
-                                time = min * 60 + sec;
+                                var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+                                    sec = Number(String(t.match(/\:\d*/i)).slice(1));
+                                var time = min * 60 + sec;
                                 lrcObj[time] = clause;
                             }
                         }
                     }
-                    // console.log(lrcObj)
+                    var data = {
+                        url: currentplaylist[currentIndex][2] || 'https://zz123.com'+result.data.mp3,
+                        title: currentplaylist[currentIndex][0],
+                        playall: true,
+                        lrc: lrcObj,
+                        list: currentplaylist
+                    }
+                    player.play(data);
                 }
-            }, false, false, {
-                dataType: 'json'
+            }, function (a, c) {
+                // Lampa.Noty.show('无法取得播放链接');
+            }, 'act=songinfo&lang=&id=' + currentplaylist[currentIndex][1], {
+                dataType: 'json',
+                headers: {
+                    'Referer': aipurl,
+                    'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                }
+
             });
-            if (currentplaylist[currentIndex][2] !== 1 && currentplaylist[currentIndex][4] <= 1) {
-                // network.silent('https://ncm.icodeq.com/song/url?id=' + currentplaylist[currentIndex][1], function (result) {
-                //     var data = {
-                //         url: result.data[0].url,
-                //         title: currentplaylist[currentIndex][0],
-                //         playall: true
-                //     }
-                //     player.play(data);
-                // }, false, false, {
-                //     dataType: 'json'
-                // });
-                var data = {
-                    url: 'https://music.163.com/song/media/outer/url?id=' + currentplaylist[currentIndex][1],
-                    title: currentplaylist[currentIndex][0],
-                    playall: true,
-                    lrc: lrcObj,
-                    list: currentplaylist
-                }
-                player.play(data);
-            } else {
-                Lampa.Modal.open({
-                    title: '',
-                    html: Lampa.Template.get('modal_loading'),
-                    size: 'small',
-                    align: 'center',
-                    mask: true,
-                    onBack: function onBack() {
-                        Lampa.Modal.close();
-                        Lampa.Api.clear();
-                        Lampa.Controller.toggle('content');
-                    }
-                });
-                //https://diii.tk/
-                network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&name=' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0].replace('(Live)', '')), function (result) {
-                    if (result.code === 0) {
-                        var queryData = result.data.filter(function (fp) {
-                            // console.log(fp.name ,(object.code == '1' ? element.artists[0].name: element.ar[0].name))
-                            return (fp.name.replace('G.E.M. 邓紫棋', 'G.E.M.邓紫棋') === currentplaylist[currentIndex][3] || fp.name.indexOf(currentplaylist[currentIndex][3]) !== -1) && fp.songname === currentplaylist[currentIndex][0].replace('(Live)', '')
-                        })
-
-                        if (queryData.length > 0) {
-                            // console.log(queryData,queryData[0].mid)
-                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + queryData[0].mid, function (result) {
-                                // if (result.msg == '成功') {
-                                var data = {
-                                    url: result.data.src,
-                                    title: currentplaylist[currentIndex][0],
-                                    playall: true,
-                                    lrc: lrcObj,
-                                    list: currentplaylist
-                                }
-                                player.play(data);
-                                Lampa.Modal.close();
-                                Lampa.Controller.toggle('content');
-                            }, false, false, {
-                                dataType: 'json'
-                            });
-                        } else {
-                            network["native"]('https://api.xingzhige.com/API/QQmusicVIP/?max=50&br=8&type=json&mid=' + result.data[0].mid, function (result) {
-                                // if (result.msg == '成功') {
-                                var data = {
-                                    url: result.data.src,
-                                    title: currentplaylist[currentIndex][0],
-                                    playall: true,
-                                    lrc: lrcObj,
-                                    list: currentplaylist
-                                }
-                                player.play(data);
-                                Lampa.Modal.close();
-                                Lampa.Controller.toggle('content');
-                            }, false, false, {
-                                dataType: 'json'
-                            });
-                            // Lampa.Modal.close();
-                            // Lampa.Controller.toggle('content');
-                            // Lampa.Noty.show('找不到相关歌曲音频文件。');
-                        }
-                    }
-                }, false, false, {
-                    dataType: 'json'
-                });
-
-                // network["native"]('https://www.fangpi.net/s/' + encodeURIComponent(currentplaylist[currentIndex][3] + ' ' + currentplaylist[currentIndex][0]), function (str) {
-                //     var musc_list = [];
-                //     str = str.replace(/\n/g, '');
-
-                //     $('a.text-primary', str).each(function (i, html) {
-                //         musc_list.push('https://www.fangpi.net' + $(html).attr('href'));
-                //     });
-                //     // console.log(musc_list)
-
-                //     if (musc_list.length > 0) {
-                //         network["native"](musc_list[1], function (str) {
-                //             var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp3|m3u8)[^'"]*)['|"]/;
-                //             var match = str.match(urlPattern);
-
-                //             if (match) {
-                //                 var urlvideo = match[1];
-                //                 var data = {
-                //                     url: urlvideo,
-                //                     title: currentplaylist[currentIndex][0],
-                //                     playall: false
-                //                 }
-                //                 player.play(data);
-                //             } else {
-                //                 Lampa.Noty.show('找不到相关歌曲音频文件。');
-                //             }
-                //             Lampa.Modal.close();
-                //             Lampa.Controller.toggle('content');
-                //         }, function (a, c) {
-                //             Lampa.Noty.show(network.errorDecode(a, c));
-                //         }, false, {
-                //             dataType: 'text',
-                //             headers: {
-                //                 'Referer': 'https://www.fangpi.net/'
-                //             }
-                //         });
-                //     } else {
-                //         Lampa.Modal.close();
-                //         Lampa.Controller.toggle('content');
-                //         Lampa.Noty.show('找不到相关歌曲音频文件。');
-                //     }
-
-                // }, function (a, c) {
-                //     Lampa.Noty.show(network.errorDecode(a, c));
-                // }, false, {
-                //     dataType: 'text',
-                //     headers: {
-                //         'Referer': 'https://www.fangpi.net/'
-                //     }
-                // });
-            }
         } else {
             Lampa.Noty.show('没有可以播放的歌曲。');
         }
     }
 
-    function compareFirstArray(array1, array2) {
-        if (array1.length === 0 || array2.length === 0) {
-            return false;
-        }
-        return array1[0] === array2[0];
-    }
-
-    function removeAfterDelimiter(str, delimiter) {
-        const index = str.indexOf(delimiter);
-        if (index !== -1) {
-            return str.substring(0, index);
-        }
-        return str;
-    }
-
     function popupWindows(playlistname, gourl, num, gotype, titlename) {
         var sources = [];
-        var songling = playlistname;
-        var playlistData = songling.split(',');
+        // var songling = playlistname;
+        var playlistData = playlistname;//songling.split(',');
         // console.log(playlistData)
 
         playlistData.forEach(function (html) {
             sources.push({
-                title: html,
-                url: gourl + html
+                title: html[0],
+                cat:html[1],
+                url: gourl
             });
 
         });
         // console.log(sources)
         var html_ = $('<div></div>');
         var navigation = $('<div class="navigation-tabs"></div>');
-
+        
         sources.forEach(function (tab, i) {
             var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
             button.on('hover:enter', function () {
                 Lampa.Activity.push({
-                    url: tab.url,
-                    title: '音乐 - ' + titlename + ' - ' + tab.title,
-                    code: '',
-                    component: 'music',
+                    url: tab.url+tab.cat,
+                    title: '听歌 - '+ titlename +' - ' + tab.title,
+                    component: 'ZZMUSIC',
                     type: gotype,
-                    connectype: '',
                     page: 1
                 });
                 Lampa.Modal.close();
@@ -1947,7 +1035,7 @@
         // console.log(navigation)
 
         Lampa.Modal.open({
-            title: '歌单分类',
+            title: titlename,
             html: html_,
             size: 'medium',
             // align: 'center',
@@ -1963,8 +1051,2633 @@
         playlistData = null;
 
     }
-    var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
 
+    function listmenu(){
+        var playlistname;
+        Lampa.Select.show({
+            title: '分类',
+            items: catalogs,
+            onSelect: function onSelect(a) {
+                if (a.title == '歌单') {
+                    playlistname = [
+                        [
+                            "榜单",
+                            "vszs"
+                        ],
+                        [
+                            "老歌",
+                            "azz"
+                        ],
+                        [
+                            "古风",
+                            "mv"
+                        ],
+                        [
+                            "Soul",
+                            "akda"
+                        ],
+                        [
+                            "儿童",
+                            "zud"
+                        ],
+                        [
+                            "乡村",
+                            "aku"
+                        ],
+                        [
+                            "助眠",
+                            "d"
+                        ],
+                        [
+                            "纯音乐",
+                            "az"
+                        ],
+                        [
+                            "茶道",
+                            "vadqm"
+                        ],
+                        [
+                            "抖音",
+                            "mszm"
+                        ],
+                        [
+                            "DJ",
+                            "msdm"
+                        ],
+                        [
+                            "00后",
+                            "msuv"
+                        ],
+                        [
+                            "场景",
+                            "zxzxu"
+                        ],
+                        [
+                            "语种",
+                            "vmvav"
+                        ],
+                        [
+                            "心情",
+                            "kuau"
+                        ],
+                        [
+                            "神曲",
+                            "asx"
+                        ],
+                        [
+                            "广场舞",
+                            "ssmma"
+                        ],
+                        [
+                            "网络",
+                            "sxuus"
+                        ],
+                        [
+                            "相声",
+                            "qdsam"
+                        ],
+                        [
+                            "流行",
+                            "quvma"
+                        ],
+                        [
+                            "影视",
+                            "qdk"
+                        ],
+                        [
+                            "铃声",
+                            "szdd"
+                        ],
+                        [
+                            "戏曲",
+                            "saak"
+                        ],
+                        [
+                            "基督教",
+                            "vamau"
+                        ],
+                        [
+                            "佛教",
+                            "azss"
+                        ],
+                        [
+                            "民谣",
+                            "ms"
+                        ],
+                        [
+                            "说唱",
+                            "qz"
+                        ],
+                        [
+                            "健身",
+                            "qqs"
+                        ],
+                        [
+                            "女声",
+                            "uz"
+                        ],
+                        [
+                            "KTV",
+                            "akka"
+                        ],
+                        [
+                            "欧美",
+                            "ka"
+                        ],
+                        [
+                            "HIFI",
+                            "qmkv"
+                        ],
+                        [
+                            "婚礼",
+                            "aaq"
+                        ],
+                        [
+                            "红歌",
+                            "mqmz"
+                        ],
+                        [
+                            "好听",
+                            "aza"
+                        ],
+                        [
+                            "民歌",
+                            "mqvk"
+                        ],
+                        [
+                            "军旅",
+                            "mkzmx"
+                        ],
+                        [
+                            "精选",
+                            "mdz"
+                        ],
+                        [
+                            "酒廊情歌",
+                            "mqms"
+                        ],
+                        [
+                            "圣诞节",
+                            "mxqv"
+                        ],
+                        [
+                            "情人节",
+                            "asuuq"
+                        ],
+                        [
+                            "新年",
+                            "qux"
+                        ],
+                        [
+                            "商业",
+                            "aqsvau"
+                        ],
+                        [
+                            "叫声",
+                            "aqsvmx"
+                        ],
+                        [
+                            "年龄",
+                            "aqsvms"
+                        ],
+                        [
+                            "最火",
+                            "qda"
+                        ],
+                        [
+                            "年代",
+                            "vvxmx"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "分类")
+                } else if (a.title == '榜单') {
+                    playlistname = [
+                        [
+                            "热歌榜",
+                            "mxuxuu"
+                        ],
+                        [
+                            "新歌榜",
+                            "mxuxzv"
+                        ],
+                        [
+                            "抖音歌曲榜",
+                            "mxuxkm"
+                        ],
+                        [
+                            "DJ嗨歌榜",
+                            "mxuxds"
+                        ],
+                        [
+                            "极品电音榜",
+                            "mxuxkd"
+                        ],
+                        [
+                            "流行趋势榜",
+                            "mxuxkz"
+                        ],
+                        [
+                            "彩铃榜",
+                            "mxuass"
+                        ],
+                        [
+                            "尖叫热歌榜",
+                            "mxuask"
+                        ],
+                        [
+                            "飙升榜",
+                            "mxuxvd"
+                        ],
+                        [
+                            "台湾地区榜",
+                            "mxuxqk"
+                        ],
+                        [
+                            "欧美榜",
+                            "mxuxqq"
+                        ],
+                        [
+                            "韩国榜",
+                            "mxuaxv"
+                        ],
+                        [
+                            "香港地区榜",
+                            "mxuaxd"
+                        ],
+                        [
+                            "日本榜",
+                            "mxuaaa"
+                        ],
+                        [
+                            "内地榜",
+                            "mxuaak"
+                        ],
+                        [
+                            "港台榜",
+                            "mxuasv"
+                        ],
+                        [
+                            "越南语榜",
+                            "mxuxux"
+                        ],
+                        [
+                            "Beatport全球电子舞曲榜",
+                            "mxuxuk"
+                        ],
+                        [
+                            "日本Oricon榜",
+                            "mxuxuq"
+                        ],
+                        [
+                            "美国BillBoard榜",
+                            "mxuamx"
+                        ],
+                        [
+                            "美国iTunes榜",
+                            "mxuavu"
+                        ],
+                        [
+                            "听歌识曲榜",
+                            "mxuxda"
+                        ],
+                        [
+                            "睡前放松榜",
+                            "mxuxdd"
+                        ],
+                        [
+                            "禅心佛乐榜",
+                            "mxuxku"
+                        ],
+                        [
+                            "酷我铃声榜",
+                            "mxuxdz"
+                        ],
+                        [
+                            "酷我热评榜",
+                            "mxuxdk"
+                        ],
+                        [
+                            "酷我综艺榜",
+                            "mxuxkx"
+                        ],
+                        [
+                            "酷我新歌榜",
+                            "mxuasq"
+                        ],
+                        [
+                            "酷我飙升榜",
+                            "mxuavx"
+                        ],
+                        [
+                            "酷我热歌榜",
+                            "mxuava"
+                        ],
+                        [
+                            "酷狗音乐人原创榜",
+                            "mxuaxm"
+                        ],
+                        [
+                            "酷狗分享榜",
+                            "mxuaad"
+                        ],
+                        [
+                            "酷狗飙升榜",
+                            "mxuams"
+                        ],
+                        [
+                            "云音乐韩语榜",
+                            "mxuxud"
+                        ],
+                        [
+                            "云音乐古典榜",
+                            "mxuxzx"
+                        ],
+                        [
+                            "云音乐ACGVOCALOID榜",
+                            "mxuxza"
+                        ],
+                        [
+                            "云音乐ACG动画榜",
+                            "mxuxzk"
+                        ],
+                        [
+                            "云音乐国电榜",
+                            "mxuxvk"
+                        ],
+                        [
+                            "云音乐欧美热歌榜",
+                            "mxuxvq"
+                        ],
+                        [
+                            "云音乐欧美新歌榜",
+                            "mxuxum"
+                        ],
+                        [
+                            "云音乐ACG游戏榜",
+                            "mxuxus"
+                        ],
+                        [
+                            "原创榜",
+                            "mxuxuz"
+                        ],
+                        [
+                            "潜力爆款榜",
+                            "mxuxzm"
+                        ],
+                        [
+                            "最强翻唱榜",
+                            "mxuxdv"
+                        ],
+                        [
+                            "通勤路上榜",
+                            "mxuxdu"
+                        ],
+                        [
+                            "网红新歌榜",
+                            "mxuxdq"
+                        ],
+                        [
+                            "会员畅听榜",
+                            "mxuxka"
+                        ],
+                        [
+                            "冬日恋曲榜",
+                            "mxuxks"
+                        ],
+                        [
+                            "宝宝哄睡榜",
+                            "mxuxkv"
+                        ],
+                        [
+                            "经典怀旧榜",
+                            "mxuxkk"
+                        ],
+                        [
+                            "跑步健身榜",
+                            "mxuxkq"
+                        ],
+                        [
+                            "古风音乐榜",
+                            "mxuxqx"
+                        ],
+                        [
+                            "KTV点唱榜",
+                            "mxuxqa"
+                        ],
+                        [
+                            "车载嗨曲榜",
+                            "mxuxqm"
+                        ],
+                        [
+                            "熬夜修仙榜",
+                            "mxuxqs"
+                        ],
+                        [
+                            "Vlog必备榜",
+                            "mxuxqv"
+                        ],
+                        [
+                            "爆笑相声榜",
+                            "mxuxqu"
+                        ],
+                        [
+                            "DJ热歌榜",
+                            "mxuaax"
+                        ],
+                        [
+                            "快手热歌榜",
+                            "mxuaas"
+                        ],
+                        [
+                            "尖叫新歌榜",
+                            "mxuaav"
+                        ],
+                        [
+                            "影视金曲榜",
+                            "mxuaau"
+                        ],
+                        [
+                            "俄语榜",
+                            "mxuavm"
+                        ],
+                        [
+                            "KTV榜",
+                            "mxuavz"
+                        ],
+                        [
+                            "尖叫原创榜",
+                            "mxuavd"
+                        ],
+                        [
+                            "法国NRJVosHits周榜",
+                            "mxuxua"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "榜单")
+                } else if (a.title == '老歌') {
+                    playlistname = [
+                        [
+                            "老歌",
+                            "azz"
+                        ],
+                        [
+                            "热门",
+                            "aaxu"
+                        ],
+                        [
+                            "经典歌曲",
+                            "mmak"
+                        ],
+                        [
+                            "经典老歌",
+                            "ddda"
+                        ],
+                        [
+                            "欧美经典",
+                            "maak"
+                        ],
+                        [
+                            "经典女声",
+                            "suzd"
+                        ],
+                        [
+                            "经典粤语歌",
+                            "vkms"
+                        ],
+                        [
+                            "流行经典",
+                            "mzsk"
+                        ],
+                        [
+                            "不朽的经典",
+                            "dzmd"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "老歌")
+                } else if (a.title == '年代') {
+                    playlistname = [
+                        [
+                            "学生年代",
+                            "avzd"
+                        ],
+                        [
+                            "80年代",
+                            "avqs"
+                        ],
+                        [
+                            "90年代",
+                            "avqv"
+                        ],
+                        [
+                            "50年代",
+                            "mquv"
+                        ],
+                        [
+                            "70年代",
+                            "ssvu"
+                        ],
+                        [
+                            "00年代",
+                            "vmzus"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "年代")
+                } else if (a.title == '流行') {
+                    playlistname = [
+                        [
+                            "流行",
+                            "quvma"
+                        ],
+                        [
+                            "国语流行",
+                            "vsk"
+                        ],
+                        [
+                            "欧美流行",
+                            "mdv"
+                        ],
+                        [
+                            "粤语流行",
+                            "adqs"
+                        ],
+                        [
+                            "日本流行",
+                            "asa"
+                        ],
+                        [
+                            "韩语流行",
+                            "vkz"
+                        ],
+                        [
+                            "独立流行",
+                            "sdss"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=tag_music&type=tuijian&lang=&page=1&tid=', 5, "playlist", "流行")
+                } else if (a.title == '热门歌手') {
+                    playlistname = [
+                        [
+                            "周杰伦",
+                            "dqk"
+                        ],
+                        [
+                            "卦者灵风",
+                            "maxqkx"
+                        ],
+                        [
+                            "薛之谦",
+                            "msqq"
+                        ],
+                        [
+                            "陈奕迅",
+                            "vx"
+                        ],
+                        [
+                            "五月天",
+                            "auks"
+                        ],
+                        [
+                            "陈一发儿",
+                            "zvaka"
+                        ],
+                        [
+                            "买辣椒也用券",
+                            "zzdxa"
+                        ],
+                        [
+                            "Beyond",
+                            "axdu"
+                        ],
+                        [
+                            "陈慧娴",
+                            "aad"
+                        ],
+                        [
+                            "周传雄",
+                            "dkq"
+                        ],
+                        [
+                            "程响",
+                            "azkss"
+                        ],
+                        [
+                            "TaylorSwift",
+                            "dvkd"
+                        ],
+                        [
+                            "毛不易",
+                            "zvxqu"
+                        ],
+                        [
+                            "伍佰",
+                            "umk"
+                        ],
+                        [
+                            "凤凰传奇",
+                            "mdaa"
+                        ],
+                        [
+                            "轻音乐",
+                            "ksmu"
+                        ],
+                        [
+                            "王菲",
+                            "zxk"
+                        ],
+                        [
+                            "蔡健雅",
+                            "zx"
+                        ],
+                        [
+                            "张杰",
+                            "mmaa"
+                        ],
+                        [
+                            "周深",
+                            "uzmku"
+                        ],
+                        [
+                            "S.H.E",
+                            "avxk"
+                        ],
+                        [
+                            "许嵩",
+                            "mkmx"
+                        ],
+                        [
+                            "刘若英",
+                            "sua"
+                        ],
+                        [
+                            "李荣浩",
+                            "sdxqs"
+                        ],
+                        [
+                            "张学友",
+                            "dmm"
+                        ],
+                        [
+                            "孙燕姿",
+                            "umd"
+                        ],
+                        [
+                            "莫文蔚",
+                            "vqm"
+                        ],
+                        [
+                            "汪苏泷",
+                            "kqmq"
+                        ],
+                        [
+                            "阿梨粤",
+                            "maxqqq"
+                        ],
+                        [
+                            "海来阿木",
+                            "zqdvs"
+                        ],
+                        [
+                            "刘艺雯",
+                            "maxdmd"
+                        ],
+                        [
+                            "手机铃声",
+                            "axdsz"
+                        ],
+                        [
+                            "抖音歌曲",
+                            "zkxuq"
+                        ],
+                        [
+                            "刘德华",
+                            "svq"
+                        ],
+                        [
+                            "任贤齐",
+                            "vmq"
+                        ],
+                        [
+                            "王琪",
+                            "uavaz"
+                        ],
+                        [
+                            "赵雷",
+                            "suxuq"
+                        ],
+                        [
+                            "梁静茹",
+                            "sdk"
+                        ],
+                        [
+                            "半吨兄弟",
+                            "dxxzk"
+                        ],
+                        [
+                            "邓紫棋",
+                            "zzxm"
+                        ],
+                        [
+                            "张信哲",
+                            "daq"
+                        ],
+                        [
+                            "魏佳艺",
+                            "sxsv"
+                        ],
+                        [
+                            "邓紫棋",
+                            "uusam"
+                        ],
+                        [
+                            "张碧晨",
+                            "uudva"
+                        ],
+                        [
+                            "周华健",
+                            "dqu"
+                        ],
+                        [
+                            "告五人",
+                            "dxxsv"
+                        ],
+                        [
+                            "庄心妍",
+                            "vadzx"
+                        ],
+                        [
+                            "许巍",
+                            "axaq"
+                        ],
+                        [
+                            "张韶涵",
+                            "ksd"
+                        ],
+                        [
+                            "谭咏麟",
+                            "vuv"
+                        ],
+                        [
+                            "任然",
+                            "akkkq"
+                        ],
+                        [
+                            "刀郎",
+                            "kuu"
+                        ],
+                        [
+                            "张雨生",
+                            "dsd"
+                        ],
+                        [
+                            "七叔（叶泽浩）",
+                            "maxdvd"
+                        ],
+                        [
+                            "温奕心",
+                            "damxv"
+                        ],
+                        [
+                            "梦然",
+                            "vxmus"
+                        ],
+                        [
+                            "陈百强",
+                            "az"
+                        ],
+                        [
+                            "陶喆",
+                            "vud"
+                        ],
+                        [
+                            "豆包",
+                            "uvkqx"
+                        ],
+                        [
+                            "张震岳",
+                            "dvs"
+                        ],
+                        [
+                            "朴树",
+                            "qzz"
+                        ],
+                        [
+                            "G.E.M.邓紫棋",
+                            "dsxds"
+                        ],
+                        [
+                            "逃跑计划",
+                            "svdzu"
+                        ],
+                        [
+                            "一支榴莲",
+                            "daqkq"
+                        ],
+                        [
+                            "旺仔小乔",
+                            "akukzv"
+                        ],
+                        [
+                            "林宥嘉",
+                            "zsxq"
+                        ],
+                        [
+                            "杨千嬅",
+                            "zqm"
+                        ],
+                        [
+                            "王心凌",
+                            "udv"
+                        ],
+                        [
+                            "张国荣",
+                            "zzs"
+                        ],
+                        [
+                            "李宗盛",
+                            "mqu"
+                        ],
+                        [
+                            "DJ舞曲",
+                            "aau"
+                        ],
+                        [
+                            "李昕融",
+                            "zszvk"
+                        ],
+                        [
+                            "郑中基",
+                            "ddk"
+                        ],
+                        [
+                            "张宇",
+                            "dsx"
+                        ],
+                        [
+                            "徐誉滕",
+                            "mdkv"
+                        ],
+                        [
+                            "胡彦斌",
+                            "kqq"
+                        ],
+                        [
+                            "王杰",
+                            "vdm"
+                        ],
+                        [
+                            "杨宗纬",
+                            "szku"
+                        ],
+                        [
+                            "蓝心羽",
+                            "zqvxm"
+                        ],
+                        [
+                            "筷子兄弟",
+                            "aksvk"
+                        ],
+                        [
+                            "纯音乐合辑",
+                            "axv"
+                        ],
+                        [
+                            "JustinBieber",
+                            "qxks"
+                        ],
+                        [
+                            "房东的猫",
+                            "zvuzm"
+                        ],
+                        [
+                            "DJ小鱼儿",
+                            "zmdmx"
+                        ],
+                        [
+                            "动力火车",
+                            "aask"
+                        ],
+                        [
+                            "队长",
+                            "dxqzu"
+                        ],
+                        [
+                            "艾辰",
+                            "zvvmm"
+                        ],
+                        [
+                            "经典老歌",
+                            "masu"
+                        ],
+                        [
+                            "林子祥",
+                            "mzm"
+                        ],
+                        [
+                            "汪峰",
+                            "qqv"
+                        ],
+                        [
+                            "田馥甄",
+                            "szaa"
+                        ],
+                        [
+                            "飞儿乐团",
+                            "mxak"
+                        ],
+                        [
+                            "儿歌大全",
+                            "mmdq"
+                        ],
+                        [
+                            "华语群星",
+                            "uqxdm"
+                        ],
+                        [
+                            "音阙诗听",
+                            "zzaaq"
+                        ],
+                        [
+                            "萧亚轩",
+                            "zzm"
+                        ],
+                        [
+                            "抖音热歌",
+                            "zqmkz"
+                        ],
+                        [
+                            "李玉刚",
+                            "zkdu"
+                        ],
+                        [
+                            "承桓",
+                            "mmkxqq"
+                        ],
+                        [
+                            "免费铃声下载",
+                            "adaku"
+                        ],
+                        [
+                            "宝石Gem",
+                            "dxzds"
+                        ],
+                        [
+                            "刘珂矣",
+                            "usduv"
+                        ],
+                        [
+                            "blackpink",
+                            "dsava"
+                        ],
+                        [
+                            "邓丽君",
+                            "avd"
+                        ],
+                        [
+                            "郑智化",
+                            "ddz"
+                        ],
+                        [
+                            "杨小壮",
+                            "daxmv"
+                        ],
+                        [
+                            "AlanWalker",
+                            "zxsmx"
+                        ],
+                        [
+                            "yihuik苡慧",
+                            "maxmqs"
+                        ],
+                        [
+                            "手机铃声1",
+                            "zuqss"
+                        ],
+                        [
+                            "林志炫",
+                            "ssq"
+                        ],
+                        [
+                            "彭佳慧",
+                            "uxz"
+                        ],
+                        [
+                            "张惠妹",
+                            "ksv"
+                        ],
+                        [
+                            "泥土音乐",
+                            "vvdsm"
+                        ],
+                        [
+                            "苏打绿",
+                            "mdvm"
+                        ],
+                        [
+                            "阿冗",
+                            "dxqqx"
+                        ],
+                        [
+                            "叶倩文",
+                            "dvm"
+                        ],
+                        [
+                            "刘大拿",
+                            "mmzvxd"
+                        ],
+                        [
+                            "中文舞曲",
+                            "adaqz"
+                        ],
+                        [
+                            "信乐团",
+                            "azxk"
+                        ],
+                        [
+                            "BrunoMars",
+                            "akdka"
+                        ],
+                        [
+                            "莫叫姐姐",
+                            "maxzkm"
+                        ],
+                        [
+                            "那英",
+                            "quq"
+                        ],
+                        [
+                            "xxxTENTACION",
+                            "dsmsu"
+                        ],
+                        [
+                            "弦子",
+                            "mvxm"
+                        ],
+                        [
+                            "大欢",
+                            "dxmzz"
+                        ],
+                        [
+                            "张敬轩",
+                            "axsa"
+                        ],
+                        [
+                            "YOASOBI",
+                            "dmqsk"
+                        ],
+                        [
+                            "河图",
+                            "dsvq"
+                        ],
+                        [
+                            "罗大佑",
+                            "sdm"
+                        ],
+                        [
+                            "Westlife",
+                            "azzm"
+                        ],
+                        [
+                            "GI-DLE",
+                            "adqmuu"
+                        ],
+                        [
+                            "张靓颖",
+                            "msvk"
+                        ],
+                        [
+                            "陈淑桦",
+                            "ka"
+                        ],
+                        [
+                            "方大同",
+                            "akzqa"
+                        ],
+                        [
+                            "韩红",
+                            "qxz"
+                        ],
+                        [
+                            "郑源",
+                            "mmzs"
+                        ],
+                        [
+                            "CharliePuth",
+                            "skaqs"
+                        ],
+                        [
+                            "SEVENTEEN",
+                            "dmkkk"
+                        ],
+                        [
+                            "澤野弘之",
+                            "ssakd"
+                        ],
+                        [
+                            "郭顶",
+                            "mmmm"
+                        ],
+                        [
+                            "苏星婕",
+                            "aqzsmv"
+                        ],
+                        [
+                            "降央卓玛",
+                            "qmza"
+                        ],
+                        [
+                            "Eminem",
+                            "akdkk"
+                        ],
+                        [
+                            "BY2",
+                            "skud"
+                        ],
+                        [
+                            "RADWIMPS",
+                            "amkzv"
+                        ],
+                        [
+                            "陈瑞",
+                            "mksv"
+                        ],
+                        [
+                            "王靖雯不胖",
+                            "dmsqk"
+                        ],
+                        [
+                            "王赫野",
+                            "akkkua"
+                        ],
+                        [
+                            "庞龙",
+                            "mxuq"
+                        ],
+                        [
+                            "LBI利比",
+                            "maxdxq"
+                        ],
+                        [
+                            "李丽芬",
+                            "ddsq"
+                        ],
+                        [
+                            "法老",
+                            "zvauq"
+                        ],
+                        [
+                            "孙露",
+                            "szau"
+                        ],
+                        [
+                            "孟庭苇",
+                            "vqx"
+                        ],
+                        [
+                            "EXO",
+                            "vskuz"
+                        ],
+                        [
+                            "李克勤",
+                            "mmk"
+                        ],
+                        [
+                            "华晨宇",
+                            "vzaxz"
+                        ],
+                        [
+                            "水木年华",
+                            "avzs"
+                        ],
+                        [
+                            "抖音最火歌曲",
+                            "dsvuu"
+                        ],
+                        [
+                            "黄品源",
+                            "azv"
+                        ],
+                        [
+                            "迦南诗选",
+                            "vvdza"
+                        ],
+                        [
+                            "光良",
+                            "amx"
+                        ],
+                        [
+                            "黄小琥",
+                            "mza"
+                        ],
+                        [
+                            "Sia",
+                            "dqsu"
+                        ],
+                        [
+                            "米津玄师",
+                            "vsvvz"
+                        ],
+                        [
+                            "等什么君邓寓君",
+                            "maaxva"
+                        ],
+                        [
+                            "阿悠悠",
+                            "zqqss"
+                        ],
+                        [
+                            "闻人听書_",
+                            "dmvzk"
+                        ],
+                        [
+                            "徐良",
+                            "adqzu"
+                        ],
+                        [
+                            "花姐",
+                            "zuudz"
+                        ],
+                        [
+                            "陈楚生",
+                            "samq"
+                        ],
+                        [
+                            "李圣杰",
+                            "msd"
+                        ],
+                        [
+                            "黄霄雲",
+                            "zdksd"
+                        ],
+                        [
+                            "Adele",
+                            "dvqv"
+                        ],
+                        [
+                            "海伦",
+                            "daxqs"
+                        ],
+                        [
+                            "薛凯琪",
+                            "zkd"
+                        ],
+                        [
+                            "梅艳芳",
+                            "vkd"
+                        ],
+                        [
+                            "单依纯",
+                            "dsuxs"
+                        ],
+                        [
+                            "韩宝仪",
+                            "mmaq"
+                        ],
+                        [
+                            "Coldplay",
+                            "svam"
+                        ],
+                        [
+                            "戴羽彤",
+                            "daxsz"
+                        ],
+                        [
+                            "小阿枫",
+                            "dxkum"
+                        ],
+                        [
+                            "TFBOYS",
+                            "vdasu"
+                        ],
+                        [
+                            "大壮",
+                            "zvazu"
+                        ],
+                        [
+                            "群星",
+                            "ausm"
+                        ],
+                        [
+                            "范晓萱",
+                            "azd"
+                        ],
+                        [
+                            "ImagineDragons",
+                            "uvdud"
+                        ],
+                        [
+                            "容祖儿",
+                            "uak"
+                        ],
+                        [
+                            "陈雪凝",
+                            "zvadu"
+                        ],
+                        [
+                            "鞠婧祎",
+                            "zadsx"
+                        ],
+                        [
+                            "范玮琪",
+                            "auk"
+                        ],
+                        [
+                            "李健",
+                            "mmau"
+                        ],
+                        [
+                            "Edsheeran",
+                            "vxmma"
+                        ],
+                        [
+                            "白小白",
+                            "zaqdu"
+                        ],
+                        [
+                            "王以太",
+                            "dxkzk"
+                        ],
+                        [
+                            "Maroon5",
+                            "zxsdm"
+                        ],
+                        [
+                            "迪克牛仔",
+                            "us"
+                        ],
+                        [
+                            "苏谭谭",
+                            "zqukz"
+                        ],
+                        [
+                            "MichaelJackson",
+                            "aqxa"
+                        ],
+                        [
+                            "孙楠",
+                            "qkm"
+                        ],
+                        [
+                            "KellyClarkson",
+                            "mvkv"
+                        ],
+                        [
+                            "Bigbang",
+                            "qdak"
+                        ],
+                        [
+                            "海鸣威",
+                            "mqqk"
+                        ],
+                        [
+                            "柯柯柯啊",
+                            "maxzzq"
+                        ],
+                        [
+                            "摇滚音乐",
+                            "adazk"
+                        ],
+                        [
+                            "祁隆",
+                            "dmks"
+                        ],
+                        [
+                            "曲婉婷",
+                            "akkxx"
+                        ],
+                        [
+                            "大张伟",
+                            "dmdv"
+                        ],
+                        [
+                            "王贰浪",
+                            "zqdad"
+                        ],
+                        [
+                            "ZyBoy忠宇",
+                            "mmusum"
+                        ],
+                        [
+                            "黑鸭子组合",
+                            "dskas"
+                        ],
+                        [
+                            "谢霆锋",
+                            "uum"
+                        ],
+                        [
+                            "花粥",
+                            "vksqk"
+                        ],
+                        [
+                            "徐佳莹",
+                            "davd"
+                        ],
+                        [
+                            "GALA",
+                            "qkmx"
+                        ],
+                        [
+                            "h3R3",
+                            "dxkxk"
+                        ],
+                        [
+                            "阿YueYue",
+                            "zzums"
+                        ],
+                        [
+                            "庾澄庆",
+                            "zmd"
+                        ],
+                        [
+                            "基督教歌曲",
+                            "vxzmk"
+                        ],
+                        [
+                            "丁当",
+                            "sadu"
+                        ],
+                        [
+                            "林忆莲",
+                            "vsx"
+                        ],
+                        [
+                            "戏曲",
+                            "zqma"
+                        ],
+                        [
+                            "MariahCarey",
+                            "akzz"
+                        ],
+                        [
+                            "付豪",
+                            "mkkvs"
+                        ],
+                        [
+                            "邰正宵",
+                            "vua"
+                        ],
+                        [
+                            "吴雨霏",
+                            "mzsx"
+                        ],
+                        [
+                            "RichardClayderman",
+                            "sau"
+                        ],
+                        [
+                            "黄静美",
+                            "dmmsk"
+                        ],
+                        [
+                            "一人一首成名曲",
+                            "azskm"
+                        ],
+                        [
+                            "米津玄師",
+                            "kaqua"
+                        ],
+                        [
+                            ".",
+                            "dddvm"
+                        ],
+                        [
+                            "蔡琴",
+                            "dv"
+                        ],
+                        [
+                            "金玟岐",
+                            "uxddx"
+                        ],
+                        [
+                            "银临",
+                            "vvkzq"
+                        ],
+                        [
+                            "LinkinPark",
+                            "amuv"
+                        ],
+                        [
+                            "1K",
+                            "mmkxss"
+                        ],
+                        [
+                            "华语群星",
+                            "mxxv"
+                        ],
+                        [
+                            "F.I.R.",
+                            "vqvmd"
+                        ],
+                        [
+                            "程佳佳",
+                            "dxumz"
+                        ],
+                        [
+                            "麦小兜",
+                            "zuvzm"
+                        ],
+                        [
+                            "李翊君",
+                            "vzv"
+                        ],
+                        [
+                            "阿桑",
+                            "sz"
+                        ],
+                        [
+                            "姜育恒",
+                            "aqm"
+                        ],
+                        [
+                            "任夏",
+                            "mmsdmv"
+                        ],
+                        [
+                            "铃声",
+                            "akvqq"
+                        ],
+                        [
+                            "张紫豪",
+                            "zkuzz"
+                        ],
+                        [
+                            "金润吉",
+                            "vuudq"
+                        ],
+                        [
+                            "杨清柠",
+                            "zsdda"
+                        ],
+                        [
+                            "胡歌",
+                            "mzsm"
+                        ],
+                        [
+                            "阿杜",
+                            "m"
+                        ],
+                        [
+                            "现场串烧",
+                            "vakmz"
+                        ],
+                        [
+                            "胡夏",
+                            "akuzs"
+                        ],
+                        [
+                            "焦迈奇",
+                            "zuzdu"
+                        ],
+                        [
+                            "赵乃吉",
+                            "uzavz"
+                        ],
+                        [
+                            "小阿七",
+                            "dxkvd"
+                        ],
+                        [
+                            "郁可唯",
+                            "dmzv"
+                        ],
+                        [
+                            "周柏豪",
+                            "suxv"
+                        ],
+                        [
+                            "南拳妈妈",
+                            "asud"
+                        ],
+                        [
+                            "Twins",
+                            "auvx"
+                        ],
+                        [
+                            "金莎",
+                            "mmvv"
+                        ],
+                        [
+                            "郑润泽",
+                            "mxzkau"
+                        ],
+                        [
+                            "徐怀钰",
+                            "zsv"
+                        ],
+                        [
+                            "毛宁",
+                            "qzs"
+                        ],
+                        [
+                            "谢和弦",
+                            "zkam"
+                        ],
+                        [
+                            "刘惜君",
+                            "svxu"
+                        ],
+                        [
+                            "盛哲",
+                            "aqvzkk"
+                        ],
+                        [
+                            "麦子",
+                            "udkds"
+                        ],
+                        [
+                            "Lenka",
+                            "dvsa"
+                        ],
+                        [
+                            "魏新雨",
+                            "vxmmd"
+                        ],
+                        [
+                            "赵传",
+                            "dzx"
+                        ],
+                        [
+                            "王不醒",
+                            "mmzsxx"
+                        ],
+                        [
+                            "少女时代",
+                            "zqua"
+                        ],
+                        [
+                            "乌兰图雅",
+                            "akkmd"
+                        ],
+                        [
+                            "于文文",
+                            "umqqm"
+                        ],
+                        [
+                            "黎明",
+                            "mau"
+                        ],
+                        [
+                            "陈芳语",
+                            "vquav"
+                        ],
+                        [
+                            "李袁杰",
+                            "zdxuz"
+                        ],
+                        [
+                            "云朵",
+                            "zvva"
+                        ],
+                        [
+                            "尹昔眠",
+                            "dvzsd"
+                        ],
+                        [
+                            "Eric周兴哲",
+                            "maxdzm"
+                        ],
+                        [
+                            "PostMalone",
+                            "uqmsz"
+                        ],
+                        [
+                            "詹雯婷",
+                            "dmamv"
+                        ],
+                        [
+                            "平生不晚",
+                            "mxuquv"
+                        ],
+                        [
+                            "TizzyT",
+                            "zvavz"
+                        ],
+                        [
+                            "佛教音乐",
+                            "azsux"
+                        ],
+                        [
+                            "群星",
+                            "azsqd"
+                        ],
+                        [
+                            "梦涵",
+                            "dxmqq"
+                        ],
+                        [
+                            "广场舞",
+                            "akvam"
+                        ],
+                        [
+                            "王小帅",
+                            "zqdsz"
+                        ],
+                        [
+                            "生命河灵粮堂",
+                            "vvzks"
+                        ],
+                        [
+                            "胡66",
+                            "zzqzu"
+                        ],
+                        [
+                            "柳爽",
+                            "zvsds"
+                        ],
+                        [
+                            "ArianaGrande",
+                            "vukzs"
+                        ],
+                        [
+                            "屠洪刚",
+                            "qkk"
+                        ],
+                        [
+                            "韩磊",
+                            "mdxd"
+                        ],
+                        [
+                            "盛晓玫",
+                            "aadxu"
+                        ],
+                        [
+                            "Capper",
+                            "ddzxs"
+                        ],
+                        [
+                            "夏日入侵企画",
+                            "daszk"
+                        ],
+                        [
+                            "郭静",
+                            "sazx"
+                        ],
+                        [
+                            "Tank",
+                            "mzvv"
+                        ],
+                        [
+                            "虎二",
+                            "zkzzv"
+                        ],
+                        [
+                            "陈小春",
+                            "su"
+                        ],
+                        [
+                            "封茗囧菌",
+                            "zmdad"
+                        ],
+                        [
+                            "宇多田光",
+                            "aukz"
+                        ],
+                        [
+                            "劲舞团",
+                            "dqqm"
+                        ],
+                        [
+                            "周笔畅",
+                            "msad"
+                        ],
+                        [
+                            "林志颖",
+                            "svm"
+                        ],
+                        [
+                            "欢子",
+                            "sdzm"
+                        ],
+                        [
+                            "龙梅子",
+                            "smvz"
+                        ],
+                        [
+                            "葛漂亮",
+                            "mmqvks"
+                        ],
+                        [
+                            "MyLittleAirport",
+                            "aqqa"
+                        ],
+                        [
+                            "网络歌曲",
+                            "mmzv"
+                        ],
+                        [
+                            "古巨基",
+                            "aax"
+                        ],
+                        [
+                            "威少-DJ.HouseU盘",
+                            "makvvx"
+                        ],
+                        [
+                            "鹿晗",
+                            "uzuuu"
+                        ],
+                        [
+                            "纯音乐",
+                            "kuad"
+                        ],
+                        [
+                            "等什么君",
+                            "zqdvq"
+                        ],
+                        [
+                            "冷漠",
+                            "zqsa"
+                        ],
+                        [
+                            "郑伊健",
+                            "ddv"
+                        ],
+                        [
+                            "秋裤大叔",
+                            "udzaz"
+                        ],
+                        [
+                            "BryanAdams",
+                            "assd"
+                        ],
+                        [
+                            "誓言",
+                            "mzux"
+                        ],
+                        [
+                            "毛阿敏",
+                            "qum"
+                        ],
+                        [
+                            "Maroon5",
+                            "udsk"
+                        ],
+                        [
+                            "EllieGoulding",
+                            "qkau"
+                        ],
+                        [
+                            "李玖哲",
+                            "mzuv"
+                        ],
+                        [
+                            "李常超",
+                            "vkvua"
+                        ],
+                        [
+                            "GAI周延",
+                            "zdumz"
+                        ],
+                        [
+                            "HOYO-MiX",
+                            "dvzqa"
+                        ],
+                        [
+                            "沈以诚",
+                            "zuuxa"
+                        ],
+                        [
+                            "Brazzaville",
+                            "akkaa"
+                        ],
+                        [
+                            "东来东往",
+                            "madz"
+                        ],
+                        [
+                            "崔子格",
+                            "mkqzz"
+                        ],
+                        [
+                            "林海",
+                            "qvx"
+                        ],
+                        [
+                            "关歆",
+                            "mmvmzk"
+                        ],
+                        [
+                            "王优秀",
+                            "mmvaku"
+                        ],
+                        [
+                            "温岚",
+                            "zaa"
+                        ],
+                        [
+                            "后弦",
+                            "mszs"
+                        ],
+                        [
+                            "爱唱歌的骡子",
+                            "mmukxm"
+                        ],
+                        [
+                            "米线",
+                            "mquk"
+                        ],
+                        [
+                            "高进",
+                            "mqsm"
+                        ],
+                        [
+                            "好听的dj",
+                            "admva"
+                        ],
+                        [
+                            "烟许佳豪",
+                            "maxzmx"
+                        ],
+                        [
+                            "郑少秋",
+                            "ddm"
+                        ],
+                        [
+                            "萧煌奇",
+                            "uvx"
+                        ],
+                        [
+                            "王靖雯",
+                            "dskmq"
+                        ],
+                        [
+                            "赞美之泉",
+                            "skvmq"
+                        ],
+                        [
+                            "hillsongyoung",
+                            "aqkzva"
+                        ],
+                        [
+                            "王富贵",
+                            "mmszuq"
+                        ],
+                        [
+                            "陈粒",
+                            "udksm"
+                        ],
+                        [
+                            "时代少年团",
+                            "dakkv"
+                        ],
+                        [
+                            "王馨",
+                            "amaxz"
+                        ],
+                        [
+                            "安儿陈",
+                            "mxmzsz"
+                        ],
+                        [
+                            "吾恩",
+                            "umuxx"
+                        ],
+                        [
+                            "王忻辰",
+                            "dskmz"
+                        ],
+                        [
+                            "袁树雄",
+                            "qkzv"
+                        ],
+                        [
+                            "周慧敏",
+                            "kxm"
+                        ],
+                        [
+                            "任素汐",
+                            "zsvms"
+                        ],
+                        [
+                            "约瑟诗歌",
+                            "zsqxk"
+                        ],
+                        [
+                            "吕方",
+                            "szu"
+                        ],
+                        [
+                            "许冠杰",
+                            "uzs"
+                        ],
+                        [
+                            "隔壁老樊",
+                            "zqvqa"
+                        ],
+                        [
+                            "一只白羊",
+                            "mmqvdv"
+                        ],
+                        [
+                            "MariaArredondo",
+                            "zuzu"
+                        ],
+                        [
+                            "车载音乐",
+                            "qvqs"
+                        ],
+                        [
+                            "久石让",
+                            "duxz"
+                        ],
+                        [
+                            "金志文",
+                            "smkd"
+                        ],
+                        [
+                            "小田音乐社",
+                            "dzqzm"
+                        ],
+                        [
+                            "黄龄",
+                            "mqkx"
+                        ],
+                        [
+                            "安静",
+                            "szauq"
+                        ],
+                        [
+                            "甜馨&贾乃亮",
+                            "uqvus"
+                        ],
+                        [
+                            "小羊诗歌",
+                            "vxzsv"
+                        ],
+                        [
+                            "刘紫玲",
+                            "zqzm"
+                        ],
+                        [
+                            "感恩的泪",
+                            "vxzsa"
+                        ],
+                        [
+                            "Aimer",
+                            "zdduv"
+                        ],
+                        [
+                            "展展与罗罗",
+                            "zkzzz"
+                        ],
+                        [
+                            "卓依婷",
+                            "ddx"
+                        ],
+                        [
+                            "太一",
+                            "zquva"
+                        ],
+                        [
+                            "本兮",
+                            "amaxv"
+                        ],
+                        [
+                            "OneRepublic",
+                            "qamz"
+                        ],
+                        [
+                            "杨和苏KeyNG",
+                            "dxsqk"
+                        ],
+                        [
+                            "曲肖冰",
+                            "zmqqk"
+                        ],
+                        [
+                            "伊格赛听",
+                            "daqzx"
+                        ],
+                        [
+                            "凤飞飞",
+                            "azx"
+                        ],
+                        [
+                            "AvrilLavigne",
+                            "amdq"
+                        ],
+                        [
+                            "阿牛",
+                            "u"
+                        ],
+                        [
+                            "齐秦",
+                            "vad"
+                        ],
+                        [
+                            "慢摇舞曲",
+                            "admxx"
+                        ],
+                        [
+                            "初音未来",
+                            "axxqk"
+                        ],
+                        [
+                            "刘欢",
+                            "qvz"
+                        ],
+                        [
+                            "鱼仙儿",
+                            "mmdvuz"
+                        ],
+                        [
+                            "郭富城",
+                            "ams"
+                        ],
+                        [
+                            "谢安琪",
+                            "mmus"
+                        ],
+                        [
+                            "老狼",
+                            "qma"
+                        ],
+                        [
+                            "张远",
+                            "samu"
+                        ],
+                        [
+                            "双笙陈元汐",
+                            "mxduua"
+                        ],
+                        [
+                            "Bandari",
+                            "axqz"
+                        ],
+                        [
+                            "魏如萱",
+                            "svqa"
+                        ],
+                        [
+                            "萧敬腾",
+                            "zssa"
+                        ],
+                        [
+                            "王朝1982",
+                            "mmvvqm"
+                        ],
+                        [
+                            "孙子涵",
+                            "mkuzz"
+                        ],
+                        [
+                            "郭德纲",
+                            "svuas"
+                        ],
+                        [
+                            "DanielPowter",
+                            "vvas"
+                        ],
+                        [
+                            "JS",
+                            "aqqm"
+                        ],
+                        [
+                            "雨中百合",
+                            "zsaqu"
+                        ],
+                        [
+                            "白虹",
+                            "kumms"
+                        ],
+                        [
+                            "老二道半吨兄弟",
+                            "maxkzu"
+                        ],
+                        [
+                            "Rag’n’BoneMan",
+                            "mmszqv"
+                        ],
+                        [
+                            "慕容晓晓",
+                            "axssd"
+                        ],
+                        [
+                            "斯琴高丽",
+                            "smkz"
+                        ],
+                        [
+                            "Avicii",
+                            "uuqkv"
+                        ],
+                        [
+                            "摩登兄弟刘宇宁",
+                            "zksvk"
+                        ],
+                        [
+                            "麦振鸿",
+                            "sxkza"
+                        ],
+                        [
+                            "彭佳慧手机铃声",
+                            "usxqm"
+                        ],
+                        [
+                            "饶雪漫",
+                            "szsks"
+                        ],
+                        [
+                            "蔡国权",
+                            "ax"
+                        ],
+                        [
+                            "易烊千玺",
+                            "uxkmd"
+                        ],
+                        [
+                            "姜玉阳",
+                            "mkdm"
+                        ],
+                        [
+                            "欧得洋",
+                            "vxs"
+                        ],
+                        [
+                            "祖海",
+                            "mmxx"
+                        ],
+                        [
+                            "影视歌曲合集",
+                            "auqxz"
+                        ],
+                        [
+                            "LanaDelRey",
+                            "vxsam"
+                        ],
+                        [
+                            "TWICE",
+                            "zdszk"
+                        ],
+                        [
+                            "IN-K",
+                            "dskmu"
+                        ],
+                        [
+                            "马頔",
+                            "vzvzz"
+                        ],
+                        [
+                            "黄韵玲",
+                            "mkx"
+                        ],
+                        [
+                            "井胧",
+                            "daada"
+                        ],
+                        [
+                            "周林枫",
+                            "mmzkmv"
+                        ],
+                        [
+                            "余超颖",
+                            "vavkm"
+                        ],
+                        [
+                            "雨生",
+                            "maqmuk"
+                        ],
+                        [
+                            "树屋女孩",
+                            "zaqka"
+                        ],
+                        [
+                            "张镐哲",
+                            "zzx"
+                        ],
+                        [
+                            "叶启田",
+                            "uqm"
+                        ],
+                        [
+                            "特效音效手机铃声",
+                            "usxud"
+                        ],
+                        [
+                            "小洲",
+                            "dxxua"
+                        ],
+                        [
+                            "沙一汀EL",
+                            "dmsua"
+                        ],
+                        [
+                            "宋祖英",
+                            "qdu"
+                        ],
+                        [
+                            "唐古",
+                            "vmvvz"
+                        ],
+                        [
+                            "TheWeeknd",
+                            "uqaqq"
+                        ],
+                        [
+                            "叶炫清",
+                            "zsqzz"
+                        ],
+                        [
+                            "范倪Liu",
+                            "dvvuu"
+                        ],
+                        [
+                            "王筝",
+                            "qqu"
+                        ],
+                        [
+                            "胡伟立",
+                            "dskkq"
+                        ],
+                        [
+                            "小潘潘",
+                            "zduka"
+                        ],
+                        [
+                            "萨顶顶",
+                            "svsq"
+                        ],
+                        [
+                            "hanser",
+                            "zuquv"
+                        ],
+                        [
+                            "贝乐虎",
+                            "dvumz"
+                        ],
+                        [
+                            "徐小凤",
+                            "zzk"
+                        ],
+                        [
+                            "千百惠",
+                            "mkqu"
+                        ],
+                        [
+                            "马思唯",
+                            "zdxqx"
+                        ],
+                        [
+                            "指尖笑",
+                            "maxdad"
+                        ],
+                        [
+                            "好听的纯音乐",
+                            "azssk"
+                        ],
+                        [
+                            "万芳",
+                            "ukm"
+                        ],
+                        [
+                            "中国娃娃",
+                            "azdx"
+                        ],
+                        [
+                            "阿肆",
+                            "vusvd"
+                        ],
+                        [
+                            "游鸿明",
+                            "zad"
+                        ],
+                        [
+                            "JohnnyCash",
+                            "vssm"
+                        ],
+                        [
+                            "蒋大为",
+                            "aamqa"
+                        ],
+                        [
+                            "蜡笔小心",
+                            "daqus"
+                        ],
+                        [
+                            "Era",
+                            "duzz"
+                        ],
+                        [
+                            "华人的敬拜赞美",
+                            "vvdua"
+                        ],
+                        [
+                            "李宇春",
+                            "msvd"
+                        ],
+                        [
+                            "奚秀兰圣歌",
+                            "vvdux"
+                        ],
+                        [
+                            "孟颖",
+                            "dauax"
+                        ],
+                        [
+                            "刘文正",
+                            "mzu"
+                        ],
+                        [
+                            "不才",
+                            "vzdxk"
+                        ],
+                        [
+                            "LittleMix",
+                            "vzvsa"
+                        ],
+                        [
+                            "蒋雪儿",
+                            "qmxm"
+                        ],
+                        [
+                            "林依晨",
+                            "suux"
+                        ],
+                        [
+                            "冯曦妤",
+                            "zvsq"
+                        ],
+                        [
+                            "VariousArtists",
+                            "svmu"
+                        ],
+                        [
+                            "深海鱼子酱",
+                            "dvsqs"
+                        ],
+                        [
+                            "梁博",
+                            "vavqs"
+                        ],
+                        [
+                            "HITA",
+                            "szasv"
+                        ],
+                        [
+                            "杨青",
+                            "zssx"
+                        ],
+                        [
+                            "L（桃籽）",
+                            "mmdzmz"
+                        ],
+                        [
+                            "陈洁丽",
+                            "kka"
+                        ],
+                        [
+                            "洛先生",
+                            "maxzuq"
+                        ],
+                        [
+                            "BackstreetBoys",
+                            "msud"
+                        ],
+                        [
+                            "",
+                            "javascript:;"
+                        ],
+                        [
+                            "刘晓超",
+                            "mmskma"
+                        ],
+                        [
+                            "杨钰莹",
+                            "axam"
+                        ],
+                        [
+                            "TheChainsmokers",
+                            "uqmzm"
+                        ],
+                        [
+                            "谢军",
+                            "mmxm"
+                        ],
+                        [
+                            "要不要买菜",
+                            "daauz"
+                        ],
+                        [
+                            "关淑怡",
+                            "akq"
+                        ],
+                        [
+                            "HansZimmer",
+                            "vsuu"
+                        ],
+                        [
+                            "国风新语",
+                            "aqkskx"
+                        ],
+                        [
+                            "Uu",
+                            "dxavu"
+                        ],
+                        [
+                            "贝瓦儿歌",
+                            "vmdxs"
+                        ],
+                        [
+                            "福禄寿FloruitShow",
+                            "dmzqm"
+                        ],
+                        [
+                            "黄莺莺",
+                            "mdd"
+                        ],
+                        [
+                            "文夫",
+                            "dvakz"
+                        ],
+                        [
+                            "小蓝背心",
+                            "maxmuu"
+                        ],
+                        [
+                            "陈雅森",
+                            "zsud"
+                        ],
+                        [
+                            "音效",
+                            "uuzza"
+                        ],
+                        [
+                            "皮卡丘多多",
+                            "dakdm"
+                        ],
+                        [
+                            "陈柯宇",
+                            "zuuzs"
+                        ],
+                        [
+                            "徐梦圆",
+                            "zqvzx"
+                        ],
+                        [
+                            "张叶蕾",
+                            "zmzvs"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=geshou_music&lang=&page=1&id=', 6, "playlist", "热门歌手")
+                } else if (a.title == '特色榜单') {
+                    playlistname = [
+                        [
+                            "猜你喜欢",
+                            "age"
+                        ],
+                        [
+                            "香港地区日榜",
+                            "city"
+                        ],
+                        [
+                            "昨日热搜榜",
+                            "hotsearch"
+                        ],
+                        [
+                            "女神听歌周榜",
+                            "girl"
+                        ],
+                        [
+                            "男神听歌周榜",
+                            "boy"
+                        ],
+                        [
+                            "古怪双子座榜",
+                            "constellation"
+                        ],
+                        [
+                            "会员收藏日榜",
+                            "collect_tuijian"
+                        ],
+                        [
+                            "会员下载日榜",
+                            "download_rank"
+                        ],
+                        [
+                            "近30天热评榜",
+                            "hot_comment_music"
+                        ]
+                    ];
+                    popupWindows(playlistname, aipurl + '?act=featured_list&lang=&page=1&t=', 3, "playlist", "特色榜单")
+                }
+                else {
+                    Lampa.Activity.push({
+                        url: a.url,
+                        title: '听歌 - ' + a.title,
+                        // code: a.code,
+                        component: 'ZZMUSIC',
+                        type: a.type,
+                        // connectype: a.connectype,
+                        page: 1
+                    });
+                }
+            },
+            onBack: function onBack() {
+                Lampa.Controller.toggle('menu');
+            }
+        });
+    }
+
+    var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
     function addFilter() {
         var activi;
         var timer;
@@ -1993,7 +3706,7 @@
                 var navigation = $('<div class="navigation-tabs"></div>');
 
                 sources.forEach(function (tab, i) {
-                    var ifplaynow = ($('.radio-player__name').text().replace(/Radio Record|Music Player/g, '') === tab.url) ? "active" : "selector";
+                    var ifplaynow = ($('.radio-player__name').text().replace(/Radio Record|Music Player/g,'') === tab.url) ? "active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
@@ -2042,73 +3755,228 @@
             clearTimeout(timer);
             timer = setTimeout(function () {
                 if (activi) {
-                    if (activi.component !== 'music') {
+                    if (activi.component !== 'ZZMUSIC') {
                         button.hide();
                         activi = false;
                     }
                 }
             }, 1000);
 
-            if (e.type == 'start' && e.component == 'music' && currentplaylist) {
+            if (e.type == 'start' && e.component == 'ZZMUSIC' && currentplaylist) {
                 button.show();
                 activi = e.object;
             }
         });
     };
 
-    function startMUSIC() {
+    function startZZMUSIC() {
         Lampa.Template.add('radio_item', "<div class=\"selector radio-item\">\n        <div class=\"radio-item__imgbox\">\n            <img class=\"radio-item__img\" />\n        </div>\n\n        <div class=\"radio-item__name\">{name}</div>\n    </div>");
         Lampa.Template.add('radio_player', "<div class=\"selector musicplayer radio-player stop hide\">\n        <div class=\"radio-player__name\">Music Player</div>\n\n        <div class=\"radio-player__button\">\n            <i></i>\n            <i></i>\n            <i></i>\n            <i></i>\n        </div>\n    </div>");
         Lampa.Template.add('radio_style', "<style>\n    .radio-item {\n        width: 8em;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-item__imgbox {\n        background-color: #3E3E3E;\n        padding-bottom: 83%;\n        position: relative;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item__img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      .radio-item__name {\n        font-size: 1.1em;\n        margin-top: 0.8em;\n      }\n      .radio-item.focus .radio-item__imgbox:after {\n        border: solid 0.4em #fff;\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 0;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n      }\n      .radio-item + .radio-item {\n        margin-left: 1em;\n      }\n      \n      @-webkit-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-moz-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @-o-keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      \n      @keyframes sound {\n        0% {\n          height: 0.1em;\n        }\n        100% {\n          height: 1em;\n        }\n      }\n      @-webkit-keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      @-moz-keyframes sound-loading {\n        0% {\n          -moz-transform: rotate(0deg);\n               transform: rotate(0deg);\n        }\n        100% {\n          -moz-transform: rotate(360deg);\n               transform: rotate(360deg);\n        }\n      }\n      @-o-keyframes sound-loading {\n        0% {\n          -o-transform: rotate(0deg);\n             transform: rotate(0deg);\n        }\n        100% {\n          -o-transform: rotate(360deg);\n             transform: rotate(360deg);\n        }\n      }\n      @keyframes sound-loading {\n        0% {\n          -webkit-transform: rotate(0deg);\n             -moz-transform: rotate(0deg);\n               -o-transform: rotate(0deg);\n                  transform: rotate(0deg);\n        }\n        100% {\n          -webkit-transform: rotate(360deg);\n             -moz-transform: rotate(360deg);\n               -o-transform: rotate(360deg);\n                  transform: rotate(360deg);\n        }\n      }\n      .radio-player {\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-border-radius: 0.3em;\n           -moz-border-radius: 0.3em;\n                border-radius: 0.3em;\n        padding: 0.2em 0.8em;\n        background-color: rgb(255 255 255 / 0%);\n      }\n      .radio-player__name {\n        margin-right: 1em;\n        white-space: nowrap;\n        overflow: hidden;\n        -o-text-overflow: ellipsis;\n           text-overflow: ellipsis;\n        max-width: 8em;\n      }\n      @media screen and (max-width: 385px) {\n        .radio-player__name {\n          display: none;\n        }\n      }\n      .radio-player__button {\n        position: relative;\n        width: 1.5em;\n        height: 1.5em;\n        display: -webkit-box;\n        display: -webkit-flex;\n        display: -moz-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n        -webkit-align-items: center;\n           -moz-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n           -moz-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i {\n        display: block;\n        width: 0.2em;\n        background-color: #fff;\n        margin: 0 0.1em;\n        -webkit-animation: sound 0ms -800ms linear infinite alternate;\n           -moz-animation: sound 0ms -800ms linear infinite alternate;\n             -o-animation: sound 0ms -800ms linear infinite alternate;\n                animation: sound 0ms -800ms linear infinite alternate;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player__button i:nth-child(1) {\n        -webkit-animation-duration: 474ms;\n           -moz-animation-duration: 474ms;\n             -o-animation-duration: 474ms;\n                animation-duration: 474ms;\n      }\n      .radio-player__button i:nth-child(2) {\n        -webkit-animation-duration: 433ms;\n           -moz-animation-duration: 433ms;\n             -o-animation-duration: 433ms;\n                animation-duration: 433ms;\n      }\n      .radio-player__button i:nth-child(3) {\n        -webkit-animation-duration: 407ms;\n           -moz-animation-duration: 407ms;\n             -o-animation-duration: 407ms;\n                animation-duration: 407ms;\n      }\n      .radio-player__button i:nth-child(4) {\n        -webkit-animation-duration: 458ms;\n           -moz-animation-duration: 458ms;\n             -o-animation-duration: 458ms;\n                animation-duration: 458ms;\n      }\n      .radio-player.stop .radio-player__button {\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        border: 0.2em solid #fff;\n      }\n      .radio-player.stop .radio-player__button i {\n        display: none;\n      }\n      .radio-player.stop .radio-player__button:after {\n        content: \"\";\n        width: 0.5em;\n        height: 0.5em;\n        background-color: #fff;\n      }\n      .radio-player.loading .radio-player__button:before {\n        content: \"\";\n        display: block;\n        border-top: 0.2em solid #fff;\n        border-left: 0.2em solid transparent;\n        border-right: 0.2em solid transparent;\n        border-bottom: 0.2em solid transparent;\n        -webkit-animation: sound-loading 1s linear infinite;\n           -moz-animation: sound-loading 1s linear infinite;\n             -o-animation: sound-loading 1s linear infinite;\n                animation: sound-loading 1s linear infinite;\n        width: 0.9em;\n        height: 0.9em;\n        -webkit-border-radius: 100%;\n           -moz-border-radius: 100%;\n                border-radius: 100%;\n        -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n                flex-shrink: 0;\n      }\n      .radio-player.loading .radio-player__button i {\n        display: none;\n      }\n      .radio-player.focus {\n        background-color: #fff;\n        color: #000;\n      }\n      .radio-player.focus .radio-player__button {\n        border-color: #000;\n      }\n      .radio-player.focus .radio-player__button i, .radio-player.focus .radio-player__button:after {\n        background-color: #000;\n      }\n      .radio-player.focus .radio-player__button:before {\n        border-top-color: #000;\n      }\n    </style>");
+        
+        window.plugin_ZZMUSIC_ready = true;
+        Lampa.Component.add('ZZMUSIC', ZZMUSIC);
 
-        window.plugin_music_ready = true;
-        Lampa.Component.add('music', MUSIC);
+        Lampa.Params.select('zz123_userName', '', '');
+        Lampa.Params.select('zz123_userPass', '', '');
+        Lampa.Template.add('settings_mod_zz123', "<div>\n<div class=\"settings-param-title settings--token\"><span>获取验证码</span></div>\n  <div class=\"settings-param selector\" data-name=\"zz123_userName\" data-type=\"input\" placeholder=\"\"> <div class=\"settings-param__name\">邮箱</div> <div class=\"settings-param__value\">zz123.com用户名</div> <div class=\"settings-param__descr\">邮箱地址</div> </div>\n \n <div class=\"settings-param selector\" data-name=\"online_mod_zz123_sendcode\" data-static=\"true\"> <div class=\"settings-param__name\">发送验证码</div> <div class=\"settings-param__status\"></div> </div>\n\n <div class=\"settings-param-title settings--token\"><span>邮箱验证码登录</span></div>\n     <div class=\"settings-param selector\" data-name=\"zz123_userPass\" data-type=\"input\">\n        <div class=\"settings-param__name\">验证码</div>\n    <div class=\"settings-param__descr\">请输入验证码</div> </div>\n             <div class=\"settings-param selector\" data-name=\"online_mod_zz123_login\" data-static=\"true\">\n        <div class=\"settings-param__name\">登陆/注册</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n<div class=\"settings-param-title settings--token\"><span>退出登录</span></div>\n     <div class=\"settings-param selector\" data-name=\"online_mod_zz123_logout\" data-static=\"true\">\n        <div class=\"settings-param__name\">注销</div>\n        <div class=\"settings-param__status\"></div>\n</div>\n    </div>\n</div>");
 
-        function addSettingsMusic() {
-            window.radio_player2_ = new player();
-            var ico = '<svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg"><path d="M.649.068A.03.03 0 0 0 .625.061l-.39.06A.03.03 0 0 0 .21.15v.31A.104.104 0 0 0 .165.45.105.105 0 1 0 .27.555V.326L.6.274V.4A.104.104 0 0 0 .555.39.105.105 0 1 0 .66.495V.09A.03.03 0 0 0 .649.068ZM.165.6A.045.045 0 1 1 .21.555.045.045 0 0 1 .165.6Zm.39-.06A.045.045 0 1 1 .6.495.045.045 0 0 1 .555.54ZM.6.214l-.33.05v-.09L.6.126Z" fill="white"/></svg>';
-            var menu_item = $('<li class="menu__item selector focus" data-action="music"><div class="menu__ico">' + ico + '</div><div class="menu__text">音乐</div></li>');
+        
+        function addSettingsZZMUSIC() {
+            window.radio_player1_ = new player();
+
+            if (Lampa.Settings.main && !Lampa.Settings.main().render().find('[data-component="mod_zz123"]').length) {
+                let field = $(Lampa.Lang.translate("<div class=\"settings-folder selector\" data-component=\"mod_zz123\">\n            <div class=\"settings-folder__icon\">\n                <svg fill=\"currentColor\" width=\"32px\" height=\"32px\" viewBox=\"0 0 1.4 1.4\" data-name=\"Layer 2\" id=\"b8328bbd-98ea-4513-8b81-ef401a1abb0b\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.699 0.948a0.08 0.08 0 1 1 0.08 -0.08 0.08 0.08 0 0 1 -0.08 0.08Zm0 -0.08h0.04Z\"/><path d=\"M1.143 1.389H0.257A0.168 0.168 0 0 1 0.089 1.221V0.177A0.168 0.168 0 0 1 0.257 0.009h0.885a0.168 0.168 0 0 1 0.168 0.168v1.045a0.168 0.168 0 0 1 -0.168 0.168ZM0.257 0.109a0.068 0.068 0 0 0 -0.068 0.068v1.045a0.068 0.068 0 0 0 0.068 0.068h0.885A0.068 0.068 0 0 0 1.211 1.223V0.177A0.068 0.068 0 0 0 1.143 0.109Z\"/><path d=\"M0.699 1.197A0.329 0.329 0 1 1 1.028 0.868a0.331 0.331 0 0 1 -0.329 0.329Zm0 -0.56A0.229 0.229 0 1 0 0.928 0.867 0.231 0.231 0 0 0 0.699 0.637Z\"/><path d=\"M0.7 0.415a0.08 0.08 0 1 1 0.08 -0.08 0.08 0.08 0 0 1 -0.08 0.08Zm0 -0.08h0.04Z\"/></svg>\n            </div>\n            <div class=\"settings-folder__name\">听歌</div>\n        </div>"));
+                Lampa.Settings.main().render().find('[data-component="more"]').after(field)
+                Lampa.Settings.main().update()
+            };
+            var ico = '<svg fill="currentColor" width="24px" height="24px" viewBox="0 0 1.05 1.05" data-name="Layer 2" id="b8328bbd-98ea-4513-8b81-ef401a1abb0b" xmlns="http://www.w3.org/2000/svg"><path d="M0.524 0.711a0.06 0.06 0 1 1 0.06 -0.06 0.06 0.06 0 0 1 -0.06 0.06Zm0 -0.06a0 0 0 0 0 0 0l0.03 0Z"/><path d="M0.857 1.042H0.193a0.126 0.126 0 0 1 -0.126 -0.126V0.133A0.126 0.126 0 0 1 0.193 0.007h0.664a0.126 0.126 0 0 1 0.126 0.126v0.784a0.126 0.126 0 0 1 -0.126 0.126Zm-0.664 -0.96A0.051 0.051 0 0 0 0.142 0.133v0.784a0.051 0.051 0 0 0 0.051 0.051h0.664a0.051 0.051 0 0 0 0.051 -0.051V0.133a0.051 0.051 0 0 0 -0.051 -0.051Z"/><path d="M0.524 0.898a0.247 0.247 0 1 1 0.247 -0.247 0.248 0.248 0 0 1 -0.247 0.247Zm0 -0.42a0.172 0.172 0 1 0 0.172 0.172 0.173 0.173 0 0 0 -0.172 -0.172Z"/><path d="M0.525 0.311a0.06 0.06 0 1 1 0.06 -0.06 0.06 0.06 0 0 1 -0.06 0.06Zm0 -0.06c0 0 0 0 0 0l0.03 0Z"/></svg>';
+            var menu_item = $('<li class="menu__item selector focus" data-action="ZZMUSIC"><div class="menu__ico">' + ico + '</div><div class="menu__text">听歌</div></li>');
             menu_item.on('hover:enter', function () {
-                Lampa.Select.show({
-                    title: '分类',
-                    items: catalogs,
-                    onSelect: function onSelect(a) {
-                        if (a.title == '歌单') {
-                            var playlistname = '华语,粤语,欧美,日语,韩语,流行,摇滚,民谣,电子,舞曲,说唱,轻音乐,爵士,乡村,R&B/Soul,古典,民族,英伦,金属,朋克,蓝调,雷鬼,世界音乐,拉丁,New Age,古风,后摇,Bossa Nova,清晨,夜晚,学习,工作,午休,下午茶,地铁,驾车,运动,旅行,散步,酒吧,怀旧,清新,浪漫,伤感,治愈,放松,孤独,感动,兴奋,快乐,安静,思念,综艺,影视原声,ACG,儿童,校园,游戏,70后,80后,90后,网络歌曲,KTV,经典,翻唱,吉他,钢琴,器乐,榜单,00后';
-                            popupWindows(playlistname, "https://music.163.com/api/playlist/list/?cat=", 5, "playlist", "歌单")
-                        } else {
-                            Lampa.Activity.push({
-                                url: a.url,
-                                title: '音乐 - ' + a.title,
-                                code: a.code,
-                                component: 'music',
-                                type: a.type,
-                                connectype: a.connectype,
-                                page: 1
-                            });
-                        }
-                    },
-                    onBack: function onBack() {
-                        Lampa.Controller.toggle('menu');
-                    }
-                });
+                listmenu();
             });
             $('.menu .menu__list').eq(0).append(menu_item);
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
-            addFilter();
             $('body').append(Lampa.Template.get('radio_style', {}, true));
-            window.radio_player2_.create();
+            addFilter();
+            window.radio_player1_.create();
         }
-
-        if (window.appready) addSettingsMusic()
+    
+        if (window.appready) addSettingsZZMUSIC()
         else {
             Lampa.Listener.follow('app', function (e) {
-                if (e.type == 'ready') addSettingsMusic()
+                if (e.type == 'ready') addSettingsZZMUSIC()
             })
         }
     }
 
-    if (!window.plugin_music_ready) startMUSIC();
+    if (!window.plugin_ZZMUSIC_ready) startZZMUSIC();
     musiclist = null;
     currentplaylist = null;
+
+    var network = new Lampa.Reguest();
+    Lampa.Settings.listener.follow('open', function (e) {
+      if (e.name == 'mod_zz123') {
+        var zz123_login = e.body.find('[data-name="online_mod_zz123_login"]');
+        
+        zz123_login.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
+          zz123Login(function () {
+            zz123_login_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_login_status.removeClass('active error wait').addClass('error');
+          });
+        });
+        var zz123_logout = e.body.find('[data-name="online_mod_zz123_logout"]');
+        zz123_logout.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_logout_status = $('.settings-param__status', zz123_logout).removeClass('active error wait').addClass('wait');
+          zz123Logout(function () {
+            zz123_logout_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_logout_status.removeClass('active error wait').addClass('error');
+          });
+        });
+
+        var zz123_sendcode = e.body.find('[data-name="online_mod_zz123_sendcode"]');
+        
+        zz123_sendcode.unbind('hover:enter').on('hover:enter', function () {
+          var zz123_sendcode_status = $('.settings-param__status', zz123_sendcode).removeClass('active error wait').addClass('wait');
+          zz123Sendcode(function () {
+            zz123_sendcode_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_sendcode_status.removeClass('active error wait').addClass('error');
+          });
+        });
+      }
+    });
+
+    Lampa.Storage.listener.follow('change', function (e) {
+      if (e.name == 'zz123_userPass' || e.name == 'zz123_userName') {
+        if (Lampa.Storage.field('zz123_userName').length > 0 && Lampa.Storage.field('zz123_userPass').length > 0) {
+          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('wait');
+          zz123Login(function () {
+            zz123_login_status.removeClass('active error wait').addClass('active');
+          }, function () {
+            zz123_login_status.removeClass('active error wait').addClass('error');
+          });
+        } else {
+          var zz123_login = $.find('[data-name="online_mod_zz123_login"]');
+          var zz123_login_status = $('.settings-param__status', zz123_login).removeClass('active error wait').addClass('error');
+        };
+      };
+  });
+
+    function getAsUriParameters(data) {
+      var url = '';
+      for (var prop in data) {
+        url += encodeURIComponent(prop) + '=' +
+          encodeURIComponent(data[prop]) + '&';
+      }
+      return url.substring(0, url.length - 1)
+    }
+
+    function zz123Login(success, error) {
+        var url = 'https://zz123.com/ajax/login';
+
+        var postdata =
+        {
+            "act": 'email_login',
+            "code": Lampa.Storage.get('zz123_userPass', ''),
+            "email": Lampa.Storage.get('zz123_userName', ''),
+            "lang": '',
+        };
+
+        network.clear();
+        network.timeout(8000);
+        network["native"](url, function (json) {
+            if (json.status == 200) {
+                var userData = json.data
+                if (success) success();
+                Lampa.Storage.set("zz123UserInfo", "test=1; visitref=https://zz123.com/; play_status=pause; login_uid="+userData.uid+"; login_usin="+userData.token+"; ");
+                Lampa.Storage.set('zz123_userPass', '');
+                if (success) success();
+                Lampa.Noty.show(json.msg);
+            } else {
+                Lampa.Noty.show(json.msg);
+                if (error) error();
+            }
+        }, function (a, c) {
+            Lampa.Noty.show('请填写正确的邮箱和验证码。');
+            if (error) error();
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': 'https://zz123.com/',
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+            }
+        });
+
+        postdata =
+        {
+            "act": 'my_pop_sheet',
+            "lang": '',
+        };
+
+        network["native"]('https://zz123.com/myajax/', function (json) {
+            if (json.status == 200) {
+                Lampa.Storage.set("zz123_my_pop_sheet", json.data[0].id);
+                // Lampa.Noty.show(json.msg);
+            } else {
+                // Lampa.Noty.show(json.msg);
+            }
+        }, function (a, c) {
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': aipurl,
+                'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+            }
+        });
+
+    }
+
+    function zz123Sendcode(success, error) {
+        var url = 'https://zz123.com/ajax/login';
+
+        var postdata =
+        {
+            "act": 'get_email_code',
+            "email": Lampa.Storage.get('zz123_userName', ''),
+            "lang": '',
+        };
+
+        network.clear();
+        network.timeout(8000);
+        network["native"](url, function (json) {
+            if (json.status == 200) {
+                if (success) success();
+                Lampa.Noty.show(json.msg);
+            } else {
+                if (error) error();
+                Lampa.Noty.show(json.msg);
+            }
+        }, function (a, c) {
+            Lampa.Noty.show('请填写正确的邮箱。');
+            if (error) error();
+        }, getAsUriParameters(postdata), {
+            dataType: 'json',
+            headers: {
+                'Referer': 'https://zz123.com/',
+                'Cookie' : 'test=1; visitref=https://zz123.com/; play_status=pause; ',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+            }
+        });
+
+    }
+  
+    function zz123Logout(success, error) {
+      Lampa.Storage.set('zz123_userPass', '');
+    //   Lampa.Storage.set('zz123_userName', '');
+      Lampa.Storage.set("zz123UserInfo","");
+      Lampa.Storage.set("zz123_my_pop_sheet","");
+      if (success) success();
+    };
 })();
