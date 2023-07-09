@@ -17,7 +17,7 @@
         var info;
         var last;
         var waitload;
-        var player = window.radio_player1_;
+        
 
         this.getUrlParamsAndBuildQueryString = function(url) {
             var queryString = url.split('?')[1]; // 获取问号后面的查询字符串
@@ -329,6 +329,8 @@
                 card.on('hover:enter', function (target, card_data) {
                     // console.log(items.indexOf(card))
                     // playEndedHandler_(items.indexOf(card));
+                    button.show();
+                    var player = window.radio_player1_;
                     currentplaylist = null;
                     network["native"](aipurl, function (result) {
                         if (result.status == 200) {
@@ -702,7 +704,12 @@
                         ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
                     );
                 });
-                if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
+                if (playall) { 
+                    audio.addEventListener("ended", playEndedHandler, false);
+                    // audio.addEventListener("ended", function () {
+                    //     playEndedHandler(currentplaylist);
+                    // }, false);
+                }
 
 
 
@@ -923,6 +930,7 @@
     function playAll(){
         currentplaylist = musiclist;
         if (currentplaylist.length > 0) {
+            button.show();
             Lampa.Storage.set('online_music_balanser', 'zz123');
             var network = new Lampa.Reguest();
             var player = window.radio_player1_;
@@ -3660,10 +3668,10 @@
         });
     }
 
+    var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
     function addFilter() {
         var activi;
         var timer;
-        var button = $("<div class=\"head__action head__settings selector\">\n            <svg fill=\"currentColor\" width=\"28px\" height=\"28px\" viewBox=\"0 0 0.84 0.84\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M0.77 0.595v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28v-0.07h0.49Zm0 -0.21v0.07H0.28V0.175h0.49ZM0.14 0.7a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Zm0 -0.21a0.07 0.07 0 1 1 0 -0.14 0.07 0.07 0 0 1 0 0.14Z\"/></svg>\n        </div>");
         // button.hide().on('hover:enter', function () {
         //   if (activi) {
         //     activi.activity.component().filter();
@@ -3745,7 +3753,7 @@
                 }
             }, 1000);
 
-            if (e.type == 'start' && e.component == 'ZZMUSIC') {
+            if (e.type == 'start' && e.component == 'ZZMUSIC' && currentplaylist) {
                 button.show();
                 activi = e.object;
             }
