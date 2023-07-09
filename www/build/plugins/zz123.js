@@ -633,125 +633,128 @@
         var lrc = {};
         var currentplaylist = [];
         audio.addEventListener("play", function (event) {
-          played = true;
-          html.toggleClass('loading', false);
+            played = true;
+            html.toggleClass('loading', false);
         });
-  
+
         function prepare() {
-          if (audio.canPlayType('audio/mpeg;') || audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.mp3') > 0) load();else if (Hls.isSupported()) {
-            try {
-              hls = new Hls();
-              hls.attachMedia(audio);
-              hls.loadSource(url);
-              hls.on(Hls.Events.ERROR, function (event, data) {
-                if (data.details === Hls.ErrorDetails.MANIFEST_PARSING_ERROR) {
-                  if (data.reason === "no EXTM3U delimiter") {
+            if (audio.canPlayType('audio/mpeg;') || audio.canPlayType('application/vnd.apple.mpegurl') || url.indexOf('.mp3') > 0) load(); else if (Hls.isSupported()) {
+                try {
+                    hls = new Hls();
+                    hls.attachMedia(audio);
+                    hls.loadSource(url);
+                    hls.on(Hls.Events.ERROR, function (event, data) {
+                        if (data.details === Hls.ErrorDetails.MANIFEST_PARSING_ERROR) {
+                            if (data.reason === "no EXTM3U delimiter") {
+                                Lampa.Noty.show('流媒体文件加载错误');
+                            }
+                        }
+                    });
+                    hls.on(Hls.Events.MANIFEST_LOADED, function () {
+                        start();
+                    });
+                } catch (e) {
                     Lampa.Noty.show('流媒体文件加载错误');
-                  }
                 }
-              });
-              hls.on(Hls.Events.MANIFEST_LOADED, function () {
-                start();
-              });
-            } catch (e) {
-              Lampa.Noty.show('流媒体文件加载错误');
-            }
-          } else load();
+            } else load();
         }
-  
+
         function load() {
-          audio.src = url;
-          audio.load();
-          start();
+            audio.src = url;
+            audio.load();
+            start();
         }
-  
+
         function start() {
-          var playPromise;
-  
-          try {
-              playPromise = audio.play();
-              if ((Object.keys(lrc).length) == 0){
-                $(".info__title-original").text('');
-              };
-              audio.addEventListener("timeupdate", function () {
+            var playPromise;
 
-                  var currentTime = audio.currentTime;
+            try {
+                playPromise = audio.play();
 
-                  var obj = lrc[Math.floor(currentTime)];
-                  if (obj != undefined) {
-                      $('.info__title-original').css('color', 'f3d900');
-                      $(".info__title-original").text(obj ? obj : '♪...');
-                    // $(".info__lyric").text(obj ? obj : '♪...');
-                  } 
-                  var duration = audio.duration;
+                if ((Object.keys(lrc).length) == 0) {
+                    $(".info__title-original").text('');
+                };
 
-                  var minutes = Math.floor(currentTime / 60);
-                  var seconds = Math.floor(currentTime % 60);
+                audio.addEventListener("timeupdate", function () {
 
-                  var durationMinutes = Math.floor(duration / 60);
-                  var durationSeconds = Math.floor(duration % 60);
+                    var currentTime = audio.currentTime;
 
-                //   var progress = (audio.currentTime / audio.duration) * 100;
-                  //   console.log(progress)
-                  //   progressBar.css("width", progress + "%");
+                    let obj = lrc[Math.floor(currentTime)];
+                    if (obj != undefined) {
+                        $('.info__title-original').css('color', 'f3d900');
+                        $(".info__title-original").text(obj ? obj : '♪...');
+                        // $(".info__lyric").text(obj ? obj : '♪...');
+                    }
+                    var duration = audio.duration;
 
-                  // 更新进度条文本
-                  $(".info__create").text(
-                      ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
-                  );
-              });
-              if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
-              
+                    var minutes = Math.floor(currentTime / 60);
+                    var seconds = Math.floor(currentTime % 60);
 
-               
-          } catch (e) {}
-  
-          if (playPromise !== undefined) {
-            playPromise.then(function () {
-                
-              console.log('Music', 'start plaining');
-              
-            })["catch"](function (e) {
-              console.log('Music', 'play promise error:', e.message);
-            });
-          }
+                    var durationMinutes = Math.floor(duration / 60);
+                    var durationSeconds = Math.floor(duration % 60);
+
+                    //   var progress = (audio.currentTime / audio.duration) * 100;
+                    //   console.log(progress)
+                    //   progressBar.css("width", progress + "%");
+
+                    // 更新进度条文本
+                    $(".info__create").text(
+                        ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
+                    );
+                });
+                if (playall) { audio.addEventListener("ended", playEndedHandler, false); }
+
+
+
+            } catch (e) { }
+
+            if (playPromise !== undefined) {
+                playPromise.then(function () {
+
+                    console.log('Music', 'start plaining');
+
+                })["catch"](function (e) {
+                    console.log('Music', 'play promise error:', e.message);
+                });
+            }
         }
-  
+
         function play() {
-          html.toggleClass('loading', true);
-          html.toggleClass('stop', false);
-          prepare();
+            html.toggleClass('loading', true);
+            html.toggleClass('stop', false);
+            prepare();
         }
-  
+
         function stop() {
-          played = false;
-          html.toggleClass('stop', true);
-          html.toggleClass('loading', false);
-  
-          if (hls) {
-            hls.destroy();
-            hls = false;
-          }
-  
-          audio.src = '';
+            played = false;
+            html.toggleClass('stop', true);
+            html.toggleClass('loading', false);
+
+            if (hls) {
+                hls.destroy();
+                hls = false;
+            }
+
+            audio.src = '';
         }
-  
+
         html.on('hover:enter', function () {
-          if (played) stop();else if (url) play();
+            if (played) stop(); else if (url) play();
         });
 
         html.on('hover:long', function () {
-            // var balanser_ = Lampa.Storage.get('online_music_balanser');
-            // && balanser_ === 'zz123'
+            var balanser_ = Lampa.Storage.get('online_music_balanser');
+            // console.log(balanser_,currentplaylist)
+            //  && balanser_ === 'neteasemusic'
             if (currentplaylist) {
                 var sources = [];
                 var num = 3;
                 var playlistData = currentplaylist;
                 // console.log(playlistData)
 
-                playlistData.forEach(function (html,i) {
+                playlistData.forEach(function (html, i) {
                     sources.push({
-                        title: currentplaylist[i][3] + '-' +currentplaylist[i][0],
+                        title: currentplaylist[i][3] + '-' + currentplaylist[i][0],
                         url: currentplaylist[i][0]
                     });
 
@@ -763,9 +766,9 @@
                 sources.forEach(function (tab, i) {
                     // console.log(html.find('.radio-player__name').text(),tab.url,(html.find('.radio-player__name').text() === tab.url))
                     var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
-                    var button = $('<div class="navigation-tabs__button '+ifplaynow+'">' + tab.title + '</div>');
+                    var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
-                        playEndedHandler_(i-1);
+                        playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
@@ -798,20 +801,20 @@
                 playlistData = null;
             }
         });
-  
+
         this.create = function () {
-          $('.head__actions .open--search').before(html);
+            $('.head__actions .open--search').before(html);
         };
-  
+
         this.play = function (data) {
-          stop();
-          url = data.url;
-          playall = data.playall;
-          lrc = data.lrc;
-          currentplaylist = data.list;
-          html.find('.radio-player__name').text(data.title);
-          html.toggleClass('hide', false);
-          play();
+            stop();
+            url = data.url;
+            playall = data.playall;
+            lrc = data.lrc;
+            currentplaylist = data.list;
+            html.find('.radio-player__name').text(data.title);
+            html.toggleClass('hide', false);
+            play();
         };
     }
 
