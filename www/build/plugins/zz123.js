@@ -291,6 +291,7 @@
                         onSelect: function (sel) {
                             if (sel.title.indexOf('收藏') !== -1 || sel.title.indexOf('删除') !== -1) {
                                 if (sel.title.indexOf('删除') !== -1) {
+                                    console.log(sel.url)
                                     network["native"](sel.url, function (json) {
                                         if (json.status == 200) {
                                             Lampa.Noty.show(json.msg);
