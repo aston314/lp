@@ -255,7 +255,6 @@
                 });
                 // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
-                    console.log(object.url)
                     // console.log(object)
                     var archiveMenu = [];
                     
@@ -263,7 +262,7 @@
                         if (object.type === 'favorite') {
                             archiveMenu.push({
                                 title: '删除 ' + element.mname,
-                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheet_id') + '&sheet_type=0&lang=',
+                                url: 'https://zz123.com/myajax/?act=sheet_delsong&tid=x&song_id=' + element.id + '&sheet_id=' + _this3.getQueryParamValue(object.url, 'sheetid') + '&sheet_type=0&lang=',
                                 // connectype: 'native'
                             });
                         } else {
@@ -292,7 +291,6 @@
                         onSelect: function (sel) {
                             if (sel.title.indexOf('收藏') !== -1 || sel.title.indexOf('删除') !== -1) {
                                 if (sel.title.indexOf('删除') !== -1) {
-                                    console.log(sel.url)
                                     network["native"](sel.url, function (json) {
                                         if (json.status == 200) {
                                             Lampa.Noty.show(json.msg);
