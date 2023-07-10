@@ -332,7 +332,7 @@
                                                 playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                                             })
                                             if (playlistname.length) {
-                                                _this3.popupWindows_(playlistname, sel.url, 5, "favorite", "选择歌单")
+                                                _this3.popupWindows_(playlistname, sel.url, 4, "favorite", "选择歌单")
                                             }
                                         } else {
                                             Lampa.Noty.show(json.msg);
@@ -470,7 +470,7 @@
                             playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                         })
                         if (playlistname.length) {
-                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 5, "favorite", "收藏")
+                            popupWindows(playlistname, 'https://zz123.com/myajax/?act=sheetsong&sheettype=0&lang=&page=1&sheetid=', 4, "favorite", "收藏")
                         }
                     } else {
                         Lampa.Noty.show(json.msg);
