@@ -268,14 +268,14 @@
                         } else {
                             archiveMenu.push({
                                 title: '收藏 ' + element.mname,
-                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=#sheetid&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
                                 // connectype: 'native'
                             });
                         }
                     } else {
                         archiveMenu.push({
                             title: '收藏 ' + element.mname,
-                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=' + Lampa.Storage.get("zz123_my_pop_sheet") + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=#sheetid&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
                             // connectype: 'native'
                         });
                     }
@@ -290,25 +290,67 @@
                         items: archiveMenu,
                         onSelect: function (sel) {
                             if (sel.title.indexOf('收藏') !== -1 || sel.title.indexOf('删除') !== -1) {
-                                network["native"](sel.url, function (json) {
-                                    if (json.status == 200) {
-                                        Lampa.Noty.show(json.msg);
+                                if (sel.title.indexOf('删除') !== -1) {
+                                    network["native"](sel.url, function (json) {
+                                        if (json.status == 200) {
+                                            Lampa.Noty.show(json.msg);
+                                            Lampa.Controller.toggle('content');
+                                        } else {
+                                            Lampa.Noty.show(json.msg);
+                                            Lampa.Controller.toggle('content');
+                                        }
+                                    }, function (a, c) {
+                                        Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
                                         Lampa.Controller.toggle('content');
-                                    } else {
-                                        Lampa.Noty.show(json.msg);
+                                    }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
+                                        dataType: 'json',
+                                        headers: {
+                                            'Referer': aipurl,
+                                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                                        }
+                                    });
+                                } else {
+                                    Lampa.Modal.open({
+                                        title: '',
+                                        html: Lampa.Template.get('modal_loading'),
+                                        size: 'small',
+                                        align: 'center',
+                                        mask: true,
+                                        onBack: function onBack() {
+                                            Lampa.Modal.close();
+                                            Lampa.Api.clear();
+                                            Lampa.Controller.toggle('content');
+                                        }
+                                    });
+
+                                    network["native"]('https://zz123.com/myajax/', function (json) {
+                                        Lampa.Modal.close();
+                                        var playlistname = [];
+                                        if (json.status == 200) {
+                                            json.data.forEach(function (element, i) {
+                                                playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
+                                            })
+                                            if (playlistname.length) {
+                                                _this3.popupWindows_(playlistname, sel.url.replace('#sheetid',element.id), 5, "favorite", "选择要收藏的歌单")
+                                            }
+                                        } else {
+                                            Lampa.Noty.show(json.msg);
+                                            Lampa.Controller.toggle('content');
+                                        }
+                                    }, function (a, c) {
+                                        Lampa.Modal.close();
+                                        Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
                                         Lampa.Controller.toggle('content');
-                                    }
-                                }, function (a, c) {
-                                    Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
-                                    Lampa.Controller.toggle('content');
-                                }, _this3.getUrlParamsAndBuildQueryString(sel.url), {
-                                    dataType: 'json',
-                                    headers: {
-                                        'Referer': aipurl,
-                                        'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
-                                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                                    }
-                                });
+                                    }, 'act=my_pop_sheet&lang=', {
+                                        dataType: 'json',
+                                        headers: {
+                                            'Referer': aipurl,
+                                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                                        }
+                                    });
+                                }
                             } 
                             else {
                                 Lampa.Activity.push({
@@ -513,6 +555,87 @@
                 _this2.empty();
             }
         };
+
+        this.popupWindows_ = function (playlistname, gourl, num, gotype, titlename) {
+            var sources = [];
+            // var songling = playlistname;
+            var playlistData = playlistname;//songling.split(',');
+            // console.log(playlistData)
+    
+            playlistData.forEach(function (html) {
+                sources.push({
+                    title: html[0],
+                    cat:html[1],
+                    url: gourl
+                });
+    
+            });
+            // console.log(sources)
+            var html_ = $('<div></div>');
+            var navigation = $('<div class="navigation-tabs"></div>');
+            
+            sources.forEach(function (tab, i) {
+                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                button.on('hover:enter', function () {
+                    // Lampa.Activity.push({
+                    //     url: tab.url+tab.cat,
+                    //     title: '听歌 - '+ titlename +' - ' + tab.title,
+                    //     component: 'ZZMUSIC',
+                    //     type: gotype,
+                    //     page: 1
+                    // });
+    
+                    network["native"](tab.url, function (json) {
+                        if (json.status == 200) {
+                            Lampa.Noty.show(json.msg);
+                            Lampa.Controller.toggle('content');
+                        } else {
+                            Lampa.Noty.show(json.msg);
+                            Lampa.Controller.toggle('content');
+                        }
+                    }, function (a, c) {
+                        Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
+                        Lampa.Controller.toggle('content');
+                    }, _this3.getUrlParamsAndBuildQueryString(tab.url), {
+                        dataType: 'json',
+                        headers: {
+                            'Referer': aipurl,
+                            'Cookie': Lampa.Storage.get("zz123UserInfo", ""),
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    });
+    
+                    Lampa.Modal.close();
+                });
+    
+                if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                    if (i > 0) html_.append(navigation);
+                    navigation = $('<div class="navigation-tabs"></div>');
+                }
+                navigation.append(button);
+            });
+    
+            html_.append(navigation);
+            // console.log(navigation)
+    
+            Lampa.Modal.open({
+                title: titlename,
+                html: html_,
+                size: 'medium',
+                // align: 'center',
+                // select: html.find('.navigation-tabs .active')[0],
+                mask: true,
+                onBack: function onBack() {
+                    Lampa.Modal.close();
+                    Lampa.Api.clear();
+                    Lampa.Controller.toggle('content');
+                }
+            });
+            sources = null;
+            playlistData = null;
+    
+        }
 
         this.empty = function () {
             var empty = new Lampa.Empty();
@@ -1042,6 +1165,8 @@
         playlistData = null;
 
     }
+
+    
 
     function listmenu(){
         var playlistname;
