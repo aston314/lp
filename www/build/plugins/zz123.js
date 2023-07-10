@@ -255,6 +255,7 @@
                 });
                 // if (object.type == 'list' || object.type == 'playlist_detail'){
                 card.on('hover:long', function () {
+                    console.log(object.url)
                     // console.log(object)
                     var archiveMenu = [];
                     
