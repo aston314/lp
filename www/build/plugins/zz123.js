@@ -268,14 +268,14 @@
                         } else {
                             archiveMenu.push({
                                 title: '收藏 ' + element.mname,
-                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=#sheetid&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                                url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=&sheet_id=#sheetid',
                                 // connectype: 'native'
                             });
                         }
                     } else {
                         archiveMenu.push({
                             title: '收藏 ' + element.mname,
-                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_id=#sheetid&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=',
+                            url: 'https://zz123.com/myajax/?act=sheet_addsong&pic=' + encodeURIComponent(element.pic) + '&sheet_type=0&tid=x&song_id=' + element.id + '&song_name=' + encodeURIComponent(element.mname) + '&lang=&sheet_id=',
                             // connectype: 'native'
                         });
                     }
@@ -332,7 +332,7 @@
                                                 playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                                             })
                                             if (playlistname.length) {
-                                                _this3.popupWindows_(playlistname, sel.url.replace('#sheetid',element.id), 5, "favorite", "选择歌单")
+                                                _this3.popupWindows_(playlistname, sel.url, 5, "favorite", "选择歌单")
                                             }
                                         } else {
                                             Lampa.Noty.show(json.msg);
@@ -586,7 +586,7 @@
                     //     page: 1
                     // });
     
-                    network["native"](tab.url, function (json) {
+                    network["native"](tab.url + tab.cat, function (json) {
                         if (json.status == 200) {
                             Lampa.Noty.show(json.msg);
                             Lampa.Controller.toggle('content');
@@ -597,7 +597,7 @@
                     }, function (a, c) {
                         Lampa.Noty.show('你还没有登录，请在设置-听歌中登录。');
                         Lampa.Controller.toggle('content');
-                    }, _this3.getUrlParamsAndBuildQueryString(tab.url), {
+                    }, _this3.getUrlParamsAndBuildQueryString(tab.url + tab.cat), {
                         dataType: 'json',
                         headers: {
                             'Referer': aipurl,
