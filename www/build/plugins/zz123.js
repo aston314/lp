@@ -332,7 +332,7 @@
                                                 playlistname.push([element.name + ' 共' + element.song_num + '首', element.id]);
                                             })
                                             if (playlistname.length) {
-                                                _this3.popupWindows_(playlistname, sel.url.replace('#sheetid',element.id), 5, "favorite", "选择要收藏的歌单")
+                                                _this3.popupWindows_(playlistname, sel.url.replace('#sheetid',element.id), 5, "favorite", "选择歌单")
                                             }
                                         } else {
                                             Lampa.Noty.show(json.msg);
@@ -557,6 +557,7 @@
         };
 
         this.popupWindows_ = function (playlistname, gourl, num, gotype, titlename) {
+            var _this3 = this;
             var sources = [];
             // var songling = playlistname;
             var playlistData = playlistname;//songling.split(',');
