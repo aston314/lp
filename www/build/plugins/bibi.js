@@ -26,6 +26,26 @@
                 title: '最近更新',
                 url: 'https://njav.tv/zh/recent-update',
                 quantity: ''
+            }, {
+                title: '热门',
+                url: 'https://njav.tv/zh/trending',
+                quantity: ''
+            }, {
+                title: '推荐',
+                url: 'https://njav.tv/zh/recommended',
+                quantity: ''
+            }, {
+                title: '今日最佳',
+                url: 'https://njav.tv/zh/today-hot',
+                quantity: ''
+            }, {
+                title: '本周最佳',
+                url: 'https://njav.tv/zh/weekly-hot',
+                quantity: ''
+            }, {
+                title: '本月最佳',
+                url: 'https://njav.tv/zh/monthly-hot',
+                quantity: ''
             }],
             list: {
                 page: {
@@ -56,12 +76,12 @@
                     attrName: "",
                     filter: ""
                 },
-                game_type: {
-                    selector: ".game-type",
-                    attrName: "",
+                mnumber: {
+                    selector: "img",
+                    attrName: "alt",
                     filter: ""
                 },
-                game_time: {
+                m_time: {
                     selector: ".duration",
                     attrName: "",
                     filter: ""
@@ -232,8 +252,8 @@
                     img: $(catalogs1[0].list.thumb.selector, html).attr(catalogs1[0].list.thumb.attrName),
                     quantity: '',
                     year: '',
-                    rate: $(catalogs1[0].list.game_time.selector, html).text().trim().replace(/\n/g, '').replace(/\S+\s+/g, ''),
-                    episodes_info: ($(catalogs1[0].list.game_status.selector, html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector, html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_status.selector, html).text(),
+                    rate: $(catalogs1[0].list.m_time.selector, html).text().trim().replace(/\n/g, '').replace(/\S+\s+/g, ''),
+                    episodes_info: catalogs1[0].list.mnumber.attrName == 'text' ? $(catalogs1[0].list.mnumber.selector, html).text() : $(catalogs1[0].list.mnumber.selector, html).attr(catalogs1[0].list.mnumber.attrName),
                     update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                     score: '',//$('span.pic-tag', html).text()
                 });
@@ -294,16 +314,16 @@
                 }
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
-                if (element.episodes_info || element.update) {
+                if (element.update) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info || element.update);
+                    card.find('.card__quality').text(element.update);
                 };
 
                 card.on('hover:focus', function () {
                     last = card[0];
 
                     scroll.update(card, true);
-                    info.find('.info__title').text(element.title);
+                    info.find('.info__title').text(element.episodes_info);
                     info.find('.info__title-original').text(element.quantity);
                     info.find('.info__rate span').text(element.rate);
                     info.find('.info__create').text(element.episodes_info);
@@ -312,7 +332,7 @@
                     if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     // if (scroll.isEnd()) _this3.next();
                     // if (element.img) Lampa.Background.change(cardImgBackground(element.img));
-                    //if (Lampa.Helper) Lampa.Helper.show('tg_detail', '长按住 (ОК) 键查看详情', card);
+                    if (Lampa.Helper) Lampa.Helper.show('bibi_detail', '长按住 (ОК) 键查更多相关内容', card);
                 });
                 //console.log(element.url)
                 //console.log((element.episodes_info.trim().indexOf('直播中') !== -1))
@@ -344,7 +364,7 @@
                                 Lampa.Modal.close();
                                 str = JSON.parse(str.contents)
                                 if (str.status == 200) {
-                                    console.log(str.data[0].url)
+                                    // console.log(str.data[0].url)
                                     Lampa.Iframe.show({
                                         //url: $('.embed-responsive-item', str).attr('src'),
                                         url: str.data[0].url,
@@ -354,6 +374,10 @@
                                     });
                                     $('.iframe__body iframe').removeClass('iframe__window');
                                     $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                                    // Lampa.Iframe.show({
+                                    //     url: str.data[0].url,
+                                    //     onBack: function onBack() { Lampa.Controller.toggle('content'); }
+                                    // });
                                 }
                             }, function (a, c) {
                                 Lampa.Noty.show(network.errorDecode(a, c));
@@ -366,6 +390,88 @@
                     }, false, {
                         dataType: 'json'
                     });
+                });
+
+                card.on('hover:long', function (target, card_data) {
+
+                    Lampa.Modal.open({
+                        title: '',
+                        html: Lampa.Template.get('modal_loading'),
+                        size: 'small',
+                        align: 'center',
+                        mask: true,
+                        onBack: function onBack() {
+                            Lampa.Modal.close();
+                            Lampa.Api.clear();
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
+
+                    network["native"](cors + element.url, function (str) {
+                        Lampa.Modal.close();
+                        var archiveMenu = [];
+                        $('.detail-item a[href*="actresses/"],.detail-item a[href*="labels/"],.detail-item a[href*="tags/"]', str.contents).each(function (i, html) {
+                            archiveMenu.push({
+                                title: '查看 ' + $(html).text() + ' 所有视频',
+                                url: 'https://njav.tv/zh/' + $(html).attr('href'),
+                                // connectype: 'native'
+                            });
+                        });
+
+                        Lampa.Select.show({
+                            title: '相关内容',
+                            items: archiveMenu,
+                            onSelect: function (sel) {
+                                Lampa.Activity.push({
+                                    url: sel.url,
+                                    title: '电影 - ' + sel.title,
+                                    component: 'bibi',
+                                    quantity: '',
+                                    page: 1
+                                });
+                            },
+                            onBack: function () {
+                                Lampa.Controller.toggle('content');
+                            }
+                        })
+
+
+                    }, function (a, c) {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }, false, {
+                        dataType: 'json'
+                    });
+
+                    // var regex = /^(.*?)-/;  // 匹配连字符前的所有字符
+                    // var match = element.episodes_info.match(regex);
+                    // var characters;
+                    // if (match) {
+                    //     characters = match[1];  // 获取匹配到的字符
+                    // } else {
+                    //     characters = ''
+                    // }
+                    // var archiveMenu = [];
+                    // archiveMenu.push({
+                    //     title: '查看 ' + characters + ' 所有视频',
+                    //     url: 'https://njav.tv/zh/tags/' + characters,
+                    //     // connectype: 'native'
+                    // });
+                    // Lampa.Select.show({
+                    //     title: '操作',
+                    //     items: archiveMenu,
+                    //     onSelect: function (sel) {
+                    //         Lampa.Activity.push({
+                    //             url: sel.url,
+                    //             title: '电影 - ' + sel.title,
+                    //             component: 'bibi',
+                    //             quantity: '',
+                    //             page: 1
+                    //         });
+                    //     },
+                    //     onBack: function () {
+                    //         Lampa.Controller.toggle('content');
+                    //     }
+                    // })
                 });
                 // }
                 body.append(card);
@@ -392,7 +498,7 @@
             });
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
-                    title: '频道 - 搜索',
+                    title: '影片 - 搜索',
                     value: '',
                     free: true,
                     nosave: true
@@ -404,7 +510,7 @@
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: searchurl,
-                            title: '频道 - 搜索"' + new_value + '"',
+                            title: '影片 - 搜索"' + new_value + '"',
                             component: 'bibi',
                             quantity: '',
                             page: 1
