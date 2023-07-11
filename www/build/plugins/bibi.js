@@ -99,7 +99,7 @@
             }
         },
     ];
-    
+
     function BIBI(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -109,7 +109,7 @@
         });
         var items = [];
         var html = $('<div></div>');
-        var body = $('<div class="freetv_sport category-full"></div>');
+        var body = $('<div class="freetv_bibi category-full"></div>');
         var info;
         var last;
         var waitload;
@@ -129,27 +129,25 @@
             network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
                 if (object.type == 'live') {
-                    //console.log($('.embed-responsive-item', str).attr('src'))
                     var empty = new Lampa.Empty({
-                        descr: object.title.replace('直播源 - ',''),
+                        descr: object.title.replace('直播源 - ', ''),
                         title: object.content
                     });
                     html.append(empty.render());
                     _this.activity.loader(false);
                     Lampa.Iframe.show({
-                        //url: $('.embed-responsive-item', str).attr('src'),
                         url: object.url,
                         onBack: function onBack() {
-                          Lampa.Controller.toggle('content');
+                            Lampa.Controller.toggle('content');
                         }
-                      });
-                      $('.iframe__body iframe').removeClass('iframe__window');
-                      $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                    });
+                    $('.iframe__body iframe').removeClass('iframe__window');
+                    $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
                 } else {
                     var data = _this.card(str);
                     _this.build(data);
                 };
-                
+
                 // var empty = new Lampa.Empty();
                 // html.append(empty.render());
                 // _this.start = empty.start;
@@ -191,7 +189,7 @@
         };
 
         this.card = function (str) {
-            
+
             var _this5 = this;
 
             var card = [];
@@ -215,30 +213,59 @@
             var total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
             page = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').last().attr('href') : $(p, str).attr('href');
             // page = $($(catalogs1[0].list.page.selector), str).attr('href') ? $($(catalogs1[0].list.page.selector), str).attr('href').match(/[0-9]+(?=[^0-9]*$)(.*)/) : null;
-             
+
             if (page) {
                 object.gotopage = page;
             } else {
                 page = '';
             };
-            
-            $(catalogs1[0].list.videoscontainer.selector + object.quantity, str).each(function (i, html) {                
-                    card.push({
-                        title: $(catalogs1[0].list.title.selector,html).text(),
-                        original_title: '',
-                        title_org: '',
-                        //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url:  'https://njav.tv/zh/' +$(catalogs1[0].list.link.selector,html).attr('href') ,
-                        //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                        img: $(catalogs1[0].list.thumb.selector,html).attr(catalogs1[0].list.thumb.attrName),
-                        quantity: '',
-                        year: '',
-                        rate:$(catalogs1[0].list.game_time.selector,html).text().trim().replace(/\n/g,'').replace(/\S+\s+/g, ''),
-                        episodes_info: ($(catalogs1[0].list.game_status.selector,html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector,html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_status.selector,html).text(),
-                        update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
-                        score: '',//$('span.pic-tag', html).text()
-                    });    
+
+            var { list } = catalogs1[0];
+            var listSelectors = {
+                videosContainer: list.videoscontainer.selector,
+                title: list.title.selector,
+                link: list.link.selector,
+                thumb: list.thumb.selector,
+                gameStatus: list.game_status.selector
+            };
+            var gameStatusText = $(listSelectors.gameStatus).text();
+
+            $(listSelectors.videosContainer, str).each(function (i, html) {
+                var $html = $(html);
+
+                var $titleElement = $html.find(listSelectors.title);
+                var $linkElement = $html.find(listSelectors.link);
+                var $thumbElement = $html.find(listSelectors.thumb);
+                var $gameTimeElement = $html.find(list.game_time.selector);
+
+                var titleAttrName = list.title.attrName;
+                var title = titleAttrName === 'text' ? $titleElement.text() : $titleElement.attr(titleAttrName);
+
+                var url = 'https://njav.tv/zh/' + $linkElement.attr('href');
+
+                var img = $thumbElement.attr(list.thumb.attrName);
+
+                var rate = $gameTimeElement.text().trim().replace(/\n/g, '').replace(/\S+\s+/g, '');
+
+                var episodesInfoText = $(gameStatusText).text();
+                var episodesInfo = episodesInfoText.includes('无') || episodesInfoText.includes('未') ? '未开始' : episodesInfoText;
+
+                card.push({
+                    title,
+                    original_title: '',
+                    title_org: '',
+                    url,
+                    img,
+                    quantity: '',
+                    year: '',
+                    rate,
+                    episodes_info: episodesInfo,
+                    update: '',
+                    score: ''
+                });
             });
+
+
             return {
                 card: card,
                 page: page,
@@ -246,7 +273,7 @@
             };
         };
 
-        this.append = function (data,append) {
+        this.append = function (data, append) {
             var _this3 = this;
             //console.log(data)
             data.card.forEach(function (element) {
@@ -276,7 +303,7 @@
                     card.find('.card__view').css({ 'background-color': '#' + hex, 'color': hexText });
                     card.addClass('card--loaded');
                 };
-                if (element.img) img.src = element.img;else img.onerror();
+                if (element.img) img.src = element.img; else img.onerror();
                 // card.find('.card__img').attr('src', element.img);
                 if (element.rate) {
                     card.find('.card__view').append('<div class="card__type"></div>');
@@ -289,7 +316,7 @@
                     // icon.classList.add('icon--sport');
                     // card.find('.card__icons-inner').append(icon);
                     card.find('.card__icons-inner').text(element.quantity)
-                    card.find('.card__icons-inner').css({'padding': '0.4em 0.4em'})
+                    card.find('.card__icons-inner').css({ 'padding': '0.4em 0.4em' })
                     // card.find('.card__view').append('<div class="card__icons"></div>');
                     // card.find('.card__icons-inner').text(element.quantity);
                 }
@@ -297,7 +324,7 @@
                 card.find('.card__quality').text(element.score);*/
                 if (element.episodes_info || element.update) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
-                    card.find('.card__quality').text(element.episodes_info|| element.update);
+                    card.find('.card__quality').text(element.episodes_info || element.update);
                 };
 
                 card.on('hover:focus', function () {
@@ -345,7 +372,7 @@
                                 Lampa.Modal.close();
                                 str = JSON.parse(str.contents)
                                 if (str.status == 200) {
-                                    // console.log(str.data[0].url)
+                                    console.log(str.data[0].url)
                                     Lampa.Iframe.show({
                                         //url: $('.embed-responsive-item', str).attr('src'),
                                         url: str.data[0].url,
@@ -379,8 +406,8 @@
             var _this2 = this;
             //info = Lampa.Template.get('info');style="height:5em"
             var channelbutton = '<div class=\"full-start__button selector view--channel\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31ZM3.741 2.342C4.427 2.205 5.595 2 6.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 10.794 7.406 11 6.5 11s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 8.574 2 7.406 2 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM6.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C4.427 13.205 5.595 13 6.5 13c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 21.794 7.406 22 6.5 22s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 19.574 2 18.406 2 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C15.427 2.205 16.595 2 17.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 8.574 13 7.406 13 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246c.686-.137 1.854-.342 2.759-.342.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 19.574 13 18.406 13 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4Z\" fill=\"currentColor\"/></svg>   <span>网站</span>\n    </div>'
-            var findbutton ='<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>'
-            Lampa.Template.add('button_category', "<style>.freetv_sport.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_sport.category-full{ padding-bottom:8em } .freetv_sport div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_sport.square_icons div.card__view{ padding-bottom:100% } .freetv_sport img.card__img,.freetv_sport div.card__img{ text-align: center;background-color:unset; border-radius:unset; max-height:100%; max-width:100%; height:auto; width:auto; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:2em } .freetv_sport.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>" + channelbutton + findbutton + "  </div>");
+            var findbutton = '<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>'
+            Lampa.Template.add('button_category', "<style>.freetv_bibi.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_bibi.category-full{ padding-bottom:8em } .freetv_bibi div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_bibi.square_icons div.card__view{ padding-bottom:100% } .freetv_bibi.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>" + channelbutton + findbutton + "  </div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
@@ -416,7 +443,7 @@
             });
 
             this.selectGroup = function () {
-                
+
                 var balanser_ = Lampa.Storage.get('online_bibi_balanser')
                 Lampa.Select.show({
                     title: '网站',
@@ -472,7 +499,7 @@
             }
             return '';
         };
-        
+
         this.start = function () {
             var _this = this;
             Lampa.Controller.add('content', {
@@ -543,39 +570,39 @@
     }
 
     function listNavigation() {
-            if (Lampa.Storage.get('online_bibi_balanser') == '') {
-                Lampa.Storage.set('online_bibi_balanser', catalogs[0].title);
+        if (Lampa.Storage.get('online_bibi_balanser') == '') {
+            Lampa.Storage.set('online_bibi_balanser', catalogs[0].title);
+        }
+
+        var balanser = Lampa.Storage.get('online_bibi_balanser');
+
+        var catalogs1 = catalogs.filter(function (fp) {
+            return fp.title === balanser
+        });
+
+        if (catalogs1.length === 0) {
+            catalogs1[0] = catalogs[0];
+            Lampa.Storage.set('online_bibi_balanser', catalogs[0].title);
+        };
+
+        Lampa.Select.show({
+            title: catalogs1[0].title,
+            items: catalogs1[0].category,
+            onSelect: function onSelect(a) {
+                Lampa.Activity.push({
+                    url: a.url,
+                    title: catalogs1[0].title + ' - ' + a.title,
+                    quantity: a.quantity,
+                    component: 'bibi',
+                    page: 1
+                });
+            },
+            onBack: function onBack() {
+                // Lampa.Controller.toggle('menu');
+                Lampa.Controller.toggle('content');
             }
+        });
 
-            var balanser = Lampa.Storage.get('online_bibi_balanser');
-
-            var catalogs1 = catalogs.filter(function (fp) {
-                return fp.title === balanser
-            });
-
-            if (catalogs1.length === 0) {
-                catalogs1[0] = catalogs[0];
-                Lampa.Storage.set('online_bibi_balanser', catalogs[0].title);
-            };
-
-            Lampa.Select.show({
-                title: catalogs1[0].title,
-                items: catalogs1[0].category,
-                onSelect: function onSelect(a) {
-                    Lampa.Activity.push({
-                        url: a.url,
-                        title: catalogs1[0].title + ' - ' + a.title,
-                        quantity: a.quantity,
-                        component: 'bibi',
-                        page: 1
-                    });
-                },
-                onBack: function onBack() {
-                    // Lampa.Controller.toggle('menu');
-                    Lampa.Controller.toggle('content');
-                }
-            });
-        
     };
 
     function startbibi() {
