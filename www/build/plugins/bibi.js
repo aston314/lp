@@ -220,52 +220,24 @@
                 page = '';
             };
 
-            var { list } = catalogs1[0];
-            var listSelectors = {
-                videosContainer: list.videoscontainer.selector,
-                title: list.title.selector,
-                link: list.link.selector,
-                thumb: list.thumb.selector,
-                gameStatus: list.game_status.selector
-            };
-            var gameStatusText = $(listSelectors.gameStatus).text();
-
-            $(listSelectors.videosContainer, str).each(function (i, html) {
-                var $html = $(html);
-
-                var $titleElement = $html.find(listSelectors.title);
-                var $linkElement = $html.find(listSelectors.link);
-                var $thumbElement = $html.find(listSelectors.thumb);
-                var $gameTimeElement = $html.find(list.game_time.selector);
-
-                var titleAttrName = list.title.attrName;
-                var title = titleAttrName === 'text' ? $titleElement.text() : $titleElement.attr(titleAttrName);
-
-                var url = 'https://njav.tv/zh/' + $linkElement.attr('href');
-
-                var img = $thumbElement.attr(list.thumb.attrName);
-
-                var rate = $gameTimeElement.text().trim().replace(/\n/g, '').replace(/\S+\s+/g, '');
-
-                var episodesInfoText = $(gameStatusText).text();
-                var episodesInfo = episodesInfoText.includes('无') || episodesInfoText.includes('未') ? '未开始' : episodesInfoText;
-
+            $(catalogs1[0].list.videoscontainer.selector + object.quantity, str).each(function (i, html) {
                 card.push({
-                    title,
+                    // title: $(catalogs1[0].list.title.selector,html).text(),
+                    title: catalogs1[0].list.title.attrName == 'text' ? $(catalogs1[0].list.title.selector, html).text() : $(catalogs1[0].list.title.selector, html).attr(catalogs1[0].list.title.attrName),
                     original_title: '',
                     title_org: '',
-                    url,
-                    img,
+                    //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
+                    url: 'https://njav.tv/zh/' + $(catalogs1[0].list.link.selector, html).attr('href'),
+                    //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
+                    img: $(catalogs1[0].list.thumb.selector, html).attr(catalogs1[0].list.thumb.attrName),
                     quantity: '',
                     year: '',
-                    rate,
-                    episodes_info: episodesInfo,
-                    update: '',
-                    score: ''
+                    rate: $(catalogs1[0].list.game_time.selector, html).text().trim().replace(/\n/g, '').replace(/\S+\s+/g, ''),
+                    episodes_info: ($(catalogs1[0].list.game_status.selector, html).text().indexOf('无') != -1 || $(catalogs1[0].list.game_status.selector, html).text().indexOf('未') != -1) ? '未开始' : $(catalogs1[0].list.game_status.selector, html).text(),
+                    update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
+                    score: '',//$('span.pic-tag', html).text()
                 });
             });
-
-
             return {
                 card: card,
                 page: page,
