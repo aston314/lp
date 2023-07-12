@@ -996,7 +996,8 @@
                   url: getVideoInfo(data.url),
                   timeline: view,
                   title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  subtitles: element.subtitles
+                  subtitles: element.subtitles,
+                  tv: false
                 };
                 Lampa.Player.play(first);
                 playlist.push(first);
@@ -1026,7 +1027,8 @@
               url: file,
               timeline: view,
               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-              subtitles: element.subtitles
+              subtitles: element.subtitles,
+              tv: false
             };
             Lampa.Player.play(first);
             playlist.push(first);
@@ -1307,7 +1309,8 @@ $.when($('.iframe').append(`
             url: file,
             timeline: view,
             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles
+            subtitles: element.subtitles,
+            tv: false
           };
           Lampa.Player.play(first);
           playlist.push(first);
@@ -1833,7 +1836,8 @@ $.when($('.iframe').append(`
                       url: now,
                       timeline: view,
                       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: element.subtitles
+                      subtitles: element.subtitles,
+                      tv: false
                     };
                     Lampa.Player.play(first);
                     playlist.push(first);
@@ -1933,7 +1937,8 @@ $.when($('.iframe').append(`
                                   url: urlvideo,
                                   timeline: view,
                                   title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                  subtitles: element.subtitles
+                                  subtitles: element.subtitles,
+                                  tv: false
                                 };
                                 Lampa.Player.play(first);
                                 playlist.push(first);
@@ -1982,7 +1987,8 @@ $.when($('.iframe').append(`
                               url: file,
                               timeline: view,
                               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                              subtitles: element.subtitles
+                              subtitles: element.subtitles,
+                              tv: false
                             };
                             Lampa.Player.play(first);
                             playlist.push(first);
@@ -2284,7 +2290,8 @@ $.when($('.iframe').append(`
               url: element.file,
               timeline: view,
               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-              subtitles: element.subtitles
+              subtitles: element.subtitles,
+              tv: false
             };
             Lampa.Player.play(first);
 
@@ -2566,7 +2573,8 @@ $.when($('.iframe').append(`
                   url: json.url,
                   timeline: view,
                   title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  subtitles: element.subtitles
+                  subtitles: element.subtitles,
+                  tv: false
                 };
                 Lampa.Player.play(first);
 
@@ -2859,7 +2867,8 @@ $.when($('.iframe').append(`
               url: element.file,
               timeline: view,
               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-              subtitles: element.subtitles
+              subtitles: element.subtitles,
+              tv: false
             };
             var vodlist = element.allepisode.split('#');
             vodlist.forEach(function (elem) {
@@ -3135,7 +3144,8 @@ $.when($('.iframe').append(`
               url: element.file,
               timeline: view,
               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-              subtitles: element.subtitles
+              subtitles: element.subtitles,
+              tv: false
             };
             Lampa.Player.play(first);
 
