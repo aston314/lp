@@ -1275,7 +1275,8 @@
                                 //Lampa.Modal.close();
                                 var video = {
                                     title: element.title,
-                                    url: videolink
+                                    url: videolink,
+                                    tv: false
                                 };
                                 Lampa.Player.play(video);
                                 Lampa.Player.playlist([video]);
