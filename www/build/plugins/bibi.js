@@ -417,6 +417,7 @@
                 
                 card.on('hover:enter', function (target, card_data) {
                     if (object.setup.datatype !== 'json') cors = '';
+                    last = card[0];
                     if (element.url.indexOf('jable') !== -1) {
                         network["native"](cors + element.url, function (str) {
                             if (object.setup.datatype == 'json') {
@@ -425,7 +426,6 @@
                             var v = str.replace(/\n|\r/g, '').replace(/\\/g, '').match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/);
                             var videolink = v ? v[0] : '';
                             if (videolink) {
-                                //Lampa.Modal.close();
                                 var video = {
                                     title: element.title,
                                     url: videolink,
@@ -434,19 +434,15 @@
                                 Lampa.Player.play(video);
                                 Lampa.Player.playlist([video]);
                             } else {
-                                //Lampa.Modal.close();
                                 Lampa.Noty.show('没有找到对应影片。');
-                                //Lampa.Controller.toggle('content');
                             };
-
-
                         }, function (a, c) {
                             Lampa.Noty.show(network.errorDecode(a, c));
                         }, false, {
                             dataType: object.setup.datatype
                         });
+                        Lampa.Controller.toggle('content');
                     } else if (element.url.indexOf('njav') !== -1) {
-                        last = card[0];
                         Lampa.Modal.open({
                             title: '',
                             html: Lampa.Template.get('modal_loading'),
