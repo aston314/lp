@@ -418,8 +418,21 @@
                 card.on('hover:enter', function (target, card_data) {
                     if (object.setup.datatype !== 'json') cors = '';
                     last = card[0];
+                    Lampa.Modal.open({
+                        title: '',
+                        html: Lampa.Template.get('modal_loading'),
+                        size: 'small',
+                        align: 'center',
+                        mask: true,
+                        onBack: function onBack() {
+                            Lampa.Modal.close();
+                            Lampa.Api.clear();
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
                     if (element.url.indexOf('jable') !== -1) {
                         network["native"](cors + element.url, function (str) {
+                            Lampa.Modal.close();
                             if (object.setup.datatype == 'json') {
                                 str = str.contents
                             };
@@ -441,21 +454,8 @@
                         }, false, {
                             dataType: object.setup.datatype
                         });
-                        Lampa.Controller.toggle('content');
+                        // Lampa.Controller.toggle('content');
                     } else if (element.url.indexOf('njav') !== -1) {
-                        Lampa.Modal.open({
-                            title: '',
-                            html: Lampa.Template.get('modal_loading'),
-                            size: 'small',
-                            align: 'center',
-                            mask: true,
-                            onBack: function onBack() {
-                                Lampa.Modal.close();
-                                Lampa.Api.clear();
-                                Lampa.Controller.toggle('content');
-                            }
-                        });
-
                         network["native"](cors + element.url.replace('/v/', '/zh/v/'), function (str) {
                             var regex = /Video\({id:\s*'(\d+)'\}\)/;
                             var match = str.contents.match(regex);
