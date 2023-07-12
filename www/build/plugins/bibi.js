@@ -1,125 +1,5 @@
 (function () {
     'use strict';
-    var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
-    var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
-    var UA = "Mozilla/5.0";
-    var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
-    var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";;
-
-    var catalogs = [
-        {
-            title: "NJAV.tv",
-            link: "https://njav.tv",
-            show: "portrait",
-            next: "search",
-            datasort: "",
-            use_referer: true,
-            category: [{
-                title: '首页',
-                url: 'https://njav.tv/zh/',
-                quantity: ':gt(9)'
-            }, {
-                title: '全新上市',
-                url: 'https://njav.tv/zh/new-release',
-                quantity: ''
-            }, {
-                title: '最近更新',
-                url: 'https://njav.tv/zh/recent-update',
-                quantity: ''
-            }, {
-                title: '热门',
-                url: 'https://njav.tv/zh/trending',
-                quantity: ''
-            }, {
-                title: '推荐',
-                url: 'https://njav.tv/zh/recommended',
-                quantity: ''
-            }, {
-                title: '今日最佳',
-                url: 'https://njav.tv/zh/today-hot',
-                quantity: ''
-            }, {
-                title: '本周最佳',
-                url: 'https://njav.tv/zh/weekly-hot',
-                quantity: ''
-            }, {
-                title: '本月最佳',
-                url: 'https://njav.tv/zh/monthly-hot',
-                quantity: ''
-            }],
-            list: {
-                page: {
-                    selector: ".pagination"
-                },
-                videoscontainer: {
-                    selector: "div.box-item",
-                    attrName: "",
-                    filter: ""
-                },
-                title: {
-                    selector: ".detail a",
-                    attrName: "text",
-                    filter: ""
-                },
-                thumb: {
-                    selector: "img",
-                    attrName: "data-src",
-                    filter: ""
-                },
-                link: {
-                    selector: ".detail a",
-                    attrName: "href",
-                    filter: ""
-                },
-                game_status: {
-                    selector: ".pay-btn",
-                    attrName: "",
-                    filter: ""
-                },
-                mnumber: {
-                    selector: "img",
-                    attrName: "alt",
-                    filter: ""
-                },
-                m_time: {
-                    selector: ".duration",
-                    attrName: "",
-                    filter: ""
-                },
-                team_home: {
-                    selector: ".text-right",
-                    attrName: "",
-                    filter: ""
-                },
-                team_away: {
-                    selector: ".text-left",
-                    attrName: "",
-                    filter: ""
-                },
-            },
-            detail: {
-                videoscontainer: {
-                    selector: '',
-                    attrName: '',
-                    filter: ''
-                },
-                title: {
-                    selector: 'a',
-                    attrName: 'text',
-                    filter: ''
-                },
-                link: {
-                    selector: 'a',
-                    attrName: 'href',
-                    filter: ''
-                }
-            },
-            search: {
-                url: 'https://njav.tv/zh/search?keyword=%E7%88%B1'
-            }
-        },
-    ];
-
     function BIBI(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -133,7 +13,14 @@
         var info;
         var last;
         var waitload;
+        var total_pages;
         var cors = 'https://api.allorigins.win/get?url=';
+        var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+        var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+        var UA = "Mozilla/5.0";
+        var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+        var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";;
+
         // if (Lampa.Platform.is('android')) {
         //     cors = '';
         // } else {
@@ -141,10 +28,12 @@
         // }
 
         this.create = function () {
-            //console.log(object.url)
+            // console.log(object)
             var _this = this;
 
             this.activity.loader(true);
+
+            if (object.setup.datatype !== 'json') cors = '';
 
             network["native"](cors + object.url, function (str) {
                 //this.build.bind(this)
@@ -178,7 +67,7 @@
             }, function (a, c) {
                 Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
-                dataType: 'json',
+                dataType: object.setup.datatype,
                 // headers: {
                 //     'User-Agent': PC_UA
                 // }
@@ -186,26 +75,97 @@
             return this.render();
         };
 
-        this.next = function () {
+        // this.next = function () {
+        //     var _this2 = this;
+        //     if (waitload) return;
+        //     if (object.setup.datatype !== 'json') cors = '';
+        //     // if (object.gotopage) {
+        //     // var postdata = {
+        //     //     before: object.gotopage[0],
+        //     // };
+        //     waitload = true;
+        //     object.page++;
+        //     network.silent(cors + object.url + '?page=' + object.page, function (str) {
+        //         var result = _this2.card(str);
+        //         _this2.append(result, true);
+        //         if (result.card.length) waitload = false;
+        //         Lampa.Controller.enable('content');
+        //     }, function (a, c) {
+        //         Lampa.Noty.show(network.errorDecode(a, c));
+        //     }, false, {
+        //         dataType: 'json'
+        //     });
+        //     // }
+        // };
+
+        this.next = function (page) {
             var _this2 = this;
+            if (total_pages == 1 || total_pages == 0) waitload = true;
+            
             if (waitload) return;
-            // if (object.gotopage) {
-            // var postdata = {
-            //     before: object.gotopage[0],
-            // };
+            if (object.setup.datatype !== 'json') cors = '';
             waitload = true;
             object.page++;
-            network.silent(cors + object.url + '?page=' + object.page, function (str) {
-                var result = _this2.card(str);
-                _this2.append(result, true);
-                if (result.card.length) waitload = false;
-                Lampa.Controller.enable('content');
-            }, function (a, c) {
-                Lampa.Noty.show(network.errorDecode(a, c));
-            }, false, {
-                dataType: 'json'
-            });
-            // }
+            //console.log(object.page);
+            network.clear();
+            network.timeout(1000 * 40);
+            if (typeof page == 'undefined') return;
+            if (page.indexOf('undefined') != -1) return;
+            
+            if (page.indexOf('before=') !== -1) {
+            } else {
+                var regex = /page=(\d+)/;  // 正则表达式
+                var match = page.match(regex);  // 使用 match() 方法来匹配
+                if (match) {
+                    page = page.replace('page=' + match[1], 'page=' + match[1]++)
+                } else {
+                    page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
+
+                }
+            }
+
+            if (object.use_referer) {
+                network["native"](cors + page, function (result) {
+                    var data = _this2.card(result);
+                    object.data = data;
+                    _this2.append(data,true);
+                    if (data.card.length) waitload = false;
+                    // Lampa.Controller.toggle('content');
+                    _this2.activity.loader(false);
+                }, function (a, c) {
+                    if (a.status == 404) {
+                        // Lampa.Noty.show('ohh,已经是最后一页了');
+                    } else {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }
+                }, false, {
+                    dataType: object.setup.datatype,
+                    headers: {
+                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                        'User-Agent': MOBILE_UA,
+                        // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                        // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                        // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
+                    }
+                });
+            } else {
+                network["native"](cors + page, function (result) {
+                    var data = _this2.card(result);
+                    object.data = data;
+                    _this2.append(data,true);
+                    if (data.card.length) waitload = false;
+                    // Lampa.Controller.toggle('content');
+                    _this2.activity.loader(false);
+                }, function (a, c) {
+                    if (a.status == 404) {
+                        // Lampa.Noty.show('ohh,已经是最后一页了');
+                    } else {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }
+                }, false, {
+                    dataType: object.setup.datatype
+                });
+            };
         };
 
         this.card = function (str) {
@@ -215,45 +175,158 @@
             var card = [];
             var page;
 
-            str = str.contents.replace(/\n/g, '');
             var balanser = Lampa.Storage.get('online_bibi_balanser');
 
             var catalogs1 = catalogs.filter(function (fp) {
                 return fp.title === balanser
             });
-            // var h =  $(v+object.quantity, str);
-            // //console.log(h)
-            // total_pages = $(p, str).find('a').length;
+
+            // console.log(catalogs1[0])
+            if (catalogs1[0].datatype == 'json') {
+                str = str.contents
+            }
+            str = str.replace(/\n/g, '');
+            var v = catalogs1[0].list.videoscontainer.selector;
+            var t = catalogs1[0].list.title.selector;
+            var th = catalogs1[0].list.thumb.selector;
+            var l = catalogs1[0].list.link.selector;
+            var p = catalogs1[0].list.page.selector;
+            var m = catalogs1[0].list.mnumber.selector;
 
             var host = object.url.indexOf('http') == -1 ? '' : object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-            // //console.log($(p, str).find('a').last().attr('href'))
-            // // :last-child
-            // //page = $(p, str).find('a').last().attr('href').indexOf('http') == -1 ? host+$(p, str).find('a').last().attr('href') : $(p, str).find('a').last().attr('href');
-            var p = catalogs1[0].list.page.selector;
-            var total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
+            total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
             page = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').last().attr('href') : $(p, str).attr('href');
-            // page = $($(catalogs1[0].list.page.selector), str).attr('href') ? $($(catalogs1[0].list.page.selector), str).attr('href').match(/[0-9]+(?=[^0-9]*$)(.*)/) : null;
 
+            //console.log(object.search)
             if (page) {
-                object.gotopage = page;
+                if (page.indexOf('http') == -1) {
+                    page = host + (page.startsWith('/') ? page : '/' + page);
+                };
+                if (page.indexOf('#') !== -1) {
+                    page = object.url;
+                };
             } else {
-                page = '';
+                page = object.url;
+                if (page.indexOf('/1') !== -1) {
+                    total_pages = 2;
+                } else {
+                    // console.log(/[0-9]+(?=[^0-9]*$)(.*)/i.test(page))
+                    if (/[0-9]+(?=[^0-9]*$)(.*)/i.test(page) && object.url !== object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]) {
+                        total_pages = 1;
+                    };
+                };
+            };
+            
+            var position = object.url.indexOf('http');
+            var count = 0;
+            while (position !== -1) {
+                count++;
+                position = object.url.indexOf('http', position + 1);
             };
 
-            $(catalogs1[0].list.videoscontainer.selector + object.quantity, str).each(function (i, html) {
+            var host, host_img;
+            if (count == 0) {
+                host = '';
+            } else {
+                if (count == 1) {
+                    host = object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                    host_img = host;
+                } else {
+                    var last_host = object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/g)[count - 1];
+                    host_img = last_host;
+                    host = object.url.substring(0, object.url.indexOf(last_host)) + last_host;
+                }
+            };
+
+            
+            var t1, u1, i1, m1, tt, uu, ii, mm
+
+            $(v + object.quantity, str).each(function (i, html) {
+                t1 = t ? $(html).find(t) : $(html);
+                u1 = l ? $(html).find(l) : $(html);
+                i1 = th ? $(html).find(th) : $(html);
+                m1 = m ? $(html).find(m) : $(html);
+                switch (catalogs1[0].list.title.attrName) {
+                    case 'text':
+                        tt = t1.text();
+                        break;
+                    case 'html':
+                        tt = t1.html();
+                        break;
+                    default:
+                        tt = t1.attr(catalogs1[0].list.title.attrName);
+                };
+                if (typeof tt === 'undefined') return;
+                tt = catalogs1[0].list.title.filter !== '' ? (tt.match(new RegExp(catalogs1[0].list.title.filter)) ? tt.match(new RegExp(catalogs1[0].list.title.filter))[1] : tt) : tt;
+
+                switch (catalogs1[0].list.link.attrName) {
+                    case 'text':
+                        uu = u1.text().indexOf('http') == -1 ? host + u1.text() : u1.text();
+                        break;
+                    case 'html':
+                        uu = u1.html();
+                        break;
+                    default:
+                        uu = u1.attr(catalogs1[0].list.link.attrName).indexOf('http') == -1 ? host + (u1.attr(catalogs1[0].list.link.attrName).startsWith('/') ? u1.attr(catalogs1[0].list.link.attrName) : '/' + u1.attr(catalogs1[0].list.link.attrName)) : u1.attr(catalogs1[0].list.link.attrName);
+                };
+                uu = catalogs1[0].list.link.filter !== '' ? (uu.match(new RegExp(catalogs1[0].list.link.filter)) ? uu.match(new RegExp(catalogs1[0].list.link.filter))[1] : uu) : uu;
+                switch (catalogs1[0].list.thumb.attrName) {
+                    case 'text':
+                        ii = i1.text().indexOf('http') == -1 ? host_img + i1.text() : i1.text();
+                        break;
+                    case 'html':
+                        ii = i1.html();
+                        break;
+                    default:
+                        ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + (i1.attr(catalogs1[0].list.thumb.attrName).startsWith('/') ? i1.attr(catalogs1[0].list.thumb.attrName) : '/' + i1.attr(catalogs1[0].list.thumb.attrName)) : i1.attr(catalogs1[0].list.thumb.attrName)) : '';
+                };
+
+                switch (catalogs1[0].list.mnumber.attrName) {
+                    case 'text':
+                        uu = u1.text().indexOf('http') == -1 ? host + u1.text() : u1.text();
+                        break;
+                    case 'html':
+                        uu = u1.html();
+                        break;
+                    default:
+                        uu = u1.attr(catalogs1[0].list.link.attrName).indexOf('http') == -1 ? host + (u1.attr(catalogs1[0].list.link.attrName).startsWith('/') ? u1.attr(catalogs1[0].list.link.attrName) : '/' + u1.attr(catalogs1[0].list.link.attrName)) : u1.attr(catalogs1[0].list.link.attrName);
+                };
+                switch (catalogs1[0].list.mnumber.attrName) {
+                    case 'text':
+                        mm = m1.text();
+                        break;
+                    case 'html':
+                        mm = m1.html();
+                        break;
+                    default:
+                        mm = m1.attr(catalogs1[0].list.mnumber.attrName);
+                };
+                mm = catalogs1[0].list.mnumber.filter !== '' ? (mm.match(new RegExp(catalogs1[0].list.mnumber.filter)) ? mm.match(new RegExp(catalogs1[0].list.mnumber.filter))[1] : mm) : mm;
+                switch (catalogs1[0].list.thumb.attrName) {
+                    case 'text':
+                        ii = i1.text().indexOf('http') == -1 ? host_img + i1.text() : i1.text();
+                        break;
+                    case 'html':
+                        ii = i1.html();
+                        break;
+                    default:
+                        ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + (i1.attr(catalogs1[0].list.thumb.attrName).startsWith('/') ? i1.attr(catalogs1[0].list.thumb.attrName) : '/' + i1.attr(catalogs1[0].list.thumb.attrName)) : i1.attr(catalogs1[0].list.thumb.attrName)) : '';
+                };
+
+
+                ii = catalogs1[0].list.thumb.filter !== '' ? (ii.match(new RegExp(catalogs1[0].list.thumb.filter)) ? ii.match(new RegExp(catalogs1[0].list.thumb.filter))[1] : './img/img_broken.svg') : ii;
+                if (ii !== undefined && ii.startsWith('/')) ii = catalogs1[0].link + ii;
+
                 card.push({
-                    // title: $(catalogs1[0].list.title.selector,html).text(),
-                    title: catalogs1[0].list.title.attrName == 'text' ? $(catalogs1[0].list.title.selector, html).text() : $(catalogs1[0].list.title.selector, html).attr(catalogs1[0].list.title.attrName),
+                    title: tt,
                     original_title: '',
                     title_org: '',
-                    //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                    url: 'https://njav.tv/zh/' + $(catalogs1[0].list.link.selector, html).attr('href'),
-                    //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
-                    img: $(catalogs1[0].list.thumb.selector, html).attr(catalogs1[0].list.thumb.attrName),
+                    url: uu,
+                    img: ii,
                     quantity: '',
                     year: '',
                     rate: $(catalogs1[0].list.m_time.selector, html).text().trim().replace(/\n/g, '').replace(/\S+\s+/g, ''),
-                    episodes_info: catalogs1[0].list.mnumber.attrName == 'text' ? $(catalogs1[0].list.mnumber.selector, html).text() : $(catalogs1[0].list.mnumber.selector, html).attr(catalogs1[0].list.mnumber.attrName),
+                    episodes_info: mm.toUpperCase(),
                     update: '',//$('span.pic-text', html).text().indexOf('/' != -1) ? $('span.pic-text', html).text().split('/')[0].replace('已完结','') : $('span.pic-text', html).text().replace('已完结',''),
                     score: '',//$('span.pic-tag', html).text()
                 });
@@ -261,7 +334,7 @@
             return {
                 card: card,
                 page: page,
-                //total_pages: total_pages
+                total_pages: total_pages
             };
         };
 
@@ -321,6 +394,13 @@
 
                 card.on('hover:focus', function () {
                     last = card[0];
+                    // var match = element.url.match(/\/([a-zA-Z0-9-]+)\/?$/);
+
+                    // if (match) {
+                    //     element.episodes_info = match[1].toUpperCase();
+                    // } else {
+                    //     element.episodes_info = element.title;
+                    // }
 
                     scroll.update(card, true);
                     info.find('.info__title').text(element.episodes_info);
@@ -329,71 +409,97 @@
                     info.find('.info__create').text(element.episodes_info);
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
+                    if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next(data.page);
                     // if (scroll.isEnd()) _this3.next();
                     // if (element.img) Lampa.Background.change(cardImgBackground(element.img));
                     if (Lampa.Helper) Lampa.Helper.show('bibi_detail', '长按住 (ОК) 键查更多相关内容', card);
                 });
-                //console.log(element.url)
-                //console.log((element.episodes_info.trim().indexOf('直播中') !== -1))
-                // if (element.episodes_info.trim() == '直播中' || element.title.indexOf('纬来体育')!==-1 || element.episodes_info.trim() ==''){
+                
                 card.on('hover:enter', function (target, card_data) {
-                    last = card[0];
-                    Lampa.Modal.open({
-                        title: '',
-                        html: Lampa.Template.get('modal_loading'),
-                        size: 'small',
-                        align: 'center',
-                        mask: true,
-                        onBack: function onBack() {
-                            Lampa.Modal.close();
-                            Lampa.Api.clear();
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
-                    var balanser = Lampa.Storage.get('online_bibi_balanser');
-                    var catalogs1 = catalogs.filter(function (fp) {
-                        return fp.title === balanser
-                    });
-                    network["native"](cors + element.url, function (str) {
-                        var regex = /Video\({id:\s*'(\d+)'\}\)/;
-                        var match = str.contents.match(regex);
-                        var id = match && match[1];
-                        if (id) {
-                            network["native"](cors + 'https://njav.tv/zh/api/v/' + id + '/videos?r=' + Math.random(), function (str) {
+                    if (object.setup.datatype !== 'json') cors = '';
+                    if (element.url.indexOf('jable') !== -1) {
+                        network["native"](cors + element.url, function (str) {
+                            if (object.setup.datatype == 'json') {
+                                str = str.contents
+                            };
+                            var v = str.replace(/\n|\r/g, '').replace(/\\/g, '').match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/);
+                            var videolink = v ? v[0] : '';
+                            if (videolink) {
+                                //Lampa.Modal.close();
+                                var video = {
+                                    title: element.title,
+                                    url: videolink,
+                                    tv: false
+                                };
+                                Lampa.Player.play(video);
+                                Lampa.Player.playlist([video]);
+                            } else {
+                                //Lampa.Modal.close();
+                                Lampa.Noty.show('没有找到对应影片。');
+                                //Lampa.Controller.toggle('content');
+                            };
+
+
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: object.setup.datatype
+                        });
+                    } else if (element.url.indexOf('njav') !== -1) {
+                        last = card[0];
+                        Lampa.Modal.open({
+                            title: '',
+                            html: Lampa.Template.get('modal_loading'),
+                            size: 'small',
+                            align: 'center',
+                            mask: true,
+                            onBack: function onBack() {
                                 Lampa.Modal.close();
-                                str = JSON.parse(str.contents)
-                                if (str.status == 200) {
-                                    // console.log(str.data[0].url)
-                                    Lampa.Iframe.show({
-                                        //url: $('.embed-responsive-item', str).attr('src'),
-                                        url: str.data[0].url,
-                                        onBack: function onBack() {
-                                            Lampa.Controller.toggle('content');
-                                        }
-                                    });
-                                    $('.iframe__body iframe').removeClass('iframe__window');
-                                    $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-                                    // Lampa.Iframe.show({
-                                    //     url: str.data[0].url,
-                                    //     onBack: function onBack() { Lampa.Controller.toggle('content'); }
-                                    // });
-                                }
-                            }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                            }, false, {
-                                dataType: 'json'
-                            });
-                        }
-                    }, function (a, c) {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    }, false, {
-                        dataType: 'json'
-                    });
+                                Lampa.Api.clear();
+                                Lampa.Controller.toggle('content');
+                            }
+                        });
+
+                        network["native"](cors + element.url.replace('/v/', '/zh/v/'), function (str) {
+                            var regex = /Video\({id:\s*'(\d+)'\}\)/;
+                            var match = str.contents.match(regex);
+                            var id = match && match[1];
+                            if (id) {
+                                network["native"](cors + 'https://njav.tv/zh/api/v/' + id + '/videos?r=' + Math.random(), function (str) {
+                                    Lampa.Modal.close();
+                                    str = JSON.parse(str.contents)
+                                    if (str.status == 200) {
+                                        // console.log(str.data[0].url)
+                                        Lampa.Iframe.show({
+                                            //url: $('.embed-responsive-item', str).attr('src'),
+                                            url: str.data[0].url,
+                                            onBack: function onBack() {
+                                                Lampa.Controller.toggle('content');
+                                            }
+                                        });
+                                        $('.iframe__body iframe').removeClass('iframe__window');
+                                        $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                                        // Lampa.Iframe.show({
+                                        //     url: str.data[0].url,
+                                        //     onBack: function onBack() { Lampa.Controller.toggle('content'); }
+                                        // });
+                                    }
+                                }, function (a, c) {
+                                    Lampa.Noty.show(network.errorDecode(a, c));
+                                }, false, {
+                                    dataType: 'json'
+                                });
+                            }
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: object.setup.datatype
+                        });
+                    }
                 });
 
                 card.on('hover:long', function (target, card_data) {
-
+                    if (object.setup.datatype !== 'json') cors = '';
                     Lampa.Modal.open({
                         title: '',
                         html: Lampa.Template.get('modal_loading'),
@@ -407,73 +513,90 @@
                         }
                     });
 
-                    network["native"](cors + element.url, function (str) {
-                        Lampa.Modal.close();
-                        var archiveMenu = [];
-                        $('.detail-item a[href*="actresses/"],.detail-item a[href*="labels/"],.detail-item a[href*="tags/"]', str.contents).each(function (i, html) {
+                    if (element.url.indexOf('jable') !== -1) {
+                        network["native"](cors + element.url, function (str) {
+                            if (object.setup.datatype == 'json') {
+                                str = str.contents
+                            };
+                            Lampa.Modal.close();
+                            var archiveMenu = [];
                             archiveMenu.push({
-                                title: '查看 ' + $(html).text() + ' 所有视频',
-                                url: 'https://njav.tv/zh/' + $(html).attr('href'),
-                                // connectype: 'native'
+                                title: '查看 ' + element.episodes_info.split('-')[0] + ' 所有视频',
+                                url: 'https://jable.tv/search/?q='+element.episodes_info.split('-')[0]+'&from_videos=1',
                             });
-                        });
-
-                        Lampa.Select.show({
-                            title: '相关内容',
-                            items: archiveMenu,
-                            onSelect: function (sel) {
-                                Lampa.Activity.push({
-                                    url: sel.url,
-                                    title: '电影 - ' + sel.title,
-                                    component: 'bibi',
-                                    quantity: '',
-                                    page: 1
+                            $('a.model', str).each(function (i, html) {
+                                archiveMenu.push({
+                                    title: '查看 ' + $('.placeholder', html).attr('title') + ' 所有视频',
+                                    url: $(html).attr('href'),
                                 });
-                            },
-                            onBack: function () {
-                                Lampa.Controller.toggle('content');
-                            }
-                        })
+                            });
+
+                            Lampa.Select.show({
+                                title: '相关内容',
+                                items: archiveMenu,
+                                onSelect: function (sel) {
+                                    Lampa.Activity.push({
+                                        url: sel.url,
+                                        title: '电影 - ' + sel.title,
+                                        component: 'bibi',
+                                        quantity: '',
+                                        setup: object.setup,
+                                        page: 1
+                                    });
+                                },
+                                onBack: function () {
+                                    Lampa.Controller.toggle('content');
+                                }
+                            })
 
 
-                    }, function (a, c) {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    }, false, {
-                        dataType: 'json'
-                    });
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: object.setup.datatype
+                        });
+                    } else if (element.url.indexOf('njav') !== -1) {
+                        network["native"](cors + element.url.replace('/v/', '/zh/v/'), function (str) {
+                            if (object.setup.datatype == 'json') {
+                                str = str.contents
+                            };
 
-                    // var regex = /^(.*?)-/;  // 匹配连字符前的所有字符
-                    // var match = element.episodes_info.match(regex);
-                    // var characters;
-                    // if (match) {
-                    //     characters = match[1];  // 获取匹配到的字符
-                    // } else {
-                    //     characters = ''
-                    // }
-                    // var archiveMenu = [];
-                    // archiveMenu.push({
-                    //     title: '查看 ' + characters + ' 所有视频',
-                    //     url: 'https://njav.tv/zh/tags/' + characters,
-                    //     // connectype: 'native'
-                    // });
-                    // Lampa.Select.show({
-                    //     title: '操作',
-                    //     items: archiveMenu,
-                    //     onSelect: function (sel) {
-                    //         Lampa.Activity.push({
-                    //             url: sel.url,
-                    //             title: '电影 - ' + sel.title,
-                    //             component: 'bibi',
-                    //             quantity: '',
-                    //             page: 1
-                    //         });
-                    //     },
-                    //     onBack: function () {
-                    //         Lampa.Controller.toggle('content');
-                    //     }
-                    // })
+                            Lampa.Modal.close();
+                            var archiveMenu = [];
+                            $('.detail-item a[href*="actresses/"],.detail-item a[href*="labels/"],.detail-item a[href*="tags/"]', str).each(function (i, html) {
+                                archiveMenu.push({
+                                    title: '查看 ' + $(html).text() + ' 所有视频',
+                                    url: 'https://njav.tv/zh/' + $(html).attr('href'),
+                                });
+                            });
+                            
+                            Lampa.Select.show({
+                                title: '相关内容',
+                                items: archiveMenu,
+                                onSelect: function (sel) {
+                                    Lampa.Activity.push({
+                                        url: sel.url,
+                                        title: '电影 - ' + sel.title,
+                                        component: 'bibi',
+                                        quantity: '',
+                                        setup: object.setup,
+                                        page: 1
+                                    });
+                                },
+                                onBack: function () {
+                                    Lampa.Controller.toggle('content');
+                                }
+                            })
+
+
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: object.setup.datatype
+                        });
+                    }
                 });
-                // }
+                
                 body.append(card);
                 if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
@@ -498,21 +621,21 @@
             });
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
-                    title: '影片 - 搜索',
+                    title: object.setup.title + ' - 搜索影片',
                     value: '',
                     free: true,
                     nosave: true
                 }, function (new_value) {
                     if (new_value) {
                         //console.log(new_value)
-                        var searchurl = object.url.match(/\?q=(.+)/) ? object.url.replace(object.url.match(/\?q=(.+)/)[1], encodeURIComponent(new_value)) : (object.url.indexOf('q=' == -1) ? object.url + '?q=' + encodeURIComponent(new_value) : object.url.replace('q=', 'q=' + encodeURIComponent(new_value)));
-                        searchurl = 'https://njav.tv/zh/search?keyword=' + encodeURIComponent(new_value)
+                        var searchurl = object.setup.search.url.replace('#msearchword', encodeURIComponent(new_value));
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: searchurl,
-                            title: '影片 - 搜索"' + new_value + '"',
+                            title: object.setup.title + ' - 搜索"' + new_value + '"',
                             component: 'bibi',
                             quantity: '',
+                            setup: object.setup,
                             page: 1
                         });
                     }
@@ -523,6 +646,7 @@
             this.selectGroup = function () {
 
                 var balanser_ = Lampa.Storage.get('online_bibi_balanser')
+                
                 Lampa.Select.show({
                     title: '网站',
                     // items: catalogs,
@@ -532,13 +656,16 @@
                     }),
                     onSelect: function onSelect(a) {
                         Lampa.Storage.set('online_bibi_balanser', a.title);
-
+                        var catalogs1 = catalogs.filter(function (fp) {
+                            return fp.title === a.title
+                        });
                         Lampa.Activity.push({
                             //	url: cors + a.url,
                             url: a.category[0].url,
                             title: a.title + ' - ' + a.category[0].title,
                             quantity: a.category[0].quantity,
                             component: 'bibi',
+                            setup: catalogs1[0],
                             page: 1
                         });
                     },
@@ -647,6 +774,214 @@
         };
     }
 
+    var catalogs = [
+        {
+            title: "Jable.tv",
+            link: "https://jable.tv",
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: true,
+            datatype: "text",
+            category: [
+                {
+                    title: '全新上市',
+                    url: 'https://jable.tv/new-release/',
+                    quantity: ''
+                }, {
+                    title: '最近更新',
+                    url: 'https://jable.tv/latest-updates/',
+                    quantity: ''
+                },{
+                    title: '本周热门',
+                    url: 'https://jable.tv/hot/',
+                    quantity: ''
+                }],
+            list: {
+                page: {
+                    selector: ".pagination"
+                },
+                videoscontainer: {
+                    selector: "div.video-img-box",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "h6.title a",
+                    attrName: "text",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "data-src",
+                    filter: ""
+                },
+                link: {
+                    selector: "h6.title a",
+                    attrName: "href",
+                    filter: ""
+                },
+                game_status: {
+                    selector: ".pay-btn",
+                    attrName: "",
+                    filter: ""
+                },
+                mnumber: {
+                    selector: "h6.title a",
+                    attrName: "href",
+                    filter: "\/([a-zA-Z0-9-]+)\/?$"
+                },
+                m_time: {
+                    selector: ".label",
+                    attrName: "",
+                    filter: ""
+                },
+                team_home: {
+                    selector: ".text-right",
+                    attrName: "",
+                    filter: ""
+                },
+                team_away: {
+                    selector: ".text-left",
+                    attrName: "",
+                    filter: ""
+                },
+            },
+            detail: {
+                videoscontainer: {
+                    selector: '',
+                    attrName: '',
+                    filter: ''
+                },
+                title: {
+                    selector: 'a',
+                    attrName: 'text',
+                    filter: ''
+                },
+                link: {
+                    selector: 'a',
+                    attrName: 'href',
+                    filter: ''
+                }
+            },
+            search: {
+                url: 'https://jable.tv/search/?q=#msearchword&from_videos=1'
+            }
+        },
+        {
+            title: "NJAV.tv",
+            link: "https://njav.tv",
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: true,
+            datatype: "json",
+            category: [{
+                title: '首页',
+                url: 'https://njav.tv/zh/',
+                quantity: ':gt(9)'
+            }, {
+                title: '全新上市',
+                url: 'https://njav.tv/zh/new-release',
+                quantity: ''
+            }, {
+                title: '最近更新',
+                url: 'https://njav.tv/zh/recent-update',
+                quantity: ''
+            }, {
+                title: '热门',
+                url: 'https://njav.tv/zh/trending',
+                quantity: ''
+            }, {
+                title: '推荐',
+                url: 'https://njav.tv/zh/recommended',
+                quantity: ''
+            }, {
+                title: '今日最佳',
+                url: 'https://njav.tv/zh/today-hot',
+                quantity: ''
+            }, {
+                title: '本周最佳',
+                url: 'https://njav.tv/zh/weekly-hot',
+                quantity: ''
+            }, {
+                title: '本月最佳',
+                url: 'https://njav.tv/zh/monthly-hot',
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: ".pagination"
+                },
+                videoscontainer: {
+                    selector: "div.box-item",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: ".detail a",
+                    attrName: "text",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "data-src",
+                    filter: ""
+                },
+                link: {
+                    selector: ".detail a",
+                    attrName: "href",
+                    filter: ""
+                },
+                game_status: {
+                    selector: ".pay-btn",
+                    attrName: "",
+                    filter: ""
+                },
+                mnumber: {
+                    selector: "img",
+                    attrName: "alt",
+                    filter: ""
+                },
+                m_time: {
+                    selector: ".duration",
+                    attrName: "",
+                    filter: ""
+                },
+                team_home: {
+                    selector: ".text-right",
+                    attrName: "",
+                    filter: ""
+                },
+                team_away: {
+                    selector: ".text-left",
+                    attrName: "",
+                    filter: ""
+                },
+            },
+            detail: {
+                videoscontainer: {
+                    selector: '',
+                    attrName: '',
+                    filter: ''
+                },
+                title: {
+                    selector: 'a',
+                    attrName: 'text',
+                    filter: ''
+                },
+                link: {
+                    selector: 'a',
+                    attrName: 'href',
+                    filter: ''
+                }
+            },
+            search: {
+                url: 'https://njav.tv/zh/search?keyword=#msearchword'
+            }
+        },
+    ];
+
     function listNavigation() {
         if (Lampa.Storage.get('online_bibi_balanser') == '') {
             Lampa.Storage.set('online_bibi_balanser', catalogs[0].title);
@@ -672,6 +1007,7 @@
                     title: catalogs1[0].title + ' - ' + a.title,
                     quantity: a.quantity,
                     component: 'bibi',
+                    setup: catalogs1[0],
                     page: 1
                 });
             },
