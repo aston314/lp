@@ -446,6 +446,7 @@
                                 };
                                 Lampa.Player.play(video);
                                 Lampa.Player.playlist([video]);
+                                
                             } else {
                                 Lampa.Noty.show('没有找到对应影片。');
                             };
@@ -454,7 +455,7 @@
                         }, false, {
                             dataType: object.setup.datatype
                         });
-                        // Lampa.Controller.toggle('content');
+                        Lampa.Controller.toggle('content');
                     } else if (element.url.indexOf('njav') !== -1) {
                         network["native"](cors + element.url.replace('/v/', '/zh/v/'), function (str) {
                             var regex = /Video\({id:\s*'(\d+)'\}\)/;
