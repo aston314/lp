@@ -79,6 +79,15 @@
       "release_date": "2003-08-15"
     },
     {
+      "tmdbrate": 7.2,
+      "picture": "http://image.tmdb.org/t/p/w200/bHngyBFKw5CIGBy93BVgyHMG577.jpg",
+      "name": "Scream VI",
+      "video": "magnet:?xt=urn:btih:71E0CF8009CA9251E9875C0C7E0D52A87FF73E72&dn=Scream+VI+2023+AMZN+WEBRip+1080p+DTS+DD%2B+5.1+Atmos+x264-MgB&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Scream VI 2023 AMZN WEBRip 1080p DTS DD+ 5.1 Atmos x264-MgB",
+      "cname": "惊声尖叫6 ",
+      "release_date": "2023-03-08"
+    },
+    {
       "tmdbrate": 6.926,
       "picture": "http://image.tmdb.org/t/p/w200/lp2o33s0SG1SpufZdAHe1CxMQuB.jpg",
       "name": "Cars",
