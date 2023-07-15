@@ -1100,7 +1100,7 @@
          },
          "thumb":{
             "selector":".img-responsive",
-            "attrName":"src",
+            "attrName":"data-cfsrc",
             "filter":""
          },
          "link":{
