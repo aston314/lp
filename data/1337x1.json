@@ -115,6 +115,14 @@
       "release_date": "2001-09-07"
     },
     {
+      "tmdbrate": 6.1,
+      "picture": "http://image.tmdb.org/t/p/w200/ucCICS60CK5tfA50BXoQbEf8rKN.jpg",
+      "name": "The Lake",
+      "video": "magnet:?xt=urn:btih:A072C251CC3E96D8D3BD1DBC20344E13CC141F23&dn=The+Lake+2022+1080p+Thai+BluRay+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Lake 2022 1080p Thai BluRay HEVC x265 5.1 BONE",
+      "cname": " "
+    },
+    {
       "tmdbrate": 6.688,
       "picture": "http://image.tmdb.org/t/p/w200/h8WMDOTgJxcqKZhO0S7MDKyO4Cx.jpg",
       "name": "The Transporter",
@@ -122,6 +130,15 @@
       "oname": "The Transporter (2002) 1080p H265 BluRay Rip ita eng AC3 5.1 sub ...",
       "cname": "玩命快递 ",
       "release_date": "2002-10-02"
+    },
+    {
+      "tmdbrate": 6.478,
+      "picture": "http://image.tmdb.org/t/p/w200/g0OWGM7HoIt866Lu7yKohYO31NU.jpg",
+      "name": "Ant-Man And The Wasp Quantumania",
+      "video": "magnet:?xt=urn:btih:167EED9A7D5099721E3DF33AC5D985ACBA21E79A&dn=Ant-Man+And+The+Wasp+Quantumania+2023+Bluray+1080p+AV1+EN%2FFR+OPUS+5.1-UH&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Ant-Man And The Wasp Quantumania 2023 Bluray 1080p AV1 EN/FR OPUS...",
+      "cname": "蚁人与黄蜂女：量子狂潮 ",
+      "release_date": "2023-02-15"
     },
     {
       "tmdbrate": 6.992,
@@ -167,6 +184,15 @@
       "oname": "Dreamcatcher.2003.1080p.BluRay.x265.DTS-HD.MA.5.1-N0DS13",
       "cname": "捕梦者 ",
       "release_date": "2021-03-05"
+    },
+    {
+      "tmdbrate": 6.2,
+      "picture": "http://image.tmdb.org/t/p/w200/eVmiwGCTatFHagub5V2HFoD8XB2.jpg",
+      "name": "Return To Seoul",
+      "video": "magnet:?xt=urn:btih:3F88CCBDE5340CCE45E8C5E06FBC5F3F81A01ED4&dn=Return+To+Seoul+2022+1080p+French+BluRay+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Return To Seoul 2022 1080p French BluRay HEVC x265 5.1 BONE",
+      "cname": "回首尔 ",
+      "release_date": "2022-12-02"
     },
     {
       "tmdbrate": 6.5,
