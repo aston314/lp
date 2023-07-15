@@ -1552,7 +1552,7 @@
                         //     //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
                         //     ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
                         // };
-                        var regex1 = /playwoool\.com|doubanio\.com|img\.yts\.mx/;
+                        var regex1 = /playwoool\.com|doubanio\.com/;
                         var regex2 = /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/;
 
                         if (regex1.test(ii) && regex2.test(ii)) {
