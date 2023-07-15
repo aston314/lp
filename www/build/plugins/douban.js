@@ -49,7 +49,11 @@
 
                 _this.activity.toggle();
             }, false, false, {
-                dataType: 'json'
+                dataType: 'json',
+                headers: {
+                    'Referer' :'https://movie.douban.com/',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                }
             });
 
             // if (!!window.cordova) {
@@ -105,7 +109,11 @@
                 if (datatye.length) waitload = false;
                 // Lampa.Controller.enable('content');
             }, false, false, {
-                dataType: 'json'
+                dataType: 'json',
+                headers: {
+                    'Referer' :'https://movie.douban.com/',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                }
             });
 
                 // if (!!window.cordova) {
@@ -151,11 +159,18 @@
                 img.onerror = function (e) {
                     img.src = './img/img_broken.svg';
                 };
+                // 解决403图片缓存问题
+                // function getImages(_url){
+                //     if (_url !== undefined) {
+                //         let _u = _url.substring(7);
+                //         return 'https://images.weserv.nl/?url=' + _u;
+                //     }
+                // }
                 if (Lampa.Storage.field('douban_img_proxy')){
                     //console.log(ii.indexOf('://'))
                     //豆瓣图片域名
                     if (element.cover.indexOf('doubanio.com') !== -1 && element.cover.indexOf('://') == 5){
-                      element.cover = 'https://images.weserv.nl/?url=' + element.cover.replace('https://','')
+                      element.cover =  element.cover.replace('https://','https://images.weserv.nl/?url=')
                     };
                   };
                 card.find('.card__img').attr('src', element.cover||element.img);
