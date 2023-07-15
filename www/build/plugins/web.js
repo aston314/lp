@@ -1102,8 +1102,9 @@
                     img.src = './img/img_broken.svg';
                 };
                 //var picture = Lampa.Storage.field('proxy_other') === false ? element.img : Lampa.Utils.protocol() + 'proxy.cub.watch/img/' + element.img;
-                var picture = element.img;
-                img.src = picture;
+                // var picture = element.img;
+                // img.src = picture;
+                card.find('.card__img').attr('src', element.img);
                 if (element.update) {
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text(element.update);
@@ -1551,17 +1552,17 @@
                         //     //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
                         //     ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
                         // };
-                        var regex1 = /playwoool\.com|doubanio\.com/;
+                        var regex1 = /playwoool\.com|doubanio\.com|img\.yts\.mx/;
                         var regex2 = /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/;
 
                         if (regex1.test(ii) && regex2.test(ii)) {
                             ii = ii.replace('https://', 'https://images.weserv.nl/?url=');
-                        } 
+                        } else if (ii.includes('pic.imgdb.cn')) {
+                            ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
+                        };
                     };
 
-                    if (ii.includes('pic.imgdb.cn') || ii.includes('img.yts.mx')) {
-                        ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
-                    };
+                    
 
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
