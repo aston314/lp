@@ -1,13 +1,6 @@
 (function () {
     'use strict';
     var catalogs;
-
-    var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
-    var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
-    var UA = "Mozilla/5.0";
-    var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
-    var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
-
     var inner_catalogs = [
         // {
         //     title: "完美看看",
@@ -936,9 +929,6 @@
     } else {
         catalogs = inner_catalogs;
     };
-    function filtred_(json) {
-        catalogs = json;
-    };
 
     //console.log(catalogs)
 
@@ -953,6 +943,12 @@
             over: true,
             step: 250
         });
+        var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
+        var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
+        var UA = "Mozilla/5.0";
+        var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
+        var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
+
 
         var s, s_name;
         if (object.show == 'minilandscape') {
@@ -975,92 +971,60 @@
         var relises = [];
         var doubanitem = [];
         var total_pages;
+
         this.create = function () {
             var _this = this;
             // console.log(object.page);
             //console.log(object.cards);
             if ((object.page == 1) || object.cards || (!object.card && !Lampa.Storage.field('light_version') && object.card_cat)) {
                 this.activity.loader(true);
-                if (object.use_referer) {
-                    network["native"](cors + object.url, function (str) {
-                        var data = _this.card(str);
-                        _this.build(data);
-                    }, function (a, c) {
-                        //_this.selectGroup();
-                        // $(".noty:hidden").show();
-                        // _this.activity.loader(false);
-                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                        var empty = new Lampa.Empty({
-                            descr: '哦，无法获取 ' + object.title + ' 的内容。'
-                        });
-                        html.append(empty.render());
-                        // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        // //console.log(object)
-                        // empty.render().find('.simple-button').on('hover:enter', function () {
-                        //     //$(".empty__footer").on('hover:enter hover:click', function () {
-                        //     _this.selectGroup();
-                        // });
-
-                        var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
-                        var ft = $('<div class="empty__footer"></div>');
-                        bn.on('hover:enter', function () {
-                            _this.selectGroup();
-                        });
-                        ft.append(bn);
-                        empty.append(ft);
-                        html.append(empty)
-
-                        _this.start = empty.start;
-                        _this.activity.loader(false);
-                        _this.activity.toggle();
-                        return;
-                    }, false, {
-                        dataType: 'text',
-                        headers: {
-                            'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                            'User-Agent': MOBILE_UA,
-                            // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                            // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
-                            // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
-                        }
+                network["native"](cors + object.url, function (str) {
+                    var data = _this.card(str);
+                    _this.build(data);
+                }, function (a, c) {
+                    //_this.selectGroup();
+                    // $(".noty:hidden").show();
+                    // _this.activity.loader(false);
+                    // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
+                    var empty = new Lampa.Empty({
+                        descr: '哦，无法获取 ' + object.title + ' 的内容。'
                     });
-                } else {
-                    network["native"](cors + object.url, function (str) {
-                        var data = _this.card(str);
-                        _this.build(data);
-                    }, function (a, c) {
-                        //_this.selectGroup();
-                        // $(".noty:hidden").show();
-                        // _this.activity.loader(false);
-                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                        var empty = new Lampa.Empty({
-                            descr: '哦，无法获取 ' + object.title + ' 的内容。'
-                        });
-                        html.append(empty.render());
-                        $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        empty.render().find('.simple-button').on('hover:enter', function () {
-                            //$(".empty__footer").on('hover:enter hover:click', function () {
-                            _this.selectGroup();
-                        });
-                        _this.start = empty.start;
-                        _this.activity.loader(false);
-                        _this.activity.toggle();
-                        return;
-                    }, false, {
-                        dataType: 'text'
+                    html.append(empty.render());
+                    // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                    // //console.log(object)
+                    // empty.render().find('.simple-button').on('hover:enter', function () {
+                    //     //$(".empty__footer").on('hover:enter hover:click', function () {
+                    //     _this.selectGroup();
+                    // });
+
+                    var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                    var ft = $('<div class="empty__footer"></div>');
+                    bn.on('hover:enter', function () {
+                        _this.selectGroup();
                     });
-                };
+                    ft.append(bn);
+                    empty.append(ft);
+                    html.append(empty)
+
+                    _this.start = empty.start;
+                    _this.activity.loader(false);
+                    _this.activity.toggle();
+                    return;
+                }, false, {
+                    dataType: 'text',
+                    headers: _this.setheader(object.use_referer)
+                });
 
             } else _this.build(object.data);
             return this.render();
         };
         this.next = function (page) {
-            
+
             var _this2 = this;
             if (total_pages == 1 || total_pages == 0) waitload = true;
-            
+
             if (waitload) return;
-            
+
             waitload = true;
             object.page++;
             //console.log(object.page);
@@ -1068,19 +1032,19 @@
             network.timeout(1000 * 40);
             if (typeof page == 'undefined') return;
             if (page.indexOf('undefined') != -1) return;
-            
+
             //var page1 = page.match(new RegExp('-([0-9])\.', ''))[0];
             //console.log(page1[0]);
             //page = page.replace(page.match(/-(\d+)/)[0],'-'+ object.page)
             //console.log(page.match(/[0-9]+(?=[^0-9]*$)(.+)/))
             //var ext = page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '';
-            
+
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
                 const regex = /page=(\d+)/;  // 正则表达式
                 const match = page.match(regex);  // 使用 match() 方法来匹配
-                
+
 
                 if (match) {
                     //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
@@ -1092,51 +1056,26 @@
             }
             //console.log(page);
             //console.log(object)
-            if (object.use_referer) {
-                network["native"](cors + page, function (result) {
-                    var data = _this2.card(result);
-                    object.data = data;
-                    _this2.append(data,true);
-                    if (data.card.length) waitload = false;
-                    // Lampa.Controller.toggle('content');
-                    _this2.activity.loader(false);
-                }, function (a, c) {
-                    if (a.status == 404) {
-                        // Lampa.Noty.show('ohh,已经是最后一页了');
-                    } else {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    }
-                }, false, {
-                    dataType: 'text',
-                    headers: {
-                        'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                        'User-Agent': MOBILE_UA,
-                        // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                        // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
-                        // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
-                    }
-                });
-            } else {
-                network["native"](cors + page, function (result) {
-                    var data = _this2.card(result);
-                    object.data = data;
-                    _this2.append(data,true);
-                    if (data.card.length) waitload = false;
-                    // Lampa.Controller.toggle('content');
-                    _this2.activity.loader(false);
-                }, function (a, c) {
-                    if (a.status == 404) {
-                        // Lampa.Noty.show('ohh,已经是最后一页了');
-                    } else {
-                        Lampa.Noty.show(network.errorDecode(a, c));
-                    }
-                }, false, {
-                    dataType: 'text'
-                });
-            };
+            network["native"](cors + page, function (result) {
+                var data = _this2.card(result);
+                object.data = data;
+                _this2.append(data, true);
+                if (data.card.length) waitload = false;
+                // Lampa.Controller.toggle('content');
+                _this2.activity.loader(false);
+            }, function (a, c) {
+                if (a.status == 404) {
+                    // Lampa.Noty.show('ohh,已经是最后一页了');
+                } else {
+                    Lampa.Noty.show(network.errorDecode(a, c));
+                }
+            }, false, {
+                dataType: 'text',
+                headers: _this2.setheader(object.use_referer)
+            });
         };
 
-        this.append = function (data,append) {
+        this.append = function (data, append) {
             var _this2 = this;
             data.card.forEach(function (element) {
                 var card = Lampa.Template.get('card', {
@@ -1372,7 +1311,7 @@
                     elem.selected = balanser_ == elem.title;
                     // console.log(balanser_,elem)
                     return elem;
-                  }),
+                }),
                 onSelect: function onSelect(a) {
                     //console.log(a)
                     Lampa.Storage.set('online_web_balanser', a.title);
@@ -1428,7 +1367,8 @@
                 }, function (a, c) {
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
-                    dataType: 'text'
+                    dataType: 'text',
+                    headers: _this.setheader(object.use_referer)
                 });
             });
             body.append(more);
@@ -1522,7 +1462,7 @@
                 //console.log(object.search)
                 if (page) {
                     if (page.indexOf('http') == -1) {
-                        page = host + (page.startsWith('/') ? page : '/'+ page);
+                        page = host + (page.startsWith('/') ? page : '/' + page);
                     };
                     if (page.indexOf('#') !== -1) {
                         page = object.url;
@@ -1637,6 +1577,23 @@
                 };
             }
         };
+        this.setheader = function (isreferer) {
+            var headercontent = {};
+            if (isreferer) {
+                headercontent = {
+                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+                    'User-Agent': MOBILE_UA,
+                    // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                    // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+                    // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
+                }
+            } else {
+                headercontent = {
+                    'User-Agent': MOBILE_UA,
+                }
+            };
+            return headercontent;
+        }
         this.finds = function (find) {
             var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
             var finded;
