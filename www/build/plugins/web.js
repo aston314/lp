@@ -1560,7 +1560,7 @@
                     };
 
                     if (ii.includes('pic.imgdb.cn') || ii.includes('img.yts.mx')) {
-                        ii = ii.replace(/http:\/\/|https:\/\//, 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=') + '&w=270&h=405';
+                        ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
                     };
 
                     card.push({
