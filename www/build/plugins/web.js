@@ -1544,13 +1544,23 @@
                     if (Lampa.Storage.field('douban_img_proxy')) {
                         //console.log(ii.indexOf('://'))
                         //豆瓣图片域名
-                        if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(ii) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(ii)) {//ii.indexOf('://') == 5
-                            ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
-                        } else if (ii.indexOf('pic.imgdb.cn') !== -1) {
-                            //console.log(ii.indexOf('www.dydhhy.com'))
-                            //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
-                            ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
-                        };
+                        // if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(ii) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(ii)) {//ii.indexOf('://') == 5
+                        //     ii = 'https://images.weserv.nl/?url=' + ii.replace('https://', '')
+                        // } else if (ii.indexOf('pic.imgdb.cn') !== -1) {
+                        //     //console.log(ii.indexOf('www.dydhhy.com'))
+                        //     //http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=https://pic.imgdb.cn/item/63dcde3c98e1d752347d0e72.jpg&w=270&h=405
+                        //     ii = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + ii + '&w=270&h=405'
+                        // };
+                        var regex1 = /playwoool\.com|doubanio\.com/;
+                        var regex2 = /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/;
+
+                        if (regex1.test(ii) && regex2.test(ii)) {
+                            ii = ii.replace('https://', 'https://images.weserv.nl/?url=');
+                        } 
+                    };
+
+                    if (ii.includes('pic.imgdb.cn') || ii.includes('img.yts.mx')) {
+                        ii = ii.replace(/http:\/\/|https:\/\//, 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=') + '&w=270&h=405';
                     };
 
                     card.push({
