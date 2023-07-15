@@ -1056,7 +1056,7 @@
       "show":"portrait",
       "next":"detail",
       "datasort":"",
-      "use_referer":true,
+      "use_referer":false,
       "category":[
          {
             "title":"热门电影",
