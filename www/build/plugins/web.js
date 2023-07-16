@@ -1173,11 +1173,9 @@
                                     var file = tab.url;
                                     if (/^https?:\/\//i.test(file) === false) {
                                         if (file.indexOf('magnet:?') !== -1) {
-                                            if (Lampa.Platform.is("android")) {
-                                                        
-                                            } else {
+                                            if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
-                                            };
+                                            }
                                             var SERVER1 = {
                                                 "title": "",
                                                 "MagnetUri": "",
@@ -1210,9 +1208,7 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
-                                            if (Lampa.Platform.is("android")) {
-                                                        
-                                            } else {
+                                            if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
                                             };
                                             var video = {
@@ -1270,9 +1266,8 @@
 
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
-                                                    if (Lampa.Platform.is("android")) {
-                                                        
-                                                    } else {
+                                                    console.log(Lampa.Platform.is("android"))
+                                                    if (!Lampa.Platform.is("android")) {
                                                         Lampa.Modal.close();
                                                     };
                                                     var video = {
