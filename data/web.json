@@ -1115,7 +1115,7 @@
          },
          "thumb": {
             "selector": ".img-responsive",
-            "attrName": "data-cfsrc",
+            "attrName": "src",
             "filter": ""
          },
          "link": {
