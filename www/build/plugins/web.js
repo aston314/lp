@@ -1207,9 +1207,9 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
-                                            if (!Lampa.Platform.is("android")) {
+                                            // if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
-                                            }
+                                            // };
                                             var video = {
                                                 title: element.title_org,
                                                 url: file,
