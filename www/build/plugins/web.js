@@ -1158,12 +1158,13 @@
                                 //var f = l1.attr('href');
                                 //console.log(f.substr(0,1) =='/')
                                 f = f.substr(0, 1) == '/' ? host + f : f;
+
                                 sources.push({
                                     url: f,
                                     title: /.*www\.aliyundrive\.com.*/.test(r) ? '阿里云盘 - 资源' + (i + 1) : r,
                                 });
 
-                            }); 
+                            });
                             var html_ = $('<div></div>');
                             var navigation = $('<div class="navigation-tabs"></div>');
                             sources.forEach(function (tab, i) {
@@ -1207,9 +1208,9 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
-                                            // if (!Lampa.Platform.is("android")) {
+                                            if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
-                                            // };
+                                            };
                                             var video = {
                                                 title: element.title_org,
                                                 url: file,
@@ -1265,6 +1266,9 @@
 
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
+                                                    if (!Lampa.Platform.is("android")) {
+                                                        Lampa.Modal.close();
+                                                    };
                                                     var video = {
                                                         title: element.title,
                                                         url: videolink,
