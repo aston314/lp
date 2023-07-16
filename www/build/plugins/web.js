@@ -1160,7 +1160,7 @@
                                 f = f.substr(0, 1) == '/' ? host + f : f;
                                 sources.push({
                                     url: f,
-                                    title: r,
+                                    title: /.*www\.aliyundrive\.com.*/.test(r) ? '阿里云盘 - 资源' + (i + 1) : r,
                                 });
 
                             }); 
@@ -1330,19 +1330,6 @@
                         }, false, {
                             dataType: 'text'
                         });
-
-
-                        // Lampa.Activity.push({
-                        //     url: element.url,
-                        //     title: object.title,
-                        //     component: 'detail_mod',
-                        //     search: element.title,
-                        //     search_one: element.title,
-                        //     search_two: element.title,
-                        //     movie: element,
-                        //     detail: object.detail,
-                        //     page: 1
-                        // });
                     } else if (object.next == 'play') {
                         network["native"](element.url, function (result) {
                             // /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
