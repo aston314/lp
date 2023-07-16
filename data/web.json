@@ -2,6 +2,7 @@
    {
       "title": "LIBVIO",
       "link": "https://libvio.cc",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -81,6 +82,7 @@
    {
       "title": "乐猪TV",
       "link": "http://www.lezhutv.com",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -155,6 +157,7 @@
    {
       "title": "秋霞电影",
       "link": "https://www.7xiady.cc",
+      "available": true,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -236,6 +239,7 @@
    {
       "title": "霸王龙压制组",
       "link": "https://t-rex.tzfile.com",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -347,6 +351,7 @@
    {
       "title": "低端影视",
       "link": "https://ddys.pro",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -421,6 +426,7 @@
    {
       "title": "在线之家",
       "link": "https://www.zxzj.pro",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -495,6 +501,7 @@
    {
       "title": "素白白",
       "link": "https://www.subaibaiys.com/",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -589,6 +596,7 @@
    {
       "title": "厂长资源",
       "link": "https://czzy03.com",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -673,6 +681,7 @@
    {
       "title": "Auete影视",
       "link": "https://auete.org",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -737,6 +746,7 @@
    {
       "title": "皮皮鸭",
       "link": "https://www.pipiya.cc",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -816,6 +826,7 @@
    {
       "title": "达达龟",
       "link": "https://www.dadagui.me",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -895,6 +906,7 @@
    {
       "title": "动漫 - 奇米奇米",
       "link": "http://www.qimiqimi.net",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -959,6 +971,7 @@
    {
       "title": "动漫 - 樱花动漫",
       "link": "http://www.yinghuavideo.com",
+      "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
@@ -1018,6 +1031,7 @@
    {
       "title": "JableTV",
       "link": "https://jable.tv",
+      "available": true,
       "show": "landscape",
       "next": "play",
       "datasort": "",
@@ -1067,6 +1081,7 @@
    {
       "title": "YTS.MX - 磁力下载",
       "link": "https://yts.mx",
+      "available": true,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -1148,6 +1163,7 @@
    {
       "title": "YTS.AUTOS - 磁力下载",
       "link": "https://yts.autos",
+      "available": false,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -1229,6 +1245,7 @@
    {
       "title": "音范丝 - 磁力下载",
       "link": "https://www.yinfans.me",
+      "available": true,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -1300,6 +1317,7 @@
    {
       "title": "蓝光电影网 - 磁力下载",
       "link": "http://www.languangdy.com",
+      "available": true,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -1381,6 +1399,7 @@
    {
       "title": "4K HDR - 磁力下载",
       "link": "https://4khdr.cn",
+      "available": true,
       "show": "portrait",
       "next": "detail",
       "datasort": "",
@@ -1477,6 +1496,7 @@
    {
       "title": "阿里云盘发布频道",
       "link": "https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
+      "available": true,
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
@@ -1521,6 +1541,7 @@
    {
       "title": "阿里云盘发布频道2",
       "link": "https://cors.eu.org/https://tx.me/s/shareAliyun",
+      "available": true,
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
@@ -1565,6 +1586,7 @@
    {
       "title": "阿里云盘盘",
       "link": "https://cors.eu.org/https://tx.me/s/yunpanpan",
+      "available": true,
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
@@ -1609,6 +1631,7 @@
    {
       "title": "肯德基电影院",
       "link": "https://cors.eu.org/https://tx.me/s/XiangxiuNB",
+      "available": true,
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
@@ -1653,6 +1676,7 @@
    {
       "title": "tvbox - 软件下载",
       "link": "https://www.tvbox.one/",
+      "available": true,
       "show": "landscape",
       "next": "detail",
       "datasort": "",
@@ -1734,6 +1758,7 @@
    {
       "title": "DYD - 阿里云盘",
       "link": "http://www.dydhhy.com",
+      "available": true,
       "show": "landscape",
       "next": "detail",
       "datasort": "",
@@ -1840,6 +1865,7 @@
    {
       "title": "Ahhhhfs - 阿里云盘",
       "link": "https://www.ahhhhfs.com/",
+      "available": true,
       "show": "landscape",
       "next": "detail",
       "datasort": "",
@@ -1901,6 +1927,7 @@
    {
       "title": "体育 - JRKAN直播",
       "link": "http://play.sportsteam685.com",
+      "available": true,
       "show": "minilandscape",
       "next": "detail",
       "datasort": "",
@@ -1961,6 +1988,7 @@
    {
       "title": "体育 - 24看球网",
       "link": "https://www.24kanqiu.com",
+      "available": false,
       "show": "minilandscape",
       "next": "detail",
       "datasort": "",
