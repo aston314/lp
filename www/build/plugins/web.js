@@ -1120,17 +1120,229 @@
                             Lampa.Noty.show('没有找到阿里云盘链接。');;
                         };
                     } else if (object.next == 'detail') {
-                        Lampa.Activity.push({
-                            url: element.url,
-                            title: object.title,
-                            component: 'detail_mod',
-                            search: element.title,
-                            search_one: element.title,
-                            search_two: element.title,
-                            movie: element,
-                            detail: object.detail,
-                            page: 1
+                        last = card[0];
+                        Lampa.Modal.open({
+                            title: '',
+                            html: Lampa.Template.get('modal_loading'),
+                            size: 'small',
+                            align: 'center',
+                            mask: true,
+                            onBack: function onBack() {
+                                Lampa.Modal.close();
+                                Lampa.Api.clear();
+                                Lampa.Controller.toggle('content');
+                            }
                         });
+
+                        element.original_title = '';
+                        element.title = object.title;
+
+                        var sources = [];
+
+                        network["native"](element.url, function (str) {
+                            Lampa.Modal.close();
+                            var str = str.replace(/\n|\r/g, '')
+                            var h = $(object.detail.videoscontainer.selector, str);
+                            var t = object.detail.title.selector;
+                            var l = object.detail.link.selector;
+
+                            $(h).each(function (i, html) {
+                                var t1 = t ? $(this).find(t) : $(this);
+                                var l1 = l ? $(this).find(l) : $(this);
+                                var r = (object.detail.title.attrName == 'text' || object.detail.title.attrName == '') ? t1.text() : t1.attr(object.detail.title.attrName);
+                                r = object.detail.title.filter !== '' ? (r.match(new RegExp(object.detail.title.filter)) ? r.match(new RegExp(object.detail.title.filter))[1] : r) : r;
+
+                                var host = object.url.indexOf('http') == -1 ? '' : object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                                var f = (object.detail.link.attrName == 'text' || object.detail.link.attrName == '') ? l1.text() : l1.attr(object.detail.link.attrName);
+                                f = object.detail.link.filter !== '' ? (f.match(new RegExp(object.detail.link.filter)) ? f.match(new RegExp(object.detail.link.filter))[1] : f) : f;
+                                //var f = l1.attr('href');
+                                //console.log(f.substr(0,1) =='/')
+                                f = f.substr(0, 1) == '/' ? host + f : f;
+                                sources.push({
+                                    url: f,
+                                    title: r,
+                                });
+
+                            }); 
+
+                            //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+                            // $('a[href*="www.aliyundrive.com"],a[href*="magnet:?xt=urn:btih:"]', str).each(function (i, html) {
+                            //     sources.push({
+                            //         title: /.*www\.aliyundrive\.com.*/.test(html.href) ? '阿里云盘 - 资源' + (i + 1) : '磁力链接 - 资源' + (i + 1),
+                            //         url: html.href,
+                            //     });
+                            // });
+
+                            var html_ = $('<div></div>');
+                            var navigation = $('<div class="navigation-tabs"></div>');
+                            sources.forEach(function (tab, i) {
+                                var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                                button.on('hover:enter', function () {
+                                    var file = tab.url;
+                                    if (/^https?:\/\//i.test(file) === false) {
+                                        if (file.indexOf('magnet:?') !== -1) {
+                                            if (!Lampa.Platform.is("android")) {
+                                                Lampa.Modal.close();
+                                              }
+                                            var SERVER1 = {
+                                                "title": "",
+                                                "MagnetUri": "",
+                                                "poster": ""
+                                            };
+                                            SERVER1.MagnetUri = file;
+                                            SERVER1.title = element.title_org;
+                                            SERVER1.poster = element.img;
+
+                                            Lampa.Torrent.start(SERVER1, {
+                                                title: element.title_org,
+                                                poster: element.img
+                                            });
+
+                                        } else {
+                                            if (window.intentShim) {
+                                                window.plugins.intentShim.startActivity(
+                                                    {
+                                                        action: window.plugins.intentShim.ACTION_VIEW,
+                                                        url: file
+                                                    },
+                                                    function () { },
+                                                    function () { console.log('Failed to open URL via Android Intent') }
+
+                                                );
+                                            } else {
+                                                $('<a href="' + file + '"/>')[0].click();
+                                            }
+                                        };
+                                    }
+                                    else {
+                                        if (/\.(m3u8|mp4|mp3)$/.test(file)) {
+                                            var video = {
+                                                title: element.title_org,
+                                                url: file,
+                                                // timeline: view
+                                            };
+                                            Lampa.Player.play(video);
+                                            Lampa.Player.playlist([video]);
+                                        } else if (/\.(jpe?g|png|gif|bmp|apk)$/.test(file)) {
+                                            if (window.intentShim) {
+                                                window.plugins.intentShim.startActivity(
+                                                    {
+                                                        action: window.plugins.intentShim.ACTION_VIEW,
+                                                        url: file
+                                                    },
+                                                    function () { },
+                                                    function () { console.log('Failed to open URL via Android Intent') }
+
+                                                );
+                                            } else {
+                                                $('<a href="' + file + '"/>')[0].click();
+                                            }
+                                        } else if (file.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+                                            Lampa.Modal.close();
+                                            element.img = element.img;
+                                            element.original_title = '';
+                                            Lampa.Activity.push({
+                                                url: file,
+                                                title: '阿里云盘播放',
+                                                component: 'yunpan2',
+                                                movie: element,
+                                                page: 1
+                                            });
+                                        }
+                                        else {
+                                            //jrkan
+                                            var iszhubo = false;
+
+                                            if (file.indexOf('/play/sm.html') !== -1) {
+                                                file = 'https://play.sportsteam365.com/play/' + file.match(/\?id=(.+?)&/)[1] + '.html';
+                                                iszhubo = true;
+                                            }
+
+                                            network.silent(file, function (result) {
+                                                var v, videolink;
+                                                //jrkan
+                                                if (result.indexOf('player/pap.html') !== -1 || iszhubo) {
+                                                    v = result.replace(/\n|\r/g, '').replace(/\\/g, '').match(/\?id=(.+?)('|")/);
+                                                    videolink = v ? v[1] : '';
+                                                } else {
+                                                    v = result.replace(/\n|\r/g, '').replace(/\\/g, '').match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/);
+                                                    videolink = v ? v[0] : '';
+                                                }
+
+                                                if (videolink) {
+                                                    //Lampa.Modal.close();
+                                                    var video = {
+                                                        title: element.title,
+                                                        url: videolink,
+                                                        // timeline: view
+                                                    };
+                                                    Lampa.Player.play(video);
+                                                    Lampa.Player.playlist([video]);
+                                                } else {
+                                                    //Lampa.Modal.close();
+                                                    //Lampa.Noty.show('没有找到对应影片。');
+                                                    Lampa.Iframe.show({
+                                                        //url: $('.embed-responsive-item', str).attr('src'),
+                                                        url: file,
+                                                        onBack: function onBack() {
+                                                            Lampa.Controller.toggle('content');
+                                                        }
+                                                    });
+                                                    $('.iframe__body iframe').removeClass('iframe__window');
+                                                    $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                                                    //Lampa.Controller.toggle('content');
+                                                };
+                                            }, function (a, c) {
+                                                Lampa.Noty.show(network.errorDecode(a, c));
+                                            }, false, {
+                                                dataType: 'text'
+                                            });
+                                            //Lampa.Noty.show('无法检索链接');
+                                        }
+                                    }
+                                });
+                                // if (tab.name == _this.display) button.addClass('active');
+                                if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                    if (i > 0) html_.append(navigation);
+                                    navigation = $('<div class="navigation-tabs"></div>');
+                                }
+                                navigation.append(button);
+                            });
+
+                            html_.append(navigation);
+
+                            Lampa.Modal.open({
+                                title: element.title_org,
+                                html: html_,
+                                size: 'medium',
+                                select: html.find('.navigation-tabs .active')[0],
+                                mask: true,
+                                onBack: function onBack() {
+                                    Lampa.Modal.close();
+                                    Lampa.Api.clear();
+                                    Lampa.Controller.toggle('content');
+                                }
+                            });
+
+                        }, function (a, c) {
+                            Lampa.Noty.show(network.errorDecode(a, c));
+                        }, false, {
+                            dataType: 'text'
+                        });
+
+
+                        // Lampa.Activity.push({
+                        //     url: element.url,
+                        //     title: object.title,
+                        //     component: 'detail_mod',
+                        //     search: element.title,
+                        //     search_one: element.title,
+                        //     search_two: element.title,
+                        //     movie: element,
+                        //     detail: object.detail,
+                        //     page: 1
+                        // });
                     } else if (object.next == 'play') {
                         network["native"](element.url, function (result) {
                             // /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
