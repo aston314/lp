@@ -289,7 +289,9 @@
                                                 // _this.open();
                                                 network["native"](tab.url, function (data) {
                                                     if (data.url) {
-                                                        if (!Lampa.Platform.is("android")) {
+                                                        if (Lampa.Platform.is("android")) {
+                                                        
+                                                        } else {
                                                             Lampa.Modal.close();
                                                         };
                                                         var playlist = [];
