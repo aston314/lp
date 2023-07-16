@@ -1266,6 +1266,7 @@
 
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
+                                                    console.log(!Lampa.Platform.is("android"))
                                                     if (!Lampa.Platform.is("android")) {
                                                         Lampa.Modal.close();
                                                     };
