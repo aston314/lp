@@ -287,11 +287,11 @@
                                                 // if (tab.title == whatclick) button.addClass('active');
 
                                                 // _this.open();
+                                                if (Lampa.Storage.field('player') == 'inner') {
+                                                    Lampa.Modal.close();
+                                                };
                                                 network["native"](tab.url, function (data) {
                                                     if (data.url) {
-                                                        if (Lampa.Storage.field('player') == 'inner') {
-                                                            Lampa.Modal.close();
-                                                        };
                                                         var playlist = [];
                                                         var first = {
                                                             url: data.url,
