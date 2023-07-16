@@ -1267,9 +1267,9 @@
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
                                                     console.log(Lampa.Platform.is("android"))
-                                                    if (!Lampa.Platform.is("android")) {
+                                                    if (!Lampa.Platform.is("android") == false) {
                                                         Lampa.Modal.close();
-                                                    };
+                                                    }
                                                     var video = {
                                                         title: element.title,
                                                         url: videolink,
