@@ -1208,7 +1208,7 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
-                                            if (!Lampa.Platform.is("android")) {
+                                            if (Lampa.Storage.field('player') == 'inner') {
                                                 Lampa.Modal.close();
                                             };
                                             var video = {
@@ -1266,10 +1266,11 @@
 
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
-                                                    console.log(Lampa.Platform.is("android"),Lampa.Storage.get('platform', 'noname'))
-                                                    if (Lampa.Storage.get('platform', 'noname') !== 'android') {
+                                                    // console.log(Lampa.Storage.field('player') )
+                                                    if (Lampa.Storage.field('player') == 'inner') {
                                                         Lampa.Modal.close();
                                                     };
+                                                    
                                                     var video = {
                                                         title: element.title,
                                                         url: videolink,
