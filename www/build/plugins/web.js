@@ -1164,15 +1164,6 @@
                                 });
 
                             }); 
-
-                            //$('.btn-group a.line-pay-btn', str).each(function (i, str) {
-                            // $('a[href*="www.aliyundrive.com"],a[href*="magnet:?xt=urn:btih:"]', str).each(function (i, html) {
-                            //     sources.push({
-                            //         title: /.*www\.aliyundrive\.com.*/.test(html.href) ? '阿里云盘 - 资源' + (i + 1) : '磁力链接 - 资源' + (i + 1),
-                            //         url: html.href,
-                            //     });
-                            // });
-
                             var html_ = $('<div></div>');
                             var navigation = $('<div class="navigation-tabs"></div>');
                             sources.forEach(function (tab, i) {
@@ -1183,7 +1174,7 @@
                                         if (file.indexOf('magnet:?') !== -1) {
                                             if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
-                                              }
+                                            }
                                             var SERVER1 = {
                                                 "title": "",
                                                 "MagnetUri": "",
@@ -1216,6 +1207,9 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
+                                            if (!Lampa.Platform.is("android")) {
+                                                Lampa.Modal.close();
+                                            }
                                             var video = {
                                                 title: element.title_org,
                                                 url: file,
@@ -1302,8 +1296,8 @@
                                     }
                                 });
                                 // if (tab.name == _this.display) button.addClass('active');
-                                if (i > 0 && i % 3 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
-                                if (i % 3 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                                if (i > 0 && i % 2 != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                                if (i % 2 == 0) { // 当 i 是 3 的倍数时，将当前行容器加入到总容器，并新建一个行容器
                                     if (i > 0) html_.append(navigation);
                                     navigation = $('<div class="navigation-tabs"></div>');
                                 }
