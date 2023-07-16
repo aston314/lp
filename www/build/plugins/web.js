@@ -1266,7 +1266,7 @@
 
                                                 if (videolink) {
                                                     //Lampa.Modal.close();
-                                                    console.log(Lampa.Platform.is("android"))
+                                                    console.log(Lampa.Platform.is("android"),Lampa.Storage.get('platform', 'noname'))
                                                     if (Lampa.Storage.get('platform', 'noname') !== 'android') {
                                                         Lampa.Modal.close();
                                                     };
