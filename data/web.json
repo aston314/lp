@@ -1,1995 +1,2022 @@
 [
    {
-      "title":"LIBVIO",
-      "link":"https://libvio.cc",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
+      "title": "LIBVIO",
+      "link": "https://libvio.cc",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"最近更新",
-            "url":"https://libvio.cc",
-            "quantity":":lt(12)"
+            "title": "最近更新",
+            "url": "https://libvio.cc",
+            "quantity": ":lt(12)"
          },
          {
-            "title":"电影",
-            "url":"https://libvio.cc/type/1.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://libvio.cc/type/1.html",
+            "quantity": ""
          },
          {
-            "title":"剧集",
-            "url":"https://libvio.cc/type/2.html",
-            "quantity":""
+            "title": "剧集",
+            "url": "https://libvio.cc/type/2.html",
+            "quantity": ""
          },
          {
-            "title":"日韩剧",
-            "url":"https://libvio.cc/type/15.html",
-            "quantity":""
+            "title": "日韩剧",
+            "url": "https://libvio.cc/type/15.html",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://libvio.cc/type/13.html",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://libvio.cc/type/13.html",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://libvio.cc/type/16.html",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://libvio.cc/type/16.html",
+            "quantity": ""
          },
          {
-            "title":"港台剧",
-            "url":"https://libvio.cc/type/14.html",
-            "quantity":""
+            "title": "港台剧",
+            "url": "https://libvio.cc/type/14.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://libvio.cc/type/4.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://libvio.cc/type/4.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div.stui-pannel__ft"
+      "list": {
+         "page": {
+            "selector": "div.stui-pannel__ft"
          },
-         "videoscontainer":{
-            "selector":".stui-vodlist__box",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".stui-vodlist__box",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://libvio.cc/search/-------------.html?wd=#msearchword&submit="
+      "search": {
+         "url": "https://libvio.cc/search/-------------.html?wd=#msearchword&submit="
       }
    },
    {
-      "title":"乐猪TV",
-      "link":"http://www.lezhutv.com",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "乐猪TV",
+      "link": "http://www.lezhutv.com",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"http://www.lezhutv.com",
-            "quantity":":gt(8)"
+            "title": "首页",
+            "url": "http://www.lezhutv.com",
+            "quantity": ":gt(8)"
          },
          {
-            "title":"电影",
-            "url":"http://www.lezhutv.com/type/1-1.html",
-            "quantity":""
+            "title": "电影",
+            "url": "http://www.lezhutv.com/type/1-1.html",
+            "quantity": ""
          },
          {
-            "title":"连续剧",
-            "url":"http://www.lezhutv.com/type/2-1.html",
-            "quantity":""
+            "title": "连续剧",
+            "url": "http://www.lezhutv.com/type/2-1.html",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"http://www.lezhutv.com/type/14-1.html",
-            "quantity":""
+            "title": "韩剧",
+            "url": "http://www.lezhutv.com/type/14-1.html",
+            "quantity": ""
          },
          {
-            "title":"美剧",
-            "url":"http://www.lezhutv.com/type/15-1.html",
-            "quantity":""
+            "title": "美剧",
+            "url": "http://www.lezhutv.com/type/15-1.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"http://www.lezhutv.com/type/4-1.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "http://www.lezhutv.com/type/4-1.html",
+            "quantity": ""
          },
          {
-            "title":"综艺",
-            "url":"http://www.lezhutv.com/type/3-1.html",
-            "quantity":""
+            "title": "综艺",
+            "url": "http://www.lezhutv.com/type/3-1.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div.menu"
+      "list": {
+         "page": {
+            "selector": "div.menu"
          },
-         "videoscontainer":{
-            "selector":"li.vbox",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "li.vbox",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"http://www.lezhutv.com/search-pg-1-wd-#msearchword.html"
+      "search": {
+         "url": "http://www.lezhutv.com/search-pg-1-wd-#msearchword.html"
       }
    },
    {
-      "title":"秋霞电影",
-      "link":"https://www.7xiady.cc",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "秋霞电影",
+      "link": "https://www.7xiady.cc",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://www.7xiady.cc",
-            "quantity":":gt(44)"
+            "title": "首页",
+            "url": "https://www.7xiady.cc",
+            "quantity": ":gt(44)"
          },
          {
-            "title":"电影",
-            "url":"https://www.7xiady.cc/type/dianying",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.7xiady.cc/type/dianying",
+            "quantity": ""
          },
          {
-            "title":"连续剧",
-            "url":"https://www.7xiady.cc/type/lianxuju",
-            "quantity":""
+            "title": "连续剧",
+            "url": "https://www.7xiady.cc/type/lianxuju",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://www.7xiady.cc/type/dongman",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://www.7xiady.cc/type/dongman",
+            "quantity": ""
          },
          {
-            "title":"综艺",
-            "url":"https://www.7xiady.cc/type/zongyi",
-            "quantity":""
+            "title": "综艺",
+            "url": "https://www.7xiady.cc/type/zongyi",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.stui-page"
+      "list": {
+         "page": {
+            "selector": "ul.stui-page"
          },
-         "videoscontainer":{
-            "selector":"li.stui-vodlist__item",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "li.stui-vodlist__item",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"div.stui-pannel_bd.col-pd.clearfix > ul > li",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "div.stui-pannel_bd.col-pd.clearfix > ul > li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.7xiady.cc/search/#msearchword----------1---/"
+      "search": {
+         "url": "https://www.7xiady.cc/search/#msearchword----------1---/"
       }
    },
    {
-      "title":"霸王龙压制组",
-      "link":"https://t-rex.tzfile.com",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
+      "title": "霸王龙压制组",
+      "link": "https://t-rex.tzfile.com",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://t-rex.tzfile.com",
-            "quantity":""
+            "title": "首页",
+            "url": "https://t-rex.tzfile.com",
+            "quantity": ""
          },
          {
-            "title":"电影",
-            "url":"https://t-rex.tzfile.com/movies",
-            "quantity":""
+            "title": "电影",
+            "url": "https://t-rex.tzfile.com/movies",
+            "quantity": ""
          },
          {
-            "title":"美剧",
-            "url":"https://t-rex.tzfile.com/meiju",
-            "quantity":""
+            "title": "美剧",
+            "url": "https://t-rex.tzfile.com/meiju",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"https://t-rex.tzfile.com/hanju",
-            "quantity":""
+            "title": "韩剧",
+            "url": "https://t-rex.tzfile.com/hanju",
+            "quantity": ""
          },
          {
-            "title":"日剧",
-            "url":"https://t-rex.tzfile.com/riju",
-            "quantity":""
+            "title": "日剧",
+            "url": "https://t-rex.tzfile.com/riju",
+            "quantity": ""
          },
          {
-            "title":"英剧",
-            "url":"https://t-rex.tzfile.com/yingju",
-            "quantity":""
+            "title": "英剧",
+            "url": "https://t-rex.tzfile.com/yingju",
+            "quantity": ""
          },
          {
-            "title":"泰剧",
-            "url":"https://t-rex.tzfile.com/taiju",
-            "quantity":""
+            "title": "泰剧",
+            "url": "https://t-rex.tzfile.com/taiju",
+            "quantity": ""
          },
          {
-            "title":"动画",
-            "url":"https://t-rex.tzfile.com/animation",
-            "quantity":""
+            "title": "动画",
+            "url": "https://t-rex.tzfile.com/animation",
+            "quantity": ""
          },
          {
-            "title":"纪录片",
-            "url":"https://t-rex.tzfile.com/faction",
-            "quantity":""
+            "title": "纪录片",
+            "url": "https://t-rex.tzfile.com/faction",
+            "quantity": ""
          },
          {
-            "title":"真人秀综艺",
-            "url":"https://t-rex.tzfile.com/show",
-            "quantity":""
+            "title": "真人秀综艺",
+            "url": "https://t-rex.tzfile.com/show",
+            "quantity": ""
          },
          {
-            "title":"其他剧",
-            "url":"https://t-rex.tzfile.com/qitaju",
-            "quantity":""
+            "title": "其他剧",
+            "url": "https://t-rex.tzfile.com/qitaju",
+            "quantity": ""
          }
       ],
-      "list":{
-         "videoscontainer":{
-            "selector":"div.placeholder",
-            "attrName":"",
-            "filter":""
+      "list": {
+         "videoscontainer": {
+            "selector": "div.placeholder",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"data-src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "data-src",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          },
-         "page":{
-            "selector":".pagination"
+         "page": {
+            "selector": ".pagination"
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "title",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://t-rex.tzfile.com/?s=#msearchword"
+      "search": {
+         "url": "https://t-rex.tzfile.com/?s=#msearchword"
       }
    },
    {
-      "title":"低端影视",
-      "link":"https://ddys.pro",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
+      "title": "低端影视",
+      "link": "https://ddys.pro",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://ddys.pro/",
-            "quantity":""
+            "title": "首页",
+            "url": "https://ddys.pro/",
+            "quantity": ""
          },
          {
-            "title":"电影",
-            "url":"https://ddys.pro/category/movie/",
-            "quantity":""
+            "title": "电影",
+            "url": "https://ddys.pro/category/movie/",
+            "quantity": ""
          },
          {
-            "title":"剧集",
-            "url":"https://ddys.pro/category/airing/",
-            "quantity":""
+            "title": "剧集",
+            "url": "https://ddys.pro/category/airing/",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://ddys.pro/category/drama/western-drama/",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://ddys.pro/category/drama/western-drama/",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"https://ddys.pro/category/drama/kr-drama/",
-            "quantity":""
+            "title": "韩剧",
+            "url": "https://ddys.pro/category/drama/kr-drama/",
+            "quantity": ""
          },
          {
-            "title":"日剧",
-            "url":"https://ddys.pro/category/drama/jp-drama/",
-            "quantity":""
+            "title": "日剧",
+            "url": "https://ddys.pro/category/drama/jp-drama/",
+            "quantity": ""
          },
          {
-            "title":"动画",
-            "url":"https://ddys.pro/category/anime/",
-            "quantity":""
+            "title": "动画",
+            "url": "https://ddys.pro/category/anime/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".nav-links"
+      "list": {
+         "page": {
+            "selector": ".nav-links"
          },
-         "videoscontainer":{
-            "selector":"div.post-box-container",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.post-box-container",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"h2 > a",
-            "attrName":"text",
-            "filter":"(.+?) \\("
+         "title": {
+            "selector": "h2 > a",
+            "attrName": "text",
+            "filter": "(.+?) \\("
          },
-         "thumb":{
-            "selector":"div.post-box-image",
-            "attrName":"style",
-            "filter":"url\\((.*?)\\)"
+         "thumb": {
+            "selector": "div.post-box-image",
+            "attrName": "style",
+            "filter": "url\\((.*?)\\)"
          },
-         "link":{
-            "selector":"h2 > a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "h2 > a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":""
+      "search": {
+         "url": ""
       }
    },
    {
-      "title":"在线之家",
-      "link":"https://www.zxzj.pro",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "在线之家",
+      "link": "https://www.zxzj.pro",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://www.zxzj.pro",
-            "quantity":":gt(11)"
+            "title": "首页",
+            "url": "https://www.zxzj.pro",
+            "quantity": ":gt(11)"
          },
          {
-            "title":"电影",
-            "url":"https://www.zxzj.pro/list/1.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.zxzj.pro/list/1.html",
+            "quantity": ""
          },
          {
-            "title":"美剧",
-            "url":"https://www.zxzj.pro/list/2.html",
-            "quantity":""
+            "title": "美剧",
+            "url": "https://www.zxzj.pro/list/2.html",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"https://www.zxzj.pro/list/3.html",
-            "quantity":""
+            "title": "韩剧",
+            "url": "https://www.zxzj.pro/list/3.html",
+            "quantity": ""
          },
          {
-            "title":"日剧",
-            "url":"https://www.zxzj.pro/list/4.html",
-            "quantity":""
+            "title": "日剧",
+            "url": "https://www.zxzj.pro/list/4.html",
+            "quantity": ""
          },
          {
-            "title":"泰剧",
-            "url":"https://www.zxzj.pro/list/5.html",
-            "quantity":""
+            "title": "泰剧",
+            "url": "https://www.zxzj.pro/list/5.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://www.zxzj.pro/list/6.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://www.zxzj.pro/list/6.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.stui-page__item"
+      "list": {
+         "page": {
+            "selector": "ul.stui-page__item"
          },
-         "videoscontainer":{
-            "selector":".stui-vodlist__box",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".stui-vodlist__box",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.zxzj.pro/vodsearch/-------------.html?wd=#msearchword&submit="
+      "search": {
+         "url": "https://www.zxzj.pro/vodsearch/-------------.html?wd=#msearchword&submit="
       }
    },
    {
-      "title":"素白白",
-      "link":"https://www.subaibaiys.com/",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":true,
-      "category":[
+      "title": "素白白",
+      "link": "https://www.subaibaiys.com/",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"最近更新",
-            "url":"https://www.subaibaiys.com",
-            "quantity":":lt(16)"
+            "title": "最近更新",
+            "url": "https://www.subaibaiys.com",
+            "quantity": ":lt(16)"
          },
          {
-            "title":"电影",
-            "url":"https://www.subaibaiys.com/new-movie",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.subaibaiys.com/new-movie",
+            "quantity": ""
          },
          {
-            "title":"电视剧",
-            "url":"https://www.subaibaiys.com/tv-drama",
-            "quantity":""
+            "title": "电视剧",
+            "url": "https://www.subaibaiys.com/tv-drama",
+            "quantity": ""
          },
          {
-            "title":"热门电影",
-            "url":"https://www.subaibaiys.com/hot-month",
-            "quantity":""
+            "title": "热门电影",
+            "url": "https://www.subaibaiys.com/hot-month",
+            "quantity": ""
          },
          {
-            "title":"高分电影",
-            "url":"https://www.subaibaiys.com/high-movie",
-            "quantity":""
+            "title": "高分电影",
+            "url": "https://www.subaibaiys.com/high-movie",
+            "quantity": ""
          },
          {
-            "title":"动漫电影",
-            "url":"https://www.subaibaiys.com/cartoon-movie",
-            "quantity":""
+            "title": "动漫电影",
+            "url": "https://www.subaibaiys.com/cartoon-movie",
+            "quantity": ""
          },
          {
-            "title":"香港经典电影",
-            "url":"https://www.subaibaiys.com/hongkong-movie",
-            "quantity":""
+            "title": "香港经典电影",
+            "url": "https://www.subaibaiys.com/hongkong-movie",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://www.subaibaiys.com/domestic-drama",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://www.subaibaiys.com/domestic-drama",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://www.subaibaiys.com/american-drama",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://www.subaibaiys.com/american-drama",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"https://www.subaibaiys.com/korean-drama",
-            "quantity":""
+            "title": "韩剧",
+            "url": "https://www.subaibaiys.com/korean-drama",
+            "quantity": ""
          },
          {
-            "title":"动漫剧",
-            "url":"https://www.subaibaiys.com/anime-drama",
-            "quantity":""
+            "title": "动漫剧",
+            "url": "https://www.subaibaiys.com/anime-drama",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div.pagenavi_txt"
+      "list": {
+         "page": {
+            "selector": "div.pagenavi_txt"
          },
-         "videoscontainer":{
-            "selector":"div.bt_img.mi_ne_kd > ul > li",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.bt_img.mi_ne_kd > ul > li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a > img",
-            "attrName":"alt",
-            "filter":""
+         "title": {
+            "selector": "a > img",
+            "attrName": "alt",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a > img",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a > img",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.subaibaiys.com/grabble?q=#msearchword"
+      "search": {
+         "url": "https://www.subaibaiys.com/grabble?q=#msearchword"
       }
    },
    {
-      "title":"厂长资源",
-      "link":"https://czzy03.com",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "厂长资源",
+      "link": "https://czzy03.com",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"最近更新",
-            "url":"https://czzy03.com",
-            "quantity":":gt(5):lt(9)"
+            "title": "最近更新",
+            "url": "https://czzy03.com",
+            "quantity": ":gt(5):lt(9)"
          },
          {
-            "title":"电影",
-            "url":"https://czzy03.com/zuixindianying",
-            "quantity":""
+            "title": "电影",
+            "url": "https://czzy03.com/zuixindianying",
+            "quantity": ""
          },
          {
-            "title":"电视剧",
-            "url":"https://czzy03.com/dsj",
-            "quantity":""
+            "title": "电视剧",
+            "url": "https://czzy03.com/dsj",
+            "quantity": ""
          },
          {
-            "title":"美剧",
-            "url":"https://czzy03.com/meijutt",
-            "quantity":""
+            "title": "美剧",
+            "url": "https://czzy03.com/meijutt",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"https://czzy03.com/hanjutv",
-            "quantity":""
+            "title": "韩剧",
+            "url": "https://czzy03.com/hanjutv",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://czzy03.com/gcj",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://czzy03.com/gcj",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://czzy03.com/dm",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://czzy03.com/dm",
+            "quantity": ""
          },
          {
-            "title":"番剧",
-            "url":"https://czzy03.com/fanju",
-            "quantity":""
+            "title": "番剧",
+            "url": "https://czzy03.com/fanju",
+            "quantity": ""
          },
          {
-            "title":"豆瓣电影Top250",
-            "url":"https://czzy03.com/gaofenyingshi",
-            "quantity":""
+            "title": "豆瓣电影Top250",
+            "url": "https://czzy03.com/gaofenyingshi",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div.pagenavi_txt"
+      "list": {
+         "page": {
+            "selector": "div.pagenavi_txt"
          },
-         "videoscontainer":{
-            "selector":"div.bt_img > ul > li",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.bt_img > ul > li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"img",
-            "attrName":"alt",
-            "filter":""
+         "title": {
+            "selector": "img",
+            "attrName": "alt",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://czzy03.com/xssearch?q=#msearchword"
+      "search": {
+         "url": "https://czzy03.com/xssearch?q=#msearchword"
       }
    },
    {
-      "title":"Auete影视",
-      "link":"https://auete.org",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "Auete影视",
+      "link": "https://auete.org",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"电影",
-            "url":"https://auete.org/Movie/index.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://auete.org/Movie/index.html",
+            "quantity": ""
          },
          {
-            "title":"电视剧",
-            "url":"https://auete.org/Tv/index.html",
-            "quantity":""
+            "title": "电视剧",
+            "url": "https://auete.org/Tv/index.html",
+            "quantity": ""
          },
          {
-            "title":"综艺",
-            "url":"https://auete.org/Zy/index.html",
-            "quantity":""
+            "title": "综艺",
+            "url": "https://auete.org/Zy/index.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://auete.org/Dm/index.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://auete.org/Dm/index.html",
+            "quantity": ""
          },
          {
-            "title":"其他",
-            "url":"https://auete.org/qita/index.html",
-            "quantity":""
+            "title": "其他",
+            "url": "https://auete.org/qita/index.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.pagination"
+      "list": {
+         "page": {
+            "selector": "ul.pagination"
          },
-         "videoscontainer":{
-            "selector":"ul.threadlist > li.trans_3",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "ul.threadlist > li.trans_3",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"img",
-            "attrName":"alt",
-            "filter":""
+         "title": {
+            "selector": "img",
+            "attrName": "alt",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://auete.org/search.php?searchword=#msearchword"
+      "search": {
+         "url": "https://auete.org/search.php?searchword=#msearchword"
       }
    },
    {
-      "title":"皮皮鸭",
-      "link":"https://www.pipiya.cc",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "皮皮鸭",
+      "link": "https://www.pipiya.cc",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"最近更新",
-            "url":"https://www.pipiya.cc/map.html",
-            "quantity":""
+            "title": "最近更新",
+            "url": "https://www.pipiya.cc/map.html",
+            "quantity": ""
          },
          {
-            "title":"电影",
-            "url":"https://www.pipiya.cc/vodshow/20.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.pipiya.cc/vodshow/20.html",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://www.pipiya.cc/vodshow/26.html",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://www.pipiya.cc/vodshow/26.html",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://www.pipiya.cc/vodshow/21.html",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://www.pipiya.cc/vodshow/21.html",
+            "quantity": ""
          },
          {
-            "title":"日韩剧",
-            "url":"https://www.pipiya.cc/vodshow/22.html",
-            "quantity":""
+            "title": "日韩剧",
+            "url": "https://www.pipiya.cc/vodshow/22.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://www.pipiya.cc/vodshow/25.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://www.pipiya.cc/vodshow/25.html",
+            "quantity": ""
          },
          {
-            "title":"泰剧",
-            "url":"https://www.pipiya.cc/vodshow/24.html",
-            "quantity":""
+            "title": "泰剧",
+            "url": "https://www.pipiya.cc/vodshow/24.html",
+            "quantity": ""
          },
          {
-            "title":"其它剧",
-            "url":"https://www.pipiya.cc/vodshow/27.html",
-            "quantity":""
+            "title": "其它剧",
+            "url": "https://www.pipiya.cc/vodshow/27.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".page-info"
+      "list": {
+         "page": {
+            "selector": ".page-info"
          },
-         "videoscontainer":{
-            "selector":"a.public-list-exp",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "a.public-list-exp",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":".lazy.gen-movie-img.mask-0",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": ".lazy.gen-movie-img.mask-0",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.pipiya.cc/vodsearch/#msearchword-------------.html"
+      "search": {
+         "url": "https://www.pipiya.cc/vodsearch/#msearchword-------------.html"
       }
    },
    {
-      "title":"达达龟",
-      "link":"https://www.dadagui.me",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "达达龟",
+      "link": "https://www.dadagui.me",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"电影",
-            "url":"https://www.dadagui.me/vodtype/1.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.dadagui.me/vodtype/1.html",
+            "quantity": ""
          },
          {
-            "title":"连续剧",
-            "url":"https://www.dadagui.me/vodtype/2.html",
-            "quantity":""
+            "title": "连续剧",
+            "url": "https://www.dadagui.me/vodtype/2.html",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://www.dadagui.me/vodshow/15-----------.html",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://www.dadagui.me/vodshow/15-----------.html",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://www.dadagui.me/vodshow/13-----------.html",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://www.dadagui.me/vodshow/13-----------.html",
+            "quantity": ""
          },
          {
-            "title":"日韩剧",
-            "url":"https://www.dadagui.me/vodshow/14-----------.html",
-            "quantity":""
+            "title": "日韩剧",
+            "url": "https://www.dadagui.me/vodshow/14-----------.html",
+            "quantity": ""
          },
          {
-            "title":"港台剧",
-            "url":"https://www.dadagui.me/vodshow/16-----------.html",
-            "quantity":""
+            "title": "港台剧",
+            "url": "https://www.dadagui.me/vodshow/16-----------.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://www.dadagui.me/vodtype/4.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://www.dadagui.me/vodtype/4.html",
+            "quantity": ""
          },
          {
-            "title":"综艺",
-            "url":"https://www.dadagui.me/vodtype/3.html",
-            "quantity":""
+            "title": "综艺",
+            "url": "https://www.dadagui.me/vodtype/3.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.stui-page__item"
+      "list": {
+         "page": {
+            "selector": "ul.stui-page__item"
          },
-         "videoscontainer":{
-            "selector":".stui-vodlist__box",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".stui-vodlist__box",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a.stui-vodlist__thumb",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a.stui-vodlist__thumb",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
+      "search": {
+         "url": "https://www.dadagui.me/vodsearch/-------------.html?wd=#msearchword&submit="
       }
    },
    {
-      "title":"动漫 - 奇米奇米",
-      "link":"http://www.qimiqimi.net",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "动漫 - 奇米奇米",
+      "link": "http://www.qimiqimi.net",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"http://www.qimiqimi.net",
-            "quantity":":lt(27)"
+            "title": "首页",
+            "url": "http://www.qimiqimi.net",
+            "quantity": ":lt(27)"
          },
          {
-            "title":"新番连载",
-            "url":"http://www.qimiqimi.net/type/xinfan.html",
-            "quantity":""
+            "title": "新番连载",
+            "url": "http://www.qimiqimi.net/type/xinfan.html",
+            "quantity": ""
          },
          {
-            "title":"完结番组",
-            "url":"http://www.qimiqimi.net/type/riman.html",
-            "quantity":""
+            "title": "完结番组",
+            "url": "http://www.qimiqimi.net/type/riman.html",
+            "quantity": ""
          },
          {
-            "title":"热门国漫",
-            "url":"http://www.qimiqimi.net/type/guoman.html",
-            "quantity":""
+            "title": "热门国漫",
+            "url": "http://www.qimiqimi.net/type/guoman.html",
+            "quantity": ""
          },
          {
-            "title":"剧场&OVA",
-            "url":"http://www.qimiqimi.net/type/jcdm.html",
-            "quantity":""
+            "title": "剧场&OVA",
+            "url": "http://www.qimiqimi.net/type/jcdm.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".page_info"
+      "list": {
+         "page": {
+            "selector": ".page_info"
          },
-         "videoscontainer":{
-            "selector":"ul.show-list > li > a,.box_con > ul.img-list > li > a",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "ul.show-list > li > a,.box_con > ul.img-list > li > a",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"http://www.qimiqimi.net/vod/search.html?wd=#msearchword&submit="
+      "search": {
+         "url": "http://www.qimiqimi.net/vod/search.html?wd=#msearchword&submit="
       }
    },
    {
-      "title":"动漫 - 樱花动漫",
-      "link":"http://www.yinghuavideo.com",
-      "show":"portrait",
-      "next":"search",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "动漫 - 樱花动漫",
+      "link": "http://www.yinghuavideo.com",
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"http://www.yinghuavideo.com",
-            "quantity":""
+            "title": "首页",
+            "url": "http://www.yinghuavideo.com",
+            "quantity": ""
          },
          {
-            "title":"日本动漫",
-            "url":"http://www.yinghuavideo.com/japan/",
-            "quantity":""
+            "title": "日本动漫",
+            "url": "http://www.yinghuavideo.com/japan/",
+            "quantity": ""
          },
          {
-            "title":"国产动漫",
-            "url":"http://www.yinghuavideo.com/china/",
-            "quantity":""
+            "title": "国产动漫",
+            "url": "http://www.yinghuavideo.com/china/",
+            "quantity": ""
          },
          {
-            "title":"美国动漫",
-            "url":"http://www.yinghuavideo.com/american/",
-            "quantity":""
+            "title": "美国动漫",
+            "url": "http://www.yinghuavideo.com/american/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".pages"
+      "list": {
+         "page": {
+            "selector": ".pages"
          },
-         "videoscontainer":{
-            "selector":"div.lpic > ul > li,div.img > ul > li",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.lpic > ul > li,div.img > ul > li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"img",
-            "attrName":"alt",
-            "filter":""
+         "title": {
+            "selector": "img",
+            "attrName": "alt",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"http://www.yinghuavideo.com/search/#msearchword/"
+      "search": {
+         "url": "http://www.yinghuavideo.com/search/#msearchword/"
       }
    },
    {
-      "title":"JableTV",
-      "link":"https://jable.tv",
-      "show":"landscape",
-      "next":"play",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "JableTV",
+      "link": "https://jable.tv",
+      "show": "landscape",
+      "next": "play",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"最近更新",
-            "url":"https://jable.tv/latest-updates/",
-            "quantity":""
+            "title": "最近更新",
+            "url": "https://jable.tv/latest-updates/",
+            "quantity": ""
          },
          {
-            "title":"全新上市",
-            "url":"https://jable.tv/new-release/",
-            "quantity":""
+            "title": "全新上市",
+            "url": "https://jable.tv/new-release/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.pagination"
+      "list": {
+         "page": {
+            "selector": "ul.pagination"
          },
-         "videoscontainer":{
-            "selector":"div.video-img-box",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.video-img-box",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"h6.title a",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "h6.title a",
+            "attrName": "text",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"data-src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "data-src",
+            "filter": ""
          },
-         "link":{
-            "selector":"h6.title a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "h6.title a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://jable.tv/search/?q=#msearchword&from_videos=1"
+      "search": {
+         "url": "https://jable.tv/search/?q=#msearchword&from_videos=1"
       }
    },
    {
-      "title":"YTS.MX - 磁力下载",
-      "link":"https://yts.mx",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "YTS.MX - 磁力下载",
+      "link": "https://yts.mx",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "PC_UA",
+      "category": [
          {
-            "title":"热门电影",
-            "url":"https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
-            "quantity":""
+            "title": "热门电影",
+            "url": "https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
+            "quantity": ""
          },
          {
-            "title":"今年电影",
-            "url":"https://yts.mx/browse-movies/0/all/all/0/latest/2022/all",
-            "quantity":""
+            "title": "今年电影",
+            "url": "https://yts.mx/browse-movies/0/all/all/0/latest/2022/all",
+            "quantity": ""
          },
          {
-            "title":"今日趋势",
-            "url":"https://yts.mx/trending-movies",
-            "quantity":""
+            "title": "今日趋势",
+            "url": "https://yts.mx/trending-movies",
+            "quantity": ""
          },
          {
-            "title":"更新电影",
-            "url":"https://yts.mx/browse-movies",
-            "quantity":""
+            "title": "更新电影",
+            "url": "https://yts.mx/browse-movies",
+            "quantity": ""
          },
          {
-            "title":"4K电影",
-            "url":"https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all",
-            "quantity":""
+            "title": "4K电影",
+            "url": "https://yts.mx/browse-movies/0/2160p/all/0/latest/0/all",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div:nth-child(5) > ul"
+      "list": {
+         "page": {
+            "selector": "div:nth-child(5) > ul"
          },
-         "videoscontainer":{
-            "selector":".browse-movie-wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".browse-movie-wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":".browse-movie-bottom",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": ".browse-movie-bottom",
+            "attrName": "text",
+            "filter": ""
          },
-         "thumb":{
-            "selector":".img-responsive",
-            "attrName":"data-cfsrc",
-            "filter":""
+         "thumb": {
+            "selector": ".img-responsive",
+            "attrName": "data-cfsrc",
+            "filter": ""
          },
-         "link":{
-            "selector":".browse-movie-title",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": ".browse-movie-title",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":".modal-torrent",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": ".modal-torrent",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":".magnet-download",
-            "attrName":"title",
-            "filter":"([0-9]+[0-9]{1,2}?p)"
+         "title": {
+            "selector": ".magnet-download",
+            "attrName": "title",
+            "filter": "([0-9]+[0-9]{1,2}?p)"
          },
-         "link":{
-            "selector":".magnet-download",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": ".magnet-download",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
+      "search": {
+         "url": "https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
       }
    },
    {
-      "title":"YTS.AUTOS - 磁力下载",
-      "link":"https://yts.autos",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "YTS.AUTOS - 磁力下载",
+      "link": "https://yts.autos",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"热门电影",
-            "url":"https://yts.autos/browse-movies/0/all/all/0/featured/0/all",
-            "quantity":""
+            "title": "热门电影",
+            "url": "https://yts.autos/browse-movies/0/all/all/0/featured/0/all",
+            "quantity": ""
          },
          {
-            "title":"今年电影",
-            "url":"https://yts.autos/browse-movies/0/all/all/0/latest/2023/all",
-            "quantity":""
+            "title": "今年电影",
+            "url": "https://yts.autos/browse-movies/0/all/all/0/latest/2023/all",
+            "quantity": ""
          },
          {
-            "title":"今日趋势",
-            "url":"https://yts.autos/trending-movies",
-            "quantity":""
+            "title": "今日趋势",
+            "url": "https://yts.autos/trending-movies",
+            "quantity": ""
          },
          {
-            "title":"更新电影",
-            "url":"https://yts.autos/browse-movies",
-            "quantity":""
+            "title": "更新电影",
+            "url": "https://yts.autos/browse-movies",
+            "quantity": ""
          },
          {
-            "title":"4K电影",
-            "url":"https://yts.autos/browse-movies/0/2160p/all/0/latest/0/all",
-            "quantity":""
+            "title": "4K电影",
+            "url": "https://yts.autos/browse-movies/0/2160p/all/0/latest/0/all",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"div:nth-child(5) > ul"
+      "list": {
+         "page": {
+            "selector": "div:nth-child(5) > ul"
          },
-         "videoscontainer":{
-            "selector":".browse-movie-wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".browse-movie-wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":".browse-movie-bottom",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": ".browse-movie-bottom",
+            "attrName": "text",
+            "filter": ""
          },
-         "thumb":{
-            "selector":".img-responsive",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": ".img-responsive",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":".browse-movie-title",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": ".browse-movie-title",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":".modal-torrent",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": ".modal-torrent",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":".magnet-download",
-            "attrName":"title",
-            "filter":"([0-9]+[0-9]{1,2}?p)"
+         "title": {
+            "selector": ".magnet-download",
+            "attrName": "title",
+            "filter": "([0-9]+[0-9]{1,2}?p)"
          },
-         "link":{
-            "selector":".magnet-download",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": ".magnet-download",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://yts.autos/browse-movies/#msearchword/all/all/0/latest/0/all"
+      "search": {
+         "url": "https://yts.autos/browse-movies/#msearchword/all/all/0/latest/0/all"
       }
    },
    {
-      "title":"音范丝 - 磁力下载",
-      "link":"https://www.yinfans.me",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "音范丝 - 磁力下载",
+      "link": "https://www.yinfans.me",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://www.yinfans.me",
-            "quantity":""
+            "title": "首页",
+            "url": "https://www.yinfans.me",
+            "quantity": ""
          },
          {
-            "title":"蓝光原盘",
-            "url":"https://www.yinfans.me/topic/bluray-movie",
-            "quantity":""
+            "title": "蓝光原盘",
+            "url": "https://www.yinfans.me/topic/bluray-movie",
+            "quantity": ""
          },
          {
-            "title":"4K",
-            "url":"https://www.yinfans.me/topic/4k",
-            "quantity":""
+            "title": "4K",
+            "url": "https://www.yinfans.me/topic/4k",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".pagination"
+      "list": {
+         "page": {
+            "selector": ".pagination"
          },
-         "videoscontainer":{
-            "selector":".thumbnail",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": ".thumbnail",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":"([^\\s]+)"
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": "([^\\s]+)"
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.yinfans.me/?s=#msearchword"
+      "search": {
+         "url": "https://www.yinfans.me/?s=#msearchword"
       }
    },
    {
-      "title":"蓝光电影网 - 磁力下载",
-      "link":"http://www.languangdy.com",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "蓝光电影网 - 磁力下载",
+      "link": "http://www.languangdy.com",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"http://www.languangdy.com/",
-            "quantity":""
+            "title": "首页",
+            "url": "http://www.languangdy.com/",
+            "quantity": ""
          },
          {
-            "title":"Bluray蓝光原盘",
-            "url":"http://www.languangdy.com/Bluray/",
-            "quantity":""
+            "title": "Bluray蓝光原盘",
+            "url": "http://www.languangdy.com/Bluray/",
+            "quantity": ""
          },
          {
-            "title":"蓝光1080P",
-            "url":"http://www.languangdy.com/1080P/",
-            "quantity":""
+            "title": "蓝光1080P",
+            "url": "http://www.languangdy.com/1080P/",
+            "quantity": ""
          },
          {
-            "title":"4K超高清",
-            "url":"http://www.languangdy.com/4K/",
-            "quantity":""
+            "title": "4K超高清",
+            "url": "http://www.languangdy.com/4K/",
+            "quantity": ""
          },
          {
-            "title":"其他资源",
-            "url":"http://www.languangdy.com/other/",
-            "quantity":""
+            "title": "其他资源",
+            "url": "http://www.languangdy.com/other/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "videoscontainer":{
-            "selector":"#post_container a.zoom",
-            "attrName":"",
-            "filter":""
+      "list": {
+         "videoscontainer": {
+            "selector": "#post_container a.zoom",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"title",
-            "filter":"(^[^\\[]+)"
+         "title": {
+            "selector": "",
+            "attrName": "title",
+            "filter": "(^[^\\[]+)"
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          },
-         "page":{
-            "selector":".pagination"
+         "page": {
+            "selector": ".pagination"
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"http://www.languangdy.com/e/search/index.php#msearchword"
+      "search": {
+         "url": "http://www.languangdy.com/e/search/index.php#msearchword"
       }
    },
    {
-      "title":"4K HDR - 磁力下载",
-      "link":"https://4khdr.cn",
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "4K HDR - 磁力下载",
+      "link": "https://4khdr.cn",
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://4khdr.cn",
-            "quantity":""
+            "title": "首页",
+            "url": "https://4khdr.cn",
+            "quantity": ""
          },
          {
-            "title":"4K电影",
-            "url":"https://4khdr.cn/forumtype-2-3-1.html",
-            "quantity":""
+            "title": "4K电影",
+            "url": "https://4khdr.cn/forumtype-2-3-1.html",
+            "quantity": ""
          },
          {
-            "title":"4K电视剧",
-            "url":"https://4khdr.cn/forumtype-2-8-1.html",
-            "quantity":""
+            "title": "4K电视剧",
+            "url": "https://4khdr.cn/forumtype-2-8-1.html",
+            "quantity": ""
          },
          {
-            "title":"4K动画片",
-            "url":"https://4khdr.cn/forumtype-2-6-1.html",
-            "quantity":""
+            "title": "4K动画片",
+            "url": "https://4khdr.cn/forumtype-2-6-1.html",
+            "quantity": ""
          },
          {
-            "title":"4K纪录片",
-            "url":"https://4khdr.cn/forumtype-2-11-1.html",
-            "quantity":""
+            "title": "4K纪录片",
+            "url": "https://4khdr.cn/forumtype-2-11-1.html",
+            "quantity": ""
          },
          {
-            "title":"4K陆港台",
-            "url":"https://4khdr.cn/forumtype-2-15-1.html",
-            "quantity":""
+            "title": "4K陆港台",
+            "url": "https://4khdr.cn/forumtype-2-15-1.html",
+            "quantity": ""
          },
          {
-            "title":"4K日韩印",
-            "url":"https://4khdr.cn/forumtype-2-4-1.html",
-            "quantity":""
+            "title": "4K日韩印",
+            "url": "https://4khdr.cn/forumtype-2-4-1.html",
+            "quantity": ""
          },
          {
-            "title":"1080抢鲜看",
-            "url":"https://4khdr.cn/forumtype-2-14-1.html",
-            "quantity":""
+            "title": "1080抢鲜看",
+            "url": "https://4khdr.cn/forumtype-2-14-1.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "videoscontainer":{
-            "selector":"div.c.cl > a",
-            "attrName":"",
-            "filter":""
+      "list": {
+         "videoscontainer": {
+            "selector": "div.c.cl > a",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"title",
-            "filter":"([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
+         "title": {
+            "selector": "",
+            "attrName": "title",
+            "filter": "([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          },
-         "page":{
-            "selector":"span#fd_page_bottom"
+         "page": {
+            "selector": "span#fd_page_bottom"
          }
       },
-      "search":{
-         "url":""
+      "search": {
+         "url": ""
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"a[href*=\"magnet:?xt=urn:btih:\"]",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       }
    },
    {
-      "title":"阿里云盘发布频道",
-      "link":"https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
-      "show":"portrait",
-      "next":"aliyundrive",
-      "datasort":"reverse",
-      "use_referer":false,
-      "category":[
+      "title": "阿里云盘发布频道",
+      "link": "https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
+      "show": "portrait",
+      "next": "aliyundrive",
+      "datasort": "reverse",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"频道首页",
-            "url":"https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
-            "quantity":""
+            "title": "频道首页",
+            "url": "https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"a.tme_messages_more.js-messages_more"
+      "list": {
+         "page": {
+            "selector": "a.tme_messages_more.js-messages_more"
          },
-         "videoscontainer":{
-            "selector":"div.tgme_widget_message_wrap.js-widget_message_wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"div.tgme_widget_message_text.js-message_text",
-            "attrName":"html",
-            "filter":"(.+?)<br>"
+         "title": {
+            "selector": "div.tgme_widget_message_text.js-message_text",
+            "attrName": "html",
+            "filter": "(.+?)<br>"
          },
-         "thumb":{
-            "selector":"div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-            "attrName":"style",
-            "filter":"url\\('(.+?)'\\)"
+         "thumb": {
+            "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+            "attrName": "style",
+            "filter": "url\\('(.+?)'\\)"
          },
-         "link":{
-            "selector":"div.tgme_widget_message_bubble",
-            "attrName":"text",
-            "filter":"(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+         "link": {
+            "selector": "div.tgme_widget_message_bubble",
+            "attrName": "text",
+            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
-      "search":{
-         "url":"https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
+      "search": {
+         "url": "https://cors.eu.org/https://tx.me/s/Aliyundrive_Share_Channel?q=#msearchword"
       }
    },
    {
-      "title":"阿里云盘发布频道2",
-      "link":"https://cors.eu.org/https://tx.me/s/shareAliyun",
-      "show":"portrait",
-      "next":"aliyundrive",
-      "datasort":"reverse",
-      "use_referer":false,
-      "category":[
+      "title": "阿里云盘发布频道2",
+      "link": "https://cors.eu.org/https://tx.me/s/shareAliyun",
+      "show": "portrait",
+      "next": "aliyundrive",
+      "datasort": "reverse",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"频道首页",
-            "url":"https://cors.eu.org/https://tx.me/s/shareAliyun",
-            "quantity":""
+            "title": "频道首页",
+            "url": "https://cors.eu.org/https://tx.me/s/shareAliyun",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"a.tme_messages_more.js-messages_more"
+      "list": {
+         "page": {
+            "selector": "a.tme_messages_more.js-messages_more"
          },
-         "videoscontainer":{
-            "selector":"div.tgme_widget_message_wrap.js-widget_message_wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"div.tgme_widget_message_text.js-message_text",
-            "attrName":"html",
-            "filter":"(.+?)<br>"
+         "title": {
+            "selector": "div.tgme_widget_message_text.js-message_text",
+            "attrName": "html",
+            "filter": "(.+?)<br>"
          },
-         "thumb":{
-            "selector":"div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-            "attrName":"style",
-            "filter":"url\\('(.+?)'\\)"
+         "thumb": {
+            "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+            "attrName": "style",
+            "filter": "url\\('(.+?)'\\)"
          },
-         "link":{
-            "selector":"div.tgme_widget_message_bubble",
-            "attrName":"text",
-            "filter":"(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+         "link": {
+            "selector": "div.tgme_widget_message_bubble",
+            "attrName": "text",
+            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
-      "search":{
-         "url":"https://cors.eu.org/https://tx.me/s/hareAliyun?q=#msearchword"
+      "search": {
+         "url": "https://cors.eu.org/https://tx.me/s/hareAliyun?q=#msearchword"
       }
    },
    {
-      "title":"阿里云盘盘",
-      "link":"https://cors.eu.org/https://tx.me/s/yunpanpan",
-      "show":"portrait",
-      "next":"aliyundrive",
-      "datasort":"reverse",
-      "use_referer":false,
-      "category":[
+      "title": "阿里云盘盘",
+      "link": "https://cors.eu.org/https://tx.me/s/yunpanpan",
+      "show": "portrait",
+      "next": "aliyundrive",
+      "datasort": "reverse",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"频道首页",
-            "url":"https://cors.eu.org/https://tx.me/s/yunpanpan",
-            "quantity":""
+            "title": "频道首页",
+            "url": "https://cors.eu.org/https://tx.me/s/yunpanpan",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"a.tme_messages_more.js-messages_more"
+      "list": {
+         "page": {
+            "selector": "a.tme_messages_more.js-messages_more"
          },
-         "videoscontainer":{
-            "selector":"div.tgme_widget_message_wrap.js-widget_message_wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"div.tgme_widget_message_text.js-message_text",
-            "attrName":"html",
-            "filter":"(.+?)<br>"
+         "title": {
+            "selector": "div.tgme_widget_message_text.js-message_text",
+            "attrName": "html",
+            "filter": "(.+?)<br>"
          },
-         "thumb":{
-            "selector":"div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-            "attrName":"style",
-            "filter":"url\\('(.+?)'\\)"
+         "thumb": {
+            "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+            "attrName": "style",
+            "filter": "url\\('(.+?)'\\)"
          },
-         "link":{
-            "selector":"div.tgme_widget_message_bubble",
-            "attrName":"text",
-            "filter":"(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+         "link": {
+            "selector": "div.tgme_widget_message_bubble",
+            "attrName": "text",
+            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
-      "search":{
-         "url":"https://cors.eu.org/https://tx.me/s/yunpanpan?q=#msearchword"
+      "search": {
+         "url": "https://cors.eu.org/https://tx.me/s/yunpanpan?q=#msearchword"
       }
    },
    {
-      "title":"肯德基电影院",
-      "link":"https://cors.eu.org/https://tx.me/s/XiangxiuNB",
-      "show":"portrait",
-      "next":"aliyundrive",
-      "datasort":"reverse",
-      "use_referer":false,
-      "category":[
+      "title": "肯德基电影院",
+      "link": "https://cors.eu.org/https://tx.me/s/XiangxiuNB",
+      "show": "portrait",
+      "next": "aliyundrive",
+      "datasort": "reverse",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"频道首页",
-            "url":"https://cors.eu.org/https://tx.me/s/XiangxiuNB",
-            "quantity":""
+            "title": "频道首页",
+            "url": "https://cors.eu.org/https://tx.me/s/XiangxiuNB",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"a.tme_messages_more.js-messages_more"
+      "list": {
+         "page": {
+            "selector": "a.tme_messages_more.js-messages_more"
          },
-         "videoscontainer":{
-            "selector":"div.tgme_widget_message_wrap.js-widget_message_wrap",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"div.tgme_widget_message_text.js-message_text",
-            "attrName":"html",
-            "filter":"(.+?)<br>"
+         "title": {
+            "selector": "div.tgme_widget_message_text.js-message_text",
+            "attrName": "html",
+            "filter": "(.+?)<br>"
          },
-         "thumb":{
-            "selector":"div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-            "attrName":"style",
-            "filter":"url\\('(.+?)'\\)"
+         "thumb": {
+            "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
+            "attrName": "style",
+            "filter": "url\\('(.+?)'\\)"
          },
-         "link":{
-            "selector":"div.tgme_widget_message_bubble",
-            "attrName":"text",
-            "filter":"(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+         "link": {
+            "selector": "div.tgme_widget_message_bubble",
+            "attrName": "text",
+            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
-      "search":{
-         "url":"https://cors.eu.org/https://tx.me/s/XiangxiuNB?q=#msearchword"
+      "search": {
+         "url": "https://cors.eu.org/https://tx.me/s/XiangxiuNB?q=#msearchword"
       }
    },
    {
-      "title":"tvbox - 软件下载",
-      "link":"https://www.tvbox.one/",
-      "show":"landscape",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "tvbox - 软件下载",
+      "link": "https://www.tvbox.one/",
+      "show": "landscape",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"https://www.tvbox.one/page/1",
-            "quantity":""
+            "title": "首页",
+            "url": "https://www.tvbox.one/page/1",
+            "quantity": ""
          },
          {
-            "title":"应用",
-            "url":"https://www.tvbox.one/apps/page/1",
-            "quantity":""
+            "title": "应用",
+            "url": "https://www.tvbox.one/apps/page/1",
+            "quantity": ""
          },
          {
-            "title":"游戏",
-            "url":"https://www.tvbox.one/games/page/1",
-            "quantity":""
+            "title": "游戏",
+            "url": "https://www.tvbox.one/games/page/1",
+            "quantity": ""
          },
          {
-            "title":"工具",
-            "url":"https://www.tvbox.one/utilities/page/1",
-            "quantity":""
+            "title": "工具",
+            "url": "https://www.tvbox.one/utilities/page/1",
+            "quantity": ""
          },
          {
-            "title":"手机",
-            "url":"https://www.tvbox.one/mobile/page/1",
-            "quantity":""
+            "title": "手机",
+            "url": "https://www.tvbox.one/mobile/page/1",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":""
+      "list": {
+         "page": {
+            "selector": ""
          },
-         "videoscontainer":{
-            "selector":"ul#infinite-articles li > a",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "ul#infinite-articles li > a",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"img",
-            "attrName":"alt",
-            "filter":""
+         "title": {
+            "selector": "img",
+            "attrName": "alt",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":".su-button-center",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": ".su-button-center",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":": (.*)"
+         "title": {
+            "selector": "a",
+            "attrName": "text",
+            "filter": ": (.*)"
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.tvbox.one/?s=#msearchword"
+      "search": {
+         "url": "https://www.tvbox.one/?s=#msearchword"
       }
    },
    {
-      "title":"DYD - 阿里云盘",
-      "link":"http://www.dydhhy.com",
-      "show":"landscape",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "DYD - 阿里云盘",
+      "link": "http://www.dydhhy.com",
+      "show": "landscape",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"首页",
-            "url":"http://www.dydhhy.com/",
-            "quantity":""
+            "title": "首页",
+            "url": "http://www.dydhhy.com/",
+            "quantity": ""
          },
          {
-            "title":"电影",
-            "url":"http://www.dydhhy.com/tag/movie/",
-            "quantity":""
+            "title": "电影",
+            "url": "http://www.dydhhy.com/tag/movie/",
+            "quantity": ""
          },
          {
-            "title":"剧集",
-            "url":"http://www.dydhhy.com/tag/tv/",
-            "quantity":""
+            "title": "剧集",
+            "url": "http://www.dydhhy.com/tag/tv/",
+            "quantity": ""
          },
          {
-            "title":"美剧",
-            "url":"http://www.dydhhy.com/tag/%E7%BE%8E%E5%89%A7/",
-            "quantity":""
+            "title": "美剧",
+            "url": "http://www.dydhhy.com/tag/%E7%BE%8E%E5%89%A7/",
+            "quantity": ""
          },
          {
-            "title":"日剧",
-            "url":"http://www.dydhhy.com/tag/%e6%97%a5%e5%89%a7/",
-            "quantity":""
+            "title": "日剧",
+            "url": "http://www.dydhhy.com/tag/%e6%97%a5%e5%89%a7/",
+            "quantity": ""
          },
          {
-            "title":"英剧",
-            "url":"http://www.dydhhy.com/tag/%E8%8B%B1%E5%89%A7/",
-            "quantity":""
+            "title": "英剧",
+            "url": "http://www.dydhhy.com/tag/%E8%8B%B1%E5%89%A7/",
+            "quantity": ""
          },
          {
-            "title":"韩剧",
-            "url":"http://www.dydhhy.com/tag/%E9%9F%A9%E5%89%A7/",
-            "quantity":""
+            "title": "韩剧",
+            "url": "http://www.dydhhy.com/tag/%E9%9F%A9%E5%89%A7/",
+            "quantity": ""
          },
          {
-            "title":"2023年",
-            "url":"http://www.dydhhy.com/tag/2023/",
-            "quantity":""
+            "title": "2023年",
+            "url": "http://www.dydhhy.com/tag/2023/",
+            "quantity": ""
          },
          {
-            "title":"2022年",
-            "url":"http://www.dydhhy.com/tag/2022/",
-            "quantity":""
+            "title": "2022年",
+            "url": "http://www.dydhhy.com/tag/2022/",
+            "quantity": ""
          },
          {
-            "title":"2021年",
-            "url":"http://www.dydhhy.com/tag/2021/",
-            "quantity":""
+            "title": "2021年",
+            "url": "http://www.dydhhy.com/tag/2021/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "videoscontainer":{
-            "selector":".thumbnail-link",
-            "attrName":"",
-            "filter":""
+      "list": {
+         "videoscontainer": {
+            "selector": ".thumbnail-link",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":".thumbnail-wrap img",
-            "attrName":"alt",
-            "filter":"([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
+         "title": {
+            "selector": ".thumbnail-wrap img",
+            "attrName": "alt",
+            "filter": "([\\u4e00-\\u9fa5a-zA-Z\\d]+[\\u4e00-\\u9fa5a-zA-Z\\d\\s]*)(?:第\\s*(\\d+)\\s*季|\\s*季\\s*(\\d+)|\\s*(\\d+)\\s*季)?"
          },
-         "thumb":{
-            "selector":".thumbnail-wrap img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": ".thumbnail-wrap img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          },
-         "page":{
-            "selector":".nav-links"
+         "page": {
+            "selector": ".nav-links"
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"a[href*=\"www.aliyundrive.com\"],a[href*=\"magnet:?xt=urn:btih:\"]",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[href*=\"www.aliyundrive.com\"],a[href*=\"magnet:?xt=urn:btih:\"]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"http://www.dydhhy.com/?s=#msearchword"
+      "search": {
+         "url": "http://www.dydhhy.com/?s=#msearchword"
       }
    },
    {
-      "title":"Ahhhhfs - 阿里云盘",
-      "link":"https://www.ahhhhfs.com/",
-      "show":"landscape",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "Ahhhhfs - 阿里云盘",
+      "link": "https://www.ahhhhfs.com/",
+      "show": "landscape",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
          {
-            "title":"阿里网盘",
-            "url":"https://www.ahhhhfs.com/welfare/movie/",
-            "quantity":""
+            "title": "阿里网盘",
+            "url": "https://www.ahhhhfs.com/welfare/movie/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":".pagination"
+      "list": {
+         "page": {
+            "selector": ".pagination"
          },
-         "videoscontainer":{
-            "selector":"article.post",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "article.post",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"img",
-            "attrName":"data-src",
-            "filter":""
+         "thumb": {
+            "selector": "img",
+            "attrName": "data-src",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":".entry-content p a:gt(0):lt(1)",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": ".entry-content p a:gt(0):lt(1)",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.ahhhhfs.com/?cat=16&s=#msearchword"
+      "search": {
+         "url": "https://www.ahhhhfs.com/?cat=16&s=#msearchword"
       }
    },
    {
-  "title": "体育 - JRKAN直播",
-  "link": "http://play.sportsteam685.com",
-  "show": "minilandscape",
-  "next": "detail",
-  "datasort": "",
-  "use_referer": false,
-  "category": [
-    {
-      "title": "今日热门比赛",
-      "url": "http://www.jrkan2023.com/",
-      "quantity": ""
-    }
-  ],
-  "list": {
-    "videoscontainer": {
-      "selector": "ul[data-lid*='\\,2\\,'][class=\"item play d-touch active hot\"]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "li:gt(0):lt(5)",
-      "attrName": "text",
-      "filter": ""
-    },
-    "thumb": {
-      "selector": ".lab_team_home img",
-      "attrName": "src",
-      "filter": ""
-    },
-    "link": {
-      "selector": "a.item.ok",
-      "attrName": "href",
-      "filter": ""
-    },
-    "page": {
-      "selector": ""
-    }
-  },
-  "detail": {
-    "videoscontainer": {
-      "selector": "a[data-play]",
-      "attrName": "",
-      "filter": ""
-    },
-    "title": {
-      "selector": "",
-      "attrName": "text",
-      "filter": ""
-    },
-    "link": {
-      "selector": "",
-      "attrName": "data-play",
-      "filter": ""
-    }
-  },
-  "search": {
-    "url": ""
-  }
-},
-   {
-      "title":"体育 - 24看球网",
-      "link":"https://www.24kanqiu.com",
-      "show":"minilandscape",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":false,
-      "category":[
+      "title": "体育 - JRKAN直播",
+      "link": "http://play.sportsteam685.com",
+      "show": "minilandscape",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "category": [
          {
-            "title":"首页",
-            "url":"https://www.24kanqiu.com",
-            "quantity":""
+            "title": "今日热门比赛",
+            "url": "http://www.jrkan2023.com/",
+            "quantity": ""
          }
       ],
-      "list":{
-         "videoscontainer":{
-            "selector":".listDec a",
-            "attrName":"",
-            "filter":""
+      "list": {
+         "videoscontainer": {
+            "selector": "ul[data-lid*='\\,2\\,'][class=\"item play d-touch active hot\"]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "li:gt(0):lt(5)",
+            "attrName": "text",
+            "filter": ""
          },
-         "thumb":{
-            "selector":".home_team img",
-            "attrName":"src",
-            "filter":""
+         "thumb": {
+            "selector": ".lab_team_home img",
+            "attrName": "src",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a.item.ok",
+            "attrName": "href",
+            "filter": ""
          },
-         "page":{
-            "selector":""
+         "page": {
+            "selector": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"a[data-url]",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[data-play]",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"",
-            "attrName":"data-url",
-            "filter":""
+         "link": {
+            "selector": "",
+            "attrName": "data-play",
+            "filter": ""
          }
       },
-      "search":{
-         "url":""
+      "search": {
+         "url": ""
+      }
+   },
+   {
+      "title": "体育 - 24看球网",
+      "link": "https://www.24kanqiu.com",
+      "show": "minilandscape",
+      "next": "detail",
+      "datasort": "",
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
+         {
+            "title": "首页",
+            "url": "https://www.24kanqiu.com",
+            "quantity": ""
+         }
+      ],
+      "list": {
+         "videoscontainer": {
+            "selector": ".listDec a",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
+         },
+         "thumb": {
+            "selector": ".home_team img",
+            "attrName": "src",
+            "filter": ""
+         },
+         "link": {
+            "selector": "",
+            "attrName": "href",
+            "filter": ""
+         },
+         "page": {
+            "selector": ""
+         }
+      },
+      "detail": {
+         "videoscontainer": {
+            "selector": "a[data-url]",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "",
+            "attrName": "text",
+            "filter": ""
+         },
+         "link": {
+            "selector": "",
+            "attrName": "data-url",
+            "filter": ""
+         }
+      },
+      "search": {
+         "url": ""
       }
    }
 ]
