@@ -289,6 +289,9 @@
                                                 // _this.open();
                                                 network["native"](tab.url, function (data) {
                                                     if (data.url) {
+                                                        if (!Lampa.Platform.is("android")) {
+                                                            Lampa.Modal.close();
+                                                        };
                                                         var playlist = [];
                                                         var first = {
                                                             url: data.url,
