@@ -1173,9 +1173,9 @@
                                     var file = tab.url;
                                     if (/^https?:\/\//i.test(file) === false) {
                                         if (file.indexOf('magnet:?') !== -1) {
-                                            if (Lampa.Storage.get('platform', 'noname') !== 'android') {
+                                            if (!Lampa.Platform.is("android") == false) {
                                                 Lampa.Modal.close();
-                                            };
+                                            }
                                             var SERVER1 = {
                                                 "title": "",
                                                 "MagnetUri": "",
@@ -1208,7 +1208,7 @@
                                     }
                                     else {
                                         if (/\.(m3u8|mp4|mp3)$/.test(file)) {
-                                            if (Lampa.Storage.get('platform', 'noname') !== 'android') {
+                                            if (!Lampa.Platform.is("android")) {
                                                 Lampa.Modal.close();
                                             };
                                             var video = {
@@ -1265,6 +1265,8 @@
                                                 }
 
                                                 if (videolink) {
+                                                    //Lampa.Modal.close();
+                                                    console.log(Lampa.Platform.is("android"))
                                                     if (Lampa.Storage.get('platform', 'noname') !== 'android') {
                                                         Lampa.Modal.close();
                                                     };
