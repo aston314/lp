@@ -1173,7 +1173,7 @@
                                     var file = tab.url;
                                     if (/^https?:\/\//i.test(file) === false) {
                                         if (file.indexOf('magnet:?') !== -1) {
-                                            if (!Lampa.Platform.is("android")) {
+                                            if (!Lampa.Platform.is("android") == false) {
                                                 Lampa.Modal.close();
                                             }
                                             var SERVER1 = {
