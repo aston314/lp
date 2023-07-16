@@ -9,6 +9,7 @@
         //     next:"search",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "最近更新",
         //         url: "https://www.wanmeikk.film",
@@ -85,6 +86,7 @@
             next: "search",
             datasort: "",
             use_referer: true,
+            browser: "MOBILE_UA",
             category: [{
                 title: '最近更新',
                 url: 'https://libvio.cc/',
@@ -171,6 +173,7 @@
         //     next: "search",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
         //         url: "https://www.olevod.com/index.php/vod/show/id/1.html",
@@ -247,6 +250,7 @@
         //     next: "search",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "首页",
         //         url: "https://zxzj.org",
@@ -317,6 +321,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            browser: "MOBILE_UA",
             category: [{
                 title: "电影",
                 url: "https://www.7xiady.cc/type/dianying",
@@ -373,6 +378,7 @@
         //     next: "search",
         //     datasort: "",
         //     use_referer: true,
+        //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
         //         url: "https://ddys.one/category/movie/",
@@ -439,6 +445,7 @@
         //     show: "portrait",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
         //         url: "https://www.czspp.com/zuixindianying",
@@ -515,6 +522,7 @@
         //     next:"search",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "电影",
         //         url: "https://cokemv.me/vodshow/1-----------.html",
@@ -571,6 +579,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            browser: "MOBILE_UA",
             category: [{
                 title: "电影",
                 url: "http://www.lezhutv.com/type/1-1.html",
@@ -637,6 +646,7 @@
         //     next: "search",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
         //         url: "https://auete.com/Movie/index.html",
@@ -698,6 +708,7 @@
         //     next:"play",
         //     datasort: "",
         //     use_referer: false,
+        //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "最近更新",
         //         url: "https://jable.tv/latest-updates/",
@@ -744,6 +755,7 @@
             next: "detail",
             datasort: "",
             use_referer: false,
+            browser: "MOBILE_UA",
             category: [{
                 title: "热门电影",
                 url: "https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
@@ -815,99 +827,6 @@
                 url: "https://yts.mx/browse-movies/#msearchword/all/all/0/latest/0/all"
             }
         },
-        // {
-        //     title: "乌龟影视",
-        //     link: "https://www.wuguiyy.com",
-        //     show: "portrait",
-        //     next:"detail",
-        //     datasort: "",
-        //     use_referer: false,
-        //    category: [{
-        //         title: "电影",
-        //         url: "https://www.wuguiyy.com/show/dianying-----------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "连续剧",
-        //         url: "https://www.wuguiyy.com/show/lianxuju-----------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%AC%A7%E7%BE%8E%E5%89%A7--------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "国产剧",
-        //         url: "https://www.wuguiyy.com/show/lianxuju---%E5%9B%BD%E4%BA%A7%E5%89%A7--------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日韩剧",
-        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%97%A5%E9%9F%A9%E5%89%A7--------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "港台剧",
-        //         url: "https://www.wuguiyy.com/show/lianxuju---%E6%B8%AF%E5%8F%B0%E5%89%A7--------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://www.wuguiyy.com/show/dongman-----------/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://www.wuguiyy.com/show/zongyi-----------/",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.stui-page"
-        //         },
-        //         videoscontainer: {
-        //             selector: ".stui-vodlist__box",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     detail:{
-        //         videoscontainer:{
-        //            selector:'div:nth-child(2) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
-        //            attrName:'',
-        //            filter:''
-        //         },
-        //         title:{
-        //            selector:'a',
-        //            attrName:'text',
-        //            filter:''
-        //         },
-        //         link:{
-        //            selector:'a',
-        //            attrName:'href',
-        //            filter:''
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://www.wuguiyy.com/search/-------------/?wd=#msearchword-&submit="
-        //     }
-        // }
     ];
     if (Lampa.Storage.get('json_use')) {
         $.ajax({
@@ -943,12 +862,7 @@
             over: true,
             step: 250
         });
-        var MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
-        var PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
-        var UA = "Mozilla/5.0";
-        var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
-        var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
-
+        
 
         var s, s_name;
         if (object.show == 'minilandscape') {
@@ -1012,7 +926,7 @@
                     return;
                 }, false, {
                     dataType: 'text',
-                    headers: _this.setheader(object.use_referer)
+                    headers: _this.setheader(object.use_referer,object.browser)
                 });
 
             } else _this.build(object.data);
@@ -1071,7 +985,7 @@
                 }
             }, false, {
                 dataType: 'text',
-                headers: _this2.setheader(object.use_referer)
+                headers: _this2.setheader(object.use_referer,object.browser)
             });
         };
 
@@ -1279,6 +1193,7 @@
                             search: object.search,
                             detail: object.detail,
                             use_referer: object.use_referer,
+                            browser: object.browser,
                             page: 1
                         });
                     }
@@ -1327,6 +1242,7 @@
                         search: a.search.url,
                         detail: a.detail,
                         use_referer: a.use_referer,
+                        browser: a.browser,
                         page: 1
                     });
                 },
@@ -1369,7 +1285,7 @@
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
                     dataType: 'text',
-                    headers: _this.setheader(object.use_referer)
+                    headers: _this.setheader(object.use_referer,object.browser)
                 });
             });
             body.append(more);
@@ -1588,23 +1504,51 @@
                 };
             }
         };
-        this.setheader = function (isreferer) {
-            var headercontent = {};
-            if (isreferer) {
-                headercontent = {
-                    'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
-                    'User-Agent': MOBILE_UA,
-                    // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                    // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
-                    // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
-                }
-            } else {
-                headercontent = {
-                    'User-Agent': MOBILE_UA,
-                }
+        // this.setheader = function (isreferer, browser) {
+        //     var _this2 = this;
+        //     var headercontent = {};
+        //     if (isreferer) {
+        //         headercontent = {
+        //             'Referer': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + '/',
+        //             'User-Agent': _this2.setbrowser(object.browser),
+        //             // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        //             // 'Accept-Language': 'en,zh-CN;q=0.9,zh;q=0.8',
+        //             // 'Origin': object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0]
+        //         }
+        //     } else {
+        //         headercontent = {
+        //             'User-Agent': _this2.setbrowser(object.browser),
+        //         }
+        //     };
+        //     return headercontent;
+        // };
+        this.setheader = function (isreferer, browser) {
+            var headercontent = {
+                'User-Agent': this.setbrowser(browser)
             };
+
+            if (isreferer) {
+                const urlMatch = object.url.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/);
+                if (urlMatch) {
+                    headercontent['Referer'] = urlMatch[0] + '/';
+                    // headercontent['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7';
+                    // headercontent['Accept-Language'] = 'en,zh-CN;q=0.9,zh;q=0.8';
+                    // headercontent['Origin'] = urlMatch[0];
+                }
+            }
+
             return headercontent;
-        }
+        };
+        this.setbrowser = function (browser) {
+            var browsers = {
+                MOBILE_UA: "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36",
+                PC_UA: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36",
+                UC_UA: "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36",
+                IOS_UA: "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+            };
+
+            return browsers[browser] || browsers.PC_UA;
+        };
         this.finds = function (find) {
             var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
             var finded;
@@ -1786,6 +1730,7 @@
                         search: catalogs1[0].search.url,
                         detail: catalogs1[0].detail,
                         use_referer: catalogs1[0].use_referer,
+                        browser: catalogs1[0].browser,
                         page: 1
                     });
                 },
