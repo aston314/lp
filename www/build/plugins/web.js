@@ -1212,7 +1212,7 @@
                                                 Lampa.Modal.close();
                                             };
                                             var video = {
-                                                title: element.title_org,
+                                                title: element.title_org+ ' ' + tab.title,
                                                 url: file,
                                                 // timeline: view
                                             };
@@ -1272,7 +1272,7 @@
                                                     };
                                                     
                                                     var video = {
-                                                        title: element.title,
+                                                        title: element.title_org+ ' ' + tab.title,
                                                         url: videolink,
                                                         // timeline: view
                                                     };
