@@ -755,7 +755,7 @@
             next: "detail",
             datasort: "",
             use_referer: false,
-            browser: "MOBILE_UA",
+            browser: "PC_UA",
             category: [{
                 title: "热门电影",
                 url: "https://yts.mx/browse-movies/0/all/all/0/featured/0/all",
