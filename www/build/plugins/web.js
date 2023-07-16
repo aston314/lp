@@ -6,6 +6,7 @@
         //     title: "完美看看",
         //     link: "https://www.wanmeikk.film",
         //     show: "portrait",
+        //     available: false,
         //     next:"search",
         //     datasort: "",
         //     use_referer: false,
@@ -82,6 +83,7 @@
         {
             title: "LIBVIO",
             link: "https://libvio.cc",
+            available: true,
             show: "portrait",
             next: "search",
             datasort: "",
@@ -169,6 +171,7 @@
         // {
         //     title: "欧乐影院",
         //     link: "https://www.olevod.com",
+        //     available: false,
         //     show: "portrait",
         //     next: "search",
         //     datasort: "",
@@ -246,6 +249,7 @@
         // {
         //     title: "在线之家",
         //     link: "https://www.zxzj.org",
+        //     available: false,
         //     show: "portrait",
         //     next: "search",
         //     datasort: "",
@@ -317,6 +321,7 @@
         {
             title: "秋霞电影",
             link: "https://www.7xiady.cc",
+            available: true,
             show: "portrait",
             next: "search",
             datasort: "",
@@ -374,6 +379,7 @@
         // {
         //     title: "低端影视",
         //     link: "https://ddys.one",
+        //     available: false,
         //     show: "portrait",
         //     next: "search",
         //     datasort: "",
@@ -442,6 +448,7 @@
         //     title: "厂长资源",
         //     next: "search",
         //     link: "https://www.czspp.com",
+        //     available: false,
         //     show: "portrait",
         //     datasort: "",
         //     use_referer: false,
@@ -518,6 +525,7 @@
         // {
         //     title: "COKEMV影视",
         //     link: "https://cokemv.me",
+        //     available: false,
         //     show: "portrait",
         //     next:"search",
         //     datasort: "",
@@ -575,6 +583,7 @@
         {
             title: "乐猪TV",
             link: "http://www.lezhutv.com",
+            available: true,
             show: "portrait",
             next: "search",
             datasort: "",
@@ -642,6 +651,7 @@
         // {
         //     title: "Auete影视",
         //     link: "https://auete.com",
+        //     available: false,
         //     show: "portrait",
         //     next: "search",
         //     datasort: "",
@@ -704,6 +714,7 @@
         // {
         //     title: "JableTV",
         //     link: "https://jable.tv",
+        //     available: false,
         //     show: "landscape",
         //     next:"play",
         //     datasort: "",
@@ -751,6 +762,7 @@
         {
             title: "YTS.MX - 磁力下载",
             link: "https://yts.mx",
+            available: true,
             show: "portrait",
             next: "detail",
             datasort: "",
@@ -1223,11 +1235,23 @@
             Lampa.Select.show({
                 title: '网站',
                 // items: catalogs,
-                items: catalogs.map(function (elem, index) {
-                    elem.selected = balanser_ == elem.title;
-                    // console.log(balanser_,elem)
-                    return elem;
-                }),
+                // items: catalogs.map(function (elem, index) {
+                //     elem.selected = balanser_ == elem.title;
+                //     // console.log(balanser_,elem)
+                //     return elem && elem.available == true;
+                // }),
+                // items: catalogs.map(function (elem) {
+                //     elem.selected = balanser_ === elem.title;
+                //     // console.log(balanser_, elem);
+                //     return elem.available === true ? elem : null;
+                // }),
+                items: catalogs
+                    .map(function (elem) {
+                        elem.selected = balanser_ === elem.title;
+                        // console.log(balanser_, elem);
+                        return elem.available === true ? elem : null;
+                    })
+                    .filter(Boolean),
                 onSelect: function onSelect(a) {
                     //console.log(a)
                     Lampa.Storage.set('online_web_balanser', a.title);
@@ -1313,7 +1337,7 @@
                 // }
 
                 var catalogs1 = catalogs.filter(function (fp) {
-                    return fp.title === balanser
+                    return fp.title === balanser && fp.available == true
                 });
 
                 if (catalogs1.length === 0) {
@@ -1708,7 +1732,7 @@
             var balanser = Lampa.Storage.get('online_web_balanser');
 
             var catalogs1 = catalogs.filter(function (fp) {
-                return fp.title === balanser
+                return fp.title === balanser && fp.available == true
             });
 
             if (catalogs1.length === 0) {
