@@ -8,17 +8,85 @@
         if (kpid != '') {
             $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) { 
                 if (data.length) {
+                    var html = $('<div></div>');
                     network["native"]('https://m.douban.com/rexxar/api/v2/movie/' + data[0].id + '/interests?count=30&order_by=hot&anony=0&start=0&ck=&for_mobile=1', function (json) {
                         var button = json.interests.map(function (element) {
                             return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星 ' : '') + '评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
                         }).join('');
+
+                        json.interests.forEach(function (element) {
+                            var item = Lampa.Template.get('notice_card', {});
+                            // var icon = element.poster || element.icon || element.img;
+                            // var author_data = {};
+                            var author_html;
+                            // item.addClass('image--' + (element.poster ? 'poster' : element.icon ? 'icon' : element.img ? 'img' : 'none'));
+                            item.find('.notice__title').html((element.rating ? element.rating.value + '颗星' : ''));
+                            item.find('.notice__descr').html(element.comment);
+                            item.find('.notice__time').html(element.create_time);
+                            // if (element.labels) item.find('.notice__descr').append($('<div class="notice__footer">' + element.labels.map(function (label) {
+                            //   return '<div>' + translate$1(label) + '</div>';
+                            // }).join(' ') + '</div>'));
+                  
+                            // if (element.author) {
+                            //   author_data = translate$1(element.author);
+                              author_html = $("<div class=\"notice__author\">\n                    <div class=\"notice__author-img\">\n                        <img />\n                    </div>\n                    <div class=\"notice__author-body\">\n                        <div class=\"notice__author-name\"></div>\n                        <div class=\"notice__author-text\"></div>\n                    </div>\n                </div>");
+                              author_html.find('.notice__author-name').html(element.user.name);
+                            //   author_html.find('.notice__author-text').html(author_data.text);
+                              item.find('.notice__body').append(author_html);
+                            // }
+                  
+                            // item.on('hover:enter', function () {
+                            //   if (element.card) {
+                            //     _this.close();
+                  
+                            //     Activity$1.push({
+                            //       url: '',
+                            //       component: 'full',
+                            //       id: element.card.id,
+                            //       method: element.card.number_of_seasons || element.card.seasons ? 'tv' : 'movie',
+                            //       card: element.card,
+                            //       source: 'tmdb'
+                            //     });
+                            //   } else _this.listener.send('select', {
+                            //     display: element.display || _this.display,
+                            //     element: element
+                            //   });
+                            // }).on('visible', function () {
+                            //   if (icon) {
+                            //     icon = translate$1(icon);
+                            //     if (icon.indexOf('http') == -1) icon = TMDB$1.image('t/p/w300/' + icon);
+                            //     var img_icon = item.find('.notice__left img')[0] || {};
+                            //     var img_author = item.find('.notice__author img')[0] || {};
+                  
+                            //     img_icon.onload = function () {
+                            //       item.addClass('image--loaded');
+                            //     };
+                  
+                            //     img_icon.onerror = function () {
+                            //       img_icon.src = './img/img_broken.svg';
+                            //     };
+                  
+                            //     img_author.onload = function () {
+                            //       item.addClass('image-author--loaded');
+                            //     };
+                  
+                            //     img_author.onerror = function () {
+                            //       img_author.src = './img/img_broken.svg';
+                            //     };
+                  
+                            //     img_icon.src = icon;
+                            //     if (element.author) img_author.src = author_data.img.indexOf('http') >= 0 ? author_data.img : TMDB$1.image('t/p/w200/' + author_data.img);
+                            //   }
+                            // });
+                            html.append(item);
+                        });
 
 
                         var modal = $('<div><div class="broadcast__text" style="text-align:left"><div class="otzyv">' + button + '</div></div></div>');
                         // var enabled = Lampa.Controller.enabled().name;
                         Lampa.Modal.open({
                             title: "",
-                            html: modal,
+                            html: html,//modal,
                             size: "large",
                             mask: !0,
                             onBack: function () {
