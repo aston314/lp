@@ -4,6 +4,7 @@
     var network = new Lampa.Reguest();
     var num;
     function douban_review(kpid, imdbid, num) {
+        Lampa.Controller.toggle('full_start');
         if (kpid != '') {
             $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
                 // console.log(data[0])
