@@ -60,7 +60,8 @@
                                 };
                   
                                 img_icon.src = icon;
-                                // if (element.author) img_author.src = author_data.img.indexOf('http') >= 0 ? author_data.img : Lampa.TMDB.image('t/p/w200/' + author_data.img);
+                                // if (element.author) 
+                                img_author.src = element.user.avatar;
                               }
                             });
                             html.append(item);
