@@ -17,10 +17,10 @@
 
                         json.interests.forEach(function (element) {
                             var item = Lampa.Template.get('notice_card', {});
-                            var icon = object.data.movie.img;
+                            var icon = object.data.movie.img.replace('w500','w300');
                             var author_data = {};
                             var author_html;
-                            // item.addClass('image--' + (element.poster ? 'poster' : element.icon ? 'icon' : element.img ? 'img' : 'none'));
+                            item.addClass('image--poster');
                             item.find('.notice__title').html((element.rating ? element.rating.value + '颗星' : ''));
                             item.find('.notice__descr').html(element.comment);
                             item.find('.notice__time').html(element.create_time);
