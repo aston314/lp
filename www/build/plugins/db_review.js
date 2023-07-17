@@ -27,7 +27,8 @@
                         size: "large",
                         mask: !0,
                         onBack: function () {
-                            Lampa.Modal.close(), Lampa.Controller.toggle(enabled)
+                            Lampa.Modal.close(), Lampa.Controller.toggle('full_start')
+                            // Lampa.Controller.toggle(enabled)
                         },
                         onSelect: function () { }
                     });
