@@ -15,7 +15,7 @@
                     // });
 
                     var button = json.interests.map(function(element) {
-                      return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>评论人: ' + element.user.name + '<br />' + element.rating.value + '分</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
+                      return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>评论人: ' + element.user.name + '<br />' + element.rating.value + '颗星</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
                     }).join('');
                     
 
@@ -46,9 +46,9 @@
         }
         network.clear();
     }
-    $('.otzyvb').on('hover:enter', function () {
-        console.log(123);
-    });
+    // $('.otzyvb').on('hover:enter', function () {
+    //     console.log(123);
+    // });
 
     function startPlugin() {
         window.douban_reviewplugin = true;
