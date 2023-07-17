@@ -32,7 +32,7 @@
                             //   author_data = translate$1(element.author);
                               author_html = $("<div class=\"notice__author\">\n                    <div class=\"notice__author-img\">\n                        <img />\n                    </div>\n                    <div class=\"notice__author-body\">\n                        <div class=\"notice__author-name\"></div>\n                        <div class=\"notice__author-text\"></div>\n                    </div>\n                </div>");
                               author_html.find('.notice__author-name').html(element.user.name);
-                              author_html.find('.notice__author-text').html(element.user.loc.name ? element.user.loc.name : '');
+                              author_html.find('.notice__author-text').html(element.user.loc);
                               item.find('.notice__body').append(author_html);
                             // }
                   
