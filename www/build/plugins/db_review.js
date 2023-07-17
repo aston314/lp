@@ -6,12 +6,10 @@
     function douban_review(kpid, imdbid, num) {
         // Lampa.Controller.toggle('full_start');
         if (kpid != '') {
-            $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
-                // console.log(data[0])
-                // 
+            $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) { 
                 network["native"]('https://m.douban.com/rexxar/api/v2/movie/' + data[0].id + '/interests?count=30&order_by=hot&anony=0&start=0&ck=&for_mobile=1', function (json) {
                     var button = json.interests.map(function(element) {
-                      return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星':'') +'评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
+                      return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星 ':'') +'评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
                     }).join('');
                     
 
