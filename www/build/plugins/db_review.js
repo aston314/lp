@@ -22,7 +22,6 @@
             });
             // $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
             network["native"]('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
-                if (Lampa.Controller.enabled().name == 'modal') Lampa.Modal.close();
                 if (data.length) {
                     var html = $('<div></div>');
                     var navigation = $('<div class="navigation-tabs"></div>');
@@ -41,6 +40,7 @@
                         button.on('hover:enter', function () {
                             display = tab.name;
                             douban_review(object, kpid, imdbid, num, tab.type, tab.name);
+                            Lampa.Modal.close();
                         });
                         // if (tab.name == display) button.addClass('active');
                         if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
