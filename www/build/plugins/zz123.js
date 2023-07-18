@@ -896,14 +896,14 @@
 
                 sources.forEach(function (tab, i) {
                     // console.log(html.find('.radio-player__name').text(),tab.url,(html.find('.radio-player__name').text() === tab.url))
-                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "selector active" : "selector";
-                    var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
+                    // var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "selector active" : "selector";
+                    var button = $('<div class="navigation-tabs__button selector>' + tab.title + '</div>');
                     button.on('hover:enter', function () {
                         playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
-
+                    if (html.find('.radio-player__name').text() === tab.url) button.addClass('active');
                     if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
                     if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
                         if (i > 0) html_.append(navigation);
@@ -920,7 +920,7 @@
                     html: html_,
                     size: 'medium',
                     // align: 'center',
-                    // select: html.find('.navigation-tabs .active')[0],
+                    select: html.find('.navigation-tabs .active')[0],
                     mask: true,
                     onBack: function onBack() {
                         Lampa.Modal.close();
