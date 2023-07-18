@@ -96,6 +96,7 @@
                         } else {
                             Lampa.Noty.show(network.errorDecode(a, c));
                         }
+                        Lampa.Controller.toggle('full_start');
                     }, false, {
                         dataType: 'json',
                         headers: {
@@ -106,6 +107,7 @@
                 } else {
                     Lampa.Modal.close();
                     Lampa.Noty.show('没有找到影评。');
+                    Lampa.Controller.toggle('full_start');
                 }
 
             }, function (a, c) {
