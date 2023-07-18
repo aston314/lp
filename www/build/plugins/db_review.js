@@ -38,9 +38,9 @@
                         var ifplaynow = (typename === tab.name) ? "active" : "selector";
                         var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.name + '</div>');
                         button.on('hover:enter', function () {
+                            Lampa.Modal.close();
                             display = tab.name;
                             douban_review(object, kpid, imdbid, num, tab.type, tab.name);
-                            Lampa.Modal.close();
                         });
                         // if (tab.name == display) button.addClass('active');
                         if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
