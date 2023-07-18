@@ -153,7 +153,7 @@
           //   Lampa.Player.playlist(playlist);
           // } else {
             
-            Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'], function () {
+            Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'], function () {
               var localDateTime = new Date();
               // var newTime = new Date(localDateTime.getTime() + 1 * 60 * 60 * 1000); // 在当前时间上增加1小时
               // var unixTimestamp = Math.floor(newTime.getTime() / 1000); // 转换为 Unix 时间戳
