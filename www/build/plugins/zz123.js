@@ -896,7 +896,7 @@
 
                 sources.forEach(function (tab, i) {
                     // console.log(html.find('.radio-player__name').text(),tab.url,(html.find('.radio-player__name').text() === tab.url))
-                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "active" : "selector";
+                    var ifplaynow = (html.find('.radio-player__name').text() === tab.url) ? "selector active" : "selector";
                     var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
                     button.on('hover:enter', function () {
                         playEndedHandler_(i - 1);
