@@ -6,7 +6,6 @@
     function douban_review(object, kpid, imdbid, num) {
         // Lampa.Controller.toggle('full_start');
         if (kpid != '') {
-            console.log(object.data.movie)
             $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
                 if (data.length) {
                     var html = $('<div></div>');
