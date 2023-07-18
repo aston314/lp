@@ -105,7 +105,7 @@
                         // var enabled = Lampa.Controller.enabled().name;
                         Lampa.Modal.open({
                             title: "",
-                            html: html.find('.navigation-tabs .active')[0],//modal,
+                            html: html,//modal,
                             size: "large",
                             mask: !0,
                             onBack: function () {
