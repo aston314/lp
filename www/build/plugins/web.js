@@ -168,156 +168,156 @@
                 url: 'https://libvio.cc/search/-------------.html?wd=#msearchword&submit='
             }
         },
-        // {
-        //     title: "欧乐影院",
-        //     link: "https://www.olevod.com",
-        //     available: false,
-        //     show: "portrait",
-        //     next: "search",
-        //     datasort: "",
-        //     use_referer: false,
-        //     browser: "MOBILE_UA",
-        //     category: [{
-        //         title: "电影",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/1.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "电视剧",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/2.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "国产剧",
-        //         url: "https://olevod.com/index.php/vod/show/id/202.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日韩剧",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/204.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/201.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "港台剧",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/203.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/3.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://www.olevod.com/index.php/vod/show/id/4.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.page.text_center"
-        //         },
-        //         videoscontainer: {
-        //             selector: "ul.vodlist li",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
-        //     }
-        // },
-        // {
-        //     title: "在线之家",
-        //     link: "https://www.zxzj.org",
-        //     available: false,
-        //     show: "portrait",
-        //     next: "search",
-        //     datasort: "",
-        //     use_referer: false,
-        //     browser: "MOBILE_UA",
-        //     category: [{
-        //         title: "首页",
-        //         url: "https://zxzj.org",
-        //         quantity: ':gt(11)'
-        //     }, {
-        //         title: "电影",
-        //         url: "https://zxzj.org/list/1.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "美剧",
-        //         url: "https://zxzj.org/list/2.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "韩剧",
-        //         url: "https://zxzj.org/list/3.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日剧",
-        //         url: "https://zxzj.org/list/4.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "泰剧",
-        //         url: "https://zxzj.org/list/5.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://zxzj.org/list/6.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.stui-page__item"
-        //         },
-        //         videoscontainer: {
-        //             selector: ".stui-vodlist__box",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
-        //     }
-        // },
+        {
+            title: "欧乐影院",
+            link: "https://www.olevod.com",
+            available: true,
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "电影",
+                url: "https://www.olevod.com/index.php/vod/type/id/1.html",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "https://www.olevod.com/index.php/vod/type/id/2.html",
+                quantity: ''
+            },
+            {
+                title: "国产剧",
+                url: "https://olevod.com/index.php/vod/show/id/202.html",
+                quantity: ''
+            },
+            {
+                title: "日韩剧",
+                url: "https://www.olevod.com/index.php/vod/type/id/204.html",
+                quantity: ''
+            },
+            {
+                title: "欧美剧",
+                url: "https://www.olevod.com/index.php/vod/type/id/201.html",
+                quantity: ''
+            },
+            {
+                title: "港台剧",
+                url: "https://www.olevod.com/index.php/vod/type/id/203.html",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "https://www.olevod.com/index.php/vod/type/id/3.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://www.olevod.com/index.php/vod/type/id/4.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.page.text_center"
+                },
+                videoscontainer: {
+                    selector: "ul.vodlist li",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "a",
+                    attrName: "title",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "a",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
+            }
+        },
+        {
+            title: "在线之家",
+            link: "https://www.zxzj.org",
+            available: false,
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "首页",
+                url: "https://zxzj.org",
+                quantity: ':gt(11)'
+            }, {
+                title: "电影",
+                url: "https://zxzj.org/list/1.html",
+                quantity: ''
+            },
+            {
+                title: "美剧",
+                url: "https://zxzj.org/list/2.html",
+                quantity: ''
+            },
+            {
+                title: "韩剧",
+                url: "https://zxzj.org/list/3.html",
+                quantity: ''
+            },
+            {
+                title: "日剧",
+                url: "https://zxzj.org/list/4.html",
+                quantity: ''
+            },
+            {
+                title: "泰剧",
+                url: "https://zxzj.org/list/5.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://zxzj.org/list/6.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.stui-page__item"
+                },
+                videoscontainer: {
+                    selector: ".stui-vodlist__box",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "title",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a.stui-vodlist__thumb",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
+            }
+        },
         {
             title: "秋霞电影",
             link: "https://www.7xiady.cc",
@@ -648,69 +648,69 @@
                 url: "http://www.lezhutv.com/search-pg-1-wd-#msearchword.html"
             }
         },
-        // {
-        //     title: "Auete影视",
-        //     link: "https://auete.com",
-        //     available: false,
-        //     show: "portrait",
-        //     next: "search",
-        //     datasort: "",
-        //     use_referer: false,
-        //     browser: "MOBILE_UA",
-        //     category: [{
-        //         title: "电影",
-        //         url: "https://auete.com/Movie/index.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "电视剧",
-        //         url: "https://auete.com/Tv/index.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://auete.com/Zy/index.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://auete.com/Dm/index.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "其他",
-        //         url: "https://auete.com/qita/index.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.pagination"
-        //         },
-        //         videoscontainer: {
-        //             selector: "ul.threadlist > li.trans_3",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "img",
-        //             attrName: "alt",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "img",
-        //             attrName: "src",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://auete.com/search.php?searchword=#msearchword"
-        //     }
-        // },
+        {
+            title: "Auete影视",
+            link: "https://auete.org",
+            available: true,
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "电影",
+                url: "https://auete.org/Movie/index.html",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "https://auete.org/Tv/index.html",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "https://auete.org/Zy/index.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://auete.org/Dm/index.html",
+                quantity: ''
+            },
+            {
+                title: "其他",
+                url: "https://auete.org/qita/index.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.pagination"
+                },
+                videoscontainer: {
+                    selector: "ul.threadlist > li.trans_3",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "img",
+                    attrName: "alt",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "src",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://auete.org/search.php?searchword=#msearchword"
+            }
+        },
         // {
         //     title: "JableTV",
         //     link: "https://jable.tv",
