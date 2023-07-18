@@ -35,7 +35,7 @@
                     });
 
                     tabs.forEach(function (tab, i) {
-                        var ifplaynow = (typename === tab.name) ? "selector active" : "selector";
+                        var ifplaynow = (typename == tab.name) ? "selector active" : "selector";
                         var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.name + '</div>');
                         button.on('hover:enter', function () {
                             Lampa.Modal.close();
