@@ -41,7 +41,7 @@
                             display = tab.name;
                             douban_review(object, kpid, imdbid, num, tab.type);
                         });
-                        if (tab.name == display) button.addClass('active');
+                        // if (tab.name == display) button.addClass('active');
                         if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
                         navigation.append(button);
                     });
@@ -104,7 +104,7 @@
                         // var enabled = Lampa.Controller.enabled().name;
                         Lampa.Modal.open({
                             title: "",
-                            html: html.find('.navigation-tabs .active')[0],//modal,
+                            html: html,//modal,
                             size: "large",
                             mask: !0,
                             onBack: function () {
