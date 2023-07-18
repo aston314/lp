@@ -6,7 +6,8 @@
     function douban_review(object, kpid, imdbid, num) {
         // Lampa.Controller.toggle('full_start');
         if (kpid != '') {
-            $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
+            // $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
+            network["native"]('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
                 if (data.length) {
                     var html = $('<div></div>');
                     network["native"]('https://m.douban.com/rexxar/api/v2/movie/' + data[0].id + '/interests?count=30&order_by=hot&anony=0&start=0&ck=&for_mobile=1', function (json) {
@@ -91,10 +92,13 @@
                     Lampa.Noty.show('没有找到影评。');
                 }
 
+            }, function (a, c) {
+                Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, {
+                dataType: 'json',
             });
-
         }
-        network.clear();
+        // network.clear();
     }
 
     function startPlugin() {
