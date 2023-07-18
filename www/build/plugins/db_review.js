@@ -22,7 +22,7 @@
             });
             // $.get('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
             network["native"]('https://movie.douban.com/j/subject_suggest?q=' + imdbid, function (data) {
-
+                if (Lampa.Controller.enabled().name == 'modal') Modal.close();
                 if (data.length) {
                     var html = $('<div></div>');
                     var navigation = $('<div class="navigation-tabs"></div>');
