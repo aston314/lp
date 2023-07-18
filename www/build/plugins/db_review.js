@@ -37,6 +37,7 @@
                     tabs.forEach(function (tab, i) {
                         // var ifplaynow = (typename == tab.name) ? "selector active" : "selector";
                         var button = $('<div class="navigation-tabs__button selector">' + tab.name + '</div>');
+                        // if (data.total) button.append('<span class="navigation-tabs__badge">' + data.total + '</span>');
                         button.on('hover:enter', function () {
                             Lampa.Modal.close();
                             display = tab.name;
@@ -105,6 +106,7 @@
                         // var enabled = Lampa.Controller.enabled().name;
                         Lampa.Modal.open({
                             title: "",
+                            select: html.find('.navigation-tabs .active')[0],
                             html: html,//modal,
                             size: "large",
                             mask: !0,
@@ -112,7 +114,7 @@
                                 Lampa.Modal.close(), Lampa.Controller.toggle('full_start')
                                 // Lampa.Controller.toggle(enabled)
                             },
-                            onSelect: function () { }
+                            // onSelect: function () { }
                         });
                     }, function (a, c) {
                         if (a.responseJSON.code == 1287) {
