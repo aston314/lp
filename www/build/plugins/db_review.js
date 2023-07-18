@@ -3,8 +3,9 @@
     'use strict';
     var network = new Lampa.Reguest();
     var num;
-    function douban_review(object, kpid, imdbid, num) {
-
+    function douban_review(object, kpid, imdbid, num , type) {
+        var _this = this;
+        var display = '热门短评';
         // Lampa.Controller.toggle('full_start');
         if (kpid != '') {
             Lampa.Modal.open({
@@ -24,7 +25,29 @@
 
                 if (data.length) {
                     var html = $('<div></div>');
-                    network["native"]('https://m.douban.com/rexxar/api/v2/movie/' + data[0].id + '/interests?count=30&order_by=hot&anony=0&start=0&ck=&for_mobile=1', function (json) {
+                    var navigation = $('<div class="navigation-tabs"></div>');
+                    var tabs = [];
+                    tabs.push({
+                        name: '热门短评',
+                        type: 'hot'
+                    }, {
+                        name: '热门短评',
+                        type: '热门短评 '
+                    });
+
+                    tabs.forEach(function (tab, i) {
+                        var button = $('<div class="navigation-tabs__button selector">' + tab.name + '</div>');
+                        button.on('hover:enter', function () {
+                            display = tab.name;
+                            douban_review(object, kpid, imdbid, num, tab.type);
+                        });
+                        if (tab.name == display) button.addClass('active');
+                        if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                        navigation.append(button);
+                    });
+                    html.append(navigation);
+
+                    network["native"]('https://m.douban.com/rexxar/api/v2/movie/' + data[0].id + '/interests?count=30&order_by='+type+'&anony=0&start=0&ck=&for_mobile=1', function (json) {
                         Lampa.Modal.close();
                         // var button = json.interests.map(function (element) {
                         //     return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星 ' : '') + '评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
@@ -81,7 +104,7 @@
                         // var enabled = Lampa.Controller.enabled().name;
                         Lampa.Modal.open({
                             title: "",
-                            html: html,//modal,
+                            html: html.find('.navigation-tabs .active')[0],//modal,
                             size: "large",
                             mask: !0,
                             onBack: function () {
@@ -96,6 +119,7 @@
                         } else {
                             Lampa.Noty.show(network.errorDecode(a, c));
                         }
+                        Lampa.Modal.close();
                         Lampa.Controller.toggle('full_start');
                     }, false, {
                         dataType: 'json',
@@ -129,7 +153,7 @@
                 $('.full-start-new__buttons').append('<div class="full-start__button selector button--db"><svg height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="1.5" y="1.5" width="25" height="31" rx="2.5" stroke="currentColor" stroke-width="3"></rect><rect x="6" y="7" width="9" height="9" rx="1" fill="currentColor"></rect><rect x="6" y="19" width="16" height="3" rx="1.5" fill="currentColor"></rect><rect x="6" y="25" width="11" height="3" rx="1.5" fill="currentColor"></rect><rect x="17" y="7" width="5" height="3" rx="1.5" fill="currentColor"></rect> </svg><span>影评</span></div>');
                 $('.button--db').on('hover:enter', function (card) {
                     if (num > 9) num = 0;
-                    douban_review(e, e.data.movie['kinopoisk_id'], e.data.movie['imdb_id'], num);
+                    douban_review(e, e.data.movie['kinopoisk_id'], e.data.movie['imdb_id'], num, 'hot');
                     num += 1;
                 });
             }
