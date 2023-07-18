@@ -1141,7 +1141,6 @@
 
                         network["native"](element.url, function (str) {
                             Lampa.Modal.close();
-                            var controller_enabled = Lampa.Controller.enabled().name;
                             var str = str.replace(/\n|\r/g, '')
                             var h = $(object.detail.videoscontainer.selector, str);
                             var t = object.detail.title.selector;
@@ -1322,7 +1321,7 @@
                                 onBack: function onBack() {
                                     Lampa.Modal.close();
                                     Lampa.Api.clear();
-                                    Lampa.Controller.toggle(controller_enabled);
+                                    Lampa.Controller.toggle('content');
                                 }
                             });
 
