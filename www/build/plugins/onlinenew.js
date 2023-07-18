@@ -185,25 +185,25 @@
         use_referer: false,
         js_execute_key: [';var vfrom=']
       },
-      // {
-      //   name: '网站-欧乐影视',
-      //   websitelink: 'https://www.olevod.com/',
-      //   listlink: true,
-      //   use_proxy: false,
-      //   search_url: 'https://www.olevod.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-      //   search_json: true,
-      //   node_json: 'list',
-      //   name_json: 'name',
-      //   id_json: 'id',
-      //   first_page_json: '-1-1.html',
-      //   search_html_selector: '',
-      //   link_folder: 'index.php/vod/detail/id',
-      //   detail_url_selector: 'div.playlist_full',
-      //   videoparse: 'default',
-      //   videocontainer: '.MacPlayer',
-      //   use_referer: false,
-      //   js_execute_key: ['maccms', 'player_aaaa']
-      // },
+      {
+        name: '网站-欧乐影视',
+        websitelink: 'https://www.olevod.com/',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'https://www.olevod.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '/sid/1/nid/1.html',
+        search_html_selector: '',
+        link_folder: '/index.php/vod/play/id/',
+        detail_url_selector: 'div.playlist_full',
+        videoparse: 'default',
+        videocontainer: '.MacPlayer',
+        use_referer: false,
+        js_execute_key: ['maccms', 'player_aaaa']
+      },
       // {
       //   name: '追剧喵',
       //   websitelink: 'https://zjmiao.com/',
@@ -1231,17 +1231,25 @@
       // var str = data.replace(/"\/\/(?:src|href)\//g, '"https://');
       // str = data.replace(/"\/\//g, '"https://');
       // .replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<meta[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
-      var str = data.replace(/src="\/\//g, 'src="https://');
-      str = str.replace(/href="\/\//g, 'href="https://');
-      str = str.replace('<head>', '').replace('</head>', '').replace('<body>', '').replace('</body>', '').replace('</html>', '').replace(/<html[^>]*>/g, '').replace(/<title>.*?<\/title>/g, '');
-      // .replace(/<meta[^>]*>/g, '')
-      str = str.replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js');
-      str= str.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
+      var str = data
+        .replace(/src="\/\//g, 'src="https://')
+        .replace(/href="\/\//g, 'href="https://')
+        .replace('<head>', '')
+        .replace('</head>', '')
+        .replace('<body>', '')
+        .replace('</body>', '')
+        .replace('</html>', '')
+        .replace(/<html[^>]*>/g, '')
+        .replace(/<title>.*?<\/title>/g, '')
+        // .replace(/<meta[^>]*>/g, '')
+        .replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js')
+        .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
+      
 
       // var str = data;
 
       // 获取当前页面的 URL
-      const currentPageUrl = MacPlayer_;
+      var currentPageUrl = MacPlayer_;
       // console.log(currentPageUrl)
       // 判断当前页面的 URL 是否是绝对路径
       // const isAbsolutePath = Boolean(currentPageUrl.match(/^(http|https|ftp):\/\//i));
