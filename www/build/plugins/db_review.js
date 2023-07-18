@@ -3,7 +3,7 @@
     'use strict';
     var network = new Lampa.Reguest();
     var num;
-    function douban_review(object, kpid, imdbid, num , type) {
+    function douban_review(object, kpid, imdbid, num , type, typename) {
         var _this = this;
         var display = '热门短评';
         // Lampa.Controller.toggle('full_start');
@@ -28,18 +28,19 @@
                     var navigation = $('<div class="navigation-tabs"></div>');
                     var tabs = [];
                     tabs.push({
-                        name: '热门短评',
+                        name: '热门影评',
                         type: 'hot'
                     }, {
-                        name: '热门短评',
-                        type: '热门短评 '
+                        name: '最新影评',
+                        type: 'latest'
                     });
 
                     tabs.forEach(function (tab, i) {
-                        var button = $('<div class="navigation-tabs__button selector">' + tab.name + '</div>');
+                        var ifplaynow = (typename === tab.name) ? "active" : "selector";
+                        var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.name + '</div>');
                         button.on('hover:enter', function () {
                             display = tab.name;
-                            douban_review(object, kpid, imdbid, num, tab.type);
+                            douban_review(object, kpid, imdbid, num, tab.type, tab.name);
                         });
                         // if (tab.name == display) button.addClass('active');
                         if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
@@ -153,7 +154,7 @@
                 $('.full-start-new__buttons').append('<div class="full-start__button selector button--db"><svg height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="1.5" y="1.5" width="25" height="31" rx="2.5" stroke="currentColor" stroke-width="3"></rect><rect x="6" y="7" width="9" height="9" rx="1" fill="currentColor"></rect><rect x="6" y="19" width="16" height="3" rx="1.5" fill="currentColor"></rect><rect x="6" y="25" width="11" height="3" rx="1.5" fill="currentColor"></rect><rect x="17" y="7" width="5" height="3" rx="1.5" fill="currentColor"></rect> </svg><span>影评</span></div>');
                 $('.button--db').on('hover:enter', function (card) {
                     if (num > 9) num = 0;
-                    douban_review(e, e.data.movie['kinopoisk_id'], e.data.movie['imdb_id'], num, 'hot');
+                    douban_review(e, e.data.movie['kinopoisk_id'], e.data.movie['imdb_id'], num, 'hot', '热门影评');
                     num += 1;
                 });
             }
