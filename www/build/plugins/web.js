@@ -1141,6 +1141,7 @@
 
                         network["native"](element.url, function (str) {
                             Lampa.Modal.close();
+                            var controller_enabled = Lampa.Controller.enabled().name;
                             var str = str.replace(/\n|\r/g, '')
                             var h = $(object.detail.videoscontainer.selector, str);
                             var t = object.detail.title.selector;
@@ -1321,7 +1322,7 @@
                                 onBack: function onBack() {
                                     Lampa.Modal.close();
                                     Lampa.Api.clear();
-                                    Lampa.Controller.toggle('content');
+                                    Lampa.Controller.toggle(controller_enabled);
                                 }
                             });
 
@@ -1332,6 +1333,7 @@
                         });
                     } else if (object.next == 'play') {
                         network["native"](element.url, function (result) {
+                            var controller_enabled = Lampa.Controller.enabled().name;
                             // /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
                             //var videolink = result.match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/)[0];
                             var v = result.replace(/\n|\r/g, '').replace(/\\/g, '').match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/);
@@ -1345,6 +1347,9 @@
                                 };
                                 Lampa.Player.play(video);
                                 Lampa.Player.playlist([video]);
+                                Lampa.Player.callback(function () {
+                                    Lampa.Controller.toggle(controller_enabled);
+                                });
                             } else {
                                 //Lampa.Modal.close();
                                 Lampa.Noty.show('没有找到对应影片。');
