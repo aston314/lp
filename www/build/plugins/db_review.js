@@ -36,13 +36,13 @@
 
                     tabs.forEach(function (tab, i) {
                         var ifplaynow = (typename == tab.name) ? "selector active" : "selector";
-                        var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.name + '</div>');
+                        var button = $('<div class="navigation-tabs__button selector">' + tab.name + '</div>');
                         button.on('hover:enter', function () {
                             Lampa.Modal.close();
                             display = tab.name;
                             douban_review(object, kpid, imdbid, num, tab.type, tab.name);
                         });
-                        // if (tab.name == display) button.addClass('active');
+                        if (tab.name == typename) button.addClass('active');
                         if (i > 0) navigation.append('<div class="navigation-tabs__split">|</div>');
                         navigation.append(button);
                     });
