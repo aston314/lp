@@ -1,5 +1,67 @@
 (function () {
     'use strict';
+    Lampa.Lang.add({
+        t_torrent_type: {
+            en: 'Category',
+            ru: 'Категория',
+            zh: '分类'
+        },
+        t_torrent_search: {
+            en: 'Torrent Search',
+            ru: 'Поиск торрентов',
+            zh: '磁力搜索'
+        },
+        t_torrent: {
+            en: 'Torrent',
+            ru: 'Торрент',
+            zh: '磁力'
+        },
+        t_website: {
+            en: 'Website',
+            ru: 'Веб-сайт',
+            zh: '网站'
+        },
+        t_new: {
+            en: 'New',
+            ru: 'Новое',
+            zh: '最新'
+        },
+        t_trending: {
+            en: 'Trending',
+            ru: 'Популярное',
+            zh: '热门'
+        },
+        t_other_website: {
+            en: 'Select other website',
+            ru: 'Выбрать другой веб-сайт',
+            zh: '选择其他网站'
+        },
+        t_search_result1: {
+            en: 'Oh, unable to retrieve ',
+            ru: 'Ой, не удалось получить ',
+            zh: '哦，无法获取 '
+        },
+        t_search_result2: {
+            en: ' content.',
+            ru: ' содержание.',
+            zh: ' 的内容。'
+        },
+        t_search_result3: {
+            en: 'In ',
+            ru: 'В ',
+            zh: '在 '
+        },
+        t_search_result4: {
+            en: ' cannot find',
+            ru: ' не найдено',
+            zh: ' 中没有找到 '
+        },
+        t_search_result5: {
+            en: ' magnet content',
+            ru: ' содержимое торрента',
+            zh: ' 的磁力内容。'
+        }
+    });
     var catalogs = [
         {
             title: '1337x',
@@ -7,11 +69,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -22,11 +84,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -37,11 +99,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -52,11 +114,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -67,11 +129,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: false
             },],
@@ -82,11 +144,11 @@
             search_available: false,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -97,11 +159,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -112,11 +174,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: false
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -127,11 +189,11 @@
             search_available: false,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -142,11 +204,11 @@
             search_available: false,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -157,11 +219,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -172,11 +234,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -187,11 +249,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -202,11 +264,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -217,11 +279,11 @@
             search_available: false,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -232,11 +294,11 @@
             search_available: true,
             limit: 20,
             category: [{
-                title: '最新',
+                title: Lampa.Lang.translate('t_new'),
                 type: 'recent',
                 category_available: true
             }, {
-                title: '热门',
+                title: Lampa.Lang.translate('t_trending'),
                 type: 'trending',
                 category_available: true
             },],
@@ -277,11 +339,11 @@
                 // Lampa.Noty.show(network.errorDecode(a, c));
                 if (a.hasOwnProperty("responseText")) {
                     var empty = new Lampa.Empty({
-                        descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                        descr: Lampa.Lang.translate('t_search_result1') + object.title + Lampa.Lang.translate('t_search_result2')
                     });
                     html.append(empty.render());
                     
-                    var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                    var bn = $('<div class="simple-button selector"><span>'+Lampa.Lang.translate('t_other_website')+'</span></div>');
                     var ft = $('<div class="empty__footer"></div>');
                     bn.on('hover:enter', function () {
                         _this.selectGroup();
@@ -298,11 +360,11 @@
                     // Lampa.Storage.set('online_torrentsite_balanser', catalogs[0].Keyword);
                 } else {
                     var empty = new Lampa.Empty({
-                        descr: '在 ' + object.keyword + ' 中没有找到 ' + object.search + ' 的磁力内容。'
+                        descr: Lampa.Lang.translate('t_search_result3') + object.keyword + Lampa.Lang.translate('t_search_result4') + object.search + Lampa.Lang.translate('t_search_result5')
                     });
                     html.append(empty.render());
                     
-                    var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                    var bn = $('<div class="simple-button selector"><span>'+Lampa.Lang.translate('t_other_website')+'</span></div>');
                     var ft = $('<div class="empty__footer"></div>');
                     bn.on('hover:enter', function () {
                         _this.selectGroup();
@@ -616,8 +678,8 @@
         this.build = function (data) {
             var _this2 = this;
             // $(".info__left").before('<div class="info__rate"><span></span></div>')
-            var channelbutton = '<div class=\"full-start__button selector view--channel\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31ZM3.741 2.342C4.427 2.205 5.595 2 6.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 10.794 7.406 11 6.5 11s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 8.574 2 7.406 2 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM6.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C4.427 13.205 5.595 13 6.5 13c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 21.794 7.406 22 6.5 22s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 19.574 2 18.406 2 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C15.427 2.205 16.595 2 17.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 8.574 13 7.406 13 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246c.686-.137 1.854-.342 2.759-.342.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 19.574 13 18.406 13 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4Z\" fill=\"currentColor\"/></svg>   <span>网站</span>\n    </div>'
-            Lampa.Template.add('button_category', "<style>.freetv_torrent.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_torrent.category-full{ padding-bottom:8em } .freetv_torrent div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_torrent.square_icons div.card__view{ padding-bottom:100% } .freetv_torrent.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>" + channelbutton + "  </div>");
+            var channelbutton = '<div class=\"full-start__button selector view--channel\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31ZM3.741 2.342C4.427 2.205 5.595 2 6.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 10.794 7.406 11 6.5 11s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 8.574 2 7.406 2 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM6.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C4.427 13.205 5.595 13 6.5 13c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 21.794 7.406 22 6.5 22s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 19.574 2 18.406 2 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C15.427 2.205 16.595 2 17.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 8.574 13 7.406 13 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246c.686-.137 1.854-.342 2.759-.342.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 19.574 13 18.406 13 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4Z\" fill=\"currentColor\"/></svg>   <span>'+Lampa.Lang.translate('t_website')+'</span>\n    </div>'
+            Lampa.Template.add('button_category', "<style>.freetv_torrent.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_torrent.category-full{ padding-bottom:8em } .freetv_torrent div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_torrent.square_icons div.card__view{ padding-bottom:100% } .freetv_torrent.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>"+Lampa.Lang.translate('t_torrent_type')+"</span>\n    </div>" + channelbutton + "  </div>");
 
             Lampa.Template.add('_style', '<style>.freetv.category-full{padding-bottom:8em;}</style>');
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
@@ -649,7 +711,7 @@
             //console.log(catalogs)
             var balanser_ = Lampa.Storage.get('online_torrentsite_balanser')
             Lampa.Select.show({
-                title: '网站',
+                title: Lampa.Lang.translate('t_website'),
                 // items: catalogs,
                 items: catalogs.filter(function (n){
                     return n.search_available == true;
@@ -670,7 +732,7 @@
                             type: 'search',
                             keyword: a.Keyword,
                             limit: a.limit,
-                            title: '磁力搜索 - ' + a.title + ' - '+ object.search,
+                            title: Lampa.Lang.translate('t_torrent_search') + ' - ' + a.title + ' - '+ object.search,
                             component: 'torrentapi',
                             page: 1
                         });
@@ -803,7 +865,7 @@
         Lampa.Component.add('torrentapi', torrentapi);
         function addSettingsMagnet() {
             var ico = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path d="M16 1.28C7.883 1.28 1.28 7.883 1.28 16s6.603 14.72 14.72 14.72 14.72 -6.603 14.72 -14.72S24.117 1.28 16 1.28zm9.92 18.536c-1.984 0 -3.136 -1.536 -3.136 -1.536S21.824 22.4 17.28 22.4c-0.896 0 -2.304 -0.536 -2.304 -0.536l2.669 6.172c-0.54 0.073 -1.085 0.124 -1.645 0.124a12.115 12.115 0 0 1 -3.939 -0.665l-6.149 -16.71s-0.448 -0.768 0.256 -0.96c0.704 -0.192 3.456 -0.768 3.456 -0.768s0.944 -0.316 1.152 0.32c0.32 0.832 2.6 7.112 2.6 7.112S14.464 18.56 17.536 18.56c3.008 0 3.776 -2.2 3.648 -2.52 -0.768 -1.92 -3.196 -7.592 -3.196 -7.592s-0.384 -0.704 0.512 -0.896c0.896 -0.192 2.432 -0.448 2.432 -0.448s0.707 -0.104 1.024 0.512c0.472 0.92 3.324 7.208 3.324 7.208s0.704 1.856 2.112 1.856c0.297 0 0.534 -0.029 0.737 -0.067a12.168 12.168 0 0 1 -0.524 3.021c-0.38 0.119 -0.883 0.18 -1.686 0.18z" fill="currentColor"/></svg>';
-            var menu_item = $('<li class="menu__item selector focus" data-action="torrentapi"><div class="menu__ico">' + ico + '</div><div class="menu__text">磁力</div></li>');
+            var menu_item = $('<li class="menu__item selector focus" data-action="torrentapi"><div class="menu__ico">' + ico + '</div><div class="menu__text">'+Lampa.Lang.translate('t_torrent')+'</div></li>');
             menu_item.on('hover:enter', function () {
                 listNavigation();
             });
@@ -817,7 +879,7 @@
             })
         }
 
-        var button = "<div class=\"full-start__button selector view--online_findtorrent\" data-subtitle=\"\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\" width=\"50px\" height=\"50px\"><path fill=\"#4caf50\" fill-rule=\"evenodd\" d=\"M24.48 45.964c11.475 0 20.834 -9.359 20.834 -20.834 0 -11.474 -9.359 -20.834 -20.834 -20.834S3.646 13.656 3.646 25.13c0 11.475 9.359 20.834 20.834 20.834z\" clip-rule=\"evenodd\"/><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M45.054 28.244c-3.681 -1.169 -5.414 -7.801 -9.638 -16.785l-7.291 1.122c1.682 5.109 9.147 17.575 0.759 19.639 -7.191 1.866 -10.579 -10.845 -13.259 -17.636l-8.334 2.084L17.894 44.879a20.596 20.596 0 0 0 6.586 1.087c1.023 0 2.022 -0.098 3.005 -0.241L22.857 36.999c7.154 1.616 12.821 -0.905 13.502 -6.461 1.799 2.386 4.259 3.316 7.014 3.304a20.581 20.581 0 0 0 1.68 -5.596z\" clip-rule=\"evenodd\"/></svg>\n\n    <span>搜索磁力</span>\n    </div>";
+        var button = "<div class=\"full-start__button selector view--online_findtorrent\" data-subtitle=\"\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\" width=\"50px\" height=\"50px\"><path fill=\"#4caf50\" fill-rule=\"evenodd\" d=\"M24.48 45.964c11.475 0 20.834 -9.359 20.834 -20.834 0 -11.474 -9.359 -20.834 -20.834 -20.834S3.646 13.656 3.646 25.13c0 11.475 9.359 20.834 20.834 20.834z\" clip-rule=\"evenodd\"/><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M45.054 28.244c-3.681 -1.169 -5.414 -7.801 -9.638 -16.785l-7.291 1.122c1.682 5.109 9.147 17.575 0.759 19.639 -7.191 1.866 -10.579 -10.845 -13.259 -17.636l-8.334 2.084L17.894 44.879a20.596 20.596 0 0 0 6.586 1.087c1.023 0 2.022 -0.098 3.005 -0.241L22.857 36.999c7.154 1.616 12.821 -0.905 13.502 -6.461 1.799 2.386 4.259 3.316 7.014 3.304a20.581 20.581 0 0 0 1.68 -5.596z\" clip-rule=\"evenodd\"/></svg>\n\n    <span>"+Lampa.Lang.translate('t_torrent_search')+"</span>\n    </div>";
         
         Lampa.Listener.follow('full', function (e) {
             if (e.type == 'complite') {
@@ -829,7 +891,7 @@
                     var balanser = Lampa.Storage.get('online_torrentsite_balanser');
                     Lampa.Activity.push({
                         url: '',
-                        title: '磁力搜索 - ' + balanser + ' - ' + e.data.movie.title,
+                        title: Lampa.Lang.translate('t_torrent_search') +' - ' + balanser + ' - ' + e.data.movie.title,
                         component: 'torrentapi',
                         search: e.data.movie.title,
                         search_one: e.data.movie.title,
