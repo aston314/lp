@@ -436,6 +436,11 @@
       if (played) stop(); else if (url) play();
     });
 
+    html.on('hover:long', function () {
+      if (played) stop();
+      html.toggleClass('hide', true);
+    });
+
     this.create = function () {
       $('.head__actions .open--search').before(html);
     };
