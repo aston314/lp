@@ -456,7 +456,7 @@
         var url = '';
         var played = false;
         var hls;
-        audio.addEventListener("play", function (event) {
+        audio.addEventListener("canplay", function (event) {
           played = true;
           html.toggleClass('loading', false);
         });
