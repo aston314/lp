@@ -52,8 +52,8 @@
             zh: '在 '
         },
         t_search_result4: {
-            en: ' cannot find',
-            ru: ' не найдено',
+            en: ' cannot find ',
+            ru: ' не найдено ',
             zh: ' 中没有找到 '
         },
         t_search_result5: {
