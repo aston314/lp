@@ -1239,6 +1239,11 @@
             if (played) stop(); else if (url) play();
         });
 
+        html.on('hover:long', function () {
+            if (played) stop();
+            html.toggleClass('hide', true);
+        });
+        
         // html.on('hover:long', function () {
         //     var balanser_ = Lampa.Storage.get('online_music_balanser');
         //     // console.log(balanser_,currentplaylist)
@@ -1983,15 +1988,15 @@
                 var navigation = $('<div class="navigation-tabs"></div>');
 
                 sources.forEach(function (tab, i) {
-                    var ifplaynow = ($('.radio-player__name').text().replace(/Radio Record|Music Player/g, '') === tab.url) ? "selector active" : "selector";
-                    var button = $('<div class="navigation-tabs__button ' + ifplaynow + '">' + tab.title + '</div>');
+                    var ifplaynow = ($('.radio-player__name').text().replace(/Radio Record|Music Player/g, '') === tab.url) ? " active" : "";
+                    var button = $('<div class="navigation-tabs__button selector'+ifplaynow+'">' + tab.title + '</div>');
 
                     button.on('hover:enter', function () {
                         playEndedHandler_(i - 1);
                         Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     });
-
+                    // if (html_.find('.radio-player__name').text().replace(/Radio Record|Music Player/g,'') === tab.url) button.addClass('active');
                     if (i > 0 && i % num !== 0) {
                         navigation.append('<div class="navigation-tabs__split">|</div>');
                     }
@@ -2010,6 +2015,7 @@
 
                 Lampa.Modal.open({
                     title: '当前播放列表',
+                    select: html_.find('.navigation-tabs .active')[0],
                     html: html_,
                     size: 'medium',
                     mask: true,
