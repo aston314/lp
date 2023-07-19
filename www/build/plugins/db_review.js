@@ -54,7 +54,11 @@
                         // var button = json.interests.map(function (element) {
                         //     return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星 ' : '') + '评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
                         // }).join('');
-                        if (json.total) html.find('.navigation-tabs__badge .' + type).text(json.total)
+                        var badgeSelector = '.navigation-tabs__badge .' + (type === 'hot' ? 'hot' : 'latest');
+                        if (json.total) {
+                          html.find(badgeSelector).text(json.total);
+                        };
+                        
                         json.interests.forEach(function (element) {
                             var item = Lampa.Template.get('notice_card', {});
                             var icon = object.data.movie.img.replace('w500', 'w300');
