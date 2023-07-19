@@ -1286,7 +1286,7 @@
                     html: html_,
                     size: 'medium',
                     // align: 'center',
-                    select: html.find('.navigation-tabs .active')[0],
+                    select: html_.find('.navigation-tabs .active')[0],
                     mask: true,
                     onBack: function onBack() {
                         Lampa.Modal.close();
