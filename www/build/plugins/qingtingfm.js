@@ -166,22 +166,22 @@
               var a = "app_id=" + r + "&path=" + i + "&ts=" + n;
               var o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
 
-              var video = {
-                title: element.title,
-                url: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o),
-                tv: true
-              };
-              var playlist = [];
-
-              Lampa.Player.play(video);
-              Lampa.Player.playlist(playlist);
-              // var data = {
-              //   name: element.title,
-              //   playUrl: { 
-              //     ts64: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o)
-              //   }
+              // var video = {
+              //   title: element.title,
+              //   url: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o),
+              //   tv: true
               // };
-              // player.play(data);
+              // var playlist = [];
+
+              // Lampa.Player.play(video);
+              // Lampa.Player.playlist(playlist);
+              var data = {
+                name: element.title,
+                playUrl: { 
+                  ts64: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o)
+                }
+              };
+              player.play(data);
             });
 
 
@@ -364,7 +364,7 @@
     var url = '';
     var played = false;
     var hls;
-    audio.addEventListener("play", function (event) {
+    audio.addEventListener("canplay", function (event) {
       played = true;
       html.toggleClass('loading', false);
     });
