@@ -162,7 +162,7 @@
       "next":"detail",
       "datasort":"",
       "use_referer":true,
-      "browser": "MOBILE_UA",
+      "browser": "PC_UA",
       "category":[
          {
             "title":"电影",
