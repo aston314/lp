@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+    
     function qingtingfm(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
@@ -14,6 +15,7 @@
         var last;
         var waitload;
         var player = window.radio_player_;
+        
         
 
 
@@ -30,11 +32,12 @@
         this.create = function () {
             var _this = this;
             if (object.type == 'play') {
+                isplay = true;
                 //console.log(object);
                 this.activity.loader(true);
 
-                Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
-                Lampa.Template.add('play_style', "<style>.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 10px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+                Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+                Lampa.Template.add('play_style', "<style>.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 10px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
                 $('body').append(Lampa.Template.get('play_style', {}, true));
                 var btn = Lampa.Template.get('play_list');
                 var empty = new Lampa.Empty({
@@ -340,6 +343,20 @@
                 // seek_slider.on('hover:enter click', function () {
                 //     seekTo();
                 // });
+                button.hide().on('hover:enter', function () {
+                    // if (activi) {
+                        Lampa.Activity.push({
+                            url: "",
+                            title: '蜻蜓FM',
+                            component: 'qingtingfm',
+                            type: 'play',
+                            content: object.content,
+                            order: object.order,
+                            page: 1
+                        });
+                    // }
+                });
+                
 
                 //console.log(object)
 
@@ -797,6 +814,9 @@
         });
     });
 
+    
+                
+
     function player() {
         var html = Lampa.Template.get('radio_player', {});
         var audio = new Audio();
@@ -894,7 +914,36 @@
             play();
         };
     }
+    var button = $("<div class=\"head__action head__settings selector\">\n            <svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" aria-labelledby=\"radioIconTitle\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"currentColor\" color=\"currentColor\"> <title id=\"radioIconTitle\">Radio</title> <path d=\"M5.44972845 6C2.18342385 9.2663046 2.18342385 14.7336954 5.44972845 18M8.59918369 8C6.46693877 10.1322449 6.46693877 13.8677551 8.59918369 16M18.5502716 18C21.8165761 14.7336954 21.8165761 9.2663046 18.5502716 6M15.4008163 16C17.5330612 13.8677551 17.5330612 10.1322449 15.4008163 8\"></path> <circle cx=\"12\" cy=\"12\" r=\"1\"></circle> </svg>\n        </div>");
+    var isplay = false;
+    function addFilter() {
+        var activi;
+        var timer;
+        $('.head__actions .open--search').before(button);
+        Lampa.Listener.follow('activity', function (e) {
+            if (e.type == 'start') activi = e.object;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (activi) {
+                    console.log(isplay === false)
+                    if (activi.component == 'qingtingfm') {
+                        button.hide();
+                        activi = false;
+                    }
+                }
+            }, 1000);
 
+            if (e.type == 'start' && e.component !== 'qingtingfm') {
+                if (isplay) {
+                    button.show();
+                    activi = e.object;
+                } else {
+                    button.hide();
+                    activi = e.object;
+                }
+            }
+        });
+    };
     function startqingtingfm() {
         window.plugin_qingting_ready = true;
         Lampa.Component.add('qingtingfm', qingtingfm);
@@ -928,6 +977,7 @@
             $('.menu .menu__list').eq(0).append(menu_item);
             $('body').append(Lampa.Template.get('radio_style', {}, true));
             window.radio_player_.create();
+            addFilter();
             //$('.menu .menu__list .menu__item.selector').eq(1).after(menu_item);
         }
 
