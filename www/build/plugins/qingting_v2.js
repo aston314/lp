@@ -61,7 +61,7 @@
                 var updateTimer;
 
                 // Create new audio element
-                var curr_track = new Audio();
+                var curr_track = $("<audio></audio>")[0];
 
 
                 // Define the tracks that have to be played
