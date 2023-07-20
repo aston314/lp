@@ -99,7 +99,8 @@
                     // Update details of the track
                     //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
                     // empty.render().find('.track-art').attr('src', object.url);
-                    track_art.css("background-image", "url(" + track_list[track_index].image + ")");
+                    // track_art.css("background-image", "url(" + track_list[track_index].image + ")");
+                    track_art.css("background-image", `url(${track_list[track_index].image})`);
                     track_name.text(track_list[track_index].name);
                     track_artist.text(track_list[track_index].artist);
                     now_playing.text("PLAYING " + (track_index + 1) + " OF " + track_list.length);
@@ -518,9 +519,10 @@
                 //     //   Lampa.Player.play(video);
                 //     //   Lampa.Player.playlist(playlist);
                 //     // } else {
-
+                //     var t, n, r, i, a, o, playlist = [];
+                //     var localDateTime = new Date();
+                //     localDateTime.setHours(localDateTime.getHours() + 1);
                 //     Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'], function () {
-                //         var localDateTime = new Date();
                 //         // var newTime = new Date(localDateTime.getTime() + 1 * 60 * 60 * 1000); // 在当前时间上增加1小时
                 //         // var unixTimestamp = Math.floor(newTime.getTime() / 1000); // 转换为 Unix 时间戳
                 //         // var hexString = unixTimestamp.toString(16); // 转换为十六进制字符串
@@ -542,15 +544,14 @@
                 //         //     }
                 //         //   };
                 //         //   player.play(data);
-                //         var playlist = [];
+
                 //         data.forEach(function (elem) {
-                //             localDateTime.setHours(localDateTime.getHours() + 1);
-                //             var t = "/live/" + elem.id + "/64k.mp3";
-                //             var n = Math.floor(localDateTime.getTime() / 1000).toString(16);
-                //             var r = "web";
-                //             var i = encodeURIComponent(t);
-                //             var a = "app_id=" + r + "&path=" + i + "&ts=" + n;
-                //             var o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
+                //             t = "/live/" + elem.id + "/64k.mp3";
+                //             n = Math.floor(localDateTime.getTime() / 1000).toString(16);
+                //             r = "web";
+                //             i = encodeURIComponent(t);
+                //             a = "app_id=" + r + "&path=" + i + "&ts=" + n;
+                //             o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
                 //             playlist.push({
                 //                 name: elem.title,
                 //                 artist: elem.desc.replace('正在直播： ', '',),
@@ -572,6 +573,40 @@
 
                 //     // }
                 // });
+
+                card.on('hover:enter', function (target, card_data) {
+                    var localDateTime = new Date();
+                    localDateTime.setHours(localDateTime.getHours() + 1);
+                    
+                    // Load CryptoJS library asynchronously
+                    Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'], function () {
+                        var playlist = [];
+                        data.forEach(function (elem) {
+                            var t = "/live/" + elem.id + "/64k.mp3";
+                            var n = Math.floor(localDateTime.getTime() / 1000).toString(16);
+                            var r = "web";
+                            var i = encodeURIComponent(t);
+                            var a = "app_id=" + r + "&path=" + i + "&ts=" + n;
+                            var o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
+                            
+                            playlist.push({
+                                name: elem.title,
+                                artist: elem.desc.replace('正在直播： ', ''),
+                                image: 'https:' + elem.imgUrl,
+                                path: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o),
+                            });
+                        });
+                        
+                        Lampa.Activity.push({
+                            url: "",
+                            title: '蜻蜓FM - ' + element.title,
+                            component: 'qingtingfm',
+                            type: 'play',
+                            content: playlist,
+                            page: 1
+                        });
+                    });
+                });
 
                 body.append(card);
                 items.push(card);
