@@ -61,7 +61,7 @@
                 var updateTimer;
 
                 // Create new audio element
-                var curr_track = $("<audio></audio>")[0];
+                var curr_track = new Audio();
 
 
                 // Define the tracks that have to be played
@@ -89,12 +89,16 @@
                 var track_list = object.content;
 
                 function loadTrack(track_index) {
+                    console.log(track_index)
+                    // if (track_index == object.content.length) track_index = 0;
+                    // track_index = Math.min(track_index, object.content.length - 1);
                     clearInterval(updateTimer);
                     resetValues();
 
                     // Load a new track
                     curr_track.src = track_list[track_index].path;
                     curr_track.load();
+                    start();
 
                     // Update details of the track
                     //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
@@ -113,6 +117,22 @@
 
                     // Apply a random background color
                     random_bg_color();
+                }
+
+                function start() {
+                    var playPromise;
+        
+                    try {
+                        playPromise = curr_track.play();
+                    } catch (e) { }
+        
+                    if (playPromise !== undefined) {
+                        playPromise.then(function () {
+                            console.log('Radio', 'start plaining');
+                        })["catch"](function (e) {
+                            console.log('Radio', 'play promise error:', e.message);
+                        });
+                    }
                 }
 
                 function random_bg_color() {
