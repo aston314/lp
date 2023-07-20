@@ -14,6 +14,8 @@
         var last;
         var waitload;
         var player = window.radio_player_;
+        
+
 
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
@@ -31,8 +33,8 @@
                 //console.log(object);
                 this.activity.loader(true);
 
-                Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
-                Lampa.Template.add('play_style', "<style>.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+                Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+                Lampa.Template.add('play_style', "<style>.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 10px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
                 $('body').append(Lampa.Template.get('play_style', {}, true));
                 var btn = Lampa.Template.get('play_list');
                 var empty = new Lampa.Empty({
@@ -56,12 +58,14 @@
                 var curr_time = html.find(".current-time");
                 var total_duration = html.find(".total-duration");
 
-                var track_index = 0;
+                var track_index = object.order;
                 var isPlaying = false;
                 var updateTimer;
 
                 // Create new audio element
-                var curr_track = new Audio();
+                var curr_track = html.find('#audio-player')[0];
+
+                
 
 
                 // Define the tracks that have to be played
@@ -89,7 +93,7 @@
                 var track_list = object.content;
 
                 function loadTrack(track_index) {
-                    console.log(track_index)
+                    // console.log(track_index)
                     // if (track_index == object.content.length) track_index = 0;
                     // track_index = Math.min(track_index, object.content.length - 1);
                     clearInterval(updateTimer);
@@ -267,12 +271,6 @@
 
                 //       }
                 //   }
-
-                // 调用函数并传入按钮名称
-                // setButtonStyles("playpause_btn");
-                // setButtonStyles("next_btn");
-                // setButtonStyles("prev_btn");
-
 
                 // 调用函数并传入按钮名称
                 // setButtonStyles("playpause_btn");
@@ -623,6 +621,7 @@
                             component: 'qingtingfm',
                             type: 'play',
                             content: playlist,
+                            order: items.indexOf(card),
                             page: 1
                         });
                     });
