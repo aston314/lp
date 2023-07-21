@@ -663,10 +663,10 @@
             });
         });
 
-        scroll.append(prev_btn);
-        scroll.append(playpause_btn);
-        scroll.append(next_btn);
-        html.find('.buttons').append(scroll.render());
+        // scroll.append(prev_btn);
+        // scroll.append(playpause_btn);
+        // scroll.append(next_btn);
+        // html.find('.buttons').append(scroll.render());
         // html.find('.scroll__body').toggleClass('buttons');
         // html.find('.scroll--mask .scroll__content').css("padding", "1em 0");
 
@@ -674,8 +674,8 @@
         Lampa.Controller.add('musicplayer', {
             toggle: function toggle() {
                 var focus = playpause_btn;
-                Lampa.Controller.collectionSet(scroll.render());
-                Lampa.Controller.collectionFocus(focus[0], scroll.render());
+                Lampa.Controller.collectionSet(html.find('.buttons'));
+                Lampa.Controller.collectionFocus(focus[0], html.find('.buttons'));
             },
             right: function right() {
                 Navigator.move('right');
