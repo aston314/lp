@@ -396,10 +396,6 @@
         Lampa.Template.add('play_style', "<style>.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons .scroll--mask .scroll__content{padding: 1em 0 !important;} .buttons .scroll__body {display: flex; flex-direction: row; align-items: center; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
         $('body').append(Lampa.Template.get('play_style', {}, true));
         var html = Lampa.Template.get('play_list');
-        var scroll = new Lampa.Scroll({
-            mask: true,
-            over: true
-        });
   
         var now_playing = html.find(".now-playing");
         var track_art = html.find(".track-art");
@@ -442,9 +438,6 @@
         var track_list = playlist;
 
         function loadTrack(track_index) {
-            console.log(track_index)
-            // if (track_index == object.content.length) track_index = 0;
-            // track_index = Math.min(track_index, object.content.length - 1);
             clearInterval(updateTimer);
             resetValues();
 
@@ -455,9 +448,6 @@
             start();
 
             // Update details of the track
-            //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
-            // empty.render().find('.track-art').attr('src', object.url);
-            // track_art.css("background-image", "url(" + track_list[track_index].image + ")");
             track_art.css("background-image", `url(${track_list[track_index].image})`);
             track_name.text(track_list[track_index].name);
             track_artist.text(track_list[track_index].artist);
@@ -490,7 +480,6 @@
         }
 
         function random_bg_color() {
-
             // Get a random number between 64 to 256 (for getting lighter colors)
             var red = (Math.random() * 128) | 0;
             var green = (Math.random() * 128) | 0;
@@ -600,6 +589,7 @@
 
         // Load the first track in the tracklist
         loadTrack(track_index);
+
         playpause_btn.on('hover:enter', function () {
             playpauseTrack();
         });
@@ -691,9 +681,7 @@
             },
             back: function back() {
                 if (callCancel) {
-                    scroll.destroy();
                     html.remove();
-                    scroll = null;
                     html = null;
                     callCancel();
                 }
