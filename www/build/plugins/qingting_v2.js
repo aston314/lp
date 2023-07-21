@@ -1073,28 +1073,28 @@
         }
 
         function seekUpdate() {
-          // Check if the current track duration is a valid number and not NaN
-          if (!isNaN(curr_track.duration) && curr_track.duration > 0) {
-            // Calculate the seek position as a percentage of the total duration
-            const seekPosition = (curr_track.currentTime / curr_track.duration) * 100;
-            seek_slider.val(seekPosition);
-        
-            // Calculate the current and total duration in minutes and seconds
-            const currentMinutes = Math.floor(curr_track.currentTime / 60);
-            const currentSeconds = Math.floor(curr_track.currentTime % 60);
-            const durationMinutes = Math.floor(curr_track.duration / 60);
-            const durationSeconds = Math.floor(curr_track.duration % 60);
-        
-            // Format the minutes and seconds to have leading zeros for single digits
-            const formattedCurrentMinutes = currentMinutes.toString().padStart(2, '0');
-            const formattedCurrentSeconds = currentSeconds.toString().padStart(2, '0');
-            const formattedDurationMinutes = durationMinutes.toString().padStart(2, '0');
-            const formattedDurationSeconds = durationSeconds.toString().padStart(2, '0');
-        
-            // Update the current time and total duration text
-            curr_time.text(`${formattedCurrentMinutes}:${formattedCurrentSeconds}`);
-            total_duration.text(durationSeconds ? `${formattedDurationMinutes}:${formattedDurationSeconds}` : '∞');
-          }
+            var seekPosition = 0;
+
+            // Check if the current track duration is a legible number
+            if (!isNaN(curr_track.duration)) {
+                seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+                seek_slider.val(seekPosition);
+
+                // Calculate the time left and the total duration
+                var currentMinutes = Math.floor(curr_track.currentTime / 60);
+                var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                var durationMinutes = Math.floor(curr_track.duration / 60);
+                var durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+                // Adding a zero to the single digit time values
+                if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+                if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+                if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+                if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+                curr_time.text(currentMinutes + ":" + currentSeconds);
+                total_duration.text(durationSeconds ? durationMinutes + ":" + durationSeconds : '∞');
+            }
         }
         
         
