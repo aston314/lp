@@ -595,16 +595,19 @@
         });
         playpause_btn.on('hover:focus', function () {
             playpause_btn.css({
-                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                "border-radius": "50%",
+                // "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                // "border-radius": "50%",
+                "color": "white"
             });
             next_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
             prev_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
         });
         prev_btn.on('hover:enter', function () {
@@ -612,16 +615,19 @@
         });
         prev_btn.on('hover:focus', function () {
             prev_btn.css({
-                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                "border-radius": "50%",
+                // "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                // "border-radius": "50%",
+                "color": "white"
             });
             playpause_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
             next_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
 
         });
@@ -630,16 +636,19 @@
         });
         next_btn.on('hover:focus', function () {
             next_btn.css({
-                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                "border-radius": "50%",
+                // "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                // "border-radius": "50%",
+                "color": "white"
             });
             playpause_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
             prev_btn.css({
-                "background-color": "transparent",
-                "border-radius": "50%",
+                // "background-color": "transparent",
+                // "border-radius": "50%",
+                "color": "rgb(193 191 191)"
             });
 
         });
