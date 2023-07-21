@@ -16,8 +16,6 @@
         var waitload;
         var player = window.radio_player_;
         
-        
-
 
         this.getQueryString = function (link, name) {
             let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
@@ -31,404 +29,15 @@
 
         this.create = function () {
             var _this = this;
-            if (object.type == 'play') {
-                isplay = true;
-                //console.log(object);
-                this.activity.loader(true);
-
-                Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
-                Lampa.Template.add('play_style', "<style>.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 10px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
-                $('body').append(Lampa.Template.get('play_style', {}, true));
-                var btn = Lampa.Template.get('play_list');
-                var empty = new Lampa.Empty({
-                });
-                //console.log(empty)
-                html.append(empty.render());
-                html.find('.empty').append(btn);
-                // html.find('.empty').hide();
-
-                var now_playing = html.find(".now-playing");
-                var track_art = html.find(".track-art");
-                var track_name = html.find(".track-name");
-                var track_artist = html.find(".track-artist");
-
-                var playpause_btn = html.find(".playpause-track");
-                var next_btn = html.find(".next-track");
-                var prev_btn = html.find(".prev-track");
-
-                var seek_slider = html.find(".seek_slider");
-                var volume_slider = html.find(".volume_slider");
-                var curr_time = html.find(".current-time");
-                var total_duration = html.find(".total-duration");
-
-                var track_index = object.order;
-                var isPlaying = false;
-                var updateTimer;
-
-                // Create new audio element
-                var curr_track = html.find('#audio-player')[0];
-
+            // if (object.type == 'play') {
                 
 
 
-                // Define the tracks that have to be played
-                // console.log(object)
-                // var track_list = [
-                //   {
-                //     name: object.content.title,
-                //     artist: object.content.desc.replace('正在直播： ','',),
-                //     image: 'https:'+ object.content.imgUrl,
-                //     path: object.url,
-                //   },
-                //   {
-                //     name: "Enthusiast",
-                //     artist: "Tours",
-                //     image: "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-                //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
-                //   },
-                //   {
-                //     name: "Shipping Lanes",
-                //     artist: "Chad Crouch",
-                //     image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-                //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
-                //   },
-                // ];
-                var track_list = object.content;
+            //     _this.start = empty.start;
+            //     _this.activity.loader(false);
+            //     _this.activity.toggle();
 
-                function loadTrack(track_index) {
-                    // console.log(track_index)
-                    // if (track_index == object.content.length) track_index = 0;
-                    // track_index = Math.min(track_index, object.content.length - 1);
-                    clearInterval(updateTimer);
-                    resetValues();
-
-                    // Load a new track
-                    curr_track.src = track_list[track_index].path;
-                    curr_track.load();
-                    start();
-
-                    // Update details of the track
-                    //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
-                    // empty.render().find('.track-art').attr('src', object.url);
-                    // track_art.css("background-image", "url(" + track_list[track_index].image + ")");
-                    track_art.css("background-image", `url(${track_list[track_index].image})`);
-                    track_name.text(track_list[track_index].name);
-                    track_artist.text(track_list[track_index].artist);
-                    now_playing.text("PLAYING " + (track_index + 1) + " OF " + track_list.length);
-
-                    // Set an interval of 1000 milliseconds for updating the seek slider
-                    updateTimer = setInterval(seekUpdate, 1000);
-
-                    // Move to the next track if the current one finishes playing
-                    curr_track.addEventListener("ended", nextTrack);
-
-                    // Apply a random background color
-                    random_bg_color();
-                }
-
-                function start() {
-                    var playPromise;
-        
-                    try {
-                        playPromise = curr_track.play();
-                    } catch (e) { }
-        
-                    if (playPromise !== undefined) {
-                        playPromise.then(function () {
-                            console.log('Radio', 'start plaining');
-                        })["catch"](function (e) {
-                            console.log('Radio', 'play promise error:', e.message);
-                        });
-                    }
-                }
-
-                function random_bg_color() {
-
-                    // Get a random number between 64 to 256 (for getting lighter colors)
-                    var red = (Math.random() * 128) | 0;
-                    var green = (Math.random() * 128) | 0;
-                    var blue = (Math.random() * 128) | 0;
-
-                    // Construct a color withe the given values
-                    var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
-
-                    // Set the background to that color
-                    //   document.body.style.background = bgColor;
-                    //   console.log($('.empty'))
-                    //   $('.activity__body')
-                    // prev_btn.toggleClass('focus');
-                    // playpause_btn.toggleClass('focus');
-
-                    seek_slider.css("background-color", '#ffffff');
-                    html.find('.empty__img').remove();
-                    html.find('.empty__title').remove();
-                    html.find('.empty__descr').remove();
-                    html.find('.player').css("background-color", bgColor);
-                    html.find('.slider_container').eq(1).hide();
-                }
-
-                // Reset Values
-                function resetValues() {
-                    curr_time.text("00:00");
-                    total_duration.text("00:00");
-                    seek_slider.val(0);
-                }
-
-                function playpauseTrack() {
-                    if (!isPlaying) playTrack();
-                    else pauseTrack();
-                }
-
-                function playTrack() {
-                    if (typeof curr_track.play === 'function') {
-                        curr_track.play();
-                    }
-
-                    isPlaying = true;
-
-                    // Replace icon with the pause icon
-                    //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
-                    playpause_btn.html('<i class="fa fa-pause-circle fa-5x"></i>');
-
-
-                }
-
-                function pauseTrack() {
-                    if (typeof curr_track.pause === 'function') {
-                        curr_track.pause();
-                    }
-
-                    isPlaying = false;
-
-                    // Replace icon with the play icon
-                    //   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
-                    playpause_btn.html('<i class="fa fa-play-circle fa-5x"></i>');
-                }
-
-                function nextTrack() {
-                    if (track_index < track_list.length - 1)
-                        track_index += 1;
-                    else track_index = 0;
-                    loadTrack(track_index);
-                    playTrack();
-                }
-
-                function prevTrack() {
-                    if (track_index > 0)
-                        track_index -= 1;
-                    else track_index = track_list.length;
-                    loadTrack(track_index);
-                    playTrack();
-                }
-
-                function seekTo() {
-                    var seekto = curr_track.duration * (seek_slider.val() / 100);
-                    curr_track.currentTime = seekto;
-                }
-
-                function setVolume() {
-                    curr_track.volume = volume_slider.val() / 100;
-                }
-                
-
-                function seekUpdate() {
-                    var seekPosition = 0;
-
-                    // Check if the current track duration is a legible number
-                    if (!isNaN(curr_track.duration)) {
-                        seekPosition = curr_track.currentTime * (100 / curr_track.duration);
-                        seek_slider.val(seekPosition);
-
-                        // Calculate the time left and the total duration
-                        var currentMinutes = Math.floor(curr_track.currentTime / 60);
-                        var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
-                        var durationMinutes = Math.floor(curr_track.duration / 60);
-                        var durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
-
-                        // Adding a zero to the single digit time values
-                        if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
-                        if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
-                        if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
-                        if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
-
-                        curr_time.text(currentMinutes + ":" + currentSeconds);
-                        total_duration.text(durationSeconds ? durationMinutes + ":" + durationSeconds : '∞');
-                    }
-                }
-                //   function setButtonStyles(buttonId,buttonHtml) {
-                //       var buttons = ["playpause_btn", "next_btn", "prev_btn"];
-
-                //       const focusStyles = {
-                //           "border-radius": "50%",
-                //           "background-color": "transparent", // Set transparent background by default
-                //       };
-
-                //       const commonStyles = {
-                //           "background-color": "rgba(128, 128, 128, 0.5)",
-                //       };
-
-
-                //       if (buttons.includes(buttonId)) {
-                //         buttonHtml.css(commonStyles)
-                //       } else {
-
-                //       }
-                //   }
-
-                // 调用函数并传入按钮名称
-                // setButtonStyles("playpause_btn");
-                // setButtonStyles("next_btn");
-                // setButtonStyles("prev_btn");
-
-                // Load the first track in the tracklist
-                loadTrack(track_index);
-                playpause_btn.on('hover:enter click', function () {
-                    playpauseTrack();
-                });
-                playpause_btn.on('hover:focus', function () {
-                    playpause_btn.css({
-                        "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                        "border-radius": "50%",
-                    });
-                    next_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-                    prev_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-
-                    //   console.log('fff')
-                    // setButtonStyles("playpause_btn");
-                });
-                prev_btn.on('hover:enter click', function () {
-                    prevTrack();
-                });
-                prev_btn.on('hover:focus', function () {
-                    prev_btn.css({
-                        "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                        "border-radius": "50%",
-                    });
-                    playpause_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-                    next_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-                    //   console.log('<')
-                    // setButtonStyles("prev_btn");
-                });
-                next_btn.on('hover:enter click', function () {
-                    nextTrack();
-                });
-                next_btn.on('hover:focus', function () {
-                    next_btn.css({
-                        "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
-                        "border-radius": "50%",
-                    });
-                    playpause_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-                    prev_btn.css({
-                        "background-color": "transparent",
-                        "border-radius": "50%",
-                    });
-                    // console.log('>')
-                    // setButtonStyles("next_btn");
-                });
-                // seek_slider.on('hover:enter click', function () {
-                //     seekTo();
-                // });
-                button.hide().on('hover:enter', function () {
-                    // if (activi) {
-                        Lampa.Activity.push({
-                            url: "",
-                            title: '蜻蜓FM',
-                            component: 'qingtingfm',
-                            type: 'play',
-                            content: object.content,
-                            order: object.order,
-                            page: 1
-                        });
-                    // }
-                });
-                
-
-                //console.log(object)
-
-                // var audioPlayer, progressBar;
-                // var playPauseButton = empty.render().find('#play-pause-button');
-                // // console.log(audioPlayer,playPauseButton)
-                // empty.render().find('#audio-player').attr('src', object.url);
-
-                // progressBar = empty.render().find("#progress");
-                // audioPlayer = empty.render().find('#audio-player')[0];
-
-                // // 初始化HLS.js
-                // if (Hls.isSupported()) {
-                //   var hls = new Hls();
-                //   hls.loadSource(object.url);
-                //   hls.attachMedia(audioPlayer);
-                //   hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                //     audioPlayer.play();
-                //     // 绑定timeupdate事件
-                //     //audioPlayer.addEventListener("timeupdate", playbackTimeUpdate(audioPlayer));
-                //   });
-                // } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
-                //   audioPlayer.src = object.url;
-                // }
-
-                // if (audioPlayer.paused) {
-                //   playPauseButton.removeClass("play").addClass("pause");
-                // }
-
-                // empty.render().find('#play-pause-button').on('hover:enter click', function () {
-                //   if (audioPlayer.paused) {
-                //     audioPlayer.play();
-                //     playPauseButton.removeClass("play").addClass("pause");
-                //   } else {
-                //     audioPlayer.pause();
-                //     //audioPlayer.currentTime = 0;
-                //     //hls.detachMedia();
-                //     //hls.destroy();
-                //     // audioPlayer.dispose();
-                //     playPauseButton.removeClass("pause").addClass("play");
-                //   }
-                // });
-
-                // audioPlayer.addEventListener("loadedmetadata", function () {
-                //   audioPlayer.addEventListener("timeupdate", function () {
-                //     var currentTime = audioPlayer.currentTime;
-                //     var duration = audioPlayer.duration;
-
-                //     var minutes = Math.floor(currentTime / 60);
-                //     var seconds = Math.floor(currentTime % 60);
-
-                //     var durationMinutes = Math.floor(duration / 60);
-                //     var durationSeconds = Math.floor(duration % 60);
-
-                //     var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-                //     //console.log(progress)
-                //     progressBar.css("width", progress + "%");
-
-                //     // 更新进度条文本
-                //     empty.render().find(".progress-text").text(
-                //       //("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
-                //       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
-                //     );
-                //   });
-                // });
-
-
-                _this.start = empty.start;
-                _this.activity.loader(false);
-                _this.activity.toggle();
-
-            } else {
+            // } else {
                 var postdata;
                 if (object.keyword) {
                     postdata = { "query": "{\n        searchResultsPage(keyword:\"" + object.keyword + "\", page:1, include:\"channel_live\" ) {\n          tdk,\n          searchData,\n          numFound\n        }\n      }" };
@@ -448,7 +57,7 @@
                     _this.activity.toggle();
                 }, postdata);
                 return this.render();
-            }
+            // }
         };
 
         this.next = function () {
@@ -609,11 +218,444 @@
                 //     // }
                 // });
 
+                // card.on('hover:enter', function (target, card_data) {
+                //     var localDateTime = new Date();
+                //     localDateTime.setHours(localDateTime.getHours() + 1);
+                    
+                //     // Load CryptoJS library asynchronously
+                //     var playlist = [];
+                //     Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'], function () {
+                //         data.forEach(function (elem) {
+                //             var t = "/live/" + elem.id + "/64k.mp3";
+                //             var n = Math.floor(localDateTime.getTime() / 1000).toString(16);
+                //             var r = "web";
+                //             var i = encodeURIComponent(t);
+                //             var a = "app_id=" + r + "&path=" + i + "&ts=" + n;
+                //             var o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
+                            
+                //             playlist.push({
+                //                 name: elem.title,
+                //                 artist: elem.desc.replace('正在直播： ', ''),
+                //                 image: 'https:' + elem.imgUrl,
+                //                 path: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o),
+                //             });
+                //         });
+                        
+                //         // Lampa.Activity.push({
+                //         //     url: "",
+                //         //     title: '蜻蜓FM - ' + element.title,
+                //         //     component: 'qingtingfm',
+                //         //     type: 'play',
+                //         //     content: playlist,
+                //         //     order: items.indexOf(card),
+                //         //     page: 1
+                //         // });
+                //     });
+
+
+                // var html = $('<div></div>');
+                // Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+                // Lampa.Template.add('play_style', "<style>.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 10px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+                // $('body').append(Lampa.Template.get('play_style', {}, true));
+                // var btn = Lampa.Template.get('play_list');
+                // html.append(btn);
+
+
+                // Lampa.Modal.open({
+                //     title: "",
+                //     // select: html.find('.navigation-tabs .active')[0],
+                //     html: html,//modal,
+                //     size: "full",
+                //     mask: !0,
+                //     onBack: function () {
+                //         Lampa.Modal.close(), Lampa.Controller.toggle('content')
+                //         // Lampa.Controller.toggle(enabled)
+                //     },
+                //     // onSelect: function () { }
+                // });
+            
+                // var now_playing = html.find(".now-playing");
+                // var track_art = html.find(".track-art");
+                // var track_name = html.find(".track-name");
+                // var track_artist = html.find(".track-artist");
+
+                // var playpause_btn = html.find(".playpause-track");
+                // var next_btn = html.find(".next-track");
+                // var prev_btn = html.find(".prev-track");
+
+                // var seek_slider = html.find(".seek_slider");
+                // var volume_slider = html.find(".volume_slider");
+                // var curr_time = html.find(".current-time");
+                // var total_duration = html.find(".total-duration");
+
+                // var track_index = 0;//items.indexOf(card)
+                // var isPlaying = false;
+                // var updateTimer;
+
+                // // Create new audio element
+                // var curr_track = html.find('#audio-player')[0];
+
+                // // Define the tracks that have to be played
+                // // console.log(object)
+                // var track_list = [
+                //   {
+                //     name: "Enthusiast",
+                //     artist: "Tours",
+                //     image: "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+                //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
+                //   },
+                //   {
+                //     name: "Shipping Lanes",
+                //     artist: "Chad Crouch",
+                //     image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+                //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
+                //   },
+                // ];
+                // // var track_list = playlist;
+                // // console.log(playlist)
+
+                // function loadTrack(track_index) {
+                //     console.log(track_index)
+                //     // if (track_index == object.content.length) track_index = 0;
+                //     // track_index = Math.min(track_index, object.content.length - 1);
+                //     clearInterval(updateTimer);
+                //     resetValues();
+
+                //     // Load a new track
+                //     console.log(track_list[track_index])
+                //     curr_track.src = track_list[track_index].path;
+                //     curr_track.load();
+                //     start();
+
+                //     // Update details of the track
+                //     //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
+                //     // empty.render().find('.track-art').attr('src', object.url);
+                //     // track_art.css("background-image", "url(" + track_list[track_index].image + ")");
+                //     track_art.css("background-image", `url(${track_list[track_index].image})`);
+                //     track_name.text(track_list[track_index].name);
+                //     track_artist.text(track_list[track_index].artist);
+                //     now_playing.text("PLAYING " + (track_index + 1) + " OF " + track_list.length);
+
+                //     // Set an interval of 1000 milliseconds for updating the seek slider
+                //     updateTimer = setInterval(seekUpdate, 1000);
+
+                //     // Move to the next track if the current one finishes playing
+                //     curr_track.addEventListener("ended", nextTrack);
+
+                //     // Apply a random background color
+                //     random_bg_color();
+                // }
+
+                // function start() {
+                //     var playPromise;
+        
+                //     try {
+                //         playPromise = curr_track.play();
+                //     } catch (e) { }
+        
+                //     if (playPromise !== undefined) {
+                //         playPromise.then(function () {
+                //             console.log('Radio', 'start plaining');
+                //         })["catch"](function (e) {
+                //             console.log('Radio', 'play promise error:', e.message);
+                //         });
+                //     }
+                // }
+
+                // function random_bg_color() {
+
+                //     // Get a random number between 64 to 256 (for getting lighter colors)
+                //     var red = (Math.random() * 128) | 0;
+                //     var green = (Math.random() * 128) | 0;
+                //     var blue = (Math.random() * 128) | 0;
+
+                //     // Construct a color withe the given values
+                //     var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+                //     // Set the background to that color
+                //     //   document.body.style.background = bgColor;
+                //     //   console.log($('.empty'))
+                //     //   $('.activity__body')
+                //     // prev_btn.toggleClass('focus');
+                //     // playpause_btn.toggleClass('focus');
+
+                //     seek_slider.css("background-color", '#ffffff');
+                //     // html.find('.empty__img').remove();
+                //     // html.find('.empty__title').remove();
+                //     // html.find('.empty__descr').remove();
+                //     html.find('.player').css("background-color", bgColor);
+                //     html.find('.slider_container').eq(1).hide();
+                // }
+
+                // // Reset Values
+                // function resetValues() {
+                //     curr_time.text("00:00");
+                //     total_duration.text("00:00");
+                //     seek_slider.val(0);
+                // }
+
+                // function playpauseTrack() {
+                //     if (!isPlaying) playTrack();
+                //     else pauseTrack();
+                // }
+
+                // function playTrack() {
+                //     if (typeof curr_track.play === 'function') {
+                //         curr_track.play();
+                //     }
+
+                //     isPlaying = true;
+
+                //     // Replace icon with the pause icon
+                //     //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+                //     playpause_btn.html('<i class="fa fa-pause-circle fa-5x"></i>');
+
+
+                // }
+
+                // function pauseTrack() {
+                //     if (typeof curr_track.pause === 'function') {
+                //         curr_track.pause();
+                //     }
+
+                //     isPlaying = false;
+
+                //     // Replace icon with the play icon
+                //     //   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+                //     playpause_btn.html('<i class="fa fa-play-circle fa-5x"></i>');
+                // }
+
+                // function nextTrack() {
+                //     if (track_index < track_list.length - 1)
+                //         track_index += 1;
+                //     else track_index = 0;
+                //     loadTrack(track_index);
+                //     playTrack();
+                // }
+
+                // function prevTrack() {
+                //     if (track_index > 0)
+                //         track_index -= 1;
+                //     else track_index = track_list.length;
+                //     loadTrack(track_index);
+                //     playTrack();
+                // }
+
+                // function seekTo() {
+                //     var seekto = curr_track.duration * (seek_slider.val() / 100);
+                //     curr_track.currentTime = seekto;
+                // }
+
+                // function setVolume() {
+                //     curr_track.volume = volume_slider.val() / 100;
+                // }
+
+                // function seekUpdate() {
+                //     var seekPosition = 0;
+
+                //     // Check if the current track duration is a legible number
+                //     if (!isNaN(curr_track.duration)) {
+                //         seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+                //         seek_slider.val(seekPosition);
+
+                //         // Calculate the time left and the total duration
+                //         var currentMinutes = Math.floor(curr_track.currentTime / 60);
+                //         var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                //         var durationMinutes = Math.floor(curr_track.duration / 60);
+                //         var durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+                //         // Adding a zero to the single digit time values
+                //         if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+                //         if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+                //         if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+                //         if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+                //         curr_time.text(currentMinutes + ":" + currentSeconds);
+                //         total_duration.text(durationSeconds ? durationMinutes + ":" + durationSeconds : '∞');
+                //     }
+                // }
+                // //   function setButtonStyles(buttonId,buttonHtml) {
+                // //       var buttons = ["playpause_btn", "next_btn", "prev_btn"];
+
+                // //       const focusStyles = {
+                // //           "border-radius": "50%",
+                // //           "background-color": "transparent", // Set transparent background by default
+                // //       };
+
+                // //       const commonStyles = {
+                // //           "background-color": "rgba(128, 128, 128, 0.5)",
+                // //       };
+
+
+                // //       if (buttons.includes(buttonId)) {
+                // //         buttonHtml.css(commonStyles)
+                // //       } else {
+
+                // //       }
+                // //   }
+
+                // // 调用函数并传入按钮名称
+                // // setButtonStyles("playpause_btn");
+                // // setButtonStyles("next_btn");
+                // // setButtonStyles("prev_btn");
+
+                // // Load the first track in the tracklist
+                // loadTrack(track_index);
+                // playpause_btn.on('hover:enter click', function () {
+                //     playpauseTrack();
+                // });
+                // playpause_btn.on('hover:focus', function () {
+                //     playpause_btn.css({
+                //         "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                //         "border-radius": "50%",
+                //     });
+                //     next_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+                //     prev_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+
+                //     //   console.log('fff')
+                //     // setButtonStyles("playpause_btn");
+                // });
+                // prev_btn.on('hover:enter click', function () {
+                //     prevTrack();
+                // });
+                // prev_btn.on('hover:focus', function () {
+                //     prev_btn.css({
+                //         "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                //         "border-radius": "50%",
+                //     });
+                //     playpause_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+                //     next_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+                //     //   console.log('<')
+                //     // setButtonStyles("prev_btn");
+                // });
+                // next_btn.on('hover:enter click', function () {
+                //     nextTrack();
+                // });
+                // next_btn.on('hover:focus', function () {
+                //     next_btn.css({
+                //         "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                //         "border-radius": "50%",
+                //     });
+                //     playpause_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+                //     prev_btn.css({
+                //         "background-color": "transparent",
+                //         "border-radius": "50%",
+                //     });
+                //     // console.log('>')
+                //     // setButtonStyles("next_btn");
+                // });
+                // // seek_slider.on('hover:enter click', function () {
+                // //     seekTo();
+                // // });
+                // button.hide().on('hover:enter', function () {
+                //     // if (activi) {
+                //         // Lampa.Activity.push({
+                //         //     url: "",
+                //         //     title: '蜻蜓FM',
+                //         //     component: 'qingtingfm',
+                //         //     type: 'play',
+                //         //     content: object.content,
+                //         //     order: object.order,
+                //         //     isback: true,
+                //         //     page: 1
+                //         // });
+                //         console.log('ff')
+                //     // }
+                // });
+                // // if(object.isback){
+                // //     console.log('fuck')
+                // //     Lampa.keyboard.listener.follow('back', Lampa.Activity.backward());
+                // // }
+                
+                // //console.log(object)
+
+                // // var audioPlayer, progressBar;
+                // // var playPauseButton = empty.render().find('#play-pause-button');
+                // // // console.log(audioPlayer,playPauseButton)
+                // // empty.render().find('#audio-player').attr('src', object.url);
+
+                // // progressBar = empty.render().find("#progress");
+                // // audioPlayer = empty.render().find('#audio-player')[0];
+
+                // // // 初始化HLS.js
+                // // if (Hls.isSupported()) {
+                // //   var hls = new Hls();
+                // //   hls.loadSource(object.url);
+                // //   hls.attachMedia(audioPlayer);
+                // //   hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                // //     audioPlayer.play();
+                // //     // 绑定timeupdate事件
+                // //     //audioPlayer.addEventListener("timeupdate", playbackTimeUpdate(audioPlayer));
+                // //   });
+                // // } else if (audioPlayer.canPlayType("application/vnd.apple.mpegurl")) {
+                // //   audioPlayer.src = object.url;
+                // // }
+
+                // // if (audioPlayer.paused) {
+                // //   playPauseButton.removeClass("play").addClass("pause");
+                // // }
+
+                // // empty.render().find('#play-pause-button').on('hover:enter click', function () {
+                // //   if (audioPlayer.paused) {
+                // //     audioPlayer.play();
+                // //     playPauseButton.removeClass("play").addClass("pause");
+                // //   } else {
+                // //     audioPlayer.pause();
+                // //     //audioPlayer.currentTime = 0;
+                // //     //hls.detachMedia();
+                // //     //hls.destroy();
+                // //     // audioPlayer.dispose();
+                // //     playPauseButton.removeClass("pause").addClass("play");
+                // //   }
+                // // });
+
+                // // audioPlayer.addEventListener("loadedmetadata", function () {
+                // //   audioPlayer.addEventListener("timeupdate", function () {
+                // //     var currentTime = audioPlayer.currentTime;
+                // //     var duration = audioPlayer.duration;
+
+                // //     var minutes = Math.floor(currentTime / 60);
+                // //     var seconds = Math.floor(currentTime % 60);
+
+                // //     var durationMinutes = Math.floor(duration / 60);
+                // //     var durationSeconds = Math.floor(duration % 60);
+
+                // //     var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                // //     //console.log(progress)
+                // //     progressBar.css("width", progress + "%");
+
+                // //     // 更新进度条文本
+                // //     empty.render().find(".progress-text").text(
+                // //       //("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / " + ("0" + durationMinutes).slice(-2) + ":" + ("0" + durationSeconds).slice(-2)
+                // //       ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + " / ∞ "
+                // //     );
+                // //   });
+                // // });
+
+
+
+                // });
                 card.on('hover:enter', function (target, card_data) {
                     var localDateTime = new Date();
                     localDateTime.setHours(localDateTime.getHours() + 1);
-                    
+
                     // Load CryptoJS library asynchronously
+
                     Lampa.Utils.putScriptAsync(['https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'], function () {
                         var playlist = [];
                         data.forEach(function (elem) {
@@ -623,25 +665,21 @@
                             var i = encodeURIComponent(t);
                             var a = "app_id=" + r + "&path=" + i + "&ts=" + n;
                             var o = CryptoJS.HmacMD5(a, "Lwrpu$K5oP").toString();
-                            
+
                             playlist.push({
                                 name: elem.title,
-                                artist: elem.desc.replace('正在直播： ', ''),
+                                artist: elem.desc ? elem.desc.replace('正在直播： ', '') : '',
                                 image: 'https:' + elem.imgUrl,
                                 path: "https://lhttp.qtfm.cn" + t + "?app_id=" + r + "&ts=" + n + "&sign=" + encodeURIComponent(o),
                             });
                         });
-                        
-                        Lampa.Activity.push({
-                            url: "",
-                            title: '蜻蜓FM - ' + element.title,
-                            component: 'qingtingfm',
-                            type: 'play',
-                            content: playlist,
-                            order: items.indexOf(card),
-                            page: 1
+
+                        MusicPlayer.open(playlist, items.indexOf(card), function (code) {
+                        }, function () {
+                            Lampa.Controller.toggle('content');
                         });
                     });
+
                 });
 
                 body.append(card);
@@ -798,6 +836,418 @@
             info = null;
         };
     }
+    var MusicPlayer = {
+        open: open
+    };
+
+    function open(playlist, order, callSelected, callCancel) {
+        isplay = false;
+        Lampa.Template.add('play_list', "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css\"><audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><i class=\"fa fa-step-backward fa-2x\"></i></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><i class=\"fa fa-play-circle fa-5x\"></i></div> <div class=\"next-track selector\"><i class=\"fa fa-step-forward fa-2x\"></i></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+        Lampa.Template.add('play_style', "<style>.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player {  display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+        $('body').append(Lampa.Template.get('play_style', {}, true));
+        var html = Lampa.Template.get('play_list');
+        // html.append(btn);
+        // var html = Lampa.Template.get('lang_choice', {});
+        var scroll = new Lampa.Scroll({
+            mask: true,
+            over: true
+        });
+        // var codes = Lang.codes();
+
+        // function selector(code) {
+        //   var item = $('<div class="selector lang__selector-item" data-code="' + code + '">' + codes[code] + '</div>');
+        //   item.on('hover:enter', function (e) {
+        //     if (callSelected) callSelected(code);
+        //     html.fadeOut(300, function () {
+        //       scroll.destroy();
+        //       html.remove();
+        //       scroll = null;
+        //       html = null;
+        //     });
+        //   }).on('hover:focus', function (e) {
+        //     scroll.update($(e.target), true);
+        //     $('.lang__selector-item', html).removeClass('last-focus');
+        //     $(e.target).addClass('last-focus');
+        //     html.find('.lang__title').text(Lang.translate('lang_choice_title', code));
+        //     html.find('.lang__subtitle').text(Lang.translate('lang_choice_subtitle', code));
+        //   });
+        //   scroll.append(item);
+        // }
+
+        // for (var code in codes) {
+        //   selector(code);
+        // }
+
+        // html.find('.lang__selector').append(scroll.render());
+        // console.log(html)
+
+        var now_playing = html.find(".now-playing");
+        var track_art = html.find(".track-art");
+        var track_name = html.find(".track-name");
+        var track_artist = html.find(".track-artist");
+
+        var playpause_btn = html.find(".playpause-track");
+        var next_btn = html.find(".next-track");
+        var prev_btn = html.find(".prev-track");
+
+        var seek_slider = html.find(".seek_slider");
+        var volume_slider = html.find(".volume_slider");
+        var curr_time = html.find(".current-time");
+        var total_duration = html.find(".total-duration");
+
+        var track_index = order;//items.indexOf(card)
+        var isPlaying = false;
+        var updateTimer;
+
+        // Create new audio element
+        var curr_track = html[1]//new Audio(); ;
+        // console.log(curr_track)
+
+        // Define the tracks that have to be played
+        // console.log(object)
+        // var track_list = [
+        //   {
+        //     name: "Enthusiast",
+        //     artist: "Tours",
+        //     image: "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+        //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
+        //   },
+        //   {
+        //     name: "Shipping Lanes",
+        //     artist: "Chad Crouch",
+        //     image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+        //     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
+        //   },
+        // ];
+        var track_list = playlist;
+        console.log(playlist)
+
+        function loadTrack(track_index) {
+            console.log(track_index)
+            // if (track_index == object.content.length) track_index = 0;
+            // track_index = Math.min(track_index, object.content.length - 1);
+            clearInterval(updateTimer);
+            resetValues();
+
+            // Load a new track
+            console.log(track_list[track_index])
+            curr_track.src = track_list[track_index].path;
+            curr_track.load();
+            start();
+
+            // Update details of the track
+            //   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
+            // empty.render().find('.track-art').attr('src', object.url);
+            // track_art.css("background-image", "url(" + track_list[track_index].image + ")");
+            track_art.css("background-image", `url(${track_list[track_index].image})`);
+            track_name.text(track_list[track_index].name);
+            track_artist.text(track_list[track_index].artist);
+            now_playing.text("PLAYING " + (track_index + 1) + " OF " + track_list.length);
+
+            // Set an interval of 1000 milliseconds for updating the seek slider
+            updateTimer = setInterval(seekUpdate, 1000);
+
+            // Move to the next track if the current one finishes playing
+            curr_track.addEventListener("ended", nextTrack);
+
+            // Apply a random background color
+            random_bg_color();
+        }
+
+        function start() {
+            var playPromise;
+
+            try {
+                playPromise = curr_track.play();
+            } catch (e) { }
+
+            if (playPromise !== undefined) {
+                playPromise.then(function () {
+                    console.log('Radio', 'start plaining');
+                })["catch"](function (e) {
+                    console.log('Radio', 'play promise error:', e.message);
+                });
+            }
+        }
+
+        function random_bg_color() {
+
+            // Get a random number between 64 to 256 (for getting lighter colors)
+            var red = (Math.random() * 128) | 0;
+            var green = (Math.random() * 128) | 0;
+            var blue = (Math.random() * 128) | 0;
+
+            // Construct a color withe the given values
+            var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+            // Set the background to that color
+            //   document.body.style.background = bgColor;
+            //   console.log($('.empty'))
+            //   $('.activity__body')
+            // prev_btn.toggleClass('focus');
+            // playpause_btn.toggleClass('focus');
+
+            seek_slider.css("background-color", '#ffffff');
+            // html.find('.empty__img').remove();
+            // html.find('.empty__title').remove();
+            // html.find('.empty__descr').remove();
+            $(html[2]).css("background-color", bgColor);
+            html.find('.slider_container').eq(1).hide();
+        }
+
+        // Reset Values
+        function resetValues() {
+            curr_time.text("00:00");
+            total_duration.text("00:00");
+            seek_slider.val(0);
+        }
+
+        function playpauseTrack() {
+            if (!isPlaying) playTrack();
+            else pauseTrack();
+        }
+
+        function playTrack() {
+            if (typeof curr_track.play === 'function') {
+                curr_track.play();
+            }
+
+            isPlaying = true;
+
+            // Replace icon with the pause icon
+            //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+            playpause_btn.html('<i class="fa fa-pause-circle fa-5x"></i>');
+
+
+        }
+
+        function pauseTrack() {
+            if (typeof curr_track.pause === 'function') {
+                curr_track.pause();
+            }
+
+            isPlaying = false;
+
+            // Replace icon with the play icon
+            //   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+            playpause_btn.html('<i class="fa fa-play-circle fa-5x"></i>');
+        }
+
+        // function nextTrack() {
+        //     if (track_index < track_list.length - 1)
+        //         track_index += 1;
+        //     else track_index = 0;
+        //     loadTrack(track_index);
+        //     playTrack();
+        // }
+
+        // function prevTrack() {
+        //     if (track_index > 0)
+        //         track_index -= 1;
+        //     else track_index = track_list.length;
+        //     loadTrack(track_index);
+        //     playTrack();
+        // }
+        // Switch to the next track
+        function nextTrack() {
+            track_index = (track_index + 1) % track_list.length;
+            console.log(track_index+1)
+            loadTrack(track_index);
+            playTrack();
+        }
+
+        // Switch to the previous track
+        function prevTrack() {
+            track_index = (track_index - 1 + track_list.length) % track_list.length;
+            loadTrack(track_index);
+            playTrack();
+        }
+
+        function seekTo() {
+            var seekto = curr_track.duration * (seek_slider.val() / 100);
+            curr_track.currentTime = seekto;
+        }
+
+        function setVolume() {
+            curr_track.volume = volume_slider.val() / 100;
+        }
+
+        function seekUpdate() {
+          // Check if the current track duration is a valid number and not NaN
+          if (!isNaN(curr_track.duration) && curr_track.duration > 0) {
+            // Calculate the seek position as a percentage of the total duration
+            const seekPosition = (curr_track.currentTime / curr_track.duration) * 100;
+            seek_slider.val(seekPosition);
+        
+            // Calculate the current and total duration in minutes and seconds
+            const currentMinutes = Math.floor(curr_track.currentTime / 60);
+            const currentSeconds = Math.floor(curr_track.currentTime % 60);
+            const durationMinutes = Math.floor(curr_track.duration / 60);
+            const durationSeconds = Math.floor(curr_track.duration % 60);
+        
+            // Format the minutes and seconds to have leading zeros for single digits
+            const formattedCurrentMinutes = currentMinutes.toString().padStart(2, '0');
+            const formattedCurrentSeconds = currentSeconds.toString().padStart(2, '0');
+            const formattedDurationMinutes = durationMinutes.toString().padStart(2, '0');
+            const formattedDurationSeconds = durationSeconds.toString().padStart(2, '0');
+        
+            // Update the current time and total duration text
+            curr_time.text(`${formattedCurrentMinutes}:${formattedCurrentSeconds}`);
+            total_duration.text(durationSeconds ? `${formattedDurationMinutes}:${formattedDurationSeconds}` : '∞');
+          }
+        }
+        
+        
+        //   function setButtonStyles(buttonId,buttonHtml) {
+        //       var buttons = ["playpause_btn", "next_btn", "prev_btn"];
+
+        //       const focusStyles = {
+        //           "border-radius": "50%",
+        //           "background-color": "transparent", // Set transparent background by default
+        //       };
+
+        //       const commonStyles = {
+        //           "background-color": "rgba(128, 128, 128, 0.5)",
+        //       };
+
+
+        //       if (buttons.includes(buttonId)) {
+        //         buttonHtml.css(commonStyles)
+        //       } else {
+
+        //       }
+        //   }
+
+        // 调用函数并传入按钮名称
+        // setButtonStyles("playpause_btn");
+        // setButtonStyles("next_btn");
+        // setButtonStyles("prev_btn");
+
+        // Load the first track in the tracklist
+        loadTrack(track_index);
+        playpause_btn.on('hover:enter', function () {
+            playpauseTrack();
+        });
+        playpause_btn.on('hover:focus', function () {
+            playpause_btn.css({
+                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                "border-radius": "50%",
+            });
+            next_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+            prev_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+
+            //   console.log('fff')
+            // setButtonStyles("playpause_btn");
+        });
+        prev_btn.on('hover:enter', function () {
+            prevTrack();
+        });
+        prev_btn.on('hover:focus', function () {
+            prev_btn.css({
+                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                "border-radius": "50%",
+            });
+            playpause_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+            next_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+
+        });
+        next_btn.on('hover:enter', function () {
+            nextTrack();
+        });
+        next_btn.on('hover:focus', function () {
+            next_btn.css({
+                "background-color": "rgba(128, 128, 128, 0.5)", /* 0.5 represents 50% opacity (semi-transparent gray) */
+                "border-radius": "50%",
+            });
+            playpause_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+            prev_btn.css({
+                "background-color": "transparent",
+                "border-radius": "50%",
+            });
+
+        });
+        // seek_slider.on('hover:enter click', function () {
+        //     seekTo();
+        // });
+        button.hide().on('hover:enter', function () {
+            MusicPlayer.open(playlist, track_index, function (code) {
+            }, function () {
+                Lampa.Controller.toggle('content');
+            });
+        });
+
+        // var item = $('<div class="selector lang__selector-item" data-code="1111">111111</div>');
+        // item.on('hover:enter', function (e) {
+        //     if (callSelected) callSelected();
+        //     html.fadeOut(300, function () {
+        //         scroll.destroy();
+        //         html.remove();
+        //         scroll = null;
+        //         html = null;
+        //     });
+        // }).on('hover:focus', function (e) {
+        //     scroll.update($(e.target), true);
+        //     $('.lang__selector-item', html).removeClass('last-focus');
+        //     $(e.target).addClass('last-focus');
+
+        // });
+        // scroll.append(item);
+        scroll.append(prev_btn);
+        scroll.append(playpause_btn);
+        scroll.append(next_btn);
+        html.find('.buttons').append(scroll.render());
+        html.find('.scroll__body').toggleClass('buttons');
+        html.find('.scroll--mask .scroll__content').css("padding", "1em 0");
+
+
+
+        $('body').append(html);
+        Lampa.Controller.add('musicplayer', {
+            toggle: function toggle() {
+                // var focus = playpause_btn;
+                var focus = playpause_btn;
+                Lampa.Controller.collectionSet(scroll.render());
+                Lampa.Controller.collectionFocus(focus[0], scroll.render());
+            },
+            right: function right() {
+                Navigator.move('right');
+            },
+            left: function left() {
+                Navigator.move('left');
+            },
+            up: function up() {
+                Navigator.move('up');
+            },
+            down: function down() {
+                Navigator.move('down');
+            },
+            back: function back() {
+                if (callCancel) {
+                    scroll.destroy();
+                    html.remove();
+                    scroll = null;
+                    html = null;
+                    callCancel();
+                }
+            }
+        });
+        Lampa.Controller.toggle('musicplayer');
+    }
     var class_name = '广东&浙江&北京&天津&河北&上海&山西&内蒙古&辽宁&吉林&黑龙江&江苏&安徽&福建&江西&山东&河南&湖北&湖南&广西&海南&重庆&四川&贵州&云南&陕西&甘肃&宁夏&新疆&西藏&青海&资讯台&音乐台&交通台&经济台&文艺台&都市台&体育台&双语台&综合台&生活台&旅游台&曲艺台&方言台';
     var class_url = '217&99&3&5&7&83&19&31&44&59&69&85&111&129&139&151&169&187&202&239&254&257&259&281&291&316&327&351&357&308&342&433&442&429&439&432&441&430&431&440&438&435&436&434';
     var url_link = 'https://webbff.qingting.fm/www';
@@ -815,8 +1265,6 @@
     });
 
     
-                
-
     function player() {
         var html = Lampa.Template.get('radio_player', {});
         var audio = new Audio();
@@ -925,7 +1373,6 @@
             clearTimeout(timer);
             timer = setTimeout(function () {
                 if (activi) {
-                    console.log(isplay === false)
                     if (activi.component == 'qingtingfm') {
                         button.hide();
                         activi = false;
