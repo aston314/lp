@@ -500,6 +500,7 @@
         curr_track.addEventListener("play", function () {
             rotate_timer = setInterval(function(){ 
                 if(!curr_track.paused && !curr_track.ended && 0 < curr_track.currentTime){
+                    isPlaying = true;
                     playpause_btn.html('<svg id="pause" viewBox="0 0 25 25" xml:space="preserve"> <g> <rect x="6" y="4.6" width="3.8" height="15.7"/> <rect x="14" y="4.6" width="3.9" height="15.7"/> </g> </svg>');
                     Rotate();
                 } else {
@@ -544,7 +545,6 @@
             if (typeof curr_track.play === 'function') {
                 curr_track.play();
             }
-
             isPlaying = true;
             // Replace icon with the pause icon
             //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
