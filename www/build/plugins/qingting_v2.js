@@ -520,17 +520,32 @@
         }, false);
 
         function random_bg_color() {
-            // Get a random number between 64 to 256 (for getting lighter colors)
-            var red = (Math.random() * 128) | 0;
-            var green = (Math.random() * 128) | 0;
-            var blue = (Math.random() * 128) | 0;
+            // Get a random number between 64 to 191 (for getting lighter colors)
+            var red = Math.floor(Math.random() * 128) + 64;
+            var green = Math.floor(Math.random() * 128) + 64;
+            var blue = Math.floor(Math.random() * 128) + 64;
 
-            // Construct a color withe the given values
-            var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+            var bgColor = `rgb(${red},${green},${blue})`;;
+            
+            // Set a constant value for brightness increase (e.g., 50)
+            var brightnessIncrease = 30;
+            
+            // Calculate the brighter color components
+            var brighterRed = Math.min(red + brightnessIncrease, 255);
+            var brighterGreen = Math.min(green + brightnessIncrease, 255);
+            var brighterBlue = Math.min(blue + brightnessIncrease, 255);
+            
+            // Construct the brighter color string
+            var brighterColor = `rgb(${brighterRed},${brighterGreen},${brighterBlue})`;
+            
 
             // Set the background to that color
             seek_slider.css("background-color", '#ffffff');
-            $(html[1]).css("background-color", bgColor);
+            // $(html[1]).css("background-color", bgColor);
+            $(html[1]).css("background-image", `linear-gradient(203deg, #020024 0%, ${bgColor} 50%, ${brighterColor} 100%)`);
+
+            
+            
             html.find('.slider_container').eq(1).hide();
         }
 
