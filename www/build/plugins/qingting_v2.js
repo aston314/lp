@@ -500,7 +500,10 @@
         curr_track.addEventListener("play", function () {
             rotate_timer = setInterval(function(){ 
                 if(!curr_track.paused && !curr_track.ended && 0 < curr_track.currentTime){
+                    playpause_btn.html('<svg id="pause" viewBox="0 0 25 25" xml:space="preserve"> <g> <rect x="6" y="4.6" width="3.8" height="15.7"/> <rect x="14" y="4.6" width="3.9" height="15.7"/> </g> </svg>');
                     Rotate();
+                } else {
+                    playpause_btn.html('<svg id="play" viewBox="0 0 25 25" xml:space="preserve"> <defs> <rect x="-49.5" y="-132.9" width="446.4" height="366.4"/> </defs> <g> <circle fill="none" cx="12.5" cy="12.5" r="10.8"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.7,6.9V18c0,0,0.2,1.4,1.8,0l8.1-4.8c0,0,1.2-1.1-1-2L9.8,6.5 C9.8,6.5,9.1,6,8.7,6.9z"/> </g> </svg>');
                 }
             }, 10);	
         }, false);
@@ -543,12 +546,9 @@
             }
 
             isPlaying = true;
-
             // Replace icon with the pause icon
             //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
             playpause_btn.html('<svg id="pause" viewBox="0 0 25 25" xml:space="preserve"> <g> <rect x="6" y="4.6" width="3.8" height="15.7"/> <rect x="14" y="4.6" width="3.9" height="15.7"/> </g> </svg>');
-
-
         }
 
         function pauseTrack() {
@@ -566,7 +566,6 @@
         function nextTrack() {
             clearTimeout(rotate_timer);
             track_index = (track_index + 1) % track_list.length;
-            console.log(track_index + 1)
             loadTrack(track_index);
             playTrack();
         }
