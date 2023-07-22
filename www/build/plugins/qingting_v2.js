@@ -391,14 +391,16 @@
     };
 
     function open(playlist, order, callSelected, callCancel) {
+        
         isplay = false;
-        Lampa.Template.add('play_list', "<audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><div class=\"inner\"><svg id=\"previous\" class=\"step-backward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <g> <polygon points=\"4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7\"></polygon> </g> </svg></div></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><svg id=\"play\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <defs> <rect x=\"-49.5\" y=\"-132.9\" width=\"446.4\" height=\"366.4\"/> </defs> <g> <circle fill=\"none\" cx=\"12.5\" cy=\"12.5\" r=\"10.8\"/> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.7,6.9V18c0,0,0.2,1.4,1.8,0l8.1-4.8c0,0,1.2-1.1-1-2L9.8,6.5 C9.8,6.5,9.1,6,8.7,6.9z\"/> </g> </svg></div> <div class=\"next-track selector\"><div class=\"inner\"><svg id=\"next\" class=\"step-foreward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <g> <polygon points=\"20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7\"></polygon> </g> </svg></div></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
-        Lampa.Template.add('play_style', "<style>.player .focus { background-color: rgba(128, 128, 128, 0.5); border-radius: 50%; } .inner {width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;} #play { padding: 0 3px; width: 60px; height: 60px; x: 0px; y: 0px; enable-background: new 0 0 25 25; } #play g { stroke: rgb(254, 254, 254); stroke-width: 1; stroke-miterlimit: 10; } #play g path { fill: rgb(254, 254, 254); }#play:hover { cursor: pointer; } #play:hover g { stroke: rgb(239, 109, 188); cursor: pointer; } #play:hover g path { fill: rgb(239, 109, 188); cursor: pointer; } .step-backward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } .step-backward g polygon, .step-foreward g polygon { fill: rgb(254, 254, 254); } .step-foreward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } #pause { x: 0px; y: 0px; enable-background: new 0 0 25 25; width: 60px; height: 60px; cursor: pointer; } #pause rect { fill: rgb(255, 255, 255); }#pause:hover rect { fill: rgb(239, 109, 188); }.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player { display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+        Lampa.Template.add('play_list', "<audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"artwork\"></div><div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><div class=\"inner\"><svg id=\"previous\" class=\"step-backward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <g> <polygon points=\"4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7\"></polygon> </g> </svg></div></div> <div class=\"playpause-track selector\"><div class=\"loader hide\"></div><svg id=\"play\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <defs> <rect x=\"-49.5\" y=\"-132.9\" width=\"446.4\" height=\"366.4\"/> </defs> <g> <circle fill=\"none\" cx=\"12.5\" cy=\"12.5\" r=\"10.8\"/> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.7,6.9V18c0,0,0.2,1.4,1.8,0l8.1-4.8c0,0,1.2-1.1-1-2L9.8,6.5 C9.8,6.5,9.1,6,8.7,6.9z\"/> </g> </svg></div> <div class=\"next-track selector\"><div class=\"inner\"><svg id=\"next\" class=\"step-foreward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"> <g> <polygon points=\"20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7\"></polygon> </g> </svg></div></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+        Lampa.Template.add('play_style', "<style>.artwork { margin: 25px;height: 290px; width: 290px; background: url(https://i.mji.rip/2023/07/22/95870e5a978ee3afdb6dcd0144c74c16.png), url(https://i.imgur.com/Fu2Oezw.png) center no-repeat; background-size: 290px, 120px !important; } .artwork img { position: absolute; height: 72px; width: 72px; border-radius: 50px; top: 59px; left: 59px; } .player .focus { background-color: rgba(128, 128, 128, 0.5); border-radius: 50%; } .inner {width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;} #play { padding: 0 3px; width: 60px; height: 60px; x: 0px; y: 0px; enable-background: new 0 0 25 25; } #play g { stroke: rgb(254, 254, 254); stroke-width: 1; stroke-miterlimit: 10; } #play g path { fill: rgb(254, 254, 254); }#play:hover { cursor: pointer; } #play:hover g { stroke: rgb(239, 109, 188); cursor: pointer; } #play:hover g path { fill: rgb(239, 109, 188); cursor: pointer; } .step-backward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } .step-backward g polygon, .step-foreward g polygon { fill: rgb(254, 254, 254); } .step-foreward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } #pause { x: 0px; y: 0px; enable-background: new 0 0 25 25; width: 60px; height: 60px; cursor: pointer; } #pause rect { fill: rgb(255, 255, 255); }#pause:hover rect { fill: rgb(239, 109, 188); }.loader { width: 50px; height: 50px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid #3498db; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player { display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
         $('body').append(Lampa.Template.get('play_style', {}, true));
         var html = Lampa.Template.get('play_list');
-  
+
         var now_playing = html.find(".now-playing");
         var track_art = html.find(".track-art");
+        var artwork = html.find(".artwork");
         var track_name = html.find(".track-name");
         var track_artist = html.find(".track-artist");
 
@@ -414,13 +416,16 @@
         var track_index = order;//items.indexOf(card)
         var isPlaying = false;
         var updateTimer;
+        var rotate_timer;
+        var rot = 0;
+
+        track_art.toggleClass('hide', true);
 
         // Create new audio element
         var curr_track = html[0]//new Audio(); ;
         // console.log(curr_track)
 
         // Define the tracks that have to be played
-        // console.log(object)
         // var track_list = [
         //   {
         //     name: "Enthusiast",
@@ -442,13 +447,18 @@
             resetValues();
 
             // Load a new track
-            console.log(track_list[track_index])
+            // console.log(track_list[track_index])
             curr_track.src = track_list[track_index].path;
             curr_track.load();
             start();
 
             // Update details of the track
+            // http://demo.htmleaf.com/1608/201608281541/img/cd.png
+            // https://mjj.today/
             track_art.css("background-image", `url(${track_list[track_index].image})`);
+            artwork.css("background", `url(https://i.mji.rip/2023/07/22/95870e5a978ee3afdb6dcd0144c74c16.png), url(${track_list[track_index].image}) center no-repeat`);
+            // artwork.setAttribute("style", "background:url(https://i.imgur.com/3idGgyU.png), url('"+track_list[track_index].image+"') center no-repeat;");
+            
             track_name.text(track_list[track_index].name);
             track_artist.text(track_list[track_index].artist);
             now_playing.text("PLAYING " + (track_index + 1) + " OF " + track_list.length);
@@ -478,6 +488,26 @@
                 });
             }
         }
+        function Rotate(){
+            if(rot == 361){
+                artwork.css("transform", "rotate(0deg)");
+                rot = 0;
+            } else {
+                artwork.css("transform",'rotate('+rot+'deg)');
+                rot++;
+            }
+        }
+        curr_track.addEventListener("play", function () {
+            rotate_timer = setInterval(function(){ 
+                if(!curr_track.paused && !curr_track.ended && 0 < curr_track.currentTime){
+                    Rotate();
+                }
+            }, 10);	
+        }, false);
+
+        curr_track.addEventListener("pause", function () {
+            clearTimeout(rotate_timer);
+        }, false);
 
         function random_bg_color() {
             // Get a random number between 64 to 256 (for getting lighter colors)
@@ -489,16 +519,7 @@
             var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
 
             // Set the background to that color
-            //   document.body.style.background = bgColor;
-            //   console.log($('.empty'))
-            //   $('.activity__body')
-            // prev_btn.toggleClass('focus');
-            // playpause_btn.toggleClass('focus');
-
             seek_slider.css("background-color", '#ffffff');
-            // html.find('.empty__img').remove();
-            // html.find('.empty__title').remove();
-            // html.find('.empty__descr').remove();
             $(html[1]).css("background-color", bgColor);
             html.find('.slider_container').eq(1).hide();
         }
@@ -511,6 +532,7 @@
         }
 
         function playpauseTrack() {
+            clearTimeout(rotate_timer);
             if (!isPlaying) playTrack();
             else pauseTrack();
         }
@@ -542,6 +564,7 @@
         }
 
         function nextTrack() {
+            clearTimeout(rotate_timer);
             track_index = (track_index + 1) % track_list.length;
             console.log(track_index + 1)
             loadTrack(track_index);
@@ -549,6 +572,7 @@
         }
 
         function prevTrack() {
+            clearTimeout(rotate_timer);
             track_index = (track_index - 1 + track_list.length) % track_list.length;
             loadTrack(track_index);
             playTrack();
