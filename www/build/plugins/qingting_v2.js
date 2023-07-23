@@ -224,7 +224,7 @@
                             });
                         });
 
-                        MusicPlayer.open(playlist, items.indexOf(card), function (code) {
+                        MusicPlayer.open(playlist, items.indexOf(card), true, function (code) {
                         }, function () {
                             Lampa.Controller.toggle('content');
                         });
@@ -390,11 +390,10 @@
         open: open
     };
 
-    function open(playlist, order, callSelected, callCancel) {
-
+    function open(playlist, order, isAudioLink, callSelected, callCancel) {
         isplay = false;
-        Lampa.Template.add('play_list', "<audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"artwork\"><div class=\"musicloading\"></div></div><div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><div class=\"inner\"><svg id=\"previous\" class=\"step-backward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"><path d=\"M4.9 4.3H9v7.3l12.4-7.3v16.4L9 13.4v7.3H4.9z\" fill=\"Currentcolor\"></path></svg></div></div> <div class=\"playpause-track selector\"><svg id=\"play\" width=\"800\" height=\"800\" viewBox=\"0 0 24 24\" data-name=\"Line Color\" xmlns=\"http://www.w3.org/2000/svg\" class=\"icon line-color\"><path style=\"fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2\" d=\"m16 12-6 4V8l6 4z\"/><circle cx=\"12\" cy=\"12\" r=\"9\" style=\"fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2\"/></svg></div> <div class=\"next-track selector\"><div class=\"inner\"><svg id=\"next\" class=\"step-foreward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"><path fill=\"Currentcolor\" d=\"M20.7 4.3h-4.1v7.3L4.3 4.3v16.4l12.4-7.3-.1 7.3h4.1z\"/></svg></div></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
-        Lampa.Template.add('play_style', "<style>.artwork { position: relative; margin: 25px;height: 290px; width: 290px; background: url(https://i.mji.rip/2023/07/22/7720517f2feb760838301d42ef7f7f61.png), url(https://i.imgur.com/Fu2Oezw.png) center no-repeat; background-size: 290px, 120px !important; } .artwork img { position: absolute; height: 72px; width: 72px; border-radius: 50px; top: 59px; left: 59px; } .player .focus { color: #020024; background-color: #ffffff; border-radius: 50%; } .inner {width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;} #play { padding: 0 3px; width: 60px; height: 60px; x: 0px; y: 0px; enable-background: new 0 0 25 25; } .step-backward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } .step-backward g polygon, .step-foreward g polygon { fill: rgb(254, 254, 254); } .step-foreward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } #pause { x: 0px; y: 0px; enable-background: new 0 0 25 25; width: 60px; height: 60px; cursor: pointer; } .musicloading { position: absolute; top: 29.4%; left: 29.1%; width: 120px; height: 120px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid transparent; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player { display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
+        Lampa.Template.add('play_list', "<audio id=\"audio-player\"></audio><div class=\"player\"> <div class=\"details\"> <div class=\"now-playing\">PLAYING x OF y</div> <div class=\"album\"> <div class=\"musicloading\"></div><div class=\"cover\"> <div><img src=\"https://i.imgur.com/Fu2Oezw.png\" /></div> </div> </div> <div class=\"artwork hide\"></div><div class=\"track-art\"></div> <div class=\"track-name\">Track Name</div> <div class=\"track-artist\">Track Artist</div> </div> <div class=\"buttons\"> <div class=\"prev-track selector\"><div class=\"inner\"><svg id=\"previous\" class=\"step-backward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"><path d=\"M4.9 4.3H9v7.3l12.4-7.3v16.4L9 13.4v7.3H4.9z\" fill=\"Currentcolor\"></path></svg></div></div> <div class=\"playpause-track selector\"><svg id=\"play\" width=\"800\" height=\"800\" viewBox=\"0 0 24 24\" data-name=\"Line Color\" xmlns=\"http://www.w3.org/2000/svg\" class=\"icon line-color\"><path style=\"fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2\" d=\"m16 12-6 4V8l6 4z\"/><circle cx=\"12\" cy=\"12\" r=\"9\" style=\"fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2\"/></svg></div> <div class=\"next-track selector\"><div class=\"inner\"><svg id=\"next\" class=\"step-foreward\" viewBox=\"0 0 25 25\" xml:space=\"preserve\"><path fill=\"Currentcolor\" d=\"M20.7 4.3h-4.1v7.3L4.3 4.3v16.4l12.4-7.3-.1 7.3h4.1z\"/></svg></div></div> </div> <div class=\"slider_container\"> <div class=\"current-time\">00:00</div> <input type=\"range\" min=\"1\" max=\"100\" value=\"0\" class=\"seek_slider\"> <div class=\"total-duration\">00:00</div> </div> <div class=\"slider_container\"> <i class=\"fa fa-volume-down\"></i> <input type=\"range\" min=\"1\" max=\"100\" value=\"99\" class=\"volume_slider\" onchange=\"setVolume()\"> <i class=\"fa fa-volume-up\"></i> </div> </div>");
+        Lampa.Template.add('play_style', "<style>.paused.album { animation-play-state: paused; }.playing.album { animation-play-state: running; }/* 定义旋转动画 */ @keyframes rotateAnimation { from { transform: rotate(0deg); /* 从0度开始旋转 */ } to { transform: rotate(360deg); /* 旋转到360度，即一周结束 */ } }.album { animation: rotateAnimation 4s linear infinite paused; position: relative; width: 275px; height: 275px; overflow: hidden;margin: 25px; background-color: #111; border: 1px solid #111; border-radius: 50%; box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.5), 0 0 0.125em 0.3125em #ddd, 0 0.0625em 0 0.375em #bbb, 0 0 0.375em 0.325em rgba(0, 0, 0, 0.3), 0 0 0.5em 0.375em rgba(0, 0, 0, 0.3), 0 0.25em 1em 0.5em rgba(0, 0, 0, 0.15), inset 0 0 0 0.0625em rgba(0, 0, 0, 0.5), inset 0 0 0 0.1875em rgba(255, 255, 255, 1), inset 0 0 0 0.375em rgba(0, 0, 0, 0.5), inset 0 0 0 0.4375em rgba(255, 255, 255, 0.2), inset 0 0 0 0.5em rgba(0, 0, 0, 0.5), inset 0 0 0 0.5625em rgba(255, 255, 255, 0.3), inset 0 0 0 0.625em rgba(0, 0, 0, 0.5), inset 0 0 0 0.6875em rgba(255, 255, 255, 0.2), inset 0 0 0 0.75em rgba(0, 0, 0, 0.5), inset 0 0 0 0.8125em rgba(255, 255, 255, 0.3), inset 0 0 0 0.875em rgba(0, 0, 0, 0.5), inset 0 0 0 0.9375em rgba(255, 255, 255, 0.3), inset 0 0 0 1em rgba(0, 0, 0, 0.5), inset 0 0 0 1.0625em rgba(255, 255, 255, 0.2), inset 0 0 0 1.125em rgba(0, 0, 0, 0.5), inset 0 0 0 1.1875em rgba(255, 255, 255, 0.3), inset 0 0 0 1.25em rgba(0, 0, 0, 0.5), inset 0 0 0 1.3125em rgba(255, 255, 255, 0.2), inset 0 0 0 1.375em rgba(255, 255, 255, 0.2), inset 0 0 0 1.4375em rgba(0, 0, 0, 0.5), inset 0 0 0 1.5em rgba(255, 255, 255, 0.3), inset 0 0 0 1.5625em rgba(0, 0, 0, 0.5), inset 0 0 0 1.625em rgba(255, 255, 255, 0.3), inset 0 0 0 1.6875em rgba(0, 0, 0, 0.5), inset 0 0 0 1.75em rgba(255, 255, 255, 0.2), inset 0 0 0 1.8125em rgba(0, 0, 0, 0.5), inset 0 0 0 1.875em rgba(255, 255, 255, 0.2), inset 0 0 0 1.9375em rgba(0, 0, 0, 0.5), inset 0 0 0 2em rgba(255, 255, 255, 0.3), inset 0 0 0 2.0625em rgba(0, 0, 0, 0.5), inset 0 0 0 2.125em rgba(0, 0, 0, 0.5), inset 0 0 0 2.1875em rgba(255, 255, 255, 0.1), inset 0 0 0 2.25em rgba(0, 0, 0, 0.5), inset 0 0 0 2.3125em rgba(255, 255, 255, 0.2), inset 0 0 0 2.375em rgba(255, 255, 255, 0.1), inset 0 0 0 2.4375em rgba(0, 0, 0, 0.5), inset 0 0 0 2.5em rgba(255, 255, 255, 0.3), inset 0 0 0 2.5625em rgba(0, 0, 0, 0.5), inset 0 0 0 2.625em rgba(255, 255, 255, 0.2), inset 0 0 0 2.6875em rgba(0, 0, 0, 0.5), inset 0 0 0 2.75em rgba(255, 255, 255, 0.2), inset 0 0 0 2.8125em rgba(0, 0, 0, 0.5), inset 0 0 0 2.875em rgba(255, 255, 255, 0.2), inset 0 0 0 2.9375em rgba(0, 0, 0, 0.5), inset 0 0 0 3em rgba(255, 255, 255, 0.3), inset 0 0 0 3.0625em rgba(0, 0, 0, 0.5), inset 0 0 0 3.125em rgba(0, 0, 0, 0.5), inset 0 0 0 3.1875em rgba(255, 255, 255, 0.2), inset 0 0 0 3.25em rgba(0, 0, 0, 0.5), inset 0 0 0 3.3125em rgba(255, 255, 255, 0.2), inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), inset 0 0 0 3.4375em rgba(0, 0, 0, 0.5), inset 0 0 0 3.5em rgba(255, 255, 255, 0.3); }.album::after { content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.125), rgba(255, 255, 255, 0) 70%), linear-gradient(-48deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0) 55%), linear-gradient(-42deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0) 55%), radial-gradient(circle at top left, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%), radial-gradient(circle at bottom right, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%); }.cover, .cover div { position: absolute; z-index: 1; top: 50%; left: 50%; width: 110px; height: 110px; overflow: hidden; transform-origin: 0 0; transform: rotate(0) translate(-50%, -50%); border-radius: 50%;}.cover div { border-radius: 0; }.cover::before, .cover::after { content: ''; position: absolute; z-index: 10; top: 50%; left: 50%; width: 100%; height: 100%; transform-origin: 0 0; transform: rotate(0) translate(-50%, -50%); border-radius: 50%; box-shadow: inset 0 0.0625em rgba(255, 255, 255, 0.3); animation: spin 4s linear infinite reverse paused; }.cover::after { width: 0.25em; height: 0.3125em; margin-top: -0.0625em; background-color: #eee; border-radius: 0.125em; box-shadow: inset 0 -0.0625em 0.0625em rgba(0, 0, 0, 0.5), inset 0.0625em -0.0625em 0.125em rgba(255, 255, 255, 0.15), inset -0.0625em -0.0625em 0.125em rgba(255, 255, 255, 0.15), inset 0 -0.125em 0.125em rgba(0, 0, 0, 0.8), 0 0.0625em 0.0625em rgba(0, 0, 0, 0.5), 0 0.0625em 0.25em 0.0625em rgba(0, 0, 0, 0.15), 0 0 0.25em 0.125em rgba(0, 0, 0, 0.15); }.cover img { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform-origin: 0 0; transform: rotate(0) translate(-50%, -50%); } .artwork { position: relative; margin: 25px;height: 290px; width: 290px; background: url(https://i.mji.rip/2023/07/23/70bc52d1bbd335430f61d7ba56d92e7e.png), url(https://i.imgur.com/Fu2Oezw.png) center no-repeat; background-size: 290px, 120px !important; } .artwork img { position: absolute; height: 72px; width: 72px; border-radius: 50px; top: 59px; left: 59px; } .player .focus { color: #020024; background-color: #ffffff; border-radius: 50%; } .inner {width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;} #play { padding: 0 3px; width: 60px; height: 60px; x: 0px; y: 0px; enable-background: new 0 0 25 25; } .step-backward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } .step-backward g polygon, .step-foreward g polygon { fill: rgb(254, 254, 254); } .step-foreward { width: 30px; height: 30px; x: 0px; y: 0px; enable-background: new 0 0 25 25; margin-bottom: 5px; } #pause { x: 0px; y: 0px; enable-background: new 0 0 25 25; width: 60px; height: 60px; cursor: pointer; } .musicloading { z-index:2; position: absolute; top: 28%; left: 28%; width: 120px; height: 120px; border: 4px solid #f3f3f3; /* 圆圈的边框 */ border-top: 4px solid transparent; /* 圆圈顶部的边框，设为与背景颜色不同，使其看起来像旋转 */ border-radius: 50%; /* 使边框成为一个圆圈 */ animation: spin 2s linear infinite; /* 使用名为 spin 的动画，2秒旋转一次，线性动画，无限循环 */ } /* 定义旋转动画 */ @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } /* 在动画结束时，圆圈旋转一整圈，从而形成无限循环 */ }.player { display: flex; align-items: center; flex-direction: column; justify-content: center; } .details { display: flex; align-items: center; flex-direction: column; justify-content: center; margin-top: 25px; margin-bottom: 15px; } .track-art { margin: 25px; height: 250px; width: 250px; background-image: url(\"https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260\"); background-size: cover; border-radius: 15%; } .now-playing { font-size: 1em; } .track-name { font-size: 3em; margin-bottom: 10px; } .track-artist { font-size: 1.5em; } .buttons { display: flex; flex-direction: row; align-items: center; margin-bottom: 1px; } .playpause-track, .prev-track, .next-track { padding: 25px; opacity: 0.8; /* Smoothly transition the opacity */ transition: opacity .2s; } .playpause-track:hover, .prev-track:hover, .next-track:hover { opacity: 1.0; } .slider_container { width: 75%; max-width: 400px; display: flex; justify-content: center; align-items: center; } /* Modify the appearance of the slider */ .seek_slider, .volume_slider { -webkit-appearance: none; -moz-appearance: none; appearance: none; height: 5px; background: black; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; } /* Modify the appearance of the slider thumb */ .seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 15px; height: 15px; background: white; cursor: pointer; border-radius: 50%; } .seek_slider:hover, .volume_slider:hover { opacity: 1.0; } .seek_slider { width: 60%; } .volume_slider { width: 30%; } .current-time, .total-duration { padding: 10px; } i.fa-volume-down, i.fa-volume-up { padding: 10px; } i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward { cursor: pointer; } </style>");
         $('body').append(Lampa.Template.get('play_style', {}, true));
         var html = Lampa.Template.get('play_list');
 
@@ -412,7 +411,8 @@
         var volume_slider = html.find(".volume_slider");
         var curr_time = html.find(".current-time");
         var total_duration = html.find(".total-duration");
-        var musicloading = html.find(".musicloading");;
+        var musicloading = html.find(".musicloading");
+        var album_content = html.find(".album");
 
         var track_index = order;//items.indexOf(card)
         var isPlaying = false;
@@ -443,22 +443,50 @@
         // ];
         var track_list = playlist;
 
+        function doTasks() {
+            return new Promise(function (resolve) {
+                var network = new Lampa.Reguest();
+                network["native"](track_list[track_index].path, function (str) {
+                    var file = $('audio#radiomapplayer', str).attr("src");
+                    curr_track.src = file;
+                    resolve(); // 表示任务执行成功
+                }, function (a, c) {
+                    // Lampa.Noty.show(network.errorDecode(a, c));
+                    Lampa.Noty.show('没有找到音频文件。');
+                    curr_track.src = '';
+                    resolve(); // 表示任务执行成功
+                }, false, {
+                    dataType: 'text'
+                });
+            }).then(function () {
+                curr_track.load();
+                start();
+            }).catch(function (error) {
+                console.error("出现错误：", error);
+            });
+        };
+
         function loadTrack(track_index) {
             clearInterval(updateTimer);
             resetValues();
 
             // Load a new track
             // console.log(track_list[track_index])
-            curr_track.src = track_list[track_index].path;
-            curr_track.load();
-            start();
+
+            if (isAudioLink) {
+                curr_track.src = track_list[track_index].path;
+                curr_track.load();
+                start();
+            }
+            else { doTasks(); }
+                      
 
             // Update details of the track
             // http://demo.htmleaf.com/1608/201608281541/img/cd.png
             // https://mjj.today/ https://www.iloveimg.com/zh-cn/compress-image/compress-png
             track_art.css("background-image", `url(${track_list[track_index].image})`);
-            artwork.css("background", `url(https://i.mji.rip/2023/07/22/7720517f2feb760838301d42ef7f7f61.png), url(${track_list[track_index].image}) center no-repeat`);
-            // artwork.setAttribute("style", "background:url(https://i.imgur.com/3idGgyU.png), url('"+track_list[track_index].image+"') center no-repeat;");
+            album_content.find('img').attr('src',`${track_list[track_index].image}`)
+            artwork.css("background", `url(https://i.mji.rip/2023/07/23/70bc52d1bbd335430f61d7ba56d92e7e.png), url(${track_list[track_index].image}) center no-repeat`);
 
             track_name.text(track_list[track_index].name);
             track_artist.text(track_list[track_index].artist);
@@ -499,11 +527,13 @@
             }
         }
         curr_track.addEventListener("play", function () {
+            
             rotate_timer = setInterval(function () {
+                // console.log('fff',curr_track.paused,curr_track.ended,curr_track.currentTime)
                 if (!curr_track.paused && !curr_track.ended && 0 < curr_track.currentTime) {
                     isPlaying = true;
                     playpause_btn.html('<svg id="pause" viewBox="0 0 25 25" xml:space="preserve"><path fill="Currentcolor" d="M6 4.6h3.8v15.7H6zm8 0h3.9v15.7H14z"/></svg>');
-                    Rotate();
+                    // Rotate();
                 } else {
                     playpause_btn.html('<svg id="play"  width="800" height="800" viewBox="0 0 24 24" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><path style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" d="m16 12-6 4V8l6 4z"/><circle cx="12" cy="12" r="9" style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2"/></svg>');
                 }
@@ -516,7 +546,9 @@
         }, false);
 
         curr_track.addEventListener("canplay", function () {
-            musicloading.toggleClass("hide",true);
+            musicloading.toggleClass("hide", true);
+            album_content.removeClass('paused').toggleClass('playing');
+            // album_content.toggleClass('playing');
         }, false);
 
         function random_bg_color() {
@@ -538,15 +570,12 @@
             // Construct the brighter color string
             var brighterColor = `rgb(${brighterRed},${brighterGreen},${brighterBlue})`;
             
-
             // Set the background to that color
             seek_slider.css("background-color", '#ffffff');
             // $(html[1]).css("background-color", bgColor);
             $(html[1]).css("background-image", `linear-gradient(203deg, #020024 0%, ${bgColor} 50%, ${brighterColor} 100%)`);
             // console.log(html.find('.player .focus'))
             // html.find('.player .focus').css("color",bgColor);
-
-            
             
             html.find('.slider_container').eq(1).hide();
         }
@@ -560,8 +589,13 @@
 
         function playpauseTrack() {
             clearTimeout(rotate_timer);
-            if (!isPlaying) playTrack();
-            else pauseTrack();
+            if (!isPlaying) {
+                if (!album_content.hasClass('playing')) album_content.toggleClass('playing');
+                playTrack();
+            } else {
+                pauseTrack();
+                if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            };
         }
 
         function playTrack() {
@@ -570,6 +604,7 @@
             }
 
             isPlaying = true;
+
             // Replace icon with the pause icon
             //   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
             // playpause_btn.html('<svg id="pause" viewBox="0 0 25 25" xml:space="preserve"> <g> <rect x="6" y="4.6" width="3.8" height="15.7"/> <rect x="14" y="4.6" width="3.9" height="15.7"/> </g> </svg>');
@@ -588,6 +623,8 @@
         }
 
         function nextTrack() {
+            if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
             track_index = (track_index + 1) % track_list.length;
@@ -596,6 +633,8 @@
         }
 
         function prevTrack() {
+            if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
             track_index = (track_index - 1 + track_list.length) % track_list.length;
