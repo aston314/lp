@@ -702,8 +702,7 @@
         }
 
         function nextTrack() {
-            console.log(album_content.hasClass('playing'))
-            if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            // if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
@@ -714,7 +713,7 @@
 
         function prevTrack() {
             
-            if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            // if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
