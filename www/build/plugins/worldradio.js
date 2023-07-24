@@ -581,7 +581,7 @@
             }
         }
         curr_track.addEventListener("loadedmetadata", function () {
-            if (curr_track.duration > 0 || curr_track.duration === Infinityion) {
+            if (curr_track.duration > 0 || curr_track.duration == 'Infinityion') {
                 musicloading.toggleClass("hide", true);
                 album_content.removeClass('paused').toggleClass('playing');
                 console.log("媒体资源已成功加载，播放时间大于零。");
