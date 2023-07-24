@@ -613,13 +613,13 @@
                     if (currentSeconds > 0) {
                         musicloading.toggleClass("hide", true);
                         album_content.addClass('playing');
-                        curr_track.removeEventListener("progress", myFunction);
+                        curr_track.removeEventListener("timeupdate", myFunction);
                     };
                 }
 
             }
             // 添加事件监听器
-            curr_track.addEventListener("progress", myFunction);
+            curr_track.addEventListener("timeupdate", myFunction);
         };
 
         // curr_track.addEventListener("canplay", function () {
