@@ -601,7 +601,7 @@
 
         function addLoadedMetadataListener() {
             function myFunction() {
-                album_content.removeClass('playing');
+                if (album_content.hasClass('playing')) album_content.removeClass('playing');
                 // 执行需要执行的脚本代码
                 // console.log("这个脚本只会执行一次。");
 
@@ -702,7 +702,7 @@
         }
 
         function nextTrack() {
-            // if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
@@ -713,7 +713,7 @@
 
         function prevTrack() {
             
-            // if (album_content.hasClass('playing')) album_content.removeClass('playing');
+            if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
             musicloading.toggleClass("hide",false);
