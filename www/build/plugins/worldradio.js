@@ -581,7 +581,6 @@
             }
         }
         curr_track.addEventListener("play", function () {
-            
             rotate_timer = setInterval(function () {
                 // console.log('fff',curr_track.paused,curr_track.ended,curr_track.currentTime)
                 if (!curr_track.paused && !curr_track.ended && 0 < curr_track.currentTime) {
@@ -599,7 +598,7 @@
             playpause_btn.html('<svg id="play"  width="800" height="800" viewBox="0 0 24 24" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><path style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" d="m16 12-6 4V8l6 4z"/><circle cx="12" cy="12" r="9" style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2"/></svg>');
         }, false);
 
-        curr_track.addEventListener("canplay", function () {
+        curr_track.addEventListener("loadedmetadata", function () {
             musicloading.toggleClass("hide", true);
             album_content.removeClass('paused').toggleClass('playing');
             // album_content.toggleClass('playing');
