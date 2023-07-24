@@ -604,12 +604,8 @@
                 if (album_content.hasClass('playing')) album_content.removeClass('playing');
                 // 执行需要执行的脚本代码
                 // console.log("这个脚本只会执行一次。");
-
                 // 移除事件监听器，使其不再触发
                 if (!isNaN(curr_track.duration)) {
-                    // Calculate the time left and the total duration
-                    // var currentMinutes = Math.floor(curr_track.currentTime / 60);
-                    // var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
                     console.log(curr_track.currentTime)
                     if (curr_track.currentTime > 0 && curr_track.currentTime < 1) {
                         musicloading.toggleClass("hide", true);
@@ -617,7 +613,6 @@
                         curr_track.removeEventListener("timeupdate", myFunction);
                     };
                 }
-
             }
             // 添加事件监听器
             curr_track.addEventListener("timeupdate", myFunction);
@@ -677,7 +672,6 @@
         }
 
         function playTrack() {
-            addLoadedMetadataListener();
             if (typeof curr_track.play === 'function') {
                 curr_track.play();
             }
