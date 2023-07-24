@@ -580,6 +580,15 @@
                 rot++;
             }
         }
+        curr_track.addEventListener("loadedmetadata", function () {
+            if (curr_track.duration > 0) {
+                musicloading.toggleClass("hide", true);
+                album_content.removeClass('paused').toggleClass('playing');
+                console.log("媒体资源已成功加载，播放时间大于零。");
+            } else {
+                console.log("媒体资源加载中或加载失败，播放时间为零。");
+            }
+        });
         curr_track.addEventListener("play", function () {
             rotate_timer = setInterval(function () {
                 // console.log('fff',curr_track.paused,curr_track.ended,curr_track.currentTime)
@@ -598,11 +607,11 @@
             playpause_btn.html('<svg id="play"  width="800" height="800" viewBox="0 0 24 24" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><path style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" d="m16 12-6 4V8l6 4z"/><circle cx="12" cy="12" r="9" style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2"/></svg>');
         }, false);
 
-        curr_track.addEventListener("canplay", function () {
-            musicloading.toggleClass("hide", true);
-            album_content.removeClass('paused').toggleClass('playing');
-            // album_content.toggleClass('playing');
-        }, false);
+        // curr_track.addEventListener("canplay", function () {
+        //     musicloading.toggleClass("hide", true);
+        //     album_content.removeClass('paused').toggleClass('playing');
+        //     // album_content.toggleClass('playing');
+        // }, false);
 
         function random_bg_color() {
             // Get a random number between 64 to 191 (for getting lighter colors)
