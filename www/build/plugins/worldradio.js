@@ -581,13 +581,15 @@
             }
         }
         curr_track.addEventListener("loadedmetadata", function () {
-            if (!isNaN(curr_track.duration) && isFinite(curr_track.duration)) {
-                if (curr_track.duration > 0 || curr_track.duration === Infinity) {
-                    musicloading.toggleClass("hide", true);
-                    album_content.removeClass('paused').toggleClass('playing');
-                    console.log("媒体资源已成功加载，播放时间大于零。");
-                } else {
-                    console.log("媒体资源加载中或加载失败，播放时间为零。");
+            if (curr_track.readyState >= 2) { // readyState 2 means metadata has been loaded
+                if (!isNaN(curr_track.duration) && isFinite(curr_track.duration)) {
+                    if (curr_track.duration > 0 || curr_track.duration === Infinity) {
+                        musicloading.toggleClass("hide", true);
+                        album_content.removeClass('paused').toggleClass('playing');
+                        console.log("媒体资源已成功加载，播放时间大于零。");
+                    } else {
+                        console.log("媒体资源加载中或加载失败，播放时间为零。");
+                    }
                 }
             }
         });
