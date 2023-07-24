@@ -608,10 +608,10 @@
                 // 移除事件监听器，使其不再触发
                 if (!isNaN(curr_track.duration)) {
                     // Calculate the time left and the total duration
-                    var currentMinutes = Math.floor(curr_track.currentTime / 60);
-                    var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
-                    // console.log(currentSeconds)
-                    if (currentSeconds > 0) {
+                    // var currentMinutes = Math.floor(curr_track.currentTime / 60);
+                    // var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                    console.log(curr_track.currentTime)
+                    if (curr_track.currentTime > 0 && curr_track.currentTime < 1) {
                         musicloading.toggleClass("hide", true);
                         album_content.addClass('playing');
                         curr_track.removeEventListener("timeupdate", myFunction);
