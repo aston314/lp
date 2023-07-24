@@ -521,6 +521,7 @@
         };
 
         function loadTrack(track_index) {
+            addLoadedMetadataListener();
             clearInterval(updateTimer);
             resetValues();
 
@@ -580,19 +581,6 @@
                 rot++;
             }
         }
-        curr_track.addEventListener("loadedmetadata", function () {
-            if (curr_track.readyState >= 2) { // readyState 2 means metadata has been loaded
-                if (!isNaN(curr_track.duration) && isFinite(curr_track.duration)) {
-                    if (curr_track.duration > 0 || curr_track.duration === Infinity) {
-                        musicloading.toggleClass("hide", true);
-                        album_content.removeClass('paused').toggleClass('playing');
-                        console.log("媒体资源已成功加载，播放时间大于零。");
-                    } else {
-                        console.log("媒体资源加载中或加载失败，播放时间为零。");
-                    }
-                }
-            }
-        });
         curr_track.addEventListener("play", function () {
             rotate_timer = setInterval(function () {
                 // console.log('fff',curr_track.paused,curr_track.ended,curr_track.currentTime)
@@ -610,6 +598,29 @@
             clearTimeout(rotate_timer);
             playpause_btn.html('<svg id="play"  width="800" height="800" viewBox="0 0 24 24" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><path style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" d="m16 12-6 4V8l6 4z"/><circle cx="12" cy="12" r="9" style="fill:none;stroke:Currentcolor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2"/></svg>');
         }, false);
+
+        function addLoadedMetadataListener() {
+            function myFunction() {
+                // 执行需要执行的脚本代码
+                // console.log("这个脚本只会执行一次。");
+
+                // 移除事件监听器，使其不再触发
+                if (!isNaN(curr_track.duration)) {
+                    // Calculate the time left and the total duration
+                    var currentMinutes = Math.floor(curr_track.currentTime / 60);
+                    var currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                    // console.log(currentSeconds)
+                    if (currentSeconds > 0) {
+                        musicloading.toggleClass("hide", true);
+                        album_content.addClass('playing');
+                        curr_track.removeEventListener("progress", myFunction);
+                    };
+                }
+
+            }
+            // 添加事件监听器
+            curr_track.addEventListener("progress", myFunction);
+        };
 
         // curr_track.addEventListener("canplay", function () {
         //     musicloading.toggleClass("hide", true);
@@ -665,6 +676,7 @@
         }
 
         function playTrack() {
+            addLoadedMetadataListener();
             if (typeof curr_track.play === 'function') {
                 curr_track.play();
             }
@@ -689,6 +701,7 @@
         }
 
         function nextTrack() {
+            
             if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
@@ -699,6 +712,7 @@
         }
 
         function prevTrack() {
+            
             if (album_content.hasClass('playing')) album_content.removeClass('playing');
             // album_content.toggleClass('paused');
             clearTimeout(rotate_timer);
