@@ -174,7 +174,8 @@
                     };
                 };
                 //   element.cover||element.img
-                card.find('.card__img').attr('src', 'https://dou.img.lithub.cc/movie/' + element.id + '.jpg');
+                // card.find('.card__img').attr('src', 'https://dou.img.lithub.cc/movie/' + element.id + '.jpg');
+                card.find('.card__img').attr('src', element.cover||element.img);
                 if (element.rate) {
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text(element.rate);
