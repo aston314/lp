@@ -622,6 +622,49 @@
   var doreg = {};
   var doregjson = {};
   doregjson = extract_rule;
+  var HISTORY_WEBS_KEY = 'history_web';
+
+  function getWebs() {
+    return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
+  };
+
+  function saveWeb(el) {
+    if (!el.hasOwnProperty("adult")) {
+      var webs = getWebs();
+      webs.push(el);
+      localStorage.setItem(HISTORY_WEBS_KEY, JSON.stringify(webs));
+    }
+  };
+  
+  function removeWeb(index) {
+    var webs = getWebs();
+    webs.splice(index, 1);
+    localStorage.setItem(HISTORY_WEBS_KEY, JSON.stringify(webs));
+  };
+
+  function isFavorite(el) {
+    var webs = getWebs();
+    return webs.some(function (a) {
+      return a.url === el;
+    });
+  };
+  
+  function savehistory(object) {
+    var el = object.movie;
+    // element.website = object.setup.title;
+    var isHistory = isFavorite(el.url);
+    if (isHistory) {
+      var indexToRemove = getWebs().findIndex(function (a) {
+        return a.url === el.url;
+      });
+      if (indexToRemove !== -1) {
+        removeWeb(indexToRemove);
+      };
+      saveWeb(el);
+    } else {
+      saveWeb(el);
+    }
+  };
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -1005,6 +1048,7 @@
                 Lampa.Player.play(first);
                 playlist.push(first);
                 Lampa.Player.playlist(playlist);
+                savehistory(object);
               } else {
                 //handlePlayerLoadError();
                 $(".noty").show();
@@ -1036,6 +1080,7 @@
             Lampa.Player.play(first);
             playlist.push(first);
             Lampa.Player.playlist(playlist);
+            savehistory(object);
           } else {
             Lampa.Noty.show('无法检索链接');
           }
@@ -1326,6 +1371,7 @@ $.when($('.iframe').append(`
           Lampa.Player.play(first);
           playlist.push(first);
           Lampa.Player.playlist(playlist);
+          savehistory(object);
           close();
         } else {
           Lampa.Noty.show('无法检索链接');
@@ -1853,6 +1899,7 @@ $.when($('.iframe').append(`
                     Lampa.Player.play(first);
                     playlist.push(first);
                     Lampa.Player.playlist(playlist);
+                    savehistory(object);
                   } else {
                   var script_arr = [
                     '/static/js/playerconfig.js',
@@ -1958,7 +2005,7 @@ $.when($('.iframe').append(`
                                   Lampa.Player.play(first);
                                   playlist.push(first);
                                   Lampa.Player.playlist(playlist);
-
+                                  savehistory(object);
                                 } else {
                                   // var urlPattern = /var vid = '(.+?)';/;
                                   // var match = str.match(urlPattern);
@@ -2008,7 +2055,7 @@ $.when($('.iframe').append(`
                               Lampa.Player.play(first);
                               playlist.push(first);
                               Lampa.Player.playlist(playlist);
-
+                              savehistory(object);
                             } else {
                               $(".noty").show();
                               Lampa.Noty.show('无法检索链接');
@@ -2312,6 +2359,7 @@ $.when($('.iframe').append(`
 
             playlist.push(first);
             Lampa.Player.playlist(playlist);
+            savehistory(object);
 
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
@@ -2595,7 +2643,7 @@ $.when($('.iframe').append(`
 
                 playlist.push(first);
                 Lampa.Player.playlist(playlist);
-
+                savehistory(object);
                 if (viewed.indexOf(hash_file) == -1) {
                   viewed.push(hash_file);
                   item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
@@ -2895,6 +2943,7 @@ $.when($('.iframe').append(`
             });
             Lampa.Player.play(first);
             Lampa.Player.playlist(playlist);
+            savehistory(object);
 
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
@@ -3166,6 +3215,7 @@ $.when($('.iframe').append(`
 
             playlist.push(first);
             Lampa.Player.playlist(playlist);
+            savehistory(object);
 
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
