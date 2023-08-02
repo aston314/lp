@@ -1829,6 +1829,7 @@ $.when($('.iframe').append(`
                 
                   $('.iframe__body iframe').removeClass('iframe__window');
                   $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                  savehistory(object);
 
                 } else component.emptyForQuery(select_title);
 
@@ -1974,6 +1975,7 @@ $.when($('.iframe').append(`
                               });
                               $('.iframe__body iframe').removeClass('iframe__window');
                               $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                              savehistory(object);
 
                             }
                             else {
