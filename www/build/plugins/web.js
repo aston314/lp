@@ -862,6 +862,7 @@
     };
 
     //console.log(catalogs)
+    
 
     function collection(object) {
         //console.log(catalogs);
@@ -897,6 +898,11 @@
         var relises = [];
         var doubanitem = [];
         var total_pages;
+        var HISTORY_WEBS_KEY = 'history_web';
+
+        this.getHistoryWebs = function () {
+            return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
+        };
 
         this.create = function () {
             var _this = this;
@@ -904,42 +910,47 @@
             //console.log(object.cards);
             if ((object.page == 1) || object.cards || (!object.card && !Lampa.Storage.field('light_version') && object.card_cat)) {
                 this.activity.loader(true);
-                network["native"](cors + object.url, function (str) {
-                    var data = _this.card(str);
+                if (object.type == 'history') {
+                    var data = _this.cardhistory(_this.getHistoryWebs());
                     _this.build(data);
-                }, function (a, c) {
-                    //_this.selectGroup();
-                    // $(".noty:hidden").show();
-                    // _this.activity.loader(false);
-                    // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                    var empty = new Lampa.Empty({
-                        descr: '哦，无法获取 ' + object.title + ' 的内容。'
-                    });
-                    html.append(empty.render());
-                    // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                    // //console.log(object)
-                    // empty.render().find('.simple-button').on('hover:enter', function () {
-                    //     //$(".empty__footer").on('hover:enter hover:click', function () {
-                    //     _this.selectGroup();
-                    // });
+                } else {
+                    network["native"](cors + object.url, function (str) {
+                        var data = _this.card(str);
+                        _this.build(data);
+                    }, function (a, c) {
+                        //_this.selectGroup();
+                        // $(".noty:hidden").show();
+                        // _this.activity.loader(false);
+                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
+                        var empty = new Lampa.Empty({
+                            descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                        });
+                        html.append(empty.render());
+                        // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                        // //console.log(object)
+                        // empty.render().find('.simple-button').on('hover:enter', function () {
+                        //     //$(".empty__footer").on('hover:enter hover:click', function () {
+                        //     _this.selectGroup();
+                        // });
 
-                    var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
-                    var ft = $('<div class="empty__footer"></div>');
-                    bn.on('hover:enter', function () {
-                        _this.selectGroup();
-                    });
-                    ft.append(bn);
-                    empty.append(ft);
-                    html.append(empty)
+                        var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                        var ft = $('<div class="empty__footer"></div>');
+                        bn.on('hover:enter', function () {
+                            _this.selectGroup();
+                        });
+                        ft.append(bn);
+                        empty.append(ft);
+                        html.append(empty)
 
-                    _this.start = empty.start;
-                    _this.activity.loader(false);
-                    _this.activity.toggle();
-                    return;
-                }, false, {
-                    dataType: 'text',
-                    headers: _this.setheader(object.use_referer,object.browser)
-                });
+                        _this.start = empty.start;
+                        _this.activity.loader(false);
+                        _this.activity.toggle();
+                        return;
+                    }, false, {
+                        dataType: 'text',
+                        headers: _this.setheader(object.use_referer, object.browser)
+                    });
+                }
 
             } else _this.build(object.data);
             return this.render();
@@ -1374,9 +1385,10 @@
                 search_button = '<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>';
             } else {
                 search_button = '';
-            }
+            };
+            var favoritebutton = '<div class=\"full-start__button selector open--favorite\"><svg width=\"23\" height=\"23\" viewBox=\"0 0 0.69 0.69\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\"><path d=\"M0.69 0v0.69H0V0h0.69ZM0.362 0.669 0.36 0.67H0.359L0.357 0.669H0.356L0.356 0.681v0.001l0.003 0.002 0.003 -0.002V0.681L0.36 0.669 0.359 0.668ZM0.37 0.666 0.364 0.669l0.001 0.012 0.006 0.003h0.001L0.371 0.667 0.37 0.666Zm-0.02 0a0.001 0.001 0 0 0 -0.001 0L0.348 0.683l0.001 0.001L0.355 0.681 0.356 0.669 0.35 0.666Z\"/><path d=\"M0.083 0.194a0.301 0.301 0 0 1 0.412 -0.11 0.302 0.302 0 0 1 0.141 0.337 0.046 0.046 0 0 1 -0.077 0.021L0.557 0.439 0.492 0.364C0.463 0.331 0.493 0.281 0.534 0.288l0.004 0.001 0.015 0.004A0.216 0.216 0 1 0 0.495 0.498a0.043 0.043 0 1 1 0.06 0.061 0.301 0.301 0 0 1 -0.472 -0.366ZM0.345 0.158a0.043 0.043 0 0 1 0.043 0.039v0.129l0.059 0.059a0.043 0.043 0 0 1 -0.058 0.064L0.387 0.448 0.315 0.376A0.043 0.043 0 0 1 0.303 0.35L0.302 0.345V0.201A0.043 0.043 0 0 1 0.345 0.158Z\" fill=\"Currentcolor\"/></g></svg>   <span>历史</span>\n    </div>';
             var channelbutton = '<div class=\"full-start__button selector view--channel\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31ZM3.741 2.342C4.427 2.205 5.595 2 6.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 10.794 7.406 11 6.5 11s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 8.574 2 7.406 2 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM6.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C4.427 13.205 5.595 13 6.5 13c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 21.794 7.406 22 6.5 22s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 19.574 2 18.406 2 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C15.427 2.205 16.595 2 17.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 8.574 13 7.406 13 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246c.686-.137 1.854-.342 2.759-.342.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 19.574 13 18.406 13 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4Z\" fill=\"currentColor\"/></svg>   <span>分类</span>\n    </div>'
-            Lampa.Template.add('button_category', "" + s + "<div class=\"full-start__buttons\">" + channelbutton + "<div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>网站</span>\n    </div>" + search_button + "</div>");
+            Lampa.Template.add('button_category', "" + s + "<div class=\"full-start__buttons\">" + channelbutton + "<div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>网站</span>\n    </div>" + favoritebutton + search_button + "</div>");
             Lampa.Template.add('info_web', '<div class="info layer--width" style="height:5em"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
@@ -1387,6 +1399,23 @@
             info.find('.view--category').on('hover:enter hover:click', function () {
                 _this2.selectGroup();
             });
+            info.find('.open--favorite').on('hover:enter hover:click', function () {
+                Lampa.Activity.push({
+                    //	url: cors + a.url,
+                    url: '',
+                    title: '观看 - 历史',
+                    component: 'mod_web',
+                    quantity: object.quantity,
+                    show: object.show,
+                    next: object.next,
+                    search: object.search,
+                    detail: object.detail,
+                    use_referer: object.use_referer,
+                    browser: object.browser,
+                    type: 'history',
+                    page: 1
+                });
+			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
                     title: Lampa.Storage.get('online_web_balanser') + ' - 搜索',
@@ -1730,6 +1759,20 @@
                     total_pages: total_pages
                 };
             }
+        };
+
+        this.cardhistory = function (json) {
+            var page = 'undefined';
+            var total_pages = 1;
+            
+            // var catalogs = json.filter(function (fp) {
+            //     return fp.website === object.setup.title;
+            // });
+            return {
+                card: json.reverse(),
+                page: page,
+                total_pages: total_pages
+            };
         };
         // this.setheader = function (isreferer, browser) {
         //     var _this2 = this;
