@@ -1403,7 +1403,7 @@
                 Lampa.Activity.push({
                     //	url: cors + a.url,
                     url: '',
-                    title: '观看 - 历史',
+                    title: '播放记录',
                     component: 'mod_web',
                     quantity: object.quantity,
                     show: object.show,
