@@ -1099,6 +1099,17 @@
                     card.find('.card__view').append('<div class="card__type"></div>');
                     card.find('.card__type').text(element.score);
                 };
+                var favIcon = $('<div class="card__icon icon--wath hide"></div>');
+                card.find('.card__icons-inner').append(favIcon);
+                // var index = getHistory().map(function(obj){ return obj.url; }).indexOf(element.url);
+                // console.log(element.url,index)
+                var history = getHistory();
+                var index = history.findIndex(function (obj) {
+                    return obj.url === element.url;
+                });
+                if (index !== -1) {
+                    favIcon.toggleClass('hide', false);
+                };
                 //Lampa.Background.change(element.img);
                 //Lampa.Background.immediately(element.img);
                 card.on('hover:focus', function () {
