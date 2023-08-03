@@ -1061,16 +1061,51 @@
             });
         };
 
+        // this.checkIncludes = function (aString, aObject) {
+        //     var normalizedData = new Set(aObject.map(function (obj) {
+        //         return obj.url;
+        //     }));
+
+        //     return aString.every(function (s) {
+        //         return normalizedData.has(s);
+        //     });
+        // };
+        // this.checkIncludes = function (aString, aObject) {
+        //     var normalizedData = {};
+        //     for (var i = 0; i < aObject.length; i++) {
+        //         normalizedData[aObject[i].url] = true;
+        //     }
+        
+        //     for (var j = 0; j < aString.length; j++) {
+        //         if (!normalizedData[aString[j]]) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // };
+        // this.checkIncludes = function (aString, aObject) {
+        //     var normalizedData = new Set(aObject.map(function (obj) {
+        //         return obj.url;
+        //     }));
+        
+        //     for (var j = 0; j < aString.length; j++) {
+        //         if (!normalizedData.has(aString[j])) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // };
         this.checkIncludes = function (aString, aObject) {
-            var normalizedData = new Set(aObject.map(function (obj) {
-                return obj.url;
-            }));
-
-            return aString.every(function (s) {
-                return normalizedData.has(s);
-            });
+            var normalizedData = new Set(aObject.map(item => item.url));
+        
+            for (var i = 0; i < aString.length; i++) {
+                if (!normalizedData.has(aString[i])) {
+                    return false;
+                }
+            }
+            return true;
         };
-
+        
         this.append = function (data, append) {
             var _this2 = this;
             data.card.forEach(function (element) {
