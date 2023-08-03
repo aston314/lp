@@ -555,13 +555,14 @@
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
-                                            var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
-                                                return radio.url === element.url;
-                                            });
-                                            if (indexToRemove !== -1) {
-                                                removeFavoriteRadio(indexToRemove);
-                                                favtext = '取消收藏成功。'
-                                            }
+                                            // var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                            //     return radio.url === element.url;
+                                            // });
+                                            // if (indexToRemove !== -1) {
+                                            //     removeFavoriteRadio(indexToRemove);
+                                            //     favtext = '取消收藏成功。'
+                                            // }
+                                            removeFavorite(element);
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
@@ -623,13 +624,15 @@
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
-                                            var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
-                                                return radio.url === element.url;
-                                            });
-                                            if (indexToRemove !== -1) {
-                                                removeFavoriteRadio(indexToRemove);
-                                                favtext = '取消收藏成功。'
-                                            }
+                                            // var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                            //     return radio.url === element.url;
+                                            // });
+                                            // if (indexToRemove !== -1) {
+                                            //     removeFavoriteRadio(indexToRemove);
+                                                
+                                            //     favtext = '取消收藏成功。'
+                                            // }
+                                            removeFavorite(element);
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
@@ -790,6 +793,14 @@
             var favoriteRadios = getFavoriteRadios();
             favoriteRadios.splice(index, 1);
             localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        }
+
+        function removeFavorite(el) {
+            // var favoriteRadios = getFavoriteRadios();
+            // favoriteRadios.splice(index, 1);
+            // localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+            var updatedHistory = getFavoriteRadios().filter(function (obj) { return obj.url !== el.url });
+            Lampa.Storage.set(FAVORITE_RADIOS_KEY, updatedHistory);
         }
 
         function isFavorite(el) {
