@@ -1095,8 +1095,7 @@
                 });
                 card.on('hover:long', function () {
                     if (object.type == 'history') {
-                        var archiveMenu = [];
-                        var menuItems = [
+                        var archiveMenu = [
                             {
                                 title: '清空播放记录',
                                 url: '',
@@ -1112,10 +1111,6 @@
                                 url: ''
                             }
                         ];
-
-                        menuItems.forEach(function (menuItem) {
-                            archiveMenu.push(menuItem);
-                        });
 
                         Lampa.Select.show({
                             title: '操作',
