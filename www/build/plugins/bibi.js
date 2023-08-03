@@ -551,7 +551,7 @@
                                 items: archiveMenu,
                                 onSelect: function (sel) {
                                     element.website = object.setup.title;
-                                    var favtext = '收藏该视频';
+                                    var favtext = '收藏视频完成。';
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
@@ -563,6 +563,7 @@
                                             //     favtext = '取消收藏成功。'
                                             // }
                                             removeFavorite(element);
+                                            favtext = '取消收藏成功。'
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
@@ -620,7 +621,7 @@
                                 items: archiveMenu,
                                 onSelect: function (sel) {
                                     element.website = object.setup.title;
-                                    var favtext = '收藏该视频';
+                                    var favtext = '收藏视频完成。';
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
@@ -633,6 +634,7 @@
                                             //     favtext = '取消收藏成功。'
                                             // }
                                             removeFavorite(element);
+                                            favtext = '取消收藏成功。'
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
