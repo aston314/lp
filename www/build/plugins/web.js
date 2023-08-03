@@ -1111,14 +1111,14 @@
                 };
                 var favIcon = $('<div class="card__icon icon--wath hide"></div>');
                 card.find('.card__icons-inner').append(favIcon);
-                var index = getHistory().map(function(obj){ return obj.url; }).indexOf(element.url);
+                // var index = getHistory().map(function(obj){ return obj.url; }).indexOf(element.url);
                 // console.log(element.url,index)
                 // var history = getHistory();
                 // var index = history.findIndex(function (obj) {
                 //     return obj.url === element.url;
                 // });
-                if (index !== -1) {
-                // if (_this2.checkIncludes([element.url], getHistory())) {
+                // if (index !== -1) {
+                if (_this2.checkIncludes([element.url], getHistory())) {
                     favIcon.toggleClass('hide', false);
                 };
                 //Lampa.Background.change(element.img);
