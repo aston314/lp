@@ -900,6 +900,21 @@
 
     function collection(object) {
         //console.log(catalogs);
+        var list = [];
+        var activity = {
+            url: '',
+            title: '播放记录',
+            component: 'mod_web',
+            quantity: object.quantity,
+            show: object.show,
+            next: object.next,
+            search: object.search,
+            detail: object.detail,
+            use_referer: object.use_referer,
+            browser: object.browser,
+            type: 'history',
+            page: 1
+        };
         if (catalogs === 'undefined') {
             Lampa.Noty.show('未能获取网站配置，请从导航条重新进入。');
         };
@@ -1137,14 +1152,17 @@
                                     } else {
                                         saveHistory(element);
                                     }
-                                    Lampa.Noty.show('播放记录删除成功。')
-                                    Lampa.Controller.toggle('content');
+                                    // Lampa.Noty.show('播放记录删除成功。')
+                                    // Lampa.Controller.toggle('content');
+                                    // lists.push({activity: activity});
+                                    Lampa.Activity.replace(activity);
                                 } else if (sel.type == 'dellall') {
                                     clearHistory();
+                                    Lampa.Activity.replace(Lampa.Arrays.clone(Lampa.Activity.active().activity));
                                 }
                                 else {
                                     _this2.dodetail(_this2, element);
-                                    Lampa.Noty.show('播放记录已清空。')
+                                    // Lampa.Noty.show('播放记录已清空。')
                                 }
                             },
                             onBack: function () {
@@ -1496,7 +1514,7 @@
                     else Lampa.Controller.toggle('content');
                 })
             });
-            if (data.card.length) {
+            if (data && data.card.length) {
                 html.append(info.append());
                 scroll.minus();
                 html.append(scroll.render());
