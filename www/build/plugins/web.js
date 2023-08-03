@@ -863,33 +863,38 @@
 
     //console.log(catalogs)
     
-    var FAVORITE_RADIOS_KEY = 'history_web';
+    var FAVORITE_HISTORY_KEY = 'history_web';
 
-    function getFavoriteRadios() {
-        return JSON.parse(localStorage.getItem(FAVORITE_RADIOS_KEY)) || [];
+    function getHistory() {
+        return JSON.parse(localStorage.getItem(FAVORITE_HISTORY_KEY)) || [];
     };
 
-    function saveFavoriteRadio(el) {
-        var favoriteRadios = getFavoriteRadios();
+    function saveHistory(el) {
+        var favoriteRadios = getHistory();
         favoriteRadios.push(el);
-        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
     };
 
     function removeFavoriteRadio(index) {
-        var favoriteRadios = getFavoriteRadios();
+        var favoriteRadios = getHistory();
         favoriteRadios.splice(index, 1);
-        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
     };
 
-    function isFavorite(el) {
-        var favoriteRadios = getFavoriteRadios();
+    function removeHistory(el) {
+        var updatedHistory = getHistory().filter(function (obj) { return obj.url !== el.url });
+        Lampa.Storage.set(FAVORITE_HISTORY_KEY, updatedHistory);
+    };
+
+    function isHistory(el) {
+        var favoriteRadios = getHistory();
         return favoriteRadios.some(function (a) {
             return a.url === el;
         });
     };
 
     function clearHistory() {
-        localStorage.setItem(FAVORITE_RADIOS_KEY, '[]');
+        localStorage.setItem(FAVORITE_HISTORY_KEY, '[]');
         // Lampa.Activity.replace({});
     };
 
@@ -1120,18 +1125,17 @@
                             items: archiveMenu,
                             onSelect: function (sel) {
                                 if (sel.type == 'dellhistory') {
-                                    var isRadioFavorite = isFavorite(element.url);
+                                    var isRadioFavorite = isHistory(element.url);
                                     if (isRadioFavorite) {
-                                        // var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                        // var indexToRemove = getHistory().findIndex(function (radio) {
                                         //     return radio.url === element.url;
                                         // });
                                         // if (indexToRemove !== -1) {
                                         //     removeFavoriteRadio(indexToRemove);
                                         // }
-                                        var updatedHistory = getFavoriteRadios().filter(function (obj) { return obj.url !== element.url });
-                                        Lampa.Storage.set(FAVORITE_RADIOS_KEY, updatedHistory);
+                                        removeHistory(element);
                                     } else {
-                                        saveFavoriteRadio(element);
+                                        saveHistory(element);
                                     }
                                     Lampa.Noty.show('播放记录删除成功。')
                                     Lampa.Controller.toggle('content');
