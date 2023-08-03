@@ -890,6 +890,7 @@
 
     function clearHistory() {
         localStorage.setItem(FAVORITE_RADIOS_KEY, '[]');
+        // Lampa.Activity.replace({});
     };
 
     function collection(object) {
@@ -1098,6 +1099,7 @@
                         var archiveMenu = [
                             {
                                 title: '清空播放记录',
+                                subtitle: '删除所有历史记录',
                                 url: '',
                                 type: 'dellall'
                             },
@@ -1108,6 +1110,7 @@
                             },
                             {
                                 title: '查看详情',
+                                subtitle: '使用TMDB查看',
                                 url: ''
                             }
                         ];
