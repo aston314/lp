@@ -774,7 +774,7 @@
             this.activity.toggle();
         };
 
-        var FAVORITE_RADIOS_KEY = 'favoriteBibi';
+        var FAVORITE_RADIOS_KEY = 'favorite_Bibi';
 
         function getFavoriteRadios() {
             return JSON.parse(localStorage.getItem(FAVORITE_RADIOS_KEY)) || [];
