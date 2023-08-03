@@ -2015,6 +2015,7 @@
                 this.empty('没有找到 (' + select_title + ') 相关影片');
         };
         this.start = function () {
+            if (Lampa.Activity.active().activity !== this.activity) return;
             var _this = this;
             Lampa.Controller.add('content', {
                 toggle: function toggle() {
