@@ -652,11 +652,10 @@
     var el = object.movie;
     // element.website = object.setup.title;
     var isHistory = isFavorite(el.url);
-    saveWeb(el);
-
     if (isHistory) {
       removeWeb(el);
-    }
+    };
+    saveWeb(el);
   };
 
   function _typeof(obj) {
