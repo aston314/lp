@@ -35,43 +35,34 @@
 
             if (object.setup.datatype !== 'json') cors = '';
 
-            network["native"](cors + object.url, function (str) {
-                //this.build.bind(this)
-                if (object.type == 'live') {
-                    var empty = new Lampa.Empty({
-                        descr: object.title.replace('直播源 - ', ''),
-                        title: object.content
-                    });
-                    html.append(empty.render());
-                    _this.activity.loader(false);
-                    Lampa.Iframe.show({
-                        url: object.url,
-                        onBack: function onBack() {
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
-                    $('.iframe__body iframe').removeClass('iframe__window');
-                    $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-                } else {
+            if (object.type == 'fav') { 
+                var data = _this.cardfavor(getFavoriteRadios());
+                _this.build(data);
+            } else {
+                network["native"](cors + object.url, function (str) {
+                    //this.build.bind(this)
+
                     var data = _this.card(str);
                     _this.build(data);
-                };
 
-                // var empty = new Lampa.Empty();
-                // html.append(empty.render());
-                // _this.start = empty.start;
 
-                // _this.activity.loader(false);
+                    // var empty = new Lampa.Empty();
+                    // html.append(empty.render());
+                    // _this.start = empty.start;
 
-                //_this.activity.toggle();
-            }, function (a, c) {
-                Lampa.Noty.show(network.errorDecode(a, c));
-            }, false, {
-                dataType: object.setup.datatype,
-                // headers: {
-                //     'User-Agent': PC_UA
-                // }
-            });
+                    // _this.activity.loader(false);
+
+                    //_this.activity.toggle();
+                }, function (a, c) {
+                    Lampa.Noty.show(network.errorDecode(a, c));
+                }, false, {
+                    dataType: object.setup.datatype,
+                    // headers: {
+                    //     'User-Agent': PC_UA
+                    // }
+                });
+            }
+            
             return this.render();
         };
 
@@ -338,6 +329,20 @@
             };
         };
 
+        this.cardfavor = function (json) {
+            var page = 'undefined';
+            var total_pages = 1;
+            
+            var catalogs = json.filter(function (fp) {
+                return fp.website === object.setup.title;
+            });
+            return {
+                card: catalogs.reverse(),
+                page: page,
+                total_pages: total_pages
+            };
+        };
+
         this.append = function (data, append) {
             var _this3 = this;
             //console.log(data)
@@ -512,19 +517,32 @@
 
                     if (element.url.indexOf('jable') !== -1) {
                         network["native"](cors + element.url, function (str) {
+                            // console.log(element,object)
                             if (object.setup.datatype == 'json') {
                                 str = str.contents
                             };
                             Lampa.Modal.close();
                             var archiveMenu = [];
+                            var favtext = '收藏该视频';
+                            var isRadioFavorite = isFavorite(element.url);
+                            if (isRadioFavorite) {
+                                favtext = '取消收藏'
+                            };
+                            archiveMenu.push({
+                                title: favtext,
+                                url: '',
+                                type: 'fav'
+                            });
                             archiveMenu.push({
                                 title: '查看 ' + element.episodes_info.split('-')[0] + ' 所有视频',
                                 url: 'https://jable.tv/search/?q='+element.episodes_info.split('-')[0]+'&from_videos=1',
+                                type: 'list'
                             });
-                            $('a.model', str).each(function (i, html) {
+                            $('.models a.model', str).each(function (i, html) {
                                 archiveMenu.push({
-                                    title: '查看 ' + $('.placeholder', html).attr('title') + ' 所有视频',
+                                    title: '查看 ' + $('.placeholder,img', html).attr('title') + ' 所有视频',
                                     url: $(html).attr('href'),
+                                    type: 'list'
                                 });
                             });
 
@@ -532,14 +550,33 @@
                                 title: '相关内容',
                                 items: archiveMenu,
                                 onSelect: function (sel) {
-                                    Lampa.Activity.push({
-                                        url: sel.url,
-                                        title: '电影 - ' + sel.title,
-                                        component: 'bibi',
-                                        quantity: '',
-                                        setup: object.setup,
-                                        page: 1
-                                    });
+                                    element.website = object.setup.title;
+                                    var favtext = '收藏该视频';
+                                    if (sel.type == 'fav') {
+                                        var isRadioFavorite = isFavorite(element.url);
+                                        if (isRadioFavorite) {
+                                            var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                                return radio.url === element.url;
+                                            });
+                                            if (indexToRemove !== -1) {
+                                                removeFavoriteRadio(indexToRemove);
+                                                favtext = '取消收藏成功。'
+                                            }
+                                        } else {
+                                            saveFavoriteRadio(element);
+                                        }
+                                        Lampa.Noty.show(favtext)
+                                        Lampa.Controller.toggle('content');
+                                    } else {
+                                        Lampa.Activity.push({
+                                            url: sel.url,
+                                            title: '电影 - ' + sel.title,
+                                            component: 'bibi',
+                                            quantity: '',
+                                            setup: object.setup,
+                                            page: 1
+                                        });
+                                    }
                                 },
                                 onBack: function () {
                                     Lampa.Controller.toggle('content');
@@ -560,6 +597,16 @@
 
                             Lampa.Modal.close();
                             var archiveMenu = [];
+                            var favtext = '收藏该视频';
+                            var isRadioFavorite = isFavorite(element.url);
+                            if (isRadioFavorite) {
+                                favtext = '取消收藏'
+                            };
+                            archiveMenu.push({
+                                title: favtext,
+                                url: '',
+                                type: 'fav'
+                            });
                             $('.detail-item a[href*="actresses/"],.detail-item a[href*="labels/"],.detail-item a[href*="tags/"]', str).each(function (i, html) {
                                 archiveMenu.push({
                                     title: '查看 ' + $(html).text() + ' 所有视频',
@@ -571,14 +618,33 @@
                                 title: '相关内容',
                                 items: archiveMenu,
                                 onSelect: function (sel) {
-                                    Lampa.Activity.push({
-                                        url: sel.url,
-                                        title: '电影 - ' + sel.title,
-                                        component: 'bibi',
-                                        quantity: '',
-                                        setup: object.setup,
-                                        page: 1
-                                    });
+                                    element.website = object.setup.title;
+                                    var favtext = '收藏该视频';
+                                    if (sel.type == 'fav') {
+                                        var isRadioFavorite = isFavorite(element.url);
+                                        if (isRadioFavorite) {
+                                            var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                                return radio.url === element.url;
+                                            });
+                                            if (indexToRemove !== -1) {
+                                                removeFavoriteRadio(indexToRemove);
+                                                favtext = '取消收藏成功。'
+                                            }
+                                        } else {
+                                            saveFavoriteRadio(element);
+                                        }
+                                        Lampa.Noty.show(favtext)
+                                        Lampa.Controller.toggle('content');
+                                    } else {
+                                        Lampa.Activity.push({
+                                            url: sel.url,
+                                            title: '电影 - ' + sel.title,
+                                            component: 'bibi',
+                                            quantity: '',
+                                            setup: object.setup,
+                                            page: 1
+                                        });
+                                    }
                                 },
                                 onBack: function () {
                                     Lampa.Controller.toggle('content');
@@ -605,7 +671,8 @@
             //info = Lampa.Template.get('info');style="height:5em"
             var channelbutton = '<div class=\"full-start__button selector view--channel\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31ZM3.741 2.342C4.427 2.205 5.595 2 6.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 10.794 7.406 11 6.5 11s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 8.574 2 7.406 2 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM6.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C4.427 13.205 5.595 13 6.5 13c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4C8.574 21.794 7.406 22 6.5 22s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C2.206 19.574 2 18.406 2 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 3.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246C15.427 2.205 16.595 2 17.5 2c.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 8.574 13 7.406 13 6.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4ZM17.5 14.588c-.733 0-1.764.175-2.448.311a.191.191 0 0 0-.153.153c-.136.684-.31 1.715-.31 2.448 0 .733.174 1.764.31 2.448a.191.191 0 0 0 .153.153c.684.136 1.715.31 2.448.31.733 0 1.764-.174 2.448-.31a.191.191 0 0 0 .153-.153c.136-.684.31-1.715.31-2.448 0-.733-.174-1.764-.31-2.448a.191.191 0 0 0-.153-.153c-.684-.136-1.715-.31-2.448-.31Zm-2.759-1.246c.686-.137 1.854-.342 2.759-.342.905 0 2.073.205 2.759.342a1.78 1.78 0 0 1 1.4 1.4c.136.685.341 1.853.341 2.758s-.205 2.073-.342 2.759a1.78 1.78 0 0 1-1.4 1.4c-.685.136-1.853.341-2.758.341s-2.073-.205-2.759-.342a1.78 1.78 0 0 1-1.4-1.4C13.206 19.574 13 18.406 13 17.5s.205-2.073.342-2.759a1.78 1.78 0 0 1 1.4-1.4Z\" fill=\"currentColor\"/></svg>   <span>网站</span>\n    </div>'
             var findbutton = '<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>'
-            Lampa.Template.add('button_category', "<style>.freetv_bibi.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_bibi.category-full{ padding-bottom:8em } .freetv_bibi div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_bibi.square_icons div.card__view{ padding-bottom:100% } .freetv_bibi.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>" + channelbutton + findbutton + "  </div>");
+            var favoritebutton = '<div class=\"full-start__button selector open--favorite\"><svg fill=\"Currentcolor\" width=\"24px\" height=\"24px\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 24 24\"><path d=\"M0.66 0.303c0.003 -0.015 -0.009 -0.033 -0.024 -0.033l-0.171 -0.024L0.387 0.09c-0.003 -0.006 -0.006 -0.009 -0.012 -0.012 -0.015 -0.009 -0.033 -0.003 -0.042 0.012L0.258 0.246 0.087 0.27c-0.009 0 -0.015 0.003 -0.018 0.009 -0.012 0.012 -0.012 0.03 0 0.042l0.123 0.12 -0.03 0.171c0 0.006 0 0.012 0.003 0.018 0.009 0.015 0.027 0.021 0.042 0.012l0.153 -0.081 0.153 0.081c0.003 0.003 0.009 0.003 0.015 0.003h0.006c0.015 -0.003 0.027 -0.018 0.024 -0.036l-0.03 -0.171 0.123 -0.12c0.006 -0.003 0.009 -0.009 0.009 -0.015z\"/></svg>   <span>收藏</span>\n    </div>';
+            Lampa.Template.add('button_category', "<style>.freetv_bibi.category-full .card__icons {top: 0.3em;right: 0.3em;justify-content: center !important;}.freetv_bibi.category-full{ padding-bottom:8em } .freetv_bibi div.card__view{ position:relative; background-color:#353535; background-color:#353535a6; border-radius:1em; cursor:pointer; padding-bottom:60% } .freetv_bibi.square_icons div.card__view{ padding-bottom:100% } .freetv_bibi.category-full .card__icons { top:0.3em; right:0.3em; justify-content:right; } @media screen and (max-width: 2560px) { .card--collection { width: 16.6%!important; } } @media screen and (max-width: 385px) { .card--collection { width: 33.3%!important; } } </style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>" + channelbutton + favoritebutton + findbutton  + "  </div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
@@ -616,6 +683,18 @@
             info.find('.view--category').on('hover:enter hover:click', function () {
                 listNavigation();
             });
+            info.find('.open--favorite').on('hover:enter hover:click', function () {
+                Lampa.Activity.push({
+                    //	url: cors + a.url,
+                    url: '',
+                    title: object.setup.title + ' - 收藏',
+                    component: 'bibi',
+                    quantity: '',
+                    setup: object.setup,
+                    type: 'fav',
+                    page: 1
+                });
+			});
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
                     title: object.setup.title + ' - 搜索影片',
@@ -694,6 +773,31 @@
             this.activity.loader(false);
             this.activity.toggle();
         };
+
+        var FAVORITE_RADIOS_KEY = 'favoriteBibi';
+
+        function getFavoriteRadios() {
+            return JSON.parse(localStorage.getItem(FAVORITE_RADIOS_KEY)) || [];
+        }
+
+        function saveFavoriteRadio(el) {
+            var favoriteRadios = getFavoriteRadios();
+            favoriteRadios.push(el);
+            localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        }
+
+        function removeFavoriteRadio(index) {
+            var favoriteRadios = getFavoriteRadios();
+            favoriteRadios.splice(index, 1);
+            localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        }
+
+        function isFavorite(el) {
+            var favoriteRadios = getFavoriteRadios();
+            return favoriteRadios.some(function (a) {
+                return a.url === el;
+            });
+        }
 
         function cardImgBackground(card_data) {
             if (Lampa.Storage.field('background')) {
