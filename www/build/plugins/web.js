@@ -863,6 +863,34 @@
 
     //console.log(catalogs)
     
+    var FAVORITE_RADIOS_KEY = 'history_web';
+
+    function getFavoriteRadios() {
+        return JSON.parse(localStorage.getItem(FAVORITE_RADIOS_KEY)) || [];
+    };
+
+    function saveFavoriteRadio(el) {
+        var favoriteRadios = getFavoriteRadios();
+        favoriteRadios.push(el);
+        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+    };
+
+    function removeFavoriteRadio(index) {
+        var favoriteRadios = getFavoriteRadios();
+        favoriteRadios.splice(index, 1);
+        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+    };
+
+    function isFavorite(el) {
+        var favoriteRadios = getFavoriteRadios();
+        return favoriteRadios.some(function (a) {
+            return a.url === el;
+        });
+    };
+
+    function clearHistory() {
+        localStorage.setItem(FAVORITE_RADIOS_KEY, '[]');
+    };
 
     function collection(object) {
         //console.log(catalogs);
@@ -1066,45 +1094,63 @@
                     if (Lampa.Helper) Lampa.Helper.show('tmdb_detail5', '长按住 (ОК) 键查看详情', card);
                 });
                 card.on('hover:long', function () {
-                    Lampa.Modal.open({
-                        title: '',
-                        html: Lampa.Template.get('modal_loading'),
-                        size: 'small',
-                        mask: true,
-                        onBack: function onBack() {
-                            Lampa.Modal.close();
-                            Lampa.Api.clear();
-                            Lampa.Controller.toggle('content');
-                        }
-                    });
-
-                    //var douban_cover=element.img.replace(/(.*\/)*([^.]+).*/ig,"$2");
-                    //_this2.find_douban('https://movie.douban.com/j/subject_suggest?q=' + element.title_org, element.title_org);
-
-                    Lampa.Api.search({
-                        //query: encodeURIComponent((doubanitem.sub_title || element.title))
-                        query: encodeURIComponent(element.title_org.replace(/第(.+)季/, ''))
-                    }, function (find) {
-                        Lampa.Modal.close();
-                        //var finded = _this2.finds(find, (doubanitem || element));
-                        var finded = _this2.finds(find, element);
-                        if (finded) {
-                            Lampa.Activity.push({
+                    if (object.type == 'history') {
+                        var archiveMenu = [];
+                        var menuItems = [
+                            {
+                                title: '清空播放记录',
                                 url: '',
-                                component: 'full',
-                                id: finded.id,
-                                method: finded.name ? 'tv' : 'movie',
-                                card: finded
-                            });
-                        } else {
-                            Lampa.Noty.show('在TMDB中找不到影片信息。');
-                            Lampa.Controller.toggle('content');
-                        }
-                    }, function () {
-                        Lampa.Modal.close();
-                        Lampa.Noty.show('在TMDB中找不到影片信息。');
-                        Lampa.Controller.toggle('content');
-                    });
+                                type: 'dellall'
+                            },
+                            {
+                                title: '删除该记录',
+                                url: '',
+                                type: 'dellhistory'
+                            },
+                            {
+                                title: '查看详情',
+                                url: ''
+                            }
+                        ];
+
+                        menuItems.forEach(function (menuItem) {
+                            archiveMenu.push(menuItem);
+                        });
+
+                        Lampa.Select.show({
+                            title: '操作',
+                            items: archiveMenu,
+                            onSelect: function (sel) {
+                                if (sel.type == 'dellhistory') {
+                                    var isRadioFavorite = isFavorite(element.url);
+                                    if (isRadioFavorite) {
+                                        var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                            return radio.url === element.url;
+                                        });
+                                        if (indexToRemove !== -1) {
+                                            removeFavoriteRadio(indexToRemove);
+                                        }
+                                    } else {
+                                        saveFavoriteRadio(element);
+                                    }
+                                    Lampa.Noty.show('播放记录删除成功。')
+                                    Lampa.Controller.toggle('content');
+                                } else if (sel.type == 'dellall') {
+                                    clearHistory();
+                                }
+                                else {
+                                    _this2.dodetail(_this2, element);
+                                }
+                            },
+                            onBack: function () {
+                                Lampa.Controller.toggle('content');
+                            }
+                        })
+
+                    } else {
+                        _this2.dodetail(_this2, element);
+                    }
+
                 });
                 card.on('hover:enter', function (target, card_data) {
                     if (object.next == 'search') {
@@ -1377,6 +1423,7 @@
                 items.push(card);
             });
         };
+        
         this.build = function (data) {
             var _this2 = this;
             var search_button;
@@ -1773,6 +1820,48 @@
                 page: page,
                 total_pages: total_pages
             };
+        };
+
+        this.dodetail = function (_this2,element) {
+            Lampa.Modal.open({
+                title: '',
+                html: Lampa.Template.get('modal_loading'),
+                size: 'small',
+                mask: true,
+                onBack: function onBack() {
+                    Lampa.Modal.close();
+                    Lampa.Api.clear();
+                    Lampa.Controller.toggle('content');
+                }
+            });
+
+            //var douban_cover=element.img.replace(/(.*\/)*([^.]+).*/ig,"$2");
+            //_this2.find_douban('https://movie.douban.com/j/subject_suggest?q=' + element.title_org, element.title_org);
+
+            Lampa.Api.search({
+                //query: encodeURIComponent((doubanitem.sub_title || element.title))
+                query: encodeURIComponent(element.title_org.replace(/第(.+)季/, ''))
+            }, function (find) {
+                Lampa.Modal.close();
+                //var finded = _this2.finds(find, (doubanitem || element));
+                var finded = _this2.finds(find, element);
+                if (finded) {
+                    Lampa.Activity.push({
+                        url: '',
+                        component: 'full',
+                        id: finded.id,
+                        method: finded.name ? 'tv' : 'movie',
+                        card: finded
+                    });
+                } else {
+                    Lampa.Noty.show('在TMDB中找不到影片信息。');
+                    Lampa.Controller.toggle('content');
+                }
+            }, function () {
+                Lampa.Modal.close();
+                Lampa.Noty.show('在TMDB中找不到影片信息。');
+                Lampa.Controller.toggle('content');
+            });
         };
         // this.setheader = function (isreferer, browser) {
         //     var _this2 = this;
