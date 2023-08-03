@@ -1096,7 +1096,9 @@
         //     return true;
         // };
         this.checkIncludes = function (aString, aObject) {
-            var normalizedData = new Set(aObject.map(item => item.url));
+            var normalizedData = new Set(aObject.map(function (obj) {
+                return obj.url;
+            }));
         
             for (var i = 0; i < aString.length; i++) {
                 if (!normalizedData.has(aString[i])) {
