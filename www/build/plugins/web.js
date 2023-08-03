@@ -1121,6 +1121,7 @@
                             onSelect: function (sel) {
                                 if (sel.type == 'dellhistory') {
                                     var isRadioFavorite = isFavorite(element.url);
+                                    console.log("Favorite Radios:", getFavoriteRadios());
                                     if (isRadioFavorite) {
                                         var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
                                             return radio.url === element.url;
