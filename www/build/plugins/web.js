@@ -1121,14 +1121,15 @@
                             onSelect: function (sel) {
                                 if (sel.type == 'dellhistory') {
                                     var isRadioFavorite = isFavorite(element.url);
-                                    console.log("Favorite Radios:", getFavoriteRadios());
                                     if (isRadioFavorite) {
-                                        var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
-                                            return radio.url === element.url;
-                                        });
-                                        if (indexToRemove !== -1) {
-                                            removeFavoriteRadio(indexToRemove);
-                                        }
+                                        // var indexToRemove = getFavoriteRadios().findIndex(function (radio) {
+                                        //     return radio.url === element.url;
+                                        // });
+                                        // if (indexToRemove !== -1) {
+                                        //     removeFavoriteRadio(indexToRemove);
+                                        // }
+                                        var updatedHistory = getFavoriteRadios().filter(function (obj) { return obj.url !== element.url });
+                                        Lampa.Storage.set(FAVORITE_RADIOS_KEY, updatedHistory);
                                     } else {
                                         saveFavoriteRadio(element);
                                     }
@@ -1139,6 +1140,7 @@
                                 }
                                 else {
                                     _this2.dodetail(_this2, element);
+                                    Lampa.Noty.show('播放记录已清空。')
                                 }
                             },
                             onBack: function () {
