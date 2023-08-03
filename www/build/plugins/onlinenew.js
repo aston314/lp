@@ -635,11 +635,10 @@
       localStorage.setItem(HISTORY_WEBS_KEY, JSON.stringify(webs));
     }
   };
-  
-  function removeWeb(index) {
-    var webs = getWebs();
-    webs.splice(index, 1);
-    localStorage.setItem(HISTORY_WEBS_KEY, JSON.stringify(webs));
+
+  function removeWeb(el) {
+    var updatedHistory = getWebs().filter(function (obj) { return obj.url !== el.url });
+    Lampa.Storage.set(HISTORY_WEBS_KEY, updatedHistory);
   };
 
   function isFavorite(el) {
@@ -653,16 +652,10 @@
     var el = object.movie;
     // element.website = object.setup.title;
     var isHistory = isFavorite(el.url);
+    saveWeb(el);
+
     if (isHistory) {
-      var indexToRemove = getWebs().findIndex(function (a) {
-        return a.url === el.url;
-      });
-      if (indexToRemove !== -1) {
-        removeWeb(indexToRemove);
-      };
-      saveWeb(el);
-    } else {
-      saveWeb(el);
+      removeWeb(el);
     }
   };
 
