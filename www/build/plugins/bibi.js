@@ -551,7 +551,7 @@
                                 items: archiveMenu,
                                 onSelect: function (sel) {
                                     element.website = object.setup.title;
-                                    var favtext = '收藏视频完成。';
+                                    var favtext = '该视频已经加入收藏夹。';
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
@@ -621,7 +621,7 @@
                                 items: archiveMenu,
                                 onSelect: function (sel) {
                                     element.website = object.setup.title;
-                                    var favtext = '收藏视频完成。';
+                                    var favtext = '该视频已经加入收藏夹。';
                                     if (sel.type == 'fav') {
                                         var isRadioFavorite = isFavorite(element.url);
                                         if (isRadioFavorite) {
