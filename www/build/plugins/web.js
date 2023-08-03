@@ -1061,6 +1061,16 @@
             });
         };
 
+        this.checkIncludes = function (aString, aObject) {
+            var normalizedData = new Set(aObject.map(function (obj) {
+                return obj.url;
+            }));
+
+            return aString.every(function (s) {
+                return normalizedData.has(s);
+            });
+        };
+
         this.append = function (data, append) {
             var _this2 = this;
             data.card.forEach(function (element) {
@@ -1103,11 +1113,12 @@
                 card.find('.card__icons-inner').append(favIcon);
                 // var index = getHistory().map(function(obj){ return obj.url; }).indexOf(element.url);
                 // console.log(element.url,index)
-                var history = getHistory();
-                var index = history.findIndex(function (obj) {
-                    return obj.url === element.url;
-                });
-                if (index !== -1) {
+                // var history = getHistory();
+                // var index = history.findIndex(function (obj) {
+                //     return obj.url === element.url;
+                // });
+                // if (index !== -1) {
+                if (_this2.checkIncludes([element.url], getHistory())) {
                     favIcon.toggleClass('hide', false);
                 };
                 //Lampa.Background.change(element.img);
