@@ -20,7 +20,16 @@
         var UA = "Mozilla/5.0";
         var UC_UA = "Mozilla/5.0 (Linux; U; Android 9; zh-CN; MI 9 Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.5.5.1035 Mobile Safari/537.36";
         var IOS_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";;
-
+        
+        var activity = {
+            url: '',
+            title: object.setup.title + ' - 收藏',
+            component: 'bibi',
+            quantity: '',
+            setup: object.setup,
+            type: 'fav',
+            page: 1
+        };
         // if (Lampa.Platform.is('android')) {
         //     cors = '';
         // } else {
@@ -567,8 +576,12 @@
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
-                                        Lampa.Noty.show(favtext)
-                                        Lampa.Controller.toggle('content');
+                                        if (object.type == 'fav') {
+                                            Lampa.Activity.replace(activity);
+                                        } else {
+                                            Lampa.Noty.show(favtext)
+                                            Lampa.Controller.toggle('content');
+                                        }
                                     } else {
                                         Lampa.Activity.push({
                                             url: sel.url,
@@ -638,8 +651,12 @@
                                         } else {
                                             saveFavoriteRadio(element);
                                         }
-                                        Lampa.Noty.show(favtext)
-                                        Lampa.Controller.toggle('content');
+                                        if (object.type == 'fav') {
+                                            Lampa.Activity.replace(activity);
+                                        } else {
+                                            Lampa.Noty.show(favtext)
+                                            Lampa.Controller.toggle('content');
+                                        }
                                     } else {
                                         Lampa.Activity.push({
                                             url: sel.url,
