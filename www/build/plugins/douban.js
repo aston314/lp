@@ -169,16 +169,20 @@
                 if (Lampa.Storage.field('douban_img_proxy')) {
                     //console.log(ii.indexOf('://'))
                     //豆瓣图片域名
-                    if (element.cover.indexOf('doubanio.com') !== -1 && element.cover.indexOf('://') == 5) {
+                    if (element.cover.includes('doubanio.com') && element.cover.indexOf('://') == 5) {
                         element.cover = element.cover.replace('https://', 'https://images.weserv.nl/?url=')
                     };
                 };
                 //   element.cover||element.img
                 // card.find('.card__img').attr('src', 'https://dou.img.lithub.cc/movie/' + element.id + '.jpg');
                 card.find('.card__img').attr('src', element.cover||element.img);
+                // if (element.rate) {
+                //     card.find('.card__view').append('<div class="card__type"></div>');
+                //     card.find('.card__type').text(element.rate);
+                // };
                 if (element.rate) {
-                    card.find('.card__view').append('<div class="card__type"></div>');
-                    card.find('.card__type').text(element.rate);
+                    card.find('.card__view').append('<div class="card__vote"></div>');
+                    card.find('.card__vote').text(element.rate);
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
