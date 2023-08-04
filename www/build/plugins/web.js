@@ -1142,9 +1142,13 @@
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text(element.update);
                 };
+                // if (element.score) {
+                //     card.find('.card__view').append('<div class="card__type"></div>');
+                //     card.find('.card__type').text(element.score);
+                // };
                 if (element.score) {
-                    card.find('.card__view').append('<div class="card__type"></div>');
-                    card.find('.card__type').text(element.score);
+                    card.find('.card__view').append('<div class="card__vote"></div>');
+                    card.find('.card__vote').text(element.score);
                 };
                 var favIcon = $('<div class="card__icon icon--wath hide"></div>');
                 card.find('.card__icons-inner').append(favIcon);
