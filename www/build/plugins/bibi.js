@@ -916,14 +916,14 @@
             datatype: "text",
             category: [
                 {
-                    title: '全新上市',
-                    url: 'https://jable.tv/new-release/',
-                    quantity: ''
-                }, {
                     title: '最近更新',
                     url: 'https://jable.tv/latest-updates/',
                     quantity: ''
                 },{
+                    title: '全新上市',
+                    url: 'https://jable.tv/new-release/',
+                    quantity: ''
+                }, {
                     title: '本周热门',
                     url: 'https://jable.tv/hot/',
                     quantity: ''
@@ -1012,12 +1012,12 @@
                 url: 'https://njav.tv/zh/',
                 quantity: ':gt(9)'
             }, {
-                title: '全新上市',
-                url: 'https://njav.tv/zh/new-release',
-                quantity: ''
-            }, {
                 title: '最近更新',
                 url: 'https://njav.tv/zh/recent-update',
+                quantity: ''
+            }, {
+                title: '全新上市',
+                url: 'https://njav.tv/zh/new-release',
                 quantity: ''
             }, {
                 title: '热门',
