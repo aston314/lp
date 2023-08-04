@@ -110,7 +110,8 @@
         var myear = element.oname.match(regexp1) ? element.oname.match(regexp1).toString().replace(' ', '').replace('.', '').replace(')', '') : '';
         card.find('.card__view').append('<div class="card__type"></div>');
         card.find('.card__type').text((element.release_date ? new Date(element.release_date).getFullYear() :  myear ));
-
+        card.find('.card__view').append('<div class="card__vote"></div>');
+        card.find('.card__vote').text(parseFloat((element.tmdbrate ? element.tmdbrate :0)).toPrecision(2).replace(/\.0+$/,''));
         card.on('hover:focus', function () {
           last = card[0];
           scroll.update(card, true);
