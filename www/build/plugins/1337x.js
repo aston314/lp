@@ -135,9 +135,13 @@
                     img.src = './img/img_broken.svg';
                 };
                 card.find('.card__img').attr('src', element.img);
+                // if (element.score) {
+                //     card.find('.card__view').append('<div class="card__type"></div>');
+                //     card.find('.card__type').text(element.score);
+                // };
                 if (element.score) {
-                    card.find('.card__view').append('<div class="card__type"></div>');
-                    card.find('.card__type').text(element.score);
+                    card.find('.card__view').append('<div class="card__vote"></div>');
+                    card.find('.card__vote').text(element.score);
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
