@@ -293,6 +293,7 @@
       //   };
       // };
       this.cardfavor = function (json) {
+        console.log(json)
         return json.reverse();
       };
 
