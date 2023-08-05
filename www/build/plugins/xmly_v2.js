@@ -58,6 +58,9 @@
           var data = _this.cardfavor(getFavoriteRadios());
           // _this.build(data);
           _this.append(data,true);
+          _this.activity.loader(false);
+
+          _this.activity.toggle();
         } else {
 
           network["native"](postdata, this.build.bind(this), function () {
@@ -293,7 +296,6 @@
       //   };
       // };
       this.cardfavor = function (json) {
-        console.log(json)
         return json.reverse();
       };
 
