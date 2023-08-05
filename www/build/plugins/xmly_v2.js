@@ -56,7 +56,8 @@
         this.activity.loader(true);
         if (object.type == 'fav') {
           var data = _this.cardfavor(getFavoriteRadios());
-          _this.build(data);
+          // _this.build(data);
+          _this.append(data,true);
         } else {
 
           network["native"](postdata, this.build.bind(this), function () {
