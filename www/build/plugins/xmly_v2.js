@@ -343,13 +343,18 @@
             title: '喜马拉雅FM',
             items: catalogs,
             onSelect: function onSelect(a) {
-              Lampa.Activity.push({
-                url: a.url,
-                title: '喜马拉雅FM - ' + a.title,
-                cid: a.cid,
-                component: 'ximalaya',
-                page: 1
-              });
+              if (a.type == 'fav') {
+                Lampa.Activity.push(activity);
+              } else {
+                Lampa.Activity.push({
+                  url: a.url,
+                  title: '喜马拉雅FM - ' + a.title,
+                  cid: a.cid,
+                  component: 'ximalaya',
+                  page: 1
+                });
+              }
+
             },
             onBack: function onBack() {
               Lampa.Controller.toggle('content');
@@ -546,6 +551,12 @@
     var list_radio_id = class_url.split('&');
     
     var catalogs = [];
+    catalogs.push({
+      title: '收藏夹',
+      url: '',
+      cid: '',
+      type: 'fav'
+    });
     catalogs.push({
       title: '华语台',
       url: 'https://raw.gitmirror.com/aston314/lampa/main/data/radios.json',
