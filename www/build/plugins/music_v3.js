@@ -444,6 +444,7 @@
                                         saveFavoritePlaylist('songs', element);
                                         favIcon.toggleClass('hide', false);
                                     }
+                                    Lampa.Controller.toggle('content');
                                 } else if (sel.favtype == 'albums') {
                                     var isRadioFavorite = isFavorite('albums',element.name);
                                     if (isRadioFavorite) {
@@ -454,6 +455,7 @@
                                         saveFavoritePlaylist('albums', element);
                                         favIcon.toggleClass('hide', false);
                                     }
+                                    Lampa.Controller.toggle('content');
                                 } else if (sel.favtype == 'playlists') {
                                     var isRadioFavorite = isFavorite('playlists',element.name);
                                     if (isRadioFavorite) {
@@ -464,6 +466,7 @@
                                         saveFavoritePlaylist('playlists', element);
                                         favIcon.toggleClass('hide', false);
                                     }
+                                    Lampa.Controller.toggle('content');
                                 } else {
                                     Lampa.Activity.push({
                                         url: sel.url,
