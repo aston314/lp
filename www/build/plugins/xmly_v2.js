@@ -19,6 +19,13 @@
       var isLampaTV = current_version.startsWith("7.");
       var porxy;
       isLampaTV ? porxy ="" : porxy = "";
+      var activity = {
+        url: '',
+        title: '电台 - 收藏夹',
+        component: 'ximalaya',
+        type: 'fav',
+        page: 1
+      };
 
       
       this.getQueryString = function (link,name) {
@@ -47,22 +54,27 @@
         var _this = this;
 
         this.activity.loader(true);
-        
-        network["native"](postdata, this.build.bind(this), function () {
-          var empty = new Lampa.Empty();
-          html.append(empty.render());
-          _this.start = empty.start;
+        if (object.type == 'fav') {
+          var data = _this.cardfavor(getFavoriteRadios());
+          _this.build(data);
+        } else {
 
-          _this.activity.loader(false);
+          network["native"](postdata, this.build.bind(this), function () {
+            var empty = new Lampa.Empty();
+            html.append(empty.render());
+            _this.start = empty.start;
 
-          _this.activity.toggle();
-        },false,{
+            _this.activity.loader(false);
+
+            _this.activity.toggle();
+          }, false, {
             dataType: 'json',
             headers: {
               'Referer': "https://www.ximalaya.com/",
               'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
-          }
+            }
           });
+        }
         return this.render();
       };
 
@@ -223,86 +235,141 @@
 
           });
 
+          card.on('hover:long', function (target, card_data) {
+            var archiveMenu = [];
+            var favtext = '收藏该电台';
+            var isRadioFavorite = isFavorite(element.name);
+            if (isRadioFavorite) {
+              favtext = '取消收藏'
+            };
+            archiveMenu.push({
+              title: favtext,
+              url: '',
+              type: 'fav'
+            });
+
+            Lampa.Select.show({
+              title: '操作',
+              items: archiveMenu,
+              onSelect: function (sel) {
+                var favtext = '该电台已经加入收藏夹。';
+                if (sel.type == 'fav') {
+                  var isRadioFavorite = isFavorite(element.name);
+                  if (isRadioFavorite) {
+                    removeFavorite(element);
+                    favtext = '取消收藏成功。'
+                  } else {
+                    saveFavoriteRadio(element);
+                  }
+                  if (object.type == 'fav') {
+                    Lampa.Activity.replace(activity);
+                  } else {
+                    Lampa.Noty.show(favtext)
+                    Lampa.Controller.toggle('content');
+                  }
+                }
+              },
+              onBack: function () {
+                Lampa.Controller.toggle('content');
+              }
+            })
+          });
+
           body.append(card);
           if (append) Lampa.Controller.collectionAppend(card);
           items.push(card);
         });
       };
 
+      this.cardfavor = function (json) {
+        var page = 'undefined';
+        var total_pages = 1;
+
+        return {
+          card: json.reverse(),
+          page: page,
+          total_pages: total_pages
+        };
+      };
+
       this.build = function (data) {
         var _this2 = this;
         Lampa.Background.change();
-            //info = Lampa.Template.get('info');style="height:5em"
-            //<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>
-            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div></div>");
-			Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
-			var btn = Lampa.Template.get('button_category');
-            info = Lampa.Template.get('info_web');
-            info.find('#web_filtr').append(btn);
-            info.find('.view--category').on('hover:enter hover:click', function () {
-				_this2.selectGroup();
-			});
-            info.find('.open--find').on('hover:enter hover:click', function () {
-                Lampa.Input.edit({
-                    title: '喜马拉雅FM - 搜索',
-                    value: '',
-                    free: true,
-                    nosave: true
-                }, function (new_value) {
-                    if (new_value) {
-                        //console.log(new_value)
-                        var searchurl = 'https://webbff.qingting.fm/www';
-                        Lampa.Activity.push({
-                            //	url: cors + a.url,
-                            url: searchurl,
-                            title: '喜马拉雅FM - 搜索"'+new_value+'"',
-                            component: 'ximalaya',
-                            keyword: new_value,
-                            page: 1
-                        });
-                    }
-                    else Lampa.Controller.toggle('content');
-                }) 
-			});
-            this.selectGroup = function () {
-                Lampa.Select.show({
-                    title: '喜马拉雅FM',
-                    items: catalogs,
-                    onSelect: function onSelect(a) {
-                        Lampa.Activity.push({
-                            url: a.url,
-                            title: '喜马拉雅FM - ' + a.title,
-                            cid: a.cid,
-                            component: 'ximalaya',
-                            page: 1
-                        });
-                    },
-                    onBack: function onBack() {
-                        Lampa.Controller.toggle('content');
-                    }
-                });
-            };
+        var favoritebutton = '<div class=\"full-start__button selector open--favorite\"><svg fill=\"Currentcolor\" width=\"24px\" height=\"24px\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 24 24\"><path d=\"M0.66 0.303c0.003 -0.015 -0.009 -0.033 -0.024 -0.033l-0.171 -0.024L0.387 0.09c-0.003 -0.006 -0.006 -0.009 -0.012 -0.012 -0.015 -0.009 -0.033 -0.003 -0.042 0.012L0.258 0.246 0.087 0.27c-0.009 0 -0.015 0.003 -0.018 0.009 -0.012 0.012 -0.012 0.03 0 0.042l0.123 0.12 -0.03 0.171c0 0.006 0 0.012 0.003 0.018 0.009 0.015 0.027 0.021 0.042 0.012l0.153 -0.081 0.153 0.081c0.003 0.003 0.009 0.003 0.015 0.003h0.006c0.015 -0.003 0.027 -0.018 0.024 -0.036l-0.03 -0.171 0.123 -0.12c0.006 -0.003 0.009 -0.009 0.009 -0.015z\"/></svg>   <span>收藏</span>\n    </div>';
+        //info = Lampa.Template.get('info');style="height:5em"
+        //<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div>
+        Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>"+favoritebutton+"</div>");
+        Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
+        var btn = Lampa.Template.get('button_category');
+        info = Lampa.Template.get('info_web');
+        info.find('#web_filtr').append(btn);
+        info.find('.view--category').on('hover:enter hover:click', function () {
+          _this2.selectGroup();
+        });
+        info.find('.open--favorite').on('hover:enter hover:click', function () {
+          Lampa.Activity.push(activity);
+        });
+        info.find('.open--find').on('hover:enter hover:click', function () {
+          Lampa.Input.edit({
+            title: '喜马拉雅FM - 搜索',
+            value: '',
+            free: true,
+            nosave: true
+          }, function (new_value) {
+            if (new_value) {
+              //console.log(new_value)
+              var searchurl = 'https://webbff.qingting.fm/www';
+              Lampa.Activity.push({
+                //	url: cors + a.url,
+                url: searchurl,
+                title: '喜马拉雅FM - 搜索"' + new_value + '"',
+                component: 'ximalaya',
+                keyword: new_value,
+                page: 1
+              });
+            }
+            else Lampa.Controller.toggle('content');
+          })
+        });
+        this.selectGroup = function () {
+          Lampa.Select.show({
+            title: '喜马拉雅FM',
+            items: catalogs,
+            onSelect: function onSelect(a) {
+              Lampa.Activity.push({
+                url: a.url,
+                title: '喜马拉雅FM - ' + a.title,
+                cid: a.cid,
+                component: 'ximalaya',
+                page: 1
+              });
+            },
+            onBack: function onBack() {
+              Lampa.Controller.toggle('content');
+            }
+          });
+        };
         //info.find('.info__rate,.info__right').remove();
         scroll.render().addClass('layer--wheight').data('mheight', info);
         var new_data;
-        if (object.keyword){
-            new_data = data.data.radios;
+        if (object.keyword) {
+          new_data = data.data.radios;
         } else {
-            new_data = data.data.radios;
+          new_data = data.data.radios;
         };
         if (new_data.length) {
-            html.append(info);
-            html.append(scroll.render());
-            scroll.onEnd = function () {
-              _this2.next();
-            };
-            this.append(new_data);
-            scroll.append(body);
-            this.activity.loader(false);
-            this.activity.toggle();
+          html.append(info);
+          html.append(scroll.render());
+          scroll.onEnd = function () {
+            _this2.next();
+          };
+          this.append(new_data);
+          scroll.append(body);
+          this.activity.loader(false);
+          this.activity.toggle();
         } else {
-            html.append(scroll.render());
-            _this2.empty();
+          html.append(scroll.render());
+          _this2.empty();
         }
       };
 
@@ -315,95 +382,129 @@
      };
 
 
-      this.start = function () {
-          var _this = this;
-          Lampa.Controller.add('content', {
-              toggle: function toggle() {
-                  Lampa.Controller.collectionSet(scroll.render());
-                  Lampa.Controller.collectionFocus(last || false, scroll.render());
-              },
-              left: function left() {
-                  if (Navigator.canmove('left')) Navigator.move('left');
-                  else Lampa.Controller.toggle('menu');
-              },
-              right: function right() {
-                  // Navigator.move('right');
-                  if (Navigator.canmove('right')) Navigator.move('right');
-                  else _this.selectGroup();
-              },
-              up: function up() {
-                  // if (Navigator.canmove('up')) Navigator.move('up');
-                  // else Lampa.Controller.toggle('head');
-                  if (Navigator.canmove('up')) {
-                      Navigator.move('up');
-                  } else {
-                      if (!info.find('.view--category').hasClass('focus')) {
-                          if (!info.find('.view--category').hasClass('focus')) {
-                              Lampa.Controller.collectionSet(info);
-                              Navigator.move('right')
-                          }
-                      } else Lampa.Controller.toggle('head');
-                  }
-              },
-              down: function down() {
-                  // if (Navigator.canmove('down')) Navigator.move('down');
-                  if (Navigator.canmove('down')) Navigator.move('down');
-                  else if (info.find('.view--category').hasClass('focus')) {
-                      Lampa.Controller.toggle('content');
-                  }
-              },
-              back: function back() {
-                  Lampa.Activity.backward();
-              }
-          });
-        Lampa.Controller.toggle('content');
-      };
+      // this.start = function () {
+      //     var _this = this;
+      //     Lampa.Controller.add('content', {
+      //         toggle: function toggle() {
+      //             Lampa.Controller.collectionSet(scroll.render());
+      //             Lampa.Controller.collectionFocus(last || false, scroll.render());
+      //         },
+      //         left: function left() {
+      //             if (Navigator.canmove('left')) Navigator.move('left');
+      //             else Lampa.Controller.toggle('menu');
+      //         },
+      //         right: function right() {
+      //             // Navigator.move('right');
+      //             if (Navigator.canmove('right')) Navigator.move('right');
+      //             else _this.selectGroup();
+      //         },
+      //         up: function up() {
+      //             // if (Navigator.canmove('up')) Navigator.move('up');
+      //             // else Lampa.Controller.toggle('head');
+      //             if (Navigator.canmove('up')) {
+      //                 Navigator.move('up');
+      //             } else {
+      //                 if (!info.find('.view--category').hasClass('focus')) {
+      //                     if (!info.find('.view--category').hasClass('focus')) {
+      //                         Lampa.Controller.collectionSet(info);
+      //                         Navigator.move('right')
+      //                     }
+      //                 } else Lampa.Controller.toggle('head');
+      //             }
+      //         },
+      //         down: function down() {
+      //             // if (Navigator.canmove('down')) Navigator.move('down');
+      //             if (Navigator.canmove('down')) Navigator.move('down');
+      //             else if (info.find('.view--category').hasClass('focus')) {
+      //                 Lampa.Controller.toggle('content');
+      //             }
+      //         },
+      //         back: function back() {
+      //             Lampa.Activity.backward();
+      //         }
+      //     });
+      //   Lampa.Controller.toggle('content');
+      // };
       
       this.start = function () {
-            var _this = this;
-            Lampa.Controller.add('content', {
-                toggle: function toggle() {
-                    Lampa.Controller.collectionSet(scroll.render());
-                    Lampa.Controller.collectionFocus(last || false, scroll.render());
-                },
-                left: function left() {
-                    if (Navigator.canmove('left')) Navigator.move('left');
-                    else Lampa.Controller.toggle('menu');
-                },
-                right: function right() {
-                    // Navigator.move('right');
-                    if (Navigator.canmove('right')) Navigator.move('right');
-                    else _this.selectGroup();
-                },
-                up: function up() {
-                    // if (Navigator.canmove('up')) Navigator.move('up');
-                    // else Lampa.Controller.toggle('head');
-                    if (Navigator.canmove('up')) {
-                        Navigator.move('up');
-                    } else {
-                        if (info) {
-                            if (!info.find('.view--category').hasClass('focus')) {
-                                Lampa.Controller.collectionSet(info);
-                                Navigator.move('right')
-                            } else Lampa.Controller.toggle('head');
-                        } else Lampa.Controller.toggle('head');
-                    }
-                },
-                down: function down() {
-                    // if (Navigator.canmove('down')) Navigator.move('down');
-                    if (Navigator.canmove('down')) Navigator.move('down');
-                    else if (info) {
-                        if (info.find('.view--category').hasClass('focus')) {
-                            Lampa.Controller.toggle('content');
-                        }
-                    }
-                },
-                back: function back() {
-                    Lampa.Activity.backward();
-                }
-            });
-            Lampa.Controller.toggle('content');
-        };
+        if (Lampa.Activity.active().activity !== this.activity) return;
+        var _this = this;
+        Lampa.Controller.add('content', {
+          toggle: function toggle() {
+            Lampa.Controller.collectionSet(scroll.render());
+            Lampa.Controller.collectionFocus(last || false, scroll.render());
+          },
+          left: function left() {
+            if (Navigator.canmove('left')) Navigator.move('left');
+            else Lampa.Controller.toggle('menu');
+          },
+          right: function right() {
+            // Navigator.move('right');
+            if (Navigator.canmove('right')) Navigator.move('right');
+            else _this.selectGroup();
+          },
+          up: function up() {
+            // if (Navigator.canmove('up')) Navigator.move('up');
+            // else Lampa.Controller.toggle('head');
+            if (Navigator.canmove('up')) {
+              Navigator.move('up');
+            } else {
+              if (info) {
+                if (!info.find('.view--category').hasClass('focus')) {
+                  Lampa.Controller.collectionSet(info);
+                  Navigator.move('right')
+                } else Lampa.Controller.toggle('head');
+              } else Lampa.Controller.toggle('head');
+            }
+          },
+          down: function down() {
+            // if (Navigator.canmove('down')) Navigator.move('down');
+            if (Navigator.canmove('down')) Navigator.move('down');
+            else if (info) {
+              if (info.find('.view--category').hasClass('focus')) {
+                Lampa.Controller.toggle('content');
+              }
+            }
+          },
+          back: function back() {
+            Lampa.Activity.backward();
+          }
+        });
+        Lampa.Controller.toggle('content');
+      };
+
+      var FAVORITE_RADIOS_KEY = 'favorite_xmlyradio';
+
+      function getFavoriteRadios() {
+        return JSON.parse(localStorage.getItem(FAVORITE_RADIOS_KEY)) || [];
+      }
+
+      function saveFavoriteRadio(el) {
+        var favoriteRadios = getFavoriteRadios();
+        favoriteRadios.push(el);
+        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+      }
+
+      function removeFavoriteRadio(index) {
+        var favoriteRadios = getFavoriteRadios();
+        favoriteRadios.splice(index, 1);
+        localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+      }
+
+      function removeFavorite(el) {
+        // var favoriteRadios = getFavoriteRadios();
+        // favoriteRadios.splice(index, 1);
+        // localStorage.setItem(FAVORITE_RADIOS_KEY, JSON.stringify(favoriteRadios));
+        var updatedHistory = getFavoriteRadios().filter(function (obj) { return obj.name !== el.name });
+        Lampa.Storage.set(FAVORITE_RADIOS_KEY, updatedHistory);
+      }
+
+      function isFavorite(el) {
+        var favoriteRadios = getFavoriteRadios();
+        return favoriteRadios.some(function (a) {
+          return a.name === el;
+        });
+      }
 
       this.pause = function () {};
 
