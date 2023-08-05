@@ -837,6 +837,7 @@
         };
 
         this.start = function () {
+            if (Lampa.Activity.active().activity !== this.activity) return;
             var _this = this;
             Lampa.Controller.add('content', {
                 toggle: function toggle() {
