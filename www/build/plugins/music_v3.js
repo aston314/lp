@@ -340,6 +340,8 @@
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text(new Date(element.publishTime).getFullYear());
                 };
+                var favIcon = $('<div class="card__icon icon--book hide"></div>');
+                card.find('.card__icons-inner').append(favIcon);
 
                 card.on('hover:focus', function () {
                     last = card[0];
@@ -357,46 +359,128 @@
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list' || object.type == 'playlist_detail') {
+                if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'playlist' || object.type == 'albums') {
                     card.on('hover:long', function () {
-                        // console.log(element.al.name)
                         //contextmenu();
                         var archiveMenu = [];
-                        archiveMenu.push({
-                            title: '查看' + (object.code == '1' ? element.artists[0].name : element.ar[0].name) + '所有专辑',
-                            url: 'http://music.163.com/api/artist/albums/' + (object.code == '1' ? element.artists[0].id : element.ar[0].id) + '?id=' + (object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                            id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
-                            type: 'albums',
-                            albumname: '',
-                            connectype: 'native'
-                        });
-                        archiveMenu.push({
-                            title: '查看所属专辑歌曲',
-                            // https://ncm.icodeq.com
-                            url: apiurl + '/album?id=' + (object.code == '1' ? element.album.id : element.al.id),
-                            id: '',
-                            type: 'album',
-                            connectype: '',
-                            albumname: (object.code == '1' ? element.album.name : element.al.name)
-                        });
+                        var favtext;
+                        var isRadioFavorite;
+                        if (object.type == 'list' || object.type == 'playlist_detail') {
+                            favtext = '收藏该歌曲';
+                            isRadioFavorite = isFavorite('songs', element.name);
+                            if (isRadioFavorite) {
+                                favtext = '取消收藏'
+                            };
+                            archiveMenu.push({
+                                title: favtext,
+                                // https://ncm.icodeq.com
+                                url: '',
+                                id: '',
+                                type: 'album',
+                                favtype: 'songs',
+                                connectype: '',
+                            });
+                            archiveMenu.push({
+                                title: '查看 ' + (object.code == '1' ? element.artists[0].name : element.ar[0].name) + ' 所有专辑',
+                                url: 'http://music.163.com/api/artist/albums/' + (object.code == '1' ? element.artists[0].id : element.ar[0].id) + '?id=' + (object.code == '1' ? element.artists[0].id : element.ar[0].id),
+                                id: (object.code == '1' ? element.artists[0].id : element.ar[0].id),
+                                type: 'albums',
+                                albumname: '',
+                                connectype: 'native'
+                            });
+                            archiveMenu.push({
+                                title: '查看所属专辑歌曲',
+                                // https://ncm.icodeq.com
+                                url: apiurl + '/album?id=' + (object.code == '1' ? element.album.id : element.al.id),
+                                id: '',
+                                type: 'album',
+                                connectype: '',
+                                albumname: (object.code == '1' ? element.album.name : element.al.name)
+                            });
+                        } else if (object.type == 'playlist') {
+                            favtext = '收藏该歌单';
+                            isRadioFavorite = isFavorite('playlists', element.name);
+                            if (isRadioFavorite) {
+                                favtext = '取消收藏'
+                            };
+                            archiveMenu.push({
+                                title: favtext,
+                                // https://ncm.icodeq.com
+                                url: '',
+                                id: '',
+                                type: 'playlist',
+                                favtype: 'playlists',
+                                connectype: '',
+                            });
+                        } else if (object.type == 'albums') {
+                            favtext = '收藏该专辑';
+                            isRadioFavorite = isFavorite('albums', element.name);
+                            if (isRadioFavorite) {
+                                favtext = '取消收藏'
+                            };
+                            archiveMenu.push({
+                                title: favtext,
+                                // https://ncm.icodeq.com
+                                url: '',
+                                id: '',
+                                type: 'albums',
+                                favtype: 'albums',
+                                connectype: '',
+                            });
+                        }
+                        
                         Lampa.Select.show({
                             title: '操作',
                             items: archiveMenu,
                             onSelect: function (sel) {
+                                
+                                if (sel.favtype == 'songs') {
+                                    var isRadioFavorite = isFavorite('songs',element.name);
+                                    if (isRadioFavorite) {
+                                        removeFavoritePlaylist('songs', element.name)
+                                        favtext = '取消收藏成功。'
+                                        favIcon.toggleClass('hide', true);
+                                    } else {
+                                        saveFavoritePlaylist('songs', element);
+                                        favIcon.toggleClass('hide', false);
+                                    }
+                                } else if (sel.favtype == 'albums') {
+                                    var isRadioFavorite = isFavorite('albums',element.name);
+                                    if (isRadioFavorite) {
+                                        removeFavoritePlaylist('albums', element.name)
+                                        favtext = '取消收藏成功。'
+                                        favIcon.toggleClass('hide', true);
+                                    } else {
+                                        saveFavoritePlaylist('albums', element);
+                                        favIcon.toggleClass('hide', false);
+                                    }
+                                } else if (sel.favtype == 'playlists') {
+                                    var isRadioFavorite = isFavorite('playlists',element.name);
+                                    if (isRadioFavorite) {
+                                        removeFavoritePlaylist('playlists', element.name)
+                                        favtext = '取消收藏成功。'
+                                        favIcon.toggleClass('hide', true);
+                                    } else {
+                                        saveFavoritePlaylist('playlists', element);
+                                        favIcon.toggleClass('hide', false);
+                                    }
+                                } else {
+                                    Lampa.Activity.push({
+                                        url: sel.url,
+                                        title: '音乐 - ' + sel.title,
+                                        component: 'music',
+                                        type: sel.type,
+                                        albumname: sel.albumname,
+                                        connectype: sel.connectype,
+                                        page: 1
+                                    });
+                                }
                                 // var video = {
                                 //     title: sel.title,
                                 //     url: sel.url,
                                 // }
                                 // Lampa.Controller.toggle('content');
-                                Lampa.Activity.push({
-                                    url: sel.url,
-                                    title: '音乐 - ' + sel.title,
-                                    component: 'music',
-                                    type: sel.type,
-                                    albumname: sel.albumname,
-                                    connectype: sel.connectype,
-                                    page: 1
-                                });
+                                
                             },
                             onBack: function () {
                                 Lampa.Controller.toggle('content');
@@ -644,13 +728,116 @@
             // $('body').append(Lampa.Template.get('_style', {}, true));
             //info = Lampa.Template.get('info');style="height:5em"
             // <div class="info__lyric" style="position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); width: 800px; height: 80px; background-color: rgba(0, 0, 0, 0.8); color: rgb(243, 217, 0); text-align: center; border-radius: 1em; display: flex; justify-content: center; align-items: center; z-index: 9999; font-size: 3em; font-size: 1.8em; line-height: 1.3; white-space: nowrap; overflow: hidden;"></div>
-            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            <div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
+            var favoritebutton = '<div class=\"full-start__button selector open--favorite\"><svg fill=\"Currentcolor\" width=\"24px\" height=\"24px\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 24 24\"><path d=\"M0.66 0.303c0.003 -0.015 -0.009 -0.033 -0.024 -0.033l-0.171 -0.024L0.387 0.09c-0.003 -0.006 -0.006 -0.009 -0.012 -0.012 -0.015 -0.009 -0.033 -0.003 -0.042 0.012L0.258 0.246 0.087 0.27c-0.009 0 -0.015 0.003 -0.018 0.009 -0.012 0.012 -0.012 0.03 0 0.042l0.123 0.12 -0.03 0.171c0 0.006 0 0.012 0.003 0.018 0.009 0.015 0.027 0.021 0.042 0.012l0.153 -0.081 0.153 0.081c0.003 0.003 0.009 0.003 0.015 0.003h0.006c0.015 -0.003 0.027 -0.018 0.024 -0.036l-0.03 -0.171 0.123 -0.12c0.006 -0.003 0.009 -0.009 0.009 -0.015z\"/></svg>   <span>收藏</span>\n    </div>';
+            Lampa.Template.add('button_category', "<style>.freetv_n.category-full{padding-bottom:8em} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 800px) {.freetv_n .card--collection {width: 24.6%!important;}}@media screen and (max-width: 500px) {.freetv_n .card--collection {width: 33.3%!important;}}</style><div class=\"full-start__buttons\"><div class=\"full-start__button selector view--category\"><svg style=\"enable-background:new 0 0 512 512;\" version=\"1.1\" viewBox=\"0 0 24 24\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"info\"/><g id=\"icons\"><g id=\"menu\"><path d=\"M20,10H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2C22,10.9,21.1,10,20,10z\" fill=\"currentColor\"/><path d=\"M4,8h12c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6C2,7.1,2.9,8,4,8z\" fill=\"currentColor\"/><path d=\"M16,16H4c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2C18,16.9,17.1,16,16,16z\" fill=\"currentColor\"/></g></g></svg>   <span>分类</span>\n    </div>  <div class=\"full-start__button selector open--play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 0.72 0.72\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M.556.27.266.104a.103.103 0 0 0-.154.09v.334A.103.103 0 0 0 .215.63.103.103 0 0 0 .266.616L.556.45a.103.103 0 0 0 0-.178Zm-.03.126-.29.169a.043.043 0 0 1-.043 0A.043.043 0 0 1 .172.528V.193A.043.043 0 0 1 .193.156.045.045 0 0 1 .215.15a.046.046 0 0 1 .021.006l.29.167a.043.043 0 0 1 0 .074Z\" fill=\"currentColor\"></path></svg>   <span>播放全部</span>\n    </div>            "+favoritebutton+"<div class=\"full-start__button selector open--find\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.5122 4.43902C7.60446 4.43902 4.43902 7.60283 4.43902 11.5026C4.43902 15.4024 7.60446 18.5662 11.5122 18.5662C13.4618 18.5662 15.225 17.7801 16.5055 16.5055C17.7918 15.2251 18.5854 13.4574 18.5854 11.5026C18.5854 7.60283 15.4199 4.43902 11.5122 4.43902ZM2 11.5026C2 6.25314 6.26008 2 11.5122 2C16.7643 2 21.0244 6.25314 21.0244 11.5026C21.0244 13.6919 20.2822 15.7095 19.0374 17.3157L21.6423 19.9177C22.1188 20.3936 22.1193 21.1658 21.6433 21.6423C21.1673 22.1188 20.3952 22.1193 19.9187 21.6433L17.3094 19.037C15.7048 20.2706 13.6935 21.0052 11.5122 21.0052C6.26008 21.0052 2 16.7521 2 11.5026Z\" fill=\"currentColor\"/> </svg></div></div>");
             Lampa.Template.add('info_web', '<div class="info layer--width"><div class="info__rate"><span></span></div><div class="info__left"><div class="info__title"></div><div class="info__title-original"></div><div class="info__create"></div></div><div class="info__right">  <div id="web_filtr"></div></div></div>');
             var btn = Lampa.Template.get('button_category');
             info = Lampa.Template.get('info_web');
             info.find('#web_filtr').append(btn);
             info.find('.view--category').on('hover:enter hover:click', function () {
                 _this2.selectGroup();
+            });
+            info.find('.open--favorite').on('hover:enter hover:click', function () {
+                // Lampa.Keypad.listener.follow('keydown', function (event) {
+                //     var code = event.code;
+                //     if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
+                //         $(".simple-keyboard-input").blur();
+
+                //         // sources = null;
+                //         // playlistData = null;
+
+                //     } 
+                //     // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
+                //     //     // $(".simple-keyboard-input").focus();
+                //     // }
+                // });
+                // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
+                var searchcat = [{
+                    title: '歌曲',
+                    value: 1
+                }, {
+                    title: '专辑',
+                    value: 10
+                }, {
+                    title: '歌单',
+                    value: 1000
+                },];
+
+                var num = 3;
+
+                var html_ = $('<div></div>');
+                var navigation = $('<div class="navigation-tabs"></div>');
+
+                searchcat.forEach(function (tab, i) {
+                    var button = $('<div class="navigation-tabs__button selector">' + tab.title + '</div>');
+                    button.on('hover:enter', function () {
+                        var listype, titlename;
+                        if (tab.value === 1) {
+                            // codetype = '';
+                            titlename = '单曲';
+                            listype = 'songs';
+                        } else if (tab.value === 10) {
+                            // codetype = '2';
+                            titlename = '专辑';
+                            listype = 'albums';
+                        } else if (tab.value === 1000) {
+                            // codetype = '2';
+                            titlename = '歌单';
+                            listype = 'playlists';
+                        }
+
+                        // Lampa.Input.edit({
+                        //     title: '音乐 - 搜索' + titlename,
+                        //     value: '',
+                        //     free: true,
+                        //     nosave: true
+                        // }, function (new_value) {
+                        //     if (new_value) {
+                        //         // console.log(new_value)
+                        //         var search_tempalte = 'https://music.163.com/api/cloudsearch/pc?s=#msearchword&type=#searchtype';
+                        //         var searchurl = search_tempalte.replace('#msearchword', encodeURIComponent(new_value)).replace('#searchtype', encodeURIComponent(tab.value));
+                        //         Lampa.Activity.push({
+                        //             url: searchurl,
+                        //             title: '音乐 - 搜索' + titlename + '"' + new_value + '"',
+                        //             waitload: false,
+                        //             component: 'music',
+                        //             type: listype,
+                        //             connectype: 'native',
+                        //             code: '',
+                        //             page: 1
+                        //         });
+                        //     }
+                        //     else Lampa.Controller.toggle('content');
+                        // });
+
+                        Lampa.Modal.close();
+                    });
+
+                    if (i > 0 && i % num != 0) navigation.append('<div class="navigation-tabs__split">|</div>');
+                    if (i % num == 0) { // 当 i 是 num 的倍数时，将当前行容器加入到总容器，并新建一个行容器
+                        if (i > 0) html_.append(navigation);
+                        navigation = $('<div class="navigation-tabs"></div>');
+                    }
+                    navigation.append(button);
+                });
+
+                html_.append(navigation);
+                // console.log(navigation)
+
+                Lampa.Modal.open({
+                    title: '我的收藏',
+                    html: html_,
+                    size: 'small',
+                    // align: 'center',
+                    // select: html.find('.navigation-tabs .active')[0],
+                    mask: true,
+                    onBack: function onBack() {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        Lampa.Controller.toggle('content')
+                    }
+                });
+                searchcat = null;
             });
             info.find('.open--find').on('hover:enter hover:click', function () {
                 // Lampa.Keypad.listener.follow('keydown', function (event) {
@@ -905,6 +1092,39 @@
             }
             return '';
         };
+
+        var FAVORITE_PLAYLISTS_KEY = 'favorite_Playlists';
+
+        function getFavoritePlaylists() {
+            var storedPlaylists = localStorage.getItem(FAVORITE_PLAYLISTS_KEY);
+            return storedPlaylists ? JSON.parse(storedPlaylists) : { songs: [], artists: [], albums: [], playlists: [] };
+        }
+
+        function saveFavoritePlaylist(type, value) {
+            var favoritePlaylists = getFavoritePlaylists();
+            favoritePlaylists[type].push(value);
+            localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
+        }
+
+        function removeFavoritePlaylist(type, name) {
+            var favoritePlaylists = getFavoritePlaylists();
+            var index = favoritePlaylists[type].findIndex(function (item) {
+                return item.name === name;
+            });
+            if (index !== -1) {
+                favoritePlaylists[type].splice(index, 1);
+                localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
+            }
+        }
+
+        function isFavorite(type, value) {
+            var favoritePlaylists = getFavoritePlaylists();
+
+            console.log(type,value,favoritePlaylists,favoritePlaylists[type])
+            return favoritePlaylists[type].some(function (item) {
+                return item.name === value;
+            });
+        }
 
         this.start = function () {
             var _this = this;
