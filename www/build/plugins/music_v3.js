@@ -1111,13 +1111,17 @@
 
         function removeFavoritePlaylist(type, name) {
             var favoritePlaylists = getFavoritePlaylists();
-            var index = favoritePlaylists[type].findIndex(function (item) {
-                return item.name === name;
+            favoritePlaylists[type] = favoritePlaylists[type].filter(function (obj) {
+                return obj.name !== name;
             });
-            if (index !== -1) {
-                favoritePlaylists[type].splice(index, 1);
-                localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
-            }
+            Lampa.Storage.set(FAVORITE_PLAYLISTS_KEY, favoritePlaylists);
+            // var index = favoritePlaylists[type].findIndex(function (item) {
+            //     return item.name === name;
+            // });
+            // if (index !== -1) {
+            //     favoritePlaylists[type].splice(index, 1);
+            //     localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
+            // }
         }
 
         function isFavorite(type, value) {
