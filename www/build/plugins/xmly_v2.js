@@ -56,8 +56,8 @@
         this.activity.loader(true);
         if (object.type == 'fav') {
           var data = _this.cardfavor(getFavoriteRadios());
-          // _this.build(data);
-          _this.append(data,true);
+          _this.build(data);
+          // _this.append(data, true);
           _this.activity.loader(false);
 
           _this.activity.toggle();
@@ -361,6 +361,8 @@
         var new_data;
         if (object.keyword) {
           new_data = data.data.radios;
+        } else if (object.type == 'fav'){
+          new_data = data;
         } else {
           new_data = data.data.radios;
         };
