@@ -688,13 +688,23 @@
             title: '喜马拉雅FM',
             items: catalogs,
             onSelect: function onSelect(a) {
-              Lampa.Activity.push({
-                url: a.url,
-                title: '喜马拉雅FM - ' + a.title,
-                cid: a.cid,
-                component: 'ximalaya',
-                page: 1
-              });
+              if (a.type == 'fav') {
+                Lampa.Activity.push({
+                  url: '',
+                  title: '电台 - 收藏夹',
+                  component: 'ximalaya',
+                  type: 'fav',
+                  page: 1
+                });
+              } else {
+                Lampa.Activity.push({
+                  url: a.url,
+                  title: '喜马拉雅FM - ' + a.title,
+                  cid: a.cid,
+                  component: 'ximalaya',
+                  page: 1
+                });
+              }
             },
             onBack: function onBack() {
               Lampa.Controller.toggle('menu');
