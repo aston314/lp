@@ -282,15 +282,18 @@
         });
       };
 
-      this.cardfavor = function (json) {
-        var page = 'undefined';
-        var total_pages = 1;
+      // this.cardfavor = function (json) {
+      //   var page = 'undefined';
+      //   var total_pages = 1;
 
-        return {
-          card: json.reverse(),
-          page: page,
-          total_pages: total_pages
-        };
+      //   return {
+      //     card: json.reverse(),
+      //     page: page,
+      //     total_pages: total_pages
+      //   };
+      // };
+      this.cardfavor = function (json) {
+        return json.reverse();
       };
 
       this.build = function (data) {
