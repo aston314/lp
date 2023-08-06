@@ -314,7 +314,7 @@
 
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: (object.type == 'list' || object.type == 'songs_fav' || object.type == 'playlist_detail') ? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album' ? object.albumname : '')
+                    release_year: (object.type == 'list' || object.type == 'songs_fav' || object.type == 'playlist_detail') ? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album' ? element.ar[0].name + ' - ' +element.al.name  : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
