@@ -83,7 +83,7 @@
             var _this = this;
 
             this.activity.loader(true);
-            var urlpara;
+            
             musiclist = [];
             // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
             // var isLampaTV = current_version.startsWith("7.");
@@ -105,6 +105,14 @@
             //         dataType: 'json'
             //     });
             // } else {
+            if (object.type.includes('_fav')) {
+                var data = _this.cardfavor(getFavoritePlaylists()[object.type.replace('_fav','')]);
+                _this.build(data);
+                // _this.append(data, true);
+                _this.activity.loader(false);
+                _this.activity.toggle();
+            } else {
+                var urlpara;
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
 
@@ -119,6 +127,7 @@
                 }, false, false, {
                     dataType: 'json'
                 });
+            }
             // }
 
             return this.render();
@@ -282,12 +291,21 @@
                         listdata = data.playlist.tracks;
                     }
                     break;
+                case 'songs_fav':
+                    listdata = data;
+                    break;
+                case 'albums_fav':
+                    listdata = data;
+                    break;
+                case 'playlists_fav':
+                    listdata = data;
+                    break;
                 default:
                     listdata = data.result ? data.result.songs : [];
             }
 
             listdata.forEach(function (element, i) {
-                if (object.type == 'list' || object.type == 'album' || object.type == 'playlist_detail') {
+                if (object.type == 'list' || object.type == 'songs_fav' || object.type == 'album' || object.type == 'playlist_detail') {
                     musiclist.push([element.name, element.id, element.fee, (object.code == '1' ? element.artists[0].name : element.ar[0].name), element.copyright])
                 }
 
@@ -296,7 +314,7 @@
 
                 var card = Lampa.Template.get('card', {
                     title: element.name,
-                    release_year: (object.type == 'list' || object.type == 'playlist_detail') ? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album' ? object.albumname : '')
+                    release_year: (object.type == 'list' || object.type == 'songs_fav' || object.type == 'playlist_detail') ? (object.code == '1' ? element.artists[0].name + ' - ' + element.album.name : element.ar[0].name + ' - ' + element.al.name) : (object.type == 'album' ? object.albumname : '')
                 });
                 // card.addClass('card--category');
                 card.addClass('card--collection');
@@ -316,7 +334,17 @@
                             card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                         }
                         break;
+                    case 'songs_fav':
+                        if (object.code == '1') {
+                            card.find('.card__img').attr('src', element.album.picUrl + "?param=200y200g");
+                        } else {
+                            card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
+                        }
+                        break;
                     case 'albums':
+                        card.find('.card__img').attr('src', element.picUrl + "?param=200y200g");
+                        break;
+                    case 'albums_fav':
                         card.find('.card__img').attr('src', element.picUrl + "?param=200y200g");
                         break;
                     case 'album':
@@ -325,10 +353,13 @@
                     case 'playlist':
                         card.find('.card__img').attr('src', element.coverImgUrl + "?param=200y200g");
                         break;
+                    case 'playlists_fav':
+                        card.find('.card__img').attr('src', element.coverImgUrl + "?param=200y200g");
+                        break;
                     default:
                         card.find('.card__img').attr('src', element.cover || element.img || element.pic || element.al.picUrl + "?param=200y200g" || element.blurPicUrl + "?param=200y200g");
                 }
-                if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'album') {
+                if (object.type == 'list' || object.type == 'songs_fav' || object.type == 'playlist_detail' || object.type == 'album') {
                     if (element.fee !== 1 && element.copyright <= 1) {
                         card.find('.card__view').append('<div class="card__type"></div>');
                         card.find('.card__type').text('免费');
@@ -352,20 +383,20 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (object.type !== 'album') {
+                    if (object.type !== 'album' && object.type.indexOf('_fav') == -1) {
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     }
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list' || object.type == 'playlist_detail' || object.type == 'playlist' || object.type == 'albums') {
+                if (object.type == 'list' || object.type.includes('_fav') || object.type == 'playlist_detail' || object.type == 'playlist' || object.type == 'albums') {
                     card.on('hover:long', function () {
                         //contextmenu();
                         var archiveMenu = [];
                         var favtext;
                         var isRadioFavorite;
-                        if (object.type == 'list' || object.type == 'playlist_detail') {
+                        if (object.type == 'list' || object.type == 'songs_fav' || object.type == 'playlist_detail') {
                             favtext = '收藏该歌曲';
                             isRadioFavorite = isFavorite('songs', element.name);
                             if (isRadioFavorite) {
@@ -397,7 +428,7 @@
                                 connectype: '',
                                 albumname: (object.code == '1' ? element.album.name : element.al.name)
                             });
-                        } else if (object.type == 'playlist') {
+                        } else if (object.type == 'playlist' || object.type == 'playlists_fav') {
                             favtext = '收藏该歌单';
                             isRadioFavorite = isFavorite('playlists', element.name);
                             if (isRadioFavorite) {
@@ -412,7 +443,7 @@
                                 favtype: 'playlists',
                                 connectype: '',
                             });
-                        } else if (object.type == 'albums') {
+                        } else if (object.type == 'albums' || object.type == 'albums_fav') {
                             favtext = '收藏该专辑';
                             isRadioFavorite = isFavorite('albums', element.name);
                             if (isRadioFavorite) {
@@ -444,7 +475,17 @@
                                         saveFavoritePlaylist('songs', element);
                                         favIcon.toggleClass('hide', false);
                                     }
-                                    Lampa.Controller.toggle('content');
+                                    if (object.type == 'songs_fav'){
+                                        Lampa.Activity.replace({
+                                            url: '',
+                                            title: '音乐 - 收藏夹 - 歌曲',
+                                            component: 'music',
+                                            type: object.type,
+                                            page: 1
+                                        });
+                                    } else {
+                                        Lampa.Controller.toggle('content');
+                                    }
                                 } else if (sel.favtype == 'albums') {
                                     var isRadioFavorite = isFavorite('albums',element.name);
                                     if (isRadioFavorite) {
@@ -455,7 +496,17 @@
                                         saveFavoritePlaylist('albums', element);
                                         favIcon.toggleClass('hide', false);
                                     }
-                                    Lampa.Controller.toggle('content');
+                                    if (object.type == 'albums_fav'){
+                                        Lampa.Activity.replace({
+                                            url: '',
+                                            title: '音乐 - 收藏夹 - 专辑',
+                                            component: 'music',
+                                            type: object.type,
+                                            page: 1
+                                        });
+                                    } else {
+                                        Lampa.Controller.toggle('content');
+                                    }
                                 } else if (sel.favtype == 'playlists') {
                                     var isRadioFavorite = isFavorite('playlists',element.name);
                                     if (isRadioFavorite) {
@@ -466,7 +517,17 @@
                                         saveFavoritePlaylist('playlists', element);
                                         favIcon.toggleClass('hide', false);
                                     }
-                                    Lampa.Controller.toggle('content');
+                                    if (object.type == 'playlists_fav'){
+                                        Lampa.Activity.replace({
+                                            url: '',
+                                            title: '音乐 - 收藏夹 - 歌单',
+                                            component: 'music',
+                                            type: object.type,
+                                            page: 1
+                                        });
+                                    } else {
+                                        Lampa.Controller.toggle('content');
+                                    }
                                 } else {
                                     Lampa.Activity.push({
                                         url: sel.url,
@@ -506,7 +567,29 @@
                                 page: 1
                             });
                             break;
+                        case 'albums_fav':
+                            Lampa.Activity.push({
+                                // https://ncm.icodeq.com/
+                                url: apiurl + '/album?id=' + element.id,
+                                title: '音乐 - 查看所属专辑歌曲',
+                                component: 'music',
+                                type: 'album',
+                                albumname: element.name,
+                                page: 1
+                            });
+                            break;
                         case 'playlist':
+                            Lampa.Activity.push({
+                                // https://ncm.icodeq.com/
+                                url: apiurl + '/playlist/track/all?id=' + element.id,
+                                title: '音乐 - 歌单详情',
+                                component: 'music',
+                                type: 'playlist_detail',
+                                albumname: element.name,
+                                page: 1
+                            });
+                            break;
+                        case 'playlists_fav':
                             Lampa.Activity.push({
                                 // https://ncm.icodeq.com/
                                 url: apiurl + '/playlist/track/all?id=' + element.id,
@@ -741,20 +824,6 @@
                 _this2.selectGroup();
             });
             info.find('.open--favorite').on('hover:enter hover:click', function () {
-                // Lampa.Keypad.listener.follow('keydown', function (event) {
-                //     var code = event.code;
-                //     if (((code === 39 || code === 5) && $('.simple-keyboard').length && !$('.modal__content').length && ($(".simple-keyboard-input").val() !==""))) {
-                //         $(".simple-keyboard-input").blur();
-
-                //         // sources = null;
-                //         // playlistData = null;
-
-                //     } 
-                //     // else if ((code === 37 || code === 4) && $('.simple-keyboard').length) {
-                //     //     // $(".simple-keyboard-input").focus();
-                //     // }
-                // });
-                // Lampa.Helper.show('keyboard_search', '输入关键字后，按右方向键选择搜索类型。');
                 var searchcat = [{
                     title: '歌曲',
                     value: 1
@@ -777,17 +846,28 @@
                         var listype, titlename;
                         if (tab.value === 1) {
                             // codetype = '';
-                            titlename = '单曲';
-                            listype = 'songs';
+                            titlename = '歌曲';
+                            listype = 'songs_fav';
                         } else if (tab.value === 10) {
                             // codetype = '2';
                             titlename = '专辑';
-                            listype = 'albums';
+                            listype = 'albums_fav';
                         } else if (tab.value === 1000) {
                             // codetype = '2';
                             titlename = '歌单';
-                            listype = 'playlists';
+                            listype = 'playlists_fav';
                         }
+
+                        Lampa.Activity.push({
+                            url: '',
+                            title: '音乐 - 收藏夹 - ' + titlename,
+                            waitload: false,
+                            component: 'music',
+                            type: listype,
+                            connectype: 'native',
+                            code: '',
+                            page: 1
+                        });
 
                         // Lampa.Input.edit({
                         //     title: '音乐 - 搜索' + titlename,
@@ -1058,12 +1138,29 @@
                     }
 
                     break;
+                case 'songs_fav':
+                    listdata = data;
+                    havedata = data;
+
+                    break;
+                case 'albums_fav':
+                    listdata = data;
+                    havedata = data;
+
+                    break;
+                case 'playlists_fav':
+                    listdata = data;
+                    havedata = data;
+
+                    break;
                 default:
                     listdata = data.result ? data.result.songs : [];
                     havedata = data.result;
+                    // listdata = data;
+                    // havedata = data;
             }
 
-            if (havedata) {
+            if (havedata && havedata.length > 0) {
                 if (listdata.length) {
                     html.append(info);
                     html.append(scroll.render());
@@ -1087,6 +1184,10 @@
             this.start = empty.start;
             this.activity.loader(false);
             this.activity.toggle();
+        };
+
+        this.cardfavor = function (json) {
+            return json.reverse();
         };
 
         function cardImgBackground(card_data) {
