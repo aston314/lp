@@ -105,7 +105,7 @@
             //         dataType: 'json'
             //     });
             // } else {
-            if (object.type.includes('_fav')) {
+            if (object.type.indexOf('_fav') !== -1) {
                 var data = _this.cardfavor(getFavoritePlaylists()[object.type.replace('_fav','')]);
                 _this.build(data);
                 // _this.append(data, true);
@@ -155,7 +155,7 @@
             //var u = new URLSearchParams(postdata).toString();
             //console.log(u);
             var urlpara;
-            if (object.type == 'album' || object.type.includes('_fav')) {
+            if (object.type == 'album' || object.type.indexOf('_fav') !== -1) {
                 urlpara = '';
             } else {
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
@@ -170,7 +170,7 @@
             //         dataType: 'json'
             //     });
             // } else {
-            if (!object.type.includes('_fav')) {
+            if (!object.type.indexOf('_fav') !== -1) {
                 network["native"](object.url + urlpara, function(result) {
                     _this2.donext(result);
                     // Lampa.Controller.enable('content');
@@ -393,7 +393,7 @@
                     // }
                     if (Lampa.Helper) Lampa.Helper.show('music_detail', '长按住 (ОК) 可进行更多操作', card);
                 });
-                if (object.type == 'list' || object.type.includes('_fav') || object.type == 'playlist_detail' || object.type == 'playlist' || object.type == 'albums') {
+                if (object.type == 'list' || object.type.indexOf('_fav') !== -1 || object.type == 'playlist_detail' || object.type == 'playlist' || object.type == 'albums') {
                     card.on('hover:long', function () {
                         //contextmenu();
                         var archiveMenu = [];
