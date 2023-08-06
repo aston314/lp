@@ -1100,14 +1100,14 @@
 
         function getFavoritePlaylists() {
             var storedPlaylists = localStorage.getItem(FAVORITE_PLAYLISTS_KEY);
-            return storedPlaylists ? JSON.parse(storedPlaylists) : { songs: [], artists: [], albums: [], playlists: [] };
-        }
+            return storedPlaylists ? JSON.parse(storedPlaylists) : { historys: [], songs: [], artists: [], albums: [], playlists: [] };
+        };
 
         function saveFavoritePlaylist(type, value) {
             var favoritePlaylists = getFavoritePlaylists();
             favoritePlaylists[type].push(value);
             localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
-        }
+        };
 
         function removeFavoritePlaylist(type, name) {
             var favoritePlaylists = getFavoritePlaylists();
@@ -1122,16 +1122,16 @@
             //     favoritePlaylists[type].splice(index, 1);
             //     localStorage.setItem(FAVORITE_PLAYLISTS_KEY, JSON.stringify(favoritePlaylists));
             // }
-        }
+        };
 
         function isFavorite(type, value) {
             var favoritePlaylists = getFavoritePlaylists();
 
-            console.log(type,value,favoritePlaylists,favoritePlaylists[type])
+            // console.log(type,value,favoritePlaylists,favoritePlaylists[type])
             return favoritePlaylists[type].some(function (item) {
                 return item.name === value;
             });
-        }
+        };
 
         this.start = function () {
             var _this = this;
