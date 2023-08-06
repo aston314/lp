@@ -153,21 +153,21 @@
             }
             // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
             // var isLampaTV = current_version.startsWith("7.");
-            if (!!window.cordova) {
-                network.silent(object.url + urlpara, function (result) {
-                    _this2.donext(result);
-                    // Lampa.Controller.enable('content');
-                }, false, false, {
-                    dataType: 'json'
-                });
-            } else {
+            // if (!!window.cordova) {
+            //     network.silent(object.url + urlpara, function (result) {
+            //         _this2.donext(result);
+            //         // Lampa.Controller.enable('content');
+            //     }, false, false, {
+            //         dataType: 'json'
+            //     });
+            // } else {
                 network["native"](object.url + urlpara, function (result) {
                     _this2.donext(result);
                     // Lampa.Controller.enable('content');
                 }, false, false, {
                     dataType: 'json'
                 });
-            }
+            // }
 
             //}
         };
