@@ -155,7 +155,7 @@
             //var u = new URLSearchParams(postdata).toString();
             //console.log(u);
             var urlpara;
-            if (object.type == 'album') {
+            if (object.type == 'album' || object.type.includes('_fav')) {
                 urlpara = '';
             } else {
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
@@ -170,12 +170,15 @@
             //         dataType: 'json'
             //     });
             // } else {
-                network["native"](object.url + urlpara, function (result) {
+            if (!object.type.includes('_fav')) {
+                network["native"](object.url + urlpara, function(result) {
                     _this2.donext(result);
                     // Lampa.Controller.enable('content');
                 }, false, false, {
                     dataType: 'json'
                 });
+            }
+            
             // }
 
             //}
@@ -383,7 +386,7 @@
                     info.find('.info__rate').toggleClass('hide', !(element.rate > 0));
                     // if (object.type == 'list') {
                     var maxrow = Math.ceil(items.length / 7) - 1;
-                    if (object.type !== 'album' && object.type.indexOf('_fav') == -1) {
+                    if (object.type !== 'album' || object.type.indexOf('_fav') !== -1) {
                         if (Math.ceil(items.indexOf(card) / 7) >= maxrow) _this3.next();
                     }
                     // if (element.cover||element.img||element.al.picUrl) Lampa.Background.change(cardImgBackground(element.cover||element.img||element.al.picUrl));
@@ -1164,9 +1167,9 @@
                 if (listdata.length) {
                     html.append(info);
                     html.append(scroll.render());
-                    scroll.onEnd = function () {
-                        _this2.next();
-                    };
+                    // scroll.onEnd = function () {
+                    //     _this2.next();
+                    // };
                     this.append(data);
                     scroll.append(body);
                     this.activity.loader(false);
