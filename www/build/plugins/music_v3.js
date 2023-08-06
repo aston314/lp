@@ -87,24 +87,24 @@
             musiclist = [];
             // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "0";
             // var isLampaTV = current_version.startsWith("7.");
-            if (!!window.cordova) {
-                if (object.type == 'album') {
-                    urlpara = '';
-                } else {
-                    urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
-                }
-                network.silent(object.url + urlpara, this.build.bind(this), function () {
-                    var empty = new Lampa.Empty();
-                    html.append(empty.render());
-                    _this.start = empty.start;
+            // if (!!window.cordova) {
+            //     if (object.type == 'album') {
+            //         urlpara = '';
+            //     } else {
+            //         urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
+            //     }
+            //     network.silent(object.url + urlpara, this.build.bind(this), function () {
+            //         var empty = new Lampa.Empty();
+            //         html.append(empty.render());
+            //         _this.start = empty.start;
 
-                    _this.activity.loader(false);
+            //         _this.activity.loader(false);
 
-                    _this.activity.toggle();
-                }, false, false, {
-                    dataType: 'json'
-                });
-            } else {
+            //         _this.activity.toggle();
+            //     }, false, false, {
+            //         dataType: 'json'
+            //     });
+            // } else {
                 urlpara = (object.url.indexOf("?") !== -1 ? '&' : '?') + this.getAsUriParameters(postdata);
                 object.code == '1' ? urlpara = '' : urlpara;
 
@@ -119,7 +119,7 @@
                 }, false, false, {
                     dataType: 'json'
                 });
-            }
+            // }
 
             return this.render();
         };
