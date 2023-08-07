@@ -5339,7 +5339,6 @@
         select = [];
 
       for (var i in need) {
-        console.log(i)
         if (filter_items[i] && filter_items[i].length) {
           if (i == 'voice') {
             select.push(filter_translate[i] + ': ' + filter_items[i][need[i]]);
@@ -5694,7 +5693,7 @@
       uk: 'Балансер',
       be: 'Балансер',
       en: 'Balancer',
-      zh: '换源'
+      zh: '视频源'
     },
     online_mod_file_helper: {
       ru: 'Удерживайте клавишу "ОК" для вызова контекстного меню',
