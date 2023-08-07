@@ -683,37 +683,12 @@
     var get_links_wait = false;
     var rslt = [];
     var proxy_url;
-    //var proxy = 'https://proxy.cub.watch/cdn/'
     var proxy = 'https://cors.eu.org/'
-
-
-
-    //var url = 'http://proxy.cub.watch/cdn/https://rentry.co/lampa_rule/raw';
-    //     //var url = 'https://cdn.jsdelivr.net/gh/aston314/lampa@main/online_rule.json';
-    //     //var url = 'https://cors.eu.org/https://rentry.co/lampa_rule/raw';
-    //     var xhr = new XMLHttpRequest();
-    //     xhr.open('GET', url, true);
-    //     xhr.send();
-
-    //     xhr.onload = function() {
-    //     var results_json = xhr.responseText;
-    //     doregjson = $.parseJSON(results_json);
-    // }
-    //doregjson = $.parseJSON(getRemote(url));
-    //doregjson = extract_rule;
 
     /**
      * Поиск
      * @param {Object} _object 
      */
-    function getRemote(remote_url) {
-      return $.ajax({
-        type: "GET",
-        url: remote_url,
-        async: false
-      }).responseText;
-    };
-
     function fuzzyQuery(list, keyWord) {
       var arr = [];
       for (var i = 0; i < list.length; i++) {
@@ -738,10 +713,10 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       get_links_wait = true;
-      var url1 = doreg.search_url.replace('#msearchword', encodeURIComponent(object.movie.title.replace(/第(.+)季/, '')));
+      var url1 = doreg.search_url.replace('#msearchword', encodeURIComponent(select_title.replace(/第(.+)季/, '')));
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
 
       var ifjson = doreg.search_json ? "json" : "text";
@@ -751,7 +726,6 @@
         // var parsedData = doreg.search_json ? str : str;
 
         var parsedData = str;
-
 
         var searchresult = doreg.search_json ? (parsedData.code === 999 ? 0 : (parsedData[doreg.node_json] ? parsedData[doreg.node_json].length : 0)) : $(doreg.search_html_selector, parsedData).find('a').length;
 
@@ -938,204 +912,6 @@
       return $.when.apply($, _arr);
     };
 
-    function getScripts(scripts, callback) {
-      var progress = 0;
-      scripts.forEach(function (script) {
-        $.getScript(script, function () {
-          if (++progress == scripts.length) callback();
-        });
-      });
-    };
-
-    function doparse_(element, view, url1_, url, data) {
-      var element = element;
-      var view = view;
-      var url1_ = url1_;
-      var MacPlayer_ = url;
-      // var str = data;
-      var str = data.replace(/src="\/\//g, 'src="https://');
-
-      //var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-      var re = /<script.*?src="(.*?)"/gm;
-      //re = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
-      var match, aa = [], setting_js = false, setting_link;
-      while (match = re.exec(str)) {
-        var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
-        //cc = match[1].slice(0,1) !== '/' &&  match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0]+'/'+match[1] : match[1];
-
-        if (!/DPlayer|jquery|setting|-player|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff|hls|flv/.test(cc)) {
-          aa.push(cc);
-        }
-        //setting[\s\S]*\.js
-        if (/setting[\s\S]*\.js/.test(cc)) {
-          setting_js = true;
-          setting_link = cc;
-        }
-      };
-      //[^/]+(?=/[^/]+$)
-      //\/([^\/]+)\/[^\/]+$
-      //"([^.]*)\.(.*)"
-      //console.log(setting_link,setting_js)
-      str = str.replace(/<!--[\s\S]*?-->/g, '');
-      // <script[^>]*>([\s\S]*?)<\/script>
-      var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi; //whole thing.
-      // var pattern = /<script.*?>\s*(.*?)\s*<\/script>/gi; //whole thing.
-      //var pattern = /<script type="text\/javascript">([\s\S]*?)<\/script>/gi; //whole thing.
-      var match_, aa_ = [];
-      while (match_ = pattern.exec(str)) {
-        //console.log(match[1]);
-        if (match_[1]) {
-          var cc = match_[1].replace(';!function(n)', '//;!function(n)');
-          aa_.push(cc);
-        }
-      };
-      var joinedaa = aa_.join("\r\n");
-      //console.log(joinedaa)
-      Lampa.Utils.putScriptAsync(aa, function () {
-        window.eval(joinedaa);
-      // });
-      // $.getMultiScripts(aa, '').done(function () {
-      //   try {
-      //     window.eval(joinedaa);
-      //   } catch (e) {
-      //     if (e instanceof SyntaxError) {
-      //       console.log(e.message);
-      //     }
-      //   };
-        //console.log(config.token);
-        if (setting_js) {
-          //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
-          var s_js = getRemote(setting_link);
-
-          var b_js = s_js.match(/\.post|GET|POST/);
-          var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
-          var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
-          c_js = c_js[0].replace(/'|"/g, '');
-          var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
-          var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
-          //console.log(config.url,config.vkey,config.token,d_sj,e_js)
-          $.ajax({
-            url: d_sj,
-            type: f_js,
-            dataType: 'JSON',
-            timeout: 3000,
-            data: {
-              tm: (new Date().getTime()),
-              url: config.url,
-              vkey: config.vkey,
-              token: config.token,
-              sign: e_js
-            },
-            success: function (data) {
-              if (data.code === 200) {
-                //console.log(data)
-                var playlist = [];
-                var first = {
-                  url: getVideoInfo(data.url),
-                  timeline: view,
-                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  subtitles: element.subtitles,
-                  tv: false
-                };
-                Lampa.Player.play(first);
-                playlist.push(first);
-                Lampa.Player.playlist(playlist);
-                savehistory(object);
-              } else {
-                //handlePlayerLoadError();
-                $(".noty").show();
-                Lampa.Noty.show('解析失败，请重试或切换线路~');
-                //console.log('解析失败，请重试或切换线路~');
-              }
-            },
-            error: function () {
-              //handlePlayerLoadError();
-              $(".noty").show();
-              Lampa.Noty.show('解析失败，请重试或切换线路~');
-              //console.log('解析失败，请重试或切换线路~');
-            }
-          });
-        };
-
-        if (typeof urls !== "undefined") {
-          var file = urls;
-          //console.log(file);
-          if (file) {
-            var playlist = [];
-            var first = {
-              url: file,
-              timeline: view,
-              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-              subtitles: element.subtitles,
-              tv: false
-            };
-            Lampa.Player.play(first);
-            playlist.push(first);
-            Lampa.Player.playlist(playlist);
-            savehistory(object);
-          } else {
-            Lampa.Noty.show('无法检索链接');
-          }
-        };
-      });
-    };
-
-
-    // function loadScripts(scripts) {
-    //   return Promise.all(scripts.map(function(url) {
-    //     return new Promise(function(resolve, reject) {
-    //       var script = document.createElement('script');
-    //       script.type = 'text/javascript';
-    //       script.src = url;
-    //       script.onload = resolve;
-    //       script.onerror = reject;
-    //       document.head.appendChild(script);
-    //     });
-    //   }));
-    // }
-
-    function loadScripts(scripts) {
-      if (!Array.isArray(scripts) || scripts.length === 0) {
-        return Promise.resolve();
-      }
-      return Promise.all(scripts.map(function(url) {
-        return new Promise(function(resolve, reject) {
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = url;
-          script.onload = resolve;
-          script.onerror = reject;
-          document.head.appendChild(script);
-        });
-      }));
-    }
-    
-    function executeJSCode(jsCode) {
-      $('body').append($('<script>')
-        .html(jsCode)
-      );
-      // 执行 JavaScript 代码后在这里添加其他操作
-      // if (typeof urls !== "undefined") {
-      //   var file = urls;
-      //   //console.log(file);
-      //   if (file) {
-      //     var playlist = [];
-      //     var first = {
-      //       url: file,
-      //       timeline: view,
-      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-      //       subtitles: element.subtitles
-      //     };
-      //     Lampa.Player.play(first);
-      //     playlist.push(first);
-      //     Lampa.Player.playlist(playlist);
-      //   } else {
-      //     Lampa.Noty.show('无法检索链接');
-      //   }
-      //   urls = undefined;
-      // };
-    }
-
     // 将相对路径转换成绝对路径
     function resolveRelativePath(currentPageUrl, relativePath) {
       // console.log(relativePath)
@@ -1207,57 +983,6 @@
     function resolveUrl(currentPageUrl) {
       var link = $('<a>').prop('href', currentPageUrl);
       return link[0]; // 返回原生的链接元素对象
-    }
-    
-    function resolveRelativePath_(currentPageUrl, relativePath) {
-      // 如果是绝对路径，则直接返回
-      // if (isAbsolutePath) {
-      //   return relativePath;
-      // }
-    
-      var baseUrl = resolveUrl(currentPageUrl);
-      var parts = relativePath.split('/');
-    
-      for (var i = 0; i < parts.length; i++) {
-        var part = parts[i];
-    
-        if (part === '' || part === '.') {
-          // 当前路径或者相对路径不变，不需要处理
-          continue;
-        } else if (part === '..') {
-          // 相对路径上一级目录，需要移除当前路径中的最后一级目录
-          baseUrl.pathname = baseUrl.pathname.split('/').slice(0, -1).join('/');
-        } else {
-          // 当前部分是目录或者文件名，将其添加到路径中
-          baseUrl.pathname += '/' + part;
-        }
-      }
-    
-      return baseUrl.href;
-    }
-    
-    function getAbsolutePath_(currentPageUrl, value) {
-      // 判断属性值是否以相对路径开头
-      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
-        // 将相对路径转换成绝对路径
-        // var absolutePath = resolveRelativePath(currentPageUrl, value);
-        var absolutePath;
-        if (value.startsWith('//')) {
-          absolutePath = value.replace("//", "https://");
-        } else {
-          // 将相对路径转换成绝对路径
-          absolutePath = resolveRelativePath(currentPageUrl, value);
-        }
-        return absolutePath;
-      } else if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-        // 属性值是绝对路径，直接返回
-        return value;
-      } else {
-        // 将属性值拼接到当前页面 URL 的基础路径上
-        var baseUrl = resolveUrl(currentPageUrl);
-        baseUrl.pathname += '/' + value;
-        return baseUrl.href;
-      }
     }
 
     function doparse(element, view, url1_, url, data) {
@@ -1331,68 +1056,98 @@
 //       $('.iframe').append(`i
 //   ${str}
 // `);
-$.when($('.iframe').append(`
-  ${str}
-`)).then(function() {
-  // console.log('执行网页完成')
-  // 在append完成后触发事件
-  // html$2.removeClass('iframe--loaded');
-  toggle();
-      
 
-      // var playulr =$('.dplayer-video').attr('src');
-      // document.querySelector('video').src
-      // document.querySelector('.dplayer-video').pause();
-      // document.querySelector('.dplayer-video').play();
-      // document.querySelector('.dplayer-video').focus();
-      var playulr = $('video').attr('src')||document.querySelector('source').src;
-      // var playulr = $('video').attr('src') || $('video source').attr('src');
-      console.log('playulr=',playulr)
-      if (typeof playulr !== "undefined") {
-        var file = playulr;
-        //console.log(file);
-        if (file) {
-          var playlist = [];
-          var first = {
-            url: file,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            subtitles: element.subtitles,
-            tv: false
+      return new Promise(function (resolve, reject) {
+        $('.iframe').append(`
+      ${str}
+    `);
+        resolve(); // 表示添加完成
+      })
+        .then(function () {
+          // console.log('执行网页完成')
+          // 在append完成后触发事件
+          // html$2.removeClass('iframe--loaded');
+          toggle();
+          // var playulr =$('.dplayer-video').attr('src');
+          // document.querySelector('video').src
+          // document.querySelector('.dplayer-video').pause();
+          // document.querySelector('.dplayer-video').play();
+          // document.querySelector('.dplayer-video').focus();
+          var playulr = $('video').attr('src') || document.querySelector('source').src;
+          // var playulr = $('video').attr('src') || $('video source').attr('src');
+          console.log('playulr=', playulr)
+          if (typeof playulr !== "undefined") {
+            var file = playulr;
+            //console.log(file);
+            if (file) {
+              var playlist = [];
+              var first = {
+                url: file,
+                timeline: view,
+                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                subtitles: element.subtitles,
+                tv: false
+              };
+              Lampa.Player.play(first);
+              playlist.push(first);
+              Lampa.Player.playlist(playlist);
+              savehistory(object);
+              close();
+            } else {
+              Lampa.Noty.show('无法检索链接');
+              close();
+            }
+          } else {
+            Lampa.Noty.show('无法找到视频地址');
+            close();
           };
-          Lampa.Player.play(first);
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
-          savehistory(object);
-          close();
-        } else {
-          Lampa.Noty.show('无法检索链接');
-          close();
-        }
-      } else {
-        Lampa.Noty.show('无法找到视频地址');
-        close();
-      };
-});
+        })
+        .catch(function (error) {
+          console.error('添加内容时出错：', error);
+        });
+
+//       $.when($('.iframe').append(`
+//   ${str}
+// `)).then(function () {
+//         // console.log('执行网页完成')
+//         // 在append完成后触发事件
+//         // html$2.removeClass('iframe--loaded');
+//         toggle();
+//         // var playulr =$('.dplayer-video').attr('src');
+//         // document.querySelector('video').src
+//         // document.querySelector('.dplayer-video').pause();
+//         // document.querySelector('.dplayer-video').play();
+//         // document.querySelector('.dplayer-video').focus();
+//         var playulr = $('video').attr('src') || document.querySelector('source').src;
+//         // var playulr = $('video').attr('src') || $('video source').attr('src');
+//         console.log('playulr=', playulr)
+//         if (typeof playulr !== "undefined") {
+//           var file = playulr;
+//           //console.log(file);
+//           if (file) {
+//             var playlist = [];
+//             var first = {
+//               url: file,
+//               timeline: view,
+//               title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+//               subtitles: element.subtitles,
+//               tv: false
+//             };
+//             Lampa.Player.play(first);
+//             playlist.push(first);
+//             Lampa.Player.playlist(playlist);
+//             savehistory(object);
+//             close();
+//           } else {
+//             Lampa.Noty.show('无法检索链接');
+//             close();
+//           }
+//         } else {
+//           Lampa.Noty.show('无法找到视频地址');
+//           close();
+//         };
+//       });
       
-
-      
-
-      // console.log(document.querySelector('.dplayer-video').src);
-      // console.log($('.dplayer-video').attr('src'));
-
-      // var promise = document.querySelector('.dplayer-video').play();
-      // if (promise !== undefined) {
-      //   promise.catch(function (error) {
-      //     // Auto-play was prevented
-      //     // Show a UI element to let the user manually start playback
-      //     console.log('自动播放视频失败')
-      //   }).then(function () {
-      //     // Auto-play started
-      //     console.log('自动播放视频成功')
-      //   });
-      // }
-      // html$2.removeClass('iframe--loaded');
 
       function toggle() {
         Lampa.Controller.add('playerwindow', {
@@ -1411,291 +1166,8 @@ $.when($('.iframe').append(`
         // if (object.onBack) object.onBack();
       }
 
-      // var cssFiles = [];
-      // $('link[rel="stylesheet"]', str).each(function () {
-      //   cssFiles.push($(this).attr('href'));
-      // });
-      // console.log('cssFiles',cssFiles);
-      // var cssString = cssFiles.join(",");
-      // $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
-
-
-      // var styleTags = $('body', str).find('style'); 
-      // var cssStyles = '';
-      // if (styleTags.length > 0) { 
-      //   styleTags.each(function () {
-      //     cssStyles += $(this).html().replace(/[\r\n]/g, ''); // 使用正则表达式进行处理
-      //   });
-      //   $('<style>', { type: 'text/css', html: cssStyles }).appendTo('head');
-      // }
-      // console.log('cssStyles',cssStyles)
-
-      // // var html = $('body', str).html().match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
-      // // var html_ = $('<body>').html(str).contents().not('script').prop('outerHTML');
-      // // $('#new').html(html);
-      // var wrapper = $(str); 
-      // var body = wrapper.find('body'); // 获取body 元素
-      // var content = body.contents(); // 获取 body 元素中的所有子元素
-      // var html_ = content.filter(function () { // 使用 filter() 方法过滤掉 script 元素
-      //   return this.nodeName !== 'SCRIPT';
-      // }).prop('outerHTML'); // 获取不包含 script 元素的 HTML 内容
-      // console.log('html_',html_)
-
-      // var cssFiles = [];
-      // var regex = /<link[^>]*href\s*=\s*["']([^"']*.css)["'][^>]*>/gi;
-      // var matches = str.match(regex);
-      // for (var i = 0; i < matches.length; i++) {
-      //   var hrefMatch = matches[i].match(/href\s*=\s*["']([^"']*)["']/i);
-      //   if (hrefMatch) {
-      //     var hrefValue = hrefMatch[1];
-      //     cssFiles.push(hrefValue);
-      //   }
-      // }
-      // console.log('cssFiles', cssFiles);
-      // var cssString = cssFiles.join(",");
-      // $('<link rel="stylesheet" type="text/css" href="' + cssString + '">').appendTo('head');
-
-      // // 正则表达式匹配 CSS 样式
-      // var cssContent = '';
-      // var match = str.match(/<style[^>]*>([\s\S]*?)<\/style>/ig);
-      // if (match && match.length > 0) {
-      //   cssContent = match.join('').replace(/(<([^>]+)>)/ig, '').replace(/\s+/g, ' ');
-      //   // 创建 style 标签，并将 CSS 样式添加到 head 中
-      //   $('<style>', {
-      //     type: 'text/css',
-      //     html: cssContent
-      //   }).appendTo('head');
-      // }
-      // console.log('cssContent', cssContent)
-
-      // // var result = str.match(/<body[^>]*>((.|[\n\r])*)<\/body>/im);
-
-      // // if (result && result.length > 1) {
-      // //   var body = result[1];
-      // //   console.log(body);
-      // //   var decodedHtml = $('<textarea />').html(body).text();
-
-      // //   // 使用 append() 方法将 HTML 字符串插入到目标元素中
-      // //   /* $(decodedHtml).appendTo('#container') */
-      // //   $('body').append(decodedHtml);
-      // // } else {
-      // //   console.log('未找到 body 标签');
-      // // }
-      // // 创建一个临时的元素并将 HTML 字符串插入到该元素中
-      // var $tempEl = $('<div>').html(str);
-
-      // // 获取主体内容并将其插入到新元素中
-      // var $newEl = $('<div>').html($tempEl.find('body').html());
-      // // console.log($newEl)
-      // // $('body').append($newEl);
-      // component.append($newEl);
-
-      // // var parser = new DOMParser();
-      // // var doc = parser.parseFromString(str, "text/html");
-      // // // var body = doc.querySelector("body");
-
-      // // console.log(doc.body.innerHTML);
-      // // $('body').append(doc.body.innerHTML);
-
-      // str = str.replace(/<!--[\s\S]*?-->/g, '');
-      // var pattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
-      // var match_, aa_ = [];
-      // while (match_ = pattern.exec(str)) {
-      //   if (match_[1]) {
-      //     var cc = match_[1].replace(';!function(n)', '//;!function(n)');
-      //     aa_.push(cc);
-      //   }
-      // };
-      // var joinedaa = aa_.join("\r\n");
-
-      // loadScripts(aa).then(function() {
-        
-      // });
-
-      // var playing = `${str}`;
-
-//       $('body').append(`
-//       ${str}
-// `);
-
-      // $('body').append($('<script>')
-      //   .html(joinedaa)
-      // );
-
-      // executeJSCode(joinedaa);
-      
-
-      // try {
-      //   window.eval(joinedaa);
-        
-      //   // 使用 Promise 链式调用来确保第一段代码执行完后再执行第二段代码
-      //   // executeFirstCode(joinedaa).then(function (result) {
-      //   //   console.log(result); // 输出：张三执行了第一段代码
-      //   //   return executeSecondCode();
-      //   // }).then(function () {
-      //   //   console.log('两段代码均已执行完毕');
-      //   // }).catch(function (err) {
-      //   //   console.error('执行代码时发生错误：', err);
-      //   // });
-
-
-      // } catch (e) {
-      //   if (e instanceof SyntaxError) {
-      //     console.log(e.message);
-      //   }
-      // };
-
-      // if (setting_js) {
-      //   //var s_js = getRemote(MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/js/setting.js');
-      //   // var s_js = getRemote(setting_link);
-      //   network["native"](setting_link, function (s_js) {
-      //     var b_js = s_js.match(/\.post|GET|POST/);
-      //     var f_js = b_js[0] == 'GET' ? 'GET' : 'POST';
-      //     var c_js = s_js.match(/[\'\"]([^.]*)\.(php|jpg|png)[\"\']/)
-      //     c_js = c_js[0].replace(/'|"/g, '');
-      //     var d_sj = MacPlayer_.replace('/' + doreg.link_folder + '/', '').split(url1_[0])[0] + '/' + url1_[1] + '/' + c_js;
-      //     var e_js = s_js.match(/("sign"|sign): [\"\'](.+?)[\"\']/)[2];
-      //     //console.log(config.url,config.vkey,config.token,d_sj,e_js)
-      //     $.ajax({
-      //       url: d_sj,
-      //       type: f_js,
-      //       dataType: 'JSON',
-      //       timeout: 3000,
-      //       data: {
-      //         tm: (new Date().getTime()),
-      //         url: config.url,
-      //         vkey: config.vkey,
-      //         token: config.token,
-      //         sign: e_js
-      //       },
-      //       success: function (data) {
-      //         if (data.code === 200) {
-      //           //console.log(data)
-      //           var playlist = [];
-      //           var first = {
-      //             url: getVideoInfo(data.url),
-      //             timeline: view,
-      //             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-      //             subtitles: element.subtitles
-      //           };
-      //           Lampa.Player.play(first);
-      //           playlist.push(first);
-      //           Lampa.Player.playlist(playlist);
-      //         } else {
-      //           //handlePlayerLoadError();
-      //           $(".noty").show();
-      //           Lampa.Noty.show('解析失败，请重试或切换线路~');
-      //           //console.log('解析失败，请重试或切换线路~');
-      //         }
-      //       },
-      //       error: function () {
-      //         //handlePlayerLoadError();
-      //         $(".noty").show();
-      //         Lampa.Noty.show('解析失败，请重试或切换线路~');
-      //         //console.log('解析失败，请重试或切换线路~');
-      //       }
-      //     });
-
-      //   }, function (a, c) {
-      //     Lampa.Noty.show(network.errorDecode(a, c));
-      //   }, false, {
-      //     dataType: 'text'
-      //   });
-      // };
-
-      // if (typeof urls !== "undefined") {
-      //   var file = urls;
-      //   //console.log(file);
-      //   if (file) {
-      //     var playlist = [];
-      //     var first = {
-      //       url: file,
-      //       timeline: view,
-      //       title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-      //       subtitles: element.subtitles
-      //     };
-      //     Lampa.Player.play(first);
-      //     playlist.push(first);
-      //     Lampa.Player.playlist(playlist);
-      //   } else {
-      //     Lampa.Noty.show('无法检索链接');
-      //   }
-      //   urls = undefined;
-      // };
-
     };
     
-
-    // function loadScripts(scripts) {
-    //   return Promise.all(scripts.map(function(url) {
-    //     return new Promise(function(resolve, reject) {
-    //       var script = document.createElement('script');
-    //       script.type = 'text/javascript';
-    //       script.src = url;
-    //       script.onload = resolve;
-    //       script.onerror = reject;
-    //       document.head.appendChild(script);
-    //     });
-    //   }));
-    // }
-    
-    // function doparse(element, view, baseUrl, currentUrl, data) {
-    //   var element = element;
-    //   var view = view;
-    //   var baseUrl = baseUrl;
-    //   var currentUrl = currentUrl;
-    //   var MacPlayer_ = currentUrl;
-    //   var scriptUrls = [];
-    //   var scriptContent = [];
-    //   var settingJsUrl = null;
-    
-    //   // Replace relative protocol "//" with "https://" to avoid mixed content error
-    //   var str = data.replace(/src="\/\//g, 'src="https://');
-    
-    //   var scriptUrlPattern = /<script.*?src="(.*?)"/gm;
-    //   var match;
-    //   while (match = scriptUrlPattern.exec(str)) {
-    //     var scriptUrl = match[1];
-    //     if (!/DPlayer|jquery|setting|-player|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff|hls|flv/.test(scriptUrl)) {
-    //       scriptUrls.push(getAbsoluteUrl(scriptUrl, baseUrl, MacPlayer_));
-    //     }
-    //     if (/setting[\s\S]*\.js/.test(scriptUrl)) {
-    //       settingJsUrl = getAbsoluteUrl(scriptUrl, baseUrl, MacPlayer_);
-    //     }
-    //   };
-    
-    //   // Remove HTML comments to avoid parsing issues
-    //   str = str.replace(/<!--[\s\S]*?-->/g, '');
-    
-    //   var scriptContentPattern = /<script[^>]*>([\s\S]*?)<\/script>/gi;
-    //   var match;
-    //   while (match = scriptContentPattern.exec(str)) {
-    //     if (match[1]) {
-    //       var script = match[1].replace(';!function(n)', '//;!function(n)');
-    //       scriptContent.push(script);
-    //     }
-    //   };
-    
-    //   loadScripts(scriptUrls).then(function() {
-    //     scriptContent.forEach(function(script) {
-    //       try {
-    //         window.eval(script);
-    //       } catch (e) {
-    //         if (e instanceof SyntaxError) {
-    //           console.log(e.message);
-    //         }
-    //       };
-    //     });
-    //   });
-    
-    //   if (settingJsUrl) {
-    //     loadScripts([settingJsUrl]).then(function() {
-    //       // Do something with the setting script
-    //     });
-    //   }
-    // };
-
-
     function append(items) {
       var _this = this;
       component.reset();
@@ -1748,25 +1220,6 @@ $.when($('.iframe').append(`
                 jQuery("'+ videocontainer + '").appendTo("body"); \
                 jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
                 '});
-              //simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 })\
-              //simulate(jQuery("'+ videocontainer + '"), "click");\
-              //jQuery("body > :not('+ videocontainer + ')").hide();\
-              //jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
-              //jQuery("'+ videocontainer + '").attr("tbaindex", "0"); \
-              //jQuery("'+ videocontainer + '").attr("tabindex",-1).focus();\
-
-              // iabRef.executeScript(
-              //   {
-              //     file: "https://cdn.jsdelivr.net/gh/aston314/lampa/lib/simulate.js"
-              //     //webURL works fine with 'file'
-              //   }, function () {
-              //     iabRef.executeScript(
-              //       {
-              //         code: '(function() { simulate(jQuery("'+ videocontainer + '"), "mouseover", { pointerX: 123, pointerY: 321 }); })()'
-              //       }, function () {
-              //         alert('摇控器支持脚本');
-              //       });
-              //   });
 
               iabRef.show();
             };
@@ -1778,47 +1231,20 @@ $.when($('.iframe').append(`
               Lampa.Api.clear();
               Lampa.Controller.toggle('content');
             };
-            
+
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
-            if (doreg.videoparse == 'browser') {//!!window.cordova && 
-              // iabRef = cordova.InAppBrowser.open(proxy_url + element.file, "_blank", "shouldPauseOnSuspend=yes,location=no,hidden=yes,beforeload=no,mediaPlaybackRequiresUserAction=no");
-              // //iabRef.addEventListener('loadstop', playershow);
-              // iabRef.addEventListener('loadstop', function() {
-              //   playershow();
-              //   Lampa.Modal.close();
-              //   Lampa.Api.clear();
-              // });
-              // iabRef.addEventListener('loadstart', function() {
-              //   loadingshow();
-              // });
-              // iabRef.addEventListener('exit', iabClose);
+            if (doreg.videoparse == 'browser') {
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
                   var iframelink = $(videocontainer, str).attr('src');
-                  // if (/(v\.qq\.com|v\.youku\.com|www\.iqiyi\.com|www\.mgtv\.com)/.test(iframelink)) {
-                  //   var matchurl = iframelink.match(/url=([^&]*)/);
-                  //   if (matchurl) {
-                  //     Lampa.Iframe.show({
-                  //       //url: $('.embed-responsive-item', str).attr('src'),
-                  //       url: 'https://tv.libvio.cc/',
-                  //       onBack: function onBack() {
-                  //         Lampa.Controller.toggle('content');
-                  //       }
-                  //     });
-                  //   } else {
-                  //     Lampa.Noty.show('没有找到播放链接。');
-                  //   }
-
-                  // } else {
-                    Lampa.Iframe.show({
-                      //url: $('.embed-responsive-item', str).attr('src'),
-                      url: iframelink,
-                      onBack: function onBack() {
-                        Lampa.Controller.toggle('content');
-                      }
-                    });
+                  Lampa.Iframe.show({
+                    url: iframelink,
+                    onBack: function onBack() {
+                      Lampa.Controller.toggle('content');
+                    }
+                  });
                   // }
-                
+
                   $('.iframe__body iframe').removeClass('iframe__window');
                   $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
                   savehistory(object);
@@ -1894,16 +1320,16 @@ $.when($('.iframe').append(`
                     Lampa.Player.playlist(playlist);
                     savehistory(object);
                   } else {
-                  var script_arr = [
-                    '/static/js/playerconfig.js',
-                    '/static/js/player.js'
-                  ];
-                  var script_arr1 = [
-                    proxy_url + url + '/static/js/playerconfig.js',
-                    proxy_url + url + '/static/js/player.js'
-                  ];
+                    var script_arr = [
+                      '/static/js/playerconfig.js',
+                      '/static/js/player.js'
+                    ];
+                    var script_arr1 = [
+                      proxy_url + url + '/static/js/playerconfig.js',
+                      proxy_url + url + '/static/js/player.js'
+                    ];
 
-                  // loadScripts(script_arr).then(function() {
+                    // loadScripts(script_arr).then(function() {
                     Lampa.Utils.putScriptAsync(script_arr1, function () {
                       //     window.eval(joinedaa);
                       //   });
@@ -1913,151 +1339,151 @@ $.when($('.iframe').append(`
                       //$(".noty").hide();
                       // $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
                       //   .done(function () {
-                          Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
-                          //$(".noty").show();
-                          //console.log($(MacPlayer.Html).attr('src'))
-                          MacPlayer_ = $(MacPlayer.Html).attr('src');
-                          MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
+                      Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
+                        //$(".noty").show();
+                        //console.log($(MacPlayer.Html).attr('src'))
+                        MacPlayer_ = $(MacPlayer.Html).attr('src');
+                        MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
 
-                          var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
+                        var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
 
-                          //console.log(MacPlayer_)
+                        //console.log(MacPlayer_)
 
-                          //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
-                          if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                            file1 = MacPlayer.PlayUrl;
-                          };
-                          file_.push(file1);
-                          //console.log(file_);
-                          var file = file_[0];
-                          //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
-                          if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                            // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
-                            //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
-                            //   var playlist = [];
-                            //   var first = {
-                            //     url: ikan_url,
-                            //     timeline: view,
-                            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                            //     subtitles: element.subtitles
-                            //   };
-                            //   Lampa.Player.play(first);
-                            //   playlist.push(first);
-                            //   Lampa.Player.playlist(playlist);
-                            // } else {
-                            var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-                            if (!doreg.use_referer) {
-                              //console.log(MacPlayer_)
-                              //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                              //分析页面
-                              // network.silent(MacPlayer_, function (str) {
-                              //   doparse(element, view, url1_, MacPlayer_, str);
-                              // }, function (a, c) {
-                              //   Lampa.Noty.show(network.errorDecode(a, c));
-                              // }, false, {
-                              //   dataType: 'text'
-                              // });
-                              // 用户iframe打开页面
-                              Lampa.Iframe.show({
-                                //url: $('.embed-responsive-item', str).attr('src'),
-                                url: MacPlayer_,
-                                onBack: function onBack() {
-                                  Lampa.Controller.toggle('content');
-                                }
-                              });
-                              $('.iframe__body iframe').removeClass('iframe__window');
-                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-                              savehistory(object);
+                        //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
+                        if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                          file1 = MacPlayer.PlayUrl;
+                        };
+                        file_.push(file1);
+                        //console.log(file_);
+                        var file = file_[0];
+                        //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
+                        if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                          // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
+                          //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
+                          //   var playlist = [];
+                          //   var first = {
+                          //     url: ikan_url,
+                          //     timeline: view,
+                          //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                          //     subtitles: element.subtitles
+                          //   };
+                          //   Lampa.Player.play(first);
+                          //   playlist.push(first);
+                          //   Lampa.Player.playlist(playlist);
+                          // } else {
+                          var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
+                          if (!doreg.use_referer) {
+                            //console.log(MacPlayer_)
+                            //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                            //分析页面
+                            // network.silent(MacPlayer_, function (str) {
+                            //   doparse(element, view, url1_, MacPlayer_, str);
+                            // }, function (a, c) {
+                            //   Lampa.Noty.show(network.errorDecode(a, c));
+                            // }, false, {
+                            //   dataType: 'text'
+                            // });
+                            // 用户iframe打开页面
+                            Lampa.Iframe.show({
+                              //url: $('.embed-responsive-item', str).attr('src'),
+                              url: MacPlayer_,
+                              onBack: function onBack() {
+                                Lampa.Controller.toggle('content');
+                              }
+                            });
+                            $('.iframe__body iframe').removeClass('iframe__window');
+                            $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                            savehistory(object);
 
-                            }
-                            else {
-                              if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
-                                $(".noty").show();
-                                Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
-                              };
-
-                              //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
-                              network["native"](MacPlayer_, function (str) {
-                                // console.log(str)
-                                // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
-                                var match = str.match(urlPattern);
-                                var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
-                                var match = str.match(urlPattern);
-
-                                if (match) {
-                                  // console.log(match)
-                                  var urlvideo = match[1] || match[2];
-                                  // console.log('播放链接1', urlvideo);
-                                  var playlist = [];
-                                  var first = {
-                                    url: urlvideo,
-                                    timeline: view,
-                                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                    subtitles: element.subtitles,
-                                    tv: false
-                                  };
-                                  Lampa.Player.play(first);
-                                  playlist.push(first);
-                                  Lampa.Player.playlist(playlist);
-                                  savehistory(object);
-                                } else {
-                                  // var urlPattern = /var vid = '(.+?)';/;
-                                  // var match = str.match(urlPattern);
-
-                                  // if (match) {
-                                  //   var urlvideo = match[1];
-                                  //   // console.log('播放链接2', urlvideo);
-                                  //   var playlist = [];
-                                  //   var first = {
-                                  //     url: urlvideo,
-                                  //     timeline: view,
-                                  //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                  //     subtitles: element.subtitles
-                                  //   };
-                                  //   Lampa.Player.play(first);
-                                  //   playlist.push(first);
-                                  //   Lampa.Player.playlist(playlist);
-                                  // } else {
-                                  // console.log('没有找到播放链接')
-                                  doparse(element, view, url1_, MacPlayer_, str);
-                                  // }
-                                }
-
-
-                              }, function (a, c) {
-                                Lampa.Noty.show(network.errorDecode(a, c));
-                              }, false, {
-                                dataType: 'text',
-                                headers: {
-                                  'Referer': url + '/',
-                                }
-                              });
-                              //};
-                            };
-                            // }
-                          } else {
-                            if (file) {
-                              // if (/if101\.tv/.test(file)) file = proxy + file;
-                              var playlist = [];
-                              var first = {
-                                url: file,
-                                timeline: view,
-                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                subtitles: element.subtitles,
-                                tv: false
-                              };
-                              Lampa.Player.play(first);
-                              playlist.push(first);
-                              Lampa.Player.playlist(playlist);
-                              savehistory(object);
-                            } else {
-                              $(".noty").show();
-                              Lampa.Noty.show('无法检索链接');
-                            }
                           }
-                        });
+                          else {
+                            if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
+                              $(".noty").show();
+                              Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
+                            };
+
+                            //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
+                            network["native"](MacPlayer_, function (str) {
+                              // console.log(str)
+                              // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
+                              var match = str.match(urlPattern);
+                              var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
+                              var match = str.match(urlPattern);
+
+                              if (match) {
+                                // console.log(match)
+                                var urlvideo = match[1] || match[2];
+                                // console.log('播放链接1', urlvideo);
+                                var playlist = [];
+                                var first = {
+                                  url: urlvideo,
+                                  timeline: view,
+                                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                  subtitles: element.subtitles,
+                                  tv: false
+                                };
+                                Lampa.Player.play(first);
+                                playlist.push(first);
+                                Lampa.Player.playlist(playlist);
+                                savehistory(object);
+                              } else {
+                                // var urlPattern = /var vid = '(.+?)';/;
+                                // var match = str.match(urlPattern);
+
+                                // if (match) {
+                                //   var urlvideo = match[1];
+                                //   // console.log('播放链接2', urlvideo);
+                                //   var playlist = [];
+                                //   var first = {
+                                //     url: urlvideo,
+                                //     timeline: view,
+                                //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                //     subtitles: element.subtitles
+                                //   };
+                                //   Lampa.Player.play(first);
+                                //   playlist.push(first);
+                                //   Lampa.Player.playlist(playlist);
+                                // } else {
+                                // console.log('没有找到播放链接')
+                                doparse(element, view, url1_, MacPlayer_, str);
+                                // }
+                              }
+
+
+                            }, function (a, c) {
+                              Lampa.Noty.show(network.errorDecode(a, c));
+                            }, false, {
+                              dataType: 'text',
+                              headers: {
+                                'Referer': url + '/',
+                              }
+                            });
+                            //};
+                          };
+                          // }
+                        } else {
+                          if (file) {
+                            // if (/if101\.tv/.test(file)) file = proxy + file;
+                            var playlist = [];
+                            var first = {
+                              url: file,
+                              timeline: view,
+                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                              subtitles: element.subtitles,
+                              tv: false
+                            };
+                            Lampa.Player.play(first);
+                            playlist.push(first);
+                            Lampa.Player.playlist(playlist);
+                            savehistory(object);
+                          } else {
+                            $(".noty").show();
+                            Lampa.Noty.show('无法检索链接');
+                          }
+                        }
+                      });
                     });
-                }
+                  }
                   Lampa.Modal.close();
                   Lampa.Api.clear();
                 } else component.emptyForQuery(select_title);
