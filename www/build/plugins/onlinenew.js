@@ -683,7 +683,8 @@
     var get_links_wait = false;
     var rslt = [];
     var proxy_url;
-    var proxy = 'https://cors.eu.org/'
+    var proxy = 'https://cors.eu.org/';
+    
 
     /**
      * Поиск
@@ -758,6 +759,7 @@
       choice = {
         season: 0,
         voice: 0,
+        order: 0,
         last_viewed: ''
       };
       filter();
@@ -876,10 +878,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
-      //console.log('component.order' + component.order)
-      // component.order.forEach(function (i){
-      //             filter_items.order.push(i.title);
-      //         });
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -894,7 +895,8 @@
         return item;
       });
       //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
-      return mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+      // return mapResult;
     }
     /**
      * Показать файлы
@@ -1530,6 +1532,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var sj = +new Date;
@@ -1564,7 +1567,7 @@
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
@@ -1716,7 +1719,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -1728,6 +1732,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -1815,6 +1822,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var rslt = [];
@@ -1831,7 +1839,7 @@
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
@@ -1998,7 +2006,6 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
-      //console.log('component.order' + component.order)
       component.order.forEach(function (i) {
         filter_items.order.push(i.title);
       });
@@ -2015,8 +2022,10 @@
       var mapResult = rslt.map(function (item, index, array) {
         return item;
       });
-      return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      // return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
       //return rslt;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+
     }
     /**
      * Показать файлы
@@ -2107,6 +2116,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var rslt = [];
@@ -2121,7 +2131,7 @@
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       //doreg = rule;
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
@@ -2214,7 +2224,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -2296,10 +2307,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
-      //console.log('component.order' + component.order)
-      // component.order.forEach(function (i){
-      //             filter_items.order.push(i.title);
-      //         });
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -2313,8 +2323,8 @@
       var mapResult = rslt.map(function (item, index, array) {
         return item;
       });
-      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
-      return mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+      // return mapResult;
     }
     /**
      * Показать файлы
@@ -2399,6 +2409,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var rslt = [];
@@ -2411,7 +2422,7 @@
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
@@ -2501,7 +2512,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -2575,7 +2587,6 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
-      //console.log('component.order' + component.order)
       component.order.forEach(function (i) {
         filter_items.order.push(i.title);
       });
@@ -2592,7 +2603,8 @@
       var mapResult = rslt.map(function (item, index, array) {
         return item;
       });
-      return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      // return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
       //return rslt;
     }
     /**
@@ -2671,6 +2683,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -2685,7 +2698,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://zhaoziyuan.la/so?filename=#msearchword';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -2722,7 +2735,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -2783,7 +2797,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -2795,6 +2810,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -2903,6 +2921,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -2917,7 +2936,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://gitcafe.net/tool/alipaper/';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -2958,7 +2977,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -3021,7 +3041,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -3033,6 +3054,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -3152,6 +3176,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var rslt = [];
@@ -3163,7 +3188,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://yiso.fun/api/search?name=#msearchword&pageNo=1&from=ali';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -3199,7 +3224,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -3262,7 +3288,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -3274,6 +3301,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -3393,6 +3423,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -3407,7 +3438,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://t-rex.tzfile.com/?s=#msearchword';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -3447,7 +3478,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -3513,7 +3545,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -3525,6 +3558,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -3626,6 +3662,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -3640,7 +3677,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://t-rex.tzfile.com/wp-admin/admin-ajax.php';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -3679,7 +3716,8 @@
       component.reset();
       choice = {
         season: 0,
-        voice: 0
+        voice: 0,
+        order: 0
       };
       filter();
       append(filtred());
@@ -3742,7 +3780,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -3754,6 +3793,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -3851,6 +3893,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -3865,7 +3908,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'http://www.dydhhy.com/?s=#msearchword';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -3970,7 +4013,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -3982,6 +4026,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -4118,6 +4165,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -4132,7 +4180,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = alistip + '/search?box=#msearchword&url=&type=video';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -4242,7 +4290,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -4254,6 +4303,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -4361,6 +4413,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var resp;
@@ -4375,7 +4428,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       doreg = rule;
       var url1 = 'https://alipansou.com/search?k=#msearchword&s=1&t=7';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
@@ -4480,7 +4533,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -4492,6 +4546,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -4613,6 +4670,7 @@
     var choice = {
       season: 0,
       voice: 0,
+      order: 0,
       last_viewed: ''
     };
     var rslt = [];
@@ -4624,7 +4682,7 @@
 
     this.search = function (_object, kinopoisk_id) {
       object = _object;
-      select_title = object.movie.title;
+      select_title = object.search || object.movie.title;
       //doreg = rule;
       //Lampa.Utils.checkHttp('proxy.cub.watch/cdn/')+
       var url1 = 'https://cors.eu.org/https://tx.me/s/' + tg_channel_name + '?q=#msearchword';
@@ -4747,7 +4805,8 @@
       filter_items = {
         season: [],
         voice: [],
-        quality: []
+        quality: [],
+        order: []
       };
 
       if (extract.playlist) {
@@ -4759,6 +4818,9 @@
       }
 
       if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
       component.filter(filter_items, choice);
     }
     /**
@@ -5000,6 +5062,7 @@
         last_filter = e.target;
       });
 
+
       filter.onSelect = function (type, a, b) {
         if (type == 'filter') {
           if (a.reset) {
@@ -5022,6 +5085,13 @@
         }
       };
 
+      // if (object.movie.number_of_seasons || balanser == 'pub' || balanser == 'bazon') filter.render().find('.filter--filter').show();
+  	  // else filter.render().find('.filter--filter').hide();
+      
+      filter.render().find('.filter--filter').after(filter.render().find('.filter--search'));
+      filter.render().find('.filter--sort').on('hover:enter', function () {
+        $('body').find('.selectbox__title').text(Lampa.Lang.translate('online_mod_balanser'));
+      });
       filter.render().find('.filter--sort span').text(Lampa.Lang.translate('online_mod_balanser'));
       filter.render();
       files.append(scroll.render());
@@ -5238,6 +5308,8 @@
       Lampa.Storage.set('online_mod_filter', choice);
       if (filter_items.voice && filter_items.voice.length) add('voice', Lampa.Lang.translate('torrent_parser_voice'));
       if (filter_items.season && filter_items.season.length) add('season', Lampa.Lang.translate('torrent_serial_season'));
+      
+      if (filter_items.order && filter_items.order.length) add('order', Lampa.Lang.translate('filter_series_order') + '');
       filter.set('filter', select);
       filter.set('sort', filter_sources.map(function (e) {
         return {
@@ -5267,13 +5339,15 @@
         select = [];
 
       for (var i in need) {
+        console.log(i)
         if (filter_items[i] && filter_items[i].length) {
           if (i == 'voice') {
             select.push(filter_translate[i] + ': ' + filter_items[i][need[i]]);
           } else if (i !== 'source') {
-            if (filter_items.season.length >= 1) {
-              select.push(filter_translate.season + ': ' + filter_items[i][need[i]]);
-            }
+            // if (filter_items.season.length >= 1) {
+              select.push(filter_items[i][need[i]]);
+              // filter_translate.season + ': ' + 
+            // }
           }
         }
       }
@@ -5491,13 +5565,21 @@
      * Начать навигацию по файлам
      */
 
-
+    this.order = [{title: '原始顺序', id: 'normal'}, {title: '倒序', id: 'invers'}];
     this.start = function (first_select) {
       if (Lampa.Activity.active().activity !== this.activity) return; //обязательно, иначе наблюдается баг, активность создается но не стартует, в то время как компонент загружается и стартует самого себя.
 
+      // if (first_select) {
+      //   var last_views = scroll.render().find('.selector.online').find('.torrent-item__viewed').parent().last();
+      //   if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0]; else last = scroll.render().find('.selector').eq(3)[0];
+      // }
+
       if (first_select) {
+        // 如果传入了 first_select 参数
+        // 查找最后一个观看记录，并确定最后一个元素
         var last_views = scroll.render().find('.selector.online').find('.torrent-item__viewed').parent().last();
-        if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0]; else last = scroll.render().find('.selector').eq(3)[0];
+        if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0];
+        else last = scroll.render().find('.selector').eq(3)[0];
       }
 
       Lampa.Background.immediately(Lampa.Utils.cardImgBackground(object.movie));
@@ -5587,6 +5669,12 @@
   }
 
   Lampa.Lang.add({
+    filter_series_order: {
+      ru: 'Порядок серий',
+      uk: 'Порядок серій',
+      en: 'Series order',
+      zh: '排序'
+    },
     online_mod_nolink: {
       ru: 'Не удалось извлечь ссылку',
       uk: 'Неможливо отримати посилання',
@@ -5858,6 +5946,8 @@
   function resetTemplates() {
     Lampa.Template.add('online_mod', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div style=\"position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em\">\n                <svg style=\"height: 2.4em; width:  2.4em;\" viewBox=\"0 0 128 128\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <circle cx=\"64\" cy=\"64\" r=\"56\" stroke=\"white\" stroke-width=\"16\"/>\n                    <path d=\"M90.5 64.3827L50 87.7654L50 41L90.5 64.3827Z\" fill=\"white\"/>\n                </svg>\n            </div>\n            <div class=\"online__title\" style=\"padding-left: 2.1em;\">{title}</div>\n            <div class=\"online__quality\" style=\"padding-left: 3.4em;\">{quality}{info}</div>\n        </div>\n    </div>");
     Lampa.Template.add('online_mod_folder', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div style=\"position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em\">\n                <svg style=\"height: 2.4em; width:  2.4em;\" viewBox=\"0 0 128 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect y=\"20\" width=\"128\" height=\"92\" rx=\"13\" fill=\"white\"/>\n                    <path d=\"M29.9963 8H98.0037C96.0446 3.3021 91.4079 0 86 0H42C36.5921 0 31.9555 3.3021 29.9963 8Z\" fill=\"white\" fill-opacity=\"0.23\"/>\n                    <rect x=\"11\" y=\"8\" width=\"106\" height=\"76\" rx=\"13\" fill=\"white\" fill-opacity=\"0.51\"/>\n                </svg>\n            </div>\n            <div class=\"online__title\" style=\"padding-left: 2.1em;\">{title}</div>\n            <div class=\"online__quality\" style=\"padding-left: 3.4em;\">{quality}{info}</div>\n        </div>\n    </div>");
+          Lampa.Template.add('online_mod_folder', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div style=\"position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em\">\n                <svg style=\"height: 2.4em; width:  2.4em;\" viewBox=\"0 0 128 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect y=\"20\" width=\"128\" height=\"92\" rx=\"13\" fill=\"white\"/>\n                    <path d=\"M29.9963 8H98.0037C96.0446 3.3021 91.4079 0 86 0H42C36.5921 0 31.9555 3.3021 29.9963 8Z\" fill=\"white\" fill-opacity=\"0.23\"/>\n                    <rect x=\"11\" y=\"8\" width=\"106\" height=\"76\" rx=\"13\" fill=\"white\" fill-opacity=\"0.51\"/>\n                </svg>\n            </div>\n            <div class=\"online__title\" style=\"padding-left: 2.1em;\">{title}</div>\n            <div class=\"online__quality\" style=\"padding-left: 3.4em;\">{quality}{info}</div>\n        </div>\n    </div>");
+
   }
 
   var button = "<div class=\"full-start__button selector view--online_mod\" data-subtitle=\"online_mod 05.02.2023\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 244 260\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M242,88v170H10V88h41l-38,38h37.1l38-38h38.4l-38,38h38.4l38-38h38.3l-38,38H204L242,88L242,88z M228.9,2l8,37.7l0,0 L191.2,10L228.9,2z M160.6,56l-45.8-29.7l38-8.1l45.8,29.7L160.6,56z M84.5,72.1L38.8,42.4l38-8.1l45.8,29.7L84.5,72.1z M10,88 L2,50.2L47.8,80L10,88z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>#{online_mod_title}</span>\n    </div>"; // нужна заглушка, а то при страте лампы говорит пусто
