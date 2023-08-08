@@ -167,10 +167,10 @@
       // },
       {
         name: '网站-AUETE影视',
-        websitelink: 'https://auete.org',
+        websitelink: 'https://auete.art',
         listlink: true,
         use_proxy: false,
-        search_url: 'https://auete.org/search.php?searchword=#msearchword',
+        search_url: 'https://auete.art/auete2so.php?searchword=#msearchword',
         search_json: false,
         node_json: 'list',
         name_json: 'name',
@@ -745,9 +745,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -1659,9 +1657,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -1955,9 +1951,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -2247,9 +2241,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -2535,9 +2527,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -2757,9 +2747,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
 
     /**
      * Сброс фильтра
@@ -3000,9 +2988,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -3247,9 +3233,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -3501,9 +3485,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -3739,9 +3721,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -3970,9 +3950,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -4241,9 +4219,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -4490,9 +4466,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -4744,9 +4718,7 @@
       Lampa.Arrays.extend(choice, saved, true);
     };
 
-    this.extendChoice_ = function (saved) {
-      Lampa.Arrays.extend({ origin_order: false, order: 0 }, saved, true);
-    };
+    
     /**
      * Сброс фильтра
      */
@@ -4896,39 +4868,6 @@
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
           component.activity.loader(true);
           if (element.file) {
-            // var playlist = [];
-            // var first = {
-            //     url: element.file,
-            //     timeline: view,
-            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-            //     subtitles: element.subtitles
-            // };
-            // Lampa.Player.play(first);
-
-            // playlist.push(first);
-            // Lampa.Player.playlist(playlist);
-            // network["native"](element.file, function (json) {
-            //   if (json.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
-            //     var str = json.replace(/\n/g, '');
-            //     var h = $('section > div > a', str);
-            //     var link = $(h).attr('href');
-            //     element.img = object.movie.img;
-            //     element.original_title = '';
-            //     Lampa.Activity.push({
-            //       url: link,
-            //       title: '阿里云盘播放',
-            //       component: 'yunpan2',
-            //       movie: element,
-            //       page: 1
-            //     });
-            //   } else component.emptyForQuery(select_title);
-
-            //   component.loading(false);
-            // }, function (a, c) {
-            //   component.empty(network.errorDecode(a, c));
-            // }, false, {
-            //   dataType: 'text',
-            // });
             element.img = object.movie.img;
             element.original_title = '';
             Lampa.Activity.push({
