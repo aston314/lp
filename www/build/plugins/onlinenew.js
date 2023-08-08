@@ -685,7 +685,6 @@
     var proxy_url;
     var proxy = 'https://cors.eu.org/';
     
-
     /**
      * Поиск
      * @param {Object} _object 
@@ -828,6 +827,10 @@
 
     function dodetail(link, data, title) {
       //取得具体页面的详情地址
+      component.externalId = {
+        id: Lampa.Utils.hash(link),
+      };
+
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
       network["native"](proxy_url + link, function (data) {
 
@@ -1175,11 +1178,20 @@
       component.reset();
       if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
       var viewed = Lampa.Storage.cache('online_view', 5000, []);
+      // 初始化一个用于滚动到特定元素的标志变量，默认为 false
+      var scroll_to_element = false;
+      // 初始化一个用于滚动到特定标记的标志变量，默认为 false
+      var scroll_to_mark = false;
+      var choice = component.getChoice();
+      // console.log('choice',choice)
+      // var choice = component.getChoice();
+      // console.log(choice)
       items.forEach(function (element, item_id) {
         var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
         var view = Lampa.Timeline.view(hash);
         var item = Lampa.Template.get('online_mod', element);
         var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+
         element.timeline = view;
         item.append(Lampa.Timeline.render(view));
 
@@ -1187,12 +1199,24 @@
           item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
         }
 
-        if (viewed.indexOf(hash_file) !== -1) item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        if (viewed.indexOf(hash_file) !== -1) {
+          scroll_to_mark = item;
+          item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        }
+
+        if (choice.movie_view == hash_file) scroll_to_element = item;
+
         item.on('hover:enter', function () {
+          // choice = component.getChoice();
+          if (component.externalId.id) {
+            choice.movie_view = hash_file;
+          };
+          component.saveChoice(choice);
+
           object.movie.id = object.url;
           choice.last_viewed = item_id;
           if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
-
+          
           if (element.file) {
             var videocontainer = doreg.videocontainer;
             var iabRef = null;
@@ -1505,6 +1529,7 @@
             }
           } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
         });
+        // scroll_to_element = item;
         component.append(item);
         component.contextmenu({
           item: item,
@@ -1519,6 +1544,16 @@
           }
         });
       });
+      // 如果存在要滚动到的元素（scroll_to_element），则将最后一个滚动目标设置为该元素
+      
+      if (scroll_to_element) {
+        component.last = scroll_to_element[0];
+      }
+      // 否则，如果存在要滚动到的标记（scroll_to_mark），将最后一个滚动目标设置为该标记
+      else if (scroll_to_mark) {
+        component.last = scroll_to_mark[0];
+      }
+      // console.log('last', component.last)
       component.start(true);
     }
   }
@@ -2135,7 +2170,7 @@
       //doreg = rule;
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
-      var url
+      var url;
       parseFloat(kinopoisk_id) ? url = detailid.replace('#id', kinopoisk_id) : url = searchurl.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
@@ -5197,6 +5232,25 @@
       return pl;
     };
 
+    this.getChoice = function (for_balanser) {
+      var data = Lampa.Storage.cache('online_mod_choice_' + (for_balanser || balanser), 3000, {});
+      var save;
+      if (this.externalId.id) {
+        save = data[this.externalId.id] || {};
+      } else {
+        save = data[selected_id || object.movie.id] || {};
+      };
+      Lampa.Arrays.extend(save, {
+        season: 0,
+        voice: 0,
+        voice_name: '',
+        voice_id: 0,
+        episodes_view: {},
+        movie_view: ''
+      });
+      return save;
+    };
+
     this.extendChoice = function () {
       var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
       var save = data[selected_id || object.movie.id] || {};
@@ -5206,7 +5260,12 @@
 
     this.saveChoice = function (choice) {
       var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
-      data[selected_id || object.movie.id] = choice;
+      // && typeof object.movie.id == 'undefined'
+      if (this.externalId.id) {
+        data[this.externalId.id] = choice;
+      } else {
+        data[selected_id || object.movie.id] = choice;
+      };
       Lampa.Storage.set('online_mod_choice_' + balanser, data);
     };
     /**
@@ -5306,6 +5365,7 @@
         reset: true
       });
       Lampa.Storage.set('online_mod_filter', choice);
+      // this.saveChoice(choice);
       if (filter_items.voice && filter_items.voice.length) add('voice', Lampa.Lang.translate('torrent_parser_voice'));
       if (filter_items.season && filter_items.season.length) add('season', Lampa.Lang.translate('torrent_serial_season'));
       
@@ -5565,6 +5625,8 @@
      */
 
     this.order = [{title: '原始顺序', id: 'normal'}, {title: '倒序', id: 'invers'}];
+    this.externalId = {};
+    this.last = false;
     this.start = function (first_select) {
       if (Lampa.Activity.active().activity !== this.activity) return; //обязательно, иначе наблюдается баг, активность создается но не стартует, в то время как компонент загружается и стартует самого себя.
 
@@ -5577,7 +5639,8 @@
         // 如果传入了 first_select 参数
         // 查找最后一个观看记录，并确定最后一个元素
         var last_views = scroll.render().find('.selector.online').find('.torrent-item__viewed').parent().last();
-        if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0];
+        // if (object.movie.number_of_seasons && last_views.length) last = last_views.eq(0)[0];
+        if (this.last) last = this.last;
         else last = scroll.render().find('.selector').eq(3)[0];
       }
 
@@ -5707,14 +5770,14 @@
       uk: 'Зняти позначку у всіх',
       be: 'Зняць адзнаку ва ўсіх',
       en: 'Uncheck all',
-      zh: '取消所有'
+      zh: '取消所有标记'
     },
     online_mod_timeclear_all: {
       ru: 'Сбросить тайм-код у всех',
       uk: 'Скинути тайм-код у всіх',
       be: 'Скінуць тайм-код ва ўсіх',
       en: 'Reset timecode for all',
-      zh: '为所有人重置时间码'
+      zh: '重置全部时间码'
     },
     online_mod_query_start: {
       ru: 'По запросу',
