@@ -748,6 +748,7 @@
     };
 
     function parse(str) {
+      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
       var item = {};
       var doonce = 0;
       if (doreg.search_json) {
@@ -801,10 +802,10 @@
         });
         filter();
         append(filtred());
-        setTimeout(function () {
+        // setTimeout(function () {
           get_links_wait = false;
           component.render().find('.broadcast__scan').remove();
-        }, 1000);
+        // }, 1000);
 
         //rslt = [];
         $(math).remove();
@@ -1071,7 +1072,7 @@
     function append(items) {
       var _this = this;
       component.reset();
-      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+      
       var viewed = Lampa.Storage.cache('online_view', 5000, []);
       // 初始化一个用于滚动到特定元素的标志变量，默认为 false
       var scroll_to_element = false;
@@ -1260,7 +1261,7 @@
                       //$(".noty").hide();
                       // $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
                       //   .done(function () {
-                      setTimeout(function () {
+                      // setTimeout(function () {
                         Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
                           //$(".noty").show();
                           //console.log($(MacPlayer.Html).attr('src'))
@@ -1386,7 +1387,7 @@
                             }
                           }
                         });
-                      }, 500);
+                      // }, 500);
                     });
                   }
                   Lampa.Modal.close();
