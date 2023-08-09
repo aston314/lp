@@ -5149,10 +5149,11 @@
     };
 
     this.extendChoice = function () {
-      var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
-      var save = data[selected_id || object.movie.id] || {};
-      extended = true;
-      sources[balanser].extendChoice(save);
+      // var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
+      // var save = data[selected_id || object.movie.id] || {};
+      // extended = true;
+      // sources[balanser].extendChoice(save);
+      sources[balanser].extendChoice(this.getChoice());
     };
 
     this.saveChoice = function (choice) {
