@@ -783,39 +783,31 @@
 
     function dodetail(link, data, title) {
       //取得具体页面的详情地址
+
       (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
       network["native"](proxy_url + link, function (data) {
-        return new Promise(function (resolve, reject) {
-          var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
-          rslt = [];
-          $(math).find('a').each(function (i, a) {
-            rslt.push({
-              file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
-              quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
-              title: title,
-              season: '',
-              episode: '',
-              info: ''
-            });
-          });
-          filter();
-          append(filtred());
-          //rslt = [];
-          $(math).remove();
-          resolve(); // 表示添加完成
-        })
-          .then(function () {
-            setTimeout(function () {
-              get_links_wait = false;
-              component.render().find('.broadcast__scan').remove();
-        }, 100);
-            
-          })
-          .catch(function (error) {
-            console.error('获取具体面页内容时出错：', error);
-          });
 
-        
+        var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
+        rslt = [];
+        $(math).find('a').each(function (i, a) {
+          rslt.push({
+            file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
+            quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
+            title: title,
+            season: '',
+            episode: '',
+            info: ''
+          });
+        });
+        filter();
+        append(filtred());
+        setTimeout(function () {
+          get_links_wait = false;
+          component.render().find('.broadcast__scan').remove();
+        }, 1000);
+
+        //rslt = [];
+        $(math).remove();
       }, function (a, c) {
         //component.empty('哦，' + network.errorDecode(a, c) + ' ');
         component.emptyForQuery(title);
@@ -5199,8 +5191,12 @@
 
     this.getChoice = function (for_balanser) {
       var data = Lampa.Storage.cache('online_mod_choice_' + (for_balanser || balanser), 3000, {});
+      // var save;
+      // if (this.externalId.id) {
+      //   save = data[this.externalId.id] || {};
+      // } else {
       var save = data[selected_id || object.movie.id] || {};
-
+      // };
       Lampa.Arrays.extend(save, {
         season: 0,
         voice: 0,
@@ -5221,7 +5217,12 @@
 
     this.saveChoice = function (choice) {
       var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
+      // && typeof object.movie.id == 'undefined'
+      // if (this.externalId.id) {
+      //   data[this.externalId.id] = choice;
+      // } else {
       data[selected_id || object.movie.id] = choice;
+      // };
       Lampa.Storage.set('online_mod_choice_' + balanser, data);
     };
     /**
@@ -5279,10 +5280,11 @@
      * Загрузка
      */
 
+
     this.loading = function (status) {
-      if (status) this.activity.loader(true);else {
+      if (status) this.activity.loader(true); else {
         this.activity.loader(false);
-        if (Lampa.Controller.enabled().name === 'content') this.activity.toggle();
+        this.activity.toggle();
       }
     };
     /**
