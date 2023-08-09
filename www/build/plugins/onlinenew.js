@@ -574,6 +574,10 @@
         channel_name: 'TG-阿里(高品质)影视',
         channel_uri: 'alyp_1'
       },
+      {
+        channel_name: 'TG-阿里云影视',
+        channel_uri: 'aliyunys'
+      },
     ],
     "resource_site": [
       {
@@ -802,10 +806,9 @@
         });
         filter();
         append(filtred());
-        // setTimeout(function () {
-          get_links_wait = false;
-          component.render().find('.broadcast__scan').remove();
-        // }, 1000);
+
+        get_links_wait = false;
+        component.render().find('.broadcast__scan').remove();
 
         //rslt = [];
         $(math).remove();
@@ -1451,6 +1454,7 @@
       voice_name: ''
     };
     var rslt = [];
+    var get_links_wait = false;
 
     /**
      * Поиск
@@ -1460,6 +1464,8 @@
 
 
     this.search = function (_object, kinopoisk_id) {
+      get_links_wait = true;
+      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
       var _this = this;
       object = _object;
       select_title = object.search || object.movie.title;
@@ -1474,14 +1480,22 @@
         network["native"](url, function (json) {
           if (json) {
             if (json.list.length == 0) {
+              get_links_wait = false;
+              component.render().find('.broadcast__scan').remove();
               component.emptyForQuery(select_title)
             } else {
               parse(json);
             }
-          } else component.emptyForQuery(select_title);
+          } else {
+            get_links_wait = false;
+            component.render().find('.broadcast__scan').remove();
+            component.emptyForQuery(select_title)
+          };
 
           component.loading(false);
         }, function (a, c) {
+          get_links_wait = false;
+          component.render().find('.broadcast__scan').remove();
           component.empty(network.errorDecode(a, c));
         }, false, {
           dataType: 'json'
@@ -1499,14 +1513,22 @@
                 network["native"](url, function (json) {
                   if (json) {
                     if (json.list.length == 0) {
+                      get_links_wait = false;
+                      component.render().find('.broadcast__scan').remove();
                       component.emptyForQuery(select_title)
                     } else {
                       parse(json);
                     }
-                  } else component.emptyForQuery(select_title);
+                  } else {
+                    get_links_wait = false;
+                    component.render().find('.broadcast__scan').remove();
+                    component.emptyForQuery(select_title)
+                  };
 
                   component.loading(false);
                 }, function (a, c) {
+                  get_links_wait = false;
+                  component.render().find('.broadcast__scan').remove();
                   component.empty(network.errorDecode(a, c));
                 }, false, {
                   dataType: 'json'
@@ -1527,11 +1549,21 @@
                 });
                 component.similars(similars);
               }
-            } else component.emptyForQuery(select_title);
-          } else component.emptyForQuery(select_title);
+            } else {
+              component.emptyForQuery(select_title)
+              get_links_wait = false;
+              component.render().find('.broadcast__scan').remove();
+            };
+          } else {
+            component.emptyForQuery(select_title)
+            get_links_wait = false;
+            component.render().find('.broadcast__scan').remove();
+          };
 
           component.loading(false);
         }, function (a, c) {
+          get_links_wait = false;
+          component.render().find('.broadcast__scan').remove();
           component.empty(network.errorDecode(a, c));
         }, false, {
           dataType: 'json',
@@ -1611,6 +1643,8 @@
       });
       filter();
       append(filtred());
+      get_links_wait = false;
+      component.render().find('.broadcast__scan').remove();
       //rslt = [];
 
     }
