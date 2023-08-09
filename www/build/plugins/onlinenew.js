@@ -1462,6 +1462,10 @@
      */
 
 
+    function closeloading() {
+      get_links_wait = false;
+      component.render().find('.broadcast__scan').remove();
+    }
 
     this.search = function (_object, kinopoisk_id) {
       get_links_wait = true;
@@ -1480,22 +1484,19 @@
         network["native"](url, function (json) {
           if (json) {
             if (json.list.length == 0) {
-              get_links_wait = false;
-              component.render().find('.broadcast__scan').remove();
+              closeloading();
               component.emptyForQuery(select_title)
             } else {
               parse(json);
             }
           } else {
-            get_links_wait = false;
-            component.render().find('.broadcast__scan').remove();
+            closeloading();
             component.emptyForQuery(select_title)
           };
 
           component.loading(false);
         }, function (a, c) {
-          get_links_wait = false;
-          component.render().find('.broadcast__scan').remove();
+          closeloading();
           component.empty(network.errorDecode(a, c));
         }, false, {
           dataType: 'json'
@@ -1513,22 +1514,19 @@
                 network["native"](url, function (json) {
                   if (json) {
                     if (json.list.length == 0) {
-                      get_links_wait = false;
-                      component.render().find('.broadcast__scan').remove();
+                      closeloading();
                       component.emptyForQuery(select_title)
                     } else {
                       parse(json);
                     }
                   } else {
-                    get_links_wait = false;
-                    component.render().find('.broadcast__scan').remove();
+                    closeloading();
                     component.emptyForQuery(select_title)
                   };
 
                   component.loading(false);
                 }, function (a, c) {
-                  get_links_wait = false;
-                  component.render().find('.broadcast__scan').remove();
+                  closeloading();
                   component.empty(network.errorDecode(a, c));
                 }, false, {
                   dataType: 'json'
@@ -1548,22 +1546,20 @@
                   });
                 });
                 component.similars(similars);
+                closeloading();
               }
             } else {
               component.emptyForQuery(select_title)
-              get_links_wait = false;
-              component.render().find('.broadcast__scan').remove();
+              closeloading();
             };
           } else {
+            closeloading();
             component.emptyForQuery(select_title)
-            get_links_wait = false;
-            component.render().find('.broadcast__scan').remove();
           };
 
           component.loading(false);
         }, function (a, c) {
-          get_links_wait = false;
-          component.render().find('.broadcast__scan').remove();
+          closeloading();
           component.empty(network.errorDecode(a, c));
         }, false, {
           dataType: 'json',
