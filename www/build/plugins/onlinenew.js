@@ -5,25 +5,6 @@
 
   var extract_rule = {
     "rule": [
-      // {
-      //   name: '完美看看',
-      //   websitelink: 'https://www.wanmeikk.film/',
-      //   listlink: true,
-      //   use_proxy: false,
-      //   search_url: 'https://www.wanmeikk.film/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-      //   search_json: true,
-      //   node_json: 'list',
-      //   name_json: 'name',
-      //   id_json: 'id',
-      //   first_page_json: '-1-1.html',
-      //   search_html_selector: '',
-      //   link_folder: 'play',
-      //   detail_url_selector: 'div.stui-pannel_bd.col-pd',
-      //   videoparse: 'browser',
-      //   videocontainer: '.MacPlayer',
-      //   use_referer: false,
-      //   js_execute_key: ['maccms', 'player_aaaa']
-      // },
       {
         name: '网站-LIBVIO',
         websitelink: 'https://libvio.cc',
@@ -66,44 +47,44 @@
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
       },
-      {
-        name: '网站-凌云影视',
-        websitelink: 'https://www.lyys8.com/',
-        listlink: true,
-        use_proxy: false,
-        search_url: 'https://www.lyys8.com/s.html?wd=#msearchword',
-        search_json: false,
-        node_json: 'data',
-        name_json: 'title',
-        id_json: 'url',
-        first_page_json: '',
-        search_html_selector: 'dl > dd > p:nth-child(1) > strong',
-        link_folder: '',
-        detail_url_selector: '.player.ckp:first-child',
-        videoparse: 'default',
-        videocontainer: '.MacPlayer',
-        use_referer: true,
-        js_execute_key: ['maccms', 'player_data']
-      },
       // {
-      //   name: '剧白白',
-      //   websitelink: 'https://www.jubaibai.cc',
+      //   name: '网站-凌云影视',
+      //   websitelink: 'https://www.lyys8.com/',
       //   listlink: true,
       //   use_proxy: false,
-      //   search_url: 'https://www.jubaibai.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-      //   search_json: true,
-      //   node_json: 'list',
-      //   name_json: 'name',
-      //   id_json: 'id',
-      //   first_page_json: '-1-1.html',
-      //   search_html_selector: '',
-      //   link_folder: 'play',
-      //   detail_url_selector: 'div.play-item.cont.active',
+      //   search_url: 'https://www.lyys8.com/s.html?wd=#msearchword',
+      //   search_json: false,
+      //   node_json: 'data',
+      //   name_json: 'title',
+      //   id_json: 'url',
+      //   first_page_json: '',
+      //   search_html_selector: 'dl > dd > p:nth-child(1) > strong',
+      //   link_folder: '',
+      //   detail_url_selector: '.player.ckp:first-child',
       //   videoparse: 'default',
       //   videocontainer: '.MacPlayer',
       //   use_referer: true,
-      //   js_execute_key: ['maccms', 'player_aaaa']
+      //   js_execute_key: ['maccms', 'player_data']
       // },
+      {
+        name: '网站-剧白白',
+        websitelink: 'https://www.jubaibaic.com',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'https://www.jubaibaic.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '-1-1.html',
+        search_html_selector: '',
+        link_folder: 'p/',
+        detail_url_selector: '.playlist.column',
+        videoparse: 'default',
+        videocontainer: '.MacPlayer',
+        use_referer: true,
+        js_execute_key: ['maccms', 'player_aaaa']
+      },
       {
         name: '网站-秋霞电影',
         websitelink: 'https://www.7xiady.cc',
@@ -814,6 +795,8 @@
         $(math).remove();
       }, function (a, c) {
         //component.empty('哦，' + network.errorDecode(a, c) + ' ');
+        get_links_wait = false;
+        component.render().find('.broadcast__scan').remove();
         component.emptyForQuery(title);
       }, false, {
         dataType: 'text'
