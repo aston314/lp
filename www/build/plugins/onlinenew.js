@@ -2274,14 +2274,15 @@
 
                 playlist.push(first);
                 Lampa.Player.playlist(playlist);
-                Lampa.Controller.toggle('content');
+                component.savehistory(object);
+                
               } else {
 
                 Lampa.Noty.show('无法检索播放链接');
-                Lampa.Controller.toggle('content');
+                
               }
               Lampa.Modal.close();
-
+              component.savehistory(object);
             }, function (a, c) {
               Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
