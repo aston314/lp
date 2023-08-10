@@ -55,6 +55,15 @@
       "release_date": "2008-09-19"
     },
     {
+      "tmdbrate": 8.491,
+      "picture": "http://image.tmdb.org/t/p/w200/jBmJZDiJ2h6DimGROpxWlPh1xIo.jpg",
+      "name": "Spider-Man: Across the Spider-Verse",
+      "video": "magnet:?xt=urn:btih:89225E8C78F3D4605F0B3CD3867015A4CBD4027C&dn=Spider-Man%3A+Across+the+Spider-Verse+%282023%29+%281080p+MA+WEB-DL+x265+HEVC+10bit+EAC3+5.1+SAMPA%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2810%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Spider-Man: Across the Spider-Verse (2023) (1080p MA WEB-DL x265 ...",
+      "cname": "蜘蛛侠：纵横宇宙 ",
+      "release_date": "2023-05-31"
+    },
+    {
       "tmdbrate": 5.8,
       "picture": "http://image.tmdb.org/t/p/w200/3IY1n6UQnjNImEToEDTW924EUAo.jpg",
       "name": "Maggie Moores",
@@ -127,13 +136,22 @@
       "release_date": "2023-07-28"
     },
     {
-      "tmdbrate": 8.075,
+      "tmdbrate": 8.073,
       "picture": "http://image.tmdb.org/t/p/w200/yRnEpT8jzyB7HwHiZBNY8A6H0a5.jpg",
       "name": "Guardians of the Galaxy Vol 3",
       "video": "magnet:?xt=urn:btih:0651CD613A9B7343F8206A05DDE181FD44B9558C&dn=Guardians+of+the+Galaxy+Vol.3+2023+IMAX+BluRay+1080p+DTS-HD+MA+7.1+x264-MgB&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
       "oname": "Guardians of the Galaxy Vol.3 2023 IMAX BluRay 1080p DTS-HD MA 7....",
       "cname": "银河护卫队3 ",
       "release_date": "2023-05-03"
+    },
+    {
+      "tmdbrate": 5.856,
+      "picture": "http://image.tmdb.org/t/p/w200/AudA8gnTWSBWXBHSBHnr3HHUXXM.jpg",
+      "name": "Little Nicky",
+      "video": "magnet:?xt=urn:btih:12E016E5E7428A2BBED4696AF63A6BCC321A10C7&dn=Little+Nicky+2000+1080p+Remastered+BluRay+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Little Nicky 2000 1080p Remastered BluRay HEVC x265 5.1 BONE",
+      "cname": "魔鬼接班人 ",
+      "release_date": "2000-11-10"
     },
     {
       "tmdbrate": 5.25,
@@ -154,6 +172,15 @@
       "release_date": "2021-09-15"
     },
     {
+      "tmdbrate": 5,
+      "picture": "http://image.tmdb.org/t/p/w200/fO0YbAJiMPFMquixdZgbC98I3MP.jpg",
+      "name": "Cool as Ice",
+      "video": "magnet:?xt=urn:btih:BFE5A8C3F296557B12D820D99EFFD5DBFEEF7CA8&dn=Cool+as+Ice+%281991%29+%28KL+Remastered+RiffTrax+1080p+BluRay+x265+HEVC+10bit+AAC+2.0+Commentary%29+David+Kellogg+Kristin+Minter+Michael+Gross+Deezer+D+John+Haymes+Newton+Naomi+Campbell+Bobbie+Brown&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Cool as Ice (1991) (KL Remastered RiffTrax 1080p BluRay x265 HEVC...",
+      "cname": "不羁小子 ",
+      "release_date": "1991-10-18"
+    },
+    {
       "tmdbrate": 0,
       "picture": "http://image.tmdb.org/t/p/w200/lWOCDrPFlfCmmq1uGnpbKGuE9VS.jpg",
       "name": "Tell Momma Not to Worry",
@@ -163,6 +190,15 @@
       "release_date": "2023-04-04"
     },
     {
+      "tmdbrate": 6.107,
+      "picture": "http://image.tmdb.org/t/p/w200/btYKWL9SP12nhkcw8EkMG3aFtga.jpg",
+      "name": "Dirty Work",
+      "video": "magnet:?xt=urn:btih:A2CC8317BC978B48DA236FCD71FED8373A4DB621&dn=Dirty+Work+1998+1080p+BluRay+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Dirty Work 1998 1080p BluRay HEVC x265 5.1 BONE",
+      "cname": "下流勾当 ",
+      "release_date": "1998-06-12"
+    },
+    {
       "tmdbrate": 6.641,
       "picture": "http://image.tmdb.org/t/p/w200/wf0ytfo536OlK7p4bspXzOq4dbZ.jpg",
       "name": "Dolittle",
@@ -170,6 +206,15 @@
       "oname": "Dolittle.2020.1080p.10bit.Blu-ray.HEVC.DDP.7.1-NmCT",
       "cname": "多力特的奇幻冒险 ",
       "release_date": "2020-01-02"
+    },
+    {
+      "tmdbrate": 7.707,
+      "picture": "http://image.tmdb.org/t/p/w200/tIsUFrPORQAvnB8lvP633CCkH4A.jpg",
+      "name": "Aftersun",
+      "video": "magnet:?xt=urn:btih:7F06DD0586B18437A86D784096068888EA50171E&dn=Aftersun+%282022%29+%281080p+BluRay+AV1+Opus%29+%5BNeoNyx343%5D&tr=udp%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ft.acg.rip%3A6699%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.gbitt.info%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.army%3A6969%2Fannounce&tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leech.ie%3A1337%2Fannounce&tr=https%3A%2F%2Ftracker.lilithraws.cf%3A443%2Fannounce&tr=http%3A%2F%2Fbt.okmp3.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Aftersun (2022) (1080p BluRay AV1 Opus) [NeoNyx343]",
+      "cname": "晒后假日 ",
+      "release_date": "2022-10-21"
     },
     {
       "tmdbrate": 7.625,
