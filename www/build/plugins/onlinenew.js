@@ -2274,7 +2274,7 @@
 
                 playlist.push(first);
                 Lampa.Player.playlist(playlist);
-
+                Lampa.Controller.toggle('content');
               } else {
 
                 Lampa.Noty.show('无法检索播放链接');
