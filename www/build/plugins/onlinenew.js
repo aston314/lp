@@ -995,7 +995,7 @@
             var srcValues = [];
 
             // 获取所有具有指定类名的元素
-            var elements = document.getElementsByClassName(className);
+            var elements = $(className);
 
             // 遍历具有指定类名的元素
             for (var i = 0; i < elements.length; i++) {
@@ -1017,12 +1017,12 @@
           }
 
           // 获取具有特定类名的元素中所有子元素的src属性值
-          var className = 'iframe'; // 替换为实际的类名
+          var className = '.iframe'; // 替换为实际的类名
           var srcValuesInClass = getSrcValuesInClass(className);
 
           // 输出结果
           console.log('src values in elements with class', className + ':', srcValuesInClass);
-          
+
           var playulr = $('video').attr('src') || document.querySelector('source').src;
           // var videoElement = $('video')[0];
           // var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
