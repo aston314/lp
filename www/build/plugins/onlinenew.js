@@ -2267,7 +2267,7 @@
                 var first = {
                   url: data.url,
                   //   timeline: view,
-                  title: element.title + ' ' + tab.title,
+                  title: object.movie.title  + ' ' + element.title,
                   subtitles: data.subtitles
                 };
                 Lampa.Player.play(first);
