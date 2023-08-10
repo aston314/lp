@@ -18,18 +18,6 @@
         //var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
         var cors = 'https://cors.eu.org/';
 
-
-
-        // this.getQueryString = function (link, name) {
-        //     let reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)", "i");
-        //     //console.log(link)
-        //     let r = link.match(reg);
-        //     if (r != null) {
-        //         return decodeURIComponent(r[2]);
-        //     };
-        //     return null;
-        // };
-
         this.create = function () {
             //console.log(object.url)
             var _this = this;
@@ -604,7 +592,7 @@
             this.selectGroup = function () {
                 Lampa.Select.show({
                     title: '低端影视',
-                    items: catalogs,
+                    items: catalogsddys,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
@@ -845,27 +833,6 @@
         };
 
         this.start = function () {
-            // Lampa.Controller.add('content', {
-            //     toggle: function toggle() {
-            //         Lampa.Controller.collectionSet(scroll.render());
-            //         Lampa.Controller.collectionFocus(last || false, scroll.render());
-            //     },
-            //     left: function left() {
-            //         if (Navigator.canmove('left')) Navigator.move('left'); else Lampa.Controller.toggle('menu');
-            //     },
-            //     right: function right() {
-            //         Navigator.move('right');
-            //     },
-            //     up: function up() {
-            //         if (Navigator.canmove('up')) Navigator.move('up'); else Lampa.Controller.toggle('head');
-            //     },
-            //     down: function down() {
-            //         if (Navigator.canmove('down')) Navigator.move('down');
-            //     },
-            //     back: function back() {
-            //         Lampa.Activity.backward();
-            //     }
-            // });
             if (Lampa.Activity.active().activity !== this.activity) return;
             var _this = this;
             Lampa.Controller.add('content', {
@@ -935,7 +902,7 @@
         };
     }
 
-    var catalogs = [
+    var catalogsddys = [
     {
         title: '首页',
         url: 'https://ddys.pro/'
@@ -975,7 +942,7 @@
             menu_item.on('hover:enter', function () {
                 Lampa.Select.show({
                     title: '低端影视',
-                    items: catalogs,
+                    items: catalogsddys,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
