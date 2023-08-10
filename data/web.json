@@ -130,7 +130,7 @@
             "selector": ".nav-links"
          },
          "videoscontainer": {
-            "selector": "div.post-box-container,div.post-box-container",
+            "selector": "div.post-box-container,div.post-content",
             "attrName": "",
             "filter": ""
          },
