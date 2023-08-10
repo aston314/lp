@@ -643,6 +643,33 @@
       return arr;
     };
 
+    function extractScriptContentAsString(keywords, webpageContent) {
+      let resultString = "";
+
+      for (var keyword of keywords) {
+        var regex = new RegExp(`<script\\b[^>]*>([^<]*${keyword}[^<]*)<\\/script\\b[^>]*>`, 'g');
+        var match;
+
+        while ((match = regex.exec(webpageContent)) !== null) {
+          resultString += match[1]+ "\n"; // Add a newline for each match
+        }
+      }
+
+      return resultString;
+    }
+
+    $.getMultiScripts = function (arr, path) {
+      var _arr = $.map(arr, function (scr) {
+        return $.getScript((path || "") + scr);
+      });
+
+      _arr.push($.Deferred(function (deferred) {
+        $(deferred.resolve);
+      }));
+
+      return $.when.apply($, _arr);
+    }
+
     function getValues(obj, key) {
       var objects = [];
       for (var i in obj) {
@@ -1117,28 +1144,7 @@
               });
             };
 
-            function playershow() {
-              iabRef.insertCSS({ code: 'body {background-color: black;}.focus { border: 2px solid #0f0f0f;}.dplayer-web-fullscreen-fix1{position:fixed;top:0;left:0;margin:0;padding:0}' + videocontainer + ' { position:fixed;z-index:2147483649;left:0;top:0;width:100%!important;height:100%!important}' });
-              //iabRef.insertCSS({ code: 'a:hover{border: 2px solid #006}.MacPlayer { position:fixed;z-index:100000;left:0;top:0;width:100%!important;height:100%!important }' });
-              //iabRef.executeScript({ code: `document.querySelector(".dplayer-full-icon").click();` });
-              iabRef.executeScript({
-                code: '\
-                document.body.classList.add("dplayer-web-fullscreen-fix1");\
-                jQuery("div:not('+ videocontainer + ')").hide();  \
-                jQuery("'+ videocontainer + '").appendTo("body"); \
-                jQuery("'+ videocontainer + '").attr("id", "myLampaplayer0");\
-                '});
 
-              iabRef.show();
-            };
-
-            function iabClose(event) {
-              iabRef.removeEventListener('loadstop', playershow);
-              iabRef.removeEventListener('exit', iabClose);
-              Lampa.Modal.close();
-              Lampa.Api.clear();
-              Lampa.Controller.toggle('content');
-            };
 
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (doreg.videoparse == 'browser') {
@@ -1206,14 +1212,22 @@
                   var MacPlayer_, file_ = [], a;
                   // (http|https):\/\/(www.)?(\w+(\.)?)+ 
                   var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
-                  var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
-                  var b;
-                  doreg.js_execute_key.forEach(function (s, index) {
-                    b = fuzzyQuery(d, s);
-                    a = b.length > 0 ? b[0].replace(/<.+?>/g, '') : '1';
-                    window.eval('function base64decode(str){ return atob(str); };' + a);
-                  });
+                  // var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
+                  // var b;
+                  // str = str.replace(/<\/?(head|body|html)[^>]*>/g, '')
+                  // console.log(str)
+                  // doreg.js_execute_key.forEach(function (s, index) {
+                  //   b += extractScriptContent(s, str)
+                  //   //$('script:contains('+s+')',str).html();
+                  //   // b = fuzzyQuery(d, s);
+                  //   // a = b.length > 0 ? b[0].replace(/<.+?>/g, '') : '1';
+                    
+                  // });
+                  var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
+                  // console.log(keyjs.replace(/undefined|NaN/g,''))
+                  window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
 
+                  // console.log(from)
                   if (typeof now !== 'undefined') {
                     var playlist = [];
                     var first = {
@@ -1232,13 +1246,36 @@
                     //   '/static/js/playerconfig.js',
                     //   '/static/js/player.js'
                     // ];
-                    var script_arr = [
+                    var queue = [
                       proxy_url + url + '/static/js/playerconfig.js',
                       proxy_url + url + '/static/js/player.js'
                     ];
 
                     // loadScripts(script_arr).then(function() {
-                    Lampa.Utils.putScriptAsync(script_arr, function () {
+                    // var queue = script_arr;
+
+                    // ProcessScripts(function () { // All done do what ever you want
+
+                    // }, 0);
+
+                    function ProcessScripts(cb, index) {
+                      getScript(queue[index], function () {
+                        index++;
+                        if (index === queue.length) { // Reached the end
+                          cb();
+                        } else {
+                          return ProcessScripts(cb, index);
+                        }
+                      });
+                    }
+
+                    function getScript(script, callback) {
+                      $.getScript(script, function () {
+                        callback();
+                      });
+                    }
+                    // Lampa.Utils.putScriptAsync(script_arr, function () {
+                    ProcessScripts(function () {
                       //     window.eval(joinedaa);
                       //   });
                       // $.getMultiScripts(script_arr, proxy_url + url).done(function () {
@@ -1248,136 +1285,143 @@
                       // $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
                       //   .done(function () {
                       // setTimeout(function () {
-                        Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
-                          //$(".noty").show();
-                          //console.log($(MacPlayer.Html).attr('src'))
-                          MacPlayer_ = $(MacPlayer.Html).attr('src');
-                          MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
+                      // console.log(MacPlayer)
+                      // var js11 = (JSON.parse($('script:contains(player_)',str).html().replace('var player_aaaa=','')))
+                      // var js = JSON.parse($('script:contains(player_)').html().replace('var player_aaaaß=',''));
+                      // console.log(js11)
+                      Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
+                        Lampa.Modal.close();
+                        Lampa.Api.clear();
+                        //$(".noty").show();
+                        //console.log($(MacPlayer.Html).attr('src'))
+                        MacPlayer_ = $(MacPlayer.Html).attr('src');
+                        // console.log(MacPlayer_)
+                        MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
 
-                          var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
+                        var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
 
-                          //console.log(MacPlayer_)
+                        //console.log(MacPlayer_)
 
-                          //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
-                          if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                            file1 = MacPlayer.PlayUrl;
-                          };
-                          file_.push(file1);
-                          //console.log(file_);
-                          var file = file_[0];
-                          //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
-                          if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                            // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
-                            //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
-                            //   var playlist = [];
-                            //   var first = {
-                            //     url: ikan_url,
-                            //     timeline: view,
-                            //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                            //     subtitles: element.subtitles
-                            //   };
-                            //   Lampa.Player.play(first);
-                            //   playlist.push(first);
-                            //   Lampa.Player.playlist(playlist);
-                            // } else {
-                            var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
-                            if (!doreg.use_referer) {
-                              //console.log(MacPlayer_)
-                              //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                              //分析页面
-                              // network.silent(MacPlayer_, function (str) {
-                              //   doparse(element, view, url1_, MacPlayer_, str);
-                              // }, function (a, c) {
-                              //   Lampa.Noty.show(network.errorDecode(a, c));
-                              // }, false, {
-                              //   dataType: 'text'
-                              // });
-                              // 用户iframe打开页面
-                              Lampa.Iframe.show({
-                                //url: $('.embed-responsive-item', str).attr('src'),
-                                url: MacPlayer_,
-                                onBack: function onBack() {
-                                  Lampa.Controller.toggle('content');
+                        //if (MacPlayer.PlayUrl.indexOf('.m3u8') !== -1) {
+                        if (/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                          file1 = MacPlayer.PlayUrl;
+                        };
+                        file_.push(file1);
+                        //console.log(file_);
+                        var file = file_[0];
+                        //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
+                        if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
+                          // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
+                          //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
+                          //   var playlist = [];
+                          //   var first = {
+                          //     url: ikan_url,
+                          //     timeline: view,
+                          //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                          //     subtitles: element.subtitles
+                          //   };
+                          //   Lampa.Player.play(first);
+                          //   playlist.push(first);
+                          //   Lampa.Player.playlist(playlist);
+                          // } else {
+                          var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
+                          if (!doreg.use_referer) {
+                            //console.log(MacPlayer_)
+                            //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
+                            //分析页面
+                            // network.silent(MacPlayer_, function (str) {
+                            //   doparse(element, view, url1_, MacPlayer_, str);
+                            // }, function (a, c) {
+                            //   Lampa.Noty.show(network.errorDecode(a, c));
+                            // }, false, {
+                            //   dataType: 'text'
+                            // });
+                            // 用户iframe打开页面
+                            Lampa.Iframe.show({
+                              //url: $('.embed-responsive-item', str).attr('src'),
+                              url: MacPlayer_,
+                              onBack: function onBack() {
+                                Lampa.Controller.toggle('content');
+                              }
+                            });
+                            $('.iframe__body iframe').removeClass('iframe__window');
+                            $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
+                            component.savehistory(object);
+
+                          } else {
+                            if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
+                              $(".noty").show();
+                              Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
+                              Lampa.Controller.toggle('content');
+                            } else {
+                              //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
+                              network["native"](MacPlayer_, function (str) {
+                                // console.log(str)
+                                // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
+                                var match = str.match(urlPattern);
+                                var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
+                                var match = str.match(urlPattern);
+
+                                if (match) {
+                                  // console.log(match)
+                                  var urlvideo = match[1] || match[2];
+                                  // console.log('播放链接1', urlvideo);
+                                  var playlist = [];
+                                  var first = {
+                                    url: urlvideo,
+                                    timeline: view,
+                                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                                    subtitles: element.subtitles,
+                                    tv: false
+                                  };
+                                  Lampa.Player.play(first);
+                                  playlist.push(first);
+                                  Lampa.Player.playlist(playlist);
+                                  component.savehistory(object);
+                                } else {
+                                  doparse(element, view, url1_, MacPlayer_, str);
+                                }
+
+                              }, function (a, c) {
+                                Lampa.Noty.show(network.errorDecode(a, c));
+                              }, false, {
+                                dataType: 'text',
+                                headers: {
+                                  'Referer': url + '/',
                                 }
                               });
-                              $('.iframe__body iframe').removeClass('iframe__window');
-                              $('.iframe__body iframe').addClass('screensaver-chrome__iframe');
-                              component.savehistory(object);
-
-                            } else {
-                              if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
-                                $(".noty").show();
-                                Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
-                                Lampa.Controller.toggle('content');
-                              } else {
-                                //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
-                                network["native"](MacPlayer_, function (str) {
-                                  // console.log(str)
-                                  // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
-                                  var match = str.match(urlPattern);
-                                  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
-                                  var match = str.match(urlPattern);
-
-                                  if (match) {
-                                    // console.log(match)
-                                    var urlvideo = match[1] || match[2];
-                                    // console.log('播放链接1', urlvideo);
-                                    var playlist = [];
-                                    var first = {
-                                      url: urlvideo,
-                                      timeline: view,
-                                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                      subtitles: element.subtitles,
-                                      tv: false
-                                    };
-                                    Lampa.Player.play(first);
-                                    playlist.push(first);
-                                    Lampa.Player.playlist(playlist);
-                                    component.savehistory(object);
-                                  } else {
-                                    doparse(element, view, url1_, MacPlayer_, str);
-                                  }
-
-                                }, function (a, c) {
-                                  Lampa.Noty.show(network.errorDecode(a, c));
-                                }, false, {
-                                  dataType: 'text',
-                                  headers: {
-                                    'Referer': url + '/',
-                                  }
-                                });
-                              };
-
-
-                              //};
                             };
-                            // }
+
+
+                            //};
+                          };
+                          // }
+                        } else {
+                          if (file) {
+                            // if (/if101\.tv/.test(file)) file = proxy + file;
+                            var playlist = [];
+                            var first = {
+                              url: file,
+                              timeline: view,
+                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                              subtitles: element.subtitles,
+                              tv: false
+                            };
+                            Lampa.Player.play(first);
+                            playlist.push(first);
+                            Lampa.Player.playlist(playlist);
+                            component.savehistory(object);
                           } else {
-                            if (file) {
-                              // if (/if101\.tv/.test(file)) file = proxy + file;
-                              var playlist = [];
-                              var first = {
-                                url: file,
-                                timeline: view,
-                                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                                subtitles: element.subtitles,
-                                tv: false
-                              };
-                              Lampa.Player.play(first);
-                              playlist.push(first);
-                              Lampa.Player.playlist(playlist);
-                              component.savehistory(object);
-                            } else {
-                              $(".noty").show();
-                              Lampa.Noty.show('无法检索链接');
-                            }
+                            $(".noty").show();
+                            Lampa.Noty.show('无法检索链接');
                           }
-                        });
+                        }
+                      });
                       // }, 500);
-                    });
+                      // });
+                    }, 0);
                   }
-                  Lampa.Modal.close();
-                  Lampa.Api.clear();
+                  
                 } else component.emptyForQuery(select_title);
 
                 component.loading(false);
