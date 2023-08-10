@@ -658,18 +658,6 @@
       return resultString;
     }
 
-    $.getMultiScripts = function (arr, path) {
-      var _arr = $.map(arr, function (scr) {
-        return $.getScript((path || "") + scr);
-      });
-
-      _arr.push($.Deferred(function (deferred) {
-        $(deferred.resolve);
-      }));
-
-      return $.when.apply($, _arr);
-    }
-
     function getValues(obj, key) {
       var objects = [];
       for (var i in obj) {
@@ -871,18 +859,6 @@
     /**
      * Показать файлы
      */
-    $.getMultiScripts = function (arr, path) {
-      var _arr = $.map(arr, function (scr) {
-        if (scr.indexOf('http') !== -1) path = '';
-        return $.getScript((path || "") + scr);
-      });
-
-      _arr.push($.Deferred(function (deferred) {
-        $(deferred.resolve);
-      }));
-
-      return $.when.apply($, _arr);
-    };
 
     // 将相对路径转换成绝对路径
     function resolveRelativePath(currentPageUrl, relativePath) {
@@ -962,19 +938,6 @@
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
-      // var str = data
-      //   .replace(/src="\/\//g, 'src="https://')
-      //   .replace(/href="\/\//g, 'href="https://')
-      //   .replace('<head>', '')
-      //   .replace('</head>', '')
-      //   .replace('<body>', '')
-      //   .replace('</body>', '')
-      //   .replace('</html>', '')
-      //   .replace(/<html[^>]*>/g, '')
-      //   .replace(/<title>.*?<\/title>/g, '')
-      //   // .replace(/<meta[^>]*>/g, '')
-      //   .replace('/1.25.0/DPlayer.min.js', '/1.26.0/DPlayer.min.js')
-      //   .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
       var str = data
         .replace(/src="\/\//g, 'src="https://')
         .replace(/href="\/\//g, 'href="https://')
@@ -989,18 +952,15 @@
       // 判断当前页面的 URL 是否是绝对路径
 
       str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        // console.log(p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3));
         return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
       });
 
       var re = /<script.*?src="(.*?)"/gm;
       var match, aa = [], bbb = [], setting_js = false, setting_link;
       while (match = re.exec(str)) {
-        // var cc = match[1].slice(0, 2) == './' ? match[1].replace('./', MacPlayer_.split(url1_[0])[0] + '/' + url1_[1] + '/') : (match[1].slice(0, 1) !== '/' && match[1].indexOf('http') == -1 ? MacPlayer_.match(/https?:\/\/(?:w{1,3}\.)?[^\s.]+(?:\.[a-z]+)*(?::\d+)?(?![^<]*(?:<\/\w+>|\/?>))/)[0] + '/' + match[1] : match[1]);
         var cc = match[1];
         if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
           aa.push(cc);
-          // bbb.push(match[1]);
         }
         if (/setting[\s\S]*\.js/.test(cc)) {
           setting_js = true;
@@ -1030,7 +990,10 @@
           // document.querySelector('.dplayer-video').pause();
           // document.querySelector('.dplayer-video').play();
           // document.querySelector('.dplayer-video').focus();
-          var playulr = $('video').attr('src') || document.querySelector('source').src;
+          // var playulr = $('video').attr('src') || document.querySelector('source').src;
+          var videoElement = $('video')[0];
+          var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
+          
           // var playulr = $('video').attr('src') || $('video source').attr('src');
           console.log('playulr=', playulr)
           if (typeof playulr !== "undefined") {
@@ -1144,8 +1107,6 @@
               });
             };
 
-
-
             (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
             if (doreg.videoparse == 'browser') {
               network["native"](proxy_url + element.file, function (str) {
@@ -1175,59 +1136,12 @@
               loadingshow();
               network["native"](proxy_url + element.file, function (str) {
                 if (str) {
-                  // var czspp = str.match(/window.wp_nonce=".*";([\s\S]*?)\/\/ localStorage/);
-                  // czspp = czspp ? czspp[0] : null;
-                  // if (czspp) {
-                  //   $(".noty").hide();
-                  //   czspp = czspp.replace('eval', 'var doczspp = ');
-
-                  //   $.getScript("https://cdn.jsdelivr.net/gh/aston314/lampa@main/lib/md5.js")
-                  //     .done(function () {
-                  //       window.eval(czspp);
-                  //       if (typeof doczspp !== 'undefined') {
-                  //         //console.log(doczspp);
-                  //         var v = doczspp.match(/url: "(.*?)"/);
-                  //         v = v ? v[1] : '';
-                  //         //console.log(v)
-                  //         if (v) {
-                  //           var playlist = [];
-                  //           var first = {
-                  //             url: v,
-                  //             timeline: view,
-                  //             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                  //             subtitles: element.subtitles
-                  //           };
-                  //           Lampa.Player.play(first);
-                  //           playlist.push(first);
-                  //           Lampa.Player.playlist(playlist);
-                  //         };
-                  //       } else {
-                  //         $(".noty").show();
-                  //         Lampa.Noty.show('无法检索链接');
-                  //       };
-                  //     });
-                  // };
-                  //console.log(czspp);
                   $(".noty").hide();
                   var MacPlayer_, file_ = [], a;
-                  // (http|https):\/\/(www.)?(\w+(\.)?)+ 
                   var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
-                  // var d = str.match(/<script\b[^>]*>([\s\S]*?)<\/script\b[^>]*>/g);
-                  // var b;
-                  // str = str.replace(/<\/?(head|body|html)[^>]*>/g, '')
-                  // console.log(str)
-                  // doreg.js_execute_key.forEach(function (s, index) {
-                  //   b += extractScriptContent(s, str)
-                  //   //$('script:contains('+s+')',str).html();
-                  //   // b = fuzzyQuery(d, s);
-                  //   // a = b.length > 0 ? b[0].replace(/<.+?>/g, '') : '1';
-                    
-                  // });
                   var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
-                  // console.log(keyjs.replace(/undefined|NaN/g,''))
                   window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
-
-                  // console.log(from)
+                  
                   if (typeof now !== 'undefined') {
                     var playlist = [];
                     var first = {
@@ -1242,21 +1156,10 @@
                     Lampa.Player.playlist(playlist);
                     component.savehistory(object);
                   } else {
-                    // var script_arr = [
-                    //   '/static/js/playerconfig.js',
-                    //   '/static/js/player.js'
-                    // ];
                     var queue = [
                       proxy_url + url + '/static/js/playerconfig.js',
                       proxy_url + url + '/static/js/player.js'
                     ];
-
-                    // loadScripts(script_arr).then(function() {
-                    // var queue = script_arr;
-
-                    // ProcessScripts(function () { // All done do what ever you want
-
-                    // }, 0);
 
                     function ProcessScripts(cb, index) {
                       getScript(queue[index], function () {
@@ -1274,21 +1177,8 @@
                         callback();
                       });
                     }
-                    // Lampa.Utils.putScriptAsync(script_arr, function () {
+
                     ProcessScripts(function () {
-                      //     window.eval(joinedaa);
-                      //   });
-                      // $.getMultiScripts(script_arr, proxy_url + url).done(function () {
-                      // all scripts loaded
-                      //console.log(MacPlayer)
-                      //$(".noty").hide();
-                      // $.getScript(proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js")
-                      //   .done(function () {
-                      // setTimeout(function () {
-                      // console.log(MacPlayer)
-                      // var js11 = (JSON.parse($('script:contains(player_)',str).html().replace('var player_aaaa=','')))
-                      // var js = JSON.parse($('script:contains(player_)').html().replace('var player_aaaaß=',''));
-                      // console.log(js11)
                       Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
                         Lampa.Modal.close();
                         Lampa.Api.clear();
@@ -1309,36 +1199,11 @@
                         file_.push(file1);
                         //console.log(file_);
                         var file = file_[0];
-                        //if (MacPlayer_ && MacPlayer.PlayUrl.indexOf('.m3u8') == -1) {
                         if (MacPlayer_ && !/\.m3u8|\.mp4/.test(MacPlayer.PlayUrl)) {
-                          // if (/ikanm3u8/.test(MacPlayer.PlayUrl)) {
-                          //   var ikan_url = 'https://weiyunsha.ikan6.vip/tsjmjson/' + MacPlayer.PlayUrl.replace('ikanm3u8_', '') + '.m3u8'
-                          //   var playlist = [];
-                          //   var first = {
-                          //     url: ikan_url,
-                          //     timeline: view,
-                          //     title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                          //     subtitles: element.subtitles
-                          //   };
-                          //   Lampa.Player.play(first);
-                          //   playlist.push(first);
-                          //   Lampa.Player.playlist(playlist);
-                          // } else {
                           var url1_ = MacPlayer_.replace('/' + doreg.link_folder + '/', '').match(/\/([^\/]+)\/[^\/]+$/);
                           if (!doreg.use_referer) {
-                            //console.log(MacPlayer_)
-                            //var url_ = MacPlayer_.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0];
-                            //分析页面
-                            // network.silent(MacPlayer_, function (str) {
-                            //   doparse(element, view, url1_, MacPlayer_, str);
-                            // }, function (a, c) {
-                            //   Lampa.Noty.show(network.errorDecode(a, c));
-                            // }, false, {
-                            //   dataType: 'text'
-                            // });
                             // 用户iframe打开页面
                             Lampa.Iframe.show({
-                              //url: $('.embed-responsive-item', str).attr('src'),
                               url: MacPlayer_,
                               onBack: function onBack() {
                                 Lampa.Controller.toggle('content');
@@ -1354,10 +1219,7 @@
                               Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
                               Lampa.Controller.toggle('content');
                             } else {
-                              //if (navigator.userAgent.toLowerCase().indexOf("lampa_client") > -1) {
                               network["native"](MacPlayer_, function (str) {
-                                // console.log(str)
-                                // var urlPattern = /["|'](http.*?\.(mp4|m3u8)(\?.*?)?)["|']/;
                                 var match = str.match(urlPattern);
                                 var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';/;
                                 var match = str.match(urlPattern);
@@ -1391,14 +1253,10 @@
                                 }
                               });
                             };
-
-
-                            //};
                           };
-                          // }
+                          
                         } else {
                           if (file) {
-                            // if (/if101\.tv/.test(file)) file = proxy + file;
                             var playlist = [];
                             var first = {
                               url: file,
@@ -1417,8 +1275,6 @@
                           }
                         }
                       });
-                      // }, 500);
-                      // });
                     }, 0);
                   }
                   
