@@ -1998,6 +1998,337 @@
     }
   }
 
+  function ddys(component, _object, rule) {
+    var network = new Lampa.Reguest();
+    var extract = {};
+    var object = _object;
+    var select_title = '';
+    var filter_items = {};
+    var choice = {
+      season: 0,
+      voice: 0,
+      order: 0,
+      voice_name: ''
+    };
+    var get_links_wait = false;
+    var rslt = [];
+    var proxy_url = '';
+    var proxy = 'https://cors.eu.org/';
+
+    /**
+     * Поиск
+     * @param {Object} _object 
+     */
+
+    this.search = function (_object, kinopoisk_id) {
+      object = _object;
+      select_title = object.search || object.movie.title;
+      // doreg = rule;
+      get_links_wait = true;
+      var searchUrl = 'https://ddys.pro/?s=#msearchword&post_type=post';
+      var seasonRemovedTitle = select_title.replace(/第(.+)季/, '');
+      var encodedTitle = encodeURIComponent(seasonRemovedTitle);
+      var url1 = searchUrl.replace('#msearchword', encodedTitle);
+
+      network.clear();
+      network.timeout(1000 * 15);
+      network["native"](proxy_url + url1, function (str) {
+        // var parsedData = doreg.search_json ? str : str;
+
+        var parsedData = str;
+
+        var searchresult = $('h2.post-title', parsedData).find('a').length;
+
+        if (searchresult > 0) {
+          parse(parsedData);
+        } else component.emptyForQuery(select_title);
+
+        component.loading(false);
+      }, function (a, c) {
+        component.empty(network.errorDecode(a, c));
+      }, false, {
+        dataType: 'text',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+          'Referer': "https://ddys.pro/"
+        }
+      });
+    };
+
+    this.extendChoice = function (saved) {
+      Lampa.Arrays.extend(choice, saved, true);
+    };
+
+
+    /**
+     * Сброс фильтра
+     */
+
+
+    this.reset = function () {
+      component.reset();
+      choice = {
+        season: 0,
+        voice: 0,
+        order: 0,
+      };
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Применить фильтр
+     * @param {*} type 
+     * @param {*} a 
+     * @param {*} b 
+     */
+
+
+    this.filter = function (type, a, b) {
+      choice[a.stype] = b.index;
+      component.reset();
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Уничтожить
+     */
+
+
+    this.destroy = function () {
+      network.clear();
+      extract = null;
+      rslt = null;
+    };
+
+    function parse(str) {
+      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+      var item = {};
+      var doonce = 0;
+      var regex = /第(\d+)季/;
+      var match_ = regex.exec($('h2 > a', str).text()) ? regex.exec($('h2 > a', str).text())[1] + "/" : "";
+      var math = $('h2.post-title', str.replace(/\n|\r/g, ''));
+      $(math).find('a').each(function (i, a) {
+        item.Title = ($(a).attr('title') || $(a).text());
+        item.Link = $(a).attr('href').indexOf('http') == -1 ? 'https://ddys.art/' + $(a).attr('href') + match_ : $(a).attr('href') + match_;
+        dodetail(item.Link, str, item.Title);
+        doonce++;
+        if (doonce === 1) return false;
+      });
+      $(math).remove();
+    }
+    /**
+     * Построить фильтр
+     */
+
+    function dodetail(link, data, title) {
+      //取得具体页面的详情地址
+      network["native"](proxy_url + link, function (data) {
+
+        rslt = [];
+        var playlistScript = $('.wp-playlist-script', data).text();
+        var playlistData = JSON.parse(playlistScript);
+
+        playlistData.tracks.forEach(function (html) {
+          rslt.push({
+            file: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
+            quality: '低端影视 / ' + object.movie.title + ' / ' + html.caption,
+            title: html.caption,
+            season: '',
+            episode: '',
+            info: ''
+          });
+        });
+        filter();
+        append(filtred());
+
+        get_links_wait = false;
+        component.render().find('.broadcast__scan').remove();
+
+        //rslt = [];
+      }, function (a, c) {
+        //component.empty('哦，' + network.errorDecode(a, c) + ' ');
+        get_links_wait = false;
+        component.render().find('.broadcast__scan').remove();
+        component.emptyForQuery(title);
+      }, false, {
+        dataType: 'text'
+      });
+    };
+
+
+    function filter() {
+      filter_items = {
+        season: [],
+        voice: [],
+        quality: [],
+        order: []
+      };
+
+      if (extract.playlist) {
+        if (extract.playlist.seasons) {
+          extract.playlist.seasons.forEach(function (season) {
+            filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+          });
+        }
+      }
+
+      if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
+      component.filter(filter_items, choice);
+    }
+    /**
+     * Отфильтровать файлы
+     * @returns array
+     */
+
+
+    function filtred() {
+
+      var mapResult = rslt.map(function (item, index, array) {
+        return item;
+      });
+      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+      // return mapResult;
+    }
+    /**
+     * Показать файлы
+     */
+
+    function append(items) {
+      var _this = this;
+      component.reset();
+
+      var viewed = Lampa.Storage.cache('online_view', 5000, []);
+      // 初始化一个用于滚动到特定元素的标志变量，默认为 false
+      var scroll_to_element = false;
+      // 初始化一个用于滚动到特定标记的标志变量，默认为 false
+      var scroll_to_mark = false;
+      var choice = component.getChoice();
+      // console.log('choice',choice)
+      // var choice = component.getChoice();
+      // console.log(choice)
+      items.forEach(function (element, item_id) {
+        var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+        var view = Lampa.Timeline.view(hash);
+        var item = Lampa.Template.get('online_mod', element);
+        var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+
+        element.timeline = view;
+        item.append(Lampa.Timeline.render(view));
+
+        if (Lampa.Timeline.details) {
+          item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+        }
+
+        if (viewed.indexOf(hash_file) !== -1) {
+          scroll_to_mark = item;
+          item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        }
+
+        if (choice.movie_view == hash_file) scroll_to_element = item;
+
+        item.on('hover:enter', function () {
+          // choice = component.getChoice();
+          // if (component.externalId.id) {
+          choice.movie_view = hash_file;
+          // };
+          component.saveChoice(choice);
+
+          // object.movie.id = object.url;
+          choice.last_viewed = item_id;
+          if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+
+          if (element.file) {
+            // function loadingshow() {
+            Lampa.Modal.open({
+              title: '',
+              align: 'center',
+              html: Lampa.Template.get('modal_loading'),
+              size: 'small',
+              mask: true,
+              onBack: function onBack() {
+                Lampa.Modal.close();
+                Lampa.Api.clear();
+                Lampa.Controller.toggle('content');
+              }
+            });
+            // };
+
+
+            network["native"](element.file, function (data) {
+              if (data.url) {
+
+                var playlist = [];
+                var first = {
+                  url: data.url,
+                  //   timeline: view,
+                  title: element.title + ' ' + tab.title,
+                  subtitles: data.subtitles
+                };
+                Lampa.Player.play(first);
+
+                playlist.push(first);
+                Lampa.Player.playlist(playlist);
+
+              } else {
+
+                Lampa.Noty.show('无法检索播放链接');
+                Lampa.Controller.toggle('content');
+              }
+              Lampa.Modal.close();
+
+            }, function (a, c) {
+              Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, {
+              dataType: 'json',
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+                'Referer': "https://ddys.pro/"
+              }
+            });
+
+
+            if (viewed.indexOf(hash_file) == -1) {
+              viewed.push(hash_file);
+              item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+              Lampa.Storage.set('online_view', viewed);
+            }
+          } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+        });
+        // scroll_to_element = item;
+        component.append(item);
+        component.contextmenu({
+          item: item,
+          view: view,
+          viewed: viewed,
+          choice: choice,
+          hash_file: hash_file,
+          file: function file(call) {
+            call({
+              file: element.file
+            });
+          }
+        });
+      });
+      // 如果存在要滚动到的元素（scroll_to_element），则将最后一个滚动目标设置为该元素
+
+      if (scroll_to_element) {
+        component.last = scroll_to_element[0];
+      }
+      // 否则，如果存在要滚动到的标记（scroll_to_mark），将最后一个滚动目标设置为该标记
+      else if (scroll_to_mark) {
+        component.last = scroll_to_mark[0];
+      }
+      // console.log('last', component.last)
+      component.start(true);
+    }
+  }
+
   function kunyu77(component, _object, rule) {
     var network = new Lampa.Reguest();
     var extract = {};
@@ -4900,6 +5231,7 @@
       霸王龙压制组: new trex(this, object),
       小雅的Alist: new xiaoyaalist(this, object),
       DYD: new dyd(this, object),
+      低端影视: new ddys(this, object)
     };
 
 
@@ -4949,7 +5281,7 @@
       source: Lampa.Lang.translate('settings_rest_source')
     };
     // , 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi'
-    var filter_sources = ['小雅的Alist', '霸王龙压制组', 'DYD', '小纸条', '易搜']; // шаловливые ручки
+    var filter_sources = ['低端影视','小雅的Alist', '霸王龙压制组', 'DYD', '小纸条', '易搜']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -5149,21 +5481,16 @@
     };
 
     this.extendChoice = function () {
-      // var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
-      // var save = data[selected_id || object.movie.id] || {};
+      var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
+      var save = data[selected_id || object.movie.id] || {};
       extended = true;
-      // sources[balanser].extendChoice(save);
-      sources[balanser].extendChoice(this.getChoice());
+      sources[balanser].extendChoice(save);
+      // sources[balanser].extendChoice(this.getChoice());
     };
 
     this.saveChoice = function (choice) {
       var data = Lampa.Storage.cache('online_mod_choice_' + balanser, 500, {});
-      // && typeof object.movie.id == 'undefined'
-      // if (this.externalId.id) {
-      //   data[this.externalId.id] = choice;
-      // } else {
       data[selected_id || object.movie.id] = choice;
-      // };
       Lampa.Storage.set('online_mod_choice_' + balanser, data);
     };
     /**
@@ -5605,6 +5932,8 @@
       // sources.猫狸盘搜.destroy();
       sources.小雅的Alist.destroy();
       sources.DYD.destroy();
+      sources.低端影视.destroy();
+
       doregjson.resource_site.forEach(function (elem) {
         sources[elem.site_name].destroy();
       });
