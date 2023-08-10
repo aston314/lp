@@ -79,6 +79,81 @@
          "url": "https://libvio.cc/search/-------------.html?wd=#msearchword&submit="
       }
    },
+      {
+      "title": "低端影视",
+      "link": "https://ddys.pro",
+      "available": true,
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_referer": true,
+      "browser": "MOBILE_UA",
+      "category": [
+         {
+            "title": "首页",
+            "url": "https://ddys.pro/",
+            "quantity": ""
+         },
+         {
+            "title": "电影",
+            "url": "https://ddys.pro/category/movie/",
+            "quantity": ""
+         },
+         {
+            "title": "剧集",
+            "url": "https://ddys.pro/category/airing/",
+            "quantity": ""
+         },
+         {
+            "title": "欧美剧",
+            "url": "https://ddys.pro/category/drama/western-drama/",
+            "quantity": ""
+         },
+         {
+            "title": "韩剧",
+            "url": "https://ddys.pro/category/drama/kr-drama/",
+            "quantity": ""
+         },
+         {
+            "title": "日剧",
+            "url": "https://ddys.pro/category/drama/jp-drama/",
+            "quantity": ""
+         },
+         {
+            "title": "动画",
+            "url": "https://ddys.pro/category/anime/",
+            "quantity": ""
+         }
+      ],
+      "list": {
+         "page": {
+            "selector": ".nav-links"
+         },
+         "videoscontainer": {
+            "selector": "div.post-box-container",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "h2 > a",
+            "attrName": "text",
+            "filter": "(.+?) \\("
+         },
+         "thumb": {
+            "selector": "div.post-box-image",
+            "attrName": "style",
+            "filter": "url\\((.*?)\\)"
+         },
+         "link": {
+            "selector": "h2 > a",
+            "attrName": "href",
+            "filter": ""
+         }
+      },
+      "search": {
+         "url": ""
+      }
+   },
    {
       "title": "乐猪TV",
       "link": "http://www.lezhutv.com",
@@ -443,81 +518,6 @@
       },
       "search": {
          "url": "https://t-rex.tzfile.com/?s=#msearchword"
-      }
-   },
-   {
-      "title": "低端影视",
-      "link": "https://ddys.pro",
-      "available": true,
-      "show": "portrait",
-      "next": "search",
-      "datasort": "",
-      "use_referer": true,
-      "browser": "MOBILE_UA",
-      "category": [
-         {
-            "title": "首页",
-            "url": "https://ddys.pro/",
-            "quantity": ""
-         },
-         {
-            "title": "电影",
-            "url": "https://ddys.pro/category/movie/",
-            "quantity": ""
-         },
-         {
-            "title": "剧集",
-            "url": "https://ddys.pro/category/airing/",
-            "quantity": ""
-         },
-         {
-            "title": "欧美剧",
-            "url": "https://ddys.pro/category/drama/western-drama/",
-            "quantity": ""
-         },
-         {
-            "title": "韩剧",
-            "url": "https://ddys.pro/category/drama/kr-drama/",
-            "quantity": ""
-         },
-         {
-            "title": "日剧",
-            "url": "https://ddys.pro/category/drama/jp-drama/",
-            "quantity": ""
-         },
-         {
-            "title": "动画",
-            "url": "https://ddys.pro/category/anime/",
-            "quantity": ""
-         }
-      ],
-      "list": {
-         "page": {
-            "selector": ".nav-links"
-         },
-         "videoscontainer": {
-            "selector": "div.post-box-container",
-            "attrName": "",
-            "filter": ""
-         },
-         "title": {
-            "selector": "h2 > a",
-            "attrName": "text",
-            "filter": "(.+?) \\("
-         },
-         "thumb": {
-            "selector": "div.post-box-image",
-            "attrName": "style",
-            "filter": "url\\((.*?)\\)"
-         },
-         "link": {
-            "selector": "h2 > a",
-            "attrName": "href",
-            "filter": ""
-         }
-      },
-      "search": {
-         "url": ""
       }
    },
    {
