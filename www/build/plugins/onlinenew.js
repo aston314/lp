@@ -990,9 +990,9 @@
           // document.querySelector('.dplayer-video').pause();
           // document.querySelector('.dplayer-video').play();
           // document.querySelector('.dplayer-video').focus();
-          // var playulr = $('video').attr('src') || document.querySelector('source').src;
-          var videoElement = $('video')[0];
-          var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
+          var playulr = $('video').attr('src') || document.querySelector('source').src;
+          // var videoElement = $('video')[0];
+          // var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
           
           // var playulr = $('video').attr('src') || $('video source').attr('src');
           console.log('playulr=', playulr)
