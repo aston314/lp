@@ -645,7 +645,7 @@
         {
             title: "JableTV",
             link: "https://jable.tv",
-            available: true,
+            available: false,
             show: "landscape",
             next:"play",
             datasort: "",
@@ -936,7 +936,7 @@
 
             if (!proxyInitialized) {
                 proxyInitialized = true;
-                var proxyOrigin = Lampa.Utils.protocol() + 'nb557.surge.sh';
+                var proxyOrigin = 'https://nb557.surge.sh';//Lampa.Utils.protocol() + 
                 var proxyUrl = proxyOrigin + '/proxy.html';
 
                 // if (Lampa.Storage.field('online_mod_alt_iframe_proxy') === true) {
