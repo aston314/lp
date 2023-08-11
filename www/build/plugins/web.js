@@ -969,6 +969,7 @@
         var proxyWindow;
         var proxyCalls = {};
         var self = this;
+
         this.proxyCall = function (method, url, timeout, post_data, call_success, call_fail,) {
             var process = function process() {
                 if (proxyWindow) {
@@ -1134,39 +1135,7 @@
                     if (object.use_proxy){
                         _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
                     } else{
-                        network["native"](cors + object.url, function (str) {
-                            var data = _this.card(str);
-                            _this.build(data);
-                        }, function (a, c) {
-                            //_this.selectGroup();
-                            // $(".noty:hidden").show();
-                            // _this.activity.loader(false);
-                            // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                            var empty = new Lampa.Empty({
-                                descr: '哦，无法获取 ' + object.title + ' 的内容。'
-                            });
-                            html.append(empty.render());
-                            // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                            // //console.log(object)
-                            // empty.render().find('.simple-button').on('hover:enter', function () {
-                            //     //$(".empty__footer").on('hover:enter hover:click', function () {
-                            //     _this.selectGroup();
-                            // });
-    
-                            var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
-                            var ft = $('<div class="empty__footer"></div>');
-                            bn.on('hover:enter', function () {
-                                _this.selectGroup();
-                            });
-                            ft.append(bn);
-                            empty.append(ft);
-                            html.append(empty)
-    
-                            _this.start = empty.start;
-                            _this.activity.loader(false);
-                            _this.activity.toggle();
-                            return;
-                        }, false, {
+                        network["native"](cors + object.url, call_success, call_fail, false, {
                             dataType: 'text',
                             headers: _this.setheader(object.use_referer, object.browser)
                         });
@@ -1178,7 +1147,6 @@
             return this.render();
         };
         this.next = function (page) {
-
             var _this2 = this;
             if (total_pages == 1 || total_pages == 0) waitload = true;
 
@@ -1715,6 +1683,7 @@
                             use_referer: object.use_referer,
                             use_proxy: object.use_proxy,
                             browser: object.browser,
+                            search: true,
                             page: 1
                         });
                     }
@@ -1877,7 +1846,7 @@
                 //:lt(12) 小于
                 //:gt(12) 大于
                 str = str.replace(/\n/g, '');
-                var h = $(v + object.quantity, str);
+                var h = $(v + (object.search ? '' : object.quantity), str);
                 //console.log(h)
                 total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
                 //console.log('总分页',total_pages)
