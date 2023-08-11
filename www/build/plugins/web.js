@@ -977,17 +977,16 @@
                     var message_id;
 
                     try {
-                        var array = new Uint8Array(16);
-                        if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
-                            window.crypto.getRandomValues(array);
-                        } else if (typeof window !== 'undefined' && window.msCrypto && window.msCrypto.getRandomValues) {
-                            window.msCrypto.getRandomValues(array);
-                        } else {
-                            for (var i = 0; i < array.length; i++) {
-                                array[i] = Math.floor(Math.random() * 256);
+                        function generateRandomValues(length) {
+                            var values = new Array(length);
+                            for (var i = 0; i < length; i++) {
+                              values[i] = Math.floor(Math.random() * 256);
                             }
-                        }
-                        message_id = array.toString();
+                            return values;
+                          }
+                          
+                          var randomValues = generateRandomValues(16);
+                        message_id = randomValues.toString();
                         // crypto.getRandomValues(new Uint8Array(16)).toString();
                     } catch (e) { }
 
