@@ -990,6 +990,25 @@
           // document.querySelector('.dplayer-video').pause();
           // document.querySelector('.dplayer-video').play();
           // document.querySelector('.dplayer-video').focus();
+          function keydown(e) {
+            var code = e.code;
+            if (code === 428 || code === 34 // Pg-
+              //4 - Samsung orsay
+              || ((code === 37 || code === 4) && $('.dplayer-video').length) // left
+            ) {
+              document.querySelector('.dplayer-video').seek(-10);
+            } else if (code === 427 || code === 33 // Pg+
+              // 5 - Samsung orsay right
+              || ((code === 39 || code === 5) && $('.dplayer-video').length) // right
+            ) {
+              document.querySelector('.dplayer-video').seek(10);
+            } else if (code >= 48 && code <= 57) { // numpad
+            } else if (code >= 96 && code <= 105) { // numpad
+            }
+          }
+          Lampa.Keypad.listener.destroy();
+          Lampa.Keypad.listener.follow('keydown', keydown);
+    
           // 获取特定类名的元素中所有子元素的src属性值
           function getSrcValuesInClass(className) {
             var srcValues = [];
@@ -1069,6 +1088,7 @@
 
       function close() {
         // html$2.removeClass('iframe--loaded');
+        Lampa.Keypad.listener.destroy();
         html$2.detach();
         Lampa.Controller.toggle('content');
         // html$2.find('iframe').attr('src', '');
