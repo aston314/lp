@@ -7,10 +7,10 @@
     "rule": [
       {
         name: '网站-LIBVIO',
-        websitelink: 'https://libvio.cc',
+        websitelink: 'https://www.libvio.fun',
         listlink: true,
-        use_proxy: true,
-        search_url: 'https://libvio.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        use_proxy: false,
+        search_url: 'https://www.libvio.fun/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
         name_json: 'name',
