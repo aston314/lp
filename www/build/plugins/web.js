@@ -650,7 +650,7 @@
             next:"play",
             datasort: "",
             use_referer: false,
-            use_proxy: true,
+            use_proxy: false,
             browser: "MOBILE_UA",
            category: [{
                 title: "最近更新",
