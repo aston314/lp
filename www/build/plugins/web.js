@@ -2,85 +2,6 @@
     'use strict';
     var catalogs;
     var inner_catalogs = [
-        // {
-        //     title: "完美看看",
-        //     link: "https://www.wanmeikk.film",
-        //     show: "portrait",
-        //     available: false,
-        //     next:"search",
-        //     datasort: "",
-        //     use_referer: false,
-        //     use_proxy: false,
-        //     browser: "MOBILE_UA",
-        //    category: [{
-        //         title: "最近更新",
-        //         url: "https://www.wanmeikk.film",
-        //         quantity: ':lt(15)'
-        //     },
-        //     {
-        //         title: "电影",
-        //         url: "https://www.wanmeikk.film/category/1.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "韩剧",
-        //         url: "https://www.wanmeikk.film/category/3.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "国产剧",
-        //         url: "https://www.wanmeikk.film/category/5.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://www.wanmeikk.film/category/2.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日剧",
-        //         url: "https://www.wanmeikk.film/category/4.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://www.wanmeikk.film/category/6.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://www.wanmeikk.film/category/7.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.stui-page"
-        //         },
-        //         videoscontainer: {
-        //             selector: ".stui-vodlist__box",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "title",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a.stui-vodlist__thumb",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://www.wanmeikk.film/so/-------------.html?wd=#msearchword&submit="
-        //     }
-        // },
         {
             title: "LIBVIO",
             link: "https://www.libvio.fun",
@@ -381,213 +302,213 @@
                 url: "https://www.7xiady.cc/search/#msearchword----------1---/"
             }
         },
-        // {
-        //     title: "低端影视",
-        //     link: "https://ddys.one",
-        //     available: false,
-        //     show: "portrait",
-        //     next: "search",
-        //     datasort: "",
-        //     use_referer: true,
-        //     use_proxy: false,
-        //     browser: "MOBILE_UA",
-        //     category: [{
-        //         title: "电影",
-        //         url: "https://ddys.one/category/movie/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "剧集",
-        //         url: "https://ddys.one/category/airing/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "欧美剧",
-        //         url: "https://ddys.one/category/drama/western-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "韩剧",
-        //         url: "https://ddys.one/category/drama/kr-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "日剧",
-        //         url: "https://ddys.one/category/drama/jp-drama/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动画",
-        //         url: "https://ddys.one/category/anime/",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: ".nav-links"
-        //         },
-        //         videoscontainer: {
-        //             selector: "div.post-box-container",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "h2 > a",
-        //             attrName: "text",
-        //             filter: "(.+?) \\("
-        //         },
-        //         thumb: {
-        //             selector: "",
-        //             attrName: "html",
-        //             filter: '["|\(](\/.+?.jpg)'
-        //         },
-        //         link: {
-        //             selector: "h2 > a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: ""
-        //     }
-        // },
-        // {
-        //     title: "厂长资源",
-        //     next: "search",
-        //     link: "https://www.czspp.com",
-        //     available: false,
-        //     show: "portrait",
-        //     datasort: "",
-        //     use_referer: false,
-        //     use_proxy: false,
-        //     browser: "MOBILE_UA",
-        //     category: [{
-        //         title: "电影",
-        //         url: "https://www.czspp.com/zuixindianying",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "电视剧",
-        //         url: "https://www.czspp.com/dsj",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "美剧",
-        //         url: "https://www.czspp.com/meijutt",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "韩剧",
-        //         url: "https://www.czspp.com/hanjutv",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "国产剧",
-        //         url: "https://www.czspp.com/gcj",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://www.czspp.com/dm",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "番剧",
-        //         url: "https://www.czspp.com/fanju",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "豆瓣电影Top250",
-        //         url: "https://www.czspp.com/gaofenyingshi",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "div.pagenavi_txt"
-        //         },
-        //         videoscontainer: {
-        //             selector: "div.bt_img > ul > li",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "img",
-        //             attrName: "alt",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "img",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://www.czspp.com/xssearch?q=#msearchword"
-        //     }
-        // },
-        // {
-        //     title: "COKEMV影视",
-        //     link: "https://cokemv.me",
-        //     available: false,
-        //     show: "portrait",
-        //     next:"search",
-        //     datasort: "",
-        //     use_referer: false,
-        //        use_proxy: false,
-        //     browser: "MOBILE_UA",
-        //    category: [{
-        //         title: "电影",
-        //         url: "https://cokemv.me/vodshow/1-----------.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "电视剧",
-        //         url: "https://cokemv.me/vodshow/2-----------.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "动漫",
-        //         url: "https://cokemv.me/vodshow/3-----------.html",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "综艺",
-        //         url: "https://cokemv.me/vodshow/29-----------.html",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "#page"
-        //         },
-        //         videoscontainer: {
-        //             selector: "a.module-poster-item.module-item",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "img.lazy.lazyload",
-        //             attrName: "alt",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "img.lazy.lazyload",
-        //             attrName: "data-original",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://cokemv.me/vodsearch/-------------.html?wd=#msearchword"
-        //     }
-        // },
+        {
+            title: "低端影视",
+            link: "https://ddys.one",
+            available: false,
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: true,
+            use_proxy: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "电影",
+                url: "https://ddys.one/category/movie/",
+                quantity: ''
+            },
+            {
+                title: "剧集",
+                url: "https://ddys.one/category/airing/",
+                quantity: ''
+            },
+            {
+                title: "欧美剧",
+                url: "https://ddys.one/category/drama/western-drama/",
+                quantity: ''
+            },
+            {
+                title: "韩剧",
+                url: "https://ddys.one/category/drama/kr-drama/",
+                quantity: ''
+            },
+            {
+                title: "日剧",
+                url: "https://ddys.one/category/drama/jp-drama/",
+                quantity: ''
+            },
+            {
+                title: "动画",
+                url: "https://ddys.one/category/anime/",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: ".nav-links"
+                },
+                videoscontainer: {
+                    selector: "div.post-box-container",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "h2 > a",
+                    attrName: "text",
+                    filter: "(.+?) \\("
+                },
+                thumb: {
+                    selector: "",
+                    attrName: "html",
+                    filter: '["|\(](\/.+?.jpg)'
+                },
+                link: {
+                    selector: "h2 > a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: ""
+            }
+        },
+        {
+            title: "厂长资源",
+            next: "search",
+            link: "https://www.czspp.com",
+            available: false,
+            show: "portrait",
+            datasort: "",
+            use_referer: false,
+            use_proxy: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "电影",
+                url: "https://www.czspp.com/zuixindianying",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "https://www.czspp.com/dsj",
+                quantity: ''
+            },
+            {
+                title: "美剧",
+                url: "https://www.czspp.com/meijutt",
+                quantity: ''
+            },
+            {
+                title: "韩剧",
+                url: "https://www.czspp.com/hanjutv",
+                quantity: ''
+            },
+            {
+                title: "国产剧",
+                url: "https://www.czspp.com/gcj",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://www.czspp.com/dm",
+                quantity: ''
+            },
+            {
+                title: "番剧",
+                url: "https://www.czspp.com/fanju",
+                quantity: ''
+            },
+            {
+                title: "豆瓣电影Top250",
+                url: "https://www.czspp.com/gaofenyingshi",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "div.pagenavi_txt"
+                },
+                videoscontainer: {
+                    selector: "div.bt_img > ul > li",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "img",
+                    attrName: "alt",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://www.czspp.com/xssearch?q=#msearchword"
+            }
+        },
+        {
+            title: "COKEMV影视",
+            link: "https://cokemv.me",
+            available: false,
+            show: "portrait",
+            next:"search",
+            datasort: "",
+            use_referer: false,
+            use_proxy: false,
+            browser: "MOBILE_UA",
+           category: [{
+                title: "电影",
+                url: "https://cokemv.me/vodshow/1-----------.html",
+                quantity: ''
+            },
+            {
+                title: "电视剧",
+                url: "https://cokemv.me/vodshow/2-----------.html",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://cokemv.me/vodshow/3-----------.html",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "https://cokemv.me/vodshow/29-----------.html",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "#page"
+                },
+                videoscontainer: {
+                    selector: "a.module-poster-item.module-item",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "img.lazy.lazyload",
+                    attrName: "alt",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img.lazy.lazyload",
+                    attrName: "data-original",
+                    filter: ""
+                },
+                link: {
+                    selector: "",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://cokemv.me/vodsearch/-------------.html?wd=#msearchword"
+            }
+        },
         {
             title: "乐猪TV",
             link: "http://www.lezhutv.com",
@@ -721,55 +642,55 @@
                 url: "https://auete.org/search.php?searchword=#msearchword"
             }
         },
-        // {
-        //     title: "JableTV",
-        //     link: "https://jable.tv",
-        //     available: false,
-        //     show: "landscape",
-        //     next:"play",
-        //     datasort: "",
-        //     use_referer: false,
-        //     use_proxy: false,
-        //     browser: "MOBILE_UA",
-        //    category: [{
-        //         title: "最近更新",
-        //         url: "https://jable.tv/latest-updates/",
-        //         quantity: ''
-        //     },
-        //     {
-        //         title: "全新上市",
-        //         url: "https://jable.tv/new-release/",
-        //         quantity: ''
-        //     }],
-        //     list: {
-        //         page: {
-        //             selector: "ul.pagination"
-        //         },
-        //         videoscontainer: {
-        //             selector: "div.video-img-box",
-        //             attrName: "",
-        //             filter: ""
-        //         },
-        //         title: {
-        //             selector: "h6.title a",
-        //             attrName: "text",
-        //             filter: ""
-        //         },
-        //         thumb: {
-        //             selector: "img",
-        //             attrName: "data-src",
-        //             filter: ""
-        //         },
-        //         link: {
-        //             selector: "h6.title a",
-        //             attrName: "href",
-        //             filter: ""
-        //         }
-        //     },
-        //     search: {
-        //         url: "https://jable.tv/search/?q=#msearchword&from_videos=1"
-        //     }
-        // },
+        {
+            title: "JableTV",
+            link: "https://jable.tv",
+            available: true,
+            show: "landscape",
+            next:"play",
+            datasort: "",
+            use_referer: false,
+            use_proxy: false,
+            browser: "MOBILE_UA",
+           category: [{
+                title: "最近更新",
+                url: "https://jable.tv/latest-updates/",
+                quantity: ''
+            },
+            {
+                title: "全新上市",
+                url: "https://jable.tv/new-release/",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: "ul.pagination"
+                },
+                videoscontainer: {
+                    selector: "div.video-img-box",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: "h6.title a",
+                    attrName: "text",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "data-src",
+                    filter: ""
+                },
+                link: {
+                    selector: "h6.title a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: "https://jable.tv/search/?q=#msearchword&from_videos=1"
+            }
+        },
         {
             title: "YTS.MX - 磁力下载",
             link: "https://yts.mx",
