@@ -10,6 +10,7 @@
         //     next:"search",
         //     datasort: "",
         //     use_referer: false,
+        //     use_proxy: false,
         //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "最近更新",
@@ -82,44 +83,45 @@
         // },
         {
             title: "LIBVIO",
-            link: "https://libvio.cc",
+            link: "https://www.libvio.fun",
             available: true,
             show: "portrait",
             next: "search",
             datasort: "",
             use_referer: true,
-            browser: "MOBILE_UA",
+            use_proxy: false,
+            browser: "PC_UA",
             category: [{
                 title: '最近更新',
-                url: 'https://libvio.cc/',
+                url: 'https://www.libvio.fun/',
                 quantity: ':lt(12)'
             }, {
                 title: '电影',
-                url: 'https://libvio.cc/type/1.html',
+                url: 'https://www.libvio.fun/type/1.html',
                 quantity: ''
             }, {
                 title: '剧集',
-                url: 'https://libvio.cc/type/2.html',
+                url: 'https://www.libvio.fun/type/2.html',
                 quantity: ''
             }, {
                 title: '日韩剧',
-                url: 'https://libvio.cc/type/15.html',
+                url: 'https://www.libvio.fun/type/15.html',
                 quantity: ''
             }, {
                 title: '国产剧',
-                url: 'https://libvio.cc/type/13.html',
+                url: 'https://www.libvio.fun/type/13.html',
                 quantity: ''
             }, {
                 title: '欧美剧',
-                url: 'https://libvio.cc/type/16.html',
+                url: 'https://www.libvio.fun/type/16.html',
                 quantity: ''
             }, {
                 title: '港台剧',
-                url: 'https://libvio.cc/type/14.html',
+                url: 'https://www.libvio.fun/type/14.html',
                 quantity: ''
             }, {
                 title: '动漫',
-                url: 'https://libvio.cc/type/4.html',
+                url: 'https://www.libvio.fun/type/4.html',
                 quantity: ''
             }],
             list: {
@@ -165,7 +167,7 @@
                 }
             },
             search: {
-                url: 'https://libvio.cc/search/-------------.html?wd=#msearchword&submit='
+                url: 'https://www.libvio.fun/search/-------------.html?wd=#msearchword&submit='
             }
         },
         {
@@ -176,6 +178,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            use_proxy: false,
             browser: "MOBILE_UA",
             category: [{
                 title: "电影",
@@ -248,45 +251,46 @@
         },
         {
             title: "在线之家",
-            link: "https://www.zxzj.org",
-            available: false,
+            link: "https://www.zxzjhd.com",
+            available: true,
             show: "portrait",
             next: "search",
             datasort: "",
             use_referer: false,
+            use_proxy: true,
             browser: "MOBILE_UA",
             category: [{
                 title: "首页",
-                url: "https://zxzj.org",
+                url: "https://www.zxzjhd.com",
                 quantity: ':gt(11)'
             }, {
                 title: "电影",
-                url: "https://zxzj.org/list/1.html",
+                url: "https://www.zxzjhd.com/list/1.html",
                 quantity: ''
             },
             {
                 title: "美剧",
-                url: "https://zxzj.org/list/2.html",
+                url: "https://www.zxzjhd.com/list/2.html",
                 quantity: ''
             },
             {
                 title: "韩剧",
-                url: "https://zxzj.org/list/3.html",
+                url: "https://www.zxzjhd.com/list/3.html",
                 quantity: ''
             },
             {
                 title: "日剧",
-                url: "https://zxzj.org/list/4.html",
+                url: "https://www.zxzjhd.com/list/4.html",
                 quantity: ''
             },
             {
                 title: "泰剧",
-                url: "https://zxzj.org/list/5.html",
+                url: "https://www.zxzjhd.com/list/5.html",
                 quantity: ''
             },
             {
                 title: "动漫",
-                url: "https://zxzj.org/list/6.html",
+                url: "https://www.zxzjhd.com/list/6.html",
                 quantity: ''
             }],
             list: {
@@ -315,7 +319,7 @@
                 }
             },
             search: {
-                url: "https://zxzj.org/vodsearch/-------------.html?wd=#msearchword&submit="
+                url: "https://www.zxzjhd.com/vodsearch/-------------.html?wd=#msearchword&submit="
             }
         },
         {
@@ -326,6 +330,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            use_proxy: false,
             browser: "MOBILE_UA",
             category: [{
                 title: "电影",
@@ -384,6 +389,7 @@
         //     next: "search",
         //     datasort: "",
         //     use_referer: true,
+        //     use_proxy: false,
         //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
@@ -452,6 +458,7 @@
         //     show: "portrait",
         //     datasort: "",
         //     use_referer: false,
+        //     use_proxy: false,
         //     browser: "MOBILE_UA",
         //     category: [{
         //         title: "电影",
@@ -530,6 +537,7 @@
         //     next:"search",
         //     datasort: "",
         //     use_referer: false,
+        //        use_proxy: false,
         //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "电影",
@@ -588,6 +596,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            use_proxy: false,
             browser: "MOBILE_UA",
             category: [{
                 title: "电影",
@@ -656,6 +665,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
+            use_proxy: false,
             browser: "MOBILE_UA",
             category: [{
                 title: "电影",
@@ -719,6 +729,7 @@
         //     next:"play",
         //     datasort: "",
         //     use_referer: false,
+        //     use_proxy: false,
         //     browser: "MOBILE_UA",
         //    category: [{
         //         title: "最近更新",
@@ -767,6 +778,7 @@
             next: "detail",
             datasort: "",
             use_referer: false,
+            use_proxy: false,
             browser: "PC_UA",
             category: [{
                 title: "热门电影",
@@ -860,44 +872,7 @@
     } else {
         catalogs = inner_catalogs;
     };
-
     //console.log(catalogs)
-    
-    var FAVORITE_HISTORY_KEY = 'history_web';
-
-    function getHistory() {
-        return JSON.parse(localStorage.getItem(FAVORITE_HISTORY_KEY)) || [];
-    };
-
-    function saveHistory(el) {
-        var favoriteRadios = getHistory();
-        favoriteRadios.push(el);
-        localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
-    };
-
-    function removeFavoriteRadio(index) {
-        var favoriteRadios = getHistory();
-        favoriteRadios.splice(index, 1);
-        localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
-    };
-
-    function removeHistory(el) {
-        var updatedHistory = getHistory().filter(function (obj) { return obj.url !== el.url });
-        Lampa.Storage.set(FAVORITE_HISTORY_KEY, updatedHistory);
-    };
-
-    function isHistory(el) {
-        var favoriteRadios = getHistory();
-        return favoriteRadios.some(function (a) {
-            return a.url === el;
-        });
-    };
-
-    function clearHistory() {
-        localStorage.setItem(FAVORITE_HISTORY_KEY, '[]');
-        // Lampa.Activity.replace({});
-    };
-
     function collection(object) {
         //console.log(catalogs);
         var list = [];
@@ -911,6 +886,7 @@
             search: object.search,
             detail: object.detail,
             use_referer: object.use_referer,
+            use_proxy: object.use_proxy,
             browser: object.browser,
             type: 'history',
             page: 1
@@ -924,7 +900,44 @@
             over: true,
             step: 250
         });
-        
+        var FAVORITE_HISTORY_KEY = 'history_web';
+
+        function getHistory() {
+            return JSON.parse(localStorage.getItem(FAVORITE_HISTORY_KEY)) || [];
+        };
+
+        function saveHistory(el) {
+            var favoriteRadios = getHistory();
+            favoriteRadios.push(el);
+            localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
+        };
+
+        function removeFavoriteRadio(index) {
+            var favoriteRadios = getHistory();
+            favoriteRadios.splice(index, 1);
+            localStorage.setItem(FAVORITE_HISTORY_KEY, JSON.stringify(favoriteRadios));
+        };
+
+        function removeHistory(el) {
+            var updatedHistory = getHistory().filter(function (obj) { return obj.url !== el.url });
+            Lampa.Storage.set(FAVORITE_HISTORY_KEY, updatedHistory);
+        };
+
+        function isHistory(el) {
+            var favoriteRadios = getHistory();
+            return favoriteRadios.some(function (a) {
+                return a.url === el;
+            });
+        };
+
+        function clearHistory() {
+            localStorage.setItem(FAVORITE_HISTORY_KEY, '[]');
+            // Lampa.Activity.replace({});
+        };
+
+        this.getHistoryWebs = function () {
+            return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
+        };
 
         var s, s_name;
         if (object.show == 'minilandscape') {
@@ -947,7 +960,8 @@
         var relises = [];
         var doubanitem = [];
         var total_pages;
-        
+        var HISTORY_WEBS_KEY = 'history_web';
+
         var proxyInitialized = false;
         var proxyWindow;
         var proxyCalls = {};
@@ -1048,102 +1062,102 @@
         };
 
         this.proxyCall = function (method, url, timeout, post_data, call_success, call_fail) {
-    var process = function process() {
-        if (proxyWindow) {
-            timeout = timeout || 60 * 1000;
-            var message_id;
+            var process = function process() {
+                if (proxyWindow) {
+                    timeout = timeout || 60 * 1000;
+                    var message_id;
 
-            try {
-                var array = new Uint8Array(16);
-                for (var i = 0; i < array.length; i++) {
-                    array[i] = Math.floor(Math.random() * 256);
-                }
-                message_id = array.toString();
-            } catch (e) { }
+                    try {
+                        var array = new Uint8Array(16);
+                        for (var i = 0; i < array.length; i++) {
+                            array[i] = Math.floor(Math.random() * 256);
+                        }
+                        message_id = array.toString();
+                    } catch (e) { }
 
-            if (!message_id) message_id = Math.random().toString();
-            proxyCalls[message_id] = {
-                success: call_success,
-                fail: call_fail
-            };
-            proxyWindow.postMessage({
-                message: 'proxyMessage',
-                message_id: message_id,
-                method: method,
-                url: url,
-                timeout: timeout,
-                post_data: post_data
-            }, '*');
-            setTimeout(function () {
-                var call = proxyCalls[message_id];
+                    if (!message_id) message_id = Math.random().toString();
+                    proxyCalls[message_id] = {
+                        success: call_success,
+                        fail: call_fail
+                    };
+                    proxyWindow.postMessage({
+                        message: 'proxyMessage',
+                        message_id: message_id,
+                        method: method,
+                        url: url,
+                        timeout: timeout,
+                        post_data: post_data
+                    }, '*');
+                    setTimeout(function () {
+                        var call = proxyCalls[message_id];
 
-                if (call) {
-                    delete proxyCalls[message_id];
-                    if (call.fail) call.fail({
+                        if (call) {
+                            delete proxyCalls[message_id];
+                            if (call.fail) call.fail({
+                                status: 0,
+                                responseText: ''
+                            }, 'timeout');
+                        }
+                    }, timeout + 1000);
+                } else {
+                    if (call_fail) call_fail({
                         status: 0,
                         responseText: ''
-                    }, 'timeout');
+                    }, 'abort');
                 }
-            }, timeout + 1000);
-        } else {
-            if (call_fail) call_fail({
-                status: 0,
-                responseText: ''
-            }, 'abort');
-        }
-    };
+            };
 
-    if (!proxyInitialized) {
-        proxyInitialized = true;
-        var proxyOrigin = Lampa.Utils.protocol() + 'nb557.surge.sh';
-        var proxyUrl = proxyOrigin + '/proxy.html';
+            if (!proxyInitialized) {
+                proxyInitialized = true;
+                var proxyOrigin = Lampa.Utils.protocol() + 'nb557.surge.sh';
+                var proxyUrl = proxyOrigin + '/proxy.html';
 
-        // if (Lampa.Storage.field('online_mod_alt_iframe_proxy') === true) {
-        //     proxyOrigin = 'https://nb557.github.io';
-        //     proxyUrl = proxyOrigin + '/plugins/proxy.html';
-        // }
+                // if (Lampa.Storage.field('online_mod_alt_iframe_proxy') === true) {
+                //     proxyOrigin = 'https://nb557.github.io';
+                //     proxyUrl = proxyOrigin + '/plugins/proxy.html';
+                // }
 
-        var proxyIframe = document.createElement('iframe');
-        proxyIframe.setAttribute('src', proxyUrl);
-        proxyIframe.setAttribute('width', '0');
-        proxyIframe.setAttribute('height', '0');
-        proxyIframe.setAttribute('tabindex', '-1');
-        proxyIframe.setAttribute('title', 'empty');
-        proxyIframe.setAttribute('style', 'display:none');
-        proxyIframe.addEventListener('load', function () {
-            proxyWindow = proxyIframe.contentWindow;
-            window.addEventListener('message', function (event) {
-                var data = event.data;
+                var proxyIframe = document.createElement('iframe');
+                proxyIframe.setAttribute('src', proxyUrl);
+                proxyIframe.setAttribute('width', '0');
+                proxyIframe.setAttribute('height', '0');
+                proxyIframe.setAttribute('tabindex', '-1');
+                proxyIframe.setAttribute('title', 'empty');
+                proxyIframe.setAttribute('style', 'display:none');
+                proxyIframe.addEventListener('load', function () {
+                    proxyWindow = proxyIframe.contentWindow;
+                    window.addEventListener('message', function (event) {
+                        var data = event.data;
 
-                if (event.origin === proxyOrigin && data && data.message === 'proxyResponse' && data.message_id) {
-                    var call = proxyCalls[data.message_id];
+                        if (event.origin === proxyOrigin && data && data.message === 'proxyResponse' && data.message_id) {
+                            var call = proxyCalls[data.message_id];
 
-                    if (call) {
-                        delete proxyCalls[data.message_id];
+                            if (call) {
+                                delete proxyCalls[data.message_id];
 
-                        if (data.status === 200) {
-                            if (call.success) call.success(data.responseText);
-                        } else {
-                            if (call.fail) call.fail({
-                                status: data.status,
-                                responseText: data.responseText
-                            });
+                                if (data.status === 200) {
+                                    if (call.success) call.success(data.responseText);
+                                } else {
+                                    if (call.fail) call.fail({
+                                        status: data.status,
+                                        responseText: data.responseText
+                                    });
+                                }
+                            }
                         }
-                    }
-                }
-            });
-            if (process) process();
-            process = null;
-        });
-        document.body.appendChild(proxyIframe);
-        setTimeout(function () {
-            if (process) process();
-            process = null;
-        }, 10000);
-    } else {
-        process();
-    }
-};
+                    });
+                    if (process) process();
+                    process = null;
+                });
+                document.body.appendChild(proxyIframe);
+                setTimeout(function () {
+                    if (process) process();
+                    process = null;
+                }, 10000);
+            } else {
+                process();
+            }
+        };
 
         var call_success = function call_success(raw) {
             var _this = self;
@@ -1152,7 +1166,7 @@
                 var data = _this.card(raw);
                 _this.build(data);
             } else {
-                
+
             }
         };
 
@@ -1203,10 +1217,6 @@
             // console.log('连接出错')
         };
 
-        this.getHistoryWebs = function () {
-            return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
-        };
-
         this.create = function () {
             var _this = this;
             // console.log(object.page);
@@ -1217,49 +1227,21 @@
                     var data = _this.cardhistory(_this.getHistoryWebs());
                     _this.build(data);
                 } else {
-                    network["native"](cors + object.url, function (str) {
-                        var data = _this.card(str);
-                        _this.build(data);
-                    }, function (a, c) {
-                        //_this.selectGroup();
-                        // $(".noty:hidden").show();
-                        // _this.activity.loader(false);
-                        // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
-                        var empty = new Lampa.Empty({
-                            descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                    if (object.use_proxy) {
+                        _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
+                    } else {
+                        network["native"](cors + object.url, call_success, call_fail, false, {
+                            dataType: 'text',
+                            headers: _this.setheader(object.use_referer, object.browser)
                         });
-                        html.append(empty.render());
-                        // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-                        // //console.log(object)
-                        // empty.render().find('.simple-button').on('hover:enter', function () {
-                        //     //$(".empty__footer").on('hover:enter hover:click', function () {
-                        //     _this.selectGroup();
-                        // });
+                    }
 
-                        var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
-                        var ft = $('<div class="empty__footer"></div>');
-                        bn.on('hover:enter', function () {
-                            _this.selectGroup();
-                        });
-                        ft.append(bn);
-                        empty.append(ft);
-                        html.append(empty)
-
-                        _this.start = empty.start;
-                        _this.activity.loader(false);
-                        _this.activity.toggle();
-                        return;
-                    }, false, {
-                        dataType: 'text',
-                        headers: _this.setheader(object.use_referer, object.browser)
-                    });
                 }
 
             } else _this.build(object.data);
             return this.render();
         };
         this.next = function (page) {
-
             var _this2 = this;
             if (total_pages == 1 || total_pages == 0) waitload = true;
 
@@ -1282,8 +1264,8 @@
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
-                const regex = /page=(\d+)/;  // 正则表达式
-                const match = page.match(regex);  // 使用 match() 方法来匹配
+                var regex = /page=(\d+)/;  // 正则表达式
+                var match = page.match(regex);  // 使用 match() 方法来匹配
 
 
                 if (match) {
@@ -1296,64 +1278,33 @@
             }
             //console.log(page);
             //console.log(object)
-            network["native"](cors + page, function (result) {
-                var data = _this2.card(result);
-                object.data = data;
-                _this2.append(data, true);
-                if (data.card.length) waitload = false;
-                // Lampa.Controller.toggle('content');
-                _this2.activity.loader(false);
-            }, function (a, c) {
-                if (a.status == 404) {
-                    // Lampa.Noty.show('ohh,已经是最后一页了');
-                } else {
-                    Lampa.Noty.show(network.errorDecode(a, c));
-                }
-            }, false, {
-                dataType: 'text',
-                headers: _this2.setheader(object.use_referer,object.browser)
-            });
+            if (object.use_proxy) {
+                _this2.proxyCall('GET', cors + page, 20000, null, call_success_next, call_fail_next);
+            } else {
+                network["native"](cors + page, function (result) {
+                    var data = _this2.card(result);
+                    object.data = data;
+                    _this2.append(data, true);
+                    if (data.card.length) waitload = false;
+                    // Lampa.Controller.toggle('content');
+                    _this2.activity.loader(false);
+                }, function (a, c) {
+                    if (a.status == 404) {
+                        // Lampa.Noty.show('ohh,已经是最后一页了');
+                    } else {
+                        Lampa.Noty.show(network.errorDecode(a, c));
+                    }
+                }, false, {
+                    dataType: 'text',
+                    headers: _this2.setheader(object.use_referer, object.browser)
+                });
+            }
         };
-
-        // this.checkIncludes = function (aString, aObject) {
-        //     var normalizedData = new Set(aObject.map(function (obj) {
-        //         return obj.url;
-        //     }));
-
-        //     return aString.every(function (s) {
-        //         return normalizedData.has(s);
-        //     });
-        // };
-        // this.checkIncludes = function (aString, aObject) {
-        //     var normalizedData = {};
-        //     for (var i = 0; i < aObject.length; i++) {
-        //         normalizedData[aObject[i].url] = true;
-        //     }
-        
-        //     for (var j = 0; j < aString.length; j++) {
-        //         if (!normalizedData[aString[j]]) {
-        //             return false;
-        //         }
-        //     }
-        //     return true;
-        // };
-        // this.checkIncludes = function (aString, aObject) {
-        //     var normalizedData = new Set(aObject.map(function (obj) {
-        //         return obj.url;
-        //     }));
-        
-        //     for (var j = 0; j < aString.length; j++) {
-        //         if (!normalizedData.has(aString[j])) {
-        //             return false;
-        //         }
-        //     }
-        //     return true;
-        // };
         this.checkIncludes = function (aString, aObject) {
             var normalizedData = new Set(aObject.map(function (obj) {
                 return obj.url;
             }));
-        
+
             for (var i = 0; i < aString.length; i++) {
                 if (!normalizedData.has(aString[i])) {
                     return false;
@@ -1361,7 +1312,7 @@
             }
             return true;
         };
-        
+
         this.append = function (data, append) {
             var _this2 = this;
             data.card.forEach(function (element) {
@@ -1609,7 +1560,7 @@
                                                 Lampa.Modal.close();
                                             };
                                             var video = {
-                                                title: element.title_org+ ' ' + tab.title,
+                                                title: element.title_org + ' ' + tab.title,
                                                 url: file,
                                                 // timeline: view
                                             };
@@ -1667,9 +1618,9 @@
                                                     if (Lampa.Storage.field('player') == 'inner') {
                                                         Lampa.Modal.close();
                                                     };
-                                                    
+
                                                     var video = {
-                                                        title: element.title_org+ ' ' + tab.title,
+                                                        title: element.title_org + ' ' + tab.title,
                                                         url: videolink,
                                                         // timeline: view
                                                     };
@@ -1763,7 +1714,7 @@
                 items.push(card);
             });
         };
-        
+
         this.build = function (data) {
             var _this2 = this;
             var search_button;
@@ -1798,11 +1749,12 @@
                     search: object.search,
                     detail: object.detail,
                     use_referer: object.use_referer,
+                    use_proxy: object.use_proxy,
                     browser: object.browser,
                     type: 'history',
                     page: 1
                 });
-			});
+            });
             info.find('.open--find').on('hover:enter hover:click', function () {
                 Lampa.Input.edit({
                     title: Lampa.Storage.get('online_web_balanser') + ' - 搜索',
@@ -1824,7 +1776,9 @@
                             search: object.search,
                             detail: object.detail,
                             use_referer: object.use_referer,
+                            use_proxy: object.use_proxy,
                             browser: object.browser,
+                            search: true,
                             page: 1
                         });
                     }
@@ -1864,13 +1818,13 @@
                 //     // console.log(balanser_, elem);
                 //     return elem.available === true ? elem : null;
                 // }),
-                items: catalogs?catalogs
+                items: catalogs ? catalogs
                     .map(function (elem) {
                         elem.selected = balanser_ === elem.title;
                         // console.log(balanser_, elem);
                         return elem.available === true ? elem : null;
                     })
-                    .filter(Boolean):[],
+                    .filter(Boolean) : [],
                 onSelect: function onSelect(a) {
                     //console.log(a)
                     Lampa.Storage.set('online_web_balanser', a.title);
@@ -1928,7 +1882,7 @@
                     Lampa.Noty.show(network.errorDecode(a, c));
                 }, false, {
                     dataType: 'text',
-                    headers: _this.setheader(object.use_referer,object.browser)
+                    headers: _this.setheader(object.use_referer, object.browser)
                 });
             });
             body.append(more);
@@ -1987,7 +1941,7 @@
                 //:lt(12) 小于
                 //:gt(12) 大于
                 str = str.replace(/\n/g, '');
-                var h = $(v + object.quantity, str);
+                var h = $(v + (object.search ? '' : object.quantity), str);
                 //console.log(h)
                 total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
                 //console.log('总分页',total_pages)
@@ -2121,7 +2075,7 @@
                         };
                     };
 
-                    
+
 
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
@@ -2152,7 +2106,7 @@
         this.cardhistory = function (json) {
             var page = 'undefined';
             var total_pages = 1;
-            
+
             // var catalogs = json.filter(function (fp) {
             //     return fp.website === object.setup.title;
             // });
@@ -2163,7 +2117,7 @@
             };
         };
 
-        this.dodetail = function (_this2,element) {
+        this.dodetail = function (_this2, element) {
             Lampa.Modal.open({
                 title: '',
                 html: Lampa.Template.get('modal_loading'),
@@ -2410,7 +2364,7 @@
 
             var catalogs1 = catalogs ? catalogs.filter(function (fp) {
                 return fp.title === balanser && fp.available == true
-            }):[];
+            }) : [];
 
             if (catalogs1.length === 0) {
                 catalogs1[0] = catalogs[0];
@@ -2432,6 +2386,7 @@
                         detail: catalogs1[0].detail,
                         use_referer: catalogs1[0].use_referer,
                         browser: catalogs1[0].browser,
+                        use_proxy: catalogs1[0].use_proxy,
                         page: 1
                     });
                 },
