@@ -32,7 +32,7 @@
         name: '网站-在线之家',
         websitelink: 'https://www.zxzj.pro',
         listlink: true,
-        use_proxy: true,
+        use_proxy: false,
         search_url: 'https://www.zxzj.pro/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
