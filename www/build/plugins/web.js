@@ -178,7 +178,7 @@
             next: "search",
             datasort: "",
             use_referer: false,
-            use_proxy: true,
+            use_proxy: false,
             browser: "MOBILE_UA",
             category: [{
                 title: "首页",
@@ -936,7 +936,7 @@
 
             if (!proxyInitialized) {
                 proxyInitialized = true;
-                var proxyOrigin = 'https://nb557.surge.sh';//Lampa.Utils.protocol() + 
+                var proxyOrigin = Lampa.Utils.protocol() + 'nb557.surge.sh';
                 var proxyUrl = proxyOrigin + '/proxy.html';
 
                 // if (Lampa.Storage.field('online_mod_alt_iframe_proxy') === true) {
