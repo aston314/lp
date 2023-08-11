@@ -1046,7 +1046,7 @@
                 } else {
                     // console.log(object.use_proxy,Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)
                     if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
-                        console.log('使用代理连接..')
+                        console.log('WEB','使用代理连接..')
                         _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
                     } else {
                         network["native"](cors + object.url, call_success, call_fail, false, {
