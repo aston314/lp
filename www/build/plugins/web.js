@@ -172,46 +172,46 @@
         },
         {
             title: "在线之家",
-            link: "https://www.zxzj.pro",
+            link: "https://www.zxzjhd.com",
             available: true,
             show: "portrait",
             next: "search",
             datasort: "",
             use_referer: false,
-            use_proxy: false,
+            use_proxy: true,
             browser: "MOBILE_UA",
             category: [{
                 title: "首页",
-                url: "https://www.zxzj.pro",
+                url: "https://www.zxzjhd.com",
                 quantity: ':gt(11)'
             }, {
                 title: "电影",
-                url: "https://www.zxzj.pro/list/1.html",
+                url: "https://www.zxzjhd.com/list/1.html",
                 quantity: ''
             },
             {
                 title: "美剧",
-                url: "https://www.zxzj.pro/list/2.html",
+                url: "https://www.zxzjhd.com/list/2.html",
                 quantity: ''
             },
             {
                 title: "韩剧",
-                url: "https://www.zxzj.pro/list/3.html",
+                url: "https://www.zxzjhd.com/list/3.html",
                 quantity: ''
             },
             {
                 title: "日剧",
-                url: "https://www.zxzj.pro/list/4.html",
+                url: "https://www.zxzjhd.com/list/4.html",
                 quantity: ''
             },
             {
                 title: "泰剧",
-                url: "https://www.zxzj.pro/list/5.html",
+                url: "https://www.zxzjhd.com/list/5.html",
                 quantity: ''
             },
             {
                 title: "动漫",
-                url: "https://www.zxzj.pro/list/6.html",
+                url: "https://www.zxzjhd.com/list/6.html",
                 quantity: ''
             }],
             list: {
@@ -240,7 +240,7 @@
                 }
             },
             search: {
-                url: "https://www.zxzj.pro/vodsearch/-------------.html?wd=#msearchword&submit="
+                url: "https://www.zxzjhd.com/vodsearch/-------------.html?wd=#msearchword&submit="
             }
         },
         {
@@ -1044,7 +1044,7 @@
                     var data = _this.cardhistory(_this.getHistoryWebs());
                     _this.build(data);
                 } else {
-                    // console.log('object.use_proxy',object)
+                    // console.log(object.use_proxy,Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)
                     if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
                         console.log('使用代理连接..')
                         _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
