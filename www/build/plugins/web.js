@@ -1182,9 +1182,9 @@
             }
             //console.log(page);
             //console.log(object)
-            if (object.use_proxy) {
-                _this2.proxyCall('GET', cors + page, 20000, null, call_success_next, call_fail_next);
-            } else {
+            // if (object.use_proxy) {
+            //     _this2.proxyCall('GET', cors + page, 20000, null, call_success_next, call_fail_next);
+            // } else {
                 network["native"](cors + page, function (result) {
                     var data = _this2.card(result);
                     object.data = data;
@@ -1202,7 +1202,7 @@
                     dataType: 'text',
                     headers: _this2.setheader(object.use_referer, object.browser)
                 });
-            }
+            // }
         };
         this.checkIncludes = function (aString, aObject) {
             var normalizedData = new Set(aObject.map(function (obj) {
