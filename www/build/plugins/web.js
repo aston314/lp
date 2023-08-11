@@ -977,17 +977,7 @@
                     var message_id;
 
                     try {
-                        function generateRandomValues(length) {
-                            var values = new Array(length);
-                            for (var i = 0; i < length; i++) {
-                              values[i] = Math.floor(Math.random() * 256);
-                            }
-                            return values;
-                          }
-                          
-                          var randomValues = generateRandomValues(16);
-                        message_id = randomValues.toString();
-                        // crypto.getRandomValues(new Uint8Array(16)).toString();
+                        message_id = crypto.getRandomValues(new Uint8Array(16)).toString();
                     } catch (e) { }
 
                     if (!message_id) message_id = Math.random().toString();
@@ -1142,14 +1132,14 @@
                     var data = _this.cardhistory(_this.getHistoryWebs());
                     _this.build(data);
                 } else {
-                    if (object.use_proxy){
-                        _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
-                    } else{
+                    // if (object.use_proxy){
+                    //     _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
+                    // } else{
                         network["native"](cors + object.url, call_success, call_fail, false, {
                             dataType: 'text',
                             headers: _this.setheader(object.use_referer, object.browser)
                         });
-                    }
+                    // }
                     
                 }
 
