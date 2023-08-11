@@ -796,7 +796,6 @@
     //console.log(catalogs)
     function collection(object) {
         //console.log(catalogs);
-        var list = [];
         var activity = {
             url: '',
             title: '播放记录',
@@ -822,6 +821,32 @@
             step: 250
         });
         var FAVORITE_HISTORY_KEY = 'history_web';
+        var s, s_name;
+        if (object.show == 'minilandscape') {
+            s = '<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style>';
+            s_name = 'freetv_n ';
+        } else {
+            s = '<style>.freetv.category-full{padding-bottom:2.5em;}</style>';
+            s_name = 'freetv ';
+        }
+
+        //console.log(object)
+        var items = [];
+        var html = $('<div></div>');
+        var body = $('<div class="' + s_name + 'category-full"></div>');
+        //var cors = object.source == 'rezka' ? 'https://cors.eu.org/' : 'http://corsanywhere.herokuapp.com/';
+        var cors = object.use_proxy ? 'https://cors.eu.org/' : '';
+        var info;
+        var last;
+        var waitload = false;
+        var total_pages;
+        var HISTORY_WEBS_KEY = 'history_web';
+
+        var proxyInitialized = false;
+        var proxyWindow;
+        var proxyCalls = {};
+        var self = this;
+        var isLAMPA = navigator.userAgent.includes('Crosswalk');
 
         function getHistory() {
             return JSON.parse(localStorage.getItem(FAVORITE_HISTORY_KEY)) || [];
@@ -859,37 +884,6 @@
         this.getHistoryWebs = function () {
             return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
         };
-
-        var s, s_name;
-        if (object.show == 'minilandscape') {
-            s = '<style>.freetv_n.category-full{padding-bottom:8em;} @media screen and (max-width: 2560px) {.freetv_n .card--collection {width: 16.6%!important;}}@media screen and (max-width: 385px) {.freetv_n .card--collection {width: 33.3%!important;}}</style>';
-            s_name = 'freetv_n ';
-        } else {
-            s = '<style>.freetv.category-full{padding-bottom:2.5em;}</style>';
-            s_name = 'freetv ';
-        }
-
-        //console.log(object)
-        var items = [];
-        var html = $('<div></div>');
-        var body = $('<div class="' + s_name + 'category-full"></div>');
-        //var cors = object.source == 'rezka' ? 'https://cors.eu.org/' : 'http://corsanywhere.herokuapp.com/';
-        var cors = object.use_proxy ? 'https://cors.eu.org/' : '';
-        var info;
-        var last;
-        var waitload = false;
-        var relises = [];
-        var doubanitem = [];
-        var total_pages;
-        var HISTORY_WEBS_KEY = 'history_web';
-
-        var proxyInitialized = false;
-        var proxyWindow;
-        var proxyCalls = {};
-        var self = this;
-        // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "1";
-        var isLAMPA = navigator.userAgent.includes('Crosswalk');
-        console.log(isLAMPA)
 
         this.proxyCall = function (method, url, timeout, post_data, call_success, call_fail) {
             var process = function process() {
