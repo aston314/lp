@@ -977,7 +977,18 @@
                     var message_id;
 
                     try {
-                        message_id = crypto.getRandomValues(new Uint8Array(16)).toString();
+                        var array = new Uint8Array(16);
+                        if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
+                            window.crypto.getRandomValues(array);
+                        } else if (typeof window !== 'undefined' && window.msCrypto && window.msCrypto.getRandomValues) {
+                            window.msCrypto.getRandomValues(array);
+                        } else {
+                            for (var i = 0; i < array.length; i++) {
+                                array[i] = Math.floor(Math.random() * 256);
+                            }
+                        }
+                        message_id = array.toString();
+                        // crypto.getRandomValues(new Uint8Array(16)).toString();
                     } catch (e) { }
 
                     if (!message_id) message_id = Math.random().toString();
@@ -1169,9 +1180,8 @@
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
-                const regex = /page=(\d+)/;  // 正则表达式
-                const match = page.match(regex);  // 使用 match() 方法来匹配
-
+                var regex = /page=(\d+)/;  // 正则表达式
+                var match = page.match(regex);  // 使用 match() 方法来匹配
 
                 if (match) {
                     //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
