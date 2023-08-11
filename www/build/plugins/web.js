@@ -874,7 +874,7 @@
         var html = $('<div></div>');
         var body = $('<div class="' + s_name + 'category-full"></div>');
         //var cors = object.source == 'rezka' ? 'https://cors.eu.org/' : 'http://corsanywhere.herokuapp.com/';
-        var cors = '';
+        var cors = object.use_proxy ? 'https://cors.eu.org/' : '';
         var info;
         var last;
         var waitload = false;
@@ -887,6 +887,9 @@
         var proxyWindow;
         var proxyCalls = {};
         var self = this;
+        // var current_version = typeof AndroidJS !== "undefined" ? AndroidJS.appVersion() : "1";
+        var isLAMPA = navigator.userAgent.includes('Crosswalk');
+        console.log(isLAMPA)
 
         this.proxyCall = function (method, url, timeout, post_data, call_success, call_fail) {
             var process = function process() {
@@ -1005,13 +1008,6 @@
                 descr: '哦，无法获取 ' + object.title + ' 的内容。'
             });
             html.append(empty.render());
-            // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
-            // //console.log(object)
-            // empty.render().find('.simple-button').on('hover:enter', function () {
-            //     //$(".empty__footer").on('hover:enter hover:click', function () {
-            //     _this.selectGroup();
-            // });
-
             var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
             var ft = $('<div class="empty__footer"></div>');
             bn.on('hover:enter', function () {
@@ -1055,9 +1051,9 @@
                     _this.build(data);
                 } else {
                     // console.log('object.use_proxy',object)
-                    if (object.use_proxy) {
+                    if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
                         console.log('使用代理连接..')
-                        _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
+                        _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
                     } else {
                         network["native"](cors + object.url, call_success, call_fail, false, {
                             dataType: 'text',
@@ -1107,8 +1103,8 @@
             }
             //console.log(page);
             //console.log(object)
-            if (object.use_proxy) {
-                _this2.proxyCall('GET', cors + page, 20000, null, call_success_next, call_fail_next);
+            if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
+                _this2.proxyCall('GET', page, 20000, null, call_success_next, call_fail_next);
             } else {
                 network["native"](cors + page, function (result) {
                     var data = _this2.card(result);
@@ -1508,7 +1504,7 @@
                             dataType: 'text'
                         });
                     } else if (object.next == 'play') {
-                        network["native"](element.url, function (result) {
+                        network["native"](cors + element.url, function (result) {
                             var controller_enabled = Lampa.Controller.enabled().name;
                             // /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
                             //var videolink = result.match(/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|](.mp4|.m3u8)/)[0];
