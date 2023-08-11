@@ -6,6 +6,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "PC_UA",
       "category": [
@@ -79,13 +80,14 @@
          "url": "https://www.libvio.fun/search/-------------.html?wd=#msearchword&submit="
       }
    },
-      {
+   {
       "title": "低端影视",
       "link": "https://ddys.pro",
       "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": true,
       "browser": "MOBILE_UA",
       "category": [
@@ -161,6 +163,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -230,100 +233,101 @@
       }
    },
    {
-      "title":"欧乐影院",
-      "link":"https://www.olevod.com",
+      "title": "欧乐影院",
+      "link": "https://www.olevod.com",
       "available": true,
-      "show":"portrait",
-      "next":"detail",
-      "datasort":"",
-      "use_referer":true,
+      "show": "portrait",
+      "next": "detail",
+      "datasort": "",
+      "use_proxy": false,
+      "use_referer": true,
       "browser": "PC_UA",
-      "category":[
+      "category": [
          {
-            "title":"电影",
-            "url":"https://www.olevod.com/index.php/vod/type/id/1.html",
-            "quantity":""
+            "title": "电影",
+            "url": "https://www.olevod.com/index.php/vod/type/id/1.html",
+            "quantity": ""
          },
          {
-            "title":"电视剧",
-            "url":"https://www.olevod.com/index.php/vod/type/id/2.html",
-            "quantity":""
+            "title": "电视剧",
+            "url": "https://www.olevod.com/index.php/vod/type/id/2.html",
+            "quantity": ""
          },
          {
-            "title":"国产剧",
-            "url":"https://olevod.com/index.php/vod/show/show/202.html",
-            "quantity":""
+            "title": "国产剧",
+            "url": "https://olevod.com/index.php/vod/show/show/202.html",
+            "quantity": ""
          },
          {
-            "title":"日韩剧",
-            "url":"https://www.olevod.com/index.php/vod/type/id/204.html",
-            "quantity":""
+            "title": "日韩剧",
+            "url": "https://www.olevod.com/index.php/vod/type/id/204.html",
+            "quantity": ""
          },
          {
-            "title":"欧美剧",
-            "url":"https://www.olevod.com/index.php/vod/type/id/201.html",
-            "quantity":""
+            "title": "欧美剧",
+            "url": "https://www.olevod.com/index.php/vod/type/id/201.html",
+            "quantity": ""
          },
          {
-            "title":"港台剧",
-            "url":"https://www.olevod.com/index.php/vod/type/id/203.html",
-            "quantity":""
+            "title": "港台剧",
+            "url": "https://www.olevod.com/index.php/vod/type/id/203.html",
+            "quantity": ""
          },
          {
-            "title":"综艺",
-            "url":"https://www.olevod.com/index.php/vod/type/id/3.html",
-            "quantity":""
+            "title": "综艺",
+            "url": "https://www.olevod.com/index.php/vod/type/id/3.html",
+            "quantity": ""
          },
          {
-            "title":"动漫",
-            "url":"https://www.olevod.com/index.php/vod/type/id/4.html",
-            "quantity":""
+            "title": "动漫",
+            "url": "https://www.olevod.com/index.php/vod/type/id/4.html",
+            "quantity": ""
          }
       ],
-      "list":{
-         "page":{
-            "selector":"ul.page.text_center"
+      "list": {
+         "page": {
+            "selector": "ul.page.text_center"
          },
-         "videoscontainer":{
-            "selector":"ul.vodlist li",
-            "attrName":"",
-            "filter":""
+         "videoscontainer": {
+            "selector": "ul.vodlist li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"title",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": ""
          },
-         "thumb":{
-            "selector":"a",
-            "attrName":"data-original",
-            "filter":""
+         "thumb": {
+            "selector": "a",
+            "attrName": "data-original",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "detail":{
-         "videoscontainer":{
-            "selector":"div.playlist_notfull > ul > li",
-            "attrName":"",
-            "filter":""
+      "detail": {
+         "videoscontainer": {
+            "selector": "div.playlist_notfull > ul > li",
+            "attrName": "",
+            "filter": ""
          },
-         "title":{
-            "selector":"a",
-            "attrName":"text",
-            "filter":""
+         "title": {
+            "selector": "a",
+            "attrName": "text",
+            "filter": ""
          },
-         "link":{
-            "selector":"a",
-            "attrName":"href",
-            "filter":""
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
          }
       },
-      "search":{
-         "url":"https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
+      "search": {
+         "url": "https://www.olevod.com/index.php/vod/search.html?wd=#msearchword&submit="
       }
    },
    {
@@ -333,6 +337,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -415,6 +420,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": true,
       "browser": "MOBILE_UA",
       "category": [
@@ -522,47 +528,48 @@
    },
    {
       "title": "在线之家",
-      "link": "https://www.zxzj.pro",
+      "link": "https://www.zxzjhd.com",
       "available": true,
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": true,
       "use_referer": false,
       "browser": "PC_UA",
       "category": [
          {
             "title": "首页",
-            "url": "https://www.zxzj.pro",
+            "url": "https://www.zxzjhd.com",
             "quantity": ":gt(11)"
          },
          {
             "title": "电影",
-            "url": "https://www.zxzj.pro/list/1.html",
+            "url": "https://www.zxzjhd.com/list/1.html",
             "quantity": ""
          },
          {
             "title": "美剧",
-            "url": "https://www.zxzj.pro/list/2.html",
+            "url": "https://www.zxzjhd.com/list/2.html",
             "quantity": ""
          },
          {
             "title": "韩剧",
-            "url": "https://www.zxzj.pro/list/3.html",
+            "url": "https://www.zxzjhd.com/list/3.html",
             "quantity": ""
          },
          {
             "title": "日剧",
-            "url": "https://www.zxzj.pro/list/4.html",
+            "url": "https://www.zxzjhd.com/list/4.html",
             "quantity": ""
          },
          {
             "title": "泰剧",
-            "url": "https://www.zxzj.pro/list/5.html",
+            "url": "https://www.zxzjhd.com/list/5.html",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://www.zxzj.pro/list/6.html",
+            "url": "https://www.zxzjhd.com/list/6.html",
             "quantity": ""
          }
       ],
@@ -592,7 +599,7 @@
          }
       },
       "search": {
-         "url": "https://www.zxzj.pro/vodsearch/-------------.html?wd=#msearchword&submit="
+         "url": "https://www.zxzjhd.com/vodsearch/-------------.html?wd=#msearchword&submit="
       }
    },
    {
@@ -602,6 +609,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": true,
       "browser": "MOBILE_UA",
       "category": [
@@ -697,6 +705,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -782,6 +791,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -847,6 +857,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -927,6 +938,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1007,6 +1019,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1072,6 +1085,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1132,6 +1146,7 @@
       "show": "landscape",
       "next": "play",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1182,6 +1197,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "PC_UA",
       "category": [
@@ -1264,6 +1280,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1346,6 +1363,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1418,6 +1436,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1500,6 +1519,7 @@
       "show": "portrait",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1597,6 +1617,7 @@
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1642,6 +1663,7 @@
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1687,6 +1709,7 @@
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1732,6 +1755,7 @@
       "show": "portrait",
       "next": "aliyundrive",
       "datasort": "reverse",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1777,6 +1801,7 @@
       "show": "landscape",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1859,6 +1884,7 @@
       "show": "landscape",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -1966,6 +1992,7 @@
       "show": "landscape",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
@@ -2028,6 +2055,7 @@
       "show": "minilandscape",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "category": [
          {
@@ -2089,6 +2117,7 @@
       "show": "minilandscape",
       "next": "detail",
       "datasort": "",
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
