@@ -1045,15 +1045,47 @@
                     _this.build(data);
                 } else {
                     // console.log(object.use_proxy,Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)
-                    if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
-                        console.log('WEB','使用代理连接..')
-                        _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
-                    } else {
-                        network["native"](cors + object.url, call_success, call_fail, false, {
+                    // if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
+                    //     console.log('WEB','使用代理连接..')
+                    //     _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
+                    // } else {
+                        network["native"](cors + object.url, function (str) {
+                            var data = _this.card(str);
+                            _this.build(data);
+                        }, function (a, c) {
+                            //_this.selectGroup();
+                            // $(".noty:hidden").show();
+                            // _this.activity.loader(false);
+                            // Lampa.Noty.show(network.errorDecode(a, c)+' 请在右侧选择其他网站');
+                            var empty = new Lampa.Empty({
+                                descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                            });
+                            html.append(empty.render());
+                            // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+                            // //console.log(object)
+                            // empty.render().find('.simple-button').on('hover:enter', function () {
+                            //     //$(".empty__footer").on('hover:enter hover:click', function () {
+                            //     _this.selectGroup();
+                            // });
+    
+                            var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                            var ft = $('<div class="empty__footer"></div>');
+                            bn.on('hover:enter', function () {
+                                _this.selectGroup();
+                            });
+                            ft.append(bn);
+                            empty.append(ft);
+                            html.append(empty)
+    
+                            _this.start = empty.start;
+                            _this.activity.loader(false);
+                            _this.activity.toggle();
+                            return;
+                        }, false, {
                             dataType: 'text',
                             headers: _this.setheader(object.use_referer, object.browser)
                         });
-                    }
+                    // }
 
                 }
 
@@ -1097,9 +1129,9 @@
             }
             //console.log(page);
             //console.log(object)
-            if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
-                _this2.proxyCall('GET', page, 20000, null, call_success_next, call_fail_next);
-            } else {
+            // if (object.use_proxy && (Lampa.Storage.get('platform', 'noname') == 'noname' || isLAMPA)) {
+            //     _this2.proxyCall('GET', page, 20000, null, call_success_next, call_fail_next);
+            // } else {
                 network["native"](cors + page, function (result) {
                     var data = _this2.card(result);
                     object.data = data;
@@ -1117,7 +1149,7 @@
                     dataType: 'text',
                     headers: _this2.setheader(object.use_referer, object.browser)
                 });
-            }
+            // }
         };
         this.checkIncludes = function (aString, aObject) {
             var normalizedData = new Set(aObject.map(function (obj) {
