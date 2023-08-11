@@ -592,7 +592,7 @@
             this.selectGroup = function () {
                 Lampa.Select.show({
                     title: '低端影视',
-                    items: catalogsddys,
+                    items: catalogs,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
@@ -902,10 +902,10 @@
         };
     }
 
-    var catalogsddys = [
+    var catalogs = [
     {
         title: '首页',
-        url: 'https://ddys.pro/'
+        url: 'https://ddys.pro'
     },
     {
         title: '电影',
@@ -942,7 +942,7 @@
             menu_item.on('hover:enter', function () {
                 Lampa.Select.show({
                     title: '低端影视',
-                    items: catalogsddys,
+                    items: catalogs,
                     onSelect: function onSelect(a) {
                         Lampa.Activity.push({
                             url: a.url,
