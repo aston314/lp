@@ -947,7 +947,163 @@
         var relises = [];
         var doubanitem = [];
         var total_pages;
-        var HISTORY_WEBS_KEY = 'history_web';
+        
+        var proxyInitialized = false;
+        var proxyWindow;
+        var proxyCalls = {};
+        var self = this;
+
+        this.proxyCall = function (method, url, timeout, post_data, call_success, call_fail,) {
+            var process = function process() {
+                if (proxyWindow) {
+                    timeout = timeout || 60 * 1000;
+                    var message_id;
+
+                    try {
+                        message_id = crypto.getRandomValues(new Uint8Array(16)).toString();
+                    } catch (e) { }
+
+                    if (!message_id) message_id = Math.random().toString();
+                    proxyCalls[message_id] = {
+                        success: call_success,
+                        fail: call_fail
+                    };
+                    proxyWindow.postMessage({
+                        message: 'proxyMessage',
+                        message_id: message_id,
+                        method: method,
+                        url: url,
+                        timeout: timeout,
+                        post_data: post_data
+                    }, '*');
+                    setTimeout(function () {
+                        var call = proxyCalls[message_id];
+
+                        if (call) {
+                            delete proxyCalls[message_id];
+                            if (call.fail) call.fail({
+                                status: 0,
+                                responseText: ''
+                            }, 'timeout');
+                        }
+                    }, timeout + 1000);
+                } else {
+                    if (call_fail) call_fail({
+                        status: 0,
+                        responseText: ''
+                    }, 'abort');
+                }
+            };
+
+            if (!proxyInitialized) {
+                proxyInitialized = true;
+                var proxyOrigin = Lampa.Utils.protocol() + 'nb557.surge.sh'; //Lampa.Utils.protocol() + 
+                var proxyUrl = proxyOrigin + '/proxy.html';
+
+                // if (Lampa.Storage.field('online_mod_alt_iframe_proxy') === true) {
+                //     proxyOrigin = 'https://nb557.github.io';
+                //     proxyUrl = proxyOrigin + '/plugins/proxy.html';
+                // }
+
+                var proxyIframe = document.createElement('iframe');
+                proxyIframe.setAttribute('src', proxyUrl);
+                proxyIframe.setAttribute('width', '0');
+                proxyIframe.setAttribute('height', '0');
+                proxyIframe.setAttribute('tabindex', '-1');
+                proxyIframe.setAttribute('title', 'empty');
+                proxyIframe.setAttribute('style', 'display:none');
+                proxyIframe.addEventListener('load', function () {
+                    proxyWindow = proxyIframe.contentWindow;
+                    window.addEventListener('message', function (event) {
+                        var data = event.data;
+
+                        if (event.origin === proxyOrigin && data && data.message === 'proxyResponse' && data.message_id) {
+                            var call = proxyCalls[data.message_id];
+
+                            if (call) {
+                                delete proxyCalls[data.message_id];
+
+                                if (data.status === 200) {
+                                    if (call.success) call.success(data.responseText);
+                                } else {
+                                    if (call.fail) call.fail({
+                                        status: data.status,
+                                        responseText: data.responseText
+                                    });
+                                }
+                            }
+                        }
+                    });
+                    if (process) process();
+                    process = null;
+                });
+                document.body.appendChild(proxyIframe);
+                setTimeout(function () {
+                    if (process) process();
+                    process = null;
+                }, 10000);
+            } else {
+                process();
+            }
+        };
+
+        var call_success = function call_success(raw) {
+            var _this = self;
+            // console.log(raw)
+            if (raw) {
+                var data = _this.card(raw);
+                _this.build(data);
+            } else {
+                
+            }
+        };
+
+        var call_fail = function call_fail() {
+            var _this = self;
+            // get_links_wait = false;
+            // this.render().find('.broadcast__scan').remove();
+            var empty = new Lampa.Empty({
+                descr: '哦，无法获取 ' + object.title + ' 的内容。'
+            });
+            html.append(empty.render());
+            // $(".empty__descr").after('<div class="empty__footer"><div class="simple-button selector">选择其他网站</div></div>');
+            // //console.log(object)
+            // empty.render().find('.simple-button').on('hover:enter', function () {
+            //     //$(".empty__footer").on('hover:enter hover:click', function () {
+            //     _this.selectGroup();
+            // });
+
+            var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+            var ft = $('<div class="empty__footer"></div>');
+            bn.on('hover:enter', function () {
+                _this.selectGroup();
+            });
+            ft.append(bn);
+            empty.append(ft);
+            html.append(empty)
+
+            _this.start = empty.start;
+            _this.activity.loader(false);
+            _this.activity.toggle();
+            // console.log('连接出错')
+        };
+
+        var call_success_next = function call_success(raw) {
+            var _this2 = self;
+            // console.log(raw)
+            if (raw) {
+                var data = _this2.card(raw);
+                object.data = data;
+                _this2.append(data, true);
+                if (data.card.length) waitload = false;
+                // Lampa.Controller.toggle('content');
+                _this2.activity.loader(false);
+            }
+        };
+
+        var call_fail_next = function call_fail() {
+            // console.log('连接出错')
+        };
 
         this.getHistoryWebs = function () {
             return JSON.parse(localStorage.getItem(HISTORY_WEBS_KEY)) || [];
