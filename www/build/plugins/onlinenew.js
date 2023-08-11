@@ -9,7 +9,7 @@
         name: '网站-LIBVIO',
         websitelink: 'https://libvio.cc',
         listlink: true,
-        use_proxy: false,
+        use_proxy: true,
         search_url: 'https://libvio.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
@@ -1015,8 +1015,8 @@
             } else if (code >= 96 && code <= 105) { // numpad
             }
           }
-          Lampa.Keypad.listener.destroy();
-          Lampa.Keypad.listener.follow('keydown', keydown);
+          // Lampa.Keypad.listener.destroy();
+          // Lampa.Keypad.listener.follow('keydown', keydown);
     
           // 获取特定类名的元素中所有子元素的src属性值
           function getSrcValuesInClass(className) {
@@ -1097,7 +1097,7 @@
 
       function close() {
         // html$2.removeClass('iframe--loaded');
-        Lampa.Keypad.listener.destroy();
+        // Lampa.Keypad.listener.destroy();
         html$2.detach();
         Lampa.Controller.toggle('content');
         // html$2.find('iframe').attr('src', '');
