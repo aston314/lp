@@ -6,47 +6,47 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
-      "use_referer": true,
-      "browser": "MOBILE_UA",
+      "use_referer": false,
+      "browser": "PC_UA",
       "category": [
          {
             "title": "最近更新",
-            "url": "https://www.libvio.cc",
+            "url": "https://www.libvio.fun",
             "quantity": ":lt(12)"
          },
          {
             "title": "电影",
-            "url": "https://www.libvio.cc/type/1.html",
+            "url": "https://www.libvio.fun/type/1.html",
             "quantity": ""
          },
          {
             "title": "剧集",
-            "url": "https://www.libvio.cc/type/2.html",
+            "url": "https://www.libvio.fun/type/2.html",
             "quantity": ""
          },
          {
             "title": "日韩剧",
-            "url": "https://www.libvio.cc/type/15.html",
+            "url": "https://www.libvio.fun/type/15.html",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://www.libvio.cc/type/13.html",
+            "url": "https://www.libvio.fun/type/13.html",
             "quantity": ""
          },
          {
             "title": "欧美剧",
-            "url": "https://www.libvio.cc/type/16.html",
+            "url": "https://www.libvio.fun/type/16.html",
             "quantity": ""
          },
          {
             "title": "港台剧",
-            "url": "https://www.libvio.cc/type/14.html",
+            "url": "https://www.libvio.fun/type/14.html",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://www.libvio.cc/type/4.html",
+            "url": "https://www.libvio.fun/type/4.html",
             "quantity": ""
          }
       ],
@@ -76,7 +76,7 @@
          }
       },
       "search": {
-         "url": "https://www.libvio.cc/search/-------------.html?wd=#msearchword&submit="
+         "url": "https://www.libvio.fun/search/-------------.html?wd=#msearchword&submit="
       }
    },
       {
