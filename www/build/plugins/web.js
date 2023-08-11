@@ -1610,13 +1610,13 @@
                 //     // console.log(balanser_, elem);
                 //     return elem.available === true ? elem : null;
                 // }),
-                items: catalogs
+                items: catalogs?catalogs
                     .map(function (elem) {
                         elem.selected = balanser_ === elem.title;
                         // console.log(balanser_, elem);
                         return elem.available === true ? elem : null;
                     })
-                    .filter(Boolean),
+                    .filter(Boolean):[],
                 onSelect: function onSelect(a) {
                     //console.log(a)
                     Lampa.Storage.set('online_web_balanser', a.title);
@@ -1871,6 +1871,7 @@
 
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
+                        id: Lampa.Utils.hash(uu),
                         title: tt.replace(/(<([^>]+)>)/ig, '').replace(/4K|资源标题：|资源名称：|名称：/, '').replace(/第(.+)季/, '').trim(),
                         original_title: '',
                         title_org: tt.replace(/(<([^>]+)>)/ig, '').replace(/4K|资源标题：|资源名称：|名称：/, ''),
@@ -2153,9 +2154,9 @@
 
             var balanser = Lampa.Storage.get('online_web_balanser');
 
-            var catalogs1 = catalogs.filter(function (fp) {
+            var catalogs1 = catalogs ? catalogs.filter(function (fp) {
                 return fp.title === balanser && fp.available == true
-            });
+            }):[];
 
             if (catalogs1.length === 0) {
                 catalogs1[0] = catalogs[0];
