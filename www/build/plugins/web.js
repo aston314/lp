@@ -1054,7 +1054,9 @@
                     var data = _this.cardhistory(_this.getHistoryWebs());
                     _this.build(data);
                 } else {
+                    // console.log('object.use_proxy',object)
                     if (object.use_proxy) {
+                        console.log('使用代理连接..')
                         _this.proxyCall('GET', cors + object.url, 20000, null, call_success, call_fail);
                     } else {
                         network["native"](cors + object.url, call_success, call_fail, false, {
@@ -1666,6 +1668,7 @@
                         search: a.search.url,
                         detail: a.detail,
                         use_referer: a.use_referer,
+                        use_proxy: a.use_proxy,
                         browser: a.browser,
                         page: 1
                     });
