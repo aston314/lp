@@ -1413,6 +1413,8 @@
     }
 
     this.search = function (_object, kinopoisk_id) {
+      network.clear();
+      network.timeout(1000 * 15);
       get_links_wait = true;
       if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
       var _this = this;
@@ -2341,6 +2343,8 @@
       // var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
       // var cors_https = /https/.test(cors) ? cors : '';
       var url;
+      network.clear();
+      network.timeout(1000 * 15);
       kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + kinopoisk_id + 'devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj : url = 'https://api.kunyu77.com/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
 
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
@@ -2606,6 +2610,8 @@
       object = _object;
       select_title = object.search || object.movie.title;
       doreg = rule;
+      network.clear();
+      network.timeout(1000 * 15);
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
       var url;
@@ -2897,6 +2903,8 @@
       //console.log(kinopoisk_id)
       //console.log(select_title.replace(/第(.+)季/, '').trim());
       var url;
+      network.clear();
+      network.timeout(1000 * 15);
       //https://1080zyk3.com/index.php?m=vod-search-wd-#msearchword.html
       kinopoisk_id.indexOf('vod-detail-id') !== -1 ? url = 'https://1080zyk3.com' + kinopoisk_id : url = 'https://1080zyk3.com/index.php?m=vod-search-wd-#msearchword.html'.replace('#msearchword', encodeURIComponent(object.movie.title));
 
