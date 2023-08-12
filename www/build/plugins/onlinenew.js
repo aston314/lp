@@ -1430,7 +1430,7 @@
       if (parseFloat(kinopoisk_id)) {
         network["native"](url, function (json) {
           if (json) {
-            if (json.list.length == 0) {
+            if (json.list && json.list.length == 0) {
               closeloading();
               component.emptyForQuery(select_title)
             } else {
