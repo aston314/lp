@@ -1453,7 +1453,7 @@
         network["native"](url, function (json) {
           if (json.code != 0) {
             //console.log(json.data.length)
-            if (json.list.length !== 0) {
+            if (json.list && json.list.length !== 0) {
               //parse(json);
               if (json.list.length == 1) {
                 var id = json.list[0].vod_id;
