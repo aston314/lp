@@ -1629,7 +1629,7 @@
                             use_referer: object.use_referer,
                             use_proxy: object.use_proxy,
                             browser: object.browser,
-                            search: true,
+                            dosearch: true,
                             page: 1
                         });
                     }
@@ -1793,7 +1793,7 @@
                 //:lt(12) 小于
                 //:gt(12) 大于
                 str = str.replace(/\n/g, '');
-                var h = $(v + (object.search ? '' : object.quantity), str);
+                var h = $(v + (object.dosearch ? '' : object.quantity), str);
                 //console.log(h)
                 total_pages = $(p, str).find('a').last().attr('href') ? $(p, str).find('a').length : $(p, str).length;
                 //console.log('总分页',total_pages)
