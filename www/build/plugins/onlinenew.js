@@ -992,13 +992,22 @@
           // document.querySelector('.dplayer-video').focus();
           function keydown(e) {
             var code = e.code;
-            var dplayerVideo = document.querySelector('.dplayer-video');
+            // var dplayerVideo = document.querySelector('.dplayer-video');
             if (code === 428 || code === 34 // Pg-
               //4 - Samsung orsay
               || ((code === 37 || code === 4) && $('.dplayer-video').length) // left
             ) {
               try {
-                dplayerVideo.seek(-10);
+                //表示遥控向左键
+                var currentTime = window.player.video.currentTime
+                currentTime = currentTime - 10;
+                if (currentTime < 0) {
+                  currentTime = 0;
+                  return;
+                }
+                //console.log(currentTime);
+                window.player.seek(currentTime);
+                console.log('左',currentTime)
               } catch (error) {
                 console.error(error);
               }
@@ -1007,7 +1016,15 @@
               || ((code === 39 || code === 5) && $('.dplayer-video').length) // right
             ) {
               try {
-                dplayerVideo.seek(10);
+                //表示遥控向右键
+                var currentTime = window.player.video.currentTime
+                currentTime = currentTime + 10;
+                if (duration > 0 && currentTime > duration) {
+                  currentTime = duration;
+                  return;
+                }
+                window.player.seek(currentTime)
+                console.log('右',currentTime)
               } catch (error) {
                 console.error(error);
               }
@@ -1015,8 +1032,8 @@
             } else if (code >= 96 && code <= 105) { // numpad
             }
           }
-          // Lampa.Keypad.listener.destroy();
-          // Lampa.Keypad.listener.follow('keydown', keydown);
+          Lampa.Keypad.listener.destroy();
+          Lampa.Keypad.listener.follow('keydown', keydown);
     
           // 获取特定类名的元素中所有子元素的src属性值
           function getSrcValuesInClass(className) {
