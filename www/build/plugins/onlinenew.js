@@ -1144,7 +1144,7 @@
       function toggle() {
         Lampa.Controller.add('playerwindow', {
           toggle: function toggle() {
-            var focus = $('.iframe > div');//.addClass('selector')
+            var focus = $('.iframe > div').addClass('selector');
             // console.log(focus[0])
             Lampa.Controller.collectionSet($('.iframe'));
             Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
