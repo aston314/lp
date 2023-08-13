@@ -968,12 +968,13 @@
         }
       };
       // console.log(aa)
-      str = str + `<script>function keydown(e) {
+      str = str + `<script>
+      function keydown(e) {
         var code = e.code;
         // var dplayerVideo = document.querySelector('.dplayer-video');
         if (code === 428 || code === 34 // Pg-
           //4 - Samsung orsay
-          || ((code === 37 || code === 4) && $('.dplayer-video').length) // left
+          || ((code === 37 || code === 4) ) // left
         ) {
           try {
             //表示遥控向左键
@@ -992,7 +993,7 @@
           }
         } else if (code === 427 || code === 33 // Pg+
           // 5 - Samsung orsay right
-          || ((code === 39 || code === 5) && $('.dplayer-video').length) // right
+          || ((code === 39 || code === 5) ) // right
         ) {
           try {
             //表示遥控向右键
@@ -1012,8 +1013,10 @@
         } else if (code >= 96 && code <= 105) { // numpad
         }
       }
-      Lampa.Keypad.listener.destroy();
-      Lampa.Keypad.listener.follow('keydown', keydown);</script>`
+      // Lampa.Keypad.listener.destroy();
+      //Lampa.Keypad.listener.follow('keydown', keydown);
+      document.addEventListener('keydown', keydown);
+      </script>`
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       // <div class=\"iframe__body\">\n   </div>\n
       var html$2 = Lampa.Template.get('playerwindow');
@@ -1110,10 +1113,9 @@
       function toggle() {
         Lampa.Controller.add('playerwindow', {
           toggle: function toggle() {
-            // var focus = playpause_btn;
-            var focus = $('.dplayer-play-icon');
-            Lampa.Controller.collectionSet($('#player'));
-            Lampa.Controller.collectionFocus(focus[0], $('#player'));
+            // var focus = $('.dplayer-play-icon');
+            // Lampa.Controller.collectionSet($('#player'));
+            // Lampa.Controller.collectionFocus(focus[0], $('#player'));
           },
           back: close
         });
