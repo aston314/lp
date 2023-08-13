@@ -938,12 +938,42 @@
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
+      // data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/> <meta name=\"referrer\" content=\"never\"> <title>网盘播放器v201812 parse.hcc11.com</title> <script src=\"//cdn.staticfile.org/jquery/2.0.3/jquery.min.js\"></script> <link href=\"/Content/index.css?v=1.3\" rel=\"stylesheet\"/> <script src=\"/Scripts/parse.js\"></script> </head> <body> <div id=\"div_player\"> <div style=\"text-align: center\"> <img src=\"//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif\" style=\"width: 300px; height: 250px;\"/> </div> </div> <script src=\"//cdn.staticfile.org/hls.js/1.2.4/hls.min.js\"></script> <link href=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css\" rel=\"stylesheet\"> <script src=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js\"></script> <script type=\"text/javascript\"> var url = '2373237363938323437313337313331313D344946455D2A7D616D28762436313534363830393238383035383D3449455D2A7D616D2876203938343038363230323D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876233133323039313936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B43737563636143575146244335283732544968567D6D627078513A7749483435755A79787D687F616D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D287620525F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B453938313936313E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2050383031344843323032383835323521314532352635453235244245323521393532352535453235273235273235283D2644555443352A256D616E656C696662433522323524307D6E2050383031344843323032383835213145263545244245213935253545223235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2662373333616165353432356D253266683D213833643D216331363D24683932326565663F24455F4C43495C494D41464F2E636E23787E657974736E23737F663A6A7E256D6F686D29766D2A786A6A7D216964656D6F2F2A33707474786' , err = '' , dmId = 0 , vt = '2'; </script> <script src=\"/ParsePlayer/Player/Js?time=1691895040&amp;key=55eab43a2996b8891d19318a56e2a9bf\" type=\"text/javascript\"></script> </body> </html>"
+  //     data = `<html xmlns="http://www.w3.org/1999/xhtml">
+  //     <head>
+  //         <meta name="viewport" content="width=device-width, initial-scale=1">
+  //         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  //         <meta name="referrer" content="never">
+  //         <title>网盘播放器v201812 parse.hcc11.com</title>
+  //         <script src="//cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  //         <link href="/Content/index.css?v=1.3" rel="stylesheet"/>
+  //         <script src="/Scripts/parse.js"></script>
+  //     </head>
+  //     <body>
+  //         <div id="div_player">
+  //             <div style="text-align: center">
+  //                 <img src="//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif" style="width: 300px; height: 250px;"/>
+  //             </div>
+  //         </div>
+  //         <script src="//cdn.staticfile.org/hls.js/1.2.4/hls.min.js"></script>
+  //         <link href="//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css" rel="stylesheet">
+  //         <script src="//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js"></script>
+  //         <script type="text/javascript">
+  //             var url = '2373237363938323437313337313331313D344946455D2A7D616D28762436313534363830393238383035383D3449455D2A7D616D2876203938343038363230323D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876233133323039313936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B43737563636143575146244335283732544968567D6D627078513A7749483435755A79787D687F616D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D287620525F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B453938313936313E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2050383031344843323032383835323521314532352635453235244245323521393532352535453235273235273235283D2644555443352A256D616E656C696662433522323524307D6E2050383031344843323032383835213145263545244245213935253545223235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2662373333616165353432356D253266683D213833643D216331363D24683932326565663F24455F4C43495C494D41464F2E636E23787E657974736E23737F663A6A7E256D6F686D29766D2A786A6A7D216964656D6F2F2A33707474786'
+  //               , err = ''
+  //               , dmId = 0
+  //               , vt = '2';
+  //         </script>
+  //         <script src="/ParsePlayer/Player/Js?time=1691895040&amp;key=55eab43a2996b8891d19318a56e2a9bf" type="text/javascript"></script>
+  //     </body>
+  // </html>`
+  
       var str = data
         .replace(/src="\/\//g, 'src="https://')
         .replace(/href="\/\//g, 'href="https://')
-        .replace(/<\/?(head|body|html)[^>]*>/g, '')
+        .replace(/<\/?(head|meta|body|html)[^>]*>/g, '')
         .replace(/<title>.*?<\/title>/g, '')
-        .replace('/1.25.0/DPlayer.min.js', '/1.27.0/DPlayer.min.js')
+        .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
         .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '');
 
       // 获取当前页面的 URL
@@ -1013,10 +1043,10 @@
         } else if (code >= 96 && code <= 105) { // numpad
         }
       }
-      // Lampa.Keypad.listener.destroy();
-      //Lampa.Keypad.listener.follow('keydown', keydown);
-      document.addEventListener('keydown', keydown);
-      </script>`
+       Lampa.Keypad.listener.destroy();
+      Lampa.Keypad.listener.follow('keydown', keydown);
+      //document.addEventListener('keydown', keydown);</script>`
+      $('.iframe').remove();
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       // <div class=\"iframe__body\">\n   </div>\n
       var html$2 = Lampa.Template.get('playerwindow');
@@ -1067,12 +1097,12 @@
             return srcValues;
           }
 
-          // 获取具有特定类名的元素中所有子元素的src属性值
-          var className = '.iframe'; // 替换为实际的类名
-          var srcValuesInClass = getSrcValuesInClass(className);
+          // // 获取具有特定类名的元素中所有子元素的src属性值
+          // var className = '.iframe'; // 替换为实际的类名
+          // var srcValuesInClass = getSrcValuesInClass(className);
 
-          // 输出结果
-          console.log('src values in elements with class', className + ':', srcValuesInClass);
+          // // 输出结果
+          // console.log('src values in elements with class', className + ':', srcValuesInClass);
 
           var playulr = $('video').attr('src') || document.querySelector('source').src;
           // var videoElement = $('video')[0];
@@ -1113,9 +1143,10 @@
       function toggle() {
         Lampa.Controller.add('playerwindow', {
           toggle: function toggle() {
-            // var focus = $('.dplayer-play-icon');
-            // Lampa.Controller.collectionSet($('#player'));
-            // Lampa.Controller.collectionFocus(focus[0], $('#player'));
+            var focus = $('.iframe > div').addClass('selector');
+            // console.log(focus[0])
+            Lampa.Controller.collectionSet($('.iframe'));
+            Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
           },
           back: close
         });
