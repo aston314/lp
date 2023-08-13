@@ -999,55 +999,54 @@
         }
       };
       // console.log(aa)
-      str = str + `<script>
-      function keydown(e) {
-        var code = e.code;
-        // var dplayerVideo = document.querySelector('.dplayer-video');
-        if (code === 428 || code === 34 // Pg-
-          //4 - Samsung orsay
-          || ((code === 37 || code === 4) ) // left
-        ) {
-          try {
-            //表示遥控向左键
-            var currentTime = window.player.video.currentTime
-            currentTime = currentTime - 10;
-            if (currentTime < 0) {
-              currentTime = 0;
-              return;
-            }
-            //console.log(currentTime);
-            window.player.seek(currentTime);
-            console.log('左',currentTime)
-            // dplayerVideo.seek(-10);
-          } catch (error) {
-            console.error(error);
-          }
-        } else if (code === 427 || code === 33 // Pg+
-          // 5 - Samsung orsay right
-          || ((code === 39 || code === 5) ) // right
-        ) {
-          try {
-            //表示遥控向右键
-            console.log('右',window.player)
-            var currentTime = window.player.video.currentTime
-            currentTime = currentTime + 10;
-            if (duration > 0 && currentTime > duration) {
-              currentTime = duration;
-              return;
-            }
-            window.player.seek(currentTime)
-            console.log('右',currentTime)
-            // dplayerVideo.seek(10);
-          } catch (error) {
-            console.error(error);
-          }
-        } else if (code >= 48 && code <= 57) { // numpad
-        } else if (code >= 96 && code <= 105) { // numpad
-        }
-      }
-       Lampa.Keypad.listener.destroy();
-      Lampa.Keypad.listener.follow('keydown', keydown);
-      //document.addEventListener('keydown', keydown);</script>`
+      // str = str + `<script>
+      // function keydown(e) {
+      //   var code = e.code;
+      //   // var dplayerVideo = document.querySelector('.dplayer-video');
+      //   if (code === 428 || code === 34 // Pg-
+      //     //4 - Samsung orsay
+      //     || ((code === 37 || code === 4) ) // left
+      //   ) {
+      //     try {
+      //       //表示遥控向左键
+      //       var currentTime = window.player.video.currentTime
+      //       currentTime = currentTime - 10;
+      //       if (currentTime < 0) {
+      //         currentTime = 0;
+      //         return;
+      //       }
+      //       //console.log(currentTime);
+      //       window.player.seek(currentTime);
+      //       console.log('左',currentTime)
+      //       // dplayerVideo.seek(-10);
+      //     } catch (error) {
+      //       console.error(error);
+      //     }
+      //   } else if (code === 427 || code === 33 // Pg+
+      //     // 5 - Samsung orsay right
+      //     || ((code === 39 || code === 5) ) // right
+      //   ) {
+      //     try {
+      //       //表示遥控向右键
+      //       var currentTime = window.player.video.currentTime
+      //       currentTime = currentTime + 10;
+      //       if (duration > 0 && currentTime > duration) {
+      //         currentTime = duration;
+      //         return;
+      //       }
+      //       window.player.seek(currentTime)
+      //       console.log('右',currentTime)
+      //       // dplayerVideo.seek(10);
+      //     } catch (error) {
+      //       console.error(error);
+      //     }
+      //   } else if (code >= 48 && code <= 57) { // numpad
+      //   } else if (code >= 96 && code <= 105) { // numpad
+      //   }
+      // }
+      //  Lampa.Keypad.listener.destroy();
+      // Lampa.Keypad.listener.follow('keydown', keydown);
+      // //document.addEventListener('keydown', keydown);</script>`
       $('.iframe').remove();
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       // <div class=\"iframe__body\">\n   </div>\n
@@ -1145,7 +1144,7 @@
       function toggle() {
         Lampa.Controller.add('playerwindow', {
           toggle: function toggle() {
-            var focus = $('.iframe > div').addClass('selector');
+            var focus = $('.iframe > div');//.addClass('selector')
             // console.log(focus[0])
             Lampa.Controller.collectionSet($('.iframe'));
             Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
