@@ -1025,7 +1025,7 @@
           // 5 - Samsung orsay right
           || ((code === 39 || code === 5) ) // right
         ) {
-          try {
+          // try {
             //表示遥控向右键
             var currentTime = window.player.video.currentTime
             currentTime = currentTime + 10;
@@ -1036,9 +1036,9 @@
             window.player.seek(currentTime)
             console.log('右',currentTime)
             // dplayerVideo.seek(10);
-          } catch (error) {
-            console.error(error);
-          }
+          // } catch (error) {
+          //   console.error(error);
+          // }
         } else if (code >= 48 && code <= 57) { // numpad
         } else if (code >= 96 && code <= 105) { // numpad
         }
