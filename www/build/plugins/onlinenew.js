@@ -995,7 +995,7 @@
             // var dplayerVideo = document.querySelector('.dplayer-video');
             if (code === 428 || code === 34 // Pg-
               //4 - Samsung orsay
-              || ((code === 37 || code === 4) && $('.dplayer-video').length) // left
+              || ((code === 37 || code === 4) ) // left
             ) {
               try {
                 //表示遥控向左键
@@ -1013,7 +1013,7 @@
               }
             } else if (code === 427 || code === 33 // Pg+
               // 5 - Samsung orsay right
-              || ((code === 39 || code === 5) && $('.dplayer-video').length) // right
+              || ((code === 39 || code === 5) ) // right
             ) {
               try {
                 //表示遥控向右键
