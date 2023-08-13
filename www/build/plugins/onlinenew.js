@@ -1155,7 +1155,7 @@
 
       function close() {
         // html$2.removeClass('iframe--loaded');
-        // Lampa.Keypad.listener.destroy();
+        Lampa.Keypad.listener.destroy();
         html$2.detach();
         Lampa.Controller.toggle('content');
         // html$2.find('iframe').attr('src', '');
