@@ -260,6 +260,15 @@
                 });
               };
             });
+            
+            listlink.data[0].media.sort(function (a, b) {
+              if (a.title < b.title) {
+                return -1; // 调整返回值以实现升序排列
+              } else if (a.title > b.title) {
+                return 1;  // 调整返回值以实现升序排列
+              }
+              return 0;
+            });
             results = listlink.data;
             _this.build();
           };
@@ -374,6 +383,7 @@
                     });
                   };
                 });
+                
                 results = listlink.data;
                 _this.build();
               }
