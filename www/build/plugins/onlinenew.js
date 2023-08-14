@@ -975,7 +975,7 @@
         .replace(/<title>.*?<\/title>/g, '')
         .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
         .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
-        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/GdRo.js"');
+        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/CYir.js"');
 
       // 获取当前页面的 URL
       var currentPageUrl = MacPlayer_;
