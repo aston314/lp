@@ -1000,6 +1000,7 @@
       };
       // console.log(aa)
       // str = str + `<script>
+      
       // function keydown(e) {
       //   var code = e.code;
       //   // var dplayerVideo = document.querySelector('.dplayer-video');
@@ -1044,9 +1045,9 @@
       //   } else if (code >= 96 && code <= 105) { // numpad
       //   }
       // }
-      //  Lampa.Keypad.listener.destroy();
-      // Lampa.Keypad.listener.follow('keydown', keydown);
-      // //document.addEventListener('keydown', keydown);</script>`
+      // //  Lampa.Keypad.listener.destroy();
+      // // Lampa.Keypad.listener.follow('keydown', keydown);
+      // // document.addEventListener('keydown', keydown);</script>`
       $('.iframe').remove();
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       // <div class=\"iframe__body\">\n   </div>\n
@@ -1064,6 +1065,7 @@
           // console.log('执行网页完成')
           // 在append完成后触发事件
           // html$2.removeClass('iframe--loaded');
+          console.log(_0x4f591e,)
           toggle();
           // var playulr =$('.dplayer-video').attr('src');
           // document.querySelector('video').src
