@@ -310,7 +310,7 @@
       // },
       {
         name: '网站-神马影院',
-        available: true,
+        available: false,
         websitelink: 'https://www.smdyy.cc',
         listlink: true,
         use_proxy: false,
