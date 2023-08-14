@@ -7,6 +7,7 @@
     "rule": [
       {
         name: '网站-LIBVIO',
+        available: true,
         websitelink: 'https://www.libvio.fun',
         listlink: true,
         use_proxy: false,
@@ -30,6 +31,7 @@
       },
       {
         name: '网站-在线之家',
+        available: true,
         websitelink: 'https://www.zxzj.pro',
         listlink: true,
         use_proxy: true,
@@ -49,6 +51,7 @@
       },
       // {
       //   name: '网站-凌云影视',
+      //   available: false,
       //   websitelink: 'https://www.lyys8.com/',
       //   listlink: true,
       //   use_proxy: false,
@@ -68,6 +71,7 @@
       // },
       {
         name: '网站-剧白白',
+        available: true,
         websitelink: 'https://www.jubaibaic.com',
         listlink: true,
         use_proxy: false,
@@ -87,6 +91,7 @@
       },
       {
         name: '网站-秋霞电影',
+        available: true,
         websitelink: 'https://www.7xiady.cc',
         listlink: true,
         use_proxy: false,
@@ -106,6 +111,7 @@
       },
       // {
       //   name : '网站-乐猪TV[!]',
+      //   available: false,
       //   websitelink : 'http://www.lezhutv.com/',
       //   listlink : true,
       //   use_proxy: false,
@@ -125,6 +131,7 @@
       // {
       //   name : '9亿看看',
       //   websitelink : 'https://www.9eguoyu.com',
+      //   available: false,
       //   listlink : true,
       //   use_proxy: false,
       //   search_url : 'https://www.9eguoyu.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
@@ -142,6 +149,7 @@
       // },
       {
         name: '网站-AUETE影视',
+        available: true,
         websitelink: 'https://auete.art',
         listlink: true,
         use_proxy: false,
@@ -162,6 +170,7 @@
       },
       {
         name: '网站-欧乐影视',
+        available: true,
         websitelink: 'https://www.olevod.com/',
         listlink: true,
         use_proxy: false,
@@ -181,6 +190,7 @@
       },
       // {
       //   name: '追剧喵',
+      //   available: false,
       //   websitelink: 'https://zjmiao.com/',
       //   listlink: true,
       //   use_proxy: false,
@@ -200,6 +210,7 @@
       // },
       // {
       //   name : '网站-555电影',
+      //   available: false,
       //   websitelink : 'https://www.5dy1.cc',
       //   listlink : true,
       //   use_proxy: false,
@@ -219,6 +230,7 @@
       // },
       // {
       //   name : '看视界',
+      //   available: false,
       //   websitelink : 'https://www.1080kan.cc',
       //   listlink : true,
       //   use_proxy: false,
@@ -238,6 +250,7 @@
       // },
       // {
       //   name: '网站-乌龟影院',
+      //   available: false,
       //   websitelink: 'https://www.wuguiyy.com',
       //   listlink: true,
       //   use_proxy: false,
@@ -257,6 +270,7 @@
       // },
       {
         name: '网站-达达龟',
+        available: true,
         websitelink: 'https://www.dadagui.me/',
         listlink: true,
         use_proxy: false,
@@ -276,6 +290,7 @@
       },
       // {
       //   name : '大师兄',
+      //   available: false,
       //   websitelink : 'https://dsxys.com/',
       //   listlink : true,
       //   use_proxy: false,
@@ -295,6 +310,7 @@
       // },
       {
         name: '网站-神马影院',
+        available: true,
         websitelink: 'https://www.smdyy.cc',
         listlink: true,
         use_proxy: false,
@@ -314,6 +330,7 @@
       },
       {
         name: '网站-皮皮鸭',
+        available: true,
         websitelink: 'https://www.pipiya.cc',
         listlink: true,
         use_proxy: false,
@@ -333,6 +350,7 @@
       },
       // {
       //   name: '网站-voflix HD',
+      //   available: false,
       //   websitelink: 'https://www.voflix.me',
       //   listlink: true,
       //   use_proxy: false,
@@ -352,6 +370,7 @@
       // },
       // {
       //   name: '网站-剧荒TV',
+      //   available: false,
       //   websitelink: 'https://juhuang.tv',
       //   listlink: true,
       //   use_proxy: false,
@@ -371,6 +390,7 @@
       // },
       // {
       //   name: '网站-厂长资源',
+      //   available: false,
       //   websitelink: 'https://czzy01.com',
       //   listlink: false,
       //   use_proxy: false,
@@ -390,6 +410,7 @@
       // },
       {
         name: '网站-麦豆TV',
+        available: false,
         websitelink: 'https://www.mdoutv.com',
         listlink: false,
         use_proxy: false,
@@ -409,6 +430,7 @@
       },
       // {
       //   name: '素白白',
+      //   available: true,
       //   websitelink: 'https://www.subaibaiys.com',
       //   listlink: false,
       //   use_proxy: false,
@@ -428,6 +450,7 @@
       // },
       // {
       //   name: '独播库',
+      //   available: false,
       //   websitelink: 'https://u.duboku.io',
       //   listlink: true,
       //   use_proxy: false,
@@ -447,6 +470,7 @@
       // },
       // {
       //   name: '网飞TV',
+      //   available: false,
       //   websitelink: 'https://www.wangfei.tv',
       //   listlink: true,
       //   use_proxy: false,
@@ -466,6 +490,7 @@
       // },
       // {
       //   name: '网站-鸭奈飞',
+      //   available: false,
       //   websitelink: 'https://netflix.mom',
       //   listlink: true,
       //   use_proxy: false,
@@ -485,6 +510,7 @@
       // },
       // {
       //   name: '网站-爱看[!]',
+      //   available: false,
       //   websitelink: 'https://ikan6.vip',
       //   listlink: true,
       //   use_proxy: false,
@@ -504,6 +530,7 @@
       // },
       // {
       //   name: '黑洞网',
+      //   vailable: false,
       //   websitelink: 'https://www.nulltm.com',
       //   listlink: true,
       //   use_proxy: false,
@@ -592,15 +619,21 @@
       //   site_detail_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=detail&ids=#id'
       // },
       // {
-      //   site_name: '多多资源网',
-      //   site_search_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-      //   site_detail_url: 'https://www.ddzyz1.com/api.php/provide/vod/?ac=detail&ids=#id'
+      //   site_name: '采集-iKun资源网',
+      //   site_search_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+      //   site_detail_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       // },
     ]
   };
   var doreg = {};
   var doregjson = {};
+  var filteredRule = extract_rule.rule.filter(function (fp) {
+    return fp.available === true;
+  });
+
+  extract_rule.rule = filteredRule;
   doregjson = extract_rule;
+  
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -5279,7 +5312,7 @@
     var sources = {
       //   无名资源: new noname(this, object),
       // 找资源: new zhaoziyuan(this, object),
-      小纸条: new xiaozhitiao(this, object),
+      // 小纸条: new xiaozhitiao(this, object),
       易搜: new yiso(this, object),
       // 猫狸盘搜: new alipansou(this, object),
       霸王龙压制组: new trex(this, object),
@@ -5335,7 +5368,7 @@
       source: Lampa.Lang.translate('settings_rest_source')
     };
     // , 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi'
-    var filter_sources = ['低端影视','小雅的Alist', '霸王龙压制组', 'DYD', '小纸条', '易搜']; // шаловливые ручки
+    var filter_sources = ['低端影视','小雅的Alist', '霸王龙压制组', 'DYD', '易搜']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -5980,7 +6013,7 @@
       // sources.videoapi.destroy();
       //   sources.无名资源.destroy();
       // sources.找资源.destroy();
-      sources.小纸条.destroy();
+      // sources.小纸条.destroy();
       sources.易搜.destroy();
       sources.霸王龙压制组.destroy();
       // sources.猫狸盘搜.destroy();
