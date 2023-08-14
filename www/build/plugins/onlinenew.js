@@ -975,7 +975,7 @@
         .replace(/<title>.*?<\/title>/g, '')
         .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
         .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
-        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/JatZ.js"');
+        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/geqY.js"');
 
       // 获取当前页面的 URL
       var currentPageUrl = MacPlayer_;
@@ -986,68 +986,69 @@
         return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
       });
 
-      var re = /<script.*?src="(.*?)"/gm;
-      var match, aa = [], bbb = [], setting_js = false, setting_link;
-      while (match = re.exec(str)) {
-        var cc = match[1];
-        if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
-          aa.push(cc);
-        }
-        if (/setting[\s\S]*\.js/.test(cc)) {
-          setting_js = true;
-          setting_link = cc;
-        }
-      };
+      // var re = /<script.*?src="(.*?)"/gm;
+      // var match, aa = [], bbb = [], setting_js = false, setting_link;
+      // while (match = re.exec(str)) {
+      //   var cc = match[1];
+      //   if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
+      //     aa.push(cc);
+      //   }
+      //   if (/setting[\s\S]*\.js/.test(cc)) {
+      //     setting_js = true;
+      //     setting_link = cc;
+      //   }
+      // };
       // console.log(aa)
-      str = str + `<script>
-      console.log(_0x4f591e)
-      function keydown(e) {
-        var code = e.code;
-        // var dplayerVideo = document.querySelector('.dplayer-video');
-        if (code === 428 || code === 34 // Pg-
-          //4 - Samsung orsay
-          || ((code === 37 || code === 4) ) // left
-        ) {
-          try {
-            //表示遥控向左键
-            var currentTime = window.player.video.currentTime
-            currentTime = currentTime - 10;
-            if (currentTime < 0) {
-              currentTime = 0;
-              return;
-            }
-            //console.log(currentTime);
-            window.player.seek(currentTime);
-            console.log('左',currentTime)
-            // dplayerVideo.seek(-10);
-          } catch (error) {
-            console.error(error);
-          }
-        } else if (code === 427 || code === 33 // Pg+
-          // 5 - Samsung orsay right
-          || ((code === 39 || code === 5) ) // right
-        ) {
-          try {
-            //表示遥控向右键
-            var currentTime = window.player.video.currentTime
-            currentTime = currentTime + 10;
-            if (duration > 0 && currentTime > duration) {
-              currentTime = duration;
-              return;
-            }
-            window.player.seek(currentTime)
-            console.log('右',currentTime)
-            // dplayerVideo.seek(10);
-          } catch (error) {
-            console.error(error);
-          }
-        } else if (code >= 48 && code <= 57) { // numpad
-        } else if (code >= 96 && code <= 105) { // numpad
-        }
-      }
-      //  Lampa.Keypad.listener.destroy();
-      // Lampa.Keypad.listener.follow('keydown', keydown);
-      // document.addEventListener('keydown', keydown);</script>`
+
+      // str = str + `<script>
+      
+      // function keydown(e) {
+      //   var code = e.code;
+      //   // var dplayerVideo = document.querySelector('.dplayer-video');
+      //   if (code === 428 || code === 34 // Pg-
+      //     //4 - Samsung orsay
+      //     || ((code === 37 || code === 4) ) // left
+      //   ) {
+      //     try {
+      //       //表示遥控向左键
+      //       var currentTime = window.player.video.currentTime
+      //       currentTime = currentTime - 10;
+      //       if (currentTime < 0) {
+      //         currentTime = 0;
+      //         return;
+      //       }
+      //       //console.log(currentTime);
+      //       window.player.seek(currentTime);
+      //       console.log('左',currentTime)
+      //       // dplayerVideo.seek(-10);
+      //     } catch (error) {
+      //       console.error(error);
+      //     }
+      //   } else if (code === 427 || code === 33 // Pg+
+      //     // 5 - Samsung orsay right
+      //     || ((code === 39 || code === 5) ) // right
+      //   ) {
+      //     try {
+      //       //表示遥控向右键
+      //       var currentTime = window.player.video.currentTime
+      //       currentTime = currentTime + 10;
+      //       if (duration > 0 && currentTime > duration) {
+      //         currentTime = duration;
+      //         return;
+      //       }
+      //       window.player.seek(currentTime)
+      //       console.log('右',currentTime)
+      //       // dplayerVideo.seek(10);
+      //     } catch (error) {
+      //       console.error(error);
+      //     }
+      //   } else if (code >= 48 && code <= 57) { // numpad
+      //   } else if (code >= 96 && code <= 105) { // numpad
+      //   }
+      // }
+      // //  Lampa.Keypad.listener.destroy();
+      // // Lampa.Keypad.listener.follow('keydown', keydown);
+      // // document.addEventListener('keydown', keydown);</script>`
       $('.iframe').remove();
       Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
       // <div class=\"iframe__body\">\n   </div>\n
