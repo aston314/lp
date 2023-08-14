@@ -1084,7 +1084,7 @@
               // 在这里获取 DPlayer 的变量
               // 例如：var dplayerVersion = DPlayer.version;
               // 请参考 DPlayer 文档以了解可用的变量和方法
-              console.log(_0x4f591e)
+              // console.log(_0x4f591e)
             };
           } else {
             console.log("No match found.");
