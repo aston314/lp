@@ -1065,7 +1065,7 @@
           // console.log('执行网页完成')
           // 在append完成后触发事件
           // html$2.removeClass('iframe--loaded');
-          // console.log(_0x4f591e)
+          console.log(document.getElementById('dplayer'))
           toggle();
           // var playulr =$('.dplayer-video').attr('src');
           // document.querySelector('video').src
