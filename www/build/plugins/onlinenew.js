@@ -1071,24 +1071,24 @@
           // console.log(window._0x41b364)
           // window._0x41b364.focus;
           // 在 DPlayer 脚本加载后获取变量
-          var regex = /src="([^"]*Js\?time=[^"]*)"/;
+          // var regex = /src="([^"]*Js\?time=[^"]*)"/;
 
-          var match = str.match(regex);
-          var srcValue;
-          if (match) {
-            srcValue = match[1];
-            console.log("Matched:", match[0]);
-            console.log("Src value:", srcValue);
-            var dplayerScript = document.querySelector('script[src="'+srcValue+'"]');
-            dplayerScript.onload = function () {
-              // 在这里获取 DPlayer 的变量
-              // 例如：var dplayerVersion = DPlayer.version;
-              // 请参考 DPlayer 文档以了解可用的变量和方法
-              // console.log(_0x4f591e)
-            };
-          } else {
-            console.log("No match found.");
-          }
+          // var match = str.match(regex);
+          // var srcValue;
+          // if (match) {
+          //   srcValue = match[1];
+          //   console.log("Matched:", match[0]);
+          //   console.log("Src value:", srcValue);
+          //   var dplayerScript = document.querySelector('script[src="'+srcValue+'"]');
+          //   dplayerScript.onload = function () {
+          //     // 在这里获取 DPlayer 的变量
+          //     // 例如：var dplayerVersion = DPlayer.version;
+          //     // 请参考 DPlayer 文档以了解可用的变量和方法
+          //     // console.log(_0x4f591e)
+          //   };
+          // } else {
+          //   console.log("No match found.");
+          // }
           
           toggle();
           // var playulr =$('.dplayer-video').attr('src');
