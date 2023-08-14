@@ -4737,7 +4737,8 @@
   }
 
   function xiaoyaalist(component, _object, rule) {
-    var alistip = 'http://192.168.2.1:8678';
+    var alistip = Lampa.Utils.checkHttp(Lampa.Storage.field("online_mod_alist"));//'http://192.168.2.1:8678';
+
     //var alistip = 'http://alist.xiaoya.pro';
     var network = new Lampa.Reguest();
     var extract = {};
@@ -5250,6 +5251,7 @@
     var last_bls = Lampa.Storage.field('online_mod_save_last_balanser') === false ? {} : Lampa.Storage.cache('online_mod_last_balanser', 200, {});
     var contextmenu_all = [];
     var HISTORY_WEBS_KEY = 'history_web';
+    
 
     this.MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36";
     this.PC_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
@@ -6354,7 +6356,8 @@
   });
 
   Lampa.Params.trigger('online_mod_save_last_balanser', true);
-  Lampa.Template.add('settings_online_mod', "<div>\n   <div class=\"settings-param selector\" data-name=\"online_mod_save_last_balanser\" data-type=\"toggle\">\n        <div class=\"settings-param__name\">#{online_mod_save_last_balanser}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_clear_last_balanser\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{online_mod_clear_last_balanser}</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n   \n</div>");
+  Lampa.Params.select('online_mod_alist', '', '');
+  Lampa.Template.add('settings_online_mod', "<div>\n   <div class=\"settings-param selector\" data-name=\"online_mod_save_last_balanser\" data-type=\"toggle\">\n        <div class=\"settings-param__name\">#{online_mod_save_last_balanser}</div>\n        <div class=\"settings-param__value\"></div>\n    </div>\n    <div class=\"settings-param selector\" data-name=\"online_mod_clear_last_balanser\" data-static=\"true\">\n        <div class=\"settings-param__name\">#{online_mod_clear_last_balanser}</div>\n        <div class=\"settings-param__status\"></div>\n    </div>\n<div class=\"settings-param selector\" data-name=\"online_mod_alist\" data-type=\"input\" placeholder=\"例如：192.168.2.1:5678\"> <div class=\"settings-param__name\">小雅Alist地址</div> <div class=\"settings-param__value\"></div> <div class=\"settings-param__status\"></div><div class=\"settings-param__descr\">填写地址和端口</div> </div>   \n</div>");
 
   function addSettingsOnlineMod() {
     if (Lampa.Settings.main && Lampa.Settings.main() && !Lampa.Settings.main().render().find('[data-component="online_mod"]').length) {
@@ -6369,6 +6372,9 @@
       if (e.type == 'ready') addSettingsOnlineMod();
     });
   }
+  Lampa.Storage.listener.follow('change', function (e) {
+    if (e.name == 'online_mod_alist') check(e.name);
+  });
   Lampa.Settings.listener.follow('open', function (e) {
     if (e.name == 'online_mod') {
       var clear_last_balanser = e.body.find('[data-name="online_mod_clear_last_balanser"]');
@@ -6396,5 +6402,21 @@
       });
     }
   });
+  function check(name) {
+    var item = $('[data-name="' + name + '"]').find('.settings-param__status').removeClass('active error wait').addClass('wait');
+    var url = Lampa.Storage.get(name);
 
+    if (url) {
+        var torrent_net = new Lampa.Reguest();
+        torrent_net.timeout(10000);
+        torrent_net.silent(Lampa.Utils.checkHttp(Lampa.Storage.get(name)) + '?v=' + Math.random(), function (json) {
+            item.removeClass('active error wait').addClass('active');
+        }, function (a, c) {
+            Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
+            item.removeClass('active error wait').addClass('error');
+        }, false, {
+            dataType: 'text'
+        });
+    }
+}
 })();
