@@ -125,6 +125,23 @@
                     //}
                 });
 
+                // listlink.data[0].media.sort(function (a, b) {
+                //   if (a.translation_id < b.translation_id) {
+                //     return 1;
+                //   } else if (a.translation_id > b.translation_id) {
+                //     return -1;
+                //   }
+                //   return 0;
+                // });
+                listlink.data[0].media.sort(function(a, b) {
+                  if (a.translation_id < b.translation_id) {
+                      return -1; // 调整返回值以实现升序排列
+                  } else if (a.translation_id > b.translation_id) {
+                      return 1;  // 调整返回值以实现升序排列
+                  }
+                  return 0;
+              });
+
                 results = listlink.data;
 
                 _this.build();
