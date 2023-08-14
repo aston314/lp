@@ -595,13 +595,13 @@
       },
       {
         site_name: '采集-量子资源网',
-        site_search_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://cors.eu.org/https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://cors.eu.org/https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       },
       {
         site_name: '采集-非凡资源站',
-        site_search_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://cors.eu.org/http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://cors.eu.org/http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       },
       // {
       //   site_name: '采集-人人影视',
@@ -4737,7 +4737,7 @@
   }
 
   function xiaoyaalist(component, _object, rule) {
-    var alistip = Lampa.Utils.checkHttp(Lampa.Storage.field("online_mod_alist"));//'http://192.168.2.1:8678';
+    var alistip = Lampa.Utils.checkHttp(Lampa.Storage.get("online_mod_alist"));//'http://192.168.2.1:8678';
 
     //var alistip = 'http://alist.xiaoya.pro';
     var network = new Lampa.Reguest();
