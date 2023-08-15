@@ -683,6 +683,7 @@
       };
 
       this.login = function() {
+        var _this = this;
         return new Promise(function(resolve, reject) {
           var info = Lampa.Storage.get("pikpakUserInfo", "");
           
