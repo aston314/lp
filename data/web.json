@@ -700,7 +700,7 @@
    },
    {
       "title": "厂长资源",
-      "link": "https://czzy03.com",
+      "link": "https://cz01.cc",
       "available": true,
       "show": "portrait",
       "next": "search",
@@ -711,47 +711,47 @@
       "category": [
          {
             "title": "最近更新",
-            "url": "https://czzy03.com",
+            "url": "https://cz01.cc",
             "quantity": ":gt(5):lt(9)"
          },
          {
             "title": "电影",
-            "url": "https://czzy03.com/zuixindianying",
+            "url": "https://cz01.cc/zuixindianying",
             "quantity": ""
          },
          {
             "title": "电视剧",
-            "url": "https://czzy03.com/dsj",
+            "url": "https://cz01.cc/dsj",
             "quantity": ""
          },
          {
             "title": "美剧",
-            "url": "https://czzy03.com/meijutt",
+            "url": "https://cz01.cc/meijutt",
             "quantity": ""
          },
          {
             "title": "韩剧",
-            "url": "https://czzy03.com/hanjutv",
+            "url": "https://cz01.cc/hanjutv",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://czzy03.com/gcj",
+            "url": "https://cz01.cc/gcj",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://czzy03.com/dm",
+            "url": "https://cz01.cc/dm",
             "quantity": ""
          },
          {
             "title": "番剧",
-            "url": "https://czzy03.com/fanju",
+            "url": "https://cz01.cc/fanju",
             "quantity": ""
          },
          {
             "title": "豆瓣电影Top250",
-            "url": "https://czzy03.com/gaofenyingshi",
+            "url": "https://cz01.cc/gaofenyingshi",
             "quantity": ""
          }
       ],
@@ -781,7 +781,7 @@
          }
       },
       "search": {
-         "url": "https://czzy03.com/xssearch?q=#msearchword"
+         "url": "https://cz01.cc/xssearch?q=#msearchword"
       }
    },
    {
