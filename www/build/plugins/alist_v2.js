@@ -126,6 +126,7 @@
                 type: item.type,
                 drive_id: item.type,
                 file_id: item.thumb || item.url || item.name,
+                modified: item.modified,
                 share_id: ''
               });
               //}
@@ -147,6 +148,21 @@
             //     }
             //     return 0;
             // });
+            // listlink.data[0].media.sort(function (a, b) {
+            //   if (a.type !== 1 && b.type !== 1) {
+            //     if (a.translation_id < b.translation_id) {
+            //       return -1;
+            //     } else if (a.translation_id > b.translation_id) {
+            //       return 1;
+            //     }
+            //     return 0;
+            //   } else if (a.type !== 1) {
+            //     return -1;
+            //   } else if (b.type !== 1) {
+            //     return 1;
+            //   }
+            //   return 0;
+            // });
             listlink.data[0].media.sort(function (a, b) {
               if (a.type !== 1 && b.type !== 1) {
                 if (a.translation_id < b.translation_id) {
@@ -159,8 +175,15 @@
                 return -1;
               } else if (b.type !== 1) {
                 return 1;
+              } else {
+                // 对类型为 1 的项按 modified 属性降序排序
+                if (a.modified > b.modified) {
+                  return -1;
+                } else if (a.modified < b.modified) {
+                  return 1;
+                }
+                return 0;
               }
-              return 0;
             });
           };
           results = listlink.data;
@@ -471,25 +494,19 @@
             //      dataType: 'json'
             //    });
             $('.card__type').remove();
+            $('.card--new_ser').remove();
             var chinese_title = element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : element.title;
-            network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
-              var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
-              var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-              if (rating_douban) {
+            network["native"]('http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+              if (json.results.length > 0) {
                 //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                //$(".full-start__img").after('<div class="card--new_ser" style="right: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">豆瓣：'+ rating_douban +'</div>');
-              };
-              if (poster_douban) {
-                if (Lampa.Storage.field('douban_img_proxy')) {
-                  //豆瓣图片域名
-                  if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                    poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                  } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                    poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                  };
+                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average.toFixed(1) || 0) + '</div>');
+                $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
+
+                if (json.results[0].poster_path) {
+                  $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w300/' + json.results[0].poster_path);
+                } else {
+                  $(".full-start__img").attr('src', './img/img_broken.svg');
                 };
-                $(".full-start__img").attr('src', poster_douban);
               } else {
                 $(".full-start__img").attr('src', './img/img_broken.svg');
               };
@@ -497,7 +514,7 @@
             }, function (a, c) {
               //Lampa.Noty.show(network.errorDecode(a, c));
             }, false, {
-              dataType: 'text'
+              dataType: 'json'
             });
             //}, 1501);
           };
