@@ -86,32 +86,31 @@
                     //console.log(json)
                     //$('.files__left').hide();
                     if (object.movie.img == './img/img_broken.svg') {
+                      $('.card__type').remove();
+                      $('.card--new_ser').remove();
                       $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
                       var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|\/]+/;
                       var chinese_title = object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? object.movie.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : object.movie.title;
-                      network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
-                        var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
-                        var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                        if (rating_douban) {
+                      network["native"]('http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+                        if (json.results.length > 0) {
                           //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                          $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                        };
-                        if (poster_douban) {
-                          if (Lampa.Storage.field('douban_img_proxy')) {
-                            //豆瓣图片域名
-                            if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                              poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                            } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                              poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                            };
+                          $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average || 0).toFixed(1) + '</div>');
+                          $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
+          
+                          if (json.results[0].poster_path) {
+                            object.movie.img = 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+                            $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path);
+                          } else {
+                            $(".full-start__img").attr('src', './img/img_broken.svg');
                           };
-                          $(".full-start__img").attr('src', poster_douban)
+                        } else {
+                          $(".full-start__img").attr('src', './img/img_broken.svg');
                         };
                         $('.broadcast__scan').remove();
                       }, function (a, c) {
                         //Lampa.Noty.show(network.errorDecode(a, c));
                       }, false, {
-                        dataType: 'text'
+                        dataType: 'json'
                       });
                     };
 
@@ -148,6 +147,8 @@
                           var file_id = file_id_json.file_infos[0].file_id;
                           var file_type = file_id_json.file_infos[0].type;
                           if (object.movie.img == './img/img_broken.svg') {
+                            $('.card__type').remove();
+                            $('.card--new_ser').remove();
                             $(".full-start__poster").after('<div class="broadcast__scan"><div></div></div>');
                             object.movie.title = '推送：' + (file_id_json.file_infos[0].file_name || file_id_json.file_infos[0]);
                             //var reg = /[\u4e00-\u9fa5|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5\d+|a-zA-Z|\/]+/;
@@ -160,30 +161,51 @@
                               foldername = (file_id_json.file_infos[0].file_name.match(reg)[0] ? file_id_json.file_infos[0].file_name.match(reg)[0] : file_id_json.file_infos[0]).replace(/4K|《|【|》|】|\./g, ' ');
                             }
                             // console.log(foldername)
-                            network["native"]('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
-                              var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
-                              var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
-                              if (rating_douban) {
+                            // network["native"]('https://m.douban.com/search/?query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
+                            //   var poster_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > img', json).attr('src');
+                            //   var rating_douban = $('.search-results-modules-name:contains(电影) + ul > li:nth-child(1) > a > div > p > span:nth-child(2)', json).text();
+                            //   if (rating_douban) {
+                            //     //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                            //     $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
+                            //   };
+                            //   if (poster_douban) {
+                            //     if (Lampa.Storage.field('douban_img_proxy')) {
+                            //       //豆瓣图片域名
+                            //       if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
+                            //         poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
+                            //       } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
+                            //         poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
+                            //       };
+                            //     };
+                            //     $(".full-start__img").attr('src', poster_douban);
+                            //     object.movie.img = poster_douban;
+                            //   };
+                            //   $('.broadcast__scan').remove();
+                            // }, function (a, c) {
+                            //   //Lampa.Noty.show(network.errorDecode(a, c));
+                            // }, false, {
+                            //   dataType: 'text'
+                            // });
+                            network["native"]('http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(foldername.match(reg) ? foldername.match(reg)[0] : foldername), function (json) {
+                              if (json.results.length > 0) {
                                 //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：' + rating_douban + '</div>');
-                              };
-                              if (poster_douban) {
-                                if (Lampa.Storage.field('douban_img_proxy')) {
-                                  //豆瓣图片域名
-                                  if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                                    poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                                  } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                                    poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                                  };
+                                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average || 0).toFixed(1) + '</div>');
+                                $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
+
+                                if (json.results[0].poster_path) {
+                                  object.movie.img = 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+                                  $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path);
+                                } else {
+                                  $(".full-start__img").attr('src', './img/img_broken.svg');
                                 };
-                                $(".full-start__img").attr('src', poster_douban);
-                                object.movie.img = poster_douban;
+                              } else {
+                                $(".full-start__img").attr('src', './img/img_broken.svg');
                               };
                               $('.broadcast__scan').remove();
                             }, function (a, c) {
                               //Lampa.Noty.show(network.errorDecode(a, c));
                             }, false, {
-                              dataType: 'text'
+                              dataType: 'json'
                             });
                           };
                           //if (object.title == '阿里云盘播放') {
@@ -1302,34 +1324,56 @@
                   //      dataType: 'json'
                   //    });
                   $('.card__type').remove();
+                  $('.card--new_ser').remove();
                   var chinese_title = element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg) ? element.title.replace(/4K|《|【|》|】|\./g, ' ').match(reg)[0] : element.title;
-                  network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
-                    var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
-                    var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
-                    if (rating_douban){
-                      //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                      $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：'+ rating_douban +'</div>');
-                      //$(".full-start__img").after('<div class="card--new_ser" style="right: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">豆瓣：'+ rating_douban +'</div>');
-                    };
-                    if (poster_douban) {
-                      if (Lampa.Storage.field('douban_img_proxy')) {
-                        //豆瓣图片域名
-                        if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
-                          poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
-                        } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
-                          poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
-                        };
-                      };
-                      $(".full-start__img").attr('src', poster_douban);
-                    } else {
-                      $(".full-start__img").attr('src', './img/img_broken.svg');
-                    };
-                    $('.broadcast__scan').remove();
-                  }, function (a, c) {
-                    //Lampa.Noty.show(network.errorDecode(a, c));
-                  }, false, {
-                    dataType: 'text'
-                  });
+                  // network["native"]('https://www.laodouban.com/s?c=' + encodeURIComponent(chinese_title), function (json) {
+                  //   var poster_douban = $('div:last-child > div.haibao > a > img', json).attr('src');
+                  //   var rating_douban = $('div:last-child > div.wenzi.d-flex.flex-column.justify-content-between > div.xia.text-muted.d-flex.align-items-center > span.fen.pl-1', json).text();
+                  //   if (rating_douban){
+                  //     //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                  //     $(".full-start__poster").after('<div class="card__type" style="left:1em;top:70">豆瓣：'+ rating_douban +'</div>');
+                  //     //$(".full-start__img").after('<div class="card--new_ser" style="right: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">豆瓣：'+ rating_douban +'</div>');
+                  //   };
+                  //   if (poster_douban) {
+                  //     if (Lampa.Storage.field('douban_img_proxy')) {
+                  //       //豆瓣图片域名
+                  //       if (/playwoool\.com|doubanio\.com|img\.yts\.mx/.test(poster_douban) && /^([^:]+):\/\/([^:\/]+)(:\d*)?(\/.*)?$/.test(poster_douban)) {//ii.indexOf('://') == 5
+                  //         poster_douban = 'https://images.weserv.nl/?url=' + poster_douban.replace('https://', '')
+                  //       } else if (poster_douban.indexOf('pic.imgdb.cn') !== -1) {
+                  //         poster_douban = 'http://www.dydhhy.com/wp-content/themes/bokeX/thumb.php?src=' + poster_douban + '&w=270&h=405'
+                  //       };
+                  //     };
+                  //     $(".full-start__img").attr('src', poster_douban);
+                  //   } else {
+                  //     $(".full-start__img").attr('src', './img/img_broken.svg');
+                  //   };
+                  //   $('.broadcast__scan').remove();
+                  // }, function (a, c) {
+                  //   //Lampa.Noty.show(network.errorDecode(a, c));
+                  // }, false, {
+                  //   dataType: 'text'
+                  // });
+                  network["native"]('http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
+                              if (json.results.length > 0) {
+                                //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
+                                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average || 0).toFixed(1) + '</div>');
+                                $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
+
+                                if (json.results[0].poster_path) {
+                                  object.movie.img = 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+                                  $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path);
+                                } else {
+                                  $(".full-start__img").attr('src', './img/img_broken.svg');
+                                };
+                              } else {
+                                $(".full-start__img").attr('src', './img/img_broken.svg');
+                              };
+                              $('.broadcast__scan').remove();
+                            }, function (a, c) {
+                              //Lampa.Noty.show(network.errorDecode(a, c));
+                            }, false, {
+                              dataType: 'json'
+                            });
                 //}, 1501);
               };
               if (Lampa.Helper) Lampa.Helper.show('aliyun_detail1', '更好的播放体验请用外部播放器 长按选择Android', item);
