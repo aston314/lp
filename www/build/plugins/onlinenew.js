@@ -4857,6 +4857,14 @@
       });
       //删除前两个数组
       rslt.splice(0, 2);
+      // rslt.sort(function(a, b) {
+      //   if (a.title < b.title) {
+      //     return 1;
+      //   } else if (a.title > b.title) {
+      //     return -1;
+      //   }
+      //   return 0;
+      // });
 
       append(filtred());
       rslt = [];
@@ -4929,7 +4937,8 @@
 
           element.img = object.movie.img;
           element.original_title = '';
-          Lampa.Activity.push({
+          // Lampa.Activity.push
+          Lampa.Activity.replace({
             url: alistip + '/' + element.title,
             title: 'Alist - ' + element.search_title,
             component: 'alist',
