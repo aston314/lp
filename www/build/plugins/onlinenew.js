@@ -2726,7 +2726,7 @@
               var iframe = $('iframe', data);
               if (iframe.length > 0) {
                 network["native"]($(iframe[0]).attr('src'), function (data) {
-                  Lampa.Utils.putScriptAsync(["https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"], function () {
+                  Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
                     var randMatch = data.match(/var rand = "(.*?)";/);
                     var playerMatch = data.match(/var player = "(.*?)";/);
                     var rand, player;
@@ -2774,6 +2774,7 @@
               //       .replace(/<title>.*?<\/title>/g, '')
               //       .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
               //       .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
+              //       .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
               //     // .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"');
 
               //     // 获取当前页面的 URL
