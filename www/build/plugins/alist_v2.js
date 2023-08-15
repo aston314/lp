@@ -503,7 +503,8 @@
                 $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
 
                 if (json.results[0].poster_path) {
-                  $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w300/' + json.results[0].poster_path);
+                  object.movie.img = 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+                  $(".full-start__img").attr('src', 'https://dsag3w1du2cu2.cloudfront.net/https://image.tmdb.org/t/p/w500' + json.results[0].poster_path);
                 } else {
                   $(".full-start__img").attr('src', './img/img_broken.svg');
                 };
