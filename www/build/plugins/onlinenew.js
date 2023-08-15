@@ -623,6 +623,11 @@
       //   site_search_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
       //   site_detail_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       // },
+      // {
+      //   site_name: '采集-极速资源网(有广告)',
+      //   site_search_url: 'https://jszyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+      //   site_detail_url: 'https://jszyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+      // },
     ]
   };
   var doreg = {};
@@ -2373,6 +2378,500 @@
               }
             });
 
+
+            if (viewed.indexOf(hash_file) == -1) {
+              viewed.push(hash_file);
+              item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+              Lampa.Storage.set('online_view', viewed);
+            }
+          } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+        });
+        // scroll_to_element = item;
+        component.append(item);
+        component.contextmenu({
+          item: item,
+          view: view,
+          viewed: viewed,
+          choice: choice,
+          hash_file: hash_file,
+          file: function file(call) {
+            call({
+              file: element.file
+            });
+          }
+        });
+      });
+      // 如果存在要滚动到的元素（scroll_to_element），则将最后一个滚动目标设置为该元素
+
+      if (scroll_to_element) {
+        component.last = scroll_to_element[0];
+      }
+      // 否则，如果存在要滚动到的标记（scroll_to_mark），将最后一个滚动目标设置为该标记
+      else if (scroll_to_mark) {
+        component.last = scroll_to_mark[0];
+      }
+      // console.log('last', component.last)
+      component.start(true);
+    }
+  }
+
+  function czzy(component, _object, rule) {
+    var network = new Lampa.Reguest();
+    var extract = {};
+    var object = _object;
+    var select_title = '';
+    var filter_items = {};
+    var choice = {
+      season: 0,
+      voice: 0,
+      order: 0,
+      voice_name: ''
+    };
+    var get_links_wait = false;
+    var rslt = [];
+    var proxy_url = '';
+    var proxy = 'https://cors.eu.org/';
+
+    /**
+     * Поиск
+     * @param {Object} _object 
+     */
+
+    this.search = function (_object, kinopoisk_id) {
+      object = _object;
+      select_title = object.search || object.movie.title;
+      // doreg = rule;
+      get_links_wait = true;
+      // var searchUrl = 'https://ddys.pro/?s=#msearchword&post_type=post';
+      // var seasonRemovedTitle = select_title.replace(/第(.+)季/, '');
+      // var encodedTitle = encodeURIComponent(seasonRemovedTitle);
+      // var url1 = searchUrl.replace('#msearchword', encodedTitle);
+
+      network.clear();
+      network.timeout(1000 * 15);
+      network["native"](proxy_url + object.movie.url, function (str) {
+        // var parsedData = doreg.search_json ? str : str;
+
+        var parsedData = str;
+
+        var searchresult = $('.paly_list_btn', parsedData).find('a').length;
+
+        if (searchresult > 0) {
+          dodetail(parsedData);
+        } else component.emptyForQuery(select_title);
+
+        component.loading(false);
+      }, function (a, c) {
+        component.empty(network.errorDecode(a, c));
+      }, false, {
+        dataType: 'text',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+          // 'Referer': "https://ddys.pro/"
+        }
+      });
+    };
+
+    this.extendChoice = function (saved) {
+      Lampa.Arrays.extend(choice, saved, true);
+    };
+
+
+    /**
+     * Сброс фильтра
+     */
+
+
+    this.reset = function () {
+      component.reset();
+      choice = {
+        season: 0,
+        voice: 0,
+        order: 0,
+      };
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Применить фильтр
+     * @param {*} type 
+     * @param {*} a 
+     * @param {*} b 
+     */
+
+
+    this.filter = function (type, a, b) {
+      choice[a.stype] = b.index;
+      component.reset();
+      filter();
+      append(filtred());
+      component.saveChoice(choice);
+    };
+    /**
+     * Уничтожить
+     */
+
+
+    this.destroy = function () {
+      network.clear();
+      extract = null;
+      rslt = null;
+    };
+
+    function parse(str) {
+      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+
+        // dodetail(item.Link, str, item.Title);
+
+    }
+    /**
+     * Построить фильтр
+     */
+
+    function dodetail(str) {
+      //取得具体页面的详情地址
+      // if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+      rslt = [];
+      $('.paly_list_btn', str).find('a').each(function (i, a) {
+        rslt.push({
+          file: $(a).attr('href'),
+          quality: '厂长资源 / ' + object.movie.title + ' / ' + ($(a).attr('title') || $(a).text()),
+          title: ($(a).attr('title') || $(a).text()),
+          season: '',
+          episode: '',
+          info: ''
+        });
+      });
+      filter();
+      append(filtred());
+    };
+
+
+    function filter() {
+      filter_items = {
+        season: [],
+        voice: [],
+        quality: [],
+        order: []
+      };
+
+      if (extract.playlist) {
+        if (extract.playlist.seasons) {
+          extract.playlist.seasons.forEach(function (season) {
+            filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+          });
+        }
+      }
+
+      if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
+      component.filter(filter_items, choice);
+    }
+    /**
+     * Отфильтровать файлы
+     * @returns array
+     */
+
+
+    function filtred() {
+
+      var mapResult = rslt.map(function (item, index, array) {
+        return item;
+      });
+      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+      // return mapResult;
+    }
+    /**
+     * Показать файлы
+     */
+
+    // 将相对路径转换成绝对路径
+    function resolveRelativePath(currentPageUrl, relativePath) {
+      // console.log(relativePath)
+      // 如果是绝对路径，则直接返回
+      /* if (isAbsolutePath) {
+        return relativePath;
+      } */
+
+      // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
+      if (relativePath.startsWith('/')) {
+        // const baseUrl = new URL(currentPageUrl);
+        var baseUrl = resolveUrl(currentPageUrl);
+        return `${baseUrl.origin}${relativePath}`;
+      }
+
+      if (relativePath.startsWith('../')) {
+        // 如果是相对路径，则分别处理 ./ 和 ../
+        let arr = currentPageUrl.split('/');
+        let hostUrl = arr[0] + '//' + arr[2];
+        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
+        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
+        while (relativePath.indexOf('../') === 0) {
+          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
+          relativePath = relativePath.substring(3);
+        }
+        return `${hostUrl}${temp}${relativePath}`;
+      }
+
+      if (relativePath.startsWith('./')) {
+        var stack = currentPageUrl.split('/');
+        var parts = relativePath.split('/');
+        stack.pop(); // remove current file name (or empty string)
+
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i] == '.')
+            continue;
+          if (parts[i] == '..')
+            stack.pop();
+          else
+            stack.push(parts[i]);
+        }
+        return stack.join('/');
+      }
+    }
+
+    function getAbsolutePath(currentPageUrl, value) {
+      var absolutePath;
+      // 判断属性值是否以相对路径开头
+      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+        if (value.startsWith('//')) {
+          absolutePath = value.replace("//", "https://");
+        } else {
+          // 将相对路径转换成绝对路径
+          absolutePath = resolveRelativePath(currentPageUrl, value);
+        }
+        // console.log('absolutePath', absolutePath)
+        return absolutePath;
+      } else {
+        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+          return value;
+        } else {
+          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+          // console.log('absolutePath', absolutePath + value)
+          return absolutePath;
+        }
+      }
+    }
+
+    function resolveUrl(currentPageUrl) {
+      var link = $('<a>').prop('href', currentPageUrl);
+      return link[0]; // 返回原生的链接元素对象
+    }
+
+    function append(items) {
+      var _this = this;
+      component.reset();
+
+      var viewed = Lampa.Storage.cache('online_view', 5000, []);
+      // 初始化一个用于滚动到特定元素的标志变量，默认为 false
+      var scroll_to_element = false;
+      // 初始化一个用于滚动到特定标记的标志变量，默认为 false
+      var scroll_to_mark = false;
+      var choice = component.getChoice();
+      // console.log('choice',choice)
+      // var choice = component.getChoice();
+      // console.log(choice)
+      items.forEach(function (element, item_id) {
+        var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+        var view = Lampa.Timeline.view(hash);
+        var item = Lampa.Template.get('online_mod', element);
+        var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+
+        element.timeline = view;
+        item.append(Lampa.Timeline.render(view));
+
+        if (Lampa.Timeline.details) {
+          item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+        }
+
+        if (viewed.indexOf(hash_file) !== -1) {
+          scroll_to_mark = item;
+          item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+        }
+
+        if (choice.movie_view == hash_file) scroll_to_element = item;
+
+        item.on('hover:enter', function () {
+          // choice = component.getChoice();
+          // if (component.externalId.id) {
+          choice.movie_view = hash_file;
+          // };
+          component.saveChoice(choice);
+
+          // object.movie.id = object.url;
+          choice.last_viewed = item_id;
+          if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+
+          if (element.file) {
+            // function loadingshow() {
+            Lampa.Modal.open({
+              title: '',
+              align: 'center',
+              html: Lampa.Template.get('modal_loading'),
+              size: 'small',
+              mask: true,
+              onBack: function onBack() {
+                Lampa.Modal.close();
+                Lampa.Api.clear();
+                Lampa.Controller.toggle('content');
+              }
+            });
+            // };
+
+            network["native"](element.file, function (data) {
+              var iframe = $('iframe', data);
+              if (iframe.length > 0) {
+                network["native"]($(iframe[0]).attr('src'), function (data) {
+                  Lampa.Utils.putScriptAsync(["https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"], function () {
+                    // var rand = "7244571272495598";
+                    // var player = "AzVMz1QalOU1A8CBQcNqB1ZnwmHX6LChBwyBiRFa2sWvsz6aXlSNToA9TolYrI+LgFo8kgw4TshtZoZmhFa5wXFTPIv0d1ceWhJgL4sArCsqoRw77Syy70GFPl86Hj//mVsxEraXcqu6+Iy/6d+j6AMxfjReUETZ1eoMbcTQmDiprH40beZwUrJpHb9bNRdNEdD9M4B/oMV86hFtBLoW3amnmCSaM7fVxHlHZjcIrcnoUQd14qfXd92tmwq0tPu+1aGLATS8rm7RvcLbctqmkD/YcK6Xlm8Vj1ivEwJaFtK2iH4MENVXvIBbpyjcXL6nzVMt0bHnz9KUkOTp5/or8rSlWFps3A3H0LAPX4uB6iDfmlwzoNL5e24RsAMYSrXz6BLaYxv2jlVAd21mKDd5fhKLiRxVFYxvSN4u3YEEIMjdqS9zyHSnlDxxBsydStsYawLTI0nEI/uiMabeBzJFKYpEUtZffcAmbRWVp4xUOamPymKd8FVUcguuciKt50KvEpl34IgMMAGQO++xbv1Ps5yCPrhmMQTyKSqIsCrnsacQbzhVoo6OpmneMVH6MjP87GapG9H//d8W9p04posxC2rullPc8oz3FQo0VbZDCNsicL6TkO8lwl1c75RbpgR1ow93xxrJ1AuVA9xfAcUOJOq6FmwBFqfpnxUMI+iWSRsjN6JlgGrS4/2Ny1mP8pLMJ4p74Vw0QeMEltn+m/VWkdjanV4aD8MSEpnHKBU8VmyTfP8LE1d1GAC8vr1/IRJUgNv4thVn5VMczWaQbJ8ttjgWu/Yq32NTsAjoW8YwpZRN0bv8+Ub/J3aSMuTCNml7atmzd5lhj9VWwJeg/LEr4zTM+yZ0wZ4SxoyssKWz6pCZWEAZ/UtlP1+oFQXrL8rL7whDsp3uJ7Vf1onZqA53+3pZV5fq+J+WUeLm6oouVvorxwp7y8Vru4Yj6WGBHp4JouR/D/kqFd/wE7868F1VCVVxIpP2AWrPyKuylVfWxnEcz0F8Lu3owvcV3iClHiG6Acv9gwekMY39uoqur/fpQED4iZTox4g1ME/CZDnaekYADDeQVbXccz/rFguGJhJOsag8d1XE2b8KmwYaVql3tM7F4Vv1kpLfS8D9w+6jTE92XjTTTF+2uxQLsKAcNJkQNS69DrhpJCjawjSy48/lbCwqjRRu22zElkJHpyjIwd6OJwJAgJpPCGTzBhigJTeh//GjClsX+Tnttp9RXde3shIOpl3OqTh4glT7YYSAL61HFlQUi+BX5GBn0Sip8Hpl9OtuDdI3Q+7TSEZpm5wY+0hn9D6reLPHWZZZLxY2mczly+QB/1uDeAFmK7JCn+RFXWvnCPQTbrUZuLhBeMsMklcfmwXMYDaVc5Qut0TYMdOB0sKrehDnmklDsi2AloNR+wI7wKNjZBT7qYof+n9pEUoLyMFOdMhfpQ5oIw1U5ks=";
+
+                    // function js_decrypt(str, key, iv) {
+                    //   var key = CryptoJS.enc.Utf8.parse(key);
+                    //   var iv = CryptoJS.enc.Utf8.parse(iv);
+                    //   var decrypted = CryptoJS.AES.decrypt(str, key, {
+                    //     iv: iv,
+                    //     padding: CryptoJS.pad.Pkcs7
+                    //   }).toString(CryptoJS.enc.Utf8);
+                    //   return decrypted
+                    // }
+                    // var config = JSON.parse(js_decrypt(player, 'VFBTzdujpR9FWBhe', rand));
+                    // console.log(config)
+                  });
+
+                  var str = data
+                    .replace(/src="\/\//g, 'src="https://')
+                    .replace(/href="\/\//g, 'href="https://')
+                    .replace(/<\/?(head|meta|body|html)[^>]*>/g, '')
+                    .replace(/<title>.*?<\/title>/g, '')
+                    .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
+                    .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
+                  // .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"');
+
+                  // 获取当前页面的 URL
+                  var currentPageUrl = $(iframe[0]).attr('src');
+                  // 判断当前页面的 URL 是否是绝对路径
+
+                  str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
+                    return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
+                  });
+
+                  $('.iframe').remove();
+                  Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
+                  var html$2 = Lampa.Template.get('playerwindow');
+                  $('body').append(html$2);
+
+                  return new Promise(function (resolve, reject) {
+                    $('.iframe').append(`
+                ${str}
+              `);
+                    resolve(); // 表示添加完成
+                  })
+                    .then(function () {
+                      toggle();
+                      setTimeout(function () {
+                        var playulr = $('video').attr('src') || document.querySelector('source').src;
+                        console.log('playulr=', playulr)
+                        if (typeof playulr !== "undefined") {
+                          var file = playulr;
+                          //console.log(file);
+                          if (file) {
+                            var playlist = [];
+                            var first = {
+                              url: file,
+                              timeline: view,
+                              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                              subtitles: element.subtitles,
+                              tv: false
+                            };
+                            Lampa.Player.play(first);
+                            playlist.push(first);
+                            Lampa.Player.playlist(playlist);
+                            component.savehistory(object);
+                            $('#artplayer').remove();
+                            close();
+                          } else {
+                            Lampa.Noty.show('无法检索链接');
+                            close();
+                          }
+                        } else {
+                          Lampa.Noty.show('无法找到视频地址');
+                          close();
+                        };
+                      }, 300);
+
+                    })
+                    .catch(function (error) {
+                      console.error('添加内容时出错：', error);
+                    });
+
+                  function toggle() {
+                    Lampa.Controller.add('playerwindow', {
+                      toggle: function toggle() {
+                        var focus = $('.iframe > div').addClass('selector');
+                        // console.log(focus[0])
+                        Lampa.Controller.collectionSet($('.iframe'));
+                        Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
+                      },
+                      back: close
+                    });
+                    Lampa.Controller.toggle('playerwindow');
+                  }
+
+                  function close() {
+                    // html$2.removeClass('iframe--loaded');
+                    // Lampa.Keypad.listener.destroy();
+                    html$2.detach();
+                    Lampa.Controller.toggle('content');
+                    // html$2.find('iframe').attr('src', '');
+                    html$2.find('iframe').html('');
+                    // if (object.onBack) object.onBack();
+                  }
+
+                }, function (a, c) {
+                  Lampa.Noty.show(network.errorDecode(a, c));
+                }, false, {
+                  dataType: 'text',
+                  headers: {
+                    'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+                  }
+                });
+
+              } else {
+                var js = $('script:contains(window.wp_nonce)', data).html();
+                var group = js.match(/(var.*)eval\((\w*\(\w*\))\)/);
+                Lampa.Utils.putScriptAsync(["https://qu.ax/MhrO.js"], function () {
+                  var result = eval(group[1] + group[2]);
+                  var playUrl = result.match(/url:.*?['"](.*?)['"]/)[1];
+                  var playlist = [];
+                  var first = {
+                    url: playUrl,
+                    timeline: view,
+                    title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                    subtitles: element.subtitles,
+                    tv: false
+                  };
+                  Lampa.Player.play(first);
+                  playlist.push(first);
+                  Lampa.Player.playlist(playlist);
+                  component.savehistory(object);
+                })
+              }
+              Lampa.Modal.close();
+              Lampa.Controller.toggle('content');
+            }, function (a, c) {
+              Lampa.Noty.show(network.errorDecode(a, c));
+            }, false, {
+              dataType: 'text',
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+                // 'Referer': "https://ddys.pro/"
+              }
+            });
 
             if (viewed.indexOf(hash_file) == -1) {
               viewed.push(hash_file);
@@ -5329,7 +5828,8 @@
       霸王龙压制组: new trex(this, object),
       小雅的Alist: new xiaoyaalist(this, object),
       DYD: new dyd(this, object),
-      低端影视: new ddys(this, object)
+      低端影视: new ddys(this, object),
+      厂长资源: new czzy(this, object),
     };
 
 
@@ -5379,7 +5879,7 @@
       source: Lampa.Lang.translate('settings_rest_source')
     };
     // , 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi'
-    var filter_sources = ['低端影视','小雅的Alist', '霸王龙压制组', 'DYD', '易搜']; // шаловливые ручки
+    var filter_sources = ['低端影视','厂长资源', '小雅的Alist', '霸王龙压制组', 'DYD', '易搜']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -6031,6 +6531,7 @@
       sources.小雅的Alist.destroy();
       sources.DYD.destroy();
       sources.低端影视.destroy();
+      sources.厂长资源.destroy();
 
       doregjson.resource_site.forEach(function (elem) {
         sources[elem.site_name].destroy();
