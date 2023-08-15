@@ -412,17 +412,23 @@
     this.doview = function (url, file, element, view) {
       // console.log('param',param)
       network["native"](url + '/api/fs/get', function (j) {
+        // console.log(['mp4', 'mkv', 'avi', 'mov'].includes(j.data.name.substr(j.data.name.lastIndexOf('.') + 1)))
+        // console.log(j)
         if (j.message == "success") {
-          var playlist = [];
-          var first = {
-            url: j.data.raw_url,
-            timeline: view,
-            title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
-          };
-          Lampa.Player.play(first);
+          if (j.data.type == 2 || j.data.type == 3) {
+            var playlist = [];
+            var first = {
+              url: j.data.raw_url,
+              timeline: view,
+              title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
+            };
+            Lampa.Player.play(first);
 
-          playlist.push(first);
-          Lampa.Player.playlist(playlist);
+            playlist.push(first);
+            Lampa.Player.playlist(playlist);
+          } else {
+            $('<a href="' + j.data.raw_url+ '"/>')[0].click();
+          }
         } else {
           //Lampa.Noty.show('获取Alsit播放地址失败。');
           var playlist = [];
@@ -499,7 +505,7 @@
             network["native"]('http://apitmdb.cub.watch/3/search/multi?api_key=45ddf563ac3fb845f2d5c363190d1a33&language=zh-CN&include_image_language=zh-CN,null,en&query=' + encodeURIComponent(chinese_title), function (json) {
               if (json.results.length > 0) {
                 //$(".files__title").append("<br/> <br/> 豆瓣："+rating_douban);
-                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average.toFixed(1) || 0) + '</div>');
+                $(".full-start__poster").after('<div class="card__type" style="left:1em;top:110">' + (json.results[0].vote_average || 0).toFixed(1) + '</div>');
                 $(".full-start__img").after('<div class="card--new_ser" style="left: -0.6em;position: absolute;background: #168FDF;color: #fff;top: 0.8em;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;">' + (json.results[0].title || json.results[0].name) + '</div>');
 
                 if (json.results[0].poster_path) {
