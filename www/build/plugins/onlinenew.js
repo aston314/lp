@@ -2777,7 +2777,7 @@
       input = add$b(input, 'sys=android');
       input = add$b(input, 'sysver=' + device.release);
       input = add$b(input, 'brand=' + device.brand);
-      input = add$b(input, 'model=' + device.model.replaceAll(' ', '_'));
+      input = add$b(input, 'model=' + device.model.replace(/ /g, '_'));
       input = add$b(input, 'sj=' + sj);
 
 
@@ -2785,11 +2785,9 @@
         return it.split('=')[1]
       }).join('');
       tkSrc = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkSrc + sj + 'XSpeUFjJ';
-      console.log(tkSrc)
-
+      
       Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
         var tk = CryptoJS.MD5(tkSrc).toString().toLowerCase();
-        console.log(tk);
         var headers = {
           'user-agent': 'okhttp/3.12.0',
           t: sj,
