@@ -2772,6 +2772,7 @@
       getHeaders(url, ts, function (header) {
         console.log(header);
         network["native"](url, function (json) {
+          console.log(json.msg )
           if (json.msg == '非法请求' || json.data.episodes.length == 0) {
             component.emptyForQuery(select_title)
           } else {
