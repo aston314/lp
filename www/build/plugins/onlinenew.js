@@ -681,6 +681,7 @@
       return arr;
     };
 
+  
     function extractScriptContentAsString(keywords, webpageContent) {
       let resultString = "";
 
@@ -898,114 +899,13 @@
      * Показать файлы
      */
 
-    // 将相对路径转换成绝对路径
-    function resolveRelativePath(currentPageUrl, relativePath) {
-      // console.log(relativePath)
-      // 如果是绝对路径，则直接返回
-      /* if (isAbsolutePath) {
-        return relativePath;
-      } */
-
-      // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
-      if (relativePath.startsWith('/')) {
-        // const baseUrl = new URL(currentPageUrl);
-        var baseUrl = resolveUrl(currentPageUrl);
-        return `${baseUrl.origin}${relativePath}`;
-      }
-
-      if (relativePath.startsWith('../')) {
-        // 如果是相对路径，则分别处理 ./ 和 ../
-        let arr = currentPageUrl.split('/');
-        let hostUrl = arr[0] + '//' + arr[2];
-        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
-        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
-        while (relativePath.indexOf('../') === 0) {
-          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
-          relativePath = relativePath.substring(3);
-        }
-        return `${hostUrl}${temp}${relativePath}`;
-      }
-
-      if (relativePath.startsWith('./')) {
-        var stack = currentPageUrl.split('/');
-        var parts = relativePath.split('/');
-        stack.pop(); // remove current file name (or empty string)
-
-        for (var i = 0; i < parts.length; i++) {
-          if (parts[i] == '.')
-            continue;
-          if (parts[i] == '..')
-            stack.pop();
-          else
-            stack.push(parts[i]);
-        }
-        return stack.join('/');
-      }
-    }
-
-    function getAbsolutePath(currentPageUrl, value) {
-      var absolutePath;
-      // 判断属性值是否以相对路径开头
-      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
-        if (value.startsWith('//')) {
-          absolutePath = value.replace("//", "https://");
-        } else {
-          // 将相对路径转换成绝对路径
-          absolutePath = resolveRelativePath(currentPageUrl, value);
-        }
-        // console.log('absolutePath', absolutePath)
-        return absolutePath;
-      } else {
-        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-          return value;
-        } else {
-          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
-          // console.log('absolutePath', absolutePath + value)
-          return absolutePath;
-        }
-      }
-    }
-
-    function resolveUrl(currentPageUrl) {
-      var link = $('<a>').prop('href', currentPageUrl);
-      return link[0]; // 返回原生的链接元素对象
-    }
-
     function doparse(element, view, url1_, url, data) {
       var element = element;
       var view = view;
       var url1_ = url1_;
       var MacPlayer_ = url;
-      // data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/> <meta name=\"referrer\" content=\"never\"> <title>网盘播放器v201812 parse.hcc11.com</title> <script src=\"//cdn.staticfile.org/jquery/2.0.3/jquery.min.js\"></script> <link href=\"/Content/index.css?v=1.3\" rel=\"stylesheet\"/> <script src=\"/Scripts/parse.js\"></script> </head> <body> <div id=\"div_player\"> <div style=\"text-align: center\"> <img src=\"//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif\" style=\"width: 300px; height: 250px;\"/> </div> </div> <script src=\"//cdn.staticfile.org/hls.js/1.2.4/hls.min.js\"></script> <link href=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css\" rel=\"stylesheet\"> <script src=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js\"></script> <script type=\"text/javascript\"> var url = '2373237363938323437313337313331313D344946455D2A7D616D28762436313534363830393238383035383D3449455D2A7D616D2876203938343038363230323D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876233133323039313936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B43737563636143575146244335283732544968567D6D627078513A7749483435755A79787D687F616D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D287620525F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B453938313936313E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2050383031344843323032383835323521314532352635453235244245323521393532352535453235273235273235283D2644555443352A256D616E656C696662433522323524307D6E2050383031344843323032383835213145263545244245213935253545223235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2662373333616165353432356D253266683D213833643D216331363D24683932326565663F24455F4C43495C494D41464F2E636E23787E657974736E23737F663A6A7E256D6F686D29766D2A786A6A7D216964656D6F2F2A33707474786' , err = '' , dmId = 0 , vt = '2'; </script> <script src=\"/ParsePlayer/Player/Js?time="+Math.floor(Date.now() / 1000)+"&amp;key=55eab43a2996b8891d19318a56e2a9bf\" type=\"text/javascript\"></script> </body> </html>"
-  //     data = `<html xmlns="http://www.w3.org/1999/xhtml">
-  //     <head>
-  //         <meta name="viewport" content="width=device-width, initial-scale=1">
-  //         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  //         <meta name="referrer" content="never">
-  //         <title>网盘播放器v201812 parse.hcc11.com</title>
-  //         <script src="//cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
-  //         <link href="/Content/index.css?v=1.3" rel="stylesheet"/>
-  //         <script src="/Scripts/parse.js"></script>
-  //     </head>
-  //     <body>
-  //         <div id="div_player">
-  //             <div style="text-align: center">
-  //                 <img src="//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif" style="width: 300px; height: 250px;"/>
-  //             </div>
-  //         </div>
-  //         <script src="//cdn.staticfile.org/hls.js/1.2.4/hls.min.js"></script>
-  //         <link href="//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css" rel="stylesheet">
-  //         <script src="//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js"></script>
-  //         <script type="text/javascript">
-  //             var url = '2373237363938323437313337313331313D344946455D2A7D616D28762436313534363830393238383035383D3449455D2A7D616D2876203938343038363230323D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876233133323039313936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B43737563636143575146244335283732544968567D6D627078513A7749483435755A79787D687F616D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D287620525F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B453938313936313E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2050383031344843323032383835323521314532352635453235244245323521393532352535453235273235273235283D2644555443352A256D616E656C696662433522323524307D6E2050383031344843323032383835213145263545244245213935253545223235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2662373333616165353432356D253266683D213833643D216331363D24683932326565663F24455F4C43495C494D41464F2E636E23787E657974736E23737F663A6A7E256D6F686D29766D2A786A6A7D216964656D6F2F2A33707474786'
-  //               , err = ''
-  //               , dmId = 0
-  //               , vt = '2';
-  //         </script>
-  //         <script src="/ParsePlayer/Player/Js?time=1691895040&amp;key=55eab43a2996b8891d19318a56e2a9bf" type="text/javascript"></script>
-  //     </body>
-  // </html>`
-  
+      // data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/> <meta name=\"referrer\" content=\"never\"> <title>网盘播放器v201812 parse.hcc11.com</title> <script src=\"//cdn.staticfile.org/jquery/2.0.3/jquery.min.js\"></script> <link href=\"/Content/index.css?v=1.3\" rel=\"stylesheet\"/> <script src=\"/Scripts/parse.js\"></script> </head> <body> <div id=\"div_player\"> <div style=\"text-align: center\"> <img src=\"//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif\" style=\"width: 300px; height: 250px;\"/> </div> </div> <script src=\"//cdn.staticfile.org/hls.js/1.2.4/hls.min.js\"></script> <link href=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css\" rel=\"stylesheet\"> <script src=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js\"></script> <script type=\"text/javascript\"> var url = '0353530343635323037313338373431353D344946455D2A7D616D28762531373636393632303930363135393D3449455D2A7D616D2876293734343739363336313D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876283939393531323936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B4373756363614357514624433523675E4D683E497A58494350755833656F2537694258415058643E4D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D28762055353132393631325F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B4E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2130345E41465946573235273235283D2644555443352A256D616E656C696662433522323524307D6E2130345E41465946523235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2234346162603936326164656D236567383D253133343D273932393D25333637346564363F24455F4C43495C494D41464F2E636E23787E657974736E23737F693A776E256D6F686D29766D21676A776D216964656D6F2F2A33707474786', err = '',dmId=0,vt='2'; </script> <script src=\"/ParsePlayer/Player/Js?time="+Math.floor(Date.now() / 1000)+"&amp;key=55eab43a2996b8891d19318a56e2a9bf\" type=\"text/javascript\"></script> </body> </html>"
+
       var str = data
         .replace(/src="\/\//g, 'src="https://')
         .replace(/href="\/\//g, 'href="https://')
@@ -1013,7 +913,8 @@
         .replace(/<title>.*?<\/title>/g, '')
         .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
         .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
-        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/CYir.js"');
+        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/CYir.js"')
+        // .replace(/src="[^"]*Js\?time[^"]*/g, 'src="https://qu.ax/oRMc.js"');
 
       // 获取当前页面的 URL
       var currentPageUrl = MacPlayer_;
@@ -1021,7 +922,7 @@
       // 判断当前页面的 URL 是否是绝对路径
 
       str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
+        return p1 + '=' + p2 + component.getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
       });
 
       
@@ -1089,7 +990,7 @@
       // // Lampa.Keypad.listener.follow('keydown', keydown);
       // // document.addEventListener('keydown', keydown);</script>`
       $('.iframe').remove();
-      Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
+      Lampa.Template.add('playerwindow', "<div class=\"iframe\"></div>");
       // <div class=\"iframe__body\">\n   </div>\n
       var html$2 = Lampa.Template.get('playerwindow');
 
@@ -2589,79 +2490,6 @@
      * Показать файлы
      */
 
-    // 将相对路径转换成绝对路径
-    function resolveRelativePath(currentPageUrl, relativePath) {
-      // console.log(relativePath)
-      // 如果是绝对路径，则直接返回
-      /* if (isAbsolutePath) {
-        return relativePath;
-      } */
-
-      // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
-      if (relativePath.startsWith('/')) {
-        // const baseUrl = new URL(currentPageUrl);
-        var baseUrl = resolveUrl(currentPageUrl);
-        return `${baseUrl.origin}${relativePath}`;
-      }
-
-      if (relativePath.startsWith('../')) {
-        // 如果是相对路径，则分别处理 ./ 和 ../
-        let arr = currentPageUrl.split('/');
-        let hostUrl = arr[0] + '//' + arr[2];
-        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
-        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
-        while (relativePath.indexOf('../') === 0) {
-          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
-          relativePath = relativePath.substring(3);
-        }
-        return `${hostUrl}${temp}${relativePath}`;
-      }
-
-      if (relativePath.startsWith('./')) {
-        var stack = currentPageUrl.split('/');
-        var parts = relativePath.split('/');
-        stack.pop(); // remove current file name (or empty string)
-
-        for (var i = 0; i < parts.length; i++) {
-          if (parts[i] == '.')
-            continue;
-          if (parts[i] == '..')
-            stack.pop();
-          else
-            stack.push(parts[i]);
-        }
-        return stack.join('/');
-      }
-    }
-
-    function getAbsolutePath(currentPageUrl, value) {
-      var absolutePath;
-      // 判断属性值是否以相对路径开头
-      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
-        if (value.startsWith('//')) {
-          absolutePath = value.replace("//", "https://");
-        } else {
-          // 将相对路径转换成绝对路径
-          absolutePath = resolveRelativePath(currentPageUrl, value);
-        }
-        // console.log('absolutePath', absolutePath)
-        return absolutePath;
-      } else {
-        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
-          return value;
-        } else {
-          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
-          // console.log('absolutePath', absolutePath + value)
-          return absolutePath;
-        }
-      }
-    }
-
-    function resolveUrl(currentPageUrl) {
-      var link = $('<a>').prop('href', currentPageUrl);
-      return link[0]; // 返回原生的链接元素对象
-    }
-
     function append(items) {
       var _this = this;
       component.reset();
@@ -2775,14 +2603,14 @@
               //       .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
               //       .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
               //       .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
-              //     // .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"');
+              //     // .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"');
 
               //     // 获取当前页面的 URL
               //     var currentPageUrl = $(iframe[0]).attr('src');
               //     // 判断当前页面的 URL 是否是绝对路径
 
               //     str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-              //       return p1 + '=' + p2 + getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
+              //       return p1 + '=' + p2 + component.getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
               //     });
 
               //     $('.iframe').remove();
@@ -5794,6 +5622,79 @@
 
     if (last_bls[object.movie.id]) {
       balanser = last_bls[object.movie.id];
+    }
+
+    // 将相对路径转换成绝对路径
+    function resolveRelativePath(currentPageUrl, relativePath) {
+      // console.log(relativePath)
+      // 如果是绝对路径，则直接返回
+      /* if (isAbsolutePath) {
+        return relativePath;
+      } */
+
+      // 如果是以 / 开头的相对路径，则加上当前网站的基础路径
+      if (relativePath.startsWith('/')) {
+        // const baseUrl = new URL(currentPageUrl);
+        var baseUrl = resolveUrl(currentPageUrl);
+        return `${baseUrl.origin}${relativePath}`;
+      }
+
+      if (relativePath.startsWith('../')) {
+        // 如果是相对路径，则分别处理 ./ 和 ../
+        let arr = currentPageUrl.split('/');
+        let hostUrl = arr[0] + '//' + arr[2];
+        let temp = currentPageUrl.substr(currentPageUrl.indexOf(arr[3]));
+        temp = temp.substring(0, temp.lastIndexOf('/') + 1);
+        while (relativePath.indexOf('../') === 0) {
+          temp = temp.substring(0, temp.substr(0, temp.length - 1).lastIndexOf('/') + 1);
+          relativePath = relativePath.substring(3);
+        }
+        return `${hostUrl}${temp}${relativePath}`;
+      }
+
+      if (relativePath.startsWith('./')) {
+        var stack = currentPageUrl.split('/');
+        var parts = relativePath.split('/');
+        stack.pop(); // remove current file name (or empty string)
+
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i] == '.')
+            continue;
+          if (parts[i] == '..')
+            stack.pop();
+          else
+            stack.push(parts[i]);
+        }
+        return stack.join('/');
+      }
+    }
+
+    this.getAbsolutePath = function (currentPageUrl, value) {
+      var absolutePath;
+      // 判断属性值是否以相对路径开头
+      if (value.startsWith('./') || value.startsWith('../') || value.startsWith('/')) {
+        if (value.startsWith('//')) {
+          absolutePath = value.replace("//", "https://");
+        } else {
+          // 将相对路径转换成绝对路径
+          absolutePath = resolveRelativePath(currentPageUrl, value);
+        }
+        // console.log('absolutePath', absolutePath)
+        return absolutePath;
+      } else {
+        if (Boolean(value.match(/^(http|https|ftp):\/\//i))) {
+          return value;
+        } else {
+          absolutePath = currentPageUrl.substring(0, currentPageUrl.lastIndexOf("/") + 1) + value;
+          // console.log('absolutePath', absolutePath + value)
+          return absolutePath;
+        }
+      }
+    }
+
+    function resolveUrl(currentPageUrl) {
+      var link = $('<a>').prop('href', currentPageUrl);
+      return link[0]; // 返回原生的链接元素对象
     }
 
     function getWebs() {
