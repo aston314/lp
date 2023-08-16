@@ -533,8 +533,8 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
-      "use_proxy": true,
-      "use_referer": false,
+      "use_proxy": false,
+      "use_referer": true,
       "browser": "PC_UA",
       "category": [
          {
