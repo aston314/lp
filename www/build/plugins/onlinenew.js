@@ -348,6 +348,26 @@
         use_referer: true,
         js_execute_key: ['maccms', 'player_aaaa']
       },
+      {
+        name: '网站-奇米动漫',
+        available: true,
+        websitelink: 'http://www.qimiqimi.net',
+        listlink: true,
+        use_proxy: false,
+        search_url: 'http://www.qimiqimi.net/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+        search_json: true,
+        node_json: 'list',
+        name_json: 'name',
+        id_json: 'id',
+        first_page_json: '.html',
+        search_html_selector: '',
+        link_folder: 'detail/',
+        detail_url_selector: 'a[href*="/1/"]',
+        videoparse: 'default',
+        videocontainer: '.MacPlayer',
+        use_referer: true,
+        js_execute_key: ['maccms', 'player_data']
+      },
       // {
       //   name: '网站-voflix HD',
       //   available: false,
@@ -829,16 +849,30 @@
 
         var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
         rslt = [];
-        $(math).find('a').each(function (i, a) {
-          rslt.push({
-            file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
-            quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
-            title: title,
-            season: '',
-            episode: '',
-            info: ''
+        if ($(math).find('a').length) {
+          $(math).find('a').each(function (i, a) {
+            rslt.push({
+              file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
+              quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
+              title: title,
+              season: '',
+              episode: '',
+              info: ''
+            });
           });
-        });
+        } else {
+          $(math, data).each(function (i, a) {
+            rslt.push({
+              file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
+              quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
+              title: title,
+              season: '',
+              episode: '',
+              info: ''
+            });
+          });
+        }
+        
         filter();
         append(filtred());
 
