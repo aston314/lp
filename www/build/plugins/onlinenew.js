@@ -2801,7 +2801,8 @@
       var url;
       network.clear();
       network.timeout(1000 * 15);
-      kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = 'https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=' + kinopoisk_id + 'devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&version=&sj=' + ts : url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
+      var listUrl='https://api.tyun77.cn/api.php/provide/videoPlaylist?devid=453CA5D864457C7DB4D0EAA93DE96E66&ids=#tid&package=com.sevenVideo.app.android&version=&sj='+ts;
+      kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = listUrl.replace('#tid',kinopoisk_id): url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
         getdetail(url);
@@ -2813,7 +2814,7 @@
               //parse(json);
               if (json.data.length == 1) {
                 var id = json.data[0].id;
-                url = 'https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=' + id + '&devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&version=&sj=' + ts;
+                url = listUrl.replace('#tid',id);
                 getdetail(url);
               } else {
                 _this.wait_similars = true;
