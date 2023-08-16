@@ -2733,7 +2733,6 @@
     };
 
     var rslt = [];
-    var ts = getTime();
 
     /**
      * Поиск
@@ -2768,7 +2767,7 @@
       });
   }
 
-    function getdetail(url) {
+    function getdetail(url,ts) {
       getHeaders(url, ts, function (header) {
         console.log(header);
         network["native"](url, function (json) {
@@ -2793,6 +2792,7 @@
     };
 
     this.search = function (_object, kinopoisk_id) {
+      var ts = getTime();
       var _this = this;
       object = _object;
       select_title = object.search || object.movie.title;
@@ -2804,7 +2804,7 @@
       kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = listUrl.replace('#tid',kinopoisk_id): url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
-        getdetail(url);
+        getdetail(url,ts);
       } else {
         network.silent(url, function (json) {
           if (json) {
@@ -2814,7 +2814,7 @@
               if (json.data.length == 1) {
                 var id = json.data[0].id;
                 url = listUrl.replace('#tid',id);
-                getdetail(url);
+                getdetail(url,ts);
               } else {
                 _this.wait_similars = true;
                 var similars = [];
