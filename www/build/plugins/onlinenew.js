@@ -2770,32 +2770,87 @@
         return u + (/\?/.test(u) ? '&' : '?') + params;
       }
 
-      var url = new URL(input);
-      url.searchParams.set('pcode', '010110005');
-      url.searchParams.set('version', '2.1.6');
-      url.searchParams.set('devid', device.id);
-      url.searchParams.set('package', 'com.sevenVideo.app.android');
-      url.searchParams.set('sys', 'android');
-      url.searchParams.set('sysver', device.release);
-      url.searchParams.set('brand', device.brand);
-      url.searchParams.set('model', device.model.replace(/ /g, '_'));
-      url.searchParams.set('sj', sj);
+      // var url = new URL(input);
+      // url.searchParams.set('pcode', '010110005');
+      // url.searchParams.set('version', '2.1.6');
+      // url.searchParams.set('devid', device.id);
+      // url.searchParams.set('package', 'com.sevenVideo.app.android');
+      // url.searchParams.set('sys', 'android');
+      // url.searchParams.set('sysver', device.release);
+      // url.searchParams.set('brand', device.brand);
+      // url.searchParams.set('model', device.model.replace(/ /g, '_'));
+      // url.searchParams.set('sj', sj);
 
-      console.log(url)
-      var keys = Array.from(url.searchParams.keys()).sort(function (a, b) {
+      input = add$b(input, 'pcode=010110005');
+      input = add$b(input, 'version=2.1.6');
+      input = add$b(input, 'devid='+device.id);
+      input = add$b(input, 'package=com.sevenVideo.app.android');
+      input = add$b(input, 'sys=android');
+      input = add$b(input, 'sysver='+device.release);
+      input = add$b(input, 'brand='+device.brand);
+      input = add$b(input, 'model='+device.model.replace(/ /g, '_'));
+      input = add$b(input, 'model='+sj);
+
+
+      // console.log(url)
+      // var keys = Array.from(url.searchParams.keys()).sort(function (a, b) {
+      //   return a.localeCompare(b);
+      // });
+
+      // 提取查询字符串部分
+      var queryString = input.split("?")[1];
+
+      // 将查询字符串解析为参数对数组
+      var paramPairs = queryString.split("&");
+
+      // 从参数对数组中提取键
+      var keys = [];
+      for (var i = 0; i < paramPairs.length; i++) {
+        var pair = paramPairs[i].split("=");
+        if (pair.length === 2) {
+          keys.push(pair[0]);
+        }
+      }
+
+      // 对键进行排序
+      keys.sort(function (a, b) {
         return a.localeCompare(b);
       });
 
-      var tkSrc = url.pathname;
-      for (var j = 0; j < keys.length; j++) {
-        var k = keys[j];
-        var v = url.searchParams.get(k);
-        v = encodeURIComponent(v);
-        tkSrc += v;
-      }
-      tkSrc += sj;
-      tkSrc += 'XSpeUFjJ';
-      console.log(tkSrc);
+      // var tkSrc = input.pathname;
+      // for (var j = 0; j < keys.length; j++) {
+      //   var k = keys[j];
+      //   var v = input.searchParams.get(k);
+      //   v = encodeURIComponent(v);
+      //   tkSrc += v;
+      // }
+      // var tkSrc = input.pathname;
+      // for (var j = 0; j < keys.length; j++) {
+      //   var k = keys[j];
+      //   var v = getQueryParamValue(input, k); // Custom function to get parameter value
+      //   v = encodeURIComponent(v);
+      //   tkSrc += v;
+      // }
+
+      // function getQueryParamValue(search, paramName) {
+      //   var params = search.substr(1).split("&");
+      //   for (var i = 0; i < params.length; i++) {
+      //     var param = params[i].split("=");
+      //     if (param[0] === paramName) {
+      //       return param[1];
+      //     }
+      //   }
+      //   return null;
+      // }
+
+      // tkSrc += sj;
+      // tkSrc += 'XSpeUFjJ';
+      // console.log(tkSrc);
+      // console.log(input)
+      var tkSrc = input.split('?')[1].split('&').map(function (it) {
+        return it.split('=')[1]
+      }).join('');
+      tkSrc = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkSrc + sj + 'XSpeUFjJ';
 
       Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
         var tk = CryptoJS.MD5(tkSrc).toString().toLowerCase();
