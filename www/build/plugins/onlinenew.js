@@ -906,227 +906,184 @@
       var MacPlayer_ = url;
       // data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/> <meta name=\"referrer\" content=\"never\"> <title>网盘播放器v201812 parse.hcc11.com</title> <script src=\"//cdn.staticfile.org/jquery/2.0.3/jquery.min.js\"></script> <link href=\"/Content/index.css?v=1.3\" rel=\"stylesheet\"/> <script src=\"/Scripts/parse.js\"></script> </head> <body> <div id=\"div_player\"> <div style=\"text-align: center\"> <img src=\"//img.vim-cn.com/6f/b497e2244ddba298e4598c0101538c606da7ae.gif\" style=\"width: 300px; height: 250px;\"/> </div> </div> <script src=\"//cdn.staticfile.org/hls.js/1.2.4/hls.min.js\"></script> <link href=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.css\" rel=\"stylesheet\"> <script src=\"//cdn.staticfile.org/dplayer/1.25.0/DPlayer.min.js\"></script> <script type=\"text/javascript\"> var url = '0353530343635323037313338373431353D344946455D2A7D616D28762531373636393632303930363135393D3449455D2A7D616D2876293734343739363336313D354A5943564D2A7D616D287624307D6F2F656469667D356079747D247E65647E6F636D25637E6F60737562762030343230313D3564716274796D696C6D2A7D616D2876283939393531323936313D337562796078754625554B44483050556678466A5331714467376C403D346949756B4373756363614357514624433523675E4D683E497A58494350755833656F2537694258415058643E4D35627574716E676963562E475F4E4B4E455D3E4945405954545E45494C434D2A7D616D28762055353132393631325F434D3E494540595454455F4C434D2A7D616D28762E475F4E4B4E455D3B425F4754554E445E45494C434D2A7D616D287624307D6E2130345E41465946573235273235283D2644555443352A256D616E656C696662433522323524307D6E2130345E41465946523235244335256D616E656C6966624335247E656D6863616474716D3E6F696479637F607379646D247E65647E6F636D25637E6F607375627F34307D6E2234346162603936326164656D236567383D253133343D273932393D25333637346564363F24455F4C43495C494D41464F2E636E23787E657974736E23737F693A776E256D6F686D29766D21676A776D216964656D6F2F2A33707474786', err = '',dmId=0,vt='2'; </script> <script src=\"/ParsePlayer/Player/Js?time="+Math.floor(Date.now() / 1000)+"&amp;key=55eab43a2996b8891d19318a56e2a9bf\" type=\"text/javascript\"></script> </body> </html>"
 
-      var str = data
-        .replace(/src="\/\//g, 'src="https://')
-        .replace(/href="\/\//g, 'href="https://')
-        .replace(/<\/?(head|meta|body|html)[^>]*>/g, '')
-        .replace(/<title>.*?<\/title>/g, '')
-        .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
-        .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
-        .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/CYir.js"')
+      if (element.file.includes('zxzj')) {
+        var randMatch = data.match(/var url = '(.*?)'/)[1].split('').reverse().join('')
+        var temp = '';
+        for (var i = 0x0; i < randMatch.length; i = i + 0x2) {
+          temp += String.fromCharCode(parseInt(randMatch[i] + randMatch[i + 0x1], 0x10))
+        }
+        var input = temp.substring(0x0, (temp.length - 0x7) / 0x2) + temp.substring((temp.length - 0x7) / 0x2 + 0x7);
+        var playlist = [];
+        var first = {
+          url: input,
+          timeline: view,
+          title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+          subtitles: element.subtitles,
+          tv: false
+        };
+        Lampa.Player.play(first);
+        playlist.push(first);
+        Lampa.Player.playlist(playlist);
+        component.savehistory(object);
+      } else {
+        var str = data
+          .replace(/src="\/\//g, 'src="https://')
+          .replace(/href="\/\//g, 'href="https://')
+          .replace(/<\/?(head|meta|body|html)[^>]*>/g, '')
+          .replace(/<title>.*?<\/title>/g, '')
+          .replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
+          .replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
+          .replace(/src="[^"]*DPlayer\.min\.js"/g, 'src="https://qu.ax/CYir.js"')
         // .replace(/src="[^"]*Js\?time[^"]*/g, 'src="https://qu.ax/oRMc.js"');
 
-      // 获取当前页面的 URL
-      var currentPageUrl = MacPlayer_;
-      // console.log(currentPageUrl)
-      // 判断当前页面的 URL 是否是绝对路径
+        // 获取当前页面的 URL
+        var currentPageUrl = MacPlayer_;
+        // console.log(currentPageUrl)
+        // 判断当前页面的 URL 是否是绝对路径
 
-      str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
-        return p1 + '=' + p2 + component.getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
-      });
+        str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
+          return p1 + '=' + p2 + component.getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
+        });
 
-      
-      // var re = /<script.*?src="(.*?)"/gm;
-      // var match, aa = [], bbb = [], setting_js = false, setting_link;
-      // while (match = re.exec(str)) {
-      //   var cc = match[1];
-      //   if (!/DPlayer|-player|jquery|setting|hls|flv|c606e5caeee702a784a0204d31ea3403|35a898211164a6b8a9a21a045dba9f8a|805d73dedddd5daf87bdbd38488362f8|33d6112475ac4d264c333fe9a5252aff/.test(cc)) {
-      //     aa.push(cc);
-      //   }
-      //   if (/setting[\s\S]*\.js/.test(cc)) {
-      //     setting_js = true;
-      //     setting_link = cc;
-      //   }
-      // };
-      // console.log(aa)
+        $('.iframe').remove();
+        Lampa.Template.add('playerwindow', "<div class=\"iframe\"></div>");
+        // <div class=\"iframe__body\">\n   </div>\n
+        var html$2 = Lampa.Template.get('playerwindow');
 
-      // str = str + `<script>
-      
-      // function keydown(e) {
-      //   var code = e.code;
-      //   // var dplayerVideo = document.querySelector('.dplayer-video');
-      //   if (code === 428 || code === 34 // Pg-
-      //     //4 - Samsung orsay
-      //     || ((code === 37 || code === 4) ) // left
-      //   ) {
-      //     try {
-      //       //表示遥控向左键
-      //       var currentTime = window.player.video.currentTime
-      //       currentTime = currentTime - 10;
-      //       if (currentTime < 0) {
-      //         currentTime = 0;
-      //         return;
-      //       }
-      //       //console.log(currentTime);
-      //       window.player.seek(currentTime);
-      //       console.log('左',currentTime)
-      //       // dplayerVideo.seek(-10);
-      //     } catch (error) {
-      //       console.error(error);
-      //     }
-      //   } else if (code === 427 || code === 33 // Pg+
-      //     // 5 - Samsung orsay right
-      //     || ((code === 39 || code === 5) ) // right
-      //   ) {
-      //     try {
-      //       //表示遥控向右键
-      //       var currentTime = window.player.video.currentTime
-      //       currentTime = currentTime + 10;
-      //       if (duration > 0 && currentTime > duration) {
-      //         currentTime = duration;
-      //         return;
-      //       }
-      //       window.player.seek(currentTime)
-      //       console.log('右',currentTime)
-      //       // dplayerVideo.seek(10);
-      //     } catch (error) {
-      //       console.error(error);
-      //     }
-      //   } else if (code >= 48 && code <= 57) { // numpad
-      //   } else if (code >= 96 && code <= 105) { // numpad
-      //   }
-      // }
-      // //  Lampa.Keypad.listener.destroy();
-      // // Lampa.Keypad.listener.follow('keydown', keydown);
-      // // document.addEventListener('keydown', keydown);</script>`
-      $('.iframe').remove();
-      Lampa.Template.add('playerwindow', "<div class=\"iframe\"></div>");
-      // <div class=\"iframe__body\">\n   </div>\n
-      var html$2 = Lampa.Template.get('playerwindow');
+        $('body').append(html$2);
 
-      $('body').append(html$2);
-
-      return new Promise(function (resolve, reject) {
-        $('.iframe').append(`
+        return new Promise(function (resolve, reject) {
+          $('.iframe').append(`
       ${str}
     `);
-        resolve(); // 表示添加完成
-      })
-        .then(function () {
-          // console.log('执行网页完成')
-          // 在append完成后触发事件
-          // html$2.removeClass('iframe--loaded');
-          // console.log($('.dplayer'))
-          // console.log(window._0x41b364)
-          // window._0x41b364.focus;
-          // 在 DPlayer 脚本加载后获取变量
-          // var regex = /src="([^"]*Js\?time=[^"]*)"/;
+          resolve(); // 表示添加完成
+        })
+          .then(function () {
+            // console.log('执行网页完成')
+            // 在append完成后触发事件
+            // html$2.removeClass('iframe--loaded');
+            // console.log($('.dplayer'))
+            // console.log(window._0x41b364)
+            // window._0x41b364.focus;
+            // 在 DPlayer 脚本加载后获取变量
+            // var regex = /src="([^"]*Js\?time=[^"]*)"/;
 
-          // var match = str.match(regex);
-          // var srcValue;
-          // if (match) {
-          //   srcValue = match[1];
-          //   console.log("Matched:", match[0]);
-          //   console.log("Src value:", srcValue);
-          //   var dplayerScript = document.querySelector('script[src="'+srcValue+'"]');
-          //   dplayerScript.onload = function () {
-          //     // 在这里获取 DPlayer 的变量
-          //     // 例如：var dplayerVersion = DPlayer.version;
-          //     // 请参考 DPlayer 文档以了解可用的变量和方法
-          //     // console.log(_0x4f591e)
-          //   };
-          // } else {
-          //   console.log("No match found.");
-          // }
-          
-          toggle();
-          // var playulr =$('.dplayer-video').attr('src');
-          // document.querySelector('video').src
-          // document.querySelector('.dplayer-video').pause();
-          // document.querySelector('.dplayer-video').play();
-          // document.querySelector('.dplayer-video').focus();
-          
-    
-          // 获取特定类名的元素中所有子元素的src属性值
-          function getSrcValuesInClass(className) {
-            var srcValues = [];
+            // var match = str.match(regex);
+            // var srcValue;
+            // if (match) {
+            //   srcValue = match[1];
+            //   console.log("Matched:", match[0]);
+            //   console.log("Src value:", srcValue);
+            //   var dplayerScript = document.querySelector('script[src="'+srcValue+'"]');
+            //   dplayerScript.onload = function () {
+            //     // 在这里获取 DPlayer 的变量
+            //     // 例如：var dplayerVersion = DPlayer.version;
+            //     // 请参考 DPlayer 文档以了解可用的变量和方法
+            //     // console.log(_0x4f591e)
+            //   };
+            // } else {
+            //   console.log("No match found.");
+            // }
 
-            // 获取所有具有指定类名的元素
-            var elements = $(className);
+            toggle();
+            // var playulr =$('.dplayer-video').attr('src');
+            // document.querySelector('video').src
+            // document.querySelector('.dplayer-video').pause();
+            // document.querySelector('.dplayer-video').play();
+            // document.querySelector('.dplayer-video').focus();
 
-            // 遍历具有指定类名的元素
-            for (var i = 0; i < elements.length; i++) {
-              var element = elements[i];
-              var childNodes = element.childNodes;
 
-              for (var j = 0; j < childNodes.length; j++) {
-                var child = childNodes[j];
-                if (child.nodeType === Node.ELEMENT_NODE) {
-                  var src = child.getAttribute('src');
-                  if (src) {
-                    srcValues.push(src);
+            // 获取特定类名的元素中所有子元素的src属性值
+            function getSrcValuesInClass(className) {
+              var srcValues = [];
+
+              // 获取所有具有指定类名的元素
+              var elements = $(className);
+
+              // 遍历具有指定类名的元素
+              for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var childNodes = element.childNodes;
+
+                for (var j = 0; j < childNodes.length; j++) {
+                  var child = childNodes[j];
+                  if (child.nodeType === Node.ELEMENT_NODE) {
+                    var src = child.getAttribute('src');
+                    if (src) {
+                      srcValues.push(src);
+                    }
                   }
                 }
               }
+
+              return srcValues;
             }
 
-            return srcValues;
-          }
+            // // 获取具有特定类名的元素中所有子元素的src属性值
+            // var className = '.iframe'; // 替换为实际的类名
+            // var srcValuesInClass = getSrcValuesInClass(className);
 
-          // // 获取具有特定类名的元素中所有子元素的src属性值
-          // var className = '.iframe'; // 替换为实际的类名
-          // var srcValuesInClass = getSrcValuesInClass(className);
+            // // 输出结果
+            // console.log('src values in elements with class', className + ':', srcValuesInClass);
 
-          // // 输出结果
-          // console.log('src values in elements with class', className + ':', srcValuesInClass);
+            var playulr = $('video').attr('src') || document.querySelector('source').src;
+            // var videoElement = $('video')[0];
+            // var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
 
-          var playulr = $('video').attr('src') || document.querySelector('source').src;
-          // var videoElement = $('video')[0];
-          // var playulr = videoElement ? videoElement.src : (document.querySelector('source') ? document.querySelector('source').src : undefined);
-          
-          // var playulr = $('video').attr('src') || $('video source').attr('src');
-          console.log('playulr=', playulr)
-          if (typeof playulr !== "undefined") {
-            var file = playulr;
-            //console.log(file);
-            if (file) {
-              var playlist = [];
-              var first = {
-                url: file,
-                timeline: view,
-                title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                subtitles: element.subtitles,
-                tv: false
-              };
-              Lampa.Player.play(first);
-              playlist.push(first);
-              Lampa.Player.playlist(playlist);
-              component.savehistory(object);
-              close();
+            // var playulr = $('video').attr('src') || $('video source').attr('src');
+            console.log('playulr=', playulr)
+            if (typeof playulr !== "undefined") {
+              var file = playulr;
+              //console.log(file);
+              if (file) {
+                var playlist = [];
+                var first = {
+                  url: file,
+                  timeline: view,
+                  title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                  subtitles: element.subtitles,
+                  tv: false
+                };
+                Lampa.Player.play(first);
+                playlist.push(first);
+                Lampa.Player.playlist(playlist);
+                component.savehistory(object);
+                close();
+              } else {
+                Lampa.Noty.show('无法检索链接');
+                close();
+              }
             } else {
-              Lampa.Noty.show('无法检索链接');
+              Lampa.Noty.show('无法找到视频地址');
               close();
-            }
-          } else {
-            Lampa.Noty.show('无法找到视频地址');
-            close();
-          };
-        })
-        .catch(function (error) {
-          console.error('添加内容时出错：', error);
-        });
+            };
+          })
+          .catch(function (error) {
+            console.error('添加内容时出错：', error);
+          });
 
-      function toggle() {
-        Lampa.Controller.add('playerwindow', {
-          toggle: function toggle() {
-            var focus = $('.iframe > div').addClass('selector');
-            // console.log(focus[0])
-            Lampa.Controller.collectionSet($('.iframe'));
-            Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
-          },
-          back: close
-        });
-        Lampa.Controller.toggle('playerwindow');
-      }
+        function toggle() {
+          Lampa.Controller.add('playerwindow', {
+            toggle: function toggle() {
+              var focus = $('.iframe > div').addClass('selector');
+              // console.log(focus[0])
+              Lampa.Controller.collectionSet($('.iframe'));
+              Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
+            },
+            back: close
+          });
+          Lampa.Controller.toggle('playerwindow');
+        }
 
-      function close() {
-        // html$2.removeClass('iframe--loaded');
-        // Lampa.Keypad.listener.destroy();
-        html$2.detach();
-        Lampa.Controller.toggle('content');
-        // html$2.find('iframe').attr('src', '');
-        html$2.find('iframe').html('');
-        // if (object.onBack) object.onBack();
+        function close() {
+          // html$2.removeClass('iframe--loaded');
+          // Lampa.Keypad.listener.destroy();
+          html$2.detach();
+          Lampa.Controller.toggle('content');
+          // html$2.find('iframe').attr('src', '');
+          html$2.find('iframe').html('');
+          // if (object.onBack) object.onBack();
+        }
       }
 
     };
