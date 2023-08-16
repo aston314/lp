@@ -2734,6 +2734,83 @@
 
     var rslt = [];
 
+    function getHeaders_(input, sj, callback) {
+      var charStr = 'abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789';
+
+      function randStr(len, withNum) {
+        var _str = '';
+        var containsNum = withNum === undefined ? true : withNum;
+        for (var i = 0; i < len; i++) {
+          var idx = random(0, containsNum ? charStr.length - 1 : charStr.length - 11);
+          _str += charStr.charAt(idx);
+        }
+        return _str;
+      }
+
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // function randDevice() {
+      //   return {
+      //     brand: 'Huawei',
+      //     model: 'HUAWEI Mate 20',
+      //     release: '10',
+      //     buildId: randStr(3, false).toUpperCase() + _.random(11, 99) + randStr(1, false).toUpperCase(),
+      //   };
+      // }
+      var device = {
+        id: randStr(32).toLowerCase(),
+        release: '10',
+        brand: 'Huawei',
+        model: 'HUAWEI Mate 20'
+      };
+
+      function add$b(u, params) {
+        return u + (/\?/.test(u) ? '&' : '?') + params;
+      }
+
+      var url = new URL(input);
+      url.searchParams.set('pcode', '010110005');
+      url.searchParams.set('version', '2.1.6');
+      url.searchParams.set('devid', device.id);
+      url.searchParams.set('package', 'com.sevenVideo.app.android');
+      url.searchParams.set('sys', 'android');
+      url.searchParams.set('sysver', device.release);
+      url.searchParams.set('brand', device.brand);
+      url.searchParams.set('model', device.model.replace(/ /g, '_'));
+      url.searchParams.set('sj', sj);
+
+      console.log(url)
+      var keys = Array.from(url.searchParams.keys()).sort(function (a, b) {
+        return a.localeCompare(b);
+      });
+
+      var tkSrc = url.pathname;
+      for (var j = 0; j < keys.length; j++) {
+        var k = keys[j];
+        var v = url.searchParams.get(k);
+        v = encodeURIComponent(v);
+        tkSrc += v;
+      }
+      tkSrc += sj;
+      tkSrc += 'XSpeUFjJ';
+      console.log(tkSrc);
+
+      Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
+        var tk = CryptoJS.MD5(tkSrc).toString().toLowerCase();
+        console.log(tk);
+        var headers = {
+          'user-agent': 'okhttp/3.12.0',
+          t: sj,
+          TK: tk,
+        };
+
+        callback(headers); // Pass the headers to the callback function
+      });
+    }
+
+
     /**
      * Поиск
      * @param {Object} _object 
@@ -2767,8 +2844,9 @@
       });
   }
 
-    function getdetail(url,ts) {
-      getHeaders(url, ts, function (header) {
+    function getdetail(url) {
+      var ts = getTime();
+      getHeaders_(url, ts, function (header) {
         console.log(header);
         network["native"](url, function (json) {
           console.log(json.msg )
@@ -2800,11 +2878,11 @@
       var url;
       network.clear();
       network.timeout(1000 * 15);
-      var listUrl='https://api.tyun77.cn/api.php/provide/videoPlaylist?devid=453CA5D864457C7DB4D0EAA93DE96E66&ids=#tid&package=com.sevenVideo.app.android&version=&sj='+ts;
+      var listUrl='https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=#tid';
       kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = listUrl.replace('#tid',kinopoisk_id): url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
-        getdetail(url,ts);
+        getdetail(url);
       } else {
         network.silent(url, function (json) {
           if (json) {
@@ -2814,7 +2892,7 @@
               if (json.data.length == 1) {
                 var id = json.data[0].id;
                 url = listUrl.replace('#tid',id);
-                getdetail(url,ts);
+                getdetail(url);
               } else {
                 _this.wait_similars = true;
                 var similars = [];
