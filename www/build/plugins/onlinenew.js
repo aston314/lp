@@ -2744,44 +2744,51 @@
       console.log('获取时间戳:' + ts);
       return ts
     }
-
-    function getHeaders(input, ts) {
+   
+    function getHeaders(input, ts, callback) {
       var tkstr = input.split('?')[1].split('&').map(function (it) {
-        return it.split('=')[1]
+          return it.split('=')[1];
       }).join('');
+  
       tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr + ts + 'XSpeUFjJ';
+  
       console.log('tk加密前:' + tkstr);
+  
       Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
-        var TK = CryptoJS.MD5(tkstr);
-        console.log('tk加密后:' + TK);
-        var headers = {
-          "User-Agent": "okhttp/3.12.0",
-          "TK": TK
-        };
-        return headers
-      })
-    }
+          var TK = CryptoJS.MD5(tkstr);
+          console.log('tk加密后:' + TK);
+  
+          var headers = {
+              "User-Agent": "okhttp/3.12.0",
+              "TK": TK.toString()  // Convert TK to a string
+          };
+  
+          callback(headers); // Pass the headers to the callback function
+      });
+  }
 
     function getdetail(url) {
       var ts = getTime();
-      network["native"](url, function (json) {
-        if (json.msg == '非法请求' || json.data.episodes.length == 0) {
-          component.emptyForQuery(select_title)
-        } else {
-          parse(json);
-        };
-        component.loading(false);
-      }, function (a, c) {
-        if (a.status == 403) {
-          component.empty('请在Android客户端中使用。');
-        } else {
-          component.empty(network.errorDecode(a, c));
-        }
-      }, false, {
-        dataType: 'json',
-        headers: getHeaders(url,ts)
+      getHeaders(url, ts, function (header) {
+        console.log(header);
+        network["native"](url, function (json) {
+          if (json.msg == '非法请求' || json.data.episodes.length == 0) {
+            component.emptyForQuery(select_title)
+          } else {
+            parse(json);
+          };
+          component.loading(false);
+        }, function (a, c) {
+          if (a.status == 403) {
+            component.empty('请在Android客户端中使用。');
+          } else {
+            component.empty(network.errorDecode(a, c));
+          }
+        }, false, {
+          dataType: 'json',
+          headers: header
+        });
       });
-
     };
 
     this.search = function (_object, kinopoisk_id) {
@@ -2835,7 +2842,6 @@
           }
         }, false, {
           dataType: 'json',
-          headers: getHeaders(url,ts)
         });
       };
     };
