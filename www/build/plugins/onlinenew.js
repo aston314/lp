@@ -2733,6 +2733,7 @@
     };
 
     var rslt = [];
+    var ts = getTime();
 
     /**
      * Поиск
@@ -2768,7 +2769,6 @@
   }
 
     function getdetail(url) {
-      var ts = getTime();
       getHeaders(url, ts, function (header) {
         console.log(header);
         network["native"](url, function (json) {
@@ -2793,7 +2793,6 @@
     };
 
     this.search = function (_object, kinopoisk_id) {
-      var ts = getTime();
       var _this = this;
       object = _object;
       select_title = object.search || object.movie.title;
