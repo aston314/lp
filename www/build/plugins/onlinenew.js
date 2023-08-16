@@ -2731,7 +2731,7 @@
       order: 0,
       voice_name: ''
     };
-    var sj = +new Date;
+
     var rslt = [];
 
     /**
@@ -2739,9 +2739,31 @@
      * @param {Object} _object 
      */
 
+    function getTime () {
+      var ts = Math.round(new Date().getTime() / 1000).toString();
+      console.log('获取时间戳:' + ts);
+      return ts
+    }
+
+    function getHeaders(input, ts) {
+      var tkstr = input.split('?')[1].split('&').map(function (it) {
+        return it.split('=')[1]
+      }).join('');
+      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr + ts + 'XSpeUFjJ';
+      console.log('tk加密前:' + tkstr);
+      Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
+        var TK = CryptoJS.MD5(tkstr);
+        console.log('tk加密后:' + TK);
+        var headers = {
+          "User-Agent": "okhttp/3.12.0",
+          "TK": TK
+        };
+        return headers
+      })
+    }
+
     function getdetail(url) {
-      //component.reset();
-      //Lampa.Noty.show('酷云线路只能在安卓上观看。');
+      var ts = getTime();
       network["native"](url, function (json) {
         if (json.msg == '非法请求' || json.data.episodes.length == 0) {
           component.emptyForQuery(select_title)
@@ -2750,34 +2772,33 @@
         };
         component.loading(false);
       }, function (a, c) {
-        Lampa.Noty.show(network.errorDecode(a, c));
+        if (a.status == 403) {
+          component.empty('请在Android客户端中使用。');
+        } else {
+          component.empty(network.errorDecode(a, c));
+        }
       }, false, {
         dataType: 'json',
-        headers: {
-          'User-Agent': 'okhttp/3.12.0',
-        }
+        headers: getHeaders(url,ts)
       });
 
     };
 
     this.search = function (_object, kinopoisk_id) {
+      var ts = getTime();
       var _this = this;
       object = _object;
       select_title = object.search || object.movie.title;
       doreg = rule;
-      //console.log(kinopoisk_id)
-      //console.log(select_title.replace(/第(.+)季/, '').trim());
-      // var cors = Lampa.Utils.checkHttp('proxy.cub.watch/cdn/');
-      // var cors_https = /https/.test(cors) ? cors : '';
       var url;
       network.clear();
       network.timeout(1000 * 15);
-      kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + kinopoisk_id + 'devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj : url = 'https://api.kunyu77.com/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
-
+      kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = 'https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=' + kinopoisk_id + 'devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&version=&sj=' + ts : url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
         getdetail(url);
       } else {
+        
         network.silent(url, function (json) {
           if (json) {
             //console.log(json.data.length)
@@ -2785,7 +2806,7 @@
               //parse(json);
               if (json.data.length == 1) {
                 var id = json.data[0].id;
-                url = 'https://api.kunyu77.com/api.php/provide/videoPlaylist?ids=' + id + '&devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&pcode=010110004&sysver=9&model=OPPO%20R9tm&sys=android&version=1.8.7&brand=OPPO&sj=' + sj;
+                url = 'https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=' + id + '&devid=453CA5D864457C7DB4D0EAA93DE96E66&package=com.sevenVideo.app.android&version=&sj=' + ts;
                 getdetail(url);
               } else {
                 _this.wait_similars = true;
@@ -2808,12 +2829,13 @@
           component.loading(false);
         }, function (a, c) {
           if (network.errorDecode(a, c).indexOf('很抱歉') !== -1) {
-            component.empty('需要将User-Agent需改为：Dalvik，才能访问酷云。');
+            component.empty('请在Android客户端中使用。');
           } else {
             component.empty(network.errorDecode(a, c));
           }
         }, false, {
           dataType: 'json',
+          headers: getHeaders(url,ts)
         });
       };
     };
@@ -2865,28 +2887,6 @@
     };
 
     function parse(json) {
-
-      // var list = json.data[0].videoUrls.toString().split('$$$')[0].replace(/"/g,'').split(',');
-      //  $.each(list, function(i,val){        
-      //     //console.log(val);
-      //      if (val.split('$')[1].indexOf('.m3u8' !== -1)) {
-      //          rslt.push({
-      //              file: val.split('$')[1],
-      //              quality: val.split('$')[0],
-      //              title: json.data[0].videoName,
-      //              season: '',
-      //              episode: '',
-      //              info: ''
-      //          });
-      //      }
-      // }); 
-      //http://api.kunyu77.com/api.php/provide/videoPlaylist?ids=142546
-      // if (window.cordova){
-      //     //UserAgent.set('Dalvik/2.1.0 (Linux; U; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00)');
-      // }
-      // else {
-      //     Lampa.Noty.show('酷云线路只能在安卓上观看。');
-      // };
       rslt = [];
       json.data.episodes.forEach(function (episode) {
 
@@ -5713,6 +5713,7 @@
       DYD: new dyd(this, object),
       低端影视: new ddys(this, object),
       厂长资源: new czzy(this, object),
+      酷云77: new kunyu77(this, object),
     };
 
 
@@ -5762,7 +5763,7 @@
       source: Lampa.Lang.translate('settings_rest_source')
     };
     // , 'videocdn', 'rezka', 'rezka2', 'kinobase', 'collaps', 'cdnmovies', 'filmix', 'videoapi'
-    var filter_sources = ['低端影视','厂长资源', '小雅的Alist', '霸王龙压制组', 'DYD', '易搜']; // шаловливые ручки
+    var filter_sources = ['低端影视','厂长资源', '小雅的Alist', '酷云77', '霸王龙压制组', 'DYD', '易搜']; // шаловливые ручки
     filter_sources = resource_sname.concat(filter_sources);
     filter_sources = tg_sname.concat(filter_sources);
     //不要网站资源 
@@ -6415,6 +6416,7 @@
       sources.DYD.destroy();
       sources.低端影视.destroy();
       sources.厂长资源.destroy();
+      sources.酷云77.destroy();
 
       doregjson.resource_site.forEach(function (elem) {
         sources[elem.site_name].destroy();
