@@ -2751,11 +2751,19 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
+      // function randDevice() {
+      //   return {
+          // brand: 'Huawei',
+          // model: 'HUAWEI Mate 20',
+          // release: '10',
+      //     buildId: randStr(3, false).toUpperCase() + _.random(11, 99) + randStr(1, false).toUpperCase(),
+      //   };
+      // }
       var device = {
         id: randStr(32).toLowerCase(),
-        release: '10',
         brand: 'Huawei',
-        model: 'HUAWEI Mate 20'
+        model: 'HUAWEI Mate 20',
+        release: '10',
       };
 
       function add$b(u, params) {
@@ -2764,19 +2772,20 @@
 
       input = add$b(input, 'pcode=010110005');
       input = add$b(input, 'version=2.1.6');
-      input = add$b(input, 'devid='+device.id);
+      input = add$b(input, 'devid=' + device.id);
       input = add$b(input, 'package=com.sevenVideo.app.android');
       input = add$b(input, 'sys=android');
-      input = add$b(input, 'sysver='+device.release);
-      input = add$b(input, 'brand='+device.brand);
-      input = add$b(input, 'model='+device.model.replace(/ /g, '_'));
-      input = add$b(input, 'model='+sj);
-      // console.log(url)
-  
+      input = add$b(input, 'sysver=' + device.release);
+      input = add$b(input, 'brand=' + device.brand);
+      input = add$b(input, 'model=' + device.model.replaceAll(' ', '_'));
+      input = add$b(input, 'sj=' + sj);
+
+
       var tkSrc = input.split('?')[1].split('&').map(function (it) {
         return it.split('=')[1]
       }).join('');
       tkSrc = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkSrc + sj + 'XSpeUFjJ';
+      console.log(tkSrc)
 
       Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
         var tk = CryptoJS.MD5(tkSrc).toString().toLowerCase();
@@ -2791,40 +2800,40 @@
       });
     }
 
+    function getTime() {
+      var ts = Math.round(new Date().getTime() / 1000).toString();
+      // console.log('获取时间戳:' + ts);
+      return ts
+    }
+
+    function getHeaders(input, ts, callback) {
+      var tkstr = input.split('?')[1].split('&').map(function (it) {
+        return it.split('=')[1];
+      }).join('');
+
+      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr + ts + 'XSpeUFjJ';
+
+      console.log('tk加密前:' + tkstr);
+
+      Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
+        var TK = CryptoJS.MD5(tkstr);
+        console.log('tk加密后:' + TK);
+
+        var headers = {
+          "User-Agent": "okhttp/3.12.0",
+          "TK": TK.toString()  // Convert TK to a string
+        };
+
+        callback(headers); // Pass the headers to the callback function
+      });
+    }
 
     /**
      * Поиск
      * @param {Object} _object 
      */
 
-    function getTime () {
-      var ts = Math.round(new Date().getTime() / 1000).toString();
-      console.log('获取时间戳:' + ts);
-      return ts
-    }
-   
-    function getHeaders(input, ts, callback) {
-      var tkstr = input.split('?')[1].split('&').map(function (it) {
-          return it.split('=')[1];
-      }).join('');
-  
-      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr + ts + 'XSpeUFjJ';
-  
-      console.log('tk加密前:' + tkstr);
-  
-      Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
-          var TK = CryptoJS.MD5(tkstr);
-          console.log('tk加密后:' + TK);
-  
-          var headers = {
-              "User-Agent": "okhttp/3.12.0",
-              "TK": TK.toString()  // Convert TK to a string
-          };
-  
-          callback(headers); // Pass the headers to the callback function
-      });
-  }
-
+    
     function getdetail(url) {
       var ts = getTime();
       getHeaders_(url, ts, function (header) {
@@ -2851,7 +2860,6 @@
     };
 
     this.search = function (_object, kinopoisk_id) {
-      var ts = getTime();
       var _this = this;
       object = _object;
       select_title = object.search || object.movie.title;
