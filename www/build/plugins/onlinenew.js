@@ -2805,7 +2805,6 @@
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
         getdetail(url);
       } else {
-        
         network.silent(url, function (json) {
           if (json) {
             //console.log(json.data.length)
@@ -2893,6 +2892,7 @@
     };
 
     function parse(json) {
+      console.log('json',json)
       rslt = [];
       json.data.episodes.forEach(function (episode) {
 
