@@ -2847,8 +2847,8 @@
 
       console.log('tk加密前:' + tkstr);
 
-      Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
-        var TK = CryptoJS.MD5(tkstr);
+      Lampa.Utils.putScriptAsync(["https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"], function () {
+        var TK = md5(tkstr);
         console.log('tk加密后:' + TK);
 
         var headers = {
