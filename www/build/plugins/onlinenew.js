@@ -2768,7 +2768,7 @@
 
     var rslt = [];
 
-    function getHeaders_(input, sj, callback) {
+    this.getHeaders_ = function (input, sj, callback) {
       var charStr = 'abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789';
 
       function randStr(len, withNum) {
@@ -2838,7 +2838,7 @@
       return ts
     }
 
-    function getHeaders(input, ts, callback) {
+    this.getHeaders = function (input, ts, callback) {
       var tkstr = input.split('?')[1].split('&').map(function (it) {
         return it.split('=')[1];
       }).join('');
@@ -2865,32 +2865,6 @@
      * @param {Object} _object 
      */
 
-    
-    function getdetail(url) {
-      var ts = getTime();
-      getHeaders_(url, ts, function (header) {
-        console.log(header);
-        network["native"](url, function (json) {
-          console.log(json.msg )
-          if (json.msg == '非法请求' || json.data.episodes.length == 0) {
-            component.emptyForQuery(select_title)
-          } else {
-            parse(json);
-          };
-          component.loading(false);
-        }, function (a, c) {
-          if (a.status == 403) {
-            component.empty('请在Android客户端中使用。');
-          } else {
-            component.empty(network.errorDecode(a, c));
-          }
-        }, false, {
-          dataType: 'json',
-          headers: header
-        });
-      });
-    };
-
     this.search = function (_object, kinopoisk_id) {
       var _this = this;
       object = _object;
@@ -2899,11 +2873,13 @@
       var url;
       network.clear();
       network.timeout(1000 * 15);
-      var listUrl='https://api.tyun77.cn/api.php/provide/videoPlaylist?ids=#tid';
+      // var listUrl='let tid = input.split("ids=")[1].split('&')[0]'
+      var ts= getTime();
+      var listUrl='https://api.tyun77.cn/api.php/provide/videoPlaylist?devid=453CA5D864457C7DB4D0EAA93DE96E66&ids=#tid&package=com.sevenVideo.app.android&version=&sj='+ts;
       kinopoisk_id === parseInt(kinopoisk_id, 10) ? url = listUrl.replace('#tid',kinopoisk_id): url = 'https://api.tyun77.cn/api.php/provide/searchVideo?searchName=' + encodeURIComponent(object.movie.title);
       //url = url.replace('#msearchword',encodeURIComponent(object.movie.title));
       if (kinopoisk_id === parseInt(kinopoisk_id, 10)) {
-        getdetail(url);
+        _this.getdetail(url,ts);
       } else {
         network.silent(url, function (json) {
           if (json) {
@@ -2913,7 +2889,7 @@
               if (json.data.length == 1) {
                 var id = json.data[0].id;
                 url = listUrl.replace('#tid',id);
-                getdetail(url);
+                _this.getdetail(url,ts);
               } else {
                 _this.wait_similars = true;
                 var similars = [];
@@ -2943,6 +2919,31 @@
           dataType: 'json',
         });
       };
+    };
+
+    this.getdetail = function (url,ts) {
+      var _this = this;
+      _this.getHeaders(url, ts, function (header) {
+        console.log(header);
+        network["native"](url, function (json) {
+          console.log(json.msg )
+          if (json.msg == '非法请求' || json.data.episodes.length == 0) {
+            component.emptyForQuery(json.msg +' '+select_title)
+          } else {
+            parse(json);
+          };
+          component.loading(false);
+        }, function (a, c) {
+          if (a.status == 403 || a.status == 0) {
+            component.empty('请在Android客户端中使用。');
+          } else {
+            component.empty(network.errorDecode(a, c));
+          }
+        }, false, {
+          dataType: 'json',
+          headers: header
+        });
+      });
     };
 
     this.extendChoice = function (saved) {
