@@ -2843,7 +2843,7 @@
         return it.split('=')[1];
       }).join('');
 
-      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr + ts + 'XSpeUFjJ';
+      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr  + 'XSpeUFjJ';
 
       console.log('tk加密前:' + tkstr);
 
@@ -2928,7 +2928,7 @@
         network["native"](url, function (json) {
           console.log(json.msg )
           if (json.msg == '非法请求' || json.data.episodes.length == 0) {
-            component.emptyForQuery(json.msg +' '+select_title)
+            component.emptyForQuery(select_title)
           } else {
             parse(json);
           };
