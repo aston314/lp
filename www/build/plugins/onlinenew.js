@@ -1169,7 +1169,6 @@
 
           if (element.file) {
             var videocontainer = doreg.videocontainer;
-            var iabRef = null;
             function loadingshow() {
               Lampa.Modal.open({
                 title: '',
@@ -1221,18 +1220,30 @@
                   window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
                   
                   if (typeof now !== 'undefined') {
-                    var playlist = [];
-                    var first = {
-                      url: now,
-                      timeline: view,
-                      title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
-                      subtitles: element.subtitles,
-                      tv: false
-                    };
-                    Lampa.Player.play(first);
-                    playlist.push(first);
-                    Lampa.Player.playlist(playlist);
-                    component.savehistory(object);
+                    if (/m3u8|mp4/.test(now)) {
+                      var playurl = str.match(/var now="(.*?)"/)[1];
+                      if (/m3u8|mp4/.test(playurl)) {
+                        var playlist = [];
+                        var first = {
+                          url: playurl,
+                          timeline: view,
+                          title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
+                          subtitles: element.subtitles,
+                          tv: false
+                        };
+                        Lampa.Player.play(first);
+                        playlist.push(first);
+                        Lampa.Player.playlist(playlist);
+                        component.savehistory(object);
+                      } else {
+                        $(".noty").show();
+                        Lampa.Noty.show('没有找到视频链接。');
+                      }
+                    } else {
+                      $(".noty").show();
+                      Lampa.Noty.show('没有找到视频链接。');
+                    }
+
                     Lampa.Modal.close();
                     Lampa.Api.clear();
                   } else {
