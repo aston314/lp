@@ -1178,7 +1178,7 @@
                 mask: true,
                 onBack: function onBack() {
                   Lampa.Modal.close();
-                  Lampa.Api.clear();
+                  
                   Lampa.Controller.toggle('content');
                 }
               });
@@ -1219,13 +1219,13 @@
                   var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
                   window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
                   
-                  if (typeof now !== 'undefined') {
-                    if (/m3u8|mp4/.test(now)) {
-                      var playurl = str.match(/var now="(.*?)"/)[1];
-                      if (/m3u8|mp4/.test(playurl)) {
+                  if (typeof now == 'string') {
+                    // if (/m3u8|mp4/.test(now)) {
+                      // var playurl = str.match(/var now="(.*?)"/)[1];
+                      // if (/m3u8|mp4/.test(playurl)) {
                         var playlist = [];
                         var first = {
-                          url: playurl,
+                          url: now,
                           timeline: view,
                           title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality,
                           subtitles: element.subtitles,
@@ -1235,17 +1235,17 @@
                         playlist.push(first);
                         Lampa.Player.playlist(playlist);
                         component.savehistory(object);
-                      } else {
-                        $(".noty").show();
-                        Lampa.Noty.show('没有找到视频链接。');
-                      }
-                    } else {
-                      $(".noty").show();
-                      Lampa.Noty.show('没有找到视频链接。');
-                    }
-
+                      // } else {
+                      //   $(".noty").show();
+                      //   Lampa.Noty.show('没有找到视频链接。');
+                      // }
+                    // } else {
+                    //   $(".noty").show();
+                    //   Lampa.Noty.show('没有找到视频链接。');
+                    // }
+                    now = null;
                     Lampa.Modal.close();
-                    Lampa.Api.clear();
+                    
                   } else {
                     var queue = [
                       proxy_url + url + '/static/js/playerconfig.js',
@@ -1272,7 +1272,7 @@
                     ProcessScripts(function () {
                       Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
                         Lampa.Modal.close();
-                        Lampa.Api.clear();
+                        
                         //$(".noty").show();
                         //console.log($(MacPlayer.Html).attr('src'))
                         MacPlayer_ = $(MacPlayer.Html).attr('src');
@@ -2249,7 +2249,7 @@
               mask: true,
               onBack: function onBack() {
                 Lampa.Modal.close();
-                Lampa.Api.clear();
+                
                 Lampa.Controller.toggle('content');
               }
             });
@@ -2552,7 +2552,7 @@
               mask: true,
               onBack: function onBack() {
                 Lampa.Modal.close();
-                Lampa.Api.clear();
+                
                 Lampa.Controller.toggle('content');
               }
             });
