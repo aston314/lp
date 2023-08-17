@@ -686,6 +686,7 @@
     var rslt = [];
     var proxy_url;
     var proxy = 'https://cors.eu.org/';
+    var proxy_alt = 'https://api.allorigins.win/raw?url=';
 
     /**
      * Поиск
@@ -740,7 +741,7 @@
       var ifjson = doreg.search_json ? "json" : "text";
       network.clear();
       network.timeout(1000 * 15);
-      network["native"]((doreg.search_json ? '' : proxy_url) + url1, function (str) {
+      network["native"](doreg.search_json ? proxy_alt + encodeURIComponent(url1) : proxy_url + url1, function (str) {
         // var parsedData = doreg.search_json ? str : str;
 
         var parsedData = str;
