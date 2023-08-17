@@ -615,13 +615,13 @@
       },
       {
         site_name: '采集-量子资源网',
-        site_search_url: 'https://cors.eu.org/https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://cors.eu.org/https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://api.allorigins.win/raw?url=https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://api.allorigins.win/raw?url=https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       },
       {
         site_name: '采集-非凡资源站',
-        site_search_url: 'https://cors.eu.org/http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://cors.eu.org/http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://api.allorigins.win/raw?url=http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+        site_detail_url: 'https://api.allorigins.win/raw?url=http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
       },
       // {
       //   site_name: '采集-人人影视',
