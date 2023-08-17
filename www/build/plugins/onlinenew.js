@@ -1233,6 +1233,8 @@
                     playlist.push(first);
                     Lampa.Player.playlist(playlist);
                     component.savehistory(object);
+                    Lampa.Modal.close();
+                    Lampa.Api.clear();
                   } else {
                     var queue = [
                       proxy_url + url + '/static/js/playerconfig.js',
