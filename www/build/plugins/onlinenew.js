@@ -740,7 +740,7 @@
       var ifjson = doreg.search_json ? "json" : "text";
       network.clear();
       network.timeout(1000 * 15);
-      network["native"](proxy_url + url1, function (str) {
+      network["native"]((doreg.search_json ? '' : proxy_url) + url1, function (str) {
         // var parsedData = doreg.search_json ? str : str;
 
         var parsedData = str;
@@ -1292,6 +1292,9 @@
 
                           } else {
                             if (navigator.userAgent.toLowerCase().indexOf("lampa_client") == -1) {
+                              // $.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent(MacPlayer_), function (data) {
+                              //   console.log(data.contents);
+                              // });
                               $(".noty").show();
                               Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
                               Lampa.Controller.toggle('content');
