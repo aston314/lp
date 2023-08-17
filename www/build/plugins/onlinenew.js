@@ -2843,7 +2843,7 @@
         return it.split('=')[1];
       }).join('');
 
-      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') + tkstr  + 'XSpeUFjJ';
+      tkstr = input.split('?')[0].replace('https://api.tyun77.cn', '') +tkstr+ts+ + 'XSpeUFjJ';
 
       console.log('tk加密前:' + tkstr);
 
