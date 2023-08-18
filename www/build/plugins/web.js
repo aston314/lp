@@ -1173,9 +1173,7 @@
                 });
 
                 card.addClass(object.show.indexOf('landscape') != -1 ? 'card--collection' : 'card--category');
-                //card.addClass(object.title.indexOf('jable') !== -1 || !object.card_cat || object.cards ? 'card--category' : 'card--collection');
-                //card.addClass('card--collection');
-                //card.addClass('card--category');
+                
                 // card.find('.info').css({
                 //     'height': '5em',
                 // });
@@ -1198,10 +1196,10 @@
                     card.find('.card__view').append('<div class="card__quality"></div>');
                     card.find('.card__quality').text(element.update);
                 };
-                // if (element.score) {
-                //     card.find('.card__view').append('<div class="card__type"></div>');
-                //     card.find('.card__type').text(element.score);
-                // };
+                if (element.website) {
+                    card.find('.card__view').append('<div class="card__type"></div>');
+                    card.find('.card__type').text(element.website);
+                };
                 if (element.score) {
                     card.find('.card__view').append('<div class="card__vote"></div>');
                     card.find('.card__vote').text(element.score);
