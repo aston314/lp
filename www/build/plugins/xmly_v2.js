@@ -559,7 +559,7 @@
     });
     catalogs.push({
       title: '华语台',
-      url: 'https://raw.gitmirror.com/aston314/lampa/main/data/radios.json',
+      url: 'https://ghproxy.com/https://raw.githubusercontent.com/aston314/lampa/main/data/radios.json',
       cid: '',
     });
     $.each(list_radio_name, function (i, val) {
