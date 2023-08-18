@@ -1294,7 +1294,9 @@
                 });
                 card.on('hover:enter', function (target, card_data) {
                     if (object.next == 'search') {
-                        element.website = object.title.includes('-') ? object.title.split('-')[0].trim() : object.title;
+                        if (object.title !== '播放记录') {
+                            element.website = object.title.includes('-') ? object.title.split('-')[0].trim() : object.title;
+                        }
                         Lampa.Activity.push({
                             url: '',
                             title: '在线观看',
