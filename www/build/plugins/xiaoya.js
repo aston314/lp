@@ -187,7 +187,7 @@
                     element.original_title = '';
                     Lampa.Activity.push({
                         url: alistip + element.url,
-                        title: 'Alist - ' + element.title,
+                        title: '小雅Alist - ' + element.title,
                         component: 'alist',
                         movie: element,
                         page: 1
