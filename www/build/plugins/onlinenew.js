@@ -615,13 +615,13 @@
       },
       {
         site_name: '采集-量子资源网',
-        site_search_url: 'https://api.allorigins.win/raw?url=https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://api.allorigins.win/raw?url=https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=')+'#msearchword',
+        site_detail_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids')+'=#id'
       },
       {
         site_name: '采集-非凡资源站',
-        site_search_url: 'https://api.allorigins.win/raw?url=http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-        site_detail_url: 'https://api.allorigins.win/raw?url=http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+        site_search_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=')+'#msearchword',
+        site_detail_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=')+'#id'
       },
       // {
       //   site_name: '采集-人人影视',
@@ -736,12 +736,18 @@
       doreg = rule;
       get_links_wait = true;
       var url1 = doreg.search_url.replace('#msearchword', encodeURIComponent(select_title.replace(/第(.+)季/, '')));
-      (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
+      if (doreg.use_proxy) {
+          proxy_url = proxy;
+          proxy_alt = proxy_alt;
+      } else {
+          proxy_url = '';
+          proxy_alt = '';
+      };
 
       var ifjson = doreg.search_json ? "json" : "text";
       network.clear();
       network.timeout(1000 * 15);
-      network["native"](doreg.search_json ? proxy_alt + encodeURIComponent(url1) : proxy_url + url1, function (str) {
+      network["native"](doreg.search_json ? ((doreg.use_proxy === true) ? proxy_alt + encodeURIComponent(url1) : url1) : proxy_url + url1, function (str) {
         // var parsedData = doreg.search_json ? str : str;
 
         var parsedData = str;
@@ -845,7 +851,14 @@
     function dodetail(link, data, title) {
       //取得具体页面的详情地址
 
-      (doreg.use_proxy === true) ? proxy_url = proxy : proxy_url = '';
+      if (doreg.use_proxy) {
+        proxy_url = proxy;
+        proxy_alt = proxy_alt;
+      } else {
+        proxy_url = '';
+        proxy_alt = '';
+      };
+      
       network["native"](proxy_url + link, function (data) {
 
         var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
@@ -1784,7 +1797,7 @@
       select_title = object.search || object.movie.title;
       //doreg = rule;
       //Lampa.Utils.checkHttp('proxy.cub.watch/cdn/')+
-      var url1 = 'https://cors.eu.org/https://tx.me/s/' + tg_channel_name + '?q=#msearchword';
+      var url1 = 'https://api.allorigins.win/raw?url=https://tx.me/s/' + tg_channel_name + '?q=#msearchword';
       url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
 
       network.clear();
