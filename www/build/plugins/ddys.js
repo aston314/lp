@@ -905,7 +905,7 @@
     var catalogs = [
     {
         title: '首页',
-        url: 'https://ddys.pro'
+        url: 'https://ddys.pro/'
     },
     {
         title: '电影',
