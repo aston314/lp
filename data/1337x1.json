@@ -28,7 +28,7 @@
       "release_date": "2013-04-23"
     },
     {
-      "tmdbrate": 6.91,
+      "tmdbrate": 6.905,
       "picture": "http://image.tmdb.org/t/p/w200/vg1neJPGKuPdXO1vbveZ5k2Lrn7.jpg",
       "name": "Blue Beetle",
       "video": "magnet:?xt=urn:btih:4420A08F4C9A5CD315D3E7DBA23C646E653F9288&dn=Blue.Beetle.2023.1080p.NO-ADS.HDTS%5BHindi+%2B+English%5D%5BLV444%5D%E2%9C%92&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.auctor.tv%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fsanincode.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fprivate.anonseed.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
@@ -44,6 +44,15 @@
       "oname": "Asteroid.City.2023.1080p.10bit.BluRay.8CH.x265.HEVC-PSA",
       "cname": "小行星城 ",
       "release_date": "2023-06-08"
+    },
+    {
+      "tmdbrate": 7.6,
+      "picture": "http://image.tmdb.org/t/p/w200/aKeJgTDAiBe5hFgFgI3V3ChOLmh.jpg",
+      "name": "Avatar",
+      "video": "magnet:?xt=urn:btih:9626455F8E76C5797CF06827642F2C865D1C8F6A&dn=Avatar+%282009%29+%282160p+BluRay+x265+HEVC+10bit+HDR+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Avatar (2009) (2160p BluRay x265 HEVC 10bit HDR AAC 7.1 Tigole) [...",
+      "cname": "阿凡达 ",
+      "release_date": "2009-12-15"
     },
     {
       "tmdbrate": 6.94,
