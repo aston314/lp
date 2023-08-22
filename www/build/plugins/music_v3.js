@@ -8,7 +8,8 @@
     // https://netease-cloud-music-api-psi-silk.vercel.app
     // https://api-mymusic.vercel.app
     // https://mu-api.yuk0.com
-    var apiurl = 'https://ncm.icodeq.com'
+    // https://ncm.icodeq.com
+    var apiurl = 'https://netease-cloud-music-api-psi-silk.vercel.app/'
     function MUSIC(object) {
         var network = new Lampa.Reguest();
         var scroll = new Lampa.Scroll({
