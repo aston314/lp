@@ -10,7 +10,7 @@
         available: true,
         websitelink: 'https://www.libvio.fun',
         listlink: true,
-        use_proxy: false,
+        use_proxy: true,
         search_url: 'https://www.libvio.fun/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
         search_json: true,
         node_json: 'list',
