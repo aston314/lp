@@ -8,7 +8,7 @@
       "datasort": "",
       "use_proxy": false,
       "use_referer": false,
-      "browser": "PC_UA",
+      "browser": "MOBILE_UA",
       "category": [
          {
             "title": "最近更新",
