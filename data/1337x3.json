@@ -1,11 +1,16 @@
 {
   "data": [
     {
+      "name": "",
+      "oname": "",
+      "cname": " "
+    },
+    {
       "tmdbrate": 6.8,
       "picture": "http://image.tmdb.org/t/p/w200/fGc9HKeGKebC1RD7WPt0NYDONTo.jpg",
       "name": "Metalocalypse Army Of The Doomstar",
-      "video": "magnet:?xt=urn:btih:12328DCAB90F6F0B635FF3D967E716277E96561A&dn=Metalocalypse.Army.Of.The.Doomstar.2023.1080p.AMZN.WEBRip.1400MB.DD5.1.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Metalocalypse.Army.Of.The.Doomstar.2023.1080p.AMZN.WEBRip.1400MB....",
+      "video": "magnet:?xt=urn:btih:F17368BC3610838E264C71DBB856B190F8D8E9EA&dn=Metalocalypse.Army.Of.The.Doomstar.2023.720p.AMZN.WEBRip.800MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Metalocalypse.Army.Of.The.Doomstar.2023.720p.AMZN.WEBRip.800MB.x2...",
       "cname": "金属末日：末日之星军团 ",
       "release_date": "2023-08-22"
     },
@@ -13,8 +18,8 @@
       "tmdbrate": 6.8,
       "picture": "http://image.tmdb.org/t/p/w200/o43eMkNkWBBsyxEyyUeQwl4AOe.jpg",
       "name": "The Dive",
-      "video": "magnet:?xt=urn:btih:464D706B57D86856B31CF4F742A0E7C27307736A&dn=The.Dive.2023.720p.AMZN.WEBRip.800MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The.Dive.2023.720p.AMZN.WEBRip.800MB.x264-GalaxyRG",
+      "video": "magnet:?xt=urn:btih:3E06D5D5494E5C9F4AFC2C81AE642120B1CACB4E&dn=The.Dive.2023.1080p.AMZN.WEBRip.1400MB.DD5.1.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The.Dive.2023.1080p.AMZN.WEBRip.1400MB.DD5.1.x264-GalaxyRG",
       "cname": "The Dive ",
       "release_date": "2023-08-24"
     },
@@ -46,15 +51,6 @@
       "release_date": "2023-08-02"
     },
     {
-      "tmdbrate": 7.529,
-      "picture": "http://image.tmdb.org/t/p/w200/twTtNUaRhL2EFC2V1sFXkYs8pip.jpg",
-      "name": "The Fifth Element",
-      "video": "magnet:?xt=urn:btih:B1593ADDFE1509CA2026A9470CE119AAA56676D5&dn=The+Fifth+Element+%281997%29+1080p+BluRay+AV1+Opus+Multi4+%5BdAV1nci%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=https%3A%2F%2Ftracker1.520.jp%3A443%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=http%3A%2F%2Fbt.endpot.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The Fifth Element (1997) 1080p BluRay AV1 Opus Multi4 [dAV1nci]",
-      "cname": "第五元素 ",
-      "release_date": "1997-05-02"
-    },
-    {
       "tmdbrate": 6.866,
       "picture": "http://image.tmdb.org/t/p/w200/mIVyFO47oHJmy8lTKbD1Q7HxSvs.jpg",
       "name": "The Monkey King",
@@ -64,12 +60,13 @@
       "release_date": "2023-08-11"
     },
     {
-      "tmdbrate": 8.23,
-      "picture": "http://image.tmdb.org/t/p/w200/gFlfyU4uY5fkycwcMRMadL3hdJ9.jpg",
-      "name": "Battlestar Galactica",
-      "video": "magnet:?xt=urn:btih:6CABF8734CAA770776C49DDAEF0DD201211E15FF&dn=Battlestar+Galactica+%281978%29+%5BBluRayRip+2160p%5D+%5B10+bit+x265+HEVC+HDR10%5D+%5BDTS-HD+5.1%5D+%5BAC-3%5D+%5BSBinK%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Battlestar Galactica (1978) [BluRayRip 2160p] [10 bit x265 HEVC H...",
-      "cname": " "
+      "tmdbrate": 7.529,
+      "picture": "http://image.tmdb.org/t/p/w200/twTtNUaRhL2EFC2V1sFXkYs8pip.jpg",
+      "name": "The Fifth Element",
+      "video": "magnet:?xt=urn:btih:B1593ADDFE1509CA2026A9470CE119AAA56676D5&dn=The+Fifth+Element+%281997%29+1080p+BluRay+AV1+Opus+Multi4+%5BdAV1nci%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=https%3A%2F%2Ftracker1.520.jp%3A443%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=http%3A%2F%2Fbt.endpot.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Fifth Element (1997) 1080p BluRay AV1 Opus Multi4 [dAV1nci]",
+      "cname": "第五元素 ",
+      "release_date": "1997-05-02"
     },
     {
       "tmdbrate": 6.116,
@@ -90,15 +87,6 @@
       "release_date": "1995-10-13"
     },
     {
-      "tmdbrate": 6.7,
-      "picture": "http://image.tmdb.org/t/p/w200/s9nwiVMOVvnS2Jt6hdy7UHoFSD0.jpg",
-      "name": "Organ Trail",
-      "video": "magnet:?xt=urn:btih:E0B1FE5D4B210170F177C0B336B1FF88944AC8E9&dn=Organ.Trail.2023.1080p.WEB.h264-EDITH%5BTGx%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Organ.Trail.2023.1080p.WEB.h264-EDITH[TGx]",
-      "cname": "僵尸之路 ",
-      "release_date": "2023-04-14"
-    },
-    {
       "tmdbrate": 2.818,
       "picture": "http://image.tmdb.org/t/p/w200/46LDnsH1aE04PMJ3W26qECn9Sh8.jpg",
       "name": "Emmanuelles Revenge",
@@ -106,6 +94,15 @@
       "oname": "Emmanuelles.Revenge.1993-[Erotic].DVDRip",
       "cname": "Emmanuelle's Revenge ",
       "release_date": "1993-02-14"
+    },
+    {
+      "tmdbrate": 6.7,
+      "picture": "http://image.tmdb.org/t/p/w200/s9nwiVMOVvnS2Jt6hdy7UHoFSD0.jpg",
+      "name": "Organ Trail",
+      "video": "magnet:?xt=urn:btih:E0B1FE5D4B210170F177C0B336B1FF88944AC8E9&dn=Organ.Trail.2023.1080p.WEB.h264-EDITH%5BTGx%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Organ.Trail.2023.1080p.WEB.h264-EDITH[TGx]",
+      "cname": "僵尸之路 ",
+      "release_date": "2023-04-14"
     },
     {
       "tmdbrate": 4.933,
@@ -117,24 +114,6 @@
       "release_date": "1995-07-11"
     },
     {
-      "tmdbrate": 6,
-      "picture": "http://image.tmdb.org/t/p/w200/5ncvnNPaN73cOqD4muE413sSOyY.jpg",
-      "name": "Shaft",
-      "video": "magnet:?xt=urn:btih:2C37FB4D9FAFB5412274663896694E79B6AF6999&dn=Shaft.2019.ENHANCED.1080p.10bit.DS4K.Blu-ray.DDP.7.1.HEVC-NmCT&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fvm3268418.24ssd.had.wf%3A6969%2Fannounce&tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&tr=udp%3A%2F%2Ffree.publictracker.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leech.ie%3A1337%2Fannounce&tr=udp%3A%2F%2Fttk2.nbaonlineservice.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Shaft.2019.ENHANCED.1080p.10bit.DS4K.Blu-ray.DDP.7.1.HEVC-NmCT",
-      "cname": "杀戮战警 ",
-      "release_date": "2000-06-15"
-    },
-    {
-      "tmdbrate": 6.393,
-      "picture": "http://image.tmdb.org/t/p/w200/ukpifWBW2xEmMtJX4bCpoNpWEr2.jpg",
-      "name": "You Are So Not Invited to My Bat Mitzvah",
-      "video": "magnet:?xt=urn:btih:11BDA0DB42F95C9B7C2CE43F6583358D40C5C175&dn=You+Are+So+Not+Invited+to+My+Bat+Mitzvah+2023+1080p+WEB+H264-HUZZAH&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "You Are So Not Invited to My Bat Mitzvah 2023 1080p WEB H264-HUZZ...",
-      "cname": "别幻想来我的成年礼 ",
-      "release_date": "2023-08-18"
-    },
-    {
       "tmdbrate": 7.649,
       "picture": "http://image.tmdb.org/t/p/w200/s7MKwMaRHL5VtEcdqaCiPlsd6Mc.jpg",
       "name": "Past Lives",
@@ -142,6 +121,15 @@
       "oname": "Past Lives (2023) (1080p DS4K WEB-RIP AV1 Opus) [NeoNyx343]",
       "cname": "过往人生 ",
       "release_date": "2023-06-02"
+    },
+    {
+      "tmdbrate": 6.393,
+      "picture": "http://image.tmdb.org/t/p/w200/ukpifWBW2xEmMtJX4bCpoNpWEr2.jpg",
+      "name": "You Are So Not Invited to My Bat Mitzvah",
+      "video": "magnet:?xt=urn:btih:5CDF713F29DB000CC6D955554D7660492FA229DA&dn=You+Are+So+Not+Invited+to+My+Bat+Mitzvah+2023+1080p+WEB+HEVC+x265-RMZTeam&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "You Are So Not Invited to My Bat Mitzvah 2023 1080p WEB HEVC x265...",
+      "cname": "别幻想来我的成年礼 ",
+      "release_date": "2023-08-18"
     },
     {
       "tmdbrate": 6.656,
@@ -162,22 +150,22 @@
       "release_date": "2023-05-17"
     },
     {
-      "tmdbrate": 7.191,
-      "picture": "http://image.tmdb.org/t/p/w200/bHngyBFKw5CIGBy93BVgyHMG577.jpg",
-      "name": "Scream VI",
-      "video": "magnet:?xt=urn:btih:7D14D8310C55643FF5CC92E6B65A09528DD3D725&dn=Scream+VI+2023+BluRay+1080p+DTS+AC3+x264-MgB&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Scream VI 2023 BluRay 1080p DTS AC3 x264-MgB",
-      "cname": "惊声尖叫6 ",
-      "release_date": "2023-03-08"
+      "tmdbrate": 6.485,
+      "picture": "http://image.tmdb.org/t/p/w200/1Yy8H2tKQ16mffLFRfxcBHKBdyF.jpg",
+      "name": "The Addiction",
+      "video": "magnet:?xt=urn:btih:E59974CC34691D7DFC1AB7C54F3245260ADA68EC&dn=The+Addiction+%281995%29+%28Arrow+Remastered+1080p+BluRay+x265+HEVC+10bit+AAC+5.1+Commentary%29+Abel+Ferrara+Lily+Taylor+Christopher+Walken+Annabella+Sciorra+Edie+Falco+Paul+Calderon+Fredro+Starr+Kathryn+Erbe+Michael+Imperioli+Jamel+Simmons+Robert+W.+Castle&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Addiction (1995) (Arrow Remastered 1080p BluRay x265 HEVC 10b...",
+      "cname": "夜瘾 ",
+      "release_date": "1995-01-10"
     },
     {
-      "tmdbrate": 6.69,
-      "picture": "http://image.tmdb.org/t/p/w200/ng4lnPnTK43dOWT3dGvOuIiLJKT.jpg",
-      "name": "Speak No Evil",
-      "video": "magnet:?xt=urn:btih:41D2FD2FAC068162DFEDBFDB8B472FD9F3882E6C&dn=Speak.No.Evil.2022.FULL.HD.1080p.DTS%2BAC3.ITA.ENG.SUB.LFi.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fopen.dstud.io%3A6969%2Fannounce&tr=https%3A%2F%2Ftrackers.mlsub.net%3A443%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=udp%3A%2F%2Fthouvenin.cloud%3A6969%2Fannounce&tr=udp%3A%2F%2Faarsen.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fepider.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fhtz3.noho.st%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Speak.No.Evil.2022.FULL.HD.1080p.DTS+AC3.ITA.ENG.SUB.LFi.mkv",
-      "cname": "非礼勿言 ",
-      "release_date": "2022-03-17"
+      "tmdbrate": 7.418,
+      "picture": "http://image.tmdb.org/t/p/w200/j9RaptNfOnqHMlTVa7nRdcTrSwr.jpg",
+      "name": "Barbie",
+      "video": "magnet:?xt=urn:btih:AAFABABBB660D333972442DF30556883DBB7DD90&dn=Barbie+%282023%29+1080p+V3+TELESYNC+x264+ESub+AAC&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Barbie (2023) 1080p V3 TELESYNC x264 ESub AAC",
+      "cname": "芭比 ",
+      "release_date": "2023-07-19"
     },
     {
       "tmdbrate": 6.438,
@@ -189,15 +177,6 @@
       "release_date": "2011-04-11"
     },
     {
-      "tmdbrate": 6.485,
-      "picture": "http://image.tmdb.org/t/p/w200/1Yy8H2tKQ16mffLFRfxcBHKBdyF.jpg",
-      "name": "The Addiction",
-      "video": "magnet:?xt=urn:btih:E59974CC34691D7DFC1AB7C54F3245260ADA68EC&dn=The+Addiction+%281995%29+%28Arrow+Remastered+1080p+BluRay+x265+HEVC+10bit+AAC+5.1+Commentary%29+Abel+Ferrara+Lily+Taylor+Christopher+Walken+Annabella+Sciorra+Edie+Falco+Paul+Calderon+Fredro+Starr+Kathryn+Erbe+Michael+Imperioli+Jamel+Simmons+Robert+W.+Castle&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The Addiction (1995) (Arrow Remastered 1080p BluRay x265 HEVC 10b...",
-      "cname": "夜瘾 ",
-      "release_date": "1995-01-10"
-    },
-    {
       "tmdbrate": 6.717,
       "picture": "http://image.tmdb.org/t/p/w200/pYNQOINgkGw457XefM4hUcmNOxn.jpg",
       "name": "Scream",
@@ -205,6 +184,15 @@
       "oname": "Scream 1996 REMASTERED BluRay 1080p DTS AC3 x264-MgB",
       "cname": "惊声尖叫5 ",
       "release_date": "2022-01-12"
+    },
+    {
+      "tmdbrate": 6.471,
+      "picture": "http://image.tmdb.org/t/p/w200/2xosLXfNmGHy5cPMtvK3nK13pA.jpg",
+      "name": "Scream 2",
+      "video": "magnet:?xt=urn:btih:E030664E7319C883BE73B2BBAD1C3EC115699D6A&dn=Scream+2+1997+BluRay+1080p+DTS+AC3+x264-MgB&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Scream 2 1997 BluRay 1080p DTS AC3 x264-MgB",
+      "cname": "惊声尖叫2 ",
+      "release_date": "1997-12-12"
     },
     {
       "tmdbrate": 7.21,
@@ -216,6 +204,15 @@
       "release_date": "1998-06-01"
     },
     {
+      "tmdbrate": 5.7,
+      "picture": "http://image.tmdb.org/t/p/w200/hy96dnwz562U3PhXMzJvKNPBGS.jpg",
+      "name": "Ti presento i suoceri",
+      "video": "magnet:?xt=urn:btih:EEE21B00F83368B1C8A4540F8F34A43297D8CBAC&dn=Ti+presento+i+suoceri+%282023%29+FULL+HD+1080p+x264+AC3+ITA+DTS%2BAC3+ENG.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fopen.dstud.io%3A6969%2Fannounce&tr=https%3A%2F%2Ftrackers.mlsub.net%3A443%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=udp%3A%2F%2Fthouvenin.cloud%3A6969%2Fannounce&tr=udp%3A%2F%2Faarsen.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fepider.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fhtz3.noho.st%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Ti presento i suoceri (2023) FULL HD 1080p x264 AC3 ITA DTS+AC3 E...",
+      "cname": "或许我愿意 ",
+      "release_date": "2023-01-27"
+    },
+    {
       "tmdbrate": 5.98,
       "picture": "http://image.tmdb.org/t/p/w200/wnMfztar5S5QVrq8QaTthO8LdW8.jpg",
       "name": "Scream 3",
@@ -225,13 +222,13 @@
       "release_date": "2000-02-03"
     },
     {
-      "tmdbrate": 5.7,
-      "picture": "http://image.tmdb.org/t/p/w200/hy96dnwz562U3PhXMzJvKNPBGS.jpg",
-      "name": "Ti presento i suoceri",
-      "video": "magnet:?xt=urn:btih:EEE21B00F83368B1C8A4540F8F34A43297D8CBAC&dn=Ti+presento+i+suoceri+%282023%29+FULL+HD+1080p+x264+AC3+ITA+DTS%2BAC3+ENG.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fopen.dstud.io%3A6969%2Fannounce&tr=https%3A%2F%2Ftrackers.mlsub.net%3A443%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=udp%3A%2F%2Fthouvenin.cloud%3A6969%2Fannounce&tr=udp%3A%2F%2Faarsen.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fepider.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fhtz3.noho.st%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Ti presento i suoceri (2023) FULL HD 1080p x264 AC3 ITA DTS+AC3 E...",
-      "cname": "或许我愿意 ",
-      "release_date": "2023-01-27"
+      "tmdbrate": 6.717,
+      "picture": "http://image.tmdb.org/t/p/w200/pYNQOINgkGw457XefM4hUcmNOxn.jpg",
+      "name": "Scream",
+      "video": "magnet:?xt=urn:btih:9CD961F96771E15E89F2E425927E1C50128E0469&dn=Scream+2022+BluRay+1080p+DTS+AC3+x264-MgB&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Scream 2022 BluRay 1080p DTS AC3 x264-MgB",
+      "cname": "惊声尖叫5 ",
+      "release_date": "2022-01-12"
     }
   ]
 }
