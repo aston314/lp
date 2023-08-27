@@ -42,6 +42,15 @@
       "release_date": "1975-08-08"
     },
     {
+      "tmdbrate": 6.986,
+      "picture": "http://image.tmdb.org/t/p/w200/ePAjGAhynpwEI5HbpIrB28ML6lg.jpg",
+      "name": "Night of the Demon",
+      "video": "magnet:?xt=urn:btih:C7DA632DC40ACDA138BB0185E95A8811361DE170&dn=Night+of+the+Demon+%281980%29+%28Severin+Remastered+1080p+BluRay+x265+HEVC+10bit+AAC+2.0%29+James+C.+Wasson+Michael+Cutt+Melanie+Graham+Shannon+Cooper+Bob+Collings+Jodi+Lazarus+Michael+Lang+Ray+Jarris+thriller&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Night of the Demon (1980) (Severin Remastered 1080p BluRay x265 H...",
+      "cname": "恶魔之夜 ",
+      "release_date": "1957-11-09"
+    },
+    {
       "tmdbrate": 6.229,
       "picture": "http://image.tmdb.org/t/p/w200/kdnermMCBOnVxjDKA0FV1HZueqg.jpg",
       "name": "Child's Play 2",
@@ -49,15 +58,6 @@
       "oname": "Child's Play 2 (1990) (RM4k SF 1080p BluRay x265 HEVC 10bit AAC 7...",
       "cname": "鬼娃回魂2 ",
       "release_date": "1990-11-09"
-    },
-    {
-      "tmdbrate": 7.5,
-      "picture": "http://image.tmdb.org/t/p/w200/octinj3UJDIsY4WUyjUUH5RLoq5.jpg",
-      "name": "Drifting Home",
-      "video": "magnet:?xt=urn:btih:2023A4BBF889C8AA2A9B72342646ABD17AB5577D&dn=Drifting+Home+2022+BluRay+1080p+%28DUAL%29+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Drifting Home 2022 BluRay 1080p (DUAL) HEVC x265 5.1 BONE",
-      "cname": "漂流家园 ",
-      "release_date": "2022-09-09"
     }
   ]
 }
