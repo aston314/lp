@@ -64,6 +64,24 @@
       "release_date": "2023-08-18"
     },
     {
+      "tmdbrate": 8,
+      "picture": "http://image.tmdb.org/t/p/w200/asG1vxzBWed6vOwrHq1USW7HETT.jpg",
+      "name": "Blind Waters",
+      "video": "magnet:?xt=urn:btih:FA2013D54362A7CE866B381A81769635E793E702&dn=Blind+Waters+2023+720p+WEBRip-SMILEY&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Blind Waters 2023 720p WEBRip-SMILEY",
+      "cname": "Blind Waters ",
+      "release_date": "2023-08-12"
+    },
+    {
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/xvgsSC4PZvT2JPbhIVCHfewmie8.jpg",
+      "name": "Mercy Falls",
+      "video": "magnet:?xt=urn:btih:304AD8FDE57950C32F25D91AE9D6246D577BCEA9&dn=Mercy+Falls+2023+720p+WEBRip-SMILEY&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Mercy Falls 2023 720p WEBRip-SMILEY",
+      "cname": "Mercy Falls ",
+      "release_date": "2023-09-01"
+    },
+    {
       "tmdbrate": 4.2,
       "picture": "http://image.tmdb.org/t/p/w200/lt7K0Kre9B1ycukV8bkjWQDtz1r.jpg",
       "name": "Im Not Feeling Myself Tonight",
@@ -82,15 +100,6 @@
       "release_date": "2023-06-28"
     },
     {
-      "tmdbrate": 0,
-      "picture": "http://image.tmdb.org/t/p/w200/xulIkobKHZpnG6tL6s2d8wuVcoQ.jpg",
-      "name": "Hostile Forces",
-      "video": "magnet:?xt=urn:btih:AD9EE8EB3CE8EA9F447CC5582ED9FA0C455A028E&dn=Hostile+Forces+2023+720p+WEB-DL+x264+AAC-AOC&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Hostile Forces 2023 720p WEB-DL x264 AAC-AOC",
-      "cname": "Hostile Forces ",
-      "release_date": "2023-08-24"
-    },
-    {
       "tmdbrate": 6,
       "picture": "http://image.tmdb.org/t/p/w200/spiHFvHk7vqsIF4wAU7S6wcTzek.jpg",
       "name": "Dream Girl 2",
@@ -107,6 +116,24 @@
       "oname": "Haunted Mansion (2023) 1080p NEW HDTS x264",
       "cname": "新幽灵鬼屋 ",
       "release_date": "2023-07-26"
+    },
+    {
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/rtfCWqCaxHxGWRniFmMLg9FLc8Y.jpg",
+      "name": "Live Survival",
+      "video": "magnet:?xt=urn:btih:8998E3B25E942C22E72AA5116B70CD6FCA90BEF9&dn=Live+Survival+2023+720p+WEBRip-SMILEY&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Live Survival 2023 720p WEBRip-SMILEY",
+      "cname": "Live Survival ",
+      "release_date": "2023-01-23"
+    },
+    {
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/AsZD3dZRaYOkBBNjlZf4rXef471.jpg",
+      "name": "Vanished In Yosemite",
+      "video": "magnet:?xt=urn:btih:B6AB06EFA55E9C46C013C41718B2B4A369B9F632&dn=Vanished.In.Yosemite.2023.720p.WEB.H264-BAE&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Vanished.In.Yosemite.2023.720p.WEB.H264-BAE",
+      "cname": "Vanished in Yosemite ",
+      "release_date": "2023-08-26"
     },
     {
       "tmdbrate": 0,
@@ -145,15 +172,6 @@
       "release_date": "2023-08-18"
     },
     {
-      "tmdbrate": 4.4,
-      "picture": "http://image.tmdb.org/t/p/w200/iuFED0bgSApFk4VVPMYBHTi5JOG.jpg",
-      "name": "The Day of the Beast",
-      "video": "magnet:?xt=urn:btih:916750B84DC8E9F90C64B77E3DA0751690968230&dn=The+Day+of+the+Beast+%281995%29+aka+El+d%26iacute%3Ba+de+la+bestia+%28Severin+Remastered+1080p+BluRay+x265+HEVC+10bit+AAC+5.1+Dual+HeVK%29+Alex+de+la+Iglesia+Angulo+Armando+De+Razza+Santiago+Segura+Terele+Pavez+Nathalie+Sesena+Maria+Grazia+Cucinotta&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The Day of the Beast (1995) aka El día de la bestia (Severin Rema...",
-      "cname": "弗兰肯斯坦：兽性大发 ",
-      "release_date": "2011-11-21"
-    },
-    {
       "tmdbrate": 6.9,
       "picture": "http://image.tmdb.org/t/p/w200/mIVyFO47oHJmy8lTKbD1Q7HxSvs.jpg",
       "name": "The Monkey King",
@@ -172,15 +190,6 @@
       "release_date": "2002-12-19"
     },
     {
-      "tmdbrate": 7.068,
-      "picture": "http://image.tmdb.org/t/p/w200/1DLUb9PTDqXMSgsD7RmiJs7ZJIx.jpg",
-      "name": "One Night in Miami",
-      "video": "magnet:?xt=urn:btih:05842E4D78378BA9EFDABC3BB32BECF57CBB31B2&dn=One+Night+in+Miami+%282020%29+720p.10bit.BluRay.x265-budgetbits&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "One Night in Miami (2020) 720p.10bit.BluRay.x265-budgetbits",
-      "cname": "迈阿密的一夜 ",
-      "release_date": "2020-12-25"
-    },
-    {
       "tmdbrate": 6.534,
       "picture": "http://image.tmdb.org/t/p/w200/c9sZHxvxqrS0K10sgxWZ0gOT7v7.jpg",
       "name": "Star Wars Episode 1 The Phantom Menace",
@@ -188,6 +197,15 @@
       "oname": "Star.Wars.Episode.1.The.Phantom.Menace.1999.480p.DVD.x265.t1tan",
       "cname": "星球大战1：幽灵的威胁 ",
       "release_date": "1999-05-19"
+    },
+    {
+      "tmdbrate": 6.552,
+      "picture": "http://image.tmdb.org/t/p/w200/bIyjeVTInXWiO8JZxMRypu1XGMq.jpg",
+      "name": "Star Wars Episode 2 Attack Of The Clones",
+      "video": "magnet:?xt=urn:btih:3B3AB799B4E79C694A72850661CDDCC7E28CF7B5&dn=Star.Wars.Episode.2.Attack.Of.The.Clones.2002.480p.DVD.x265.t1tan&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Star.Wars.Episode.2.Attack.Of.The.Clones.2002.480p.DVD.x265.t1tan",
+      "cname": "星球大战2：克隆人的进攻 ",
+      "release_date": "2002-05-15"
     }
   ]
 }
