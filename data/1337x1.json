@@ -46,9 +46,13 @@
       "release_date": "2014-04-12"
     },
     {
-      "name": "",
-      "oname": "",
-      "cname": " "
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/5RhYtWtDdMkCCTet6xR8nMh1RpH.jpg",
+      "name": "Illicit Sins",
+      "video": "magnet:?xt=urn:btih:317AB840BF359384610782A67B874E76D7B6E6D4&dn=Illicit.Sins.2006-%5BErotic%5D.DVDRip&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Feddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ffasttracker.foreverpirates.co%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Illicit.Sins.2006-[Erotic].DVDRip",
+      "cname": "Illicit Sins ",
+      "release_date": "2003-01-01"
     },
     {
       "tmdbrate": 6.937,
@@ -150,15 +154,6 @@
       "release_date": "2012-03-31"
     },
     {
-      "tmdbrate": 7.071,
-      "picture": "http://image.tmdb.org/t/p/w200/o43eMkNkWBBsyxEyyUeQwl4AOe.jpg",
-      "name": "The Dive",
-      "video": "magnet:?xt=urn:btih:3C8EA3806C817761F8E9ACA8743F3269401DE9CE&dn=The.Dive.2023.1080p.WEB-HD.x264.6CH-PH&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The.Dive.2023.1080p.WEB-HD.x264.6CH-PH",
-      "cname": "潜水 ",
-      "release_date": "2023-08-24"
-    },
-    {
       "tmdbrate": 5.942,
       "picture": "http://image.tmdb.org/t/p/w200/eQzZ4777zaAKwa9YZnIQjRb22yn.jpg",
       "name": "You Are So Not Invited to My Bat Mitzvah",
@@ -186,6 +181,15 @@
       "release_date": "2023-08-11"
     },
     {
+      "tmdbrate": 6.9,
+      "picture": "http://image.tmdb.org/t/p/w200/nSLTpt2jskGssbHt56Z4EIuItp5.jpg",
+      "name": "Haunted Mansion",
+      "video": "magnet:?xt=urn:btih:7EF1810185202C5B93768B0CEF79915EBAE997AA&dn=Haunted+Mansion+%282023%29+1080p+NEW+HDTS+x264&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Haunted Mansion (2023) 1080p NEW HDTS x264",
+      "cname": "新幽灵鬼屋 ",
+      "release_date": "2023-07-26"
+    },
+    {
       "tmdbrate": 0,
       "picture": "http://image.tmdb.org/t/p/w200/th78OAZ14AsI63UXMZL8ZijBoAo.jpg",
       "name": "Twisted Neighbor",
@@ -202,6 +206,15 @@
       "oname": "Mob Land 2023 1080p WEB-DL DDP5 1 x264-AOC",
       "cname": "暴民之地 ",
       "release_date": "2023-08-04"
+    },
+    {
+      "tmdbrate": 4.4,
+      "picture": "http://image.tmdb.org/t/p/w200/iuFED0bgSApFk4VVPMYBHTi5JOG.jpg",
+      "name": "The Day of the Beast",
+      "video": "magnet:?xt=urn:btih:916750B84DC8E9F90C64B77E3DA0751690968230&dn=The+Day+of+the+Beast+%281995%29+aka+El+d%26iacute%3Ba+de+la+bestia+%28Severin+Remastered+1080p+BluRay+x265+HEVC+10bit+AAC+5.1+Dual+HeVK%29+Alex+de+la+Iglesia+Angulo+Armando+De+Razza+Santiago+Segura+Terele+Pavez+Nathalie+Sesena+Maria+Grazia+Cucinotta&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Day of the Beast (1995) aka El día de la bestia (Severin Rema...",
+      "cname": "弗兰肯斯坦：兽性大发 ",
+      "release_date": "2011-11-21"
     },
     {
       "tmdbrate": 7.6,
