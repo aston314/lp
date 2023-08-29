@@ -28,9 +28,13 @@
       "release_date": "2023-06-02"
     },
     {
-      "name": "",
-      "oname": "",
-      "cname": " "
+      "tmdbrate": 6.99,
+      "picture": "http://image.tmdb.org/t/p/w200/9Lav7LNgSfujCpUna3nypBef9UK.jpg",
+      "name": "Vacation Friends 2",
+      "video": "magnet:?xt=urn:btih:264CF4BEF84C3EA68EC954456C566D1B4C057AE0&dn=Vacation.Friends.2.2023.720p.WEBRip.800MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Vacation.Friends.2.2023.720p.WEBRip.800MB.x264-GalaxyRG",
+      "cname": "度假伙伴2 ",
+      "release_date": "2023-08-25"
     },
     {
       "tmdbrate": 6.3,
@@ -42,13 +46,9 @@
       "release_date": "2023-08-04"
     },
     {
-      "tmdbrate": 6.99,
-      "picture": "http://image.tmdb.org/t/p/w200/9Lav7LNgSfujCpUna3nypBef9UK.jpg",
-      "name": "Vacation Friends 2",
-      "video": "magnet:?xt=urn:btih:45B69271D056983C0A1AE1FF8B958A54863442E9&dn=Vacation.Friends.2.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Vacation.Friends.2.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG",
-      "cname": "度假伙伴2 ",
-      "release_date": "2023-08-25"
+      "name": "",
+      "oname": "",
+      "cname": " "
     },
     {
       "tmdbrate": 5.8,
@@ -96,6 +96,15 @@
       "release_date": "2003-09-16"
     },
     {
+      "tmdbrate": 5.6,
+      "picture": "http://image.tmdb.org/t/p/w200/gfT2yJr5SDWabecMKkpAmbxN8J6.jpg",
+      "name": "Girl Explores Girl The Alien Encounter",
+      "video": "magnet:?xt=urn:btih:D203E9CCA7A387B483D9084C318CC740FA869D07&dn=Girl.Explores.Girl.The.Alien.Encounter.1998-%5BErotic%5D.DVDRip&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Feddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ffasttracker.foreverpirates.co%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Girl.Explores.Girl.The.Alien.Encounter.1998-[Erotic].DVDRip",
+      "cname": "Girl Explores Girl: The Alien Encounter ",
+      "release_date": "1998-06-15"
+    },
+    {
       "tmdbrate": 6.692,
       "picture": "http://image.tmdb.org/t/p/w200/fGc9HKeGKebC1RD7WPt0NYDONTo.jpg",
       "name": "Metalocalypse Army Of The Doomstar",
@@ -141,6 +150,15 @@
       "release_date": "2023-08-24"
     },
     {
+      "tmdbrate": 7.747,
+      "picture": "http://image.tmdb.org/t/p/w200/nZaAkvCJhwGdanUgb63DUnI1BMC.jpg",
+      "name": "Mission Impossible Dead Reckoning Part One",
+      "video": "magnet:?xt=urn:btih:6BD71163EAB00BC7EA465FC3F9BAC34B45B8A1D7&dn=Mission+Impossible+Dead+Reckoning+Part+One+2023+1080p+V3+NEW+TELESYNC+x264+-+HushRips&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Mission Impossible Dead Reckoning Part One 2023 1080p V3 NEW TELE...",
+      "cname": "碟中谍7：致命清算（上） ",
+      "release_date": "2023-07-08"
+    },
+    {
       "tmdbrate": 4.7,
       "picture": "http://image.tmdb.org/t/p/w200/A4lMomL0TavcssHFh5x1IvREnG6.jpg",
       "name": "Insatiable Needs",
@@ -148,15 +166,6 @@
       "oname": "Insatiable.Needs.2005-DVDRip",
       "cname": "欲壑难填 ",
       "release_date": "2005-01-01"
-    },
-    {
-      "tmdbrate": 6.3,
-      "picture": "http://image.tmdb.org/t/p/w200/bqm91rVQtaJLDLWB2MrWghKaMoZ.jpg",
-      "name": "The Boogeyman",
-      "video": "magnet:?xt=urn:btih:A97DBD2FA36118E42543EBA1E3F9FC952C57E107&dn=The.Boogeyman.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The.Boogeyman.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG",
-      "cname": "柜魔 ",
-      "release_date": "2023-05-31"
     },
     {
       "tmdbrate": 8.278,
@@ -240,6 +249,15 @@
       "release_date": "2023-08-12"
     },
     {
+      "tmdbrate": 6.3,
+      "picture": "http://image.tmdb.org/t/p/w200/bqm91rVQtaJLDLWB2MrWghKaMoZ.jpg",
+      "name": "The Boogeyman",
+      "video": "magnet:?xt=urn:btih:67906FB8825F872D2B5F7AFED54C09FA69DF8CD4&dn=The.Boogeyman.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264-XEBEC%5BTGx%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The.Boogeyman.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264-XEBEC[TGx]",
+      "cname": "柜魔 ",
+      "release_date": "2023-05-31"
+    },
+    {
       "tmdbrate": 7.396,
       "picture": "http://image.tmdb.org/t/p/w200/nXL01gWnyajYwEyJldSdXcr1Zso.jpg",
       "name": "Teenage Mutant Ninja Turtles Mutant Mayhem",
@@ -256,15 +274,6 @@
       "oname": "You.Are.So.Not.Invited.to.My.Bat.Mitzvah.2023.720p.WEBRip.800MB.x...",
       "cname": "别幻想来我的成年礼 ",
       "release_date": "2023-08-18"
-    },
-    {
-      "tmdbrate": 6.807,
-      "picture": "http://image.tmdb.org/t/p/w200/zy5gGADyUP2sFj0tn4ExeEQ7t8O.jpg",
-      "name": "World War Z",
-      "video": "magnet:?xt=urn:btih:8C7777D5373B82E9EE379A081B50162CA3365BD9&dn=World+War+Z+%282013%29+Unrated+%281080p+BluRay+x265+HEVC+10bit+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "World War Z (2013) Unrated (1080p BluRay x265 HEVC 10bit AAC 7.1 ...",
-      "cname": "僵尸世界大战 ",
-      "release_date": "2013-06-20"
     },
     {
       "tmdbrate": 0,
