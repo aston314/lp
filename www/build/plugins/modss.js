@@ -2539,7 +2539,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				}
 				component.savehistory(object);
 				item.mark();
-				Lampa.Controller.toggle('content');
+				if (Lampa.Storage.field('player') == 'android') Lampa.Controller.toggle('content');
 			  }, function () {
 				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
 			  });
