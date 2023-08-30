@@ -3328,21 +3328,20 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  onEnter: function onEnter(item, html) {
 			if (item.file) {
 				// function loadingshow() {
-				Lampa.Modal.open({
-				  title: '',
-				  align: 'center',
-				  html: Lampa.Template.get('modal_loading'),
-				  size: 'small',
-				  mask: true,
-				  onBack: function onBack() {
-					Lampa.Modal.close();
+				// Lampa.Modal.open({
+				//   title: '',
+				//   align: 'center',
+				//   html: Lampa.Template.get('modal_loading'),
+				//   size: 'small',
+				//   mask: true,
+				//   onBack: function onBack() {
+				// 	Lampa.Modal.close();
 					
-					Lampa.Controller.toggle('content');
-				  }
-				});
+				// 	Lampa.Controller.toggle('content');
+				//   }
+				// });
 				// };
-	
-	
+				html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 				network["native"](item.file, function (data) {
 				  if (data.url) {
 	
@@ -3363,9 +3362,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				  } else {
 					Lampa.Noty.show('无法检索播放链接');
 				  }
-				  Lampa.Modal.close();
-				  Lampa.Controller.toggle('content');
+				//   Lampa.Modal.close();
+				//   Lampa.Controller.toggle('content');
+				html.find('.online_modss__scan-file').remove();
 				}, function (a, c) {
+				  html.find('.online_modss__scan-file').remove();
 				  Lampa.Noty.show(network.errorDecode(a, c));
 				}, false, {
 				  dataType: 'json',
@@ -3595,20 +3596,21 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  onEnter: function onEnter(item, html) {
 			  if (item.file) {
 				// function loadingshow() {
-				Lampa.Modal.open({
-				  title: '',
-				  align: 'center',
-				  html: Lampa.Template.get('modal_loading'),
-				  size: 'small',
-				  mask: true,
-				  onBack: function onBack() {
-					Lampa.Modal.close();
+				// Lampa.Modal.open({
+				//   title: '',
+				//   align: 'center',
+				//   html: Lampa.Template.get('modal_loading'),
+				//   size: 'small',
+				//   mask: true,
+				//   onBack: function onBack() {
+				// 	Lampa.Modal.close();
 					
-					Lampa.Controller.toggle('content');
-				  }
-				});
+				// 	Lampa.Controller.toggle('content');
+				//   }
+				// });
 				// };
-	
+				html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
+
 				network["native"](item.file, function (data) {
 				  var iframe = $('iframe', data);
 				  if (iframe.length > 0) {
@@ -3685,9 +3687,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					  component.savehistory(object);
 					})
 				  }
-				  Lampa.Modal.close();
-				  Lampa.Controller.toggle('content');
+				//   Lampa.Modal.close();
+				//   Lampa.Controller.toggle('content');
+				    html.find('.online_modss__scan-file').remove();
 				}, function (a, c) {
+				  html.find('.online_modss__scan-file').remove();
 				  Lampa.Noty.show(network.errorDecode(a, c));
 				}, false, {
 				  dataType: 'text',
