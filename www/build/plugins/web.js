@@ -2047,12 +2047,14 @@
             // 匹配季数和集数的正则表达式模式（支持中文数字）
             var seasonPattern = /(?:第)?([0-9一二三四五六七八九十]+)季/i; // 可能包含"第"，然后捕获季数
             var episodePattern = /(?:第)?([0-9一二三四五六七八九十]+)集/i; // 可能包含"第"，然后捕获集数
+            var word1 = /更新至/i; // 正则表达式匹配 "更新至" 字符串
         
             // 提取季数和集数的逻辑
             var seasonMatch = text.match(seasonPattern);
             var episodeMatch = text.match(episodePattern);
+            var wordMatch = text.match(word1);
 
-            if (seasonMatch || episodeMatch) {
+            if (seasonMatch || episodeMatch || wordMatch) {
                 var isTV = true;
                 var seasonNumber = seasonMatch ? chineseToArabicNumber(seasonMatch[1]) : 1;
                 var episodeNumber = episodeMatch ? chineseToArabicNumber(episodeMatch[1]) : "未知";
