@@ -2501,6 +2501,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			if (get_links_wait) html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 		  },
 		  onEnter: function onEnter(item, html) {
+			  if (html.find('.online_modss__scan-file').length > 0) {
+				html.find('.online_modss__scan-file').remove();
+			  };
 			  html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 			  getStream(item, function (stream) {
 				var first = {
@@ -3341,6 +3344,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				//   }
 				// });
 				// };
+				if (html.find('.online_modss__scan-file').length > 0) {
+					html.find('.online_modss__scan-file').remove();
+				};
 				html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 				network["native"](item.file, function (data) {
 				  if (data.url) {
@@ -3609,6 +3615,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				//   }
 				// });
 				// };
+				if (html.find('.online_modss__scan-file').length > 0) {
+					html.find('.online_modss__scan-file').remove();
+				};
 				html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 
 				network["native"](item.file, function (data) {
