@@ -2540,7 +2540,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				}
 				component.savehistory(object);
 				item.mark();
-				html.remove();
+				html.find('.online_modss__scan-file').remove();
 				// if (Lampa.Storage.field('player') == 'android') Lampa.Controller.toggle('content');
 			  }, function () {
 				html.remove();
