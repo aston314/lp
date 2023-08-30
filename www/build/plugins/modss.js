@@ -1978,7 +1978,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
               title: title,
               season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-              episode: component.extractEpisodeNumber($(a).text() || $(a).attr('title')),
+              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
               info: ''
             });
           });
@@ -1989,7 +1989,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
               title: title,
               season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-              episode: component.extractEpisodeNumber($(a).text() || $(a).attr('title')),
+              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
               info: ''
             });
           });
@@ -2760,9 +2760,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		results.push({
           file: episode.split('$')[1],
           quality: json.list[0].vod_play_from.toUpperCase().replace('$$$', ' / ') + ' / ' + episode.split('$')[0],
-          title: episode.split('$')[0].replace('0',''),
+          title: episode.split('$')[0],
 		  season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-          episode: component.extractEpisodeNumber(episode.split('$')[0]),
+          episode: object.ext_seasonnumber ? component.extractEpisodeNumber(episode.split('$')[0]) : '',
           info: '',
           allepisode: json.list[0].vod_play_url
         });
@@ -3208,7 +3208,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
             quality: '低端影视 / ' + html.caption,
             title: html.caption,
 			season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-            episode: component.extractEpisodeNumber(html.caption),
+            episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : '',
             info: ''
           });
         });
@@ -3487,7 +3487,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           quality: '厂长资源 / ' + ($(a).attr('title') || $(a).text()),
           title: ($(a).attr('title') || $(a).text()),
 		  season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-          episode: component.extractEpisodeNumber($(a).attr('title') || $(a).text()),
+          episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).attr('title') || $(a).text()) : '',
           info: ''
         });
       });
@@ -7490,10 +7490,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  
 		  // 计算哈希值以用于时间线和标记
 		  // 根据条件判断是否为某一季节，如果满足条件则拼接字符串并计算哈希值，否则只计算电影原始标题的哈希值
-		  var hash_timeline = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title].join('') : [object.movie.original_title, element.file, element.quality].join('') );
+		  var hash_timeline = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title, element.quality, element.file].join('') : [object.movie.original_title, element.file, element.quality].join('') );
 		  
 		  // 根据条件判断是否为某一季节，如果满足条件则拼接字符串并计算哈希值，否则拼接电影原始标题和声音名称，并计算哈希值
-		  var hash_behold = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title, element.voice_name].join('') : object.movie.original_title + element.voice_name + element.file + element.quality);
+		  var hash_behold = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title, element.voice_name, element.quality, element.file].join('') : object.movie.original_title + element.voice_name + element.file + element.quality);
 		  
 		  // 定义对象 data，包含两个属性，分别对应之前计算得到的哈希值
 		  var data = {
@@ -10390,7 +10390,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			  ru: 'нет результатов',
 			  uk: 'немає результатів',
 			  en: 'no results',
-			  zh: '没有结果'
+			  zh: '没有找到资源'
 		  },
 		  title_online_continue: {
 			  ru: 'Продолжить',
