@@ -2364,7 +2364,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					var MacPlayer_, file_ = [], a;
 					var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
 					var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
-					window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
+					var evaluatedCodeResult = window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
 					
 					if (typeof now == 'string') {
 						if (now) {
@@ -2372,7 +2372,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							// element.qualitys = quality;
 							call(element.stream);
 						} else error();
-						window.now = null;
+						now = null;
 						Lampa.Modal.close();
 					} else {
 						var queue = [
@@ -2474,7 +2474,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							});
 						}, 0);
 					}
-				  
+					evaluatedCodeResult = null;
 				} else component.emptyForQuery(select_title);
 			  }, function (a, c) {
 				error();
