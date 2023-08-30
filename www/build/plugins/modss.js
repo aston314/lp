@@ -2357,7 +2357,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				dataType: 'text'
 			  });
 			} else {
-			  loadingshow();
+			//   loadingshow();
 			  network["native"](proxy_url + element.file, function (str) {
 				if (str) {					
 					$(".noty").hide();
@@ -2373,7 +2373,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							call(element.stream);
 						} else error();
 						now = null;
-						Lampa.Modal.close();
+						// Lampa.Modal.close();
 					} else {
 						var queue = [
 							proxy_url + url + '/static/js/playerconfig.js',
@@ -2399,7 +2399,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					
 						ProcessScripts(function () {
 							Lampa.Utils.putScriptAsync([proxy_url + url + MacPlayer.Path + MacPlayer.PlayFrom + ".js"], function () {
-								Lampa.Modal.close();
+								// Lampa.Modal.close();
 								MacPlayer_ = $(MacPlayer.Html).attr('src');
 								MacPlayer_ = MacPlayer_.slice(0, 1) !== '/' ? MacPlayer_ : element.file.match(/(http|https):\/\/(www.)?(\w+(\.)?)+/)[0] + MacPlayer_;
 								var file1 = $(MacPlayer.Html).attr('src') ? $(MacPlayer.Html).attr('src') : MacPlayer.PlayUrl;
@@ -2501,6 +2501,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			if (get_links_wait) html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 		  },
 		  onEnter: function onEnter(item, html) {
+			  html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 			  getStream(item, function (stream) {
 				var first = {
 				  url: stream,
@@ -2539,8 +2540,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				}
 				component.savehistory(object);
 				item.mark();
-				if (Lampa.Storage.field('player') == 'android') Lampa.Controller.toggle('content');
+				html.remove();
+				// if (Lampa.Storage.field('player') == 'android') Lampa.Controller.toggle('content');
 			  }, function () {
+				html.remove();
 				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
 			  });
 		  },
