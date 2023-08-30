@@ -10534,7 +10534,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			  ru: 'из',
 			  uk: 'з',
 			  en: 'from',
-			  zh: '从'
+			  zh: '共'
 		  },
 		  season_new: {
 			  ru: 'Новая',
