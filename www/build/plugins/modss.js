@@ -3594,124 +3594,140 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		};
 	}
 
+	function getStream(element, call, error) {
+		if (element.stream) return call(element.stream);
+		// var url = element.file || '';
+	
+		if (element.file) {
+			network["native"](element.file, function (data) {
+				var iframe = $('iframe', data);
+				if (iframe.length > 0) {
+					network["native"]($(iframe[0]).attr('src'), function (data) {
+						Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
+							var randMatch = data.match(/var rand = "(.*?)";/);
+							var playerMatch = data.match(/var player = "(.*?)";/);
+							var rand, player;
+							if (randMatch && randMatch.length > 1) {
+								rand = randMatch[1];
+							} else {
+								rand = '';
+							}
+
+							if (playerMatch && playerMatch.length > 1) {
+								player = playerMatch[1];
+							} else {
+								player = '';
+							}
+
+							function js_decrypt(str, key, iv) {
+								var key = CryptoJS.enc.Utf8.parse(key);
+								var iv = CryptoJS.enc.Utf8.parse(iv);
+								var decrypted = CryptoJS.AES.decrypt(str, key, {
+									iv: iv,
+									padding: CryptoJS.pad.Pkcs7
+								}).toString(CryptoJS.enc.Utf8);
+								return decrypted
+							}
+							var config = JSON.parse(js_decrypt(player, 'VFBTzdujpR9FWBhe', rand));
+							if (config.url) {
+								element.stream = config.url;
+								// element.qualitys = quality;
+								call(element.stream);
+							} else error();
+						});
+
+					}, function (a, c) {
+						Lampa.Noty.show(network.errorDecode(a, c));
+					}, false, {
+						dataType: 'text',
+						headers: {
+							'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+						}
+					});
+
+				} else {
+					var js = $('script:contains(window.wp_nonce)', data).html();
+					var group = js.match(/(var.*)eval\((\w*\(\w*\))\)/);
+					Lampa.Utils.putScriptAsync(["https://qu.ax/MhrO.js"], function () {
+						var result = eval(group[1] + group[2]);
+						var playUrl = result.match(/url:.*?['"](.*?)['"]/)[1];
+						if (playUrl) {
+							element.stream = playUrl;
+							// element.qualitys = quality;
+							call(element.stream);
+						} else error();
+					})
+				}
+			}, function (a, c) {
+				Lampa.Noty.show(network.errorDecode(a, c));
+			}, false, {
+				dataType: 'text',
+				headers: {
+					'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+				}
+			});
+		} else {
+			error();
+			return;
+		}
+	  }
+
 	function append(items) {
 		component.reset();
 		component.draw(items, {
 		//   onRender: function onRender(item, html) {
 		// 	if (get_links_wait) html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
 		//   },
-		  onEnter: function onEnter(item, html) {
-			  if (item.file) {
-				// function loadingshow() {
-				// Lampa.Modal.open({
-				//   title: '',
-				//   align: 'center',
-				//   html: Lampa.Template.get('modal_loading'),
-				//   size: 'small',
-				//   mask: true,
-				//   onBack: function onBack() {
-				// 	Lampa.Modal.close();
-					
-				// 	Lampa.Controller.toggle('content');
-				//   }
-				// });
-				// };
-				if (html.find('.online_modss__scan-file').length > 0) {
-					html.find('.online_modss__scan-file').remove();
+		onEnter: function onEnter(item, html) {
+			if (html.find('.online_modss__scan-file').length > 0) {
+				html.find('.online_modss__scan-file').remove();
+			  };
+			  html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
+			  getStream(item, function (stream) {
+				var first = {
+				  url: stream,
+				  timeline: item.timeline,
+				  quality: item.qualitys,
+				  subtitles: item.subtitles,
+				  title: item.title + ' / ' + item.quality
 				};
-				html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
-
-				network["native"](item.file, function (data) {
-				  var iframe = $('iframe', data);
-				  if (iframe.length > 0) {
-					network["native"]($(iframe[0]).attr('src'), function (data) {
-					  Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
-						var randMatch = data.match(/var rand = "(.*?)";/);
-						var playerMatch = data.match(/var player = "(.*?)";/);
-						var rand, player;
-						if (randMatch && randMatch.length > 1) {
-						  rand = randMatch[1];
-						} else {
-						  rand = '';
-						}
-	
-						if (playerMatch && playerMatch.length > 1) {
-						  player = playerMatch[1];
-						} else {
-						  player = '';
-						}
-	
-						function js_decrypt(str, key, iv) {
-						  var key = CryptoJS.enc.Utf8.parse(key);
-						  var iv = CryptoJS.enc.Utf8.parse(iv);
-						  var decrypted = CryptoJS.AES.decrypt(str, key, {
-							iv: iv,
-							padding: CryptoJS.pad.Pkcs7
-						  }).toString(CryptoJS.enc.Utf8);
-						  return decrypted
-						}
-						var config = JSON.parse(js_decrypt(player, 'VFBTzdujpR9FWBhe', rand));
-	
-						var playlist = [];
-						var first = {
-						  url: config.url,
-						  timeline: item.timeline,
-						  title: item.season ? item.title : object.movie.title + ' / ' + item.title + ' / ' + item.quality,
-						  subtitles: item.subtitles,
-						  tv: false
-						};
-						Lampa.Player.play(first);
-						playlist.push(first);
-						Lampa.Player.playlist(playlist);
-						item.mark();
-						component.savehistory(object);
-					  });
-	
-					}, function (a, c) {
-					  Lampa.Noty.show(network.errorDecode(a, c));
-					}, false, {
-					  dataType: 'text',
-					  headers: {
-						'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
-					  }
-					});
-	
-				  } else {
-					var js = $('script:contains(window.wp_nonce)', data).html();
-					var group = js.match(/(var.*)eval\((\w*\(\w*\))\)/);
-					Lampa.Utils.putScriptAsync(["https://qu.ax/MhrO.js"], function () {
-					// console.log(item)
-					  var result = eval(group[1] + group[2]);
-					  var playUrl = result.match(/url:.*?['"](.*?)['"]/)[1];
-					  var playlist = [];
-					  var first = {
-						url: playUrl,
-						timeline: item.timeline,
-						title: item.season ? item.title : object.movie.title + ' / ' + item.title + ' / ' + item.quality,
-						subtitles: item.subtitles,
-						tv: false
-					  };
-					  Lampa.Player.play(first);
-					  playlist.push(first);
-					  Lampa.Player.playlist(playlist);
-					  component.savehistory(object);
-					})
-				  }
-				//   Lampa.Modal.close();
-				//   Lampa.Controller.toggle('content');
-				    html.find('.online_modss__scan-file').remove();
-				}, function (a, c) {
-				  html.find('.online_modss__scan-file').remove();
-				  Lampa.Noty.show(network.errorDecode(a, c));
-				}, false, {
-				  dataType: 'text',
-				  headers: {
-					'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
-					// 'Referer': ""
-				  }
-				});
+				Lampa.Player.play(first);
+	  
+				if (item.season) {
+				  var playlist = [];
+				  items.forEach(function (elem) {
+					var cell = {
+					  url: function url(call) {
+						getStream(elem, function (stream) {
+						  cell.url = stream;
+						  cell.quality = elem.qualitys;
+						  call.subtitles = elem.subtitles;
+						  elem.mark();
+						  call();
+						}, function () {
+						  cell.url = '';
+						  call();
+						});
+					  },
+					  timeline: elem.timeline,
+					  title: elem.title
+					};
+					if (elem == item) cell.url = stream;
+					playlist.push(cell);
+				  });
+				  Lampa.Player.playlist(playlist);
+				} else {
+				  Lampa.Player.playlist([first]);
+				}
+				component.savehistory(object);
 				item.mark();
-			  } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+				html.find('.online_modss__scan-file').remove();
+			  }, function () {
+				html.find('.online_modss__scan-file').remove();
+				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
+				Lampa.Controller.toggle('content');
+			  });
+			
 		  },
 		  onContextMenu: function onContextMenu(item, html, data, call) {
 			call(getFile(item, item.quality));
