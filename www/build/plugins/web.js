@@ -1169,7 +1169,7 @@
             data.card.forEach(function (element) {
                 var card = Lampa.Template.get('card', {
                     title: element.title_org,
-                    release_year: object.cards || !object.card_cat ? element.year : element.quantity
+                    release_year: ''
                 });
 
                 card.addClass(object.show.indexOf('landscape') != -1 ? 'card--collection' : 'card--category');
@@ -1316,6 +1316,13 @@
                             var finded = _this2.finds(find, element);
                             if (finded) {
                                 finded.title = element.title;
+                                finded.istv = element.istv;
+                                finded.update = element.update;
+                                finded.website = element.website;
+                                finded.img = element.img;
+                                finded.url = element.url;
+                                finded.score = element.score;
+                                finded.title_org = element.title_org;
                                 Lampa.Activity.push({
                                     url: element.url,
                                     title: '在线观看',
