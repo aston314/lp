@@ -1231,7 +1231,8 @@
                   var MacPlayer_, file_ = [], a;
                   var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
                   var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
-                  window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
+                  // window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
+                  var evaluatedCodeResult = window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
                   
                   if (typeof now == 'string') {
                     // if (/m3u8|mp4/.test(now)) {
@@ -1385,7 +1386,7 @@
                       });
                     }, 0);
                   }
-                  
+                  evaluatedCodeResult = null;
                 } else component.emptyForQuery(select_title);
 
                 component.loading(false);
