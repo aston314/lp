@@ -1988,7 +1988,7 @@
    {
       "title": "Ahhhhfs - 阿里云盘",
       "link": "https://www.ahhhhfs.com/",
-      "available": true,
+      "available": false,
       "show": "landscape",
       "next": "detail",
       "datasort": "",
