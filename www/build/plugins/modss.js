@@ -1840,7 +1840,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		script.src = url;
 		document.getElementsByTagName('head')[0].appendChild(script);
 	}
-  function web(component, _object, rule) {
+  function website(component, _object, rule) {
     var network = new Lampa.Reguest();
     var extract = {};
 	var results = [];
@@ -6788,7 +6788,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  if (typeof doregjson.rule !== 'undefined') {
 			  doregjson.rule.forEach(function (elem) {
 				  try {
-					  sources[elem.name] = new web(_this1, object, elem);
+					  sources[elem.name] = new website(_this1, object, elem);
 					  sources[elem.name] = Object.assign({}, sources[elem.name]);
 				  } catch (e) { }
 			  });
