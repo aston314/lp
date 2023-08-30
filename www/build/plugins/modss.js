@@ -1968,7 +1968,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       };
       
       network["native"](proxy_url + link, function (data) {
-
+		// console.log(component.extractTitleContent(data))
         var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
         // results = [];
         if ($(math).find('a').length) {
@@ -2372,7 +2372,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							// element.qualitys = quality;
 							call(element.stream);
 						} else error();
-						now = null;
+						window.now = null;
 						Lampa.Modal.close();
 					} else {
 						var queue = [
@@ -8298,6 +8298,16 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		} else {
 			// 没有匹配到数字，返回原字符串
 			return inputString; // 返回原输入字符串
+		}
+	}
+	  this.extractTitleContent = function (inputString) {
+		var match = inputString.match(/<title>(.*?)<\/title>/);
+	
+		if (match && match[1]) {
+			var extractedContent = match[1];
+			return extractedContent;
+		} else {
+			return inputString;
 		}
 	}
   
