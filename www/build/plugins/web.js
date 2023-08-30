@@ -1301,7 +1301,6 @@
                             mask: true,
                             onBack: function onBack() {
                                 Lampa.Modal.close();
-                                Lampa.Api.clear();
                                 Lampa.Controller.toggle('content');
                             }
                         });
@@ -1378,7 +1377,7 @@
                             mask: true,
                             onBack: function onBack() {
                                 Lampa.Modal.close();
-                                Lampa.Api.clear();
+                                
                                 Lampa.Controller.toggle('content');
                             }
                         });
@@ -1569,7 +1568,7 @@
                                 mask: true,
                                 onBack: function onBack() {
                                     Lampa.Modal.close();
-                                    Lampa.Api.clear();
+                                    
                                     Lampa.Controller.toggle('content');
                                 }
                             });
@@ -2085,7 +2084,7 @@
                 mask: true,
                 onBack: function onBack() {
                     Lampa.Modal.close();
-                    Lampa.Api.clear();
+                    
                     Lampa.Controller.toggle('content');
                 }
             });
