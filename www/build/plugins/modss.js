@@ -1958,6 +1958,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
     };
 
     function dodetail(link, data, title) {
+		var hasSeason = object.hasOwnProperty("movie") && object.movie.hasOwnProperty("number_of_seasons");
+		
+		// console.log(object,component.seasonNumber(title),title,hasSeason)
       //取得具体页面的详情地址
       if (doreg.use_proxy) {
         proxy_url = proxy;
@@ -1977,8 +1980,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
               quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
               title: title,
-              season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
+			  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber($(a).text() || $(a).attr('title')) ? 1 : '') )),
+              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (hasSeason ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.episodeNumber($(a).text() || $(a).attr('title')) ? component.extractEpisodeNumber($(a).text() || $(a).attr('title'))  : ''))),
               info: ''
             });
           });
@@ -1988,7 +1991,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
               quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
               title: title,
-              season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
+              season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : ''),
               episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
               info: ''
             });
@@ -3190,6 +3193,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 
     function dodetail(link, data, title) {
       //取得具体页面的详情地址
+	  var hasSeason = object.hasOwnProperty("movie") && object.movie.hasOwnProperty("number_of_seasons");
       network["native"](proxy_url + link, function (data) {
         results = [];
         var playlistScript = $('.wp-playlist-script', data).text();
@@ -3200,8 +3204,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
             file: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
             quality: '低端影视 / ' + html.caption,
             title: html.caption,
-			season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
-            episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : '',
+			season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber($(a).text() || $(a).attr('title')) ? 1 : '') )),
+            // episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : '',
+			episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber(html.caption) : (hasSeason ? component.extractEpisodeNumber(html.caption) : (component.episodeNumber(html.caption) ? component.extractEpisodeNumber(html.caption)  : ''))),
+
             info: ''
           });
         });
@@ -8342,6 +8348,57 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			return extractedContent;
 		} else {
 			return inputString;
+		}
+	}
+	function chineseToArabicNumber(chineseNumber) {
+		if (isNaN(chineseNumber)) {
+			var chineseNumberMap = {
+				一: 1, 二: 2, 三: 3, 四: 4, 五: 5,
+				六: 6, 七: 7, 八: 8, 九: 9, 十: 10
+			};
+
+			let arabicNumber = 0;
+			let tempValue = 0;
+
+			for (let char of chineseNumber) {
+				if (chineseNumberMap[char] !== undefined) {
+					if (chineseNumberMap[char] === 10) {
+						tempValue *= 10;
+					} else {
+						tempValue += chineseNumberMap[char];
+					}
+				} else {
+					arabicNumber += tempValue === 0 ? 1 : tempValue;
+					tempValue = 0;
+				}
+			}
+
+			arabicNumber += tempValue;
+			return arabicNumber;
+		} else {
+			return chineseNumber;
+		}
+	}
+	this.seasonNumber = function(text) {
+		// 匹配季数和集数的正则表达式模式（支持中文数字）
+		var seasonPattern = /(?:第)?([0-9一二三四五六七八九十]+)季/i; // 可能包含"第"，然后捕获季数
+
+		// 提取季数和集数的逻辑
+		var seasonMatch = text.match(seasonPattern);
+		if (seasonMatch) {
+			var seasonNumber = seasonMatch ? chineseToArabicNumber(seasonMatch[1]) : 1;
+			return seasonNumber;
+		} else {
+			return '';
+		}
+	}
+	this.episodeNumber =function (text) {
+		var episodePattern = /(?:第)?([0-9一二三四五六七八九十]+)集/i; // 可能包含"第"，然后捕获集数
+		var episodeMatch = text.match(episodePattern);
+		if (episodeMatch) {
+			return true;
+		} else {
+			return false;
 		}
 	}
   
