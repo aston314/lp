@@ -1876,7 +1876,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       var ifjson = doreg.search_json ? "json" : "text";
       network.clear();
       network.timeout(1000 * 15);
-      network["native"](doreg.search_json ? ((doreg.use_proxy === true) ? proxy_alt + encodeURIComponent(url1) : url1) : proxy_url + url1, function (str) {
+      network["native"](proxy_url + url1, function (str) {
         // var parsedData = doreg.search_json ? str : str;
         var parsedData = str;
 
