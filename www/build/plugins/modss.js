@@ -8247,7 +8247,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 	  };
   
 	  function saveWeb(el) {
-		console.log(el)
 		// if (!el.hasOwnProperty("adult")) {
 		//   if (el.hasOwnProperty("adult")) {
 		// 	  el.score = element.score;
