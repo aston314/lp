@@ -1089,11 +1089,33 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						$('.wait_rating', Lampa.Activity.active().activity.render()).remove();
 						$('.rate--imdb', Lampa.Activity.active().activity.render()).removeClass('hide').find('> div').eq(0).text(imdb_rating);
 						$('.rate--kp', Lampa.Activity.active().activity.render()).removeClass('hide').find('> div').eq(0).text(kp_rating);
+						Pub.network["native"]('https://movie.douban.com/j/subject_suggest?q=' + card.imdb_id, function (data) {
+							if (data.length) {
+								Pub.network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + data[0].id, function (json) {
+									if (json.hasOwnProperty("subject")) {
+										var douban_rating = !isNaN(json.subject.rate) && json.subject.rate !== null ? parseFloat(json.subject.rate).toFixed(1) : '0.0';
+										$('.rate--imdb', Lampa.Activity.active().activity.render()).before('<div class="full-start__rate rate--douban"><div>' + douban_rating + '</div><div>豆瓣</div></div>');
+									}
+									resolve();
+								}, function (a, c) {
+									resolve();
+									Lampa.Noty.show(Pub.network.errorDecode(a, c));
+								}, false, {
+									dataType: 'json'
+								});
+							}
+							resolve();
+						}, function (a, c) {
+							resolve();
+							// Lampa.Noty.show('豆瓣：' + Pub.network.errorDecode(a, c));
+						}, false, {
+							dataType: 'json',
+						});
 					}
 					resolve();
 				}, function (a, c) {
 					resolve();
-					Lampa.Noty.show('MODSs ОШИБКА Рейтинг KP   ' + Pub.network.errorDecode(a, c));
+					Lampa.Noty.show('评分   ' + Pub.network.errorDecode(a, c));
 				}, {
 					title: card.title,
 					year: year,
