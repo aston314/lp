@@ -1093,7 +1093,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							if (data.length) {
 								Pub.network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + data[0].id, function (json) {
 									if (json.hasOwnProperty("subject")) {
-										var douban_rating = !isNaN(json.subject.rate) && json.subject.rate !== null ? parseFloat(json.subject.rate).toFixed(1) : '0.0';
+										var douban_rating = !isNaN(json.subject.rate) && json.subject.rate !== null && json.subject.rate !== '' ? parseFloat(json.subject.rate).toFixed(1) : '0.0';
 										$('.rate--imdb', Lampa.Activity.active().activity.render()).before('<div class="full-start__rate rate--douban"><div>' + douban_rating + '</div><div>豆瓣</div></div>');
 									}
 									resolve();
