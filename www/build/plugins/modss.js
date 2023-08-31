@@ -2552,9 +2552,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				} else {
 				  Lampa.Player.playlist([first]);
 				}
+				html.find('.online_modss__scan-file').remove();
 				component.savehistory(object);
 				item.mark();
-				html.find('.online_modss__scan-file').remove();
 				// if (Lampa.Storage.field('player') == 'android') Lampa.Controller.toggle('content');
 			  }, function () {
 				html.find('.online_modss__scan-file').remove();
@@ -3409,9 +3409,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				} else {
 				  Lampa.Player.playlist([first]);
 				}
+				html.find('.online_modss__scan-file').remove();
 				component.savehistory(object);
 				item.mark();
-				html.find('.online_modss__scan-file').remove();
 			  }, function () {
 				html.find('.online_modss__scan-file').remove();
 				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
@@ -3747,9 +3747,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				} else {
 				  Lampa.Player.playlist([first]);
 				}
+				html.find('.online_modss__scan-file').remove();
 				component.savehistory(object);
 				item.mark();
-				html.find('.online_modss__scan-file').remove();
 			  }, function () {
 				html.find('.online_modss__scan-file').remove();
 				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
@@ -8247,8 +8247,15 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 	  };
   
 	  function saveWeb(el) {
+		console.log(el)
 		// if (!el.hasOwnProperty("adult")) {
-		if (el.url) {
+		//   if (el.hasOwnProperty("adult")) {
+		// 	  el.score = element.score;
+		// 	  el.title_org = element.title;
+		// 	  el.istv = element.url.include('tv') ? true : false;
+		// 	  el.website = 'TMDB';
+		//   }
+		if (el.url && el.hasOwnProperty("title_org") ) {
 		  var webs = getWebs();
 		  webs.push(el);
 		  localStorage.setItem(HISTORY_WEBS_KEY, JSON.stringify(webs));
