@@ -3204,7 +3204,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
             file: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
             quality: '低端影视 / ' + html.caption,
             title: html.caption,
-			season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber($(a).text() || $(a).attr('title')) ? 1 : '') )),
+			season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber(html.caption) ? 1 : '') )),
             // episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : '',
 			episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber(html.caption) : (hasSeason ? component.extractEpisodeNumber(html.caption) : (component.episodeNumber(html.caption) ? component.extractEpisodeNumber(html.caption)  : ''))),
 
