@@ -222,25 +222,171 @@
                     _this3.find_douban(element);
 				});
                 card.on('hover:enter', function (target, card_data) {
+                    Lampa.Modal.open({
+                        title: '',
+                        html: Lampa.Template.get('modal_loading'),
+                        size: 'small',
+                        mask: true,
+                        onBack: function onBack() {
+                            Lampa.Modal.close();
+                            Lampa.Controller.toggle('content');
+                        }
+                    });
                     //console.log(element)
-                    element.img = element.cover || element.img;
-                    element.original_title = '';
-                    element.title = mytitle;
-                    Lampa.Activity.push({
-                        url: '',
-                        title: '在线观看',
-                        component: 'online_mod',
-                        search: element.title,
-                        search_one: element.title,
-                        search_two: element.title,
-                        movie: element,
-                        page: 1
+                    // element.img = element.cover || element.img;
+                    // element.original_title = '';
+                    // element.title = mytitle;
+                    // Lampa.Activity.push({
+                    //     url: '',
+                    //     title: '在线观看',
+                    //     component: 'aston_modss_online',
+                    //     search: element.title,
+                    //     search_one: element.title,
+                    //     search_two: element.title,
+                    //     movie: element,
+                    //     page: 1
+                    // });
+                    Lampa.Api.search({
+                        //query: encodeURIComponent((doubanitem.sub_title || element.title))
+                        query: encodeURIComponent(element.title.replace(/第(.+)季/, ''))
+                    }, function (find) {
+                        Lampa.Modal.close();
+                        //var finded = _this2.finds(find, (doubanitem || element));
+                        // console.log(find, element)
+                        var finded = _this3.finds_(find, element);
+                        if (finded) {
+                            finded.title = element.title;
+                            finded.istv = _this3.seasonNumber(element.title) !== '' ? true : (element.episodes_info !== '' ? true : false);
+                            finded.website = '豆瓣';
+                            finded.img = element.cover;
+                            finded.url = element.url;
+                            finded.score = element.rate;
+                            finded.title_org = element.title;
+                            Lampa.Activity.push({
+                                url: element.url,
+                                title: '在线观看',
+                                // component: 'online_mod',
+                                component: 'aston_modss_online',
+                                search: element.title.replace(/( 第.+?季)/, ''),
+                                search_one: element.title,
+                                search_two: finded.original_name,
+                                movie: finded,
+                                page: 1
+                            });
+                        } else {
+                            Lampa.Activity.push({
+                                url: element.url,
+                                title: '在线观看',
+                                // component: 'online_mod',
+                                component: 'aston_modss_online',
+                                search: element.title.replace(/( 第.+?季)/, ''),
+                                search_one: element.title,
+                                search_two: element.title,
+                                movie: element,
+                                page: 1
+                            });
+                        }
+                    }, function () {
+                        Lampa.Modal.close();
+                        Lampa.Activity.push({
+                            url: element.url,
+                            title: '在线观看',
+                            // component: 'online_mod',
+                            component: 'aston_modss_online',
+                            search: element.title.replace(/( 第.+?季)/, ''),
+                            search_one: element.title,
+                            search_two: element.title,
+                            movie: element,
+                            page: 1
+                        });
                     });  
                 });
                 body.append(card);
                 if (append) Lampa.Controller.collectionAppend(card);
                 items.push(card);
             });
+        };
+
+        function chineseToArabicNumber(chineseNumber) {
+            if (isNaN(chineseNumber)) {
+                var chineseNumberMap = {
+                    一: 1, 二: 2, 三: 3, 四: 4, 五: 5,
+                    六: 6, 七: 7, 八: 8, 九: 9, 十: 10
+                };
+    
+                let arabicNumber = 0;
+                let tempValue = 0;
+    
+                for (let char of chineseNumber) {
+                    if (chineseNumberMap[char] !== undefined) {
+                        if (chineseNumberMap[char] === 10) {
+                            tempValue *= 10;
+                        } else {
+                            tempValue += chineseNumberMap[char];
+                        }
+                    } else {
+                        arabicNumber += tempValue === 0 ? 1 : tempValue;
+                        tempValue = 0;
+                    }
+                }
+    
+                arabicNumber += tempValue;
+                return arabicNumber;
+            } else {
+                return chineseNumber;
+            }
+        }
+
+        this.seasonNumber = function(text) {
+            // 匹配季数和集数的正则表达式模式（支持中文数字）
+            var seasonPattern = /(?:第)?([0-9一二三四五六七八九十]+)季/i; // 可能包含"第"，然后捕获季数
+    
+            // 提取季数和集数的逻辑
+            var seasonMatch = text.match(seasonPattern);
+            if (seasonMatch) {
+                var seasonNumber = seasonMatch ? chineseToArabicNumber(seasonMatch[1]) : 1;
+                return seasonNumber;
+            } else {
+                return '';
+            }
+        }
+
+        this.finds_ = function (find) {
+            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+            var finded;
+            //console.log(params)
+            var filtred = function filtred(items) {
+                //console.log(items)
+                //   for (var i = 0; i < items.length; i++) {
+                //     var item = items[i];
+
+                //     if (params.sub_title == item.original_title || params.title == item.name || params.original_title == item.name) {
+                //       finded = item;
+                //       break;
+                //     }
+                //   }
+                finded = items.filter(function (fp) {
+                    //return (fp.original_name === params.sub_title || fp.title === params.title  || fp.name === params.title || params.title.indexOf(fp.title) !==-1)
+                    return ((fp.original_title || fp.original_name) == params.sub_title || (fp.title || fp.name) == params.title || params.title.indexOf((fp.title || fp.name)) !== -1)
+                    //return (((fp.original_title || fp.original_name) === params.sub_title || (fp.title || fp.name) === params.title)&& parseInt(params.year) == (fp.first_air_date || fp.release_date).split('-').shift() )
+                });
+            };
+
+            // if (params.title_org) {
+            //     if (find.movie && find.movie.results.length) filtred(find.movie.results);
+            //     if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
+            // } else {
+                if (params.istv) {
+                    if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
+                } else {
+                    if (find.movie && find.movie.results.length) filtred(find.movie.results);
+                };
+                if (typeof finded === "undefined") {
+                    if (find.movie && find.movie.results.length) filtred(find.movie.results);
+                    if (find.tv && find.tv.results.length && !finded) filtred(find.tv.results);
+                };
+            // }
+            return finded ? finded[0] : finded;
         };
 
         this.build = function (data) {
