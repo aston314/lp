@@ -233,6 +233,92 @@
       }
    },
    {
+      "title": "厂长资源",
+      "link": "https://cz01.cc",
+      "available": true,
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_proxy": false,
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
+         {
+            "title": "最近更新",
+            "url": "https://cz01.cc",
+            "quantity": ":gt(5):lt(9)"
+         },
+         {
+            "title": "电影",
+            "url": "https://cz01.cc/zuixindianying",
+            "quantity": ""
+         },
+         {
+            "title": "电视剧",
+            "url": "https://cz01.cc/dsj",
+            "quantity": ""
+         },
+         {
+            "title": "美剧",
+            "url": "https://cz01.cc/meijutt",
+            "quantity": ""
+         },
+         {
+            "title": "韩剧",
+            "url": "https://cz01.cc/hanjutv",
+            "quantity": ""
+         },
+         {
+            "title": "国产剧",
+            "url": "https://cz01.cc/gcj",
+            "quantity": ""
+         },
+         {
+            "title": "动漫",
+            "url": "https://cz01.cc/dm",
+            "quantity": ""
+         },
+         {
+            "title": "番剧",
+            "url": "https://cz01.cc/fanju",
+            "quantity": ""
+         },
+         {
+            "title": "豆瓣电影Top250",
+            "url": "https://cz01.cc/gaofenyingshi",
+            "quantity": ""
+         }
+      ],
+      "list": {
+         "page": {
+            "selector": "div.pagenavi_txt"
+         },
+         "videoscontainer": {
+            "selector": "div.bt_img > ul > li",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "img",
+            "attrName": "alt",
+            "filter": ""
+         },
+         "thumb": {
+            "selector": "img",
+            "attrName": "data-original",
+            "filter": ""
+         },
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
+         }
+      },
+      "search": {
+         "url": "https://cz01.cc/xssearch?q=#msearchword"
+      }
+   },
+   {
       "title": "乐猪TV",
       "link": "http://www.lezhutv.com",
       "available": true,
@@ -696,92 +782,6 @@
       },
       "search": {
          "url": "https://www.subaibaiys.com/grabble?q=#msearchword"
-      }
-   },
-   {
-      "title": "厂长资源",
-      "link": "https://cz01.cc",
-      "available": true,
-      "show": "portrait",
-      "next": "search",
-      "datasort": "",
-      "use_proxy": false,
-      "use_referer": false,
-      "browser": "MOBILE_UA",
-      "category": [
-         {
-            "title": "最近更新",
-            "url": "https://cz01.cc",
-            "quantity": ":gt(5):lt(9)"
-         },
-         {
-            "title": "电影",
-            "url": "https://cz01.cc/zuixindianying",
-            "quantity": ""
-         },
-         {
-            "title": "电视剧",
-            "url": "https://cz01.cc/dsj",
-            "quantity": ""
-         },
-         {
-            "title": "美剧",
-            "url": "https://cz01.cc/meijutt",
-            "quantity": ""
-         },
-         {
-            "title": "韩剧",
-            "url": "https://cz01.cc/hanjutv",
-            "quantity": ""
-         },
-         {
-            "title": "国产剧",
-            "url": "https://cz01.cc/gcj",
-            "quantity": ""
-         },
-         {
-            "title": "动漫",
-            "url": "https://cz01.cc/dm",
-            "quantity": ""
-         },
-         {
-            "title": "番剧",
-            "url": "https://cz01.cc/fanju",
-            "quantity": ""
-         },
-         {
-            "title": "豆瓣电影Top250",
-            "url": "https://cz01.cc/gaofenyingshi",
-            "quantity": ""
-         }
-      ],
-      "list": {
-         "page": {
-            "selector": "div.pagenavi_txt"
-         },
-         "videoscontainer": {
-            "selector": "div.bt_img > ul > li",
-            "attrName": "",
-            "filter": ""
-         },
-         "title": {
-            "selector": "img",
-            "attrName": "alt",
-            "filter": ""
-         },
-         "thumb": {
-            "selector": "img",
-            "attrName": "data-original",
-            "filter": ""
-         },
-         "link": {
-            "selector": "a",
-            "attrName": "href",
-            "filter": ""
-         }
-      },
-      "search": {
-         "url": "https://cz01.cc/xssearch?q=#msearchword"
       }
    },
    {
