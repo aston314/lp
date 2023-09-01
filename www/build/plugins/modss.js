@@ -148,7 +148,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  // },
 		  {
 			name: '网站-AUETE影视',
-			available: true,
+			available: false,
 			websitelink: 'https://auete.art',
 			listlink: true,
 			use_proxy: false,
@@ -2376,7 +2376,24 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
 					var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
 					var evaluatedCodeResult = window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
-					
+					var text = $('script:contains(player_)',str).html();
+					var parsedJson;
+					if (text) {
+						try {
+							var jsonStart = text.indexOf('{'); // 找到第一个大括号的位置
+							var jsonEnd = text.lastIndexOf('}'); // 找到最后一个大括号的位置
+							if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
+								var jsonString = text.substring(jsonStart, jsonEnd + 1); // 提取大括号内的内容
+								var parsedJson = JSON.parse(jsonString); // 解析 JSON 字符串
+
+							}
+						} catch (error) {
+							console.error("Error parsing JSON:", error.message);
+						}
+					}
+					var isJsonValid = typeof parsedJson === 'object' && parsedJson !== null;
+					var hasM3u8Url = isJsonValid && parsedJson.url && parsedJson.url.includes('.m3u8');	
+
 					if (typeof now == 'string') {
 						if (now) {
 							element.stream = now;
@@ -2385,6 +2402,12 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						} else error();
 						now = null;
 						// Lampa.Modal.close();
+					} else if (hasM3u8Url) {
+						// if (parsedJson.url.includes('.m3u8')) {
+							element.stream = parsedJson.url;
+							// element.qualitys = quality;
+							call(element.stream);
+						// } else error();
 					} else {
 						var queue = [
 							proxy_url + url + '/static/js/playerconfig.js',
@@ -2439,6 +2462,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										//   console.log(data.contents);
 										// });
 										$(".noty").show();
+										component.render().find('.online_modss__scan-file').remove();
 										Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
 										Lampa.Controller.toggle('content');
 									  } else {
@@ -10776,7 +10800,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			  ru: 'Стилизация',
 			  uk: 'Стилізація',
 			  en: 'Stylization',
-			  zh: '样式',
+			  zh: '其它',
 		  },
 		  placeholder_password: {
 			  ru: 'Введите пароль',
@@ -10884,7 +10908,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			  ru: 'Включить рейтинг',
 			  uk: 'Увiмкнути рейтинг',
 			  en: 'Enable rating',
-			  zh: '启用评分',
+			  zh: '显示评分',
 		  },
 		  title_enable_rating_descr: {
 			  ru: 'Отображает в карточке рейтинг Кинопоиск и IMDB',
@@ -10945,7 +10969,37 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			  uk: 'Радiо',
 			  en: 'Radio',
 			  zh: '电台'
-		  }
+		  },
+		  use_json_enable: {
+			  ru: 'Внешняя конфигурация',
+			  uk: 'Зовнішня конфігурація',
+			  en: 'External Configuration',
+			  zh: '外部配置'
+		  },
+		  use_json_enable_descr: {
+			ru: 'По умолчанию используется встроенная конфигурация.',
+			uk: 'Використовувати вбудовану конфігурацію за замовчуванням.',
+			en: 'Defaulting to built-in configuration.',
+			zh: '默认使用内置配置规则',
+		  },
+		  use_json_url: {
+			ru: 'URL конфигурации',
+			uk: 'URL конфігурації',
+			en: 'Configuration URL',
+			zh: '配置地址'
+		  },
+		  use_json_url_descr: {
+			ru: 'URL-адрес JSON-файла',
+			uk: 'URL-адреса JSON-файлу',
+			en: 'JSON URL Address.',
+			zh: 'JSON URL地址'
+		  },
+		  use_json_url_placeholder: {
+			ru: 'Например: http://apc.com/a.json',
+			uk: 'Наприклад: http://apc.com/a.json',
+			en: '例如：http://abc.com/a.json',
+			zh: '例如：http://abc.com/a.json'
+		},
 	  });
 		function FreeJaketOpt() {
   			Lampa.Arrays.getKeys(Modss.jack).map(function (el){
@@ -11214,6 +11268,45 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				  if(cards) Modss.online('delete');
 					Lampa.Settings.update();
 				}
+			});
+			Lampa.SettingsApi.addParam({
+				component: 'settings_modss',
+				param: {
+					name: 'mods_use_json',
+					type: 'trigger', //доступно select,input,trigger,title,static
+					default: false
+				},
+				field: {
+					name: Lampa.Lang.translate('params_pub_on') + ' ' + Lampa.Lang.translate('use_json_enable').toLowerCase(),
+					description: Lampa.Lang.translate('use_json_enable_descr')
+				},
+				onChange: function (value) {
+				//   if(cards) Modss.online('delete');
+					Lampa.Settings.update();
+				}
+			});
+			Lampa.SettingsApi.addParam({
+				component: 'settings_modss',
+				param: {
+					name: 'mods_use_json_url',
+					type: 'input', //доступно select,input,trigger,title,static
+					values: '',
+					default: '',
+					placeholder: Lampa.Lang.translate('use_json_url_placeholder')
+				},
+				field: {
+					name: Lampa.Lang.translate('use_json_url').toLowerCase(),
+					description: Lampa.Lang.translate('use_json_url_descr')
+				},
+				onRender: function (item) {
+					if (Lampa.Storage.field('mods_use_json')) {
+						item.show();
+					} else item.hide();
+				}
+				// onChange: function (value) {
+				//   if(cards) Modss.online('delete');
+				// 	Lampa.Settings.update();
+				// }
 			});
 			Lampa.SettingsApi.addParam({
 				component: 'settings_modss',
