@@ -48,6 +48,26 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			use_referer: true,
 			js_execute_key: ['maccms', 'player_aaaa']
 		  },
+		  {
+			name: '网站-低端影视',
+			available: true,
+			websitelink: 'https://ddys.pro',
+			listlink: true,
+			use_proxy: false,
+			search_url: 'https://ddys.pro/?s=#msearchword&post_type=post',
+			search_json: false,
+			node_json: 'list',
+			name_json: 'name',
+			id_json: 'id',
+			first_page_json: '-1-1.html',
+			search_html_selector: 'h2.post-title',
+			link_folder: 'video/',
+			detail_url_selector: '.wp-playlist-script',
+			videoparse: 'default',
+			videocontainer: '.MacPlayer',
+			use_referer: true,
+			js_execute_key: []
+		  },
 		  // {
 		  //   name: '网站-凌云影视',
 		  //   available: false,
@@ -607,11 +627,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		  },
 		],
 		"custom_function": [
-		  {
-			resource_name: '网站-低端视频',
-			function_name: 'ddys',
-			ext_js_url: ''
-		  },
+		//   {
+		// 	resource_name: '网站-低端视频',
+		// 	function_name: 'ddys',
+		// 	ext_js_url: ''
+		//   },
 		  {
 			resource_name: '网站-厂长资源',
 			function_name: 'czzy',
@@ -1951,92 +1971,120 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
       var item = {};
       var doonce = 0;
-      if (doreg.search_json) {
-        try {
-          str[doreg.node_json].forEach(function (e) {
-            item.Title = e[doreg.name_json];
-            item.Link = doreg.websitelink + '/' + doreg.link_folder + e[doreg.id_json] + doreg.first_page_json;
-            // item.Link = doreg.websitelink + '/' + doreg.link_folder + '/' + e[doreg.id_json] + doreg.first_page_json;
-            dodetail(item.Link, str, item.Title);
-            doonce++;
-            if (doonce === 1) {
-              throw 'Break';
-            }
-          });
-        } catch (e) {
-          if (e !== 'Break') throw e
-        };
-      } else {
-        var math = $(doreg.search_html_selector, str.replace(/\n|\r/g, ''));
-        $(math).find('a').each(function (i, a) {
-          item.Title = ($(a).attr('title') || $(a).text());
-          item.Link = $(a).attr('href').indexOf('http') == -1 ? doreg.websitelink + $(a).attr('href') : $(a).attr('href');
-          dodetail(item.Link, str, item.Title);
-          doonce++;
-          if (doonce === 1) return false;
-        });
-        $(math).remove();
-      };
+		if (doreg.search_json) {
+			try {
+				str[doreg.node_json].forEach(function (e) {
+					item.Title = e[doreg.name_json];
+					item.Link = doreg.websitelink + '/' + doreg.link_folder + e[doreg.id_json] + doreg.first_page_json;
+					// item.Link = doreg.websitelink + '/' + doreg.link_folder + '/' + e[doreg.id_json] + doreg.first_page_json;
+					dodetail(item.Link, str, item.Title);
+					doonce++;
+					if (doonce === 1) {
+						throw 'Break';
+					}
+				});
+			} catch (e) {
+				if (e !== 'Break') throw e
+			};
+		} else {
+			if (str.includes('https://ddys.pro')) {
+				var regex = /第(\d+)季/;
+				var match_ = regex.exec($('h2 > a', str).text()) ? regex.exec($('h2 > a', str).text())[1] + "/" : "";
+			}
+			var math = $(doreg.search_html_selector, str.replace(/\n|\r/g, ''));
+			$(math).find('a').each(function (i, a) {
+				item.Title = ($(a).attr('title') || $(a).text());
+				if (str.includes('https://ddys.pro')) {
+					item.Link = $(a).attr('href').indexOf('http') == -1 ? 'https://ddys.art/' + $(a).attr('href') + match_ : $(a).attr('href') + match_;
+				} else {
+					item.Link = $(a).attr('href').indexOf('http') == -1 ? doreg.websitelink + $(a).attr('href') : $(a).attr('href');
+				}
+				dodetail(item.Link, str, item.Title);
+				doonce++;
+				if (doonce === 1) return false;
+			});
+
+
+			$(math).remove();
+		};
     };
 
-    function dodetail(link, data, title) {
-		var hasSeason = object.hasOwnProperty("movie") && object.movie.hasOwnProperty("number_of_seasons");
-		
-		// console.log(object,component.seasonNumber(title),title,hasSeason)
-      //取得具体页面的详情地址
-      if (doreg.use_proxy) {
-        proxy_url = proxy;
-        proxy_alt = proxy_alt;
-      } else {
-        proxy_url = '';
-        proxy_alt = '';
-      };
-      
-      network["native"](proxy_url + link, function (data) {
-		// console.log(component.extractTitleContent(data))
-        var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
-        // results = [];
-        if ($(math).find('a').length) {
-          $(math).find('a').each(function (i, a) {
-            results.push({
-              file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
-              quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
-              title: title,
-			  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber($(a).text() || $(a).attr('title')) ? 1 : '') )),
-              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (hasSeason ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.episodeNumber($(a).text() || $(a).attr('title')) ? component.extractEpisodeNumber($(a).text() || $(a).attr('title'))  : ''))),
-              info: ''
-            });
-          });
-        } else {
-          $(math, data).each(function (i, a) {
-            results.push({
-              file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
-              quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
-              title: title,
-              season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : ''),
-              episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
-              info: ''
-            });
-          });
-        }
-        
-        filter();
-        append(filtred());
+	  function dodetail(link, data, title) {
+		  var hasSeason = object.hasOwnProperty("movie") && object.movie.hasOwnProperty("number_of_seasons");
 
-        get_links_wait = false;
-        component.render().find('.broadcast__scan').remove();
+		  // console.log(object,component.seasonNumber(title),title,hasSeason)
+		  //取得具体页面的详情地址
+		  if (doreg.use_proxy) {
+			  proxy_url = proxy;
+			  proxy_alt = proxy_alt;
+		  } else {
+			  proxy_url = '';
+			  proxy_alt = '';
+		  };
 
-        //results = [];
-        $(math).remove();
-      }, function (a, c) {
-        //component.empty('哦，' + network.errorDecode(a, c) + ' ');
-        get_links_wait = false;
-        component.render().find('.broadcast__scan').remove();
-        component.emptyForQuery(title);
-      }, false, {
-        dataType: 'text'
-      });
-    };
+		  network["native"](proxy_url + link, function (data) {
+			  // console.log(component.extractTitleContent(data))
+			  if (link.includes('ddys')) {
+				  var playlistScript = $(doreg.detail_url_selector, data).text();
+				  var playlistData = JSON.parse(playlistScript);
+
+				  playlistData.tracks.forEach(function (html) {
+					  results.push({
+						  file: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
+						  quality: '低端影视 / ' + html.caption,
+						  title: html.caption,
+						  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber(html.caption) ? 1 : ''))),
+						  episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber(html.caption) : (hasSeason ? component.extractEpisodeNumber(html.caption) : (component.episodeNumber(html.caption) ? component.extractEpisodeNumber(html.caption) : ''))),
+						  info: ''
+					  });
+				  });
+			  } else {
+				  var math = $(doreg.detail_url_selector, data.replace(/\n|\r/g, '').replace(/href="javascript:;"/g, ''));
+				  // results = [];
+				  if ($(math).find('a').length) {
+					  $(math).find('a').each(function (i, a) {
+						  results.push({
+							  file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
+							  quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
+							  title: title,
+							  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber($(a).text() || $(a).attr('title')) ? 1 : ''))),
+							  episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (hasSeason ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : (component.episodeNumber($(a).text() || $(a).attr('title')) ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : ''))),
+							  info: ''
+						  });
+					  });
+				  } else {
+					  $(math, data).each(function (i, a) {
+						  results.push({
+							  file: doreg.listlink ? doreg.websitelink + $(a).attr('href') : $(a).attr('href'),
+							  quality: doreg.name + ' / ' + ($(a).text() || $(a).attr('title')),
+							  title: title,
+							  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : ''),
+							  episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).text() || $(a).attr('title')) : '',
+							  info: ''
+						  });
+					  });
+				  }
+			  }
+
+			  filter();
+			  append(filtred());
+
+			  get_links_wait = false;
+			  component.render().find('.broadcast__scan').remove();
+
+			  //results = [];
+			  $(math).remove();
+		  }, function (a, c) {
+			  //component.empty('哦，' + network.errorDecode(a, c) + ' ');
+			  get_links_wait = false;
+			  component.render().find('.broadcast__scan').remove();
+			  component.emptyForQuery(title);
+		  }, false, {
+			  dataType: 'text'
+		  });
+
+
+	  };
 
     function filter() {
       filter_items = {
@@ -2376,25 +2424,49 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					var url = element.file.indexOf('http') == -1 ? '' : element.file.match(/(http|https):\/\/(www\.)?([\w-]+(\.)?)+/)[0];
 					var keyjs = extractScriptContentAsString(doreg.js_execute_key, str);
 					var evaluatedCodeResult = window.eval('function base64decode(str){ return atob(str); };' + keyjs.replace(/undefined|NaN/g,''));
-					var text = $('script:contains(player_)',str).html();
 					var parsedJson;
-					if (text) {
-						try {
-							var jsonStart = text.indexOf('{'); // 找到第一个大括号的位置
-							var jsonEnd = text.lastIndexOf('}'); // 找到最后一个大括号的位置
-							if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
-								var jsonString = text.substring(jsonStart, jsonEnd + 1); // 提取大括号内的内容
-								var parsedJson = JSON.parse(jsonString); // 解析 JSON 字符串
+					if (!element.file.includes('ddys')) {
+						var text = $('script:contains(player_)', str).html();
+						if (text) {
+							try {
+								var jsonStart = text.indexOf('{'); // 找到第一个大括号的位置
+								var jsonEnd = text.lastIndexOf('}'); // 找到最后一个大括号的位置
+								if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
+									var jsonString = text.substring(jsonStart, jsonEnd + 1); // 提取大括号内的内容
+									var parsedJson = JSON.parse(jsonString); // 解析 JSON 字符串
 
+								}
+							} catch (error) {
+								console.error("Error parsing JSON:", error.message);
 							}
-						} catch (error) {
-							console.error("Error parsing JSON:", error.message);
 						}
-					}
+					};
 					var isJsonValid = typeof parsedJson === 'object' && parsedJson !== null;
 					var hasM3u8Url = isJsonValid && parsedJson.url && parsedJson.url.includes('.m3u8');	
 
-					if (typeof now == 'string') {
+					if (element.file.includes('ddys')){
+						if (element.file) {
+							network["native"](element.file, function (data) {
+								if (data.url) {
+									element.stream = data.url;
+									// element.qualitys = quality;
+									call(element.stream);
+								} else error();
+							}, function (a, c) {
+							  Lampa.Noty.show(network.errorDecode(a, c));
+							}, false, {
+							  dataType: 'json',
+							  headers: {
+								'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+								'Referer': "https://ddys.pro/"
+							  }
+							});
+						  } else {
+							error();
+							return;
+						  }
+					}
+					else if (typeof now == 'string') {
 						if (now) {
 							element.stream = now;
 							// element.qualitys = quality;
