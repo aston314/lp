@@ -54,71 +54,75 @@
                         // var button = json.interests.map(function (element) {
                         //     return '<div class="items-line__head" style="margin-bottom: 0.4em;"><div class="items-line__title">' + element.create_time + '</div><div>' + (element.rating ? element.rating.value + '颗星 ' : '') + '评论人: ' + element.user.name + '</div></div><div class="items-line__body"><div class="full-descr"><div class="full-descr__left"><div>' + element.comment + '</div></div></div></div>';
                         // }).join('');
-                        var badgeElements = html.find('.navigation-tabs__badge');
-                        var badgeIndex = (type === 'hot') ? 0 : 1;
-                        badgeElements[badgeIndex].text(json.total);
-                        
-                        json.interests.forEach(function (element) {
-                            var item = Lampa.Template.get('notice_card', {});
-                            var icon = object.data.movie.img.replace('w500', 'w300');
-                            var author_data = {};
-                            var author_html;
-                            item.addClass('image--poster');
-                            item.find('.notice__title').html((element.rating ? element.rating.value + '颗星' : ''));
-                            item.find('.notice__descr').html(element.comment);
-                            item.find('.notice__time').html(element.create_time);
+                        if (json.hasOwnProperty("interests")) {
+                            var badgeElements = html.find('.navigation-tabs__badge');
+                            var badgeIndex = (type === 'hot') ? 0 : 1;
+                            badgeElements[badgeIndex].text(json.total);
+
+                            json.interests.forEach(function (element) {
+                                var item = Lampa.Template.get('notice_card', {});
+                                var icon = object.data.movie.img.replace('w500', 'w300');
+                                var author_data = {};
+                                var author_html;
+                                item.addClass('image--poster');
+                                item.find('.notice__title').html((element.rating ? element.rating.value + '颗星' : ''));
+                                item.find('.notice__descr').html(element.comment);
+                                item.find('.notice__time').html(element.create_time);
 
 
-                            author_html = $("<div class=\"notice__author\">\n                    <div class=\"notice__author-img\">\n                        <img />\n                    </div>\n                    <div class=\"notice__author-body\">\n                        <div class=\"notice__author-name\"></div>\n                        <div class=\"notice__author-text\"></div>\n                    </div>\n                </div>");
-                            author_html.find('.notice__author-name').html(element.user.name);
-                            author_html.find('.notice__author-text').html((element.user.loc ? element.user.loc.name : '') + (element.user.gender == 'M' ? ' 男生' : ' 女生'));
-                            item.find('.notice__body').append(author_html);
+                                author_html = $("<div class=\"notice__author\">\n                    <div class=\"notice__author-img\">\n                        <img />\n                    </div>\n                    <div class=\"notice__author-body\">\n                        <div class=\"notice__author-name\"></div>\n                        <div class=\"notice__author-text\"></div>\n                    </div>\n                </div>");
+                                author_html.find('.notice__author-name').html(element.user.name);
+                                author_html.find('.notice__author-text').html((element.user.loc ? element.user.loc.name : '') + (element.user.gender == 'M' ? ' 男生' : ' 女生'));
+                                item.find('.notice__body').append(author_html);
 
 
-                            item.on('visible', function () {
-                                if (icon) {
-                                    if (icon.indexOf('http') == -1) icon = Lampa.TMDB.image('t/p/w300/' + icon);
-                                    var img_icon = item.find('.notice__left img')[0] || {};
-                                    var img_author = item.find('.notice__author img')[0] || {};
+                                item.on('visible', function () {
+                                    if (icon) {
+                                        if (icon.indexOf('http') == -1) icon = Lampa.TMDB.image('t/p/w300/' + icon);
+                                        var img_icon = item.find('.notice__left img')[0] || {};
+                                        var img_author = item.find('.notice__author img')[0] || {};
 
-                                    img_icon.onload = function () {
-                                        item.addClass('image--loaded');
-                                    };
+                                        img_icon.onload = function () {
+                                            item.addClass('image--loaded');
+                                        };
 
-                                    img_icon.onerror = function () {
-                                        img_icon.src = './img/img_broken.svg';
-                                    };
+                                        img_icon.onerror = function () {
+                                            img_icon.src = './img/img_broken.svg';
+                                        };
 
-                                    img_author.onload = function () {
-                                        item.addClass('image-author--loaded');
-                                    };
+                                        img_author.onload = function () {
+                                            item.addClass('image-author--loaded');
+                                        };
 
-                                    img_author.onerror = function () {
-                                        img_author.src = './img/img_broken.svg';
-                                    };
+                                        img_author.onerror = function () {
+                                            img_author.src = './img/img_broken.svg';
+                                        };
 
-                                    img_icon.src = icon;
-                                    img_author.src = element.user.avatar;
-                                }
+                                        img_icon.src = icon;
+                                        img_author.src = element.user.avatar;
+                                    }
+                                });
+                                html.append(item);
                             });
-                            html.append(item);
-                        });
 
 
-                        // var modal = $('<div><div class="broadcast__text" style="text-align:left"><div class="otzyv">' + button + '</div></div></div>');
-                        // var enabled = Lampa.Controller.enabled().name;
-                        Lampa.Modal.open({
-                            title: "",
-                            select: html.find('.navigation-tabs .active')[0],
-                            html: html,//modal,
-                            size: "large",
-                            mask: !0,
-                            onBack: function () {
-                                Lampa.Modal.close(), Lampa.Controller.toggle('full_start')
-                                // Lampa.Controller.toggle(enabled)
-                            },
-                            // onSelect: function () { }
-                        });
+                            // var modal = $('<div><div class="broadcast__text" style="text-align:left"><div class="otzyv">' + button + '</div></div></div>');
+                            // var enabled = Lampa.Controller.enabled().name;
+                            Lampa.Modal.open({
+                                title: "",
+                                select: html.find('.navigation-tabs .active')[0],
+                                html: html,//modal,
+                                size: "large",
+                                mask: !0,
+                                onBack: function () {
+                                    Lampa.Modal.close(), Lampa.Controller.toggle('full_start')
+                                    // Lampa.Controller.toggle(enabled)
+                                },
+                                // onSelect: function () { }
+                            });
+                        } else {
+                            Lampa.Noty.show('接口限制，请稍等片刻再试试看。');
+                        }
                     }, function (a, c) {
                         if (a.responseJSON.code == 1287) {
                             Lampa.Noty.show('只支持在Android客户端上展示。');
