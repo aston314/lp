@@ -1086,6 +1086,56 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			}
 		},
 		rating_kp_imdb: function (card) {
+			function fetchDoubanData(card) {
+				return new Promise(function (resolve, reject) {
+					Pub.network["native"]('https://movie.douban.com/j/subject_suggest?q=' + card.imdb_id, function (data) {
+						if (data.length) {
+							Pub.network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + data[0].id, function (json) {
+								if (json.hasOwnProperty("subject")) {
+									var douban_rating = !isNaN(json.subject.rate) && json.subject.rate !== null && json.subject.rate !== '' ? parseFloat(json.subject.rate).toFixed(1) : '0.0';
+									$('.rate--imdb', Lampa.Activity.active().activity.render()).before('<div class="full-start__rate rate--douban"><div>' + douban_rating + '</div><div>豆瓣</div></div>');
+								}
+								resolve(); // 解决 Promise
+							}, function (a, c) {
+								resolve(); // 解决 Promise
+								Lampa.Noty.show(Pub.network.errorDecode(a, c));
+							}, false, {
+								dataType: 'json'
+							});
+						} else {
+							resolve(); // 解决 Promise
+						}
+					}, function (a, c) {
+						resolve(); // 解决 Promise
+						// Lampa.Noty.show('豆瓣：' + Pub.network.errorDecode(a, c));
+					}, false, {
+						dataType: 'json',
+					});
+				});
+			}
+
+			function fetchRottenTomatoesData(card) {
+				return new Promise(function (resolve, reject) {
+					Pub.network["native"]('https://www.rottentomatoes.com/m/' + card.original_title.replace(/:|-/, "").replace(/\s+/g, "_").replace(/\W+/g, "").replace(/_+/g, "_").toLowerCase(), function (data) {
+						var scriptRegex = /<script type="application\/ld\+json">(.*?)<\/script>/s;
+						var match = scriptRegex.exec(data);
+
+						if (match) {
+							var jsonContent = match[1];
+							var jsonData = JSON.parse(jsonContent);
+							if (jsonData.hasOwnProperty("aggregateRating")){
+								$('.rate--kp', Lampa.Activity.active().activity.render()).after('<div class="full-start__rate rate--rottentomatoes"><div>' + jsonData.aggregateRating.ratingValue + '%</div><div>烂番茄</div></div>');
+							}
+						}
+						resolve(); // 解决 Promise
+					}, function (a, c) {
+						resolve(); // 解决 Promise
+						// Lampa.Noty.show('烂番茄：' + Pub.network.errorDecode(a, c));
+					}, false, {
+						dataType: 'text',
+					});
+				});
+			}
 			return new Promise(function (resolve, reject) {
 				var relise = (card.number_of_seasons ? card.first_air_date : card.release_date) || '0000';
 				var year = parseInt((relise + '').slice(0, 4));
@@ -1109,28 +1159,16 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						$('.wait_rating', Lampa.Activity.active().activity.render()).remove();
 						$('.rate--imdb', Lampa.Activity.active().activity.render()).removeClass('hide').find('> div').eq(0).text(imdb_rating);
 						$('.rate--kp', Lampa.Activity.active().activity.render()).removeClass('hide').find('> div').eq(0).text(kp_rating);
-						Pub.network["native"]('https://movie.douban.com/j/subject_suggest?q=' + card.imdb_id, function (data) {
-							if (data.length) {
-								Pub.network["native"]('https://movie.douban.com/j/subject_abstract?subject_id=' + data[0].id, function (json) {
-									if (json.hasOwnProperty("subject")) {
-										var douban_rating = !isNaN(json.subject.rate) && json.subject.rate !== null && json.subject.rate !== '' ? parseFloat(json.subject.rate).toFixed(1) : '0.0';
-										$('.rate--imdb', Lampa.Activity.active().activity.render()).before('<div class="full-start__rate rate--douban"><div>' + douban_rating + '</div><div>豆瓣</div></div>');
-									}
-									resolve();
-								}, function (a, c) {
-									resolve();
-									Lampa.Noty.show(Pub.network.errorDecode(a, c));
-								}, false, {
-									dataType: 'json'
-								});
-							}
-							resolve();
-						}, function (a, c) {
-							resolve();
-							// Lampa.Noty.show('豆瓣：' + Pub.network.errorDecode(a, c));
-						}, false, {
-							dataType: 'json',
-						});
+						fetchRottenTomatoesData(card)
+							.then(function () {
+								return fetchDoubanData(card);
+							})
+							.then(function () {
+								// console.log("两个请求都已完成");
+							})
+							.catch(function (error) {
+								console.error("发生错误:", error);
+							});
 					}
 					resolve();
 				}, function (a, c) {
