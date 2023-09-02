@@ -1117,7 +1117,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			function fetchRottenTomatoesData(card) {
 				return new Promise(function (resolve, reject) {
 					Pub.network["native"]('https://www.rottentomatoes.com/m/' + card.original_title.replace(/:|-/, "").replace(/\s+/g, "_").replace(/\W+/g, "").replace(/_+/g, "_").toLowerCase(), function (data) {
-						var scriptRegex = /<script type="application\/ld\+json">(.*?)<\/script>/s;
+						var scriptRegex = /script type="application\/ld\+json">([^<]*)<\/script>/;
 						var match = scriptRegex.exec(data);
 
 						if (match) {
