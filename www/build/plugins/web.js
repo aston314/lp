@@ -451,6 +451,93 @@
             }
         },
         {
+            title: "哔嘀影视",
+            link: "https://www.bdys10.com",
+            available: true,
+            show: "portrait",
+            next: "search",
+            datasort: "",
+            use_referer: false,
+            use_proxy: false,
+            browser: "MOBILE_UA",
+            category: [{
+                title: "首页",
+                url: "https://www.bdys10.com/",
+                quantity: ''
+            },{
+                title: "最新更新",
+                url: "https://www.bdys10.com/s/all",
+                quantity: ''
+            },{
+                title: "电影",
+                url: "https://www.bdys10.com/s/all?type=0",
+                quantity: ''
+            },
+            {
+                title: "连续剧",
+                url: "https://www.bdys10.com/s/all?type=1",
+                quantity: ''
+            },
+            {
+                title: "美剧",
+                url: "https://www.bdys10.com/s/meiju",
+                quantity: ''
+            },
+            {
+                title: "韩剧",
+                url: "https://www.bdys10.com/s/hanju",
+                quantity: ''
+            },
+            {
+                title: "日剧",
+                url: "https://www.bdys10.com/s/riju",
+                quantity: ''
+            },
+            {
+                title: "港台剧",
+                url: "https://www.bdys10.com/s/gangtaiju",
+                quantity: ''
+            },
+            {
+                title: "动漫",
+                url: "https://www.bdys10.com/s/donghua",
+                quantity: ''
+            },
+            {
+                title: "综艺",
+                url: "https://www.bdys10.com/s/zongyi",
+                quantity: ''
+            }],
+            list: {
+                page: {
+                    selector: ".card-footer"
+                },
+                videoscontainer: {
+                    selector: "div.card.card-sm",
+                    attrName: "",
+                    filter: ""
+                },
+                title: {
+                    selector: ".card-title",
+                    attrName: "text",
+                    filter: ""
+                },
+                thumb: {
+                    selector: "img",
+                    attrName: "src",
+                    filter: ""
+                },
+                link: {
+                    selector: "a",
+                    attrName: "href",
+                    filter: ""
+                }
+            },
+            search: {
+                url: ""
+            }
+        },
+        {
             title: "COKEMV影视",
             link: "https://cokemv.me",
             available: false,
@@ -1111,7 +1198,42 @@
             //page = page.replace(page.match(/-(\d+)/)[0],'-'+ object.page)
             //console.log(page.match(/[0-9]+(?=[^0-9]*$)(.+)/))
             //var ext = page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '';
+            function extractPageNumber(url) {
+                // 使用正则表达式捕获组来提取页码
+                // var regex = /\/(\d+)(?:-(\d+))?(?:\.html)?\/?$/;
+                // var regex = /\/(\d+)(?:-(\d+))?(?:\.html)?\/?/;
+                var regex = /\/(\d+)(?:-(\d+))?(?:\.html)?/;
 
+                var match = url.match(regex);
+              
+                if (match) {
+                  // 如果匹配到范围页码（例如：/123-456），则返回第二个捕获组的值
+                  if (match[2]) {
+                    return match[2];
+                  }
+                  // 否则返回第一个捕获组的值
+                  return match[1];
+                }
+              
+                return null; // 如果未找到页码，返回null或其他适当的值
+              }
+              
+
+            function replacePageNumber(url, newPageNumber) {
+                var currentPage = extractPageNumber(url);
+                if (currentPage !== null) {
+                    // 使用新的页码替换当前页码
+                    var newURL = url.replace(currentPage, newPageNumber);
+                    return newURL;
+                }
+                if (currentPage === null) {
+                    var newp = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
+                    return newp;
+                }
+                // return url; // 如果未找到页码，返回原始URL
+            }
+
+              
             if (page.indexOf('before=') !== -1) {
                 //page = page.replace('http://proxy.cub.watch/','http://proxy.cub.watch/cdn/https://tx.me/')
             } else {
@@ -1123,7 +1245,8 @@
                     //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
                     page = page.replace('page=' + match[1], 'page=' + match[1]++)
                 } else {
-                    page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
+                    page = replacePageNumber(page, object.page);
+                    // page = page.replace(page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[0], '') + object.page + (page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] ? page.match(/[0-9]+(?=[^0-9]*$)(.*)/)[1] : '');
 
                 }
             }
