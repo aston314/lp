@@ -581,7 +581,7 @@
         {
             title: "Auete影视",
             link: "https://auete.org",
-            available: true,
+            available: false,
             show: "portrait",
             next: "search",
             datasort: "",
