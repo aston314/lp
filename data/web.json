@@ -319,6 +319,92 @@
       }
    },
    {
+    "title": "哔嘀影视",
+    "link": "https://www.bdys10.com",
+    "available": true,
+    "show": "portrait",
+    "next": "search",
+    "datasort": "",
+    "use_referer": false,
+    "use_proxy": false,
+    "browser": "MOBILE_UA",
+    "category": [
+        {
+            "title": "最新更新",
+            "url": "https://www.bdys10.com/s/all",
+            "quantity": ""
+        },
+        {
+            "title": "电影",
+            "url": "https://www.bdys10.com/s/all?type=0",
+            "quantity": ""
+        },
+        {
+            "title": "连续剧",
+            "url": "https://www.bdys10.com/s/all?type=1",
+            "quantity": ""
+        },
+        {
+            "title": "美剧",
+            "url": "https://www.bdys10.com/s/meiju",
+            "quantity": ""
+        },
+        {
+            "title": "韩剧",
+            "url": "https://www.bdys10.com/s/hanju",
+            "quantity": ""
+        },
+        {
+            "title": "日剧",
+            "url": "https://www.bdys10.com/s/riju",
+            "quantity": ""
+        },
+        {
+            "title": "日剧",
+            "url": "https://www.bdys10.com/s/gangtaiju",
+            "quantity": ""
+        },
+        {
+            "title": "动漫",
+            "url": "https://www.bdys10.com/s/donghua",
+            "quantity": ""
+        },
+        {
+            "title": "综艺",
+            "url": "https://www.bdys10.com/s/zongyi",
+            "quantity": ""
+        }
+    ],
+    "list": {
+        "page": {
+            "selector": ".card-footer"
+        },
+        "videoscontainer": {
+            "selector": "div.card.card-sm",
+            "attrName": "",
+            "filter": ""
+        },
+        "title": {
+            "selector": "h3",
+            "attrName": "text",
+            "filter": ""
+        },
+        "thumb": {
+            "selector": "img.object-cover",
+            "attrName": "src",
+            "filter": ""
+        },
+        "link": {
+            "selector": "a.cover2",
+            "attrName": "href",
+            "filter": ""
+        }
+    },
+    "search": {
+        "url": ""
+    }
+},
+   {
       "title": "乐猪TV",
       "link": "http://www.lezhutv.com",
       "available": true,
