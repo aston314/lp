@@ -633,8 +633,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		// 	ext_js_url: ''
 		//   },
 		  {
-			resource_name: '网站-厂长资源',
+			resource_name: '网站-厂长资源*',
 			function_name: 'czzy',
+			ext_js_url: ''
+		  },
+		  {
+			resource_name: '网站-哔嘀影视*',
+			function_name: 'bdys',
 			ext_js_url: ''
 		  },
 		  {
@@ -3508,6 +3513,489 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						} else error();
 					})
 				}
+			}, function (a, c) {
+				Lampa.Noty.show(network.errorDecode(a, c));
+			}, false, {
+				dataType: 'text',
+				headers: {
+					'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+				}
+			});
+		} else {
+			error();
+			return;
+		}
+	  }
+
+	function append(items) {
+		component.reset();
+		component.draw(items, {
+		//   onRender: function onRender(item, html) {
+		// 	if (get_links_wait) html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
+		//   },
+		onEnter: function onEnter(item, html) {
+			  component.render().find('.online_modss__scan-file').remove();  
+			  html.find('.online_modss__body').append($('<div class="online_modss__scan-file"><div class="broadcast__scan"><div></div></div></div>'));
+			  getStream(item, function (stream) {
+				var first = {
+				  url: stream,
+				  timeline: item.timeline,
+				  quality: item.qualitys,
+				  subtitles: item.subtitles,
+				  title: item.title + ' / ' + item.quality
+				};
+				Lampa.Player.play(first);
+	  
+				if (item.season) {
+				  var playlist = [];
+				  items.forEach(function (elem) {
+					var cell = {
+					  url: function url(call) {
+						getStream(elem, function (stream) {
+						  cell.url = stream;
+						  cell.quality = elem.qualitys;
+						  call.subtitles = elem.subtitles;
+						  elem.mark();
+						  call();
+						}, function () {
+						  cell.url = '';
+						  call();
+						});
+					  },
+					  timeline: elem.timeline,
+					  title: elem.title
+					};
+					if (elem == item) cell.url = stream;
+					playlist.push(cell);
+				  });
+				  Lampa.Player.playlist(playlist);
+				} else {
+				  Lampa.Player.playlist([first]);
+				}
+				html.find('.online_modss__scan-file').remove();
+				component.savehistory(object);
+				item.mark();
+			  }, function () {
+				html.find('.online_modss__scan-file').remove();
+				Lampa.Noty.show(Lampa.Lang.translate('modss_nolink'));
+				Lampa.Controller.toggle('content');
+			  });
+			
+		  },
+		  onContextMenu: function onContextMenu(item, html, data, call) {
+			call(getFile(item, item.quality));
+		  }
+		});
+	}
+  }
+
+  function bdys(component, _object, rule) {
+    var network = new Lampa.Reguest();
+    var extract = {};
+    var object = _object;
+    var select_title = '';
+    var filter_items = {};
+    var choice = {
+      season: 0,
+      voice: 0,
+      order: 0,
+      voice_name: ''
+    };
+    var get_links_wait = false;
+    var results = [];
+    var proxy_url = '';
+    var proxy = 'https://cors.eu.org/';
+
+    this.searchByTitle = function (_object, kinopoisk_id) {
+      object = _object;
+      select_title = object.search || object.movie.title;
+      // doreg = rule;
+      get_links_wait = true;
+      // var searchUrl = 'https://ddys.pro/?s=#msearchword&post_type=post';
+      // var seasonRemovedTitle = select_title.replace(/第(.+)季/, '');
+      // var encodedTitle = encodeURIComponent(seasonRemovedTitle);
+      // var url1 = searchUrl.replace('#msearchword', encodedTitle);
+
+      network.clear();
+      network.timeout(1000 * 15);
+      network["native"](proxy_url + object.url, function (str) {
+        // var parsedData = doreg.search_json ? str : str;
+
+        var parsedData = str;
+
+        var searchresult = $('div#play-list > div', parsedData).find('a').length;
+        if (searchresult > 0) {
+          dodetail(parsedData);
+        } else component.emptyForQuery(select_title);
+
+        component.loading(false);
+      }, function (a, c) {
+        component.empty(network.errorDecode(a, c));
+      }, false, {
+        dataType: 'text',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+          // 'Referer': ""
+        }
+      });
+    };
+
+	this.extendChoice = function (saved) {
+		Lampa.Arrays.extend(choice, saved, true);
+	  };
+	  this.reset = function () {
+		component.reset();
+		choice = {
+		  season: 0,
+		  voice: 0,
+		  voice_name: '',
+		  voice_id: 0, 
+		  order: 0
+		};
+		filter();
+		append(filtred());
+	  };
+	  this.filter = function (type, a, b) {
+		choice[a.stype] = b.index;
+	
+		if (a.stype == 'voice') {
+		  choice.voice_name = filter_items.voice[b.index];
+		  choice.voice_id = filter_items.voice_info[b.index] && filter_items.voice_info[b.index].id;
+		}
+	
+		component.reset();
+		filter();
+		append(filtred());
+	  };
+	  this.destroy = function () {
+		network.clear();
+		results = null;
+	  };
+
+    function parse(str) {
+      if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+        // dodetail(item.Link, str, item.Title);
+    }
+
+    function dodetail(str) {
+      //取得具体页面的详情地址
+      // if (get_links_wait) component.append($('<div class="broadcast__scan"><div></div></div>'));
+      results = [];
+	  
+      $('div#play-list > div', str).find('a').each(function (i, a) {
+        results.push({
+          file: 'https://www.bdys10.com' + $(a).attr('href'),
+          quality: '哔嘀影视 / ' + ($(a).attr('title') || $(a).text()),
+          title: ($(a).attr('title') || $(a).text()),
+		  season: object.ext_seasonnumber ? object.ext_seasonnumber : '',
+          episode: object.ext_seasonnumber ? component.extractEpisodeNumber($(a).attr('title') || $(a).text()) : '',
+          info: ''
+        });
+      });
+      filter();
+      append(filtred());
+    };
+
+
+    function filter() {
+      filter_items = {
+        season: [],
+        voice: [],
+        quality: [],
+        order: []
+      };
+
+      if (extract.playlist) {
+        if (extract.playlist.seasons) {
+          extract.playlist.seasons.forEach(function (season) {
+            filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+          });
+        }
+      }
+
+      if (!filter_items.season[choice.season]) choice.season = 0;
+      component.order.forEach(function (i) {
+        filter_items.order.push(i.title);
+      });
+      component.filter(filter_items, choice);
+    }
+
+    function filtred() {
+
+      var mapResult = results.map(function (item, index, array) {
+        return item;
+      });
+      //return component.order[filter_data.order] ? (component.order[filter_data.order].id == 'invers' ? mapResult.reverse() : mapResult) : mapResult;
+      return component.order[choice.order].id == 'invers' ? mapResult.reverse() : mapResult;
+      // return mapResult;
+    }
+
+	function getFile(element, max_quality) {
+		var translat = extract[element.translation];
+		var id = element.season + '_' + element.episode;
+		var file = '';
+		var items = [];
+		var quality = false;
+	
+		if (translat) {
+		  if (element.season) {
+			for (var i in translat.json) {
+			  var elem = translat.json[i];
+	
+			  if (elem.folder) {
+				for (var f in elem.folder) {
+				  var folder = elem.folder[f];
+	
+				  if (folder.id == id) {
+					items = folder.items;
+					break;
+				  }
+				}
+			  } else if (elem.id == id) {
+				items = elem.items;
+				break;
+			  }
+			}
+		  } else {
+			items = translat.items;
+		  }
+		}
+	
+		if (items && items.length) {
+		  quality = {};
+		  var mass = [1080, 720, 480, 360];
+		  mass.forEach(function (n) {
+			var exes = items.find(function (a) {
+			  return a.quality == n;
+			});
+	
+			if (exes) {
+			  if (!file) file = exes.file;
+			  quality[n + 'p'] = exes.file;
+			}
+		  });
+		  var preferably = Lampa.Storage.get('video_quality_default', '1080') + 'p';
+		  if (quality[preferably]) file = quality[preferably];
+		}
+	
+		return {
+		  file: file,
+		  quality: quality
+		};
+	}
+
+	function getStream(element, call, error) {
+		function removeScriptContentWithKeywords(keywords, webpageContent) {
+			for (var keyword of keywords) {
+			  var regex = new RegExp(`<script\\b[^>]*>[^<]*${keyword}[^<]*<\\/script\\b[^>]*>`, 'g');
+			  webpageContent = webpageContent.replace(regex, '');
+			}
+		  
+			return webpageContent;
+		  }
+		if (element.stream) return call(element.stream);
+		// var url = element.file || '';
+		function base64ToHex(_0xfff091) {
+			const _0x31f23b = atob(_0xfff091);
+			let _0x500fbb = '';
+			for (let _0x5206a2 = 0; _0x5206a2 < _0x31f23b.length; _0x5206a2++) {
+			  const _0xe600d0 = _0x31f23b.charCodeAt(_0x5206a2).toString(16);
+			  _0x500fbb += _0xe600d0.length === 2 ? _0xe600d0 : '0' + _0xe600d0;
+			}
+			return _0x500fbb.toUpperCase();
+		  }
+
+		if (element.file) {
+			network["native"](element.file, function (data) {
+				// 通过正则表达式匹配pid的值
+				var pid;
+				var match = data.match(/var pid = (\d+);/);
+				// 检查是否匹配到pid
+				if (match && match.length === 2) {
+					pid = parseInt(match[1], 10);
+					Lampa.Utils.putScriptAsync(["https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js", "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/blueimp-md5/2.18.0/js/md5.min.js"], function () {
+						var currentTime = new Date().getTime();
+						var utf8Key = CryptoJS.enc.Utf8.parse(md5(pid + '-' + currentTime).substring(0, 16));
+						var encryptedData = CryptoJS.AES.encrypt(pid + '-' + currentTime, utf8Key, {
+							'mode': CryptoJS.mode.ECB,
+							'padding': CryptoJS.pad.Pkcs7
+						});
+						var timestamp = currentTime;
+						var signature = base64ToHex(encryptedData + '');
+						
+						network["native"]('https://www.bdys10.com/lines?t=' + timestamp + '&sg=' + signature + '&pid=' + pid + '', function (json) {
+							if (json.msg == '成功') {
+								if (json.hasOwnProperty("data")) {
+									if (json.data.hasOwnProperty("url3")) {
+										element.stream = json.data.url3;
+										// element.qualitys = quality;
+										call(element.stream);
+									} else {
+										error();	
+									}
+								} else {
+									error();
+								}
+							}
+						}, function (a, c) {
+							error();
+							// Lampa.Noty.show(network.errorDecode(a, c));
+						}, false, {
+							dataType: 'json',
+						});
+					});
+				} else {
+					error();
+				}
+			// 	var str = data
+			// 		.replace(/src="\/\//g, 'src="https://')
+			// 		.replace(/href="\/\//g, 'href="https://')
+			// 		.replace(/<\/?(head|meta|body|html)[^>]*>/g, '')
+			// 		.replace(/<title>.*?<\/title>/g, '')
+			// 		.replace(/\/1\.(23|24|25|26)\.0\/DPlayer\.min\.js/, '/1.27.0/DPlayer.min.js')
+			// 		.replace(/<script[^>]*src=["'][^"']*jquery[^"']*["'][^>]*><\/script>/gi, '')
+			// 		.replace(/<script[^>]*src=["'][^"']*comment[^"']*["'][^>]*><\/script>/gi, '')
+			// 		.replace(/<script[^>]*src=["'][^"']*common[^"']*["'][^>]*><\/script>/gi, '')
+
+			// 		// .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
+			// 	// .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"');
+			// 	// .replace('/v4/js/bdplayer.js?v=1.0.6', 'https://qu.ax/LpHD.js');
+				
+
+			// 	// 获取当前页面的 URL
+			// 	var currentPageUrl = element.file;
+			// 	// 判断当前页面的 URL 是否是绝对路径
+
+			// 	str = str.replace(/(src|href)=("|')((?!http|https|\/\/|data:)[^"']+)/ig, function (match, p1, p2, p3) {
+			// 		return p1 + '=' + p2 + component.getAbsolutePath(currentPageUrl.split("?")[0] ? currentPageUrl.split("?")[0] : currentPageUrl, p3);
+			// 	});
+			// 	str = removeScriptContentWithKeywords(['lozad()', 'IsPC'], str)
+
+			// 	$('.iframe').remove();
+			// 	Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
+			// 	var html$2 = Lampa.Template.get('playerwindow');
+			// 	$('body').append(html$2);
+
+			// 	return new Promise(function (resolve, reject) {
+			// 		$('.iframe').append(`
+            //     ${str}
+            //   `);
+			// 		resolve(); // 表示添加完成
+			// 	})
+			// 		.then(function () {
+			// 			toggle();
+			// 			setTimeout(function () {
+			// 				var playulr = $('video').attr('src') || document.querySelector('source').src;
+			// 				console.log('playulr=', playulr)
+			// 				if (typeof playulr !== "undefined") {
+			// 					var file = playulr;
+			// 					//console.log(file);
+			// 					if (file) {
+			// 						if (file) {
+			// 							element.stream = file;
+			// 							// element.qualitys = quality;
+			// 							call(element.stream);
+			// 						} else error();
+			// 						$('#artplayer').remove();
+			// 						close();
+			// 					} else {
+			// 						// Lampa.Noty.show('无法检索链接');
+			// 						error();
+			// 						close();
+			// 					}
+			// 				} else {
+			// 					// Lampa.Noty.show('无法找到视频地址');
+			// 					error();
+			// 					close();
+			// 				};
+			// 			}, 300);
+
+			// 		})
+			// 		.catch(function (error) {
+			// 			console.error('添加内容时出错：', error);
+			// 		});
+
+			// 	function toggle() {
+			// 		Lampa.Controller.add('playerwindow', {
+			// 			toggle: function toggle() {
+			// 				var focus = $('.iframe > div').addClass('selector');
+			// 				// console.log(focus[0])
+			// 				Lampa.Controller.collectionSet($('.iframe'));
+			// 				Lampa.Controller.collectionFocus(focus[0], $('.iframe'));
+			// 			},
+			// 			back: close
+			// 		});
+			// 		Lampa.Controller.toggle('playerwindow');
+			// 	}
+
+			// 	function close() {
+			// 		// html$2.removeClass('iframe--loaded');
+			// 		// Lampa.Keypad.listener.destroy();
+			// 		html$2.detach();
+			// 		Lampa.Controller.toggle('content');
+			// 		// html$2.find('iframe').attr('src', '');
+			// 		html$2.find('iframe').html('');
+			// 		// if (object.onBack) object.onBack();
+			// 	}
+
+				// var iframe = $('iframe', data);
+				// if (iframe.length > 0) {
+				// 	network["native"]($(iframe[0]).attr('src'), function (data) {
+				// 		Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"], function () {
+				// 			var randMatch = data.match(/var rand = "(.*?)";/);
+				// 			var playerMatch = data.match(/var player = "(.*?)";/);
+				// 			var rand, player;
+				// 			if (randMatch && randMatch.length > 1) {
+				// 				rand = randMatch[1];
+				// 			} else {
+				// 				rand = '';
+				// 			}
+
+				// 			if (playerMatch && playerMatch.length > 1) {
+				// 				player = playerMatch[1];
+				// 			} else {
+				// 				player = '';
+				// 			}
+
+				// 			function js_decrypt(str, key, iv) {
+				// 				var key = CryptoJS.enc.Utf8.parse(key);
+				// 				var iv = CryptoJS.enc.Utf8.parse(iv);
+				// 				var decrypted = CryptoJS.AES.decrypt(str, key, {
+				// 					iv: iv,
+				// 					padding: CryptoJS.pad.Pkcs7
+				// 				}).toString(CryptoJS.enc.Utf8);
+				// 				return decrypted
+				// 			}
+				// 			var config = JSON.parse(js_decrypt(player, 'VFBTzdujpR9FWBhe', rand));
+				// 			if (config.url) {
+				// 				element.stream = config.url;
+				// 				// element.qualitys = quality;
+				// 				call(element.stream);
+				// 			} else error();
+				// 		});
+
+				// 	}, function (a, c) {
+				// 		Lampa.Noty.show(network.errorDecode(a, c));
+				// 	}, false, {
+				// 		dataType: 'text',
+				// 		headers: {
+				// 			'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+				// 		}
+				// 	});
+
+				// } else {
+				// 	var js = $('script:contains(window.wp_nonce)', data).html();
+				// 	var group = js.match(/(var.*)eval\((\w*\(\w*\))\)/);
+				// 	Lampa.Utils.putScriptAsync(["https://qu.ax/MhrO.js"], function () {
+				// 		var result = eval(group[1] + group[2]);
+				// 		var playUrl = result.match(/url:.*?['"](.*?)['"]/)[1];
+				// 		if (playUrl) {
+				// 			element.stream = playUrl;
+				// 			// element.qualitys = quality;
+				// 			call(element.stream);
+				// 		} else error();
+				// 	})
+				// }
 			}, function (a, c) {
 				Lampa.Noty.show(network.errorDecode(a, c));
 			}, false, {
