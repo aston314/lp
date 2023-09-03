@@ -1327,98 +1327,98 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		},
 		balansPrf: 'videocdn'
 	}; 
-// 	var Filmix = {
-//   	network: new Lampa.Reguest(),
-//   	api_url: 'http://filmixapp.cyou/api/v2/',
-//   	token: Lampa.Storage.get('filmix_token', ''),
-//   	user_dev: 'user_dev_apk=2.0.9&user_dev_id=' + Lampa.Utils.uid(16) + '&user_dev_name=Xiaomi&user_dev_os=11&user_dev_vendor=Xiaomi&user_dev_token=',
-//   	add_new: function () {
-//   		var user_code = '';
-//   		var user_token = '';
-//   		var modal = $('<div><div class="broadcast__text">' + Lampa.Lang.translate('filmix_modal_text') + '</div><div class="broadcast__device selector" style="text-align: center">Ожидаем код...</div><br><div class="broadcast__scan"><div></div></div></div></div>');
-//   		Lampa.Modal.open({
-//   			title: '',
-//   			html: modal,
-//   			onBack: function onBack() {
-//   				Lampa.Modal.close();
-//   				Lampa.Controller.toggle('settings_component');
-//   				clearInterval(ping_auth);
-//   			},
-//   			onSelect: function onSelect() {
-//   				Lampa.Utils.copyTextToClipboard(user_code, function () {
-//   					Lampa.Noty.show(Lampa.Lang.translate('filmix_copy_secuses'));
-//   				}, function () {
-//   					Lampa.Noty.show(Lampa.Lang.translate('filmix_copy_fail'));
-//   				});
-//   			}
-//   		});
-//   		ping_auth = setInterval(function () {
-//   			Filmix.checkPro(user_token, function (json) {
-//   				if (json && json.user_data) {
-//   					Lampa.Modal.close();
-//   					clearInterval(ping_auth);
-//   					Lampa.Storage.set("filmix_token", user_token);
-//   					Filmix.token = user_token;
-//   					$('[data-name="filmix_token"] .settings-param__value').text(user_token);
-//   					Lampa.Controller.toggle('settings_component');
-//   				}
-//   			});
-//   		}, 2000);
-//   		this.network.clear();
-//   		this.network.timeout(10000);
-//   		this.network.quiet(this.api_url + 'token_request?' + this.user_dev, function (found) {
-//   			if (found.status == 'ok') {
-//   				user_token = found.code;
-//   				user_code = found.user_code;
-//   				modal.find('.selector').text(user_code);
-//   			} else {
-//   				Lampa.Noty.show(found);
-//   			}
-//   		}, function (a, c) {
-//   			Lampa.Noty.show(Filmix.network.errorDecode(a, c));
-//   		});
-//   	},
-//   	showStatus: function (ch) {
-//   		var status = Lampa.Storage.get("filmix_status", '{}');
-//   		var statuss = $('.settings-param__status', ch).removeClass('active error wait').addClass('wait');
-//   		var info = Lampa.Lang.translate('filmix_nodevice');
-//   		statuss.removeClass('wait').addClass('error');
-//   		if (status.login) {
-//   			statuss.removeClass('wait').addClass('active');
-//   			var foto = '<img width="30em" src="' + (status.foto.indexOf('noavatar') == -1 ? status.foto : './img/logo-icon.svg') + '"> <span style="vertical-align: middle;"><b style="font-size:1.3em;color:#FF8C00">' + status.login + '</b>';
-//   			if (status.is_pro || status.is_pro_plus) info = foto + ' - <b>' + (status.is_pro ? 'PRO' : 'PRO_PLUS') + '</b> ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date + '</span>';
-//   			else info = foto + ' - <b>NO PRO</b> - MAX 720p</span>';
-//   		}
-//   		if (ch) $('.settings-param__descr', ch).html(info);
-//   		else $('.settings-param__descr:eq(0)').html(info);
-//   	},
-//   	checkPro: function (token, call, err) {
-//   		if (!token && typeof call == 'function') call({});
-//   		this.network.clear();
-//   		this.network.timeout(8000);
-//   		token = token ? token : Lampa.Storage.get("filmix_token");
-//   		var url = this.api_url + 'user_profile?' + this.user_dev + token;
-//   		this.network.silent(url, function (json) {
-//   			window.FX.max_qualitie = 480;
-//   			window.FX.auth = false;
-//   		  window.FX.is_max_qualitie = false;
-//   			if (json) {
-//   				if (json.user_data) {
-//   			    window.FX.max_qualitie = 720;
-//   					Lampa.Storage.set("filmix_status", json.user_data);
-//   					if (typeof call == 'function') call(json);
-//   				} else {
-//   					Lampa.Storage.set("filmix_status", {});
-//   					if (typeof call == 'function') call({});
-//   				}
-//   				if(call) Filmix.showStatus();
-//   			}
-//   		}, function (a, c) {
-//   			if(err) err();
-//   			Lampa.Noty.show(Filmix.network.errorDecode(a, c));
-//   		});
-//   	}
-//   };
+	var Filmix = {
+  	network: new Lampa.Reguest(),
+  	api_url: 'http://filmixapp.cyou/api/v2/',
+  	token: Lampa.Storage.get('filmix_token', ''),
+  	user_dev: 'user_dev_apk=2.0.9&user_dev_id=' + Lampa.Utils.uid(16) + '&user_dev_name=Xiaomi&user_dev_os=11&user_dev_vendor=Xiaomi&user_dev_token=',
+  	add_new: function () {
+  		var user_code = '';
+  		var user_token = '';
+  		var modal = $('<div><div class="broadcast__text">' + Lampa.Lang.translate('filmix_modal_text') + '</div><div class="broadcast__device selector" style="text-align: center">Ожидаем код...</div><br><div class="broadcast__scan"><div></div></div></div></div>');
+  		Lampa.Modal.open({
+  			title: '',
+  			html: modal,
+  			onBack: function onBack() {
+  				Lampa.Modal.close();
+  				Lampa.Controller.toggle('settings_component');
+  				clearInterval(ping_auth);
+  			},
+  			onSelect: function onSelect() {
+  				Lampa.Utils.copyTextToClipboard(user_code, function () {
+  					Lampa.Noty.show(Lampa.Lang.translate('filmix_copy_secuses'));
+  				}, function () {
+  					Lampa.Noty.show(Lampa.Lang.translate('filmix_copy_fail'));
+  				});
+  			}
+  		});
+  		ping_auth = setInterval(function () {
+  			Filmix.checkPro(user_token, function (json) {
+  				if (json && json.user_data) {
+  					Lampa.Modal.close();
+  					clearInterval(ping_auth);
+  					Lampa.Storage.set("filmix_token", user_token);
+  					Filmix.token = user_token;
+  					$('[data-name="filmix_token"] .settings-param__value').text(user_token);
+  					Lampa.Controller.toggle('settings_component');
+  				}
+  			});
+  		}, 2000);
+  		this.network.clear();
+  		this.network.timeout(10000);
+  		this.network.quiet(this.api_url + 'token_request?' + this.user_dev, function (found) {
+  			if (found.status == 'ok') {
+  				user_token = found.code;
+  				user_code = found.user_code;
+  				modal.find('.selector').text(user_code);
+  			} else {
+  				Lampa.Noty.show(found);
+  			}
+  		}, function (a, c) {
+  			Lampa.Noty.show(Filmix.network.errorDecode(a, c));
+  		});
+  	},
+  	showStatus: function (ch) {
+  		var status = Lampa.Storage.get("filmix_status", '{}');
+  		var statuss = $('.settings-param__status', ch).removeClass('active error wait').addClass('wait');
+  		var info = Lampa.Lang.translate('filmix_nodevice');
+  		statuss.removeClass('wait').addClass('error');
+  		if (status.login) {
+  			statuss.removeClass('wait').addClass('active');
+  			var foto = '<img width="30em" src="' + (status.foto.indexOf('noavatar') == -1 ? status.foto : './img/logo-icon.svg') + '"> <span style="vertical-align: middle;"><b style="font-size:1.3em;color:#FF8C00">' + status.login + '</b>';
+  			if (status.is_pro || status.is_pro_plus) info = foto + ' - <b>' + (status.is_pro ? 'PRO' : 'PRO_PLUS') + '</b> ' + Lampa.Lang.translate('filter_rating_to') + ' - ' + status.pro_date + '</span>';
+  			else info = foto + ' - <b>NO PRO</b> - MAX 720p</span>';
+  		}
+  		if (ch) $('.settings-param__descr', ch).html(info);
+  		else $('.settings-param__descr:eq(0)').html(info);
+  	},
+  	checkPro: function (token, call, err) {
+  		if (!token && typeof call == 'function') call({});
+  		this.network.clear();
+  		this.network.timeout(8000);
+  		token = token ? token : Lampa.Storage.get("filmix_token");
+  		var url = this.api_url + 'user_profile?' + this.user_dev + token;
+  		this.network.silent(url, function (json) {
+  			window.FX.max_qualitie = 480;
+  			window.FX.auth = false;
+  		  window.FX.is_max_qualitie = false;
+  			if (json) {
+  				if (json.user_data) {
+  			    window.FX.max_qualitie = 720;
+  					Lampa.Storage.set("filmix_status", json.user_data);
+  					if (typeof call == 'function') call(json);
+  				} else {
+  					Lampa.Storage.set("filmix_status", {});
+  					if (typeof call == 'function') call({});
+  				}
+  				if(call) Filmix.showStatus();
+  			}
+  		}, function (a, c) {
+  			if(err) err();
+  			Lampa.Noty.show(Filmix.network.errorDecode(a, c));
+  		});
+  	}
+  };
 	// var ForkTV = {
 	// 	network: new Lampa.Reguest(),
 	// 	url: 'http://no_save.forktv.me',
@@ -4128,7 +4128,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					.replace(/<script[^>]*src=["'][^"']*common[^"']*["'][^>]*><\/script>/gi, '')
 
 					// .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
-				// .replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"');
+					.replace(/src="[^"]*crypto-js\.min\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
+					.replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
+					.replace(/src="[^"]*md5\.min\.js"/g, 'src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"')
 				// .replace('/v4/js/bdplayer.js?v=1.0.6', 'https://qu.ax/LpHD.js');
 				
 
@@ -4143,36 +4145,66 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				// console.log($(str).children(":not(#video)").remove().end().html());
 				// 使用 jQuery 创建一个虚拟 DOM 元素
 				// console.log(str)
+// 				var $html = $("<div>").html(str);
+
+// 				// 提取#video元素的内容
+// 				// var videoContent = $html.find("#video").html();
+// 				var videoContent = $html.find("#video")[0].outerHTML;
+				
+// 				// 提取所有的内联 JavaScript 代码和外部 JavaScript 文件引用，保持原始顺序
+// 				var scriptTags = $html.find("script").map(function () {
+// 					return this;
+// 				}).get();
+
+// 				// 创建一个新的 HTML 字符串，包含#video元素内容和内联 JavaScript 代码
+// 				var newHTML = `
+//   <!DOCTYPE html>
+//   <html>
+//     <head>
+//       <title>播放页面</title>
+//     </head>
+//     <body>
+//       ${videoContent}
+//     </body>
+//   </html>
+// `;
+
+// 				// 将内联 JavaScript 代码和外部 JavaScript 文件引用添加到新 HTML 字符串中，保持原始顺序
+// 				scriptTags.forEach(function (tag) {
+// 					newHTML = newHTML.replace('</body>', tag.outerHTML + '</body>');
+// 				});
+
+// 				console.log(newHTML); // 输出新的 HTML 字符串
 				var $html = $("<div>").html(str);
 
 				// 提取#video元素的内容
-				// var videoContent = $html.find("#video").html();
 				var videoContent = $html.find("#video")[0].outerHTML;
-				
+
 				// 提取所有的内联 JavaScript 代码和外部 JavaScript 文件引用，保持原始顺序
-				var scriptTags = $html.find("script").map(function () {
+				var scriptTags = $html.remove("#video").find("script").map(function () {
 					return this;
 				}).get();
 
-				// 创建一个新的 HTML 字符串，包含#video元素内容和内联 JavaScript 代码
+				// 创建一个新的 HTML 字符串，包含#video元素内容
 				var newHTML = `
-  <!DOCTYPE html>
-  <html>
     <head>
-      <title>播放页面</title>
     </head>
     <body>
       ${videoContent}
     </body>
-  </html>
 `;
 
 				// 将内联 JavaScript 代码和外部 JavaScript 文件引用添加到新 HTML 字符串中，保持原始顺序
 				scriptTags.forEach(function (tag) {
-					newHTML = newHTML.replace('</body>', tag.outerHTML + '</body>');
+					if (tag.src) {
+						newHTML = newHTML.replace('</body>', tag.outerHTML + '</body>');
+					} else {
+						newHTML = newHTML.replace('</head>', tag.outerHTML + '</head>');
+					}
 				});
+				newHTML = newHTML.replace(/<\/?head>|<\/?body>/g, '');
 
-				console.log(newHTML); // 输出新的 HTML 字符串
+				// console.log(newHTML); // 输出新的 HTML 字符串
 
 				$('.iframe').remove();
 				Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
