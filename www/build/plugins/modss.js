@@ -3805,7 +3805,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				// 检查是否匹配到pid
 				if (match && match.length === 2) {
 					pid = parseInt(match[1], 10);
-					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"], function () {
+					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"], function () {
 						var currentTime = new Date().getTime();
 						var utf8Key = CryptoJS.enc.Utf8.parse(md5(pid + '-' + currentTime).substring(0, 16));
 						var encryptedData = CryptoJS.AES.encrypt(pid + '-' + currentTime, utf8Key, {
@@ -4172,7 +4172,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					newHTML = newHTML.replace('</body>', tag.outerHTML + '</body>');
 				});
 
-				// console.log(newHTML); // 输出新的 HTML 字符串
+				console.log(newHTML); // 输出新的 HTML 字符串
 
 				$('.iframe').remove();
 				Lampa.Template.add('playerwindow', "<div class=\"iframe\">\n    </div>");
