@@ -1240,7 +1240,6 @@
                 var regex = /page=(\d+)/;  // 正则表达式
                 var match = page.match(regex);  // 使用 match() 方法来匹配
 
-
                 if (match) {
                     //console.log("找到了 page 参数：" + match[1]);  // 输出匹配到的数字部分
                     page = page.replace('page=' + match[1], 'page=' + match[1]++)
@@ -2081,7 +2080,11 @@
                             ii = i1.attr(catalogs1[0].list.thumb.attrName) ? (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host_img + (i1.attr(catalogs1[0].list.thumb.attrName).startsWith('/') ? i1.attr(catalogs1[0].list.thumb.attrName) : '/' + i1.attr(catalogs1[0].list.thumb.attrName)) : i1.attr(catalogs1[0].list.thumb.attrName)) : '';
                     };
 
-
+                    
+                    if (ii == '') {
+                        ii = i1.attr('data-src') ? (i1.attr('data-src').indexOf('http') == -1 ? host_img + (i1.attr('data-src').startsWith('/') ? i1.attr('data-src') : '/' + i1.attr('data-src')) : i1.attr('data-src')) : '';
+                    }
+                    
                     ii = catalogs1[0].list.thumb.filter !== '' ? (ii.match(new RegExp(catalogs1[0].list.thumb.filter)) ? ii.match(new RegExp(catalogs1[0].list.thumb.filter))[1] : './img/img_broken.svg') : ii;
                     //console.log(ii)
                     if (ii !== undefined && ii.startsWith('/')) ii = catalogs1[0].link + ii;
