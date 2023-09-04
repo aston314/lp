@@ -737,7 +737,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			// },
 		],
 	};
-	if (Lampa.Storage.get('mods_use_json') && Lampa.Storage.get('mods_use_json_url').indexOf('http') !== -1) {
+
+	var modsUseJsonUrl = Lampa.Storage.get('mods_use_json_url');
+	if (typeof modsUseJsonUrl === 'string' && modsUseJsonUrl.indexOf('http') !== -1) {
 		$.ajax({
 			url: Lampa.Storage.get('mods_use_json_url') + '?v=' + Math.random(),
 			type: 'GET',
@@ -760,6 +762,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 	} else {
 		extract_rule = inner_extract_rule;
 	};
+	
 	var doreg = {};
 	var doregjson = {};
 	var filteredRule = extract_rule.rule.filter(function (fp) {
@@ -11962,6 +11965,12 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							}, false, {
 								dataType: 'json'
 							});
+						} else {
+							$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+							setTimeout(function () {
+								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+								$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}, 100);
 						}
 					}
 					Lampa.Settings.update();
