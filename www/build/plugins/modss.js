@@ -2,748 +2,771 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 
 (function () {
 	'use strict';
-	var extract_rule = {
+	var extract_rule = {};
+	var inner_extract_rule = {
 		"rule": [
-		  {
-			name: '网站-LIBVIO',
-			available: true,
-			websitelink: 'https://www.libvio.fun',
-			listlink: true,
-			use_proxy: true,
-			search_url: 'https://www.libvio.fun/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '.html',
-			search_html_selector: '',
-			link_folder: 'detail/',
-			// detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
-			// ul.stui-content__playlist:gt(0):lt(1)
-			// .stui-pannel__head:contains(BD2播放)+ul,.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul 
-			detail_url_selector: 'div > div:nth-child(2) > ul',
-			// detail_url_selector: '.stui-pannel__head:contains(HD播放)+ul',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  {
-			name: '网站-在线之家',
-			available: true,
-			websitelink: 'https://www.zxzj.pro',
-			listlink: true,
-			use_proxy: true,
-			search_url: 'https://www.zxzj.pro/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: '',
-			link_folder: 'video/',
-			detail_url_selector: '.play-item.cont.active',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  {
-			name: '网站-低端影视',
-			available: true,
-			websitelink: 'https://ddys.pro',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://ddys.pro/?s=#msearchword&post_type=post',
-			search_json: false,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: 'h2.post-title',
-			link_folder: 'video/',
-			detail_url_selector: '.wp-playlist-script',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: []
-		  },
-		  // {
-		  //   name: '网站-凌云影视',
-		  //   available: false,
-		  //   websitelink: 'https://www.lyys8.com/',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.lyys8.com/s.html?wd=#msearchword',
-		  //   search_json: false,
-		  //   node_json: 'data',
-		  //   name_json: 'title',
-		  //   id_json: 'url',
-		  //   first_page_json: '',
-		  //   search_html_selector: 'dl > dd > p:nth-child(1) > strong',
-		  //   link_folder: '',
-		  //   detail_url_selector: '.player.ckp:first-child',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: true,
-		  //   js_execute_key: ['maccms', 'player_data']
-		  // },
-		  {
-			name: '网站-剧白白',
-			available: true,
-			websitelink: 'https://www.jubaibaic.com',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.jubaibaic.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: '',
-			link_folder: 'p/',
-			detail_url_selector: '.playlist.column',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  {
-			name: '网站-秋霞电影',
-			available: true,
-			websitelink: 'https://www.7xiady.cc',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.7xiady.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: '',
-			link_folder: 'play/',
-			detail_url_selector: '.stui-pannel_bd.col-pd.clearfix:eq(0)',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: false,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  // {
-		  //   name : '网站-乐猪TV[!]',
-		  //   available: false,
-		  //   websitelink : 'http://www.lezhutv.com/',
-		  //   listlink : true,
-		  //   use_proxy: false,
-		  //   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
-		  //   search_json : false,
-		  //   node_json : '',
-		  //   name_json : '',
-		  //   id_json : '',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder : 'play',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer : false,
-		  //   js_execute_key : ['maccms','player_aaaa']
-		  // },
-		  // {
-		  //   name : '9亿看看',
-		  //   websitelink : 'https://www.9eguoyu.com',
-		  //   available: false,
-		  //   listlink : true,
-		  //   use_proxy: false,
-		  //   search_url : 'https://www.9eguoyu.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json : true,
-		  //   node_json : 'list',
-		  //   name_json : 'name',
-		  //   id_json : 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder : 'vodplay',
-		  //   videoparse: 'default',
-		  ///  videocontainer: '.MacPlayer',
-		  //   use_referer : false,
-		  //   js_execute_key : ['maccms','player_aaaa']
-		  // },
-		  {
-			name: '网站-AUETE影视',
-			available: false,
-			websitelink: 'https://auete.art',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://auete.art/auete2so.php?searchword=#msearchword',
-			search_json: false,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '',
-			search_html_selector: '.subject.break-all',
-			link_folder: '',
-			// detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
-			detail_url_selector: '#player_list',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: false,
-			js_execute_key: [';var vfrom=']
-		  },
-		  {
-			name: '网站-欧乐影视',
-			available: true,
-			websitelink: 'https://www.olevod.com/',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.olevod.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '/sid/1/nid/1.html',
-			search_html_selector: '',
-			link_folder: '/index.php/vod/play/id/',
-			detail_url_selector: 'div.playlist_full',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: false,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  // {
-		  //   name: '追剧喵',
-		  //   available: false,
-		  //   websitelink: 'https://zjmiao.com/',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://zjmiao.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'index.php/vod/detail/id',
-		  //   detail_url_selector: 'div.playlist_notfull:eq(0)',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  // {
-		  //   name : '网站-555电影',
-		  //   available: false,
-		  //   websitelink : 'https://www.5dy1.cc',
-		  //   listlink : true,
-		  //   use_proxy: false,
-		  //   search_url : 'https://www.5dy1.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json : true,
-		  //   node_json : 'list',
-		  //   name_json : 'name',
-		  //   id_json : 'id',
-		  //   first_page_json: '.html',
-		  //   search_html_selector: '',
-		  //   link_folder : 'voddetail/',
-		  //   detail_url_selector: '.module-play-list:first-child',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer : false,
-		  //  js_execute_key : ['maccms','player_aaaa']
-		  // },
-		  // {
-		  //   name : '看视界',
-		  //   available: false,
-		  //   websitelink : 'https://www.1080kan.cc',
-		  //   listlink : true,
-		  //   use_proxy: false,
-		  //   search_url : 'https://www.1080kan.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json : true,
-		  //   node_json : 'list',
-		  //   name_json : 'name',
-		  //   id_json : 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder : 'video',
-		  //   detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer : false,
-		  //  js_execute_key : ['maccms','player_aaaa']
-		  // },
-		  // {
-		  //   name: '网站-乌龟影院',
-		  //   available: false,
-		  //   websitelink: 'https://www.wuguiyy.com',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.wuguiyy.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'play',
-		  //   detail_url_selector: 'div:nth-child(3) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  {
-			name: '网站-达达龟',
-			available: true,
-			websitelink: 'https://www.dadagui.me/',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.dadagui.me/vodsearch/#msearchword----------1---.html',
-			search_json: false,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: 'h4.title',
-			link_folder: 'vodplay/',
-			detail_url_selector: '.stui-vodlist__head:contains(量子云播) + ul',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  // {
-		  //   name : '大师兄',
-		  //   available: false,
-		  //   websitelink : 'https://dsxys.com/',
-		  //   listlink : true,
-		  //   use_proxy: false,
-		  //   search_url : 'https://dsxys.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json : true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder : 'p',
-		  //   detail_url_selector : 'div.player-list',
-		  //   videoparse: 'browser',
-		  //   videocontainer: '.player-box-main',
-		  //   use_referer : false,
-		  //   js_execute_key : ['maccms','player_aaaa']
-		  // },
-		  {
-			name: '网站-神马影院',
-			available: false,
-			websitelink: 'https://www.smdyy.cc',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.smdyy.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '-1-1.html',
-			search_html_selector: '',
-			link_folder: 'play/',
-			detail_url_selector: 'ul.stui-play__list',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: false,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  {
-			name: '网站-皮皮鸭',
-			available: true,
-			websitelink: 'https://www.pipiya.cc',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'https://www.pipiya.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '.html',
-			search_html_selector: '',
-			link_folder: 'voddetail/',
-			detail_url_selector: 'ul.anthology-list-play:first',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_aaaa']
-		  },
-		  {
-			name: '网站-奇米动漫',
-			available: true,
-			websitelink: 'http://www.qimiqimi.net',
-			listlink: true,
-			use_proxy: false,
-			search_url: 'http://www.qimiqimi.net/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-			search_json: true,
-			node_json: 'list',
-			name_json: 'name',
-			id_json: 'id',
-			first_page_json: '.html',
-			search_html_selector: '',
-			link_folder: 'detail/',
-			detail_url_selector: 'a[href*="/1/"]',
-			videoparse: 'default',
-			videocontainer: '.MacPlayer',
-			use_referer: true,
-			js_execute_key: ['maccms', 'player_data']
-		  },
-		  // {
-		  //   name: '网站-voflix HD',
-		  //   available: false,
-		  //   websitelink: 'https://www.voflix.me',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.voflix.me/search/#msearchword----------1---.html',
-		  //   search_json: false,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: 'div.module-card-item-title',
-		  //   link_folder: 'play/',
-		  //   detail_url_selector: 'div.module-play-list',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: true,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  // {
-		  //   name: '网站-剧荒TV',
-		  //   available: false,
-		  //   websitelink: 'https://juhuang.tv',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://so.juhuang.tv/soapi.php?wd=#msearchword',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'vod_name',
-		  //   id_json: 'vod_id',
-		  //   first_page_json: '_play_1_1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'play',
-		  //   detail_url_selector: 'div.scroll-content',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  // {
-		  //   name: '网站-厂长资源',
-		  //   available: false,
-		  //   websitelink: 'https://czzy01.com',
-		  //   listlink: false,
-		  //   use_proxy: false,
-		  //   search_url: 'https://czzy01.com/xssearch?q=#msearchword',
-		  //   search_json: false,
-		  //   node_json: '',
-		  //   name_json: '',
-		  //   id_json: '',
-		  //   first_page_json: '',
-		  //   search_html_selector: 'h3.dytit',
-		  //   link_folder: '',
-		  //   detail_url_selector: 'div.paly_list_btn',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: true,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  {
-			name: '网站-麦豆TV',
-			available: false,
-			websitelink: 'https://www.mdoutv.com',
-			listlink: false,
-			use_proxy: false,
-			search_url: 'https://www.mdoutv.com/search/#msearchword',
-			search_json: false,
-			node_json: '',
-			name_json: '',
-			id_json: '',
-			first_page_json: '',
-			search_html_selector: 'h3.dytit',
-			link_folder: '',
-			detail_url_selector: 'div.paly_list_btn',
-			videoparse: 'browser',
-			videocontainer: '.viframe',
-			use_referer: false,
-			js_execute_key: []
-		  },
-		  // {
-		  //   name: '素白白',
-		  //   available: true,
-		  //   websitelink: 'https://www.subaibaiys.com',
-		  //   listlink: false,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.subaibaiys.com/search?q=#msearchword',
-		  //   search_json: false,
-		  //   node_json: '',
-		  //   name_json: '',
-		  //   id_json: '',
-		  //   first_page_json: '',
-		  //   search_html_selector: 'h3.dytit',
-		  //   link_folder: '',
-		  //   detail_url_selector: 'div.paly_list_btn',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: true,
-		  //   js_execute_key: []
-		  // },
-		  // {
-		  //   name: '独播库',
-		  //   available: false,
-		  //   websitelink: 'https://u.duboku.io',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://u.duboku.io/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'voddetail',
-		  //   detail_url_selector: 'div.tab-content.myui-panel_bd',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_data']
-		  // },
-		  // {
-		  //   name: '网飞TV',
-		  //   available: false,
-		  //   websitelink: 'https://www.wangfei.tv',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.wangfei.tv/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'voddetail',
-		  //   detail_url_selector: '.module-play-list:eq(0)',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  // {
-		  //   name: '网站-鸭奈飞',
-		  //   available: false,
-		  //   websitelink: 'https://netflix.mom',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://netflix.mom/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'vodplay',
-		  //   detail_url_selector: '.module-play-list:eq(0)',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
-		  // {
-		  //   name: '网站-爱看[!]',
-		  //   available: false,
-		  //   websitelink: 'https://ikan6.vip',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://ikan6.vip/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'vodplay',
-		  //   detail_url_selector: 'ul.myui-content__list',
-		  //   videoparse: 'browser',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: true,
-		  //   js_execute_key: ['maccms', 'player_data']
-		  // },
-		  // {
-		  //   name: '黑洞网',
-		  //   vailable: false,
-		  //   websitelink: 'https://www.nulltm.com',
-		  //   listlink: true,
-		  //   use_proxy: false,
-		  //   search_url: 'https://www.nulltm.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
-		  //   search_json: true,
-		  //   node_json: 'list',
-		  //   name_json: 'name',
-		  //   id_json: 'id',
-		  //   first_page_json: '-1-1.html',
-		  //   search_html_selector: '',
-		  //   link_folder: 'vodplay',
-		  //   detail_url_selector: '.hl-plays-list',
-		  //   videoparse: 'default',
-		  //   videocontainer: '.MacPlayer',
-		  //   use_referer: false,
-		  //   js_execute_key: ['maccms', 'player_aaaa']
-		  // },
+			{
+				name: '网站-LIBVIO',
+				available: true,
+				websitelink: 'https://www.libvio.fun',
+				listlink: true,
+				use_proxy: true,
+				search_url: 'https://www.libvio.fun/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '.html',
+				search_html_selector: '',
+				link_folder: 'detail/',
+				// detail_url_selector: '.stui-pannel__head:contains(LINE)+ul',
+				// ul.stui-content__playlist:gt(0):lt(1)
+				// .stui-pannel__head:contains(BD2播放)+ul,.stui-pannel__head:contains(BD播放)+ul,.stui-pannel__head:contains(HD播放)+ul 
+				detail_url_selector: 'div > div:nth-child(2) > ul',
+				// detail_url_selector: '.stui-pannel__head:contains(HD播放)+ul',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			{
+				name: '网站-在线之家',
+				available: true,
+				websitelink: 'https://www.zxzj.pro',
+				listlink: true,
+				use_proxy: true,
+				search_url: 'https://www.zxzj.pro/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: '',
+				link_folder: 'video/',
+				detail_url_selector: '.play-item.cont.active',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			{
+				name: '网站-低端影视',
+				available: true,
+				websitelink: 'https://ddys.pro',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://ddys.pro/?s=#msearchword&post_type=post',
+				search_json: false,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: 'h2.post-title',
+				link_folder: 'video/',
+				detail_url_selector: '.wp-playlist-script',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: []
+			},
+			// {
+			//   name: '网站-凌云影视',
+			//   available: false,
+			//   websitelink: 'https://www.lyys8.com/',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://www.lyys8.com/s.html?wd=#msearchword',
+			//   search_json: false,
+			//   node_json: 'data',
+			//   name_json: 'title',
+			//   id_json: 'url',
+			//   first_page_json: '',
+			//   search_html_selector: 'dl > dd > p:nth-child(1) > strong',
+			//   link_folder: '',
+			//   detail_url_selector: '.player.ckp:first-child',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: true,
+			//   js_execute_key: ['maccms', 'player_data']
+			// },
+			{
+				name: '网站-剧白白',
+				available: true,
+				websitelink: 'https://www.jubaibaic.com',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.jubaibaic.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: '',
+				link_folder: 'p/',
+				detail_url_selector: '.playlist.column',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			{
+				name: '网站-秋霞电影',
+				available: true,
+				websitelink: 'https://www.7xiady.cc',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.7xiady.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: '',
+				link_folder: 'play/',
+				detail_url_selector: '.stui-pannel_bd.col-pd.clearfix:eq(0)',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: false,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			// {
+			//   name : '网站-乐猪TV[!]',
+			//   available: false,
+			//   websitelink : 'http://www.lezhutv.com/',
+			//   listlink : true,
+			//   use_proxy: false,
+			//   search_url : 'http://www.lezhutv.com/search-pg-1-wd-#msearchword.html',
+			//   search_json : false,
+			//   node_json : '',
+			//   name_json : '',
+			//   id_json : '',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder : 'play',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer : false,
+			//   js_execute_key : ['maccms','player_aaaa']
+			// },
+			// {
+			//   name : '9亿看看',
+			//   websitelink : 'https://www.9eguoyu.com',
+			//   available: false,
+			//   listlink : true,
+			//   use_proxy: false,
+			//   search_url : 'https://www.9eguoyu.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json : true,
+			//   node_json : 'list',
+			//   name_json : 'name',
+			//   id_json : 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder : 'vodplay',
+			//   videoparse: 'default',
+			///  videocontainer: '.MacPlayer',
+			//   use_referer : false,
+			//   js_execute_key : ['maccms','player_aaaa']
+			// },
+			{
+				name: '网站-AUETE影视',
+				available: false,
+				websitelink: 'https://auete.art',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://auete.art/auete2so.php?searchword=#msearchword',
+				search_json: false,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '',
+				search_html_selector: '.subject.break-all',
+				link_folder: '',
+				// detail_url_reg: '<div id="player_list" class="clearfix mt-3">(.*?)<\/div>',
+				detail_url_selector: '#player_list',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: false,
+				js_execute_key: [';var vfrom=']
+			},
+			{
+				name: '网站-欧乐影视',
+				available: true,
+				websitelink: 'https://www.olevod.com/',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.olevod.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '/sid/1/nid/1.html',
+				search_html_selector: '',
+				link_folder: '/index.php/vod/play/id/',
+				detail_url_selector: 'div.playlist_full',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: false,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			// {
+			//   name: '追剧喵',
+			//   available: false,
+			//   websitelink: 'https://zjmiao.com/',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://zjmiao.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'index.php/vod/detail/id',
+			//   detail_url_selector: 'div.playlist_notfull:eq(0)',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			// {
+			//   name : '网站-555电影',
+			//   available: false,
+			//   websitelink : 'https://www.5dy1.cc',
+			//   listlink : true,
+			//   use_proxy: false,
+			//   search_url : 'https://www.5dy1.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json : true,
+			//   node_json : 'list',
+			//   name_json : 'name',
+			//   id_json : 'id',
+			//   first_page_json: '.html',
+			//   search_html_selector: '',
+			//   link_folder : 'voddetail/',
+			//   detail_url_selector: '.module-play-list:first-child',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer : false,
+			//  js_execute_key : ['maccms','player_aaaa']
+			// },
+			// {
+			//   name : '看视界',
+			//   available: false,
+			//   websitelink : 'https://www.1080kan.cc',
+			//   listlink : true,
+			//   use_proxy: false,
+			//   search_url : 'https://www.1080kan.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json : true,
+			//   node_json : 'list',
+			//   name_json : 'name',
+			//   id_json : 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder : 'video',
+			//   detail_url_selector: '.module-list.sort-list.tab-list.play-tab-list.active',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer : false,
+			//  js_execute_key : ['maccms','player_aaaa']
+			// },
+			// {
+			//   name: '网站-乌龟影院',
+			//   available: false,
+			//   websitelink: 'https://www.wuguiyy.com',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://www.wuguiyy.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'play',
+			//   detail_url_selector: 'div:nth-child(3) > div > div.stui-pannel_bd.col-pd.clearfix > ul > li',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			{
+				name: '网站-达达龟',
+				available: true,
+				websitelink: 'https://www.dadagui.me/',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.dadagui.me/vodsearch/#msearchword----------1---.html',
+				search_json: false,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: 'h4.title',
+				link_folder: 'vodplay/',
+				detail_url_selector: '.stui-vodlist__head:contains(量子云播) + ul',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			// {
+			//   name : '大师兄',
+			//   available: false,
+			//   websitelink : 'https://dsxys.com/',
+			//   listlink : true,
+			//   use_proxy: false,
+			//   search_url : 'https://dsxys.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json : true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder : 'p',
+			//   detail_url_selector : 'div.player-list',
+			//   videoparse: 'browser',
+			//   videocontainer: '.player-box-main',
+			//   use_referer : false,
+			//   js_execute_key : ['maccms','player_aaaa']
+			// },
+			{
+				name: '网站-神马影院',
+				available: false,
+				websitelink: 'https://www.smdyy.cc',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.smdyy.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '-1-1.html',
+				search_html_selector: '',
+				link_folder: 'play/',
+				detail_url_selector: 'ul.stui-play__list',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: false,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			{
+				name: '网站-皮皮鸭',
+				available: true,
+				websitelink: 'https://www.pipiya.cc',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'https://www.pipiya.cc/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '.html',
+				search_html_selector: '',
+				link_folder: 'voddetail/',
+				detail_url_selector: 'ul.anthology-list-play:first',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_aaaa']
+			},
+			{
+				name: '网站-奇米动漫',
+				available: true,
+				websitelink: 'http://www.qimiqimi.net',
+				listlink: true,
+				use_proxy: false,
+				search_url: 'http://www.qimiqimi.net/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+				search_json: true,
+				node_json: 'list',
+				name_json: 'name',
+				id_json: 'id',
+				first_page_json: '.html',
+				search_html_selector: '',
+				link_folder: 'detail/',
+				detail_url_selector: 'a[href*="/1/"]',
+				videoparse: 'default',
+				videocontainer: '.MacPlayer',
+				use_referer: true,
+				js_execute_key: ['maccms', 'player_data']
+			},
+			// {
+			//   name: '网站-voflix HD',
+			//   available: false,
+			//   websitelink: 'https://www.voflix.me',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://www.voflix.me/search/#msearchword----------1---.html',
+			//   search_json: false,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: 'div.module-card-item-title',
+			//   link_folder: 'play/',
+			//   detail_url_selector: 'div.module-play-list',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: true,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			// {
+			//   name: '网站-剧荒TV',
+			//   available: false,
+			//   websitelink: 'https://juhuang.tv',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://so.juhuang.tv/soapi.php?wd=#msearchword',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'vod_name',
+			//   id_json: 'vod_id',
+			//   first_page_json: '_play_1_1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'play',
+			//   detail_url_selector: 'div.scroll-content',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			// {
+			//   name: '网站-厂长资源',
+			//   available: false,
+			//   websitelink: 'https://czzy01.com',
+			//   listlink: false,
+			//   use_proxy: false,
+			//   search_url: 'https://czzy01.com/xssearch?q=#msearchword',
+			//   search_json: false,
+			//   node_json: '',
+			//   name_json: '',
+			//   id_json: '',
+			//   first_page_json: '',
+			//   search_html_selector: 'h3.dytit',
+			//   link_folder: '',
+			//   detail_url_selector: 'div.paly_list_btn',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: true,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			{
+				name: '网站-麦豆TV',
+				available: false,
+				websitelink: 'https://www.mdoutv.com',
+				listlink: false,
+				use_proxy: false,
+				search_url: 'https://www.mdoutv.com/search/#msearchword',
+				search_json: false,
+				node_json: '',
+				name_json: '',
+				id_json: '',
+				first_page_json: '',
+				search_html_selector: 'h3.dytit',
+				link_folder: '',
+				detail_url_selector: 'div.paly_list_btn',
+				videoparse: 'browser',
+				videocontainer: '.viframe',
+				use_referer: false,
+				js_execute_key: []
+			},
+			// {
+			//   name: '素白白',
+			//   available: true,
+			//   websitelink: 'https://www.subaibaiys.com',
+			//   listlink: false,
+			//   use_proxy: false,
+			//   search_url: 'https://www.subaibaiys.com/search?q=#msearchword',
+			//   search_json: false,
+			//   node_json: '',
+			//   name_json: '',
+			//   id_json: '',
+			//   first_page_json: '',
+			//   search_html_selector: 'h3.dytit',
+			//   link_folder: '',
+			//   detail_url_selector: 'div.paly_list_btn',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: true,
+			//   js_execute_key: []
+			// },
+			// {
+			//   name: '独播库',
+			//   available: false,
+			//   websitelink: 'https://u.duboku.io',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://u.duboku.io/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '.html',
+			//   search_html_selector: '',
+			//   link_folder: 'voddetail',
+			//   detail_url_selector: 'div.tab-content.myui-panel_bd',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_data']
+			// },
+			// {
+			//   name: '网飞TV',
+			//   available: false,
+			//   websitelink: 'https://www.wangfei.tv',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://www.wangfei.tv/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '.html',
+			//   search_html_selector: '',
+			//   link_folder: 'voddetail',
+			//   detail_url_selector: '.module-play-list:eq(0)',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			// {
+			//   name: '网站-鸭奈飞',
+			//   available: false,
+			//   websitelink: 'https://netflix.mom',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://netflix.mom/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'vodplay',
+			//   detail_url_selector: '.module-play-list:eq(0)',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
+			// {
+			//   name: '网站-爱看[!]',
+			//   available: false,
+			//   websitelink: 'https://ikan6.vip',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://ikan6.vip/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'vodplay',
+			//   detail_url_selector: 'ul.myui-content__list',
+			//   videoparse: 'browser',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: true,
+			//   js_execute_key: ['maccms', 'player_data']
+			// },
+			// {
+			//   name: '黑洞网',
+			//   vailable: false,
+			//   websitelink: 'https://www.nulltm.com',
+			//   listlink: true,
+			//   use_proxy: false,
+			//   search_url: 'https://www.nulltm.com/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+			//   search_json: true,
+			//   node_json: 'list',
+			//   name_json: 'name',
+			//   id_json: 'id',
+			//   first_page_json: '-1-1.html',
+			//   search_html_selector: '',
+			//   link_folder: 'vodplay',
+			//   detail_url_selector: '.hl-plays-list',
+			//   videoparse: 'default',
+			//   videocontainer: '.MacPlayer',
+			//   use_referer: false,
+			//   js_execute_key: ['maccms', 'player_aaaa']
+			// },
 		],
 		"tg_channel": [
-		  {
-			channel_name: 'TG-阿里云盘发布频道',
-			channel_uri: 'Aliyundrive_Share_Channel'
-		  },
-		  {
-			channel_name: 'TG-阿里云盘发布频道2',
-			channel_uri: 'shareAliyun'
-		  },
-		  // {
-		  //   channel_name: 'TG-阿里云盘盘',
-		  //   channel_uri: 'yunpanpan'
-		  // },
-		  {
-			channel_name: 'TG-阿里云盘4K影视',
-			channel_uri: 'Aliyun_4K_Movies'
-		  },
-		  // {
-		  //   channel_name: 'TG-在花盘',
-		  //   channel_uri: 'zaihuayun'
-		  // },
-		  {
-			channel_name: 'TG-肯德基电影院',
-			channel_uri: 'XiangxiuNB'
-		  },
-		  {
-			channel_name: 'TG-全网云盘资源社',
-			channel_uri: 'quanziyuanshe'
-		  },
-		  {
-			channel_name: 'TG-阿里(高品质)影视',
-			channel_uri: 'alyp_1'
-		  },
-		  {
-			channel_name: 'TG-阿里云影视',
-			channel_uri: 'aliyunys'
-		  },
+			{
+				channel_name: 'TG-阿里云盘发布频道',
+				channel_uri: 'Aliyundrive_Share_Channel'
+			},
+			{
+				channel_name: 'TG-阿里云盘发布频道2',
+				channel_uri: 'shareAliyun'
+			},
+			// {
+			//   channel_name: 'TG-阿里云盘盘',
+			//   channel_uri: 'yunpanpan'
+			// },
+			{
+				channel_name: 'TG-阿里云盘4K影视',
+				channel_uri: 'Aliyun_4K_Movies'
+			},
+			// {
+			//   channel_name: 'TG-在花盘',
+			//   channel_uri: 'zaihuayun'
+			// },
+			{
+				channel_name: 'TG-肯德基电影院',
+				channel_uri: 'XiangxiuNB'
+			},
+			{
+				channel_name: 'TG-全网云盘资源社',
+				channel_uri: 'quanziyuanshe'
+			},
+			{
+				channel_name: 'TG-阿里(高品质)影视',
+				channel_uri: 'alyp_1'
+			},
+			{
+				channel_name: 'TG-阿里云影视',
+				channel_uri: 'aliyunys'
+			},
 		],
 		"custom_function": [
-		//   {
-		// 	resource_name: '网站-低端视频',
-		// 	function_name: 'ddys',
-		// 	ext_js_url: ''
-		//   },
-		  {
-			resource_name: '网站-厂长资源*',
-			function_name: 'czzy',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: '网站-哔嘀影视*',
-			function_name: 'bdys',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: '网站-哔嘀影视2*',
-			function_name: 'bdys1',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: '云盘-DYD',
-			function_name: 'dyd',
-			ext_js_url: 'https://qu.ax/iHkJ.js'
-		  },
-		  {
-			resource_name: '云盘-小雅Alist',
-			function_name: 'xiaoyaalist',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: '云盘-霸王龙压制组',
-			function_name: 'trex',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'VideoCDN',
-			function_name: 'collaps',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'Collaps',
-			function_name: 'collaps',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'Kinobase',
-			function_name: 'kinobase',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'Filmix',
-			function_name: 'filmix',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'CDNmovies',
-			function_name: 'cdnmovies',
-			ext_js_url: ''
-		  },
-		  {
-			resource_name: 'Rezka',
-			function_name: 'rezka',
-			ext_js_url: ''
-		  },
+			//   {
+			// 	resource_name: '网站-低端视频',
+			// 	function_name: 'ddys',
+			// 	ext_js_url: ''
+			//   },
+			{
+				resource_name: '网站-厂长资源*',
+				function_name: 'czzy',
+				ext_js_url: ''
+			},
+			{
+				resource_name: '网站-哔嘀影视*',
+				function_name: 'bdys',
+				ext_js_url: ''
+			},
+			{
+				resource_name: '网站-哔嘀影视2*',
+				function_name: 'bdys1',
+				ext_js_url: ''
+			},
+			{
+				resource_name: '云盘-DYD',
+				function_name: 'dyd',
+				ext_js_url: 'https://qu.ax/iHkJ.js'
+			},
+			{
+				resource_name: '云盘-小雅Alist',
+				function_name: 'xiaoyaalist',
+				ext_js_url: ''
+			},
+			{
+				resource_name: '云盘-霸王龙压制组',
+				function_name: 'trex',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'VideoCDN',
+				function_name: 'collaps',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'Collaps',
+				function_name: 'collaps',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'Kinobase',
+				function_name: 'kinobase',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'Filmix',
+				function_name: 'filmix',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'CDNmovies',
+				function_name: 'cdnmovies',
+				ext_js_url: ''
+			},
+			{
+				resource_name: 'Rezka',
+				function_name: 'rezka',
+				ext_js_url: ''
+			},
 		],
 		"resource_site": [
-		  {
-			site_name: '采集-1080资源库',
-			site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
-			site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
-		  },
-		  {
-			site_name: '采集-量子资源网',
-			site_search_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=')+'#msearchword',
-			site_detail_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids')+'=#id'
-		  },
-		  {
-			site_name: '采集-非凡资源站',
-			site_search_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=')+'#msearchword',
-			site_detail_url: 'https://api.allorigins.win/raw?url='+encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=')+'#id'
-		  },
-		  // {
-		  //   site_name: '采集-人人影视',
-		  //   site_search_url: 'https://www.188zy.org/api.php/provide/vod/?ac=search&wd=#msearchword',
-		  //   site_detail_url: 'https://www.188zy.org/api.php/provide/vod/?ac=detail&ids=#id'
-		  // },
-		  // {
-		  //   site_name: '采集-人人影视',
-		  //   site_search_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-		  //   site_detail_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=detail&ids=#id'
-		  // },
-		  // {
-		  //   site_name: '快播资源网',
-		  //   site_search_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-		  //   site_detail_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=detail&ids=#id'
-		  // },
-		  // {
-		  //   site_name: '采集-iKun资源网',
-		  //   site_search_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-		  //   site_detail_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
-		  // },
-		  // {
-		  //   site_name: '采集-极速资源网(有广告)',
-		  //   site_search_url: 'https://jszyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
-		  //   site_detail_url: 'https://jszyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
-		  // },
+			{
+				site_name: '采集-1080资源库',
+				site_search_url: 'https://api.1080zyku.com/inc/apijson.php?ac=search&wd=#msearchword',
+				site_detail_url: 'https://api.1080zyku.com/inc/apijson.php?ac=detail&ids=#id'
+			},
+			{
+				site_name: '采集-量子资源网',
+				site_search_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=search&wd=') + '#msearchword',
+				site_detail_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://cj.lziapi.com/api.php/provide/vod/?ac=detail&ids') + '=#id'
+			},
+			{
+				site_name: '采集-非凡资源站',
+				site_search_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=') + '#msearchword',
+				site_detail_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=') + '#id'
+			},
+			// {
+			//   site_name: '采集-人人影视',
+			//   site_search_url: 'https://www.188zy.org/api.php/provide/vod/?ac=search&wd=#msearchword',
+			//   site_detail_url: 'https://www.188zy.org/api.php/provide/vod/?ac=detail&ids=#id'
+			// },
+			// {
+			//   site_name: '采集-人人影视',
+			//   site_search_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+			//   site_detail_url: 'https://www.rrvipw.com/api.php/provide/vod/?ac=detail&ids=#id'
+			// },
+			// {
+			//   site_name: '快播资源网',
+			//   site_search_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+			//   site_detail_url: 'https://www.kuaibozy.com/api.php/provide/vod/?ac=detail&ids=#id'
+			// },
+			// {
+			//   site_name: '采集-iKun资源网',
+			//   site_search_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+			//   site_detail_url: 'https://ikunzyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+			// },
+			// {
+			//   site_name: '采集-极速资源网(有广告)',
+			//   site_search_url: 'https://jszyapi.com/api.php/provide/vod/?ac=search&wd=#msearchword',
+			//   site_detail_url: 'https://jszyapi.com/api.php/provide/vod/?ac=detail&ids=#id'
+			// },
 		],
-	  };
-	  var doreg = {};
-	  var doregjson = {};
-	  var filteredRule = extract_rule.rule.filter(function (fp) {
+	};
+	if (Lampa.Storage.get('mods_use_json') && Lampa.Storage.get('mods_use_json_url').indexOf('http') !== -1) {
+		$.ajax({
+			url: Lampa.Storage.get('mods_use_json_url') + '?v=' + Math.random(),
+			type: 'GET',
+			async: false,
+			dataType: 'json',
+			success: function success(j) {
+				if (j.length > 0) {
+					extract_rule = j;
+				} else {
+					// Lampa.Noty.show('视频源配置无法加载，请检查JSON地址。');
+					extract_rule = inner_extract_rule;
+				}
+			},
+			error: function error() {
+				// Lampa.Noty.show('视频源配置无法加载，请检查JSON地址。');
+				extract_rule = inner_extract_rule;
+			}
+		});
+	} else {
+		extract_rule = inner_extract_rule;
+	};
+	var doreg = {};
+	var doregjson = {};
+	var filteredRule = extract_rule.rule.filter(function (fp) {
 		return fp.available === true;
-	  });
-	
-	  extract_rule.rule = filteredRule;
-	  doregjson = extract_rule;
+	});
+
+	extract_rule.rule = filteredRule;
+	doregjson = extract_rule;
 	
 	var version_modss = '3.0', API = 'http://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, user_id = '', uid = 'bb04b81f6297b1b6280ea8273e515d81', IP, logged = false;
 	
@@ -11750,7 +11773,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			Lampa.SettingsApi.addComponent({
 				component: 'settings_modss',
 				name: "MODS's ",
-				icon: "<svg viewBox='0 0 24 24' xml:space='preserve' xmlns='https://www.w3.org/2000/svg'><path d='M19.7.5H4.3C2.2.5.5 2.2.5 4.3v15.4c0 2.1 1.7 3.8 3.8 3.8h15.4c2.1 0 3.8-1.7 3.8-3.8V4.3c0-2.1-1.7-3.8-3.8-3.8zm-2.1 16.4c.3 0 .5.2.5.5s-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1V8.4l-3.2 5.4-.1.1-.1.1h-.6s-.1 0-.1-.1l-.1-.1-3-5.4v8.5h1c.3 0 .5.2.5.5s-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1V7.1h-1c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1.7c.1 0 .2.1.2.2l3.7 6.2 3.7-6.2.2-.2h1.7c.3 0 .5.2.5.5s-.2.5-.5.5h-1v9.8h1z' fill='#ffffff' class='fill-000000'></path></svg>"
+				icon: "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-labelledby=\"videoIconTitle\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" color=\"#000\"><path d=\"m18 12-9 4.9V7z\"/><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>"
 			});
 	// 		Lampa.SettingsApi.addParam({
 	// 			component: 'settings_modss',
@@ -11847,7 +11870,35 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					description: Lampa.Lang.translate('use_json_enable_descr')
 				},
 				onChange: function (value) {
-				//   if(cards) Modss.online('delete');
+					if (value == 'true') {
+						// var item = $('[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('wait');
+						var url = Lampa.Storage.get('mods_use_json_url');
+
+						if (url.indexOf('http') !== -1) {
+							var torrent_net = new Lampa.Reguest();
+							torrent_net.timeout(10000);
+							torrent_net.silent(url + '?v=' + Math.random(), function (json) {
+								if (Lampa.Storage.field('mods_use_json')) extract_rule = json;
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
+								setTimeout(function () {
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								}, 100);
+							}, function (a, c) {
+								extract_rule = inner_extract_rule;
+								Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+								setTimeout(function () {
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}, false, {
+								dataType: 'json'
+							});
+						}
+					} else {
+						extract_rule = inner_extract_rule;
+					}
 					Lampa.Settings.update();
 				}
 			});
@@ -11868,11 +11919,36 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					if (Lampa.Storage.field('mods_use_json')) {
 						item.show();
 					} else item.hide();
+				},
+				onChange: function (value) {
+					if (Lampa.Storage.field('mods_use_json')) {
+						var url = value;
+
+						if (url.indexOf('http') !== -1) {
+							var torrent_net = new Lampa.Reguest();
+							torrent_net.timeout(10000);
+							torrent_net.silent(url + '?v=' + Math.random(), function (json) {
+								if (Lampa.Storage.field('mods_use_json')) extract_rule = json;
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
+								setTimeout(function () {
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								}, 100);
+							}, function (a, c) {
+								extract_rule = inner_extract_rule;
+								Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+								setTimeout(function () {
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}, false, {
+								dataType: 'json'
+							});
+						}
+					}
+					Lampa.Settings.update();
 				}
-				// onChange: function (value) {
-				//   if(cards) Modss.online('delete');
-				// 	Lampa.Settings.update();
-				// }
 			});
 			Lampa.SettingsApi.addParam({
 				component: 'settings_modss',
