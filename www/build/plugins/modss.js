@@ -739,7 +739,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 	};
 
 	var modsUseJsonUrl = Lampa.Storage.get('mods_use_json_url');
-	if (typeof modsUseJsonUrl === 'string' && modsUseJsonUrl.indexOf('http') !== -1) {
+	if (Lampa.Storage.get('mods_use_json') && typeof modsUseJsonUrl === 'string' && modsUseJsonUrl.indexOf('http') !== -1) {
 		$.ajax({
 			url: Lampa.Storage.get('mods_use_json_url') + '?v=' + Math.random(),
 			type: 'GET',
@@ -762,7 +762,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 	} else {
 		extract_rule = inner_extract_rule;
 	};
-	
+
 	var doreg = {};
 	var doregjson = {};
 	var filteredRule = extract_rule.rule.filter(function (fp) {
