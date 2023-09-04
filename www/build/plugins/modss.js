@@ -11773,7 +11773,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			Lampa.SettingsApi.addComponent({
 				component: 'settings_modss',
 				name: "MODS's ",
-				icon: "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-labelledby=\"videoIconTitle\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" color=\"#000\"><path d=\"m18 12-9 4.9V7z\"/><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>"
+				icon: "<svg viewBox='0 0 24 24' xml:space='preserve' xmlns='https://www.w3.org/2000/svg'><path d='M19.7.5H4.3C2.2.5.5 2.2.5 4.3v15.4c0 2.1 1.7 3.8 3.8 3.8h15.4c2.1 0 3.8-1.7 3.8-3.8V4.3c0-2.1-1.7-3.8-3.8-3.8zm-2.1 16.4c.3 0 .5.2.5.5s-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1V8.4l-3.2 5.4-.1.1-.1.1h-.6s-.1 0-.1-.1l-.1-.1-3-5.4v8.5h1c.3 0 .5.2.5.5s-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1V7.1h-1c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h1.7c.1 0 .2.1.2.2l3.7 6.2 3.7-6.2.2-.2h1.7c.3 0 .5.2.5.5s-.2.5-.5.5h-1v9.8h1z' fill='#ffffff' class='fill-000000'></path></svg>"
 			});
 	// 		Lampa.SettingsApi.addParam({
 	// 			component: 'settings_modss',
@@ -11871,7 +11871,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				},
 				onChange: function (value) {
 					if (value == 'true') {
-						// var item = $('[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('wait');
 						var url = Lampa.Storage.get('mods_use_json_url');
 
 						if (url.indexOf('http') !== -1) {
@@ -11923,7 +11922,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				onChange: function (value) {
 					if (Lampa.Storage.field('mods_use_json')) {
 						var url = value;
-
 						if (url.indexOf('http') !== -1) {
 							var torrent_net = new Lampa.Reguest();
 							torrent_net.timeout(10000);
