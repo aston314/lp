@@ -11915,11 +11915,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 								dataType: 'json'
 							});
 						} else {
-							setTimeout(function () {
-								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
-								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
-								$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}, 100);
+							if (url !== '') {
+								setTimeout(function () {
+									$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}
 						}
 					} else {
 						extract_rule = inner_extract_rule;
@@ -11982,11 +11984,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 								dataType: 'json'
 							});
 						} else {
-							setTimeout(function () {
-								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
-								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
-								$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}, 100);
+							if (url !== '') {
+								setTimeout(function () {
+									$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+									$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}
 						}
 					}
 					Lampa.Settings.update();
