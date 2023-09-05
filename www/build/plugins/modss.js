@@ -11875,6 +11875,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					name: Lampa.Lang.translate('params_pub_on') + ' ' + Lampa.Lang.translate('use_json_enable').toLowerCase(),
 					description: Lampa.Lang.translate('use_json_enable_descr')
 				},
+				onRender: function (item) {
+					if (Lampa.Storage.field('mods_onl')) {
+						item.show();
+					} else item.hide();
+				},
 				onChange: function (value) {
 					if (value == 'true') {
 						var url = Lampa.Storage.get('mods_use_json_url');
@@ -11931,7 +11936,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				},
 				onRender: function (item) {
 					if (Lampa.Storage.field('mods_use_json')) {
-						item.show();
+						if (Lampa.Storage.field('mods_onl')) {
+							item.show();
+						} else {
+							item.hide();
+						}
 					} else item.hide();
 				},
 				onChange: function (value) {
