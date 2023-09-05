@@ -11929,7 +11929,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							}
 						}
 					} else {
-						extract_rule = inner_extract_rule;
+						// extract_rule = inner_extract_rule;
 					}
 					Lampa.Settings.update();
 				}
