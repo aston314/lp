@@ -3,7 +3,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 (function () {
 	'use strict';
 
-	var version_modss = '3.0', API = 'http://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, user_id = '', uid = 'bb04b81f6297b1b6280ea8273e515d81', IP, logged = false, doregjson = {};
+	var version_modss = '3.0', API = 'http://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, user_id = '', uid = 'bb04b81f6297b1b6280ea8273e515d81', IP, logged = false, doregjson = {}, inner_extract_rule = {};
 	
 	var Modss = {
 		init: function () {
@@ -602,7 +602,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		},
 		getconfig: function () {
 			var extract_rule = {};
-			var inner_extract_rule = {
+			inner_extract_rule = {
 				"rule": [
 					{
 						name: '网站-LIBVIO',
@@ -11929,7 +11929,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							}
 						}
 					} else {
-						// extract_rule = inner_extract_rule;
+						extract_rule = inner_extract_rule;
 					}
 					Lampa.Settings.update();
 				}
