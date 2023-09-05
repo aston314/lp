@@ -609,7 +609,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						available: true,
 						websitelink: 'https://www.libvio.pro',
 						listlink: true,
-						use_proxy: true,
+						use_proxy: false,
 						search_url: 'https://www.libvio.pro/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
 						search_json: true,
 						node_json: 'list',
