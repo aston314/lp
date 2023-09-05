@@ -3,7 +3,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 (function () {
 	'use strict';
 
-	var version_modss = '3.0', API = 'http://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, user_id = '', uid = 'bb04b81f6297b1b6280ea8273e515d81', IP, logged = false, doregjson = {}, inner_extract_rule = {};
+	var version_modss = '3.0', API = 'http://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, user_id = '', uid = 'bb04b81f6297b1b6280ea8273e515d81', IP, logged = false, doregjson = {}, inner_extract_rule = {}, extract_rule = {};
 	
 	var Modss = {
 		init: function () {
@@ -601,7 +601,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			}
 		},
 		getconfig: function () {
-			var extract_rule = {};
+			extract_rule = {};
 			inner_extract_rule = {
 				"rule": [
 					{
@@ -1362,11 +1362,14 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				extract_rule = inner_extract_rule;
 			};
 
-			var filteredRule = extract_rule.rule.filter(function (fp) {
-				return fp.available === true;
-			});
+			if (extract_rule.hasOwnProperty("rule")) {
+				var filteredRule = extract_rule.rule.filter(function (fp) {
+					return fp.available === true;
+				});
 
-			extract_rule.rule = filteredRule;
+				extract_rule.rule = filteredRule;
+			}
+			
 			doregjson = extract_rule;
 		}
 	}; 
@@ -11897,6 +11900,14 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 									var hasValidConfig = Object.keys(json).length > 0 && (json.hasOwnProperty("rule") || json.hasOwnProperty("tg_channel") || json.hasOwnProperty("custom_function") || json.hasOwnProperty("resource_site"));
 									if (hasValidConfig) {
 										extract_rule = json;
+										if (extract_rule.hasOwnProperty("rule")) {
+											var filteredRule = extract_rule.rule.filter(function (fp) {
+												return fp.available === true;
+											});
+							
+											extract_rule.rule = filteredRule;
+										}
+										doregjson = extract_rule;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
 									} else {
 										// extract_rule = inner_extract_rule;
@@ -11930,8 +11941,19 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						}
 					} else {
 						extract_rule = inner_extract_rule;
+						if (extract_rule.hasOwnProperty("rule")) {
+							var filteredRule = extract_rule.rule.filter(function (fp) {
+								return fp.available === true;
+							});
+			
+							extract_rule.rule = filteredRule;
+						}
+						doregjson = extract_rule;
 					}
 					Lampa.Settings.update();
+					// if (Lampa.Activity.active().component == 'aston_modss_online'){
+					// 	Lampa.Activity.replace(Lampa.Activity.active());
+					// }
 				}
 			});
 			Lampa.SettingsApi.addParam({
@@ -11967,7 +11989,16 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 									var hasValidConfig = Object.keys(json).length > 0 && (json.hasOwnProperty("rule") || json.hasOwnProperty("tg_channel") || json.hasOwnProperty("custom_function") || json.hasOwnProperty("resource_site"));
 									if (hasValidConfig) {
 										extract_rule = json;
+										var filteredRule = extract_rule.rule.filter(function (fp) {
+											return fp.available === true;
+										});
+							
+										extract_rule.rule = filteredRule;
+										doregjson = extract_rule;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
+										// if (Lampa.Activity.active().component == 'aston_modss_online'){
+										// 	Lampa.Activity.replace(Lampa.Activity.active());
+										// }
 									} else {
 										// extract_rule = inner_extract_rule;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！链接中的配置内容格式不正确');
