@@ -607,10 +607,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					{
 						name: '网站-LIBVIO',
 						available: true,
-						websitelink: 'https://www.libvio.fun',
+						websitelink: 'https://www.libvio.pro',
 						listlink: true,
 						use_proxy: true,
-						search_url: 'https://www.libvio.fun/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
+						search_url: 'https://www.libvio.pro/index.php/ajax/suggest?mid=1&wd=#msearchword&limit=1',
 						search_json: true,
 						node_json: 'list',
 						name_json: 'name',
@@ -11887,6 +11887,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					if (Lampa.Storage.field('mods_onl')) {
 						item.show();
 					} else item.hide();
+					Lampa.Controller.enabled().controller.back = function () {
+						if (Lampa.Activity.active().component == 'aston_modss_online') {
+							Lampa.Activity.replace(Lampa.Activity.active());
+						} else {
+							Lampa.Controller.toggle('content');
+						}
+					};
 				},
 				onChange: function (value) {
 					if (value == 'true') {
@@ -11977,6 +11984,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							item.hide();
 						}
 					} else item.hide();
+					Lampa.Controller.enabled().controller.back = function () {
+						if (Lampa.Activity.active().component == 'aston_modss_online') {
+							Lampa.Activity.replace(Lampa.Activity.active());
+						} else {
+							Lampa.Controller.toggle('content');
+						}
+					};
 				},
 				onChange: function (value) {
 					if (Lampa.Storage.field('mods_use_json')) {
