@@ -11884,7 +11884,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					if (value == 'true') {
 						var url = Lampa.Storage.get('mods_use_json_url');
 
-						if (url.indexOf('http') !== -1) {
+						if (typeof url === 'string' && url.indexOf('http') !== -1){
+						// if (url.indexOf('http') !== -1) {
 							var torrent_net = new Lampa.Reguest();
 							torrent_net.timeout(10000);
 							torrent_net.silent(url + '?v=' + Math.random(), function (json) {
@@ -11914,6 +11915,12 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 							}, false, {
 								dataType: 'json'
 							});
+						} else {
+							setTimeout(function () {
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
+								$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}, 100);
 						}
 					} else {
 						extract_rule = inner_extract_rule;
@@ -11946,7 +11953,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				onChange: function (value) {
 					if (Lampa.Storage.field('mods_use_json')) {
 						var url = value;
-						if (url.indexOf('http') !== -1) {
+						// if (url.indexOf('http') !== -1) {
+							if (typeof url === 'string' && url.indexOf('http') !== -1){
 							var torrent_net = new Lampa.Reguest();
 							torrent_net.timeout(10000);
 							torrent_net.silent(url + '?v=' + Math.random(), function (json) {
@@ -11976,8 +11984,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 								dataType: 'json'
 							});
 						} else {
-							$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
+							
 							setTimeout(function () {
+								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
 								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
 								$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}, 100);
