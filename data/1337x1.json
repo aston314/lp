@@ -106,6 +106,15 @@
       "release_date": "2023-07-31"
     },
     {
+      "tmdbrate": 5.25,
+      "picture": "http://image.tmdb.org/t/p/w200/5EZm65PVB6T6NIwvE17Q3lQ6Pok.jpg",
+      "name": "Among The Beasts",
+      "video": "magnet:?xt=urn:btih:D2C3522033756E5A3F081E83ECA76A45F3F4CE0B&dn=Among+The+Beasts+2023+1080p+BluRay+HEVC+x265+5.1+BONE&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2F&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Among The Beasts 2023 1080p BluRay HEVC x265 5.1 BONE",
+      "cname": "野兽之中 ",
+      "release_date": "2023-02-10"
+    },
+    {
       "tmdbrate": 5,
       "picture": "http://image.tmdb.org/t/p/w200/2cVcmQaDD8Uwt0T9ASkyZhpXIHv.jpg",
       "name": "The Girl in the Bikini",
@@ -203,6 +212,15 @@
       "oname": "Faintheart 2008 1080p BluRay HEVC x265 5.1 BONE",
       "cname": "没决断力的懦夫 ",
       "release_date": "2009-01-27"
+    },
+    {
+      "tmdbrate": 6.599,
+      "picture": "http://image.tmdb.org/t/p/w200/53Bs1CLJWDuomqdolXXWyso7cPf.jpg",
+      "name": "Steam: The Turkish Bath Hamam",
+      "video": "magnet:?xt=urn:btih:D53B89FFF30D8350D5303C282C9AB84B854D8F17&dn=%28Steam%3A+The+Turkish+Bath%29+Hamam.1997.DVDRip.x264.AC3-DEEP&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "(Steam: The Turkish Bath) Hamam.1997.DVDRip.x264.AC3-DEEP",
+      "cname": "土耳其浴室 ",
+      "release_date": "1997-10-24"
     },
     {
       "tmdbrate": 3,
