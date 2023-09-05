@@ -11885,7 +11885,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						var url = Lampa.Storage.get('mods_use_json_url');
 
 						if (typeof url === 'string' && url.indexOf('http') !== -1){
-						// if (url.indexOf('http') !== -1) {
 							var torrent_net = new Lampa.Reguest();
 							torrent_net.timeout(10000);
 							torrent_net.silent(url + '?v=' + Math.random(), function (json) {
@@ -11895,7 +11894,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										extract_rule = json;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
 									} else {
-										extract_rule = inner_extract_rule;
+										// extract_rule = inner_extract_rule;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！链接中的配置内容格式不正确');
 									}
 								};
@@ -11905,7 +11904,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 								}, 100);
 							}, function (a, c) {
-								extract_rule = inner_extract_rule;
+								// extract_rule = inner_extract_rule;
 								Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
 								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
 								setTimeout(function () {
@@ -11953,7 +11952,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				onChange: function (value) {
 					if (Lampa.Storage.field('mods_use_json')) {
 						var url = value;
-						// if (url.indexOf('http') !== -1) {
 							if (typeof url === 'string' && url.indexOf('http') !== -1){
 							var torrent_net = new Lampa.Reguest();
 							torrent_net.timeout(10000);
@@ -11964,7 +11962,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										extract_rule = json;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('√ 配置链接可访问');
 									} else {
-										extract_rule = inner_extract_rule;
+										// extract_rule = inner_extract_rule;
 										$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！链接中的配置内容格式不正确');
 									}
 								};
@@ -11973,7 +11971,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 									$('div[data-name="mods_use_json_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 								}, 100);
 							}, function (a, c) {
-								extract_rule = inner_extract_rule;
+								// extract_rule = inner_extract_rule;
 								Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
 								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
 								setTimeout(function () {
@@ -11984,7 +11982,6 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 								dataType: 'json'
 							});
 						} else {
-							
 							setTimeout(function () {
 								$('[data-name="mods_use_json_url').find('.settings-param__descr').text('！配置链接不可访问');
 								$('div[data-name="mods_use_json_url"]').append('<div class="settings-param__status one"></div>')
