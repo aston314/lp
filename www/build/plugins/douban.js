@@ -39,22 +39,40 @@
             var _this = this;
 
             this.activity.loader(true);
-
-            network["native"](object.url, this.build.bind(this), function () {
-                var empty = new Lampa.Empty();
-                html.append(empty.render());
-                _this.start = empty.start;
-
-                _this.activity.loader(false);
-
-                _this.activity.toggle();
-            }, false, false, {
-                dataType: 'json',
-                headers: {
-                    'Referer' :'https://movie.douban.com/',
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-                }
-            });
+            if (object.url.includes('api.douban.com')){
+                network["native"](object.url, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
+    
+                    _this.activity.loader(false);
+    
+                    _this.activity.toggle();
+                }, 'apikey=0ab215a8b1977939201640fa14c66bab', false, {
+                    dataType: 'json',
+                    headers: {
+                        'Referer' :'https://movie.douban.com/',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                }); 
+            } else {
+                network["native"](object.url, this.build.bind(this), function () {
+                    var empty = new Lampa.Empty();
+                    html.append(empty.render());
+                    _this.start = empty.start;
+    
+                    _this.activity.loader(false);
+    
+                    _this.activity.toggle();
+                }, false, false, {
+                    dataType: 'json',
+                    headers: {
+                        'Referer' :'https://movie.douban.com/',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                    }
+                }); 
+            }
+            
 
             // if (!!window.cordova) {
             //     network.silent(object.url, this.build.bind(this), function () {
@@ -101,20 +119,37 @@
                 object.page++;
                 //var u = new URLSearchParams(postdata).toString();
                 //console.log(u);
-
-            network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
-                _this2.append(result,true);
-
-                object.type == 'list' ? datatye = result.subjects : datatye = result;
-                if (datatye.length) waitload = false;
-                // Lampa.Controller.enable('content');
-            }, false, false, {
-                dataType: 'json',
-                headers: {
-                    'Referer' :'https://movie.douban.com/',
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                if (object.url.includes('api.douban.com')){
+                    network["native"](object.url.replace(/start=\d+/, 'start='+(object.page - 1) * 20) , function (result) {
+                        _this2.append(result,true);
+        
+                        // object.type == 'list' ? datatye = result.subjects : datatye = result;
+                        // result.total
+                        if (result.subjects.length) waitload = false;
+                        // Lampa.Controller.enable('content');
+                    }, false, 'apikey=0ab215a8b1977939201640fa14c66bab', {
+                        dataType: 'json',
+                        headers: {
+                            'Referer' :'https://movie.douban.com/',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    }); 
+                } else{
+                    network["native"](object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
+                        _this2.append(result,true);
+        
+                        object.type == 'list' ? datatye = result.subjects : datatye = result;
+                        if (datatye.length) waitload = false;
+                        // Lampa.Controller.enable('content');
+                    }, false, false, {
+                        dataType: 'json',
+                        headers: {
+                            'Referer' :'https://movie.douban.com/',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+                        }
+                    });
                 }
-            });
+            
 
                 // if (!!window.cordova) {
                 //     network.silent(object.url.replace(/page_start=\d+/, 'page_start=') + (object.page - 1) * 20, function (result) {
@@ -175,14 +210,14 @@
                 };
                 //   element.cover||element.img
                 // card.find('.card__img').attr('src', 'https://dou.img.lithub.cc/movie/' + element.id + '.jpg');
-                card.find('.card__img').attr('src', element.cover||element.img);
+                card.find('.card__img').attr('src', element.cover||element.img || element.images.small);
                 // if (element.rate) {
                 //     card.find('.card__view').append('<div class="card__type"></div>');
                 //     card.find('.card__type').text(element.rate);
                 // };
-                if (element.rate) {
+                if (element.rate || element.rating.average) {
                     card.find('.card__view').append('<div class="card__vote"></div>');
-                    card.find('.card__vote').text(element.rate);
+                    card.find('.card__vote').text(element.rate || element.rating.average);
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
@@ -743,8 +778,17 @@
             doubanitem = null;
         };
     }
-
+    
     var catalogs = [{
+        title: '正在热映',
+        url: 'https://api.douban.com/v2/movie/in_theaters?start=0&count=20'
+    },{
+        title: '即将上映',
+        url: 'https://api.douban.com/v2/movie/coming_soon?start=0&count=20'
+    },{
+        title: 'Top250',
+        url: 'https://api.douban.com/v2/movie/top250?start=0&count=20'
+    },{
         title: '热门电影',
         url: 'https://movie.douban.com/j/search_subjects?type=movie&tag=%E7%83%AD%E9%97%A8&sort=recommend&page_limit=20&page_start=0'
     }, {
