@@ -10,7 +10,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 
 			// this.collections();
 			this.getconfig();
-			this.sources();
+			// this.sources();
 			this.buttBack();
 			this.getcustomfunction();
 			// ForkTV.init();
@@ -94,23 +94,23 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		// 	else $('body').find('[data-action="Radio_n"]').remove();
 		// },
 
-		sources: function () {
-			var sources;
-			if (Lampa.Params.values && Lampa.Params.values['source']) {
-				sources = Object.assign({}, Lampa.Params.values['source']);
-				sources.pub = 'PUB';
-				sources.filmix = 'FILMIX';
-			} else {
-				sources = {
-					'tmdb': 'TMDB',
-					'cub': 'CUB',
-					'pub': 'PUB',
-					'filmix': 'FILMIX'
-				};
-			}
+		// sources: function () {
+		// 	var sources;
+		// 	if (Lampa.Params.values && Lampa.Params.values['source']) {
+		// 		sources = Object.assign({}, Lampa.Params.values['source']);
+		// 		sources.pub = 'PUB';
+		// 		sources.filmix = 'FILMIX';
+		// 	} else {
+		// 		sources = {
+		// 			'tmdb': 'TMDB',
+		// 			'cub': 'CUB',
+		// 			'pub': 'PUB',
+		// 			'filmix': 'FILMIX'
+		// 		};
+		// 	}
 
-			Lampa.Params.select('source', sources, 'tmdb');
-		},
+		// 	Lampa.Params.select('source', sources, 'tmdb');
+		// },
 		online: function (back) {
 			var params = {
 				url: '',
@@ -1964,6 +1964,20 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   		}, {});
   	}
   };
+	// var Douban = {
+	// 	network: new Lampa.Reguest(),
+	// 	baseurl: 'https://frodo.douban.com/api/v2/',
+	// 	apiKey: '0ac44ae016490db2204ce0a042db2916',
+	// 	browserheader: {
+    //         "Host": "frodo.douban.com",
+    //         "Connection": "Keep-Alive",
+    //         "Referer": "https://servicewechat.com/wx2f9b06c1de1ccfca/84/page-frame.html",
+    //         "User-Agent": "MicroMessenger/"
+    // },
+	// class_url:'interests&hot_gaia&tv_hot&show_hot&movie&tv&rank_list_movie&rank_list_tv',
+    // filter:{'interests': [{'key': 'status', 'name': '状态', 'value': [{'n': '想看', 'v': 'mark'}, {'n': '在看', 'v': 'doing'}, {'n': '看过', 'v': 'done'}]}, {'key': 'subtype_tag', 'name': '形式', 'value': [{'n': '全部', 'v': ''}, {'n': '电影', 'v': 'movie'}, {'n': '电视', 'v': 'tv'}]}, {'key': 'year_tag', 'name': '年代', 'value': [{'n': '全部', 'v': '全部'}, {'n': '2023', 'v': '2023'}, {'n': '2022', 'v': '2022'}, {'n': '2021', 'v': '2021'}, {'n': '2020', 'v': '2020'}, {'n': '2019', 'v': '2019'}, {'n': '2010年代', 'v': '2010年代'}, {'n': '2000年代', 'v': '2000年代'}, {'n': '90年代', 'v': '90年代'}, {'n': '80年代', 'v': '80年代'}, {'n': '70年代', 'v': '70年代'}, {'n': '60年代', 'v': '60年代'}, {'n': '更早', 'v': '更早'}]}], 'hot_gaia': [{'key': 'sort', 'name': '排序', 'value': [{'n': '热度', 'v': 'recommend'}, {'n': '最新', 'v': 'time'}, {'n': '评分', 'v': 'rank'}]}, {'key': 'area', 'name': '地区', 'value': [{'n': '全部', 'v': '全部'}, {'n': '华语', 'v': '华语'}, {'n': '欧美', 'v': '欧美'}, {'n': '韩国', 'v': '韩国'}, {'n': '日本', 'v': '日本'}]}], 'tv_hot': [{'key': 'type', 'name': '分类', 'value': [{'n': '综合', 'v': 'tv_hot'}, {'n': '国产剧', 'v': 'tv_domestic'}, {'n': '欧美剧', 'v': 'tv_american'}, {'n': '日剧', 'v': 'tv_japanese'}, {'n': '韩剧', 'v': 'tv_korean'}, {'n': '动画', 'v': 'tv_animation'}]}], 'show_hot': [{'key': 'type', 'name': '分类', 'value': [{'n': '综合', 'v': 'show_hot'}, {'n': '国内', 'v': 'show_domestic'}, {'n': '国外', 'v': 'show_foreign'}]}], 'movie': [{'key': '类型', 'name': '类型', 'value': [{'n': '全部类型', 'v': ''}, {'n': '喜剧', 'v': '喜剧'}, {'n': '爱情', 'v': '爱情'}, {'n': '动作', 'v': '动作'}, {'n': '科幻', 'v': '科幻'}, {'n': '动画', 'v': '动画'}, {'n': '悬疑', 'v': '悬疑'}, {'n': '犯罪', 'v': '犯罪'}, {'n': '惊悚', 'v': '惊悚'}, {'n': '冒险', 'v': '冒险'}, {'n': '音乐', 'v': '音乐'}, {'n': '历史', 'v': '历史'}, {'n': '奇幻', 'v': '奇幻'}, {'n': '恐怖', 'v': '恐怖'}, {'n': '战争', 'v': '战争'}, {'n': '传记', 'v': '传记'}, {'n': '歌舞', 'v': '歌舞'}, {'n': '武侠', 'v': '武侠'}, {'n': '情色', 'v': '情色'}, {'n': '灾难', 'v': '灾难'}, {'n': '西部', 'v': '西部'}, {'n': '纪录片', 'v': '纪录片'}, {'n': '短片', 'v': '短片'}]}, {'key': '地区', 'name': '地区', 'value': [{'n': '全部地区', 'v': ''}, {'n': '华语', 'v': '华语'}, {'n': '欧美', 'v': '欧美'}, {'n': '韩国', 'v': '韩国'}, {'n': '日本', 'v': '日本'}, {'n': '中国大陆', 'v': '中国大陆'}, {'n': '美国', 'v': '美国'}, {'n': '中国香港', 'v': '中国香港'}, {'n': '中国台湾', 'v': '中国台湾'}, {'n': '英国', 'v': '英国'}, {'n': '法国', 'v': '法国'}, {'n': '德国', 'v': '德国'}, {'n': '意大利', 'v': '意大利'}, {'n': '西班牙', 'v': '西班牙'}, {'n': '印度', 'v': '印度'}, {'n': '泰国', 'v': '泰国'}, {'n': '俄罗斯', 'v': '俄罗斯'}, {'n': '加拿大', 'v': '加拿大'}, {'n': '澳大利亚', 'v': '澳大利亚'}, {'n': '爱尔兰', 'v': '爱尔兰'}, {'n': '瑞典', 'v': '瑞典'}, {'n': '巴西', 'v': '巴西'}, {'n': '丹麦', 'v': '丹麦'}]}, {'key': 'sort', 'name': '排序', 'value': [{'n': '近期热度', 'v': 'T'}, {'n': '首映时间', 'v': 'R'}, {'n': '高分优先', 'v': 'S'}]}, {'key': '年代', 'name': '年代', 'value': [{'n': '全部年代', 'v': ''}, {'n': '2023', 'v': '2023'}, {'n': '2022', 'v': '2022'}, {'n': '2021', 'v': '2021'}, {'n': '2020', 'v': '2020'}, {'n': '2019', 'v': '2019'}, {'n': '2010年代', 'v': '2010年代'}, {'n': '2000年代', 'v': '2000年代'}, {'n': '90年代', 'v': '90年代'}, {'n': '80年代', 'v': '80年代'}, {'n': '70年代', 'v': '70年代'}, {'n': '60年代', 'v': '60年代'}, {'n': '更早', 'v': '更早'}]}], 'tv': [{'key': '类型', 'name': '类型', 'value': [{'n': '不限', 'v': ''}, {'n': '电视剧', 'v': '电视剧'}, {'n': '综艺', 'v': '综艺'}]}, {'key': '电视剧形式', 'name': '电视剧形式', 'value': [{'n': '不限', 'v': ''}, {'n': '喜剧', 'v': '喜剧'}, {'n': '爱情', 'v': '爱情'}, {'n': '悬疑', 'v': '悬疑'}, {'n': '动画', 'v': '动画'}, {'n': '武侠', 'v': '武侠'}, {'n': '古装', 'v': '古装'}, {'n': '家庭', 'v': '家庭'}, {'n': '犯罪', 'v': '犯罪'}, {'n': '科幻', 'v': '科幻'}, {'n': '恐怖', 'v': '恐怖'}, {'n': '历史', 'v': '历史'}, {'n': '战争', 'v': '战争'}, {'n': '动作', 'v': '动作'}, {'n': '冒险', 'v': '冒险'}, {'n': '传记', 'v': '传记'}, {'n': '剧情', 'v': '剧情'}, {'n': '奇幻', 'v': '奇幻'}, {'n': '惊悚', 'v': '惊悚'}, {'n': '灾难', 'v': '灾难'}, {'n': '歌舞', 'v': '歌舞'}, {'n': '音乐', 'v': '音乐'}]}, {'key': '综艺形式', 'name': '综艺形式', 'value': [{'n': '不限', 'v': ''}, {'n': '真人秀', 'v': '真人秀'}, {'n': '脱口秀', 'v': '脱口秀'}, {'n': '音乐', 'v': '音乐'}, {'n': '歌舞', 'v': '歌舞'}]}, {'key': '地区', 'name': '地区', 'value': [{'n': '全部地区', 'v': ''}, {'n': '华语', 'v': '华语'}, {'n': '欧美', 'v': '欧美'}, {'n': '国外', 'v': '国外'}, {'n': '韩国', 'v': '韩国'}, {'n': '日本', 'v': '日本'}, {'n': '中国大陆', 'v': '中国大陆'}, {'n': '中国香港', 'v': '中国香港'}, {'n': '美国', 'v': '美国'}, {'n': '英国', 'v': '英国'}, {'n': '泰国', 'v': '泰国'}, {'n': '中国台湾', 'v': '中国台湾'}, {'n': '意大利', 'v': '意大利'}, {'n': '法国', 'v': '法国'}, {'n': '德国', 'v': '德国'}, {'n': '西班牙', 'v': '西班牙'}, {'n': '俄罗斯', 'v': '俄罗斯'}, {'n': '瑞典', 'v': '瑞典'}, {'n': '巴西', 'v': '巴西'}, {'n': '丹麦', 'v': '丹麦'}, {'n': '印度', 'v': '印度'}, {'n': '加拿大', 'v': '加拿大'}, {'n': '爱尔兰', 'v': '爱尔兰'}, {'n': '澳大利亚', 'v': '澳大利亚'}]}, {'key': 'sort', 'name': '排序', 'value': [{'n': '近期热度', 'v': 'T'}, {'n': '首播时间', 'v': 'R'}, {'n': '高分优先', 'v': 'S'}]}, {'key': '年代', 'name': '年代', 'value': [{'n': '全部', 'v': ''}, {'n': '2023', 'v': '2023'}, {'n': '2022', 'v': '2022'}, {'n': '2021', 'v': '2021'}, {'n': '2020', 'v': '2020'}, {'n': '2019', 'v': '2019'}, {'n': '2010年代', 'v': '2010年代'}, {'n': '2000年代', 'v': '2000年代'}, {'n': '90年代', 'v': '90年代'}, {'n': '80年代', 'v': '80年代'}, {'n': '70年代', 'v': '70年代'}, {'n': '60年代', 'v': '60年代'}, {'n': '更早', 'v': '更早'}]}, {'key': '平台', 'name': '平台', 'value': [{'n': '全部', 'v': ''}, {'n': '腾讯视频', 'v': '腾讯视频'}, {'n': '爱奇艺', 'v': '爱奇艺'}, {'n': '优酷', 'v': '优酷'}, {'n': '湖南卫视', 'v': '湖南卫视'}, {'n': 'Netflix', 'v': 'Netflix'}, {'n': 'HBO', 'v': 'HBO'}, {'n': 'BBC', 'v': 'BBC'}, {'n': 'NHK', 'v': 'NHK'}, {'n': 'CBS', 'v': 'CBS'}, {'n': 'NBC', 'v': 'NBC'}, {'n': 'tvN', 'v': 'tvN'}]}], 'rank_list_movie': [{'key': '榜单', 'name': '榜单', 'value': [{'n': '实时热门电影', 'v': 'movie_real_time_hotest'}, {'n': '一周口碑电影榜', 'v': 'movie_weekly_best'}, {'n': '豆瓣电影Top250', 'v': 'movie_top250'}]}], 'rank_list_tv': [{'key': '榜单', 'name': '榜单', 'value': [{'n': '实时热门电视', 'v': 'tv_real_time_hotest'}, {'n': '华语口碑剧集榜', 'v': 'tv_chinese_best_weekly'}, {'n': '全球口碑剧集榜', 'v': 'tv_global_best_weekly'}, {'n': '国内口碑综艺榜', 'v': 'show_chinese_best_weekly'}, {'n': '国外口碑综艺榜', 'v': 'show_global_best_weekly'}]}]},
+    // limit:20,
+	// };
 	
 	
   function web(component, _object, doreg) {
@@ -12730,947 +12744,1421 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       });
     }
 		
-    function url$1(u) {
-			var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-			if (params.genres) u = add$4(u, 'genre=' + params.genres);
-			if (params.page) u = add$4(u, 'page=' + params.page);
-			if (params.query) u = add$4(u, 'q=' + params.query);
-			if (params.type) u = add$4(u, 'type=' + params.type);
-			if (params.field) u = add$4(u, 'field=' + params.field);
-			if (params.id) u = add$4(u, 'actor=' + params.id);
-			if (params.perpage) u = add$4(u, 'perpage=' + params.perpage);
-			u = add$4(u, 'access_token=' + Pub.token);
-			if (params.filter) {
-				for (var i in params.filter) {
-					u = add$4(u, i + '=' + params.filter[i]);
-				}
-			}
-			return Pub.baseurl + u;
-		}
-		function add$4(u, params) {
-			return u + (/\?/.test(u) ? '&' : '?') + params;
-		}
-		function get$6(method, call) {
-			var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-			var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
-			var onerror = arguments.length > 3 ? arguments[3] : undefined;
-			var u = url$1(method, params);
-			Pub.network.silent(u, function (json) {
-				json.url = method;
-				oncomplite(json);
-			}, onerror);
-		}
-		function tocard(element) {
-			return {
-				url: '',
-				id: element.id,
-				type: element.type,
-				title: element.title.split('/')[0],
-				promo_title: element.title.split('/')[0],
-				original_title: element.title.split('/')[1] || element.title,
-				release_date: (element.year ? element.year + '' : element.years ? element.years[0] + '' : '0000'),
-				first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year : '',
-				vote_averagey: parseFloat((element.imdb_rating || 0) + '').toFixed(1),
-				vote_average: element.imdb_rating || 0,
-				poster: element.posters.big,
-				cover: element.posters.wide,
-				background_image: element.posters.wide,
-        imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
-        kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
-				year: element.year,
-				years: element.years
-			};
-		}
-		function list$2(params, oncomplite, onerror) {
-			var url = url$1('v1/items', params, params.type = type);
-			if (!params.genres) url = url$1(params.url, params);
-			Pub.network["native"](url, function (json) {
-				var items = [];
-				if (json.items) {
-					json.items.forEach(function (element) {
-						items.push(tocard(element));
-					});
-				}
-				oncomplite({
-					results: items,
-					page:json.pagination.current,
-					total_pages: json.pagination.total
-				});
-			}, onerror);
-		}
-		function main$2(params, oncomplite, onerror) {
-			var status = new Lampa.Status(9);
-			status.onComplite = function () {
-				var fulldata = [];
-				var data = status.data;
-				for (var i = 1; i <= 9; i++) {
-					var ipx = 's' + i;
-					if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
-				}
-				if (fulldata.length) oncomplite(fulldata);
-				else onerror();
-			};
-			var append = function append(title, name, json) {
-				json.title = title;
-				var data = [];
-				json.items.forEach(function (element) {
-					data.push(tocard(element));
-				});
-				if(name == 's1' || name == 's6') {
-				  json.wide = true;
-				  json.small = true;
-				}
-				if(name == 's2') {
-				  data.forEach(function (el){
-				    el.poster = el.cover;
-				  });
-				  json.collection = true;
-				  json.line_type  = 'collection';
-				}
-				json.results = data;
-				status.append(name, json);
-			};
-			get$6('v1/items/popular?type=movie&sort=views', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_popularfilm'), 's1', json);
-				Lampa.VideoQuality.add(json.results);
-			}, status.error.bind(status));
-			get$6('v1/items?type=movie&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newfilm'), 's2', json);
-			}, status.error.bind(status));
-			get$6('v1/items/popular?type=serial&sort=views', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_popularserial'), 's3', json);
-				Lampa.VideoQuality.add(json.results);
-			}, status.error.bind(status));
-			get$6('v1/items?type=serial&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newserial'), 's4', json);
-			}, status.error.bind(status));
-			get$6('v1/items?type=concert&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newconcert'), 's5', json);
-			}, status.error.bind(status));
-			get$6('v1/items?type=&quality=4', params, function (json) {
-				append('4K', 's6', json);
-			}, status.error.bind(status));
-			get$6('v1/items?type=documovie&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newdocfilm'), 's7', json);
-			}, status.error.bind(status));
-			get$6('v1/items?type=docuserial&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newdocserial'), 's8', json);
-			}, status.error.bind(status));
-			get$6('v1/items?type=tvshow&sort=updated-', params, function (json) {
-				append(Lampa.Lang.translate('pub_title_newtvshow'), 's9', json);
-			}, status.error.bind(status));
-		}
-		function category$1(params, oncomplite, onerror) {
-			var books = Lampa.Favorite.continues(params.url);
-			var status = new Lampa.Status(5);
-			status.onComplite = function () {
-				var fulldata = [];
-				if (books.length) fulldata.push({
-					results: books,
-					title: params.url == 'tv' ? Lampa.Lang.translate('title_continue') : Lampa.Lang.translate('title_watched')
-				});
-				var data = status.data;
-				for (var i = 1; i <= 5; i++) {
-					var ipx = 's' + i;
-					if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
-				}
-				if (fulldata.length) oncomplite(fulldata);
-				else onerror();
-			};
-			var append = function append(title, name, json) {
-				json.title = title;
-				var data = [];
-				json.items.forEach(function (element) {
-					data.push(tocard(element));
-				});
-				json.results = data;
-				status.append(name, json);
-			};
-			var type = params.url == 'tv' ? 'serial' : params.url;
-			var Name = params.genres ? params.typeName.toLowerCase() : params.url == 'tv' ? Lampa.Lang.translate('menu_tv').toLowerCase() : Lampa.Lang.translate('menu_movies').toLowerCase();
-			if (params.genres) {
-				get$6('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
-					append(Lampa.Lang.translate('pub_title_new') + ' ' + params.janr.toLowerCase(), 's1', json);
-				}, status.error.bind(status));
-				get$6('v1/items?type=' + type + 'sort=rating-', params, function (json) {
-					append(Lampa.Lang.translate('pub_title_rating') + ' ' + Name, 's2', json);
-				}, status.error.bind(status));
-				get$6('v1/items?type=' + type + '&sort=updated-', params, function (json) {
-					append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
-				}, status.error.bind(status));
-				get$6('v1/items?type=' + type + '&sort=views-', params, function (json) {
-					append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
-				}, status.error.bind(status));
-				get$6('v1/items?type=' + type + '&quality=4', params, function (json) {
-					append('4K ' + Name, 's5', json);
-				}, status.error.bind(status));
-			} else {
-				get$6('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
-					append(Lampa.Lang.translate('pub_title_new') + ' ' + Name, 's1', json);
-				}, status.error.bind(status));
-				get$6('v1/items/popular?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
-					append(Lampa.Lang.translate('pub_title_popular') + ' ' + Name, 's2', json);
-				}, status.error.bind(status));
-				get$6('v1/items/fresh?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
-					append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
-				}, status.error.bind(status));
-				get$6('v1/items/hot?type=' + type + '&sort=created-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
-					append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
-				}, status.error.bind(status));
-				get$6('v1/items?type=' + type + '&quality=4', params, function (json) {
-					append('4K ' + Name, 's5', json);
-				}, status.error.bind(status));
-			}
-		}
-		function full$1(params, oncomplite, onerror) {
-			var status = new Lampa.Status(Lampa.Storage.get('pro_pub', false) ? 5 : 4);
-			status.onComplite = oncomplite;
-			var url = 'v1/items/' + params.id;
-			get$6(url, params, function (json) {
-				json.source = 'pub';
-				var data = {};
-				var element = json.item;
-				get$6('v1/items/similar?id=' + element.id, params, function (json) {
-					var similars = [];
-					if (json.items) {
-						for (var i in json.items) {
-							var item = json.items[i];
-							similars.push(tocard(item));
-						}
-						status.append('simular', {
-							results: similars
-						});
-					}
-				}, onerror);
-				get$6('v1/items/comments?id=' + element.id, params, function (json) {
-					var comments = [];
-					if (json.comments) {
-						for (var i in json.comments) {
-							var com = json.comments[i];
-							com.text = com.message.replace(/\[n|r|t]/g, '');
-							com.like_count = com.rating;
-							comments.push(com);
-						}
-						status.append('comments', comments);
-					}
-				}, onerror);
-				data.movie = {
-					id: element.id,
-					url: url,
-					type: element.type,
-					source: 'pub',
-					title: element.title.split('/')[0],
-					original_title: element.title.split('/')[1] ? element.title.split('/')[1] : element.title.split('/')[0],
-					name: element.seasons ? element.title.split('/')[0] : '',
-					original_name: element.seasons ? element.title.split('/')[1] : '',
-					overview: element.plot.replace(/\[n|r|t]/g, ''),
-					img: element.posters.big,
-					runtime: (element.duration.average || 0) / 1000 / 6 * 100,
-					genres: genres$1(element, json.item),
-					vote_average: parseFloat(element.imdb_rating || element.kinopoisk_rating || '0'),
-					production_companies: [],
-					production_countries: countries(element.countries, json.item),
-					budget: element.budget || 0,
-					seasons: element.seasons && element.seasons.filter(function (el){
-					  el.episode_count = 1;
-					  return el
-					}) || '',
-					release_date: element.year || Lampa.Utils.parseTime(element.created_at).full || '0000',
-					number_of_seasons: seasonsCount(element).seasons,
-					number_of_episodes: seasonsCount(element).episodes,
-					first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year || Lampa.Utils.parseTime(element.created_at).full || '0000' : '', 
-					background_image: element.posters.wide,
-          imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
-          kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
-          imdb_id:'tt' +element.imdb,
-          kinopoisk_id:element.kinopoisk
-				};
-				status.append('persons', persons(json));
-				status.append('movie', data.movie);
-				if(Lampa.Storage.get('pro_pub', false)) status.append('videos', videos(element));
-			}, onerror);
-		}
-		function menu$1(params, oncomplite) {
-			var u = url$1('v1/types', params);
-			var typeName = '';
-			Pub.network["native"](u, function (json) {
-				Lampa.Select.show({
-					title: Lampa.Lang.translate('title_category'),
-					items: json.items,
-					onBack: this.onBack,
-					onSelect: function onSelect(a) {
-						type = a.id;
-						typeName = a.title;
-						get$6('v1/genres?type=' + a.id, params, function (jsons) {
-							Lampa.Select.show({
-								title: Lampa.Lang.translate('full_genre'),
-								items: jsons.items,
-								onBack: function onBack() {
-									menu$1(params, oncomplite);
-								},
-								onSelect: function onSelect(a) {
-									Lampa.Activity.push({
-										url: type,
-										title: Lampa.Lang.translate('title_catalog') + ' - ' + typeName + ' - ' + a.title + ' - KinoPUB',
-										component: 'category',
-										typeName: typeName,
-										janr: a.title,
-										genres: a.id,
-										id: a.id,
-										source: 'pub',
-										card_type: true,
-										page: 1
-									});
-								}
-							});
-						}, onerror);
-					}
-				});
-			});
-		}
-		function seasons$2(tv, from, oncomplite) {
-			Lampa.Api.sources.tmdb.seasons(tv, from, oncomplite);
-		}
-		function person$2(params, oncomplite, onerror) {
-			var u = url$1('v1/items', params);
-			Pub.network["native"](u, function (json, all) {
-				var data = {};
-				if (json.items) {
-					data.person = {
-						name: params.id,
-						biography: '',
-						img: '',
-						place_of_birth: '',
-						birthday: '----'
-					};
-					var similars = [];
-					for (var i in json.items) {
-						var item = json.items[i];
-						similars.push(tocard(item));
-					}
-					data.credits = {
-						movie: similars,
-						knownFor: [{
-						  name: '', 
-						  credits: similars
-						}]
-					};
-				}
-				oncomplite(data);
-			}, onerror);
-		}
-		function clear$3() {
-			Pub.network.clear();
-		}
-		function seasonsCount(element) {
-			var data = {
-				seasons: 0,
-				episodes: 0
-			};
-			if (element.seasons) {
-				data.seasons = element.seasons.length;
-				element.seasons.forEach(function (ep) {
-					data.episodes += ep.episodes.length;
-				})
-			}
-			return data;
-		}
-		function videos(element) {
-			var data = [];
-			if (element.trailer) {
-				data.push({
-					name: element.trailer.title,
-					url: element.trailer.url,
-					player: true
-				});
-			}
-			return data.length ? {
-				results: data
-			} : false;
-		}
-		function persons(json) {
-			var data = [];
-			if (json.item.cast) {
-				json.item.cast.split(',').forEach(function (name) {
-					data.push({
-						name: name,
-						id: name,
-						character: Lampa.Lang.translate('title_actor'),
-					});
-				});
-			}
-			return data.length ? {
-				cast: data
-			} : false;
-		}
-		function genres$1(element, json) {
-			var data = [];
-			element.genres.forEach(function (id) {
-				if (id) {
-					data.push({
-						id: id.id,
-						name: id.title
-					});
-				}
-			});
-			return data;
-		}
-		function countries(element, json) {
-			var data = [];
-			if (element && json.countries) {
-				data.push({
-					name: element[0].title
-				});
-			}
-			return data;
-		}
-		function search$3() {
-			var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-			var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-			var status = new Lampa.Status(2);
-			status.onComplite = function (data) {
-				var items = [];
-				if (data.movie && data.movie.results.length) items.push(data.movie);
-				if (data.tv && data.tv.results.length) items.push(data.tv);
-				oncomplite(items);
-			};
-			var mov = params;
-			mov.type = '';
-			mov.field = 'title';
-			mov.perpage = 20;
-			get$6('v1/items/search', mov, function (json) {
-				var items = [];
-				var itemss = [];
-				if (json.items) {
-					json.items.forEach(function (element) {
-						if(element.type == 'movie') items.push(tocard(element));
-						else itemss.push(tocard(element));
-					});
-					var movie = {
-						results: items,
-						page: json.pagination.current,
-						total_pages: json.pagination.total,
-						total_results: json.pagination.total_items,
-						title: Lampa.Lang.translate('menu_movies') +' ('+items.length+')',
-						type: 'movie'
-					};
-					status.append('movie', movie);
-					var tv = {
-						results: itemss,
-						page: json.pagination.current,
-						total_pages: json.pagination.total,
-						total_results: json.pagination.total_items,
-						title: Lampa.Lang.translate('menu_tv') +' ('+itemss.length+')',
-						type: 'tv'
-					};
-					status.append('tv', tv);
-				}
-			}, status.error.bind(status));
-		}
-		function discovery() {
-			return {
-				title: 'PUB',
-				search: search$3,
-				params: {
-					align_left: true,
-					object: {
-						source: 'pub'
-					}
-				},
-				onMore: function onMore(params) {
-					Lampa.Activity.push({
-						url: 'v1/items/search?field=title&type=' + params.data.type,
-						title: Lampa.Lang.translate('search') + ' - ' + params.query,
-						component: 'category_full',
-						page: 2,
-						query: encodeURIComponent(params.query),
-						source: 'pub'
-					});
-				},
-				onCancel: Pub.network.clear.bind(Pub.network)
-			};
-		}
-		var PUB = {
-			main: main$2,
-			menu: menu$1,
-			full: full$1,
-			search: search$3,
-			person: person$2,
-			list: list$2,
-			seasons: seasons$2,
-			category: category$1,
-			clear: clear$3,
-			discovery: discovery
-		};
-		Lampa.Api.sources.pub = PUB;
+    // function url$1(u) {
+	// 		var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	// 		if (params.genres) u = add$4(u, 'genre=' + params.genres);
+	// 		if (params.page) u = add$4(u, 'page=' + params.page);
+	// 		if (params.query) u = add$4(u, 'q=' + params.query);
+	// 		if (params.type) u = add$4(u, 'type=' + params.type);
+	// 		if (params.field) u = add$4(u, 'field=' + params.field);
+	// 		if (params.id) u = add$4(u, 'actor=' + params.id);
+	// 		if (params.perpage) u = add$4(u, 'perpage=' + params.perpage);
+	// 		u = add$4(u, 'access_token=' + Pub.token);
+	// 		if (params.filter) {
+	// 			for (var i in params.filter) {
+	// 				u = add$4(u, i + '=' + params.filter[i]);
+	// 			}
+	// 		}
+	// 		return Pub.baseurl + u;
+	// 	}
+	// 	function add$4(u, params) {
+	// 		return u + (/\?/.test(u) ? '&' : '?') + params;
+	// 	}
+	// 	function get$6(method, call) {
+	// 		var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	// 		var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+	// 		var onerror = arguments.length > 3 ? arguments[3] : undefined;
+	// 		var u = url$1(method, params);
+	// 		Pub.network.silent(u, function (json) {
+	// 			json.url = method;
+	// 			oncomplite(json);
+	// 		}, onerror);
+	// 	}
+	// 	function tocard(element) {
+	// 		return {
+	// 			url: '',
+	// 			id: element.id,
+	// 			type: element.type,
+	// 			title: element.title.split('/')[0],
+	// 			promo_title: element.title.split('/')[0],
+	// 			original_title: element.title.split('/')[1] || element.title,
+	// 			release_date: (element.year ? element.year + '' : element.years ? element.years[0] + '' : '0000'),
+	// 			first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year : '',
+	// 			vote_averagey: parseFloat((element.imdb_rating || 0) + '').toFixed(1),
+	// 			vote_average: element.imdb_rating || 0,
+	// 			poster: element.posters.big,
+	// 			cover: element.posters.wide,
+	// 			background_image: element.posters.wide,
+    //     imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+    //     kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
+	// 			year: element.year,
+	// 			years: element.years
+	// 		};
+	// 	}
+	// 	function list$2(params, oncomplite, onerror) {
+	// 		var url = url$1('v1/items', params, params.type = type);
+	// 		if (!params.genres) url = url$1(params.url, params);
+	// 		Pub.network["native"](url, function (json) {
+	// 			var items = [];
+	// 			if (json.items) {
+	// 				json.items.forEach(function (element) {
+	// 					items.push(tocard(element));
+	// 				});
+	// 			}
+	// 			oncomplite({
+	// 				results: items,
+	// 				page:json.pagination.current,
+	// 				total_pages: json.pagination.total
+	// 			});
+	// 		}, onerror);
+	// 	}
+	// 	function main$2(params, oncomplite, onerror) {
+	// 		var status = new Lampa.Status(9);
+	// 		status.onComplite = function () {
+	// 			var fulldata = [];
+	// 			var data = status.data;
+	// 			for (var i = 1; i <= 9; i++) {
+	// 				var ipx = 's' + i;
+	// 				if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+	// 			}
+	// 			if (fulldata.length) oncomplite(fulldata);
+	// 			else onerror();
+	// 		};
+	// 		var append = function append(title, name, json) {
+	// 			json.title = title;
+	// 			var data = [];
+	// 			json.items.forEach(function (element) {
+	// 				data.push(tocard(element));
+	// 			});
+	// 			if(name == 's1' || name == 's6') {
+	// 			  json.wide = true;
+	// 			  json.small = true;
+	// 			}
+	// 			if(name == 's2') {
+	// 			  data.forEach(function (el){
+	// 			    el.poster = el.cover;
+	// 			  });
+	// 			  json.collection = true;
+	// 			  json.line_type  = 'collection';
+	// 			}
+	// 			json.results = data;
+	// 			status.append(name, json);
+	// 		};
+	// 		get$6('v1/items/popular?type=movie&sort=views', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_popularfilm'), 's1', json);
+	// 			Lampa.VideoQuality.add(json.results);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=movie&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newfilm'), 's2', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items/popular?type=serial&sort=views', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_popularserial'), 's3', json);
+	// 			Lampa.VideoQuality.add(json.results);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=serial&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newserial'), 's4', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=concert&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newconcert'), 's5', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=&quality=4', params, function (json) {
+	// 			append('4K', 's6', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=documovie&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newdocfilm'), 's7', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=docuserial&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newdocserial'), 's8', json);
+	// 		}, status.error.bind(status));
+	// 		get$6('v1/items?type=tvshow&sort=updated-', params, function (json) {
+	// 			append(Lampa.Lang.translate('pub_title_newtvshow'), 's9', json);
+	// 		}, status.error.bind(status));
+	// 	}
+	// 	function category$1(params, oncomplite, onerror) {
+	// 		var books = Lampa.Favorite.continues(params.url);
+	// 		var status = new Lampa.Status(5);
+	// 		status.onComplite = function () {
+	// 			var fulldata = [];
+	// 			if (books.length) fulldata.push({
+	// 				results: books,
+	// 				title: params.url == 'tv' ? Lampa.Lang.translate('title_continue') : Lampa.Lang.translate('title_watched')
+	// 			});
+	// 			var data = status.data;
+	// 			for (var i = 1; i <= 5; i++) {
+	// 				var ipx = 's' + i;
+	// 				if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+	// 			}
+	// 			if (fulldata.length) oncomplite(fulldata);
+	// 			else onerror();
+	// 		};
+	// 		var append = function append(title, name, json) {
+	// 			json.title = title;
+	// 			var data = [];
+	// 			json.items.forEach(function (element) {
+	// 				data.push(tocard(element));
+	// 			});
+	// 			json.results = data;
+	// 			status.append(name, json);
+	// 		};
+	// 		var type = params.url == 'tv' ? 'serial' : params.url;
+	// 		var Name = params.genres ? params.typeName.toLowerCase() : params.url == 'tv' ? Lampa.Lang.translate('menu_tv').toLowerCase() : Lampa.Lang.translate('menu_movies').toLowerCase();
+	// 		if (params.genres) {
+	// 			get$6('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_new') + ' ' + params.janr.toLowerCase(), 's1', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items?type=' + type + 'sort=rating-', params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_rating') + ' ' + Name, 's2', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items?type=' + type + '&sort=updated-', params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items?type=' + type + '&sort=views-', params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items?type=' + type + '&quality=4', params, function (json) {
+	// 				append('4K ' + Name, 's5', json);
+	// 			}, status.error.bind(status));
+	// 		} else {
+	// 			get$6('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_new') + ' ' + Name, 's1', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items/popular?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_popular') + ' ' + Name, 's2', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items/fresh?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items/hot?type=' + type + '&sort=created-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+	// 				append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
+	// 			}, status.error.bind(status));
+	// 			get$6('v1/items?type=' + type + '&quality=4', params, function (json) {
+	// 				append('4K ' + Name, 's5', json);
+	// 			}, status.error.bind(status));
+	// 		}
+	// 	}
+	// 	function full$1(params, oncomplite, onerror) {
+	// 		var status = new Lampa.Status(Lampa.Storage.get('pro_pub', false) ? 5 : 4);
+	// 		status.onComplite = oncomplite;
+	// 		var url = 'v1/items/' + params.id;
+	// 		get$6(url, params, function (json) {
+	// 			json.source = 'pub';
+	// 			var data = {};
+	// 			var element = json.item;
+	// 			get$6('v1/items/similar?id=' + element.id, params, function (json) {
+	// 				var similars = [];
+	// 				if (json.items) {
+	// 					for (var i in json.items) {
+	// 						var item = json.items[i];
+	// 						similars.push(tocard(item));
+	// 					}
+	// 					status.append('simular', {
+	// 						results: similars
+	// 					});
+	// 				}
+	// 			}, onerror);
+	// 			get$6('v1/items/comments?id=' + element.id, params, function (json) {
+	// 				var comments = [];
+	// 				if (json.comments) {
+	// 					for (var i in json.comments) {
+	// 						var com = json.comments[i];
+	// 						com.text = com.message.replace(/\[n|r|t]/g, '');
+	// 						com.like_count = com.rating;
+	// 						comments.push(com);
+	// 					}
+	// 					status.append('comments', comments);
+	// 				}
+	// 			}, onerror);
+	// 			data.movie = {
+	// 				id: element.id,
+	// 				url: url,
+	// 				type: element.type,
+	// 				source: 'pub',
+	// 				title: element.title.split('/')[0],
+	// 				original_title: element.title.split('/')[1] ? element.title.split('/')[1] : element.title.split('/')[0],
+	// 				name: element.seasons ? element.title.split('/')[0] : '',
+	// 				original_name: element.seasons ? element.title.split('/')[1] : '',
+	// 				overview: element.plot.replace(/\[n|r|t]/g, ''),
+	// 				img: element.posters.big,
+	// 				runtime: (element.duration.average || 0) / 1000 / 6 * 100,
+	// 				genres: genres$1(element, json.item),
+	// 				vote_average: parseFloat(element.imdb_rating || element.kinopoisk_rating || '0'),
+	// 				production_companies: [],
+	// 				production_countries: countries(element.countries, json.item),
+	// 				budget: element.budget || 0,
+	// 				seasons: element.seasons && element.seasons.filter(function (el){
+	// 				  el.episode_count = 1;
+	// 				  return el
+	// 				}) || '',
+	// 				release_date: element.year || Lampa.Utils.parseTime(element.created_at).full || '0000',
+	// 				number_of_seasons: seasonsCount(element).seasons,
+	// 				number_of_episodes: seasonsCount(element).episodes,
+	// 				first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year || Lampa.Utils.parseTime(element.created_at).full || '0000' : '', 
+	// 				background_image: element.posters.wide,
+    //       imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+    //       kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
+    //       imdb_id:'tt' +element.imdb,
+    //       kinopoisk_id:element.kinopoisk
+	// 			};
+	// 			status.append('persons', persons(json));
+	// 			status.append('movie', data.movie);
+	// 			if(Lampa.Storage.get('pro_pub', false)) status.append('videos', videos(element));
+	// 		}, onerror);
+	// 	}
+	// 	function menu$1(params, oncomplite) {
+	// 		var u = url$1('v1/types', params);
+	// 		var typeName = '';
+	// 		Pub.network["native"](u, function (json) {
+	// 			Lampa.Select.show({
+	// 				title: Lampa.Lang.translate('title_category'),
+	// 				items: json.items,
+	// 				onBack: this.onBack,
+	// 				onSelect: function onSelect(a) {
+	// 					type = a.id;
+	// 					typeName = a.title;
+	// 					get$6('v1/genres?type=' + a.id, params, function (jsons) {
+	// 						Lampa.Select.show({
+	// 							title: Lampa.Lang.translate('full_genre'),
+	// 							items: jsons.items,
+	// 							onBack: function onBack() {
+	// 								menu$1(params, oncomplite);
+	// 							},
+	// 							onSelect: function onSelect(a) {
+	// 								Lampa.Activity.push({
+	// 									url: type,
+	// 									title: Lampa.Lang.translate('title_catalog') + ' - ' + typeName + ' - ' + a.title + ' - KinoPUB',
+	// 									component: 'category',
+	// 									typeName: typeName,
+	// 									janr: a.title,
+	// 									genres: a.id,
+	// 									id: a.id,
+	// 									source: 'pub',
+	// 									card_type: true,
+	// 									page: 1
+	// 								});
+	// 							}
+	// 						});
+	// 					}, onerror);
+	// 				}
+	// 			});
+	// 		});
+	// 	}
+	// 	function seasons$2(tv, from, oncomplite) {
+	// 		Lampa.Api.sources.tmdb.seasons(tv, from, oncomplite);
+	// 	}
+	// 	function person$2(params, oncomplite, onerror) {
+	// 		var u = url$1('v1/items', params);
+	// 		Pub.network["native"](u, function (json, all) {
+	// 			var data = {};
+	// 			if (json.items) {
+	// 				data.person = {
+	// 					name: params.id,
+	// 					biography: '',
+	// 					img: '',
+	// 					place_of_birth: '',
+	// 					birthday: '----'
+	// 				};
+	// 				var similars = [];
+	// 				for (var i in json.items) {
+	// 					var item = json.items[i];
+	// 					similars.push(tocard(item));
+	// 				}
+	// 				data.credits = {
+	// 					movie: similars,
+	// 					knownFor: [{
+	// 					  name: '', 
+	// 					  credits: similars
+	// 					}]
+	// 				};
+	// 			}
+	// 			oncomplite(data);
+	// 		}, onerror);
+	// 	}
+	// 	function clear$3() {
+	// 		Pub.network.clear();
+	// 	}
+	// 	function seasonsCount(element) {
+	// 		var data = {
+	// 			seasons: 0,
+	// 			episodes: 0
+	// 		};
+	// 		if (element.seasons) {
+	// 			data.seasons = element.seasons.length;
+	// 			element.seasons.forEach(function (ep) {
+	// 				data.episodes += ep.episodes.length;
+	// 			})
+	// 		}
+	// 		return data;
+	// 	}
+	// 	function videos(element) {
+	// 		var data = [];
+	// 		if (element.trailer) {
+	// 			data.push({
+	// 				name: element.trailer.title,
+	// 				url: element.trailer.url,
+	// 				player: true
+	// 			});
+	// 		}
+	// 		return data.length ? {
+	// 			results: data
+	// 		} : false;
+	// 	}
+	// 	function persons(json) {
+	// 		var data = [];
+	// 		if (json.item.cast) {
+	// 			json.item.cast.split(',').forEach(function (name) {
+	// 				data.push({
+	// 					name: name,
+	// 					id: name,
+	// 					character: Lampa.Lang.translate('title_actor'),
+	// 				});
+	// 			});
+	// 		}
+	// 		return data.length ? {
+	// 			cast: data
+	// 		} : false;
+	// 	}
+	// 	function genres$1(element, json) {
+	// 		var data = [];
+	// 		element.genres.forEach(function (id) {
+	// 			if (id) {
+	// 				data.push({
+	// 					id: id.id,
+	// 					name: id.title
+	// 				});
+	// 			}
+	// 		});
+	// 		return data;
+	// 	}
+	// 	function countries(element, json) {
+	// 		var data = [];
+	// 		if (element && json.countries) {
+	// 			data.push({
+	// 				name: element[0].title
+	// 			});
+	// 		}
+	// 		return data;
+	// 	}
+	// 	function search$3() {
+	// 		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	// 		var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+	// 		var status = new Lampa.Status(2);
+	// 		status.onComplite = function (data) {
+	// 			var items = [];
+	// 			if (data.movie && data.movie.results.length) items.push(data.movie);
+	// 			if (data.tv && data.tv.results.length) items.push(data.tv);
+	// 			oncomplite(items);
+	// 		};
+	// 		var mov = params;
+	// 		mov.type = '';
+	// 		mov.field = 'title';
+	// 		mov.perpage = 20;
+	// 		get$6('v1/items/search', mov, function (json) {
+	// 			var items = [];
+	// 			var itemss = [];
+	// 			if (json.items) {
+	// 				json.items.forEach(function (element) {
+	// 					if(element.type == 'movie') items.push(tocard(element));
+	// 					else itemss.push(tocard(element));
+	// 				});
+	// 				var movie = {
+	// 					results: items,
+	// 					page: json.pagination.current,
+	// 					total_pages: json.pagination.total,
+	// 					total_results: json.pagination.total_items,
+	// 					title: Lampa.Lang.translate('menu_movies') +' ('+items.length+')',
+	// 					type: 'movie'
+	// 				};
+	// 				status.append('movie', movie);
+	// 				var tv = {
+	// 					results: itemss,
+	// 					page: json.pagination.current,
+	// 					total_pages: json.pagination.total,
+	// 					total_results: json.pagination.total_items,
+	// 					title: Lampa.Lang.translate('menu_tv') +' ('+itemss.length+')',
+	// 					type: 'tv'
+	// 				};
+	// 				status.append('tv', tv);
+	// 			}
+	// 		}, status.error.bind(status));
+	// 	}
+	// 	function discovery() {
+	// 		return {
+	// 			title: 'PUB',
+	// 			search: search$3,
+	// 			params: {
+	// 				align_left: true,
+	// 				object: {
+	// 					source: 'pub'
+	// 				}
+	// 			},
+	// 			onMore: function onMore(params) {
+	// 				Lampa.Activity.push({
+	// 					url: 'v1/items/search?field=title&type=' + params.data.type,
+	// 					title: Lampa.Lang.translate('search') + ' - ' + params.query,
+	// 					component: 'category_full',
+	// 					page: 2,
+	// 					query: encodeURIComponent(params.query),
+	// 					source: 'pub'
+	// 				});
+	// 			},
+	// 			onCancel: Pub.network.clear.bind(Pub.network)
+	// 		};
+	// 	}
+	// 	var PUB = {
+	// 		main: main$2,
+	// 		menu: menu$1,
+	// 		full: full$1,
+	// 		search: search$3,
+	// 		person: person$2,
+	// 		list: list$2,
+	// 		seasons: seasons$2,
+	// 		category: category$1,
+	// 		clear: clear$3,
+	// 		discovery: discovery
+	// 	};
+	// 	Lampa.Api.sources.pub = PUB;
     
-    function url$2(u) {
-			var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-			u = (u == 'undefined' ? '' : u)
-			if (params.genres) u = 'catalog' +add$5(u, 'orderby=date&orderdir=desc&filter=s996-' + params.genres.replace('f','g'));
-			if (params.page) u = add$5(u, 'page=' + params.page);
-			if (params.query) u = add$5(u, 'story=' + params.query);
-			if (params.type) u = add$5(u, 'type=' + params.type);
-			if (params.field) u = add$5(u, 'field=' + params.field);
-			if (params.perpage) u = add$5(u, 'perpage=' + params.perpage);
-			u = add$5(u, Filmix.user_dev + Lampa.Storage.get('filmix_token', 'aaaabbbbccccddddeeeeffffaaaabbbb'));
-			if (params.filter) {
-				for (var i in params.filter) {
-					u = add$5(u, i + '=' + params.filter[i]);
-				}
-			}
-			return Filmix.api_url + u;
-		}
-		function add$5(u, params) {
-			return u + (/\?/.test(u) ? '&' : '?') + params;
-		}
-		function get$7(method, call) {
-			var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-			var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
-			var onerror = arguments.length > 3 ? arguments[3] : undefined;
-			var u = url$2(method, params);
-			Filmix.network["native"](u, function (json) {
-				json.url = method;
-				oncomplite(json);
-			}, onerror);
-		}
-		function tocardf(element, type) {
-			return {
-				url: '',
-				id: element.id,
-				type: type || (((element.serial_stats && element.serial_stats.post_id) || (element.last_episode && element.last_episode.post_id)) ? 'tv' : 'movie'),
-				source: 'filmix',
-				quality: element.quality && element.quality.split(' ').shift() || '',
-				title: element.title,
-				original_title: element.original_title || element.title,
-				release_date: (element.year || element.date && element.date.split(' ')[2] || '0000'),
-				first_air_date: (type == 'tv' || ((element.serial_stats && element.serial_stats.post_id) || (element.last_episode && element.last_episode.post_id))) ? element.year : '',
-				img: element.poster,
-				cover: element.poster,
-				background_image: element.poster,
-        vote_average: parseFloat(element.kp_rating || '0.0').toFixed(1),
-        imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
-        kp_rating: parseFloat(element.kp_rating || '0.0').toFixed(1),
-				year: element.year
-			};
-		}
-		function list$3(params, oncomplite, onerror) {
-			var page = 2;
-			var url = url$2(params.url, params);
-			Filmix.network["native"](url, function (json) {
-				var items = [];
-				if (json) {
-					json.forEach(function (element) {
-						items.push(tocardf(element));
-					});
-				}
-				oncomplite({
-					results: items,
-					page: page,
-					total_pages: 50
-				});
-				page++
-			}, onerror);
-		}
-		function main$1(params, oncomplite, onerror) {
-		  var source = [{
-		    title: 'title_now_watch',
-		    url: 'top_views'
-		  }, {
-		    title: 'title_new', 
-		    url: 'catalog?orderby=date&orderdir=desc'
-		  }, {
-		    title: 'title_new_this_year', 
-		    url: 'catalog?orderby=year&orderdir=desc'
-		  }, {
-		    title: 'pub_title_newfilm', 
-		    url: 'catalog?orderby=date&orderdir=desc&filter=s0'
-		  }, {
-		    title: '4K', 
-		    url: 'catalog?orderby=date&orderdir=desc&filter=s0-q4'
-		  }, {
-		    title: 'pub_title_popularfilm', 
-		    url: 'popular'
-		  }, {
-		    title: 'pub_title_popularserial', 
-		    url: 'popular?section=7'
-		  }, {
-		    title: 'title_in_top', 
-		    url: 'catalog?orderby=rating&orderdir=desc'
-		  }];
-			var status = new Lampa.Status(Lampa.Arrays.getKeys(source).length);
-			status.onComplite = function () {
-				var fulldata = [];
-				var data = status.data;
-				source.forEach(function (q) {
-          if (status.data[q.title] && status.data[q.title].results.length) {
-            fulldata.push(status.data[q.title]);
-          }
-        });
-				if (fulldata.length) oncomplite(fulldata);
-				else onerror();
-			};
-			var append = function append(title, name, json) {
-				json.title = title;
-				var data = [];
-				json.forEach(function (element) {
-					data.push(tocardf(element));
-				});
-      	json.results = data;
-				status.append(name, json);
-			};
-      source.forEach(function (q) {
-			  get$7(q.url, params, function (json) {
-          append(Lampa.Lang.translate(q.title), q.title, json);
-        }, status.error.bind(status));
-      });
-		}
-		function category$2(params, oncomplite, onerror) {
-			var books = Lampa.Favorite.continues(params.url);
-			var type = params.url == 'tv' ? 7 : 0;
-			var source = [{
-		    title: 'title_new_this_year',
-		    url: 'catalog?orderby=year&orderdir=desc&filter=s'+type
-		  }, {
-		    title: 'title_new', 
-		    url: 'catalog?orderby=date&orderdir=desc&filter=s'+type
-		  }, {
-		    title: 'title_popular', 
-		    url: 'popular?section='+type
-		  }, {
-		    title: 'title_in_top', 
-		    url: 'catalog?orderby=rating&orderdir=desc&filter=s'+type
-		  }];
-			var status = new Lampa.Status(Lampa.Arrays.getKeys(source).length);
-			status.onComplite = function () {
-				var fulldata = [];
-				var data = status.data;
-				if (books.length) fulldata.push({
-					results: books,
-					title: params.url == 'tv' ? Lampa.Lang.translate('title_continue') : Lampa.Lang.translate('title_watched')
-				});
-				source.forEach(function (q) {
-          if (data[q.title] && data[q.title].results.length) {
-            fulldata.push(data[q.title]);
-          }
-        });
-				if (fulldata.length) oncomplite(fulldata);
-				else onerror();
-			};
-			var append = function append(title, name, json) {
-				json.title = title;
-				var data = [];
-				json.forEach(function (element) {
-					data.push(tocardf(element, params.url));
-				});
-				json.results = data;
-				status.append(name, json);
-			};
-      source.forEach(function (q) {
-			  get$7(q.url, params, function (json) {
-          append(Lampa.Lang.translate(q.title), q.title, json);
-        }, status.error.bind(status));
-      });
-		}
-		function full$2(params, oncomplite, onerror) {
-			var status = new Lampa.Status(5);
-			status.onComplite = oncomplite;
-			var url = 'post/' + params.id;
-			get$7(url, params, function (json) {
-				json.source = 'filmix';
-				var data = {};
-				var element = json;
+    // function url$2(u) {
+	// 		var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	// 		u = (u == 'undefined' ? '' : u)
+	// 		if (params.genres) u = 'catalog' +add$5(u, 'orderby=date&orderdir=desc&filter=s996-' + params.genres.replace('f','g'));
+	// 		if (params.page) u = add$5(u, 'page=' + params.page);
+	// 		if (params.query) u = add$5(u, 'story=' + params.query);
+	// 		if (params.type) u = add$5(u, 'type=' + params.type);
+	// 		if (params.field) u = add$5(u, 'field=' + params.field);
+	// 		if (params.perpage) u = add$5(u, 'perpage=' + params.perpage);
+	// 		u = add$5(u, Filmix.user_dev + Lampa.Storage.get('filmix_token', 'aaaabbbbccccddddeeeeffffaaaabbbb'));
+	// 		if (params.filter) {
+	// 			for (var i in params.filter) {
+	// 				u = add$5(u, i + '=' + params.filter[i]);
+	// 			}
+	// 		}
+	// 		return Filmix.api_url + u;
+	// 	}
+	// 	function add$5(u, params) {
+	// 		return u + (/\?/.test(u) ? '&' : '?') + params;
+	// 	}
+	// 	function get$7(method, call) {
+	// 		var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	// 		var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+	// 		var onerror = arguments.length > 3 ? arguments[3] : undefined;
+	// 		var u = url$2(method, params);
+	// 		Filmix.network["native"](u, function (json) {
+	// 			json.url = method;
+	// 			oncomplite(json);
+	// 		}, onerror);
+	// 	}
+	// 	function tocardf(element, type) {
+	// 		return {
+	// 			url: '',
+	// 			id: element.id,
+	// 			type: type || (((element.serial_stats && element.serial_stats.post_id) || (element.last_episode && element.last_episode.post_id)) ? 'tv' : 'movie'),
+	// 			source: 'filmix',
+	// 			quality: element.quality && element.quality.split(' ').shift() || '',
+	// 			title: element.title,
+	// 			original_title: element.original_title || element.title,
+	// 			release_date: (element.year || element.date && element.date.split(' ')[2] || '0000'),
+	// 			first_air_date: (type == 'tv' || ((element.serial_stats && element.serial_stats.post_id) || (element.last_episode && element.last_episode.post_id))) ? element.year : '',
+	// 			img: element.poster,
+	// 			cover: element.poster,
+	// 			background_image: element.poster,
+    //     vote_average: parseFloat(element.kp_rating || '0.0').toFixed(1),
+    //     imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+    //     kp_rating: parseFloat(element.kp_rating || '0.0').toFixed(1),
+	// 			year: element.year
+	// 		};
+	// 	}
+	// 	function list$3(params, oncomplite, onerror) {
+	// 		var page = 2;
+	// 		var url = url$2(params.url, params);
+	// 		Filmix.network["native"](url, function (json) {
+	// 			var items = [];
+	// 			if (json) {
+	// 				json.forEach(function (element) {
+	// 					items.push(tocardf(element));
+	// 				});
+	// 			}
+	// 			oncomplite({
+	// 				results: items,
+	// 				page: page,
+	// 				total_pages: 50
+	// 			});
+	// 			page++
+	// 		}, onerror);
+	// 	}
+	// 	function main$1(params, oncomplite, onerror) {
+	// 	  var source = [{
+	// 	    title: 'title_now_watch',
+	// 	    url: 'top_views'
+	// 	  }, {
+	// 	    title: 'title_new', 
+	// 	    url: 'catalog?orderby=date&orderdir=desc'
+	// 	  }, {
+	// 	    title: 'title_new_this_year', 
+	// 	    url: 'catalog?orderby=year&orderdir=desc'
+	// 	  }, {
+	// 	    title: 'pub_title_newfilm', 
+	// 	    url: 'catalog?orderby=date&orderdir=desc&filter=s0'
+	// 	  }, {
+	// 	    title: '4K', 
+	// 	    url: 'catalog?orderby=date&orderdir=desc&filter=s0-q4'
+	// 	  }, {
+	// 	    title: 'pub_title_popularfilm', 
+	// 	    url: 'popular'
+	// 	  }, {
+	// 	    title: 'pub_title_popularserial', 
+	// 	    url: 'popular?section=7'
+	// 	  }, {
+	// 	    title: 'title_in_top', 
+	// 	    url: 'catalog?orderby=rating&orderdir=desc'
+	// 	  }];
+	// 		var status = new Lampa.Status(Lampa.Arrays.getKeys(source).length);
+	// 		status.onComplite = function () {
+	// 			var fulldata = [];
+	// 			var data = status.data;
+	// 			source.forEach(function (q) {
+    //       if (status.data[q.title] && status.data[q.title].results.length) {
+    //         fulldata.push(status.data[q.title]);
+    //       }
+    //     });
+	// 			if (fulldata.length) oncomplite(fulldata);
+	// 			else onerror();
+	// 		};
+	// 		var append = function append(title, name, json) {
+	// 			json.title = title;
+	// 			var data = [];
+	// 			json.forEach(function (element) {
+	// 				data.push(tocardf(element));
+	// 			});
+    //   	json.results = data;
+	// 			status.append(name, json);
+	// 		};
+    //   source.forEach(function (q) {
+	// 		  get$7(q.url, params, function (json) {
+    //       append(Lampa.Lang.translate(q.title), q.title, json);
+    //     }, status.error.bind(status));
+    //   });
+	// 	}
+	// 	function category$2(params, oncomplite, onerror) {
+	// 		var books = Lampa.Favorite.continues(params.url);
+	// 		var type = params.url == 'tv' ? 7 : 0;
+	// 		var source = [{
+	// 	    title: 'title_new_this_year',
+	// 	    url: 'catalog?orderby=year&orderdir=desc&filter=s'+type
+	// 	  }, {
+	// 	    title: 'title_new', 
+	// 	    url: 'catalog?orderby=date&orderdir=desc&filter=s'+type
+	// 	  }, {
+	// 	    title: 'title_popular', 
+	// 	    url: 'popular?section='+type
+	// 	  }, {
+	// 	    title: 'title_in_top', 
+	// 	    url: 'catalog?orderby=rating&orderdir=desc&filter=s'+type
+	// 	  }];
+	// 		var status = new Lampa.Status(Lampa.Arrays.getKeys(source).length);
+	// 		status.onComplite = function () {
+	// 			var fulldata = [];
+	// 			var data = status.data;
+	// 			if (books.length) fulldata.push({
+	// 				results: books,
+	// 				title: params.url == 'tv' ? Lampa.Lang.translate('title_continue') : Lampa.Lang.translate('title_watched')
+	// 			});
+	// 			source.forEach(function (q) {
+    //       if (data[q.title] && data[q.title].results.length) {
+    //         fulldata.push(data[q.title]);
+    //       }
+    //     });
+	// 			if (fulldata.length) oncomplite(fulldata);
+	// 			else onerror();
+	// 		};
+	// 		var append = function append(title, name, json) {
+	// 			json.title = title;
+	// 			var data = [];
+	// 			json.forEach(function (element) {
+	// 				data.push(tocardf(element, params.url));
+	// 			});
+	// 			json.results = data;
+	// 			status.append(name, json);
+	// 		};
+    //   source.forEach(function (q) {
+	// 		  get$7(q.url, params, function (json) {
+    //       append(Lampa.Lang.translate(q.title), q.title, json);
+    //     }, status.error.bind(status));
+    //   });
+	// 	}
+	// 	function full$2(params, oncomplite, onerror) {
+	// 		var status = new Lampa.Status(5);
+	// 		status.onComplite = oncomplite;
+	// 		var url = 'post/' + params.id;
+	// 		get$7(url, params, function (json) {
+	// 			json.source = 'filmix';
+	// 			var data = {};
+	// 			var element = json;
 			
-				var similars = [];
-				if (json.relates) {
-					for (var i in json.relates) {
-						var item = json.relates[i];
-						similars.push(tocardf(item));
-					}
-					status.append('simular', {
-						results: similars
-					});
-				}
+	// 			var similars = [];
+	// 			if (json.relates) {
+	// 				for (var i in json.relates) {
+	// 					var item = json.relates[i];
+	// 					similars.push(tocardf(item));
+	// 				}
+	// 				status.append('simular', {
+	// 					results: similars
+	// 				});
+	// 			}
 			
-				data.movie = {
-					id: element.id,
-					url: url,
-					type: Lampa.Arrays.getValues(element.player_links.playlist).length ? 'tv' : 'movie',
-					source: 'filmix',
-					title: element.title,
-					original_title: element.original_title,
-					name: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.title : '',
-					original_name: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.original_title : '',
-					overview: element.short_story.replace(/\[n|r|t]/g, ''),
-					img: element.poster,
-					runtime: (element.duration || 0),
-					genres: genres$2(element),
-					vote_average: parseFloat(element.imdb_rating || element.kp_rating || '0'),
-					production_companies: [],
-					production_countries: countries2(element.countries),
-					budget: element.budget || 0,
-					release_date: element.year || element.date.split(' ')[2] || '0000',
-					seasons: Lampa.Arrays.getValues(element.player_links.playlist).filter(function (el){
-					  el.episode_count = 1;
-					  return el
-					}),
-					quality: element.rip && element.rip.split(' ').shift() || '',
-					number_of_seasons: Lampa.Arrays.getValues(element.player_links.playlist).length || '',
-					number_of_episodes: element.last_episode && element.last_episode.episode || '',
-					first_air_date: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.year || element.date_atom || '0000' : '', 
-					background_image: element.poster,
-          imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
-          kp_rating: parseFloat(element.kp_rating || '0.0').toFixed(1),
-     		};
-				get$7('comments/' + element.id, params, function (json) {
-					var comments = [];
-					if (json) {
-						json.forEach(function(com) {
-							com.text = com.text.replace(/\[n|r|t]/g, '');
-							com.like_count = '';
-							comments.push(com);
-						});
-						status.append('comments', comments);
-						$('.full-review__footer', Lampa.Activity.active().activity.render()).hide();
-					}
-				}, onerror);
-     		status.append('persons', persons2(json));
-				status.append('movie', data.movie);
-				status.append('videos', videos2(element.player_links));			
-			}, onerror);
-		}
-		function menu$2(params, oncomplite) {
-  		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-      if (menu_list.length) oncomplite(menu_list);else {
-        var us = url$2('filter_list', params);
-        var u = url$2('category_list', params);
-        Filmix.network["native"](u, function (j) {
-          Lampa.Arrays.getKeys(j).forEach(function (g) {
-            menu_list.push({
-              title: j[g],
-              id: g
-            });
-          });
-          console.log (menu_list)
-          oncomplite(menu_list);
-        });
-      }
-		}
-		function seasons$1(tv, from, oncomplite) {
-			Lampa.Api.sources.tmdb.seasons(tv, from, oncomplite);
-		}
-		function formatDate(dateString) {
-      var months = [
-        { name: 'января', number: '01' },
-        { name: 'февраля', number: '02' },
-        { name: 'марта', number: '03' },
-        { name: 'апреля', number: '04' },
-        { name: 'мая', number: '05' },
-        { name: 'июня', number: '06' },
-        { name: 'июля', number: '07' },
-        { name: 'августа', number: '08' },
-        { name: 'сентября', number: '09' },
-        { name: 'октября', number: '10' },
-        { name: 'ноября', number: '11' },
-        { name: 'декабря', number: '12' }
-      ];
+	// 			data.movie = {
+	// 				id: element.id,
+	// 				url: url,
+	// 				type: Lampa.Arrays.getValues(element.player_links.playlist).length ? 'tv' : 'movie',
+	// 				source: 'filmix',
+	// 				title: element.title,
+	// 				original_title: element.original_title,
+	// 				name: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.title : '',
+	// 				original_name: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.original_title : '',
+	// 				overview: element.short_story.replace(/\[n|r|t]/g, ''),
+	// 				img: element.poster,
+	// 				runtime: (element.duration || 0),
+	// 				genres: genres$2(element),
+	// 				vote_average: parseFloat(element.imdb_rating || element.kp_rating || '0'),
+	// 				production_companies: [],
+	// 				production_countries: countries2(element.countries),
+	// 				budget: element.budget || 0,
+	// 				release_date: element.year || element.date.split(' ')[2] || '0000',
+	// 				seasons: Lampa.Arrays.getValues(element.player_links.playlist).filter(function (el){
+	// 				  el.episode_count = 1;
+	// 				  return el
+	// 				}),
+	// 				quality: element.rip && element.rip.split(' ').shift() || '',
+	// 				number_of_seasons: Lampa.Arrays.getValues(element.player_links.playlist).length || '',
+	// 				number_of_episodes: element.last_episode && element.last_episode.episode || '',
+	// 				first_air_date: Lampa.Arrays.getValues(element.player_links.playlist).length ? element.year || element.date_atom || '0000' : '', 
+	// 				background_image: element.poster,
+    //       imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+    //       kp_rating: parseFloat(element.kp_rating || '0.0').toFixed(1),
+    //  		};
+	// 			get$7('comments/' + element.id, params, function (json) {
+	// 				var comments = [];
+	// 				if (json) {
+	// 					json.forEach(function(com) {
+	// 						com.text = com.text.replace(/\[n|r|t]/g, '');
+	// 						com.like_count = '';
+	// 						comments.push(com);
+	// 					});
+	// 					status.append('comments', comments);
+	// 					$('.full-review__footer', Lampa.Activity.active().activity.render()).hide();
+	// 				}
+	// 			}, onerror);
+    //  		status.append('persons', persons2(json));
+	// 			status.append('movie', data.movie);
+	// 			status.append('videos', videos2(element.player_links));			
+	// 		}, onerror);
+	// 	}
+	// 	function menu$2(params, oncomplite) {
+  	// 	var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    //   var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+    //   if (menu_list.length) oncomplite(menu_list);else {
+    //     var us = url$2('filter_list', params);
+    //     var u = url$2('category_list', params);
+    //     Filmix.network["native"](u, function (j) {
+    //       Lampa.Arrays.getKeys(j).forEach(function (g) {
+    //         menu_list.push({
+    //           title: j[g],
+    //           id: g
+    //         });
+    //       });
+    //       console.log (menu_list)
+    //       oncomplite(menu_list);
+    //     });
+    //   }
+	// 	}
+	// 	function seasons$1(tv, from, oncomplite) {
+	// 		Lampa.Api.sources.tmdb.seasons(tv, from, oncomplite);
+	// 	}
+	// 	function formatDate(dateString) {
+    //   var months = [
+    //     { name: 'января', number: '01' },
+    //     { name: 'февраля', number: '02' },
+    //     { name: 'марта', number: '03' },
+    //     { name: 'апреля', number: '04' },
+    //     { name: 'мая', number: '05' },
+    //     { name: 'июня', number: '06' },
+    //     { name: 'июля', number: '07' },
+    //     { name: 'августа', number: '08' },
+    //     { name: 'сентября', number: '09' },
+    //     { name: 'октября', number: '10' },
+    //     { name: 'ноября', number: '11' },
+    //     { name: 'декабря', number: '12' }
+    //   ];
     
-      var parts = dateString.split(' ');
-      var day = parts[0];
-      var monthName = parts[1];
-      var year = parts[2];
+    //   var parts = dateString.split(' ');
+    //   var day = parts[0];
+    //   var monthName = parts[1];
+    //   var year = parts[2];
       
-      var monthNumber;
-      for (var i = 0; i < months.length; i++) {
-        if (months[i].name === monthName) {
-          monthNumber = months[i].number;
-          break;
-        }
-      }
+    //   var monthNumber;
+    //   for (var i = 0; i < months.length; i++) {
+    //     if (months[i].name === monthName) {
+    //       monthNumber = months[i].number;
+    //       break;
+    //     }
+    //   }
       
-      var formattedDate = year + '-' + monthNumber + '-' + day;
-      return formattedDate;
-    }
-		function person$3(params, oncomplite, onerror) {
-			var u = url$2('person/'+params.id, params);
-			Filmix.network["native"](u, function (json, all) {
-				var data = {};
-				if (json) {
-					data.person = {
-						id: params.id,
-						name: json.name,
-						biography: json.about,
-						img: json.poster,
-						place_of_birth: json.birth_place,
-						birthday: formatDate(json.birth)
-					};
-					var similars = [];
-					for (var i in json.movies) {
-						var item = json.movies[i];
-						similars.push(tocardf(item));
-					}
-					data.credits = {
-						movie: similars,
-						knownFor: [{
-						  name: json.career, 
-						  credits: similars
-						}]
-					};
-				}
-				oncomplite(data);
-			}, onerror);
-		}
-		function clear$4() {
-			Filmix.network.clear();
-		}
-		function videos2(element) {
-			var data = [];
-			if (element.trailer.length) {
-				element.trailer.forEach(function (el){
-  				var qualities = el.link.match(/\[(.*?)\]/);
-  			  qualities = qualities[1].split(',').filter(function (quality){
-            if (quality === '') return false
-            return true
-          }).sort(function (a, b) {
-            return b - a
-          }).map(function (quality) {
-            data.push({
-    					name: el.translation+' '+quality+'p',
-    					url: el.link.replace(/\[(.*?)\]/, quality),
-    					player: true
-    				});
-          });
-				});
-			}
-			return data.length ? {
-				results: data
-			} : false;
-		}
-		function persons2(json) {
-			var data = [];
-			if (json.actors) {
-				json.found_actors.filter(function (act){
-					data.push({
-						name: act.name,
-						id: act.id,
-						character: Lampa.Lang.translate('title_actor'),
-					});
-				});
-			}
-			return data.length ? {
-				cast: data
-			} : false;
-		}
-		function genres$2(element) {
-			var data = [];
-			var u = url$2('category_list');
-      Filmix.network["native"](u, function (j) {
-  			element.categories.forEach(function (name, i) {
-  				if (name) {
-            var _id = Object.entries(j).find(function (g) {
-              return g[1] == name
-            });
-  				 	data.push({
-  						id: _id && _id[0] || '',
-  						name: name
-  					});
-  				}
-  			});
-      });
-			return data;
-		}
-		function countries2(element) {
-			var data = [];
-			if (element) {
-				element.forEach(function (el) {
-  				data.push({
-  					name: el
-  				});
-				});
-			}
-			return data;
-		}
-		function search$4() {
-			var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-			var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
-			var status = new Lampa.Status(2);
-			status.onComplite = function (data) {
-				var items = [];
-				if (data.movie && data.movie.results.length) items.push(data.movie);
-				if (data.tv && data.tv.results.length) items.push(data.tv);
-				oncomplite(items);
-			};
-			get$7('search', params, function (json) {
-				var items = [];
-				var itemss = [];
-				if (json) {
-					json.forEach(function (element) {
-						if(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status) itemss.push(tocardf(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status ? 'tv' : 'movie'));
-						else items.push(tocardf(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status ? 'tv' : 'movie'));
-					});
-					var movie = {
-						results: items,
-						page: 1,
-						total_pages: 1,
-						total_results: json.length,
-						title: Lampa.Lang.translate('menu_movies') +' ('+items.length+')',
-						type: 'movie'
-					};
-					status.append('movie', movie);
-					var tv = {
-						results: itemss,
-						page: 1,
-						total_pages: 1,
-						total_results: json.length,
-						title: Lampa.Lang.translate('menu_tv') +' ('+itemss.length+')',
-						type: 'tv'
-					};
-					status.append('tv', tv);
-				}
-			}, status.error.bind(status));
-		}
-		function discovery$1() {
-			return {
-				title: 'FILMIX',
-				search: search$4,
-				params: {
-					align_left: true,
-					object: {
-						source: 'filmix'
-					}
-				},
-				onMore: function onMore(params) {
-					Lampa.Activity.push({
-						url: 'search',
-						title: Lampa.Lang.translate('search') + ' - ' + params.query,
-						component: 'category_full',
-						query: encodeURIComponent(params.query),
-						source: 'filmix'
-					});
-				},
-				onCancel: Pub.network.clear.bind(Pub.network)
-			};
-		}
-		var FILMIX = {
-			main: main$1,
-			menu: menu$2,
-			full: full$2,
-			search: search$4,
-			person: person$3,
-			list: list$3,
-			seasons: seasons$1,
-			category: category$2,
-			clear: clear$4,
-			discovery: discovery$1
-		};
-		Lampa.Api.sources.filmix = FILMIX;
+    //   var formattedDate = year + '-' + monthNumber + '-' + day;
+    //   return formattedDate;
+    // }
+	// 	function person$3(params, oncomplite, onerror) {
+	// 		var u = url$2('person/'+params.id, params);
+	// 		Filmix.network["native"](u, function (json, all) {
+	// 			var data = {};
+	// 			if (json) {
+	// 				data.person = {
+	// 					id: params.id,
+	// 					name: json.name,
+	// 					biography: json.about,
+	// 					img: json.poster,
+	// 					place_of_birth: json.birth_place,
+	// 					birthday: formatDate(json.birth)
+	// 				};
+	// 				var similars = [];
+	// 				for (var i in json.movies) {
+	// 					var item = json.movies[i];
+	// 					similars.push(tocardf(item));
+	// 				}
+	// 				data.credits = {
+	// 					movie: similars,
+	// 					knownFor: [{
+	// 					  name: json.career, 
+	// 					  credits: similars
+	// 					}]
+	// 				};
+	// 			}
+	// 			oncomplite(data);
+	// 		}, onerror);
+	// 	}
+	// 	function clear$4() {
+	// 		Filmix.network.clear();
+	// 	}
+	// 	function videos2(element) {
+	// 		var data = [];
+	// 		if (element.trailer.length) {
+	// 			element.trailer.forEach(function (el){
+  	// 			var qualities = el.link.match(/\[(.*?)\]/);
+  	// 		  qualities = qualities[1].split(',').filter(function (quality){
+    //         if (quality === '') return false
+    //         return true
+    //       }).sort(function (a, b) {
+    //         return b - a
+    //       }).map(function (quality) {
+    //         data.push({
+    // 					name: el.translation+' '+quality+'p',
+    // 					url: el.link.replace(/\[(.*?)\]/, quality),
+    // 					player: true
+    // 				});
+    //       });
+	// 			});
+	// 		}
+	// 		return data.length ? {
+	// 			results: data
+	// 		} : false;
+	// 	}
+	// 	function persons2(json) {
+	// 		var data = [];
+	// 		if (json.actors) {
+	// 			json.found_actors.filter(function (act){
+	// 				data.push({
+	// 					name: act.name,
+	// 					id: act.id,
+	// 					character: Lampa.Lang.translate('title_actor'),
+	// 				});
+	// 			});
+	// 		}
+	// 		return data.length ? {
+	// 			cast: data
+	// 		} : false;
+	// 	}
+	// 	function genres$2(element) {
+	// 		var data = [];
+	// 		var u = url$2('category_list');
+    //   Filmix.network["native"](u, function (j) {
+  	// 		element.categories.forEach(function (name, i) {
+  	// 			if (name) {
+    //         var _id = Object.entries(j).find(function (g) {
+    //           return g[1] == name
+    //         });
+  	// 			 	data.push({
+  	// 					id: _id && _id[0] || '',
+  	// 					name: name
+  	// 				});
+  	// 			}
+  	// 		});
+    //   });
+	// 		return data;
+	// 	}
+	// 	function countries2(element) {
+	// 		var data = [];
+	// 		if (element) {
+	// 			element.forEach(function (el) {
+  	// 			data.push({
+  	// 				name: el
+  	// 			});
+	// 			});
+	// 		}
+	// 		return data;
+	// 	}
+	// 	function search$4() {
+	// 		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	// 		var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+	// 		var status = new Lampa.Status(2);
+	// 		status.onComplite = function (data) {
+	// 			var items = [];
+	// 			if (data.movie && data.movie.results.length) items.push(data.movie);
+	// 			if (data.tv && data.tv.results.length) items.push(data.tv);
+	// 			oncomplite(items);
+	// 		};
+	// 		get$7('search', params, function (json) {
+	// 			var items = [];
+	// 			var itemss = [];
+	// 			if (json) {
+	// 				json.forEach(function (element) {
+	// 					if(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status) itemss.push(tocardf(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status ? 'tv' : 'movie'));
+	// 					else items.push(tocardf(element, element.last_episode && element.last_episode.season || element.serial_stats && element.serial_stats.status ? 'tv' : 'movie'));
+	// 				});
+	// 				var movie = {
+	// 					results: items,
+	// 					page: 1,
+	// 					total_pages: 1,
+	// 					total_results: json.length,
+	// 					title: Lampa.Lang.translate('menu_movies') +' ('+items.length+')',
+	// 					type: 'movie'
+	// 				};
+	// 				status.append('movie', movie);
+	// 				var tv = {
+	// 					results: itemss,
+	// 					page: 1,
+	// 					total_pages: 1,
+	// 					total_results: json.length,
+	// 					title: Lampa.Lang.translate('menu_tv') +' ('+itemss.length+')',
+	// 					type: 'tv'
+	// 				};
+	// 				status.append('tv', tv);
+	// 			}
+	// 		}, status.error.bind(status));
+	// 	}
+	// 	function discovery$1() {
+	// 		return {
+	// 			title: 'FILMIX',
+	// 			search: search$4,
+	// 			params: {
+	// 				align_left: true,
+	// 				object: {
+	// 					source: 'filmix'
+	// 				}
+	// 			},
+	// 			onMore: function onMore(params) {
+	// 				Lampa.Activity.push({
+	// 					url: 'search',
+	// 					title: Lampa.Lang.translate('search') + ' - ' + params.query,
+	// 					component: 'category_full',
+	// 					query: encodeURIComponent(params.query),
+	// 					source: 'filmix'
+	// 				});
+	// 			},
+	// 			onCancel: Pub.network.clear.bind(Pub.network)
+	// 		};
+	// 	}
+	// 	var FILMIX = {
+	// 		main: main$1,
+	// 		menu: menu$2,
+	// 		full: full$2,
+	// 		search: search$4,
+	// 		person: person$3,
+	// 		list: list$3,
+	// 		seasons: seasons$1,
+	// 		category: category$2,
+	// 		clear: clear$4,
+	// 		discovery: discovery$1
+	// 	};
+	// 	Lampa.Api.sources.filmix = FILMIX;
+	
+	    // function url$1_(u) {
+		// 	var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+		// 	if (params.genres) u = add$4_(u, 'genre=' + params.genres);
+		// 	if (params.page) u = add$4_(u, 'page=' + params.page);
+		// 	if (params.query) u = add$4_(u, 'q=' + params.query);
+		// 	if (params.type) u = add$4_(u, 'type=' + params.type);
+		// 	if (params.field) u = add$4_(u, 'field=' + params.field);
+		// 	if (params.id) u = add$4_(u, 'actor=' + params.id);
+		// 	if (params.perpage) u = add$4_(u, 'perpage=' + params.perpage);
+		// 	u = add$4_(u, 'access_token=' + Pub.token);
+		// 	if (params.filter) {
+		// 		for (var i in params.filter) {
+		// 			u = add$4__(u, i + '=' + params.filter[i]);
+		// 		}
+		// 	}
+		// 	return Pub.baseurl + u;
+		// }
+		// function add$4_(u, params) {
+		// 	return u + (/\?/.test(u) ? '&' : '?') + params;
+		// }
+		// function get$6_(method, call) {
+		// 	var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+		// 	var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+		// 	var onerror = arguments.length > 3 ? arguments[3] : undefined;
+		// 	var u = url$1_(method, params);
+		// 	Pub.network.silent(u, function (json) {
+		// 		json.url = method;
+		// 		oncomplite(json);
+		// 	}, onerror);
+		// }
+		// function tocard_(element) {
+		// 	return {
+		// 		url: '',
+		// 		id: element.id,
+		// 		type: element.type,
+		// 		title: element.title.split('/')[0],
+		// 		promo_title: element.title.split('/')[0],
+		// 		original_title: element.title.split('/')[1] || element.title,
+		// 		release_date: (element.year ? element.year + '' : element.years ? element.years[0] + '' : '0000'),
+		// 		first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year : '',
+		// 		vote_averagey: parseFloat((element.imdb_rating || 0) + '').toFixed(1),
+		// 		vote_average: element.imdb_rating || 0,
+		// 		poster: element.posters.big,
+		// 		cover: element.posters.wide,
+		// 		background_image: element.posters.wide,
+        // imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+        // kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
+		// 		year: element.year,
+		// 		years: element.years
+		// 	};
+		// }
+		// function list$2_(params, oncomplite, onerror) {
+		// 	var url = url$1_('v1/items', params, params.type = type);
+		// 	if (!params.genres) url = url$1_(params.url, params);
+		// 	Pub.network["native"](url, function (json) {
+		// 		var items = [];
+		// 		if (json.items) {
+		// 			json.items.forEach(function (element) {
+		// 				items.push(tocard_(element));
+		// 			});
+		// 		}
+		// 		oncomplite({
+		// 			results: items,
+		// 			page:json.pagination.current,
+		// 			total_pages: json.pagination.total
+		// 		});
+		// 	}, onerror);
+		// }
+		// function main$2_(params, oncomplite, onerror) {
+		// 	var status = new Lampa.Status(9);
+		// 	status.onComplite = function () {
+		// 		var fulldata = [];
+		// 		var data = status.data;
+		// 		for (var i = 1; i <= 9; i++) {
+		// 			var ipx = 's' + i;
+		// 			if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+		// 		}
+		// 		if (fulldata.length) oncomplite(fulldata);
+		// 		else onerror();
+		// 	};
+		// 	var append = function append(title, name, json) {
+		// 		json.title = title;
+		// 		var data = [];
+		// 		json.items.forEach(function (element) {
+		// 			data.push(tocard_(element));
+		// 		});
+		// 		if(name == 's1' || name == 's6') {
+		// 		  json.wide = true;
+		// 		  json.small = true;
+		// 		}
+		// 		if(name == 's2') {
+		// 		  data.forEach(function (el){
+		// 		    el.poster = el.cover;
+		// 		  });
+		// 		  json.collection = true;
+		// 		  json.line_type  = 'collection';
+		// 		}
+		// 		json.results = data;
+		// 		status.append(name, json);
+		// 	};
+		// 	get$6_('v1/items/popular?type=movie&sort=views', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_popularfilm'), 's1', json);
+		// 		Lampa.VideoQuality.add(json.results);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=movie&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newfilm'), 's2', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items/popular?type=serial&sort=views', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_popularserial'), 's3', json);
+		// 		Lampa.VideoQuality.add(json.results);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=serial&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newserial'), 's4', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=concert&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newconcert'), 's5', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=&quality=4', params, function (json) {
+		// 		append('4K', 's6', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=documovie&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newdocfilm'), 's7', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=docuserial&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newdocserial'), 's8', json);
+		// 	}, status.error.bind(status));
+		// 	get$6_('v1/items?type=tvshow&sort=updated-', params, function (json) {
+		// 		append(Lampa.Lang.translate('pub_title_newtvshow'), 's9', json);
+		// 	}, status.error.bind(status));
+		// }
+		// function category$1_(params, oncomplite, onerror) {
+		// 	var books = Lampa.Favorite.continues(params.url);
+		// 	var status = new Lampa.Status(5);
+		// 	status.onComplite = function () {
+		// 		var fulldata = [];
+		// 		if (books.length) fulldata.push({
+		// 			results: books,
+		// 			title: params.url == 'tv' ? Lampa.Lang.translate('title_continue') : Lampa.Lang.translate('title_watched')
+		// 		});
+		// 		var data = status.data;
+		// 		for (var i = 1; i <= 5; i++) {
+		// 			var ipx = 's' + i;
+		// 			if (data[ipx] && data[ipx].results.length) fulldata.push(data[ipx]);
+		// 		}
+		// 		if (fulldata.length) oncomplite(fulldata);
+		// 		else onerror();
+		// 	};
+		// 	var append = function append(title, name, json) {
+		// 		json.title = title;
+		// 		var data = [];
+		// 		json.items.forEach(function (element) {
+		// 			data.push(tocard_(element));
+		// 		});
+		// 		json.results = data;
+		// 		status.append(name, json);
+		// 	};
+		// 	var type = params.url == 'tv' ? 'serial' : params.url;
+		// 	var Name = params.genres ? params.typeName.toLowerCase() : params.url == 'tv' ? Lampa.Lang.translate('menu_tv').toLowerCase() : Lampa.Lang.translate('menu_movies').toLowerCase();
+		// 	if (params.genres) {
+		// 		get$6_('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_new') + ' ' + params.janr.toLowerCase(), 's1', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items?type=' + type + 'sort=rating-', params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_rating') + ' ' + Name, 's2', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items?type=' + type + '&sort=updated-', params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items?type=' + type + '&sort=views-', params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items?type=' + type + '&quality=4', params, function (json) {
+		// 			append('4K ' + Name, 's5', json);
+		// 		}, status.error.bind(status));
+		// 	} else {
+		// 		get$6_('v1/items?type=' + type + (params.genres ? '&sort=created-' : ''), params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_new') + ' ' + Name, 's1', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items/popular?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_popular') + ' ' + Name, 's2', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items/fresh?type=' + type + '&sort=views-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_fresh') + ' ' + Name, 's3', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items/hot?type=' + type + '&sort=created-&conditions=' + encodeURIComponent("year=" + Date.now('Y')), params, function (json) {
+		// 			append(Lampa.Lang.translate('pub_title_hot') + ' ' + Name, 's4', json);
+		// 		}, status.error.bind(status));
+		// 		get$6_('v1/items?type=' + type + '&quality=4', params, function (json) {
+		// 			append('4K ' + Name, 's5', json);
+		// 		}, status.error.bind(status));
+		// 	}
+		// }
+		// function full$1_(params, oncomplite, onerror) {
+		// 	var status = new Lampa.Status(Lampa.Storage.get('pro_pub', false) ? 5 : 4);
+		// 	status.onComplite = oncomplite;
+		// 	var url = 'v1/items/' + params.id;
+		// 	get$6_(url, params, function (json) {
+		// 		json.source = 'pub';
+		// 		var data = {};
+		// 		var element = json.item;
+		// 		get$6_('v1/items/similar?id=' + element.id, params, function (json) {
+		// 			var similars = [];
+		// 			if (json.items) {
+		// 				for (var i in json.items) {
+		// 					var item = json.items[i];
+		// 					similars.push(tocard_(item));
+		// 				}
+		// 				status.append('simular', {
+		// 					results: similars
+		// 				});
+		// 			}
+		// 		}, onerror);
+		// 		get$6_('v1/items/comments?id=' + element.id, params, function (json) {
+		// 			var comments = [];
+		// 			if (json.comments) {
+		// 				for (var i in json.comments) {
+		// 					var com = json.comments[i];
+		// 					com.text = com.message.replace(/\[n|r|t]/g, '');
+		// 					com.like_count = com.rating;
+		// 					comments.push(com);
+		// 				}
+		// 				status.append('comments', comments);
+		// 			}
+		// 		}, onerror);
+		// 		data.movie = {
+		// 			id: element.id,
+		// 			url: url,
+		// 			type: element.type,
+		// 			source: 'pub',
+		// 			title: element.title.split('/')[0],
+		// 			original_title: element.title.split('/')[1] ? element.title.split('/')[1] : element.title.split('/')[0],
+		// 			name: element.seasons ? element.title.split('/')[0] : '',
+		// 			original_name: element.seasons ? element.title.split('/')[1] : '',
+		// 			overview: element.plot.replace(/\[n|r|t]/g, ''),
+		// 			img: element.posters.big,
+		// 			runtime: (element.duration.average || 0) / 1000 / 6 * 100,
+		// 			genres: genres$1_(element, json.item),
+		// 			vote_average: parseFloat(element.imdb_rating || element.kinopoisk_rating || '0'),
+		// 			production_companies: [],
+		// 			production_countries: countries(element.countries, json.item),
+		// 			budget: element.budget || 0,
+		// 			seasons: element.seasons && element.seasons.filter(function (el){
+		// 			  el.episode_count = 1;
+		// 			  return el
+		// 			}) || '',
+		// 			release_date: element.year || Lampa.Utils.parseTime(element.created_at).full || '0000',
+		// 			number_of_seasons: seasonsCount_(element).seasons,
+		// 			number_of_episodes: seasonsCount_(element).episodes,
+		// 			first_air_date: element.type == 'serial' || element.type == 'docuserial' || element.type == 'tvshow' ? element.year || Lampa.Utils.parseTime(element.created_at).full || '0000' : '', 
+		// 			background_image: element.posters.wide,
+        //   imdb_rating: parseFloat(element.imdb_rating || '0.0').toFixed(1),
+        //   kp_rating: parseFloat(element.kinopoisk_rating || '0.0').toFixed(1),
+        //   imdb_id:'tt' +element.imdb,
+        //   kinopoisk_id:element.kinopoisk
+		// 		};
+		// 		status.append('persons', persons(json));
+		// 		status.append('movie', data.movie);
+		// 		if(Lampa.Storage.get('pro_pub', false)) status.append('videos', videos(element));
+		// 	}, onerror);
+		// }
+		// function menu$1_(params, oncomplite) {
+		// 	var u = url$1_('v1/types', params);
+		// 	var typeName = '';
+		// 	Pub.network["native"](u, function (json) {
+		// 		Lampa.Select.show({
+		// 			title: Lampa.Lang.translate('title_category'),
+		// 			items: json.items,
+		// 			onBack: this.onBack,
+		// 			onSelect: function onSelect(a) {
+		// 				type = a.id;
+		// 				typeName = a.title;
+		// 				get$6_('v1/genres?type=' + a.id, params, function (jsons) {
+		// 					Lampa.Select.show({
+		// 						title: Lampa.Lang.translate('full_genre'),
+		// 						items: jsons.items,
+		// 						onBack: function onBack() {
+		// 							menu$1_(params, oncomplite);
+		// 						},
+		// 						onSelect: function onSelect(a) {
+		// 							Lampa.Activity.push({
+		// 								url: type,
+		// 								title: Lampa.Lang.translate('title_catalog') + ' - ' + typeName + ' - ' + a.title + ' - KinoPUB',
+		// 								component: 'category',
+		// 								typeName: typeName,
+		// 								janr: a.title,
+		// 								genres: a.id,
+		// 								id: a.id,
+		// 								source: 'pub',
+		// 								card_type: true,
+		// 								page: 1
+		// 							});
+		// 						}
+		// 					});
+		// 				}, onerror);
+		// 			}
+		// 		});
+		// 	});
+		// }
+		// function seasons$2_(tv, from, oncomplite) {
+		// 	Lampa.Api.sources.tmdb.seasons(tv, from, oncomplite);
+		// }
+		// function person$2_(params, oncomplite, onerror) {
+		// 	var u = url$1_('v1/items', params);
+		// 	Pub.network["native"](u, function (json, all) {
+		// 		var data = {};
+		// 		if (json.items) {
+		// 			data.person = {
+		// 				name: params.id,
+		// 				biography: '',
+		// 				img: '',
+		// 				place_of_birth: '',
+		// 				birthday: '----'
+		// 			};
+		// 			var similars = [];
+		// 			for (var i in json.items) {
+		// 				var item = json.items[i];
+		// 				similars.push(tocard_(item));
+		// 			}
+		// 			data.credits = {
+		// 				movie: similars,
+		// 				knownFor: [{
+		// 				  name: '', 
+		// 				  credits: similars
+		// 				}]
+		// 			};
+		// 		}
+		// 		oncomplite(data);
+		// 	}, onerror);
+		// }
+		// function clear$3_() {
+		// 	Douban.network.clear();
+		// }
+		// function seasonsCount_(element) {
+		// 	var data = {
+		// 		seasons: 0,
+		// 		episodes: 0
+		// 	};
+		// 	if (element.seasons) {
+		// 		data.seasons = element.seasons.length;
+		// 		element.seasons.forEach(function (ep) {
+		// 			data.episodes += ep.episodes.length;
+		// 		})
+		// 	}
+		// 	return data;
+		// }
+		// function videos(element) {
+		// 	var data = [];
+		// 	if (element.trailer) {
+		// 		data.push({
+		// 			name: element.trailer.title,
+		// 			url: element.trailer.url,
+		// 			player: true
+		// 		});
+		// 	}
+		// 	return data.length ? {
+		// 		results: data
+		// 	} : false;
+		// }
+		// function persons(json) {
+		// 	var data = [];
+		// 	if (json.item.cast) {
+		// 		json.item.cast.split(',').forEach(function (name) {
+		// 			data.push({
+		// 				name: name,
+		// 				id: name,
+		// 				character: Lampa.Lang.translate('title_actor'),
+		// 			});
+		// 		});
+		// 	}
+		// 	return data.length ? {
+		// 		cast: data
+		// 	} : false;
+		// }
+		// function genres$1_(element, json) {
+		// 	var data = [];
+		// 	element.genres.forEach(function (id) {
+		// 		if (id) {
+		// 			data.push({
+		// 				id: id.id,
+		// 				name: id.title
+		// 			});
+		// 		}
+		// 	});
+		// 	return data;
+		// }
+		// function countries(element, json) {
+		// 	var data = [];
+		// 	if (element && json.countries) {
+		// 		data.push({
+		// 			name: element[0].title
+		// 		});
+		// 	}
+		// 	return data;
+		// }
+		// function search$3_() {
+		// 	var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+		// 	var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+		// 	var status = new Lampa.Status(2);
+		// 	status.onComplite = function (data) {
+		// 		var items = [];
+		// 		if (data.movie && data.movie.results.length) items.push(data.movie);
+		// 		if (data.tv && data.tv.results.length) items.push(data.tv);
+		// 		oncomplite(items);
+		// 	};
+		// 	var mov = params;
+		// 	mov.type = '';
+		// 	mov.field = 'title';
+		// 	mov.perpage = 20;
+		// 	get$6_('v1/items/search', mov, function (json) {
+		// 		var items = [];
+		// 		var itemss = [];
+		// 		if (json.items) {
+		// 			json.items.forEach(function (element) {
+		// 				if(element.type == 'movie') items.push(tocard_(element));
+		// 				else itemss.push(tocard_(element));
+		// 			});
+		// 			var movie = {
+		// 				results: items,
+		// 				page: json.pagination.current,
+		// 				total_pages: json.pagination.total,
+		// 				total_results: json.pagination.total_items,
+		// 				title: Lampa.Lang.translate('menu_movies') +' ('+items.length+')',
+		// 				type: 'movie'
+		// 			};
+		// 			status.append('movie', movie);
+		// 			var tv = {
+		// 				results: itemss,
+		// 				page: json.pagination.current,
+		// 				total_pages: json.pagination.total,
+		// 				total_results: json.pagination.total_items,
+		// 				title: Lampa.Lang.translate('menu_tv') +' ('+itemss.length+')',
+		// 				type: 'tv'
+		// 			};
+		// 			status.append('tv', tv);
+		// 		}
+		// 	}, status.error.bind(status));
+		// }
+		// function discovery() {
+		// 	return {
+		// 		title: 'PUB',
+		// 		search: search$3_,
+		// 		params: {
+		// 			align_left: true,
+		// 			object: {
+		// 				source: 'pub'
+		// 			}
+		// 		},
+		// 		onMore: function onMore(params) {
+		// 			Lampa.Activity.push({
+		// 				url: 'v1/items/search?field=title&type=' + params.data.type,
+		// 				title: Lampa.Lang.translate('search') + ' - ' + params.query,
+		// 				component: 'category_full',
+		// 				page: 2,
+		// 				query: encodeURIComponent(params.query),
+		// 				source: 'pub'
+		// 			});
+		// 		},
+		// 		onCancel: Pub.network.clear.bind(Pub.network)
+		// 	};
+		// }
+		// var DOUBAN = {
+		// 	main: main$2_,
+		// 	menu: menu$1_,
+		// 	full: full$1_,
+		// 	search: search$3_,
+		// 	person: person$2_,
+		// 	list: list$2_,
+		// 	seasons: seasons$2_,
+		// 	category: category$1_,
+		// 	clear: clear$3_,
+		// 	discovery: discovery
+		// };
+		// Lampa.Api.sources.douban = DOUBAN;
     
-    function include(url) {
-      var script = document.createElement('script');
-      script.src = url;
-      document.getElementsByTagName('head')[0].appendChild(script);
-    }
+    // function include(url) {
+    //   var script = document.createElement('script');
+    //   script.src = url;
+    //   document.getElementsByTagName('head')[0].appendChild(script);
+    // }
     
 	}
 	if (!window.plugin_modss) startPlugin();
