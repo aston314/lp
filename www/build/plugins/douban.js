@@ -215,9 +215,9 @@
                 //     card.find('.card__view').append('<div class="card__type"></div>');
                 //     card.find('.card__type').text(element.rate);
                 // };
-                if (element.rate || element.rating.average) {
+                if (element.hasOwnProperty("rate") || element.hasOwnProperty("rating")) {
                     card.find('.card__view').append('<div class="card__vote"></div>');
-                    card.find('.card__vote').text(element.rate || element.rating.average);
+                    card.find('.card__vote').text(element.hasOwnProperty("rate") ? element.rate :'' || element.hasOwnProperty("rating") ? element.rating.average : '');
                 };
                 /*card.find('.card__view').append('<div class="card__quality"></div>');
                 card.find('.card__quality').text(element.score);*/
