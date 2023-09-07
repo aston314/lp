@@ -2133,7 +2133,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						  title: html.caption,
 						  season: object.ext_seasonnumber ? object.ext_seasonnumber : (component.seasonNumber(title) !== '' ? component.seasonNumber(title) : (hasSeason ? 1 : (component.episodeNumber(html.caption) ? 1 : ''))),
 						  episode: object.ext_seasonnumber ? component.extractEpisodeNumber(html.caption) : (component.seasonNumber(title) !== '' ? component.extractEpisodeNumber(html.caption) : (hasSeason ? component.extractEpisodeNumber(html.caption) : (component.episodeNumber(html.caption) ? component.extractEpisodeNumber(html.caption) : ''))),
-						  info: ''
+						  info: '',
+						  src: html.src1
 					  });
 				  });
 			  } else {
@@ -2549,7 +2550,23 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 									element.stream = data.url;
 									// element.qualitys = quality;
 									call(element.stream);
-								} else error();
+								} else {
+									network["native"]('https://ddys.pro/getvddr3/video?id='+element.src+'&type=json', function (data) {
+										if (data.url) {
+											element.stream = data.url;
+											// element.qualitys = quality;
+											call(element.stream);
+										} else error();
+									}, function (a, c) {
+									  Lampa.Noty.show(network.errorDecode(a, c));
+									}, false, {
+									  dataType: 'json',
+									  headers: {
+										'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+										'Referer': "https://ddys.pro/"
+									  }
+									});
+								};
 							}, function (a, c) {
 							  Lampa.Noty.show(network.errorDecode(a, c));
 							}, false, {
