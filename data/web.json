@@ -412,11 +412,11 @@
    {
       "title": "乐猪TV",
       "link": "http://www.lezhutv.com",
-      "available": true,
+      "available": false,
       "show": "portrait",
       "next": "search",
       "datasort": "",
-      "use_proxy": true,
+      "use_proxy": false,
       "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
