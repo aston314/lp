@@ -4,7 +4,7 @@
     var inner_catalogs = [
         {
             title: "LIBVIO",
-            link: "https://www.libvio.fun",
+            link: "https://www.libvio.pro",
             available: true,
             show: "portrait",
             next: "search",
@@ -14,35 +14,35 @@
             browser: "PC_UA",
             category: [{
                 title: '最近更新',
-                url: 'https://www.libvio.fun/',
+                url: 'https://www.libvio.pro/',
                 quantity: ':lt(12)'
             }, {
                 title: '电影',
-                url: 'https://www.libvio.fun/type/1.html',
+                url: 'https://www.libvio.pro/type/1.html',
                 quantity: ''
             }, {
                 title: '剧集',
-                url: 'https://www.libvio.fun/type/2.html',
+                url: 'https://www.libvio.pro/type/2.html',
                 quantity: ''
             }, {
                 title: '日韩剧',
-                url: 'https://www.libvio.fun/type/15.html',
+                url: 'https://www.libvio.pro/type/15.html',
                 quantity: ''
             }, {
                 title: '国产剧',
-                url: 'https://www.libvio.fun/type/13.html',
+                url: 'https://www.libvio.pro/type/13.html',
                 quantity: ''
             }, {
                 title: '欧美剧',
-                url: 'https://www.libvio.fun/type/16.html',
+                url: 'https://www.libvio.pro/type/16.html',
                 quantity: ''
             }, {
                 title: '港台剧',
-                url: 'https://www.libvio.fun/type/14.html',
+                url: 'https://www.libvio.pro/type/14.html',
                 quantity: ''
             }, {
                 title: '动漫',
-                url: 'https://www.libvio.fun/type/4.html',
+                url: 'https://www.libvio.pro/type/4.html',
                 quantity: ''
             }],
             list: {
@@ -88,7 +88,7 @@
                 }
             },
             search: {
-                url: 'https://www.libvio.fun/search/-------------.html?wd=#msearchword&submit='
+                url: 'https://www.libvio.pro/search/-------------.html?wd=#msearchword&submit='
             }
         },
         {
@@ -599,7 +599,7 @@
         {
             title: "乐猪TV",
             link: "http://www.lezhutv.com",
-            available: true,
+            available: false,
             show: "portrait",
             next: "search",
             datasort: "",
@@ -860,6 +860,7 @@
             }
         },
     ];
+    
     if (Lampa.Storage.get('json_use')) {
         $.ajax({
             url: Lampa.Storage.field('web_rule_json') + '?v=' + Math.random(),
