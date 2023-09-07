@@ -259,7 +259,8 @@
                                             sources.push({
                                                 title: html.caption,
                                                 url: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
-                                                subtitles: []
+                                                subtitles: [],
+                                                src: html.src1
                                             });
 
                                         });
@@ -293,7 +294,38 @@
                                                         Lampa.Player.playlist(playlist);
 
                                                     } else {
-                                                        Lampa.Noty.show('无法检索播放链接');
+                                                        // Lampa.Noty.show('无法检索播放链接');
+                                                        network["native"]('https://ddys.pro/getvddr3/video?id='+tab.src+'&type=json', function (data) {
+                                                            if (data.url) {
+                                                                if (Lampa.Storage.field('player') == 'inner') {
+                                                                    Lampa.Modal.close();
+                                                                };
+                                                                var playlist = [];
+                                                                var first = {
+                                                                    url: data.url,
+                                                                    //   timeline: view,
+                                                                    title: element.title + ' ' + tab.title,
+                                                                    subtitles: data.subtitles
+                                                                };
+                                                                Lampa.Player.play(first);
+        
+                                                                playlist.push(first);
+                                                                Lampa.Player.playlist(playlist);
+        
+                                                            } else {
+                                                                Lampa.Noty.show('无法检索播放链接');
+                                                            }
+                                                            // Lampa.Controller.toggle('content');
+        
+                                                        }, function (a, c) {
+                                                            Lampa.Noty.show(network.errorDecode(a, c));
+                                                        }, false, {
+                                                            dataType: 'json',
+                                                            headers: {
+                                                                'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+                                                                'Referer': "https://ddys.pro/"
+                                                            }
+                                                        });
                                                     }
                                                     // Lampa.Controller.toggle('content');
 
@@ -419,7 +451,8 @@
                             sources.push({
                                 title: html.caption,
                                 url: "https://ddys.pro/getvddr2/video?type=mix&id=" + html.src1,
-                                subtitles: []
+                                subtitles: [],
+                                src: html.src1
                             });
                             
                         });
@@ -454,7 +487,38 @@
                                         Lampa.Player.playlist(playlist);
 
                                     } else {
-                                        Lampa.Noty.show('无法检索播放链接');
+                                        // Lampa.Noty.show('无法检索播放链接');
+                                        network["native"]('https://ddys.pro/getvddr3/video?id='+tab.src+'&type=json', function (data) {
+                                                            if (data.url) {
+                                                                if (Lampa.Storage.field('player') == 'inner') {
+                                                                    Lampa.Modal.close();
+                                                                };
+                                                                var playlist = [];
+                                                                var first = {
+                                                                    url: data.url,
+                                                                    //   timeline: view,
+                                                                    title: element.title + ' ' + tab.title,
+                                                                    subtitles: data.subtitles
+                                                                };
+                                                                Lampa.Player.play(first);
+        
+                                                                playlist.push(first);
+                                                                Lampa.Player.playlist(playlist);
+        
+                                                            } else {
+                                                                Lampa.Noty.show('无法检索播放链接');
+                                                            }
+                                                            // Lampa.Controller.toggle('content');
+        
+                                                        }, function (a, c) {
+                                                            Lampa.Noty.show(network.errorDecode(a, c));
+                                                        }, false, {
+                                                            dataType: 'json',
+                                                            headers: {
+                                                                'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2007J3SC Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045714 Mobile Safari/537.36',
+                                                                'Referer': "https://ddys.pro/"
+                                                            }
+                                                        });
                                     }
                                     // Lampa.Controller.toggle('content');
 
