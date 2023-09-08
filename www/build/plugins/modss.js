@@ -11633,6 +11633,24 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			en: '例如：http://abc.com/a.json',
 			zh: '例如：http://abc.com/a.json'
 		},
+		title_xiaoya: {
+			ru: "Адрес Alist для Xiaoya",
+			uk: "Адреса Alist для Xiaoya",
+			en: "Xiaoya Alist Address",
+			zh: "小雅Alist地址"
+		  },
+		  title_xiaoya_descr: {
+			ru: "Введите адрес и порт",
+			uk: "Введіть адресу та порт",
+			en: "Enter the address and port",
+			zh: "填写地址和端口"
+		  },
+		  title_xiaoya_placeholder: {
+			ru: "Например: 192.168.2.1:5678",
+			uk: "Наприклад: 192.168.2.1:5678",
+			en: "For example: 192.168.2.1:5678",
+			zh: "例如：192.168.2.1:5678"
+		  },
 	  });
 		function FreeJaketOpt() {
   			Lampa.Arrays.getKeys(Modss.jack).map(function (el){
@@ -12152,6 +12170,54 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				onRender: function (item) {
 					if (Lampa.Storage.field('mods_onl')) item.show(); 
 					else item.hide();
+				}
+			});
+			Lampa.SettingsApi.addParam({
+				component: 'modss_online_param',
+				param: {
+					name: 'online_mod_alist',
+					type: 'input', //доступно select,input,trigger,title,static
+					values: '',
+					placeholder: Lampa.Lang.translate('title_xiaoya_placeholder'),
+					default: ''
+				},
+				field: {
+					name: Lampa.Lang.translate('title_xiaoya'),
+					description: Lampa.Lang.translate('title_xiaoya_descr')
+				},
+				onChange: function (values) {
+					if (Lampa.Storage.field('online_mod_alist')) {
+						var url = values;
+							if (typeof url === 'string'){
+							var torrent_net = new Lampa.Reguest();
+							torrent_net.timeout(10000);
+							torrent_net.silent(Lampa.Utils.checkHttp(url) + '?v=' + Math.random(), function (json) {
+								$('[data-name="online_mod_alist').find('.settings-param__descr').text('√ 链接可访问');
+								setTimeout(function () {
+									$('div[data-name="online_mod_alist"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="online_mod_alist"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								}, 100);
+							}, function (a, c) {
+								Lampa.Noty.show(torrent_net.errorDecode(a, c) + ' - ' + url);
+								$('[data-name="online_mod_alist').find('.settings-param__descr').text('！链接不可访问');
+								setTimeout(function () {
+									$('div[data-name="online_mod_alist"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="online_mod_alist"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}, false, {
+								dataType: 'text'
+							});
+						} else {
+							if (url !== '') {
+								setTimeout(function () {
+									$('[data-name="online_mod_alist').find('.settings-param__descr').text('！链接不可访问');
+									$('div[data-name="online_mod_alist"]').append('<div class="settings-param__status one"></div>')
+									$('div[data-name="online_mod_alist"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}, 100);
+							}
+						}
+					}
+					Lampa.Settings.update();
 				}
 			});
 			// Lampa.SettingsApi.addParam({
