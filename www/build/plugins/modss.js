@@ -1250,7 +1250,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					{
 						resource_name: '云盘-DYD',
 						function_name: 'dyd',
-						ext_js_url: 'https://qu.ax/iHkJ.js'
+						ext_js_url: ''
 					},
 					{
 						resource_name: '云盘-小雅Alist',
@@ -3229,7 +3229,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
             title: $('.highlight:first', html).text() + ($(html).html().match(/<\/mark>(.+?)<br>/) ? $(html).html().match(/<\/mark>(.+?)<br>/)[1].replace(/(<([^>]+)>)/ig, '').replace(/《|【|》|】|\./g, ' ') : ''),
             season: '',
             episode: '',
-            info: ''
+            info: '',
+			time: ''
           });
         };
       });
@@ -3274,7 +3275,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       items.forEach(function (element, item_id) {
         var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
         var view = Lampa.Timeline.view(hash);
-        var item = Lampa.Template.get('online_mod_folder', element);
+        var item = Lampa.Template.get('modss_online_folder', element);
         var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
         element.timeline = view;
         item.append(Lampa.Timeline.render(view));
@@ -3309,18 +3310,18 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
         });
         component.append(item);
-        component.contextmenu({
-          item: item,
-          view: view,
-          viewed: viewed,
-          choice: choice,
-          hash_file: hash_file,
-          file: function file(call) {
-            call({
-              file: element.file
-            });
-          }
-        });
+        // component.contextmenu({
+        //   item: item,
+        //   view: view,
+        //   viewed: viewed,
+        //   choice: choice,
+        //   hash_file: hash_file,
+        //   file: function file(call) {
+        //     call({
+        //       file: element.file
+        //     });
+        //   }
+        // });
       });
       component.start(true);
     }
@@ -4562,7 +4563,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       items.forEach(function (element, item_id) {
         var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
         var view = Lampa.Timeline.view(hash);
-        var item = Lampa.Template.get('online_mod_folder', element);
+        var item = Lampa.Template.get('modss_online_folder', element);
         var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
         element.timeline = view;
         item.append(Lampa.Timeline.render(view));
@@ -4726,7 +4727,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           title: html.title,
           season: '',
           episode: '',
-          info: ''
+          info: '',
+		  time: ''
         });
         //});
       });
@@ -4771,7 +4773,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       items.forEach(function (element, item_id) {
         var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
         var view = Lampa.Timeline.view(hash);
-        var item = Lampa.Template.get('online_mod_folder', element);
+        var item = Lampa.Template.get('modss_online_folder', element);
         var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
         element.timeline = view;
         item.append(Lampa.Timeline.render(view));
@@ -4822,21 +4824,230 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           } else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
         });
         component.append(item);
-        component.contextmenu({
-          item: item,
-          view: view,
-          viewed: viewed,
-          choice: choice,
-          hash_file: hash_file,
-          file: function file(call) {
-            call({
-              file: element.file
-            });
-          }
-        });
+        // component.contextmenu({
+        //   item: item,
+        //   view: view,
+        //   viewed: viewed,
+        //   choice: choice,
+        //   hash_file: hash_file,
+        //   file: function file(call) {
+        //     call({
+        //       file: element.file
+        //     });
+        //   }
+        // });
       });
       component.start(true);
     }
+  }
+
+  function dyd(component, _object, doreg) {
+	var network = new Lampa.Reguest();
+	var extract = {};
+	var object = _object;
+	var select_title = '';
+	var filter_items = {};
+	var choice = {
+		season: 0,
+		voice: 0,
+		order: 0,
+		voice_name: ''
+	};
+	var resp;
+	var search_videos;
+	var find_videos;
+	var rslt = [];
+
+	this.searchByTitle = function (_object, kinopoisk_id) {
+		object = _object;
+		select_title = object.search || object.movie.title;
+		var url1 = 'http://www.dydhhy.com/?s=#msearchword';
+		url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
+
+		network.clear();
+		network.timeout(1000 * 15);
+
+		network["native"](url1, function (str) {
+			if ($('.thumbnail-link', str).length > 0) {
+				parse(str);
+			} else component.emptyForQuery(select_title);
+
+			component.loading(false);
+		}, function (a, c) {
+			component.empty(network.errorDecode(a, c));
+		}, false, {
+			dataType: 'text'
+		});
+	};
+
+	this.extendChoice = function (saved) {
+		Lampa.Arrays.extend(choice, saved, true);
+	};
+
+	this.reset = function () {
+		component.reset();
+		choice = {
+			season: 0,
+			voice: 0
+		};
+		filter();
+		append(filtred());
+		component.saveChoice(choice);
+	};
+
+	this.filter = function (type, a, b) {
+		choice[a.stype] = b.index;
+		component.reset();
+		filter();
+		append(filtred());
+		component.saveChoice(choice);
+	};
+	
+	this.destroy = function () {
+		network.clear();
+		extract = null;
+		rslt = null;
+	};
+
+	function parse(json) {
+		var str = json.replace(/\n/g, '');
+		var h = $('.thumbnail-link', str);
+		//console.log(h)
+		rslt = [];
+		$(h).each(function (i, html) {
+			//json.forEach(function (a) {
+			rslt.push({
+				file: html.href,
+				quality: 'DYD',
+				//quality: $('p',html).text().replace(/文件夹/,'目录'),
+				title: $('img', html).attr('alt'),
+				season: '',
+				episode: '',
+				info: '',
+				time: ''
+			});
+			//});
+		});
+
+		append(filtred());
+		// rslt = [];
+
+	}
+
+	function filter() {
+		filter_items = {
+			season: [],
+			voice: [],
+			quality: [],
+			order: []
+		};
+
+		if (extract.playlist) {
+			if (extract.playlist.seasons) {
+				extract.playlist.seasons.forEach(function (season) {
+					filter_items.season.push(Lampa.Lang.translate('torrent_serial_season') + ' ' + season.season);
+				});
+			}
+		}
+
+		if (!filter_items.season[choice.season]) choice.season = 0;
+		component.order.forEach(function (i) {
+			filter_items.order.push(i.title);
+		});
+		component.filter(filter_items, choice);
+	}
+
+	function filtred() {
+
+		return rslt;
+	}
+
+	function append(items) {
+		var _this = this;
+		component.reset();
+		var viewed = Lampa.Storage.cache('online_view', 5000, []);
+		items.forEach(function (element, item_id) {
+			var hash = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title].join('') : object.movie.original_title);
+			var view = Lampa.Timeline.view(hash);
+			var item = Lampa.Template.get('modss_online_folder', element);
+			var hash_file = Lampa.Utils.hash(element.quality ? [element.quality, element.title, element.file, object.movie.original_title, element.title].join('') : object.movie.original_title + 'libio');
+			element.timeline = view;
+			item.append(Lampa.Timeline.render(view));
+
+			if (Lampa.Timeline.details) {
+				item.find('.online__quality').append(Lampa.Timeline.details(view, ' / '));
+			}
+
+			if (viewed.indexOf(hash_file) !== -1) item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+			item.on('hover:enter', function () {
+				// object.movie.id = object.url;
+				choice.last_viewed = item_id;
+				if (object.movie.id) Lampa.Favorite.add('history', object.movie, 100);
+				component.activity.loader(true);
+
+				if (element.file) {
+
+					var sources = [];
+
+					network["native"](element.file, function (str) {
+						//$('.btn-group a.line-pay-btn', str).each(function (i, str) {
+						$('a[href*="www.aliyundrive.com"]', str).each(function (i, html) {
+							sources.push({
+								title: '阿里云盘 - 资源' + (i + 1),
+								url: html.href,
+							});
+						});
+
+						Lampa.Select.show({
+							title: '阿里云盘',
+							items: sources,
+							onSelect: function onSelect(a) {
+								element.img = object.movie.img;
+								element.original_title = '';
+								Lampa.Activity.push({
+									url: a.url,
+									title: '阿里云盘播放',
+									component: 'yunpan2',
+									movie: element,
+									page: 1
+								});
+							},
+							onBack: function onBack() {
+								Lampa.Controller.toggle('content');
+							}
+						});
+
+					}, function (a, c) {
+						component.empty(network.errorDecode(a, c));
+					}, false, {
+						dataType: 'text'
+					});
+
+					component.loading(false);
+
+					if (viewed.indexOf(hash_file) == -1) {
+						viewed.push(hash_file);
+						item.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_viewed', {}, true) + '</div>');
+						Lampa.Storage.set('online_view', viewed);
+					}
+				} else Lampa.Noty.show(Lampa.Lang.translate('online_mod_nolink'));
+			});
+			component.append(item);
+			// component.contextmenu({
+			// 	item: item,
+			// 	view: view,
+			// 	viewed: viewed,
+			// 	choice: choice,
+			// 	hash_file: hash_file,
+			// 	file: function file(call) {
+			// 		call({
+			// 			file: element.file
+			// 		});
+			// 	}
+			// });
+		});
+		component.start(true);
+	}
   }
 
   function videocdn(component, _object) {
