@@ -4513,7 +4513,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           season: '',
           episode: '',
           info: '',
-          search_title: select_title
+          search_title: select_title,
+		  time: ''
         });
         //}
         //});
@@ -8783,13 +8784,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			title: Lampa.Lang.translate('torrent_parser_label_cancel_title'),
 			clearmark: true
 		  }, {
-			title: Lampa.Lang.translate('online_mod_clearmark_all'),
+			title: Lampa.Lang.translate('modss_clear_all_marks'),
 			clearmark_all: true
 		  }, {
 			title: Lampa.Lang.translate('time_reset'),
 			timeclear: true
 		  }, {
-			title: Lampa.Lang.translate('online_mod_timeclear_all'),
+			title: Lampa.Lang.translate('modss_clear_all_timecodes'),
 			timeclear_all: true
 		  }];
   
