@@ -71,7 +71,8 @@
       var baseurl = getlink.match(/http.*:\/\/.*?\//, getlink)[0];
       (baseurl.indexOf('http://') !== -1) ? baseurl = cors_https + baseurl : baseurl;
 
-
+      network.clear();
+      network.timeout(10000);
       network["native"](baseurl + "api/public/settings", function (json) {
         var url;
         var ver = typeof json.data.version !== 'undefined' ? ver = 3 : ver = 2;
@@ -433,7 +434,7 @@
           //Lampa.Noty.show('获取Alsit播放地址失败。');
           var playlist = [];
           var first = {
-            url: file1,
+            url: element.file_id,
             timeline: view,
             title: element.season ? element.title : object.movie.title + ' / ' + element.title + ' / ' + element.quality
           };
@@ -692,13 +693,13 @@
           title: Lampa.Lang.translate('torrent_parser_label_cancel_title'),
           clearmark: true
         }, {
-          title: Lampa.Lang.translate('online_mod_clearmark_all'),
+          title: Lampa.Lang.translate('modss_clear_all_marks'),
           clearmark_all: true
         }, {
           title: Lampa.Lang.translate('time_reset'),
           timeclear: true
         }, {
-          title: Lampa.Lang.translate('online_mod_timeclear_all'),
+          title: Lampa.Lang.translate('modss_clear_all_timecodes'),
           timeclear_all: true
         }];
 
