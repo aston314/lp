@@ -740,17 +740,17 @@
             "filter": ""
          },
          "title": {
-            "selector": "a",
-            "attrName": "title",
+            "selector": "img.post-thumb",
+            "attrName": "alt",
             "filter": ""
          },
          "thumb": {
-            "selector": "img",
+            "selector": "img.post-thumb",
             "attrName": "src",
             "filter": ""
          },
          "link": {
-            "selector": "a",
+            "selector": "a.thumb-link",
             "attrName": "href",
             "filter": ""
          },
