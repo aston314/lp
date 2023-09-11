@@ -4656,22 +4656,21 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       order: 0,
       voice_name: ''
     };
-    var resp;
-    var search_videos;
-    var find_videos;
+
     var results = [];
 
     this.searchByTitle = function (_object, kinopoisk_id) {
       object = _object;
       select_title = object.search || object.movie.title;
     //   doreg = rule;
-      var url1 = 'https://t-rex.tzfile.com/?s=#msearchword';
-      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title));
+      var url1 = 'https://t-rex.tzfile.com/movies?archiveSearch=#msearchword';
+	  
+      url1 = url1.replace('#msearchword', encodeURIComponent(object.movie.title)).replace(/\([^)]*\)/g, '').trim();
 
       network.clear();
       network.timeout(1000 * 15);
       network["native"](url1, function (json) {
-        if ($('div.placeholder > a', json).length > 0) {
+        if ($('div.post-module-thumb > a', json).length > 0) {
           parse(json);
         } else component.emptyForQuery(select_title);
 
@@ -4719,7 +4718,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 
     function parse(json) {
       var str = json.replace(/\n/g, '');
-      var h = $('div.placeholder > a', str);
+      var h = $('div.post-module-thumb > a', str);
       //console.log(h)
       results = [];
       $(h).each(function (i, html) {
@@ -4730,7 +4729,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           file: html.href,
           quality: '霸王龙压制组',
           //quality: $('p',html).text().replace(/文件夹/,'目录'),
-          title: html.title,
+          title: $('img.post-thumb',html).attr('alt'),
           season: '',
           episode: '',
           info: '',
