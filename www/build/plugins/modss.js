@@ -3346,7 +3346,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
     };
     var get_links_wait = false;
     var results = [];
-    var proxy_url = '';
+    var proxy_url = 'https://cors.eu.org/';
     var proxy = 'https://cors.eu.org/';
 
     this.searchByTitle = function (_object, kinopoisk_id) {
@@ -3532,7 +3532,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		// var url = element.file || '';
 	
 		if (element.file) {
-			network["native"](element.file, function (data) {
+			network["native"](proxy_url + element.file, function (data) {
 				var iframe = $('iframe', data);
 				if (iframe.length > 0) {
 					network["native"]($(iframe[0]).attr('src'), function (data) {
