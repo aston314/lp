@@ -735,7 +735,7 @@
       ],
       "list": {
          "videoscontainer": {
-            "selector": "div.placeholder",
+            "selector": "div.post-module-thumb",
             "attrName": "",
             "filter": ""
          },
@@ -746,7 +746,7 @@
          },
          "thumb": {
             "selector": "img",
-            "attrName": "data-src",
+            "attrName": "src",
             "filter": ""
          },
          "link": {
