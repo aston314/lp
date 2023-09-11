@@ -6,7 +6,7 @@
       "show": "portrait",
       "next": "search",
       "datasort": "",
-      "use_proxy": false,
+      "use_proxy": true,
       "use_referer": false,
       "browser": "PC_UA",
       "category": [
