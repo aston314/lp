@@ -1137,50 +1137,50 @@
                     //     console.log('WEB','使用代理连接..')
                     //     _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
                     // } else {
-                    if (object.url.includes('libvio')) {
-                        var api_url = "http://192.168.2.1:8191/v1";
-                        var headers_ = {
-                            "Content-Type": "application/json"
-                        };
+                    // if (object.url.includes('libvio')) {
+                    //     var api_url = "http://192.168.2.1:8191/v1";
+                    //     var headers_ = {
+                    //         "Content-Type": "application/json"
+                    //     };
 
-                        var data_ = {
-                            "cmd": "request.get",
-                            "url": object.url,
-                            "maxTimeout": 60000
-                        };
-                        network["native"](api_url, function (response) {
-                            var response_data = JSON.parse(response.data);
-                            var cookies = response_data.solution.cookies;
+                    //     var data_ = {
+                    //         "cmd": "request.get",
+                    //         "url": object.url,
+                    //         "maxTimeout": 60000
+                    //     };
+                    //     network["native"](api_url, function (response) {
+                    //         var response_data = JSON.parse(response.data);
+                    //         var cookies = response_data.solution.cookies;
 
-                            // Clean the cookies
-                            var cleanedCookies = {};
-                            for (var i = 0; i < cookies.length; i++) {
-                                cleanedCookies[cookies[i].name] = cookies[i].value;
-                            }
+                    //         // Clean the cookies
+                    //         var cleanedCookies = {};
+                    //         for (var i = 0; i < cookies.length; i++) {
+                    //             cleanedCookies[cookies[i].name] = cookies[i].value;
+                    //         }
 
-                            var user_agent = response_data.solution.userAgent;
-                            console.log(cleanedCookies)
+                    //         var user_agent = response_data.solution.userAgent;
+                    //         console.log(cleanedCookies)
 
-                        }, function (a, c) {
-                            // var empty = new Lampa.Empty({
-                            //     descr: '哦，无法获取 ' + object.title + ' 的内容。'
-                            // });
-                            // html.append(empty.render());
-                            // var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
-                            // var ft = $('<div class="empty__footer"></div>');
-                            // bn.on('hover:enter', function () {
-                            //     _this.selectGroup();
-                            // });
-                            // ft.append(bn);
-                            // empty.append(ft);
-                            // html.append(empty)
-                        }, JSON.stringify(data), {
-                            dataType: "json",
-                            headers: {
-                                "content-type": "application/json",
-                            }
-                        });
-                    }
+                    //     }, function (a, c) {
+                    //         // var empty = new Lampa.Empty({
+                    //         //     descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                    //         // });
+                    //         // html.append(empty.render());
+                    //         // var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                    //         // var ft = $('<div class="empty__footer"></div>');
+                    //         // bn.on('hover:enter', function () {
+                    //         //     _this.selectGroup();
+                    //         // });
+                    //         // ft.append(bn);
+                    //         // empty.append(ft);
+                    //         // html.append(empty)
+                    //     }, JSON.stringify(data), {
+                    //         dataType: "json",
+                    //         headers: {
+                    //             "content-type": "application/json",
+                    //         }
+                    //     });
+                    // }
                         network["native"](cors + object.url, function (str) {
                             var data = _this.card(str);
                             _this.build(data);
@@ -1215,7 +1215,7 @@
                             return;
                         }, false, {
                             dataType: 'text',
-                            headers: _this.setheader(object.use_referer, object.browser)
+                            headers: _this.setheader(object.use_referer, object.browser,'{ "cf_clearance": "Ab48M4Hveh3Z._kocknUOcQOXq6gsJ0FXgFLTTCJSTA-1694482385-0-1-dca02914.ae85f07b.8ba176f4-150.2.1694482385", "Hm_lvt_1fe6b08d2a42d0859f918202d4e511b4": "1694482385", "Hm_lpvt_1fe6b08d2a42d0859f918202d4e511b4": "1694482385", "recente": "%5B%7B%22vod_name%22%3A%22%E6%9C%80%E5%90%8E%E7%9A%84%E7%BB%B4%E5%8A%A0%E6%96%AF%22%2C%22vod_url%22%3A%22https%3A%2F%2Fwww.libvio.pro%2Fplay%2F714889886-2-1.html%22%2C%22vod_part%22%3A%22%22%7D%5D", "cf_chl_2": "89f3012f5fec830" }')
                         });
                     // }
 
@@ -2379,7 +2379,7 @@
         //     };
         //     return headercontent;
         // };
-        this.setheader = function (isreferer, browser) {
+        this.setheader = function (isreferer, browser, cookie) {
             var headercontent = {
                 'User-Agent': this.setbrowser(browser)
             };
@@ -2392,6 +2392,10 @@
                     // headercontent['Accept-Language'] = 'en,zh-CN;q=0.9,zh;q=0.8';
                     // headercontent['Origin'] = urlMatch[0];
                 }
+            }
+
+            if (cookie) {
+                headercontent['Cookie'] = cookie;
             }
 
             return headercontent;
