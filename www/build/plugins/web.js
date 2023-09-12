@@ -1178,65 +1178,8 @@
                             dataType: "json",
                             headers: {
                                 "content-type": "application/json",
-                                Origin: object.url,
-                                Referer: object.url,
-
                             }
                         });
-                        // network["native"](api_url, function (returnData) {
-
-              
-                        //   }, function (a, c) {
-                        //     //console.log(a.responseText,a.status)
-                        //     Lampa.Noty.show(network.errorDecode(a, c) + '，文件保存失败。');
-                        //   }, JSON.stringify(data), {
-                        //     dataType: "json",
-                        //     headers: {
-                        //         accept: "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
-                        //         "content-type": "application/json",
-                        //     }
-                        //   });
-                        // 发起POST请求
-                        // $.ajax({
-                        //     url: api_url,
-                        //     type: "POST",
-                        //     headers: headers_,
-                        //     data: JSON.stringify(data_),
-                        //     dataType: "json",
-                        //     ContentType: "application/json",
-                        //     success: function (response) {
-                        //         var cookies = response.solution.cookies;
-
-                        //         // 清理cookies
-                        //         var cleanedCookies = {};
-                        //         for (var i = 0; i < cookies.length; i++) {
-                        //             cleanedCookies[cookies[i].name] = cookies[i].value;
-                        //         }
-
-                        //         var user_agent = response.solution.userAgent;
-                        //         console.log(cleanedCookies)
-
-                        //         // 发起GET请求
-                        //         // $.ajax({
-                        //         //     url: url,
-                        //         //     type: "GET",
-                        //         //     headers: {
-                        //         //         "User-Agent": user_agent
-                        //         //     },
-                        //         //     data: cleanedCookies,
-                        //         //     success: function (getResponse) {
-                        //         //         // 处理GET响应
-                        //         //         console.log("GET Response:", getResponse);
-                        //         //     },
-                        //         //     error: function (getErr) {
-                        //         //         console.error("GET Error:", getErr);
-                        //         //     }
-                        //         // });
-                        //     },
-                        //     error: function (error) {
-                        //         console.error("POST Error:", error);
-                        //     }
-                        // });
                     }
                         network["native"](cors + object.url, function (str) {
                             var data = _this.card(str);
