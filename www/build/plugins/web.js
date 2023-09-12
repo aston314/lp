@@ -1178,7 +1178,8 @@
                             dataType: "json",
                             headers: {
                                 "content-type": "application/json",
-                                Origin: object.url
+                                Origin: object.url,
+                                Referer: object.url,
 
                             }
                         });
