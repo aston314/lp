@@ -1180,6 +1180,7 @@
                     //             "content-type": "application/json",
                     //         }
                     //     });
+
                     // }
                         network["native"](cors + object.url, function (str) {
                             var data = _this.card(str);
@@ -1215,7 +1216,7 @@
                             return;
                         }, false, {
                             dataType: 'text',
-                            headers: _this.setheader(object.use_referer, object.browser)
+                            headers: _this.setheader(object.use_referer, object.browser, 'cf_clearance=OEibgKA0ma9qvIxk3DcduDCP1rFJbTZcl0I6AyGqZPU-1694486903-0-1-dca02914.bd994093.8ba176f4-150.2.1694486903; Hm_lpvt_1fe6b08d2a42d0859f918202d4e511b4=1694486902; Hm_lvt_1fe6b08d2a42d0859f918202d4e511b4=1694486902')
                         });
                     // }
 
@@ -2379,7 +2380,7 @@
         //     };
         //     return headercontent;
         // };
-        this.setheader = function (isreferer, browser) {
+        this.setheader = function (isreferer, browser, cookie) {
             var headercontent = {
                 'User-Agent': this.setbrowser(browser)
             };
@@ -2392,6 +2393,10 @@
                     // headercontent['Accept-Language'] = 'en,zh-CN;q=0.9,zh;q=0.8';
                     // headercontent['Origin'] = urlMatch[0];
                 }
+            }
+
+            if (cookie) {
+                headercontent['Cookie'] = cookie;
             }
 
             return headercontent;
