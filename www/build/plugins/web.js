@@ -1137,6 +1137,106 @@
                     //     console.log('WEB','使用代理连接..')
                     //     _this.proxyCall('GET', object.url, 20000, null, call_success, call_fail);
                     // } else {
+                    if (object.url.includes('libvio')) {
+                        var api_url = "http://192.168.2.1:8191/v1";
+                        var headers_ = {
+                            "Content-Type": "application/json"
+                        };
+
+                        var data_ = {
+                            "cmd": "request.get",
+                            "url": object.url,
+                            "maxTimeout": 60000
+                        };
+                        network["native"](api_url, function (response) {
+                            var response_data = JSON.parse(response.data);
+                            var cookies = response_data.solution.cookies;
+
+                            // Clean the cookies
+                            var cleanedCookies = {};
+                            for (var i = 0; i < cookies.length; i++) {
+                                cleanedCookies[cookies[i].name] = cookies[i].value;
+                            }
+
+                            var user_agent = response_data.solution.userAgent;
+                            console.log(cleanedCookies)
+
+                        }, function (a, c) {
+                            // var empty = new Lampa.Empty({
+                            //     descr: '哦，无法获取 ' + object.title + ' 的内容。'
+                            // });
+                            // html.append(empty.render());
+                            // var bn = $('<div class="simple-button selector"><span>选择其他网站</span></div>');
+                            // var ft = $('<div class="empty__footer"></div>');
+                            // bn.on('hover:enter', function () {
+                            //     _this.selectGroup();
+                            // });
+                            // ft.append(bn);
+                            // empty.append(ft);
+                            // html.append(empty)
+                        }, JSON.stringify(data), {
+                            dataType: "json",
+                            headers: {
+                                "content-type": "application/json",
+                                Origin: object.url
+
+                            }
+                        });
+                        // network["native"](api_url, function (returnData) {
+
+              
+                        //   }, function (a, c) {
+                        //     //console.log(a.responseText,a.status)
+                        //     Lampa.Noty.show(network.errorDecode(a, c) + '，文件保存失败。');
+                        //   }, JSON.stringify(data), {
+                        //     dataType: "json",
+                        //     headers: {
+                        //         accept: "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+                        //         "content-type": "application/json",
+                        //     }
+                        //   });
+                        // 发起POST请求
+                        // $.ajax({
+                        //     url: api_url,
+                        //     type: "POST",
+                        //     headers: headers_,
+                        //     data: JSON.stringify(data_),
+                        //     dataType: "json",
+                        //     ContentType: "application/json",
+                        //     success: function (response) {
+                        //         var cookies = response.solution.cookies;
+
+                        //         // 清理cookies
+                        //         var cleanedCookies = {};
+                        //         for (var i = 0; i < cookies.length; i++) {
+                        //             cleanedCookies[cookies[i].name] = cookies[i].value;
+                        //         }
+
+                        //         var user_agent = response.solution.userAgent;
+                        //         console.log(cleanedCookies)
+
+                        //         // 发起GET请求
+                        //         // $.ajax({
+                        //         //     url: url,
+                        //         //     type: "GET",
+                        //         //     headers: {
+                        //         //         "User-Agent": user_agent
+                        //         //     },
+                        //         //     data: cleanedCookies,
+                        //         //     success: function (getResponse) {
+                        //         //         // 处理GET响应
+                        //         //         console.log("GET Response:", getResponse);
+                        //         //     },
+                        //         //     error: function (getErr) {
+                        //         //         console.error("GET Error:", getErr);
+                        //         //     }
+                        //         // });
+                        //     },
+                        //     error: function (error) {
+                        //         console.error("POST Error:", error);
+                        //     }
+                        // });
+                    }
                         network["native"](cors + object.url, function (str) {
                             var data = _this.card(str);
                             _this.build(data);
