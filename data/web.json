@@ -88,7 +88,7 @@
       "next": "search",
       "datasort": "",
       "use_proxy": false,
-      "use_referer": true,
+      "use_referer": false,
       "browser": "MOBILE_UA",
       "category": [
          {
