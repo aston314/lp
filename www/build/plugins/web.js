@@ -1215,7 +1215,7 @@
                             return;
                         }, false, {
                             dataType: 'text',
-                            headers: _this.setheader(object.use_referer, object.browser,'{ "cf_clearance": "Ab48M4Hveh3Z._kocknUOcQOXq6gsJ0FXgFLTTCJSTA-1694482385-0-1-dca02914.ae85f07b.8ba176f4-150.2.1694482385", "Hm_lvt_1fe6b08d2a42d0859f918202d4e511b4": "1694482385", "Hm_lpvt_1fe6b08d2a42d0859f918202d4e511b4": "1694482385", "recente": "%5B%7B%22vod_name%22%3A%22%E6%9C%80%E5%90%8E%E7%9A%84%E7%BB%B4%E5%8A%A0%E6%96%AF%22%2C%22vod_url%22%3A%22https%3A%2F%2Fwww.libvio.pro%2Fplay%2F714889886-2-1.html%22%2C%22vod_part%22%3A%22%22%7D%5D", "cf_chl_2": "89f3012f5fec830" }')
+                            headers: _this.setheader(object.use_referer, object.browser,'{ "cf_clearance": "OEibgKA0ma9qvIxk3DcduDCP1rFJbTZcl0I6AyGqZPU-1694486903-0-1-dca02914.bd994093.8ba176f4-150.2.1694486903", "Hm_lpvt_1fe6b08d2a42d0859f918202d4e511b4": "1694486902", "Hm_lvt_1fe6b08d2a42d0859f918202d4e511b4": "1694486902" }')
                         });
                     // }
 
