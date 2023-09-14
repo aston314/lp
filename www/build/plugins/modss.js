@@ -2659,12 +2659,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										Lampa.Controller.toggle('content');
 									  } else {
 										network["native"](MacPlayer_, function (str) {
-										  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';|var\s+urls\s*=\s*'([^']+)'|'(https:\/\/[^\/]+aliyundrive\.net[^']+)'/;
+										//   |'(https:\/\/[^\/]+aliyundrive\.net[^']+)'
+										  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';|var\s+urls\s*=\s*'([^']+)'/;
 										  var match = str.match(urlPattern);
 		  
 										  if (match) {
 											// console.log(match)
-											var urlvideo = match[1] || match[2];
+											var urlvideo = match[1] || match[2] || match[3];
 											if (urlvideo) {
 												element.stream = urlvideo;
 												// element.qualitys = quality;
