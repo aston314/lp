@@ -2659,7 +2659,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										Lampa.Controller.toggle('content');
 									  } else {
 										network["native"](MacPlayer_, function (str) {
-										  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';|var\s+urls\s*=\s*'([^']+)'/;
+										  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';|var\s+urls\s*=\s*'([^']+)'|'(https:\/\/[^\/]+aliyundrive\.net[^']+)'/;
 										  var match = str.match(urlPattern);
 		  
 										  if (match) {
