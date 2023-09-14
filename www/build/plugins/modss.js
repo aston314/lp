@@ -11824,6 +11824,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       Lampa.Storage.sync('my_col', 'object_object');
       Lampa.Storage.sync('fav_chns', 'object_object');
       Lampa.Storage.sync('history_web', 'object_object');
+      Lampa.Storage.sync('favorite_Playlists', 'object_object');
       Lampa.Storage.sync('online_watched_last', 'object_object');
       var balansers_sync = ["filmix", "kinobase", "hdrezka", "rezka", "videocdn", "videodb", "collaps", "hdvb", "kodik", "uakino", "kinotochka", "cdnmovies", "anilibria", "videoapi", "bazon", "pub"];
       balansers_sync.forEach(function (name) {
