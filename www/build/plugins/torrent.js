@@ -335,7 +335,7 @@
             this.activity.loader(true);
 
             network["native"](geturl, this.build.bind(this), function (a,c) {                
-                // console.log(a)
+                console.log(a)
                 // Lampa.Noty.show(network.errorDecode(a, c));
                 if (a.hasOwnProperty("responseText")|| a.hasOwnProperty("error")) {
                     var empty = new Lampa.Empty({
