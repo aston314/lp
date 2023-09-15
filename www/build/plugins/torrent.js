@@ -409,9 +409,13 @@
             waitload = true;
             object.page++;
             network["native"](geturl + '&page=' + object.page, function (result) {
-                _this2.append(result,true);
+                if (result.hasOwnProperty("error")) {
+                    waitload = false;
+                } else {
+                    _this2.append(result, true);
 
-                if (result.data.length) waitload = false;
+                    if (result.data.length) waitload = false;
+                }
                 // Lampa.Controller.enable('content');
             });
             //   }
