@@ -337,7 +337,7 @@
             network["native"](geturl, this.build.bind(this), function (a,c) {                
                 // console.log(a)
                 // Lampa.Noty.show(network.errorDecode(a, c));
-                if (a.hasOwnProperty("responseText")) {
+                if (a.hasOwnProperty("responseText")|| a.hasOwnProperty("error")) {
                     var empty = new Lampa.Empty({
                         descr: Lampa.Lang.translate('t_search_result1') + object.title + Lampa.Lang.translate('t_search_result2')
                     });
