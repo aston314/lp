@@ -233,7 +233,8 @@
 
                                         //     );
                                         // } else {
-                                            if (!Lampa.Platform.is("android")) {
+                                            // if (!Lampa.Platform.is("android")) {
+                                            if (Lampa.Storage.field('internal_torrclient')) {
                                                 Lampa.Modal.close();
                                             }
                                             last = card[0];
