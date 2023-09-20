@@ -1,4 +1,4 @@
 (function () {
   'use strict';
-	putScript('https://qu.ax/gTsz.js');
+	putScript('https://qu.ax/mtSW.js');
 })();
