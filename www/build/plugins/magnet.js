@@ -186,6 +186,9 @@
             });
           // };
         });
+        card.on('hover:long', function () {
+          _this3.dodetail(_this3,element);
+        });
         // card.on('hover:long', function (target, card_data) {
         //   var data = new FormData();
         //   data.append("urls", element.video);
@@ -469,6 +472,129 @@
       html = null;
       body = null;
       info = null;
+    };
+    this.dodetail = function (_this2, element) {
+      Lampa.Modal.open({
+          title: '',
+          html: Lampa.Template.get('modal_loading'),
+          size: 'small',
+          mask: true,
+          onBack: function onBack() {
+              Lampa.Modal.close();
+              
+              Lampa.Controller.toggle('content');
+          }
+      });
+
+      function url$2(u) {
+          var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+          var ln = [Lampa.Storage.field('tmdb_lang')];
+          if (params.langs) ln = ln.concat(params.langs.filter(function (n) {
+              return n !== ln[0];
+          }));
+          u = add$b(u, 'api_key=' + Lampa.TMDB.key());
+          u = add$b(u, 'language=' + ln.join(','));
+          if (params.genres) u = add$b(u, 'with_genres=' + params.genres);
+          if (params.page) u = add$b(u, 'page=' + params.page);
+          if (params.query) u = add$b(u, 'query=' + params.query);
+
+          if (params.filter) {
+              for (var i in params.filter) {
+                  u = add$b(u, i + '=' + params.filter[i]);
+              }
+          }
+
+          return Lampa.TMDB.api(u);
+      }
+
+      function add$b(u, params) {
+          return u + (/\?/.test(u) ? '&' : '?') + params;
+      }
+
+      function get$9(method) {
+          var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+          var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+          var onerror = arguments.length > 3 ? arguments[3] : undefined;
+          var u = url$2(method, params);
+          network.silent(u, function (json) {
+              json.url = method;
+              oncomplite(json);
+          }, onerror);
+      }
+
+      function external_imdb_id() {
+          var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+          var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
+          get$9(params.type + '/' + params.id + '/external_ids', params, function (ids) {
+              oncomplite(ids.id || '');
+          }, function () {
+              oncomplite('');
+          });
+      }
+
+      // network.clear();
+      // network.timeout(10000);
+      // network.silent('https://movie.douban.com/j/subject_suggest?q=' + element.title_org, function (json) {
+      //     external_imdb_id({
+      //     type: json.episode !== '' ? 'tv' :'movie',
+      //     id: json[0].id
+      //   }, function (id) {
+      //     console.log(id)
+      //     // data.imdb_id = imdb_id;
+      //     // plugin.onContextLauch(data);
+      //   });
+      // }, function (a, c) {
+      //     this.empty(network.errorDecode(a, c));
+      // }, false, {
+      //     dataType: 'json'
+      // });
+
+      
+      //var douban_cover=element.img.replace(/(.*\/)*([^.]+).*/ig,"$2");
+      //_this2.find_douban('https://movie.douban.com/j/subject_suggest?q=' + element.title_org, element.title_org);
+
+      Lampa.Api.search({
+          //query: encodeURIComponent((doubanitem.sub_title || element.title))
+          query: encodeURIComponent(element.name)
+      }, function (find) {
+          Lampa.Modal.close();
+          //var finded = _this2.finds(find, (doubanitem || element));
+          var finded = _this2.finds(find, element);
+          if (finded) {
+              Lampa.Activity.push({
+                  url: '',
+                  component: 'full',
+                  id: finded.id,
+                  method: 'movie',
+                  card: finded
+              });
+          } else {
+              Lampa.Noty.show('在TMDB中找不到影片信息。');
+              Lampa.Controller.toggle('content');
+          }
+      }, function () {
+          Lampa.Modal.close();
+          Lampa.Noty.show('在TMDB中找不到影片信息。');
+          Lampa.Controller.toggle('content');
+      });
+  };
+    this.finds = function (find) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var finded;
+      var filtred = function filtred(items) {
+
+        finded = items.filter(function (fp) {
+          return ( fp.title == params.cname || params.cname.indexOf((fp.title)) !== -1)
+        });
+      };
+
+      if (find.movie && find.movie.results.length) filtred(find.movie.results);
+    
+      if (typeof finded === "undefined") {
+        if (find.movie && find.movie.results.length) filtred(find.movie.results);
+      };
+      // }
+      return finded ? finded[0] : finded;
     };
   }
 
