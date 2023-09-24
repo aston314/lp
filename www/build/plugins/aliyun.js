@@ -1455,13 +1455,13 @@
           title: Lampa.Lang.translate('torrent_parser_label_cancel_title'),
           clearmark: true
         }, {
-          title: Lampa.Lang.translate('online_mod_clearmark_all'),
+          title: Lampa.Lang.translate('modss_clear_all_marks'),
           clearmark_all: true
         }, {
           title: Lampa.Lang.translate('time_reset'),
           timeclear: true
         }, {
-          title: Lampa.Lang.translate('online_mod_timeclear_all'),
+          title: Lampa.Lang.translate('modss_clear_all_timecodes'),
           timeclear_all: true
         }];
 
@@ -1696,72 +1696,72 @@
     Lampa.Listener.follow('app', function (e) {
       if (e.type == 'ready') {
         addSettingsAliyun();
-        var pushualiyunBut = $('<div class="head__action pushualiyunBut selector"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-airplay\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"></path><polygon points=\"12 15 17 21 7 21 12 15\"></polygon></svg></div>');
-        $('.head__actions .open--notice').after(pushualiyunBut);
-        pushualiyunBut.on('hover:enter click.hover', function () {
-          Lampa.Input.edit({
-            title: '填写阿里云盘分享或磁力链接 - 推送',
-            value: '',
-            free: true,
-            nosave: true
-          }, function (new_value) {
-            if (new_value) {
-              //console.log(new_value)
-              //var searchurl = object.search.replace('#msearchword',encodeURIComponent(new_value));
-              var element = {};
-              element.img = './img/img_broken.svg';
-              element.original_title = '';
-              if (/^https:\/\/www\.aliyundrive\.com\/s\/[a-zA-Z\d]+/i.test(new_value)) {
-                element.title = '阿里云盘推送';
-                Lampa.Activity.push({
-                  url: new_value,
-                  title: '阿里云盘推送',
-                  component: 'yunpan2',
-                  movie: element,
-                  page: 1
-                });
-              } else if (/^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/i.test(new_value)) {
-                //   if (window.intentShim) {
-                //     window.plugins.intentShim.startActivity(
-                //         {
-                //             action: window.plugins.intentShim.ACTION_VIEW,
-                //             url: new_value
-                //         },
-                //         function () { },
-                //         function () { console.log('Failed to open URL via Android Intent') }
+        // var pushualiyunBut = $('<div class="head__action pushualiyunBut selector"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-airplay\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"></path><polygon points=\"12 15 17 21 7 21 12 15\"></polygon></svg></div>');
+        // $('.head__actions .open--notice').after(pushualiyunBut);
+        // pushualiyunBut.on('hover:enter click.hover', function () {
+        //   Lampa.Input.edit({
+        //     title: '填写阿里云盘分享或磁力链接 - 推送',
+        //     value: '',
+        //     free: true,
+        //     nosave: true
+        //   }, function (new_value) {
+        //     if (new_value) {
+        //       //console.log(new_value)
+        //       //var searchurl = object.search.replace('#msearchword',encodeURIComponent(new_value));
+        //       var element = {};
+        //       element.img = './img/img_broken.svg';
+        //       element.original_title = '';
+        //       if (/^https:\/\/www\.aliyundrive\.com\/s\/[a-zA-Z\d]+/i.test(new_value)) {
+        //         element.title = '阿里云盘推送';
+        //         Lampa.Activity.push({
+        //           url: new_value,
+        //           title: '阿里云盘推送',
+        //           component: 'yunpan2',
+        //           movie: element,
+        //           page: 1
+        //         });
+        //       } else if (/^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/i.test(new_value)) {
+        //         //   if (window.intentShim) {
+        //         //     window.plugins.intentShim.startActivity(
+        //         //         {
+        //         //             action: window.plugins.intentShim.ACTION_VIEW,
+        //         //             url: new_value
+        //         //         },
+        //         //         function () { },
+        //         //         function () { console.log('Failed to open URL via Android Intent') }
 
-                //     );
-                // };
-                // Lampa.Activity.backward();
-                var SERVER1 = {
-                  "title": '',
-                  "MagnetUri": new_value,
-                  "poster": ''
-                };
+        //         //     );
+        //         // };
+        //         // Lampa.Activity.backward();
+        //         var SERVER1 = {
+        //           "title": '',
+        //           "MagnetUri": new_value,
+        //           "poster": ''
+        //         };
 
-                Lampa.Torrent.start(SERVER1, {
-                  title: ''
-                });
-                Lampa.Controller.toggle('content');
-              };
+        //         Lampa.Torrent.start(SERVER1, {
+        //           title: ''
+        //         });
+        //         Lampa.Controller.toggle('content');
+        //       };
 
-              // Lampa.Activity.push({
-              //     //	url: cors + a.url,
-              //     url: searchurl,
-              //     quantity: object.quantity,
-              //     title: Lampa.Storage.get('online_web_balanser')+' - 搜索"'+new_value+'"',
-              //     component: 'mod_web',
-              //     show: object.show,
-              //     next: object.next,
-              //     search: object.search,
-              //     detail: object.detail,
-              //     page: 1
-              // });
-            }
-            else Lampa.Controller.toggle('content');
-          })
-          //$('.settings-input__title').before($('<div class=\"settings-input__title\"><div style=\"width:80px\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-cast\"> <path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path> <line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"></line> </svg></div><div style=\"height:15px\"></div></div>'));
-        });
+        //       // Lampa.Activity.push({
+        //       //     //	url: cors + a.url,
+        //       //     url: searchurl,
+        //       //     quantity: object.quantity,
+        //       //     title: Lampa.Storage.get('online_web_balanser')+' - 搜索"'+new_value+'"',
+        //       //     component: 'mod_web',
+        //       //     show: object.show,
+        //       //     next: object.next,
+        //       //     search: object.search,
+        //       //     detail: object.detail,
+        //       //     page: 1
+        //       // });
+        //     }
+        //     else Lampa.Controller.toggle('content');
+        //   })
+        //   //$('.settings-input__title').before($('<div class=\"settings-input__title\"><div style=\"width:80px\"><svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-cast\"> <path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path> <line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"></line> </svg></div><div style=\"height:15px\"></div></div>'));
+        // });
       }
     })
   }
