@@ -1108,8 +1108,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					//   js_execute_key: []
 					// },
 					// {
-					//   name: '独播库',
-					//   available: false,
+					//   name: '网站-独播库',
+					//   available: true,
 					//   websitelink: 'https://u.duboku.io',
 					//   listlink: true,
 					//   use_proxy: false,
@@ -1120,7 +1120,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					//   id_json: 'id',
 					//   first_page_json: '.html',
 					//   search_html_selector: '',
-					//   link_folder: 'voddetail',
+					//   link_folder: 'voddetail/',
 					//   detail_url_selector: 'div.tab-content.myui-panel_bd',
 					//   videoparse: 'default',
 					//   videocontainer: '.MacPlayer',
@@ -1334,6 +1334,11 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 						site_search_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=search&wd=') + '#msearchword',
 						site_detail_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://cj.ffzyapi.com/api.php/provide/vod/?ac=detail&ids=') + '#id'
 					},
+					// {
+					// 	site_name: '采集-无尽资源站',
+					// 	site_search_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://api.wujinapi.me/api.php/provide/vod/?ac=search&wd=') + '#msearchword',
+					// 	site_detail_url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://api.wujinapi.me/api.php/provide/vod/?ac=detail&ids=') + '#id'
+					// },
 					// {
 					//   site_name: '采集-人人影视',
 					//   site_search_url: 'https://www.188zy.org/api.php/provide/vod/?ac=search&wd=#msearchword',
@@ -3898,7 +3903,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				// 检查是否匹配到pid
 				if (match && match.length === 2) {
 					pid = parseInt(match[1], 10);
-					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"], function () {
+					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"], function () {
 						var currentTime = new Date().getTime();
 						var utf8Key = CryptoJS.enc.Utf8.parse(md5(pid + '-' + currentTime).substring(0, 16));
 						var encryptedData = CryptoJS.AES.encrypt(pid + '-' + currentTime, utf8Key, {
@@ -4223,7 +4228,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					// .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
 					.replace(/src="[^"]*crypto-js\.min\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
 					.replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
-					.replace(/src="[^"]*md5\.min\.js"/g, 'src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"')
+					.replace(/src="[^"]*md5\.min\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"')
 				// .replace('/v4/js/bdplayer.js?v=1.0.6', 'https://qu.ax/LpHD.js');
 				
 
