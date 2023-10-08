@@ -3906,7 +3906,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				// 检查是否匹配到pid
 				if (match && match.length === 2) {
 					pid = parseInt(match[1], 10);
-					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"], function () {
+					Lampa.Utils.putScriptAsync(["https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", "https://qu.ax/QlBB.js"], function () {
 						var currentTime = new Date().getTime();
 						var utf8Key = CryptoJS.enc.Utf8.parse(md5(pid + '-' + currentTime).substring(0, 16));
 						var encryptedData = CryptoJS.AES.encrypt(pid + '-' + currentTime, utf8Key, {
@@ -4231,7 +4231,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					// .replace(/<script[^>]*src=["'][^"']*crypto-js[^"']*["'][^>]*><\/script>/gi, '')
 					.replace(/src="[^"]*crypto-js\.min\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
 					.replace(/src="[^"]*crypto-js\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"')
-					.replace(/src="[^"]*md5\.min\.js"/g, 'src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"')
+					.replace(/src="[^"]*md5\.min\.js"/g, 'src="https://qu.ax/QlBB.js"')
 				// .replace('/v4/js/bdplayer.js?v=1.0.6', 'https://qu.ax/LpHD.js');
 				
 
