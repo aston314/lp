@@ -2683,9 +2683,9 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 										Lampa.Noty.show('因Referer限制，该视频只能在安卓上观看。');
 										Lampa.Controller.toggle('content');
 									  } else {
-										if (MacPlayer_.includes('cfnode1.xyz')){
-											MacPlayer_ = 'https://cors.eu.org/'+MacPlayer_
-										};
+										// if (MacPlayer_.includes('cfnode1.xyz')){
+										// 	MacPlayer_ = 'https://cors.eu.org/'+MacPlayer_
+										// };
 										network["native"](MacPlayer_, function (str) {
 										//   |'(https:\/\/[^\/]+aliyundrive\.net[^']+)'
 										  var urlPattern = /['|"](https?:\/\/[^'"]+\.(?:mp4|m3u8)[^'"]*)['|"]|var vid = '(.+?)';|var\s+urls\s*=\s*'([^']+)'/;
