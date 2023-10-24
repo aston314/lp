@@ -55,6 +55,15 @@
       "release_date": "2023-09-15"
     },
     {
+      "tmdbrate": 8.382,
+      "picture": "http://image.tmdb.org/t/p/w200/i8ugxqWYKnkLseLfljo4tliKFpi.jpg",
+      "name": "The Pianist",
+      "video": "magnet:?xt=urn:btih:BFACB5FE680A6B891A55567A9C44489249B94767&dn=The+Pianist+%282002%29+%282160p+BluRay+x265+HEVC+10bit+HDR+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Pianist (2002) (2160p BluRay x265 HEVC 10bit HDR AAC 5.1 Tigo...",
+      "cname": "钢琴家 ",
+      "release_date": "2002-09-17"
+    },
+    {
       "tmdbrate": 7.224,
       "picture": "http://image.tmdb.org/t/p/w200/w46nskOB96U19gk6iqcf9Y7YFRZ.jpg",
       "name": "Batman The Movie",
@@ -278,6 +287,15 @@
       "oname": "Bicentennial.Man.1999.1080p.WEBRip.x265-RBG",
       "cname": "机器管家 ",
       "release_date": "1999-12-17"
+    },
+    {
+      "tmdbrate": 0,
+      "picture": "http://image.tmdb.org/t/p/w200/fVC6z68GbLHqf4LCgJUGfArlzXb.jpg",
+      "name": "Milli Vanilli",
+      "video": "magnet:?xt=urn:btih:0DD4C76BCC2C1A38D64966EC9A192F90A5D70FB5&dn=Milli.Vanilli.2023.1080p.WEB.h264-OPUS%5BTGx%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Milli.Vanilli.2023.1080p.WEB.h264-OPUS[TGx]",
+      "cname": "Milli Vanilli ",
+      "release_date": "2023-06-10"
     },
     {
       "tmdbrate": 5.844,
