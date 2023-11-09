@@ -19,13 +19,13 @@
       "release_date": "2023-07-19"
     },
     {
-      "tmdbrate": 0,
-      "picture": "./img/img_broken.svg",
+      "tmdbrate": 4.5,
+      "picture": "http://image.tmdb.org/t/p/w200/1E5qIvLBNrv4onx5SxnNz5Monac.jpg",
       "name": "Fukrey 3",
       "video": "magnet:?xt=urn:btih:6ADA314DD65FEC91CFE404D43371E944F62226CA&dn=Fukrey+3+%282023%29+Hindi+720p+WEBRip+x264+AAC+ESub&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ft.nyaatracker.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=http%3A%2F%2Fvps02.net.orel.ru%3A80%2Fannounce&tr=udp%3A%2F%2Fvibe.sleepyinternetfun.xyz%3A1738%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Finferno.demonoid.is%3A3391%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
       "oname": "Fukrey 3 (2023) Hindi 720p WEBRip x264 AAC ESub",
       "cname": "Fukrey 3 ",
-      "release_date": ""
+      "release_date": "2023-09-28"
     },
     {
       "tmdbrate": 7.4,
@@ -109,6 +109,14 @@
       "release_date": "2022-09-09"
     },
     {
+      "tmdbrate": 8.189,
+      "picture": "http://image.tmdb.org/t/p/w200/lpMdJzQUD0gXafoFo5L92DNg9QU.jpg",
+      "name": "Mad",
+      "video": "magnet:?xt=urn:btih:974F5721EE72B24643E4BD933F4AFC0D1A4E396B&dn=Mad+%282023%29+HQ+HDRip+-+720p+-+x264+-+%28DD%2B5.1+-+192Kbps%29+%5BTamil+%2B+Malayalam+%2B+Kannada%5D+-+1.6GB+-+ESub&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Mad (2023) HQ HDRip - 720p - x264 - (DD+5.1 - 192Kbps) [Tamil + M...",
+      "cname": " "
+    },
+    {
       "tmdbrate": 0,
       "picture": "http://image.tmdb.org/t/p/w200/1Lg1mq2qUPjWYdN6FQ48AOYWG0l.jpg",
       "name": "Shot Boot Three",
@@ -125,6 +133,13 @@
       "oname": "Fuzzy.Head.2023.720p.WEBRip.800MB.x264-GalaxyRG",
       "cname": "Fuzzy Head ",
       "release_date": "2023-01-20"
+    },
+    {
+      "picture": "./img/img_broken.svg",
+      "name": "Geetha",
+      "video": "magnet:?xt=urn:btih:B2418D22B77BCB9DF85BEF239FDB823F5B13345E&dn=Geetha+%282023%29+Tamil+HQ+HDRip+-+720p+-+x264+-+AAC+-+1.3GB+-+ESub&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Geetha (2023) Tamil HQ HDRip - 720p - x264 - AAC - 1.3GB - ESub",
+      "cname": " "
     },
     {
       "tmdbrate": 9,
