@@ -46,6 +46,15 @@
       "release_date": "2002-10-02"
     },
     {
+      "tmdbrate": 7.439,
+      "picture": "http://image.tmdb.org/t/p/w200/9dyX0lTs5s378uDwVGhPgGJA9zz.jpg",
+      "name": "The Equalizer 3",
+      "video": "magnet:?xt=urn:btih:3793E40A90226249D8C7CEB323A28FB17106E81D&dn=The+Equalizer+3+%282023%29+%282160p+BluRay+x265+HEVC+10bit+HDR+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Equalizer 3 (2023) (2160p BluRay x265 HEVC 10bit HDR AAC 7.1 ...",
+      "cname": "伸冤人3 ",
+      "release_date": "2023-08-30"
+    },
+    {
       "tmdbrate": 7,
       "picture": "http://image.tmdb.org/t/p/w200/pYfvgsFrBwqwDNZMkV55pdYKESJ.jpg",
       "name": "Give Me Your Eyes",
@@ -53,15 +62,6 @@
       "oname": "Give.Me.Your.Eyes.2022.720p.WEBRip.800MB.x264-GalaxyRG",
       "cname": "Give Me Your Eyes ",
       "release_date": "2022-10-31"
-    },
-    {
-      "tmdbrate": 8.231,
-      "picture": "http://image.tmdb.org/t/p/w200/a6v21Mgz2w6OQL7ezkQxGbGA92W.jpg",
-      "name": "Oppenheimer",
-      "video": "magnet:?xt=urn:btih:82F2F03674CBE8FAF379D230DC26CC6EEDE0B15F&dn=+Oppenheimer+%282023%29+iTA-ENG.Bluray.1080p.x264-Dr4gon+MIRCrew.mkv&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Finferno.demonoid.is%3A3391%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Oppenheimer (2023) iTA-ENG.Bluray.1080p.x264-Dr4gon MIRCrew.mkv",
-      "cname": "奥本海默 ",
-      "release_date": "2023-07-19"
     },
     {
       "tmdbrate": 7.327,
@@ -82,7 +82,7 @@
       "release_date": "2023-11-12"
     },
     {
-      "tmdbrate": 7.065,
+      "tmdbrate": 7.067,
       "picture": "http://image.tmdb.org/t/p/w200/nZwKjWdLXS6JYz6qOMhQErUXiGz.jpg",
       "name": "The Creator",
       "video": "magnet:?xt=urn:btih:A8569F03F9A0420084B7DA584ECB46F180134222&dn=The+Creator+2023+1080p+WEB-DL+NF+HEVC+x265+10-Bit+DD5-1+M-Subs++KINGDOM+RG&tr=udp%3A%2F%2Finferno.demonoid.is%3A3391%2Fannounce&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=https%3A%2F%2Ftr.burnabyhighstar.com%3A443%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%3A80%2Fannounce&tr=https%3A%2F%2Ftracker1.520.jp%3A443%2Fannounce&tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
