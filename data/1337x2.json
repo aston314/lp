@@ -1,15 +1,6 @@
 {
   "data": [
     {
-      "tmdbrate": 8.2,
-      "picture": "http://image.tmdb.org/t/p/w200/7wYG2Rowz7TwOosomGBvuqLAfe5.jpg",
-      "name": "Oppenheimer",
-      "video": "magnet:?xt=urn:btih:E486EA6D549E2E60CFF4F0F1194C0A65694BD123&dn=Oppenheimer+%282023%29+%5B2160p%5D+%5BHDR%5D+%28bluray%29+%5BWMAN-LorD%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Foh.fuuuuuck.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fhtz3.noho.st%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Fepider.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Oppenheimer (2023) [2160p] [HDR] (bluray) [WMAN-LorD]",
-      "cname": "奥本海默 ",
-      "release_date": "2023-07-19"
-    },
-    {
       "tmdbrate": 6.583,
       "picture": "http://image.tmdb.org/t/p/w200/4PPTeLVBrVRK71iU551N1OKvFtF.jpg",
       "name": "Trolls Band Together",
@@ -55,6 +46,15 @@
       "release_date": "2023-11-10"
     },
     {
+      "tmdbrate": 7.314,
+      "picture": "http://image.tmdb.org/t/p/w200/iIZpbqWz6rtPZfZhukzKbz8qSTH.jpg",
+      "name": "The Hunger Games: The Ballad of Songbirds & Snakes",
+      "video": "magnet:?xt=urn:btih:CADEEBEA0DAF564149A761637959DA0C03B45793&dn=The+Hunger+Games%3A+The+Ballad+of+Songbirds+%26amp%3B+Snakes+1080p+HDTS+%28Eng%29+1.6GB+NO+ADS+-+Cukister&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=https%3A%2F%2Ftracker2.ctix.cn%3A443%2Fannounce&tr=https%3A%2F%2Ftracker1.520.jp%3A443%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=https%3A%2F%2Ftracker.gbitt.info%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Hunger Games: The Ballad of Songbirds & Snakes 1080p HDTS (En...",
+      "cname": "饥饿游戏：鸣鸟与蛇之歌 ",
+      "release_date": "2023-11-15"
+    },
+    {
       "tmdbrate": 7.26,
       "picture": "http://image.tmdb.org/t/p/w200/tG28lyxt9eBUCCx5WL6EKjQB72R.jpg",
       "name": "The Creator",
@@ -98,15 +98,6 @@
       "oname": "Expend4bles (2023) (1080p BluRay x265 HEVC 10bit AAC 7.1 Tigole) ...",
       "cname": "敢死队4：最终章 ",
       "release_date": "2023-09-15"
-    },
-    {
-      "tmdbrate": 8.098,
-      "picture": "http://image.tmdb.org/t/p/w200/4ib0T69ZsAM3q3z0FOFrH6FgReT.jpg",
-      "name": "Sound of Freedom",
-      "video": "magnet:?xt=urn:btih:A62C5D1EF95453A5C305EE365B0497BF5BDA6FC5&dn=Sound+of+Freedom+%282023%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Sound of Freedom (2023) (1080p BluRay x265 HEVC 10bit AAC 5.1 Tig...",
-      "cname": "自由之声 ",
-      "release_date": "2023-07-03"
     },
     {
       "tmdbrate": 6.5,
@@ -190,6 +181,14 @@
       "release_date": "2023-09-26"
     },
     {
+      "tmdbrate": 8.3,
+      "picture": "http://image.tmdb.org/t/p/w200/6U9CPeD8obHzweikFhiLhpc7YBT.jpg",
+      "name": "Fargo",
+      "video": "magnet:?xt=urn:btih:ECE42B5B31468773704429FA8DA6E50F44C8996A&dn=Fargo+%281996%29+RM4K+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Fargo (1996) RM4K (1080p BluRay x265 HEVC 10bit AAC 5.1 Tigole) [...",
+      "cname": " "
+    },
+    {
       "tmdbrate": 8.083,
       "picture": "http://image.tmdb.org/t/p/w200/tZfqnv313rtLKxUsnh87AW1ofkz.jpg",
       "name": "Dashing Through the Snow",
@@ -208,15 +207,6 @@
       "release_date": "2023-10-19"
     },
     {
-      "tmdbrate": 5.3,
-      "picture": "http://image.tmdb.org/t/p/w200/y0IyN8X6FvBHYsbeDqMGD8pWALc.jpg",
-      "name": "Behind Convent Walls",
-      "video": "magnet:?xt=urn:btih:687333B6841F95D02E32AA7298529EAC361DD811&dn=Behind.Convent.Walls.1978.%28Adult-Erotica%29.720p.x264-Classics&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Behind.Convent.Walls.1978.(Adult-Erotica).720p.x264-Classics",
-      "cname": "修道院的故事 ",
-      "release_date": "1978-01-25"
-    },
-    {
       "tmdbrate": 6.8,
       "picture": "http://image.tmdb.org/t/p/w200/4WfzdlUXUAd1QA6xmbbNH89Kgbo.jpg",
       "name": "EXmas",
@@ -226,22 +216,13 @@
       "release_date": "2023-11-17"
     },
     {
-      "tmdbrate": 10,
-      "picture": "http://image.tmdb.org/t/p/w200/5fAF5TjJLnVLOfWpxkPpdNtSgTg.jpg",
-      "name": "Call Me Alma",
-      "video": "magnet:?xt=urn:btih:CE643675003E4CF9AC734742440687E887FCD2A4&dn=Call.Me.Alma.2023.Explicit.1080p.VMAX.WEB-DL.AAC2.0.H.264-QRips&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Call.Me.Alma.2023.Explicit.1080p.VMAX.WEB-DL.AAC2.0.H.264-QRips",
-      "cname": "我叫阿尔玛 ",
-      "release_date": "2023-08-10"
-    },
-    {
-      "tmdbrate": 6.897,
-      "picture": "http://image.tmdb.org/t/p/w200/mmPE7QgGg5mnWjcAQJJTtLDW2qy.jpg",
-      "name": "The Brave Little Toaster",
-      "video": "magnet:?xt=urn:btih:0D6A03B290B6DD448AEB2F57CB6331F57896B630&dn=The+Brave+Little+Toaster+1987+1080p+UPSCALED+DD+5.1+x265-EDGE2020&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "The Brave Little Toaster 1987 1080p UPSCALED DD 5.1 x265-EDGE2020",
-      "cname": "The Brave Little Toaster ",
-      "release_date": "1987-07-09"
+      "tmdbrate": 5.3,
+      "picture": "http://image.tmdb.org/t/p/w200/y0IyN8X6FvBHYsbeDqMGD8pWALc.jpg",
+      "name": "Behind Convent Walls",
+      "video": "magnet:?xt=urn:btih:687333B6841F95D02E32AA7298529EAC361DD811&dn=Behind.Convent.Walls.1978.%28Adult-Erotica%29.720p.x264-Classics&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Behind.Convent.Walls.1978.(Adult-Erotica).720p.x264-Classics",
+      "cname": "修道院的故事 ",
+      "release_date": "1978-01-25"
     },
     {
       "tmdbrate": 7.5,
@@ -251,6 +232,15 @@
       "oname": "A Christmas Vintage 2023 1080p WEB-DL HEVC x265-RMTeam",
       "cname": "A Christmas Vintage ",
       "release_date": "2023-11-01"
+    },
+    {
+      "tmdbrate": 6.897,
+      "picture": "http://image.tmdb.org/t/p/w200/mmPE7QgGg5mnWjcAQJJTtLDW2qy.jpg",
+      "name": "The Brave Little Toaster",
+      "video": "magnet:?xt=urn:btih:0D6A03B290B6DD448AEB2F57CB6331F57896B630&dn=The+Brave+Little+Toaster+1987+1080p+UPSCALED+DD+5.1+x265-EDGE2020&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Brave Little Toaster 1987 1080p UPSCALED DD 5.1 x265-EDGE2020",
+      "cname": "The Brave Little Toaster ",
+      "release_date": "1987-07-09"
     },
     {
       "tmdbrate": 6.78,
