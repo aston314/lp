@@ -28,13 +28,22 @@
       "release_date": "2023-11-11"
     },
     {
-      "tmdbrate": 6.676,
+      "tmdbrate": 6.677,
       "picture": "http://image.tmdb.org/t/p/w200/fWxkYvm69q9731RfWvwcQdu5LPD.jpg",
       "name": "Indiana Jones and the Dial of Destiny",
       "video": "magnet:?xt=urn:btih:92B1F5FAD701D851BF68E72DA741E8CAD92A0AA2&dn=Indiana+Jones+and+the+Dial+of+Destiny+%282023%29+BluRay+1080p+x264+AAC+-+NoGroup&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
       "oname": "Indiana Jones and the Dial of Destiny (2023) BluRay 1080p x264 AA...",
       "cname": "夺宝奇兵5：命运转盘 ",
       "release_date": "2023-06-28"
+    },
+    {
+      "tmdbrate": 4.7,
+      "picture": "http://image.tmdb.org/t/p/w200/qxzvnYojoe2yufub67aDp5prlMp.jpg",
+      "name": "Zombie Town",
+      "video": "magnet:?xt=urn:btih:5AA02EE352E0E4071F29B27CCE04ADA9C0C94EBC&dn=Zombie.Town.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Zombie.Town.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG",
+      "cname": "丧尸之城 ",
+      "release_date": "2023-09-01"
     },
     {
       "tmdbrate": 8.181,
@@ -62,6 +71,14 @@
       "oname": "Cutthroat Island (1995) RM4K (1080p BluRay x265 HEVC 10bit AAC 5....",
       "cname": "割喉岛 ",
       "release_date": "1995-12-22"
+    },
+    {
+      "tmdbrate": 7,
+      "picture": "http://image.tmdb.org/t/p/w200/3IuvPJWRLDsqPjWZu02BLGG38tw.jpg",
+      "name": "The Trial",
+      "video": "magnet:?xt=urn:btih:15EB676206F354A895205C549C7ECBF80B5A51F2&dn=The+Trial+%281962%29+RM4K+1080p+BluRay+x265+HEVC+FLAC+MULTI-SARTRE&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "The Trial (1962) RM4K 1080p BluRay x265 HEVC FLAC MULTI-SARTRE",
+      "cname": " "
     },
     {
       "tmdbrate": 6.567,
