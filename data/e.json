@@ -19,6 +19,13 @@
                     "available_lampa": 1
                 },
                 {
+                    "name": "阿里云盘",
+                    "author": "@abe",
+                    "link": "https://qu.ax/wqho.js",
+                    "descr": "您能够观看阿里云盘内容。",
+                    "available_lampa": 1
+                },
+                {
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "https://cub.red/plugin/tmdb-proxy",
@@ -226,7 +233,7 @@
                     "name": "World Radio",
                     "author": "@abe",
                     "link": "https://qu.ax/LedX.js",
-                    "descr": "支持新加坡、马来西亚电台",
+                    "descr": "可在线收听新加坡、马来西亚电台",
                     "available_lampa": 1
                 }
             ],
