@@ -29,7 +29,7 @@
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "https://cub.red/plugin/tmdb-proxy",
-                    "descr": "是一个官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。这样的功能可能会为您提供方便，使您能够浏览和收集喜欢的电影海报。",
+                    "descr": "官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。这样的功能可能会为您提供方便，使您能够浏览和收集喜欢的电影海报。",
                     "available_lampa": 1
                 }
             ],
@@ -118,7 +118,7 @@
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/tmdb-proxy",
-                    "descr": "是一个官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。要激活，请打开设置、TMDB 选项卡，启用 TMDB 代理。",
+                    "descr": "官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。要激活，请打开设置、TMDB 选项卡，启用 TMDB 代理。",
                     "available_lampa": 1
                 },
                 {
@@ -166,7 +166,7 @@
                     "name": "Tracks",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/tracks",
-                    "descr": "这是一个官方插件，它能够让内置播放器显示种子文件中的音轨和字幕的名称。该插件仅适用于播放种子文件中的内容。",
+                    "descr": "官方插件，它能够让内置播放器显示种子文件中的音轨和字幕的名称。该插件仅适用于播放种子文件中的内容。",
                     "available_lampa": 1
                 },
                 {
@@ -200,7 +200,7 @@
                     "name": "IPTV",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/iptv",
-                    "descr": "这是一个官方插件，专门用于观看IPTV频道。它提供了对频道进行分组和将频道添加到收藏夹的功能。该插件仅适用于在 https://cub.red/iptv 上添加的个人播放列表。",
+                    "descr": "官方插件，专门用于观看IPTV频道。它提供了对频道进行分组和将频道添加到收藏夹的功能。该插件仅适用于在 https://cub.red/iptv 上添加的个人播放列表。",
                     "available_lampa": 1
                 }
             ],
