@@ -199,7 +199,7 @@
                 {
                     "name": "ipTV",
                     "author": "@rootu",
-                    "link": "https://plugin.rootu.top/tv.js",
+                    "link": "http://plugin.rootu.top/tv.js",
                     "descr": "一个用于免费观看直播电视频道的插件，支持导入网络M3U节目列表以及EPG电视预告源。",
                     "available_lampa": 1
                 },
