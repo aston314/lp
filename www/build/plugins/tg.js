@@ -113,14 +113,14 @@
             // };
             //console.log(page)
             $('div.tgme_widget_message_wrap.js-widget_message_wrap', str).each(function (i, html) {
-                if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)) {
+                if ($('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.(aliyundrive\.com|alipan\.com)\/s\/([a-zA-Z\d]+)/)) {
                     card.push({
                         //title: catalogs1[0].list.title.attrName =='text' ? t1.text().replace(/( 第.+?季)/,'') : t1.attr(catalogs1[0].list.title.attrName).replace(/( 第.+?季)/,''),
                         title: $('.tgme_widget_message_text.js-message_text', html).html().match(/(.+?)<br>/) ? $('.tgme_widget_message_text.js-message_text', html).html().match(/(.+?)<br>/)[1].replace(/(<([^>]+)>)/ig, '').replace(/中文片名：|◎译　　名　|资源标题：|资源名称：|名称：/, ''):'',
                         original_title: '',
                         title_org: '',
                         //url: catalogs1[0].list.link.attrName =='text' ? host+u1.text() : host+u1.attr(catalogs1[0].list.link.attrName),
-                        url: $('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/) ? $('.tgme_widget_message_text.js-message_text', html).text().replace(/4K影视/g, ' ').match(/https:\/\/www\.aliyundrive\.com\/s\/([a-zA-Z\d]+)/)[0] : '',
+                        url: $('.tgme_widget_message_text.js-message_text', html).text().match(/https:\/\/www\.aliyundrive\.com|alipan\.com\/s\/([a-zA-Z\d]+)/) ? $('.tgme_widget_message_text.js-message_text', html).text().replace(/4K影视/g, ' ').match(/https:\/\/www\.aliyundrive\.com|alipan\.com\/s\/([a-zA-Z\d]+)/)[0] : '',
                         //img: catalogs1[0].list.thumb.attrName =='text' ? (i1.text().indexOf('http') == -1 ? host+i1.text() : i1.text()) : (i1.attr(catalogs1[0].list.thumb.attrName).indexOf('http') == -1 ? host+i1.attr(catalogs1[0].list.thumb.attrName) : i1.attr(catalogs1[0].list.thumb.attrName)),
                         img: $('.tgme_widget_message_photo_wrap', html).attr('style') ? $('.tgme_widget_message_photo_wrap', html).attr('style').match(/url\('(.+?)'\)/)[1] : './img/img_broken.svg',
                         quantity: ' ',

@@ -1105,7 +1105,7 @@
                         //     listdata = data.result.playlists;
                         //     havedata = data.result.playlists
                         // }
-                        havedata = data.result;
+                        havedata = data.result.songs;
                     }
                     break;
                 case 'albums':
