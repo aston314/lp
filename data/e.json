@@ -264,13 +264,6 @@
                     "available_lampa": 1
                 },
                 {
-                    "name": "退出",
-                    "author": "@AndreyURL54",
-                    "link": "http://95.215.8.180/plugins/mult.js",
-                    "descr": "该插件在左侧菜单底部中增加了一个退出项。",
-                    "available_lampa": 1
-                },
-                {
                     "name": "关闭触摸",
                     "author": "@t_anton",
                     "link": "https://nb557.github.io/plugins/not_mobile.js",
