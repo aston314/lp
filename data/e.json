@@ -109,16 +109,16 @@
             "results": [
                 {
                     "name": "TMDB代理",
-                    "author": "@t_anton",
-                    "link": "https://cub.red/plugin/tmdb-proxy",
-                    "descr": "是一个官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。这样的功能可能会为您提供方便，使您能够浏览和收集喜欢的电影海报。",
+                    "author": "@lampa",
+                    "link": "http://cub.red/plugin/tmdb-proxy",
+                    "descr": "是一个官方插件，该插件通过代理访问TMDB网站，使您能够查看和获取TMDB网站上的电影海报。要激活，请打开设置、TMDB 选项卡，启用 TMDB 代理。",
                     "available_lampa": 1
                 },
                 {
                     "name": "Netflix样式",
                     "author": "@lampa",
                     "link": "http://lampa32.ru/interface.js",
-                    "descr": "用类似 Netflix 风格进行内容展示。",
+                    "descr": "用类似 Netflix 风格进行内容展示，那些喜欢电影搜索或 Netflix 界面的人会喜欢它。",
                     "available_lampa": 1
                 },
                 {
@@ -247,7 +247,7 @@
                     "name": "听歌",
                     "author": "@abe",
                     "link": "https://qu.ax/PhO.js",
-                    "descr": "听音乐",
+                    "descr": "听热门音乐",
                     "available_lampa": 1
                 }
             ],
