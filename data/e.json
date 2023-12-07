@@ -107,6 +107,13 @@
                     "link": "https://qu.ax/UagC.js",
                     "descr": "您能够查看豆瓣上的电影和电视剧内容，清晰的分类方便您观影。",
                     "available_lampa": 1
+                },
+                {
+                    "name": "小雅Alist",
+                    "author": "@abe",
+                    "link": "https://qu.ax/lmnZ.js",
+                    "descr": "您能够查看小雅整理的影视列表，需要配合Alist插件使用。",
+                    "available_lampa": 1
                 }
             ],
             "hpu": "video"
