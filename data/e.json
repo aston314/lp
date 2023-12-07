@@ -1,0 +1,175 @@
+{
+  "secuses": true,
+  "results": [
+    {
+      "title": "热门",
+      "results": [
+        {
+          "name": "在线模式",
+          "author": "@t_anton",
+          "link": "https://nb557.github.io/plugins/online_mod.js",
+          "descr": "在线观看电影和系列，提供超过10个用于观看的平衡器。",
+          "available_lampa": 1
+        },
+        {
+          "name": "Skaz电视",
+          "author": "@helpiptv",
+          "link": "http://skaztv.online/tv.js",
+          "descr": "IPTV 电视。主要包括地面、娱乐、儿童和体育频道。祝您观影愉快！",
+          "available_lampa": 1
+        },
+        {
+          "name": "MODS's",
+          "author": "@modss_group",
+          "link": "http://lampa.stream/modss",
+          "descr": "在线观看电影和系列。通过Modss设置菜单提供17个平衡器和各种附加功能。",
+          "available_lampa": 1
+        }
+      ],
+      "hpu": "best"
+    },
+    {
+      "title": "视频",
+      "results": [
+        {
+          "name": "在线模式",
+          "author": "@t_anton",
+          "link": "https://nb557.github.io/plugins/online_mod.js",
+          "descr": "在线观看电影和系列，提供超过10个用于观看的平衡器。",
+          "available_lampa": 1
+        },
+        {
+          "name": "MODS's",
+          "author": "@modss_group",
+          "link": "http://lampa.stream/modss",
+          "descr": "在线观看电影和系列。通过Modss设置菜单提供17个平衡器和各种附加功能。",
+          "available_lampa": 1
+        },
+        {
+          "name": "在线Prestige",
+          "author": "",
+          "link": "https://bwa.to/plugins/prestige.js",
+          "descr": "老式但仍然可用的在线观看插件，提供3个平衡器。",
+          "available_lampa": 1
+        },
+        {
+          "name": "BwaJS",
+          "author": "@bwato",
+          "link": "https://bwa.to/o",
+          "descr": "需要WebAssembly支持和Chrome版本大于80。",
+          "available_lampa": 1
+        }
+      ],
+      "hpu": "video"
+    },
+    {
+      "title": "管理",
+      "results": [
+        {
+          "name": "在菜单中添加\"解析器\"项",
+          "author": "@lampa",
+          "link": "http://cub.red/plugin/etor",
+          "descr": "用于通过官方LG Store和Tizen App Store安装的Lampa电视的电视插件。在设置中包括解析器和Torrserver项的显示。",
+          "available_lampa": 1
+        },
+        {
+          "name": "控制类型",
+          "author": "@nemiroff",
+          "link": "https://nemiroff.github.io/lampa/select_weapon.js",
+          "descr": "允许选择控制类型（无鼠标遥控、带鼠标的遥控、触摸屏），并重新设置先前选择的控制类型。",
+          "available_lampa": 1
+        },
+        {
+          "name": "老式风格（书签、喜欢、稍后）",
+          "author": "@VitalikPVA",
+          "link": "http://github.freebie.tom.ru/want.js",
+          "descr": "在主菜单中还原项目的旧式显示样式（书签、喜欢、稍后）。",
+          "available_lampa": 1
+        },
+        {
+          "name": "重置字幕设置",
+          "author": "@t_anton",
+          "link": "https://nb557.github.io/plugins/reset_subs.js",
+          "descr": "将字幕设置重置为默认值。",
+          "available_lampa": 1
+        },
+        {
+          "name": "动画片",
+          "author": "@AndreyURL54",
+          "link": "http://95.215.8.180/plugins/mult.js",
+          "descr": "将\"动漫\"替换为\"动画片\"。",
+          "available_lampa": 1
+        },
+        {
+          "name": "关闭触摸",
+          "author": "@t_anton",
+          "link": "https://nb557.github.io/plugins/not_mobile.js",
+          "descr": "如果错误地启用了触摸控制，可以关闭它。",
+          "available_lampa": 1
+        }
+      ],
+      "hpu": "control"
+    },
+    {
+      "title": "电视",
+      "results": [
+        {
+          "name": "Skaz电视",
+          "author": "@helpiptv",
+          "link": "http://skaztv.online/tv.js",
+          "descr": "免费频道和1400多个订阅频道。",
+          "available_lampa": 1
+        },
+        {
+          "name": "Kulik",
+          "author": "@SawamuraRen",
+          "link": "http://cdn.kulik.uz/cors",
+          "descr": "按不同类别排序的IPTV频道的观看。您可以更改插件的样式、广播服务器，并将频道添加到收藏夹。",
+          "available_lampa": 1
+        },
+        {
+          "name": "Skaz电视2.0",
+          "author": "@helpiptv",
+          "link": "http://skaztv.online/tv2.js",
+          "descr": "基于IPTV的Skaz电视插件的版本。",
+          "available_lampa": 1
+        },
+        {
+          "name": "草莓18+",
+          "author": "@sisi",
+          "link": "https://sisi.am/nyam.js",
+          "descr": "在线观看成人内容，超过30个网站。",
+          "available_lampa": 1
+        }
+      ],
+      "hpu": "tv"
+    },
+    {
+      "title": "其他",
+      "results": [
+        {
+          "name": "TS预加载",
+          "author": "@rootu",
+          "link": "https://plugin.rootu.top/ts-preload.js",
+          "descr": "用于内置TorrServer客户端的种子可视化预加载插件。",
+          "available_lampa": 1
+        },
+        {
+          "name": "小技巧",
+          "author": "@AndreyURL54",
+          "link": "https://skaztv.online/js/tricks.js",
+          "descr": "增加一些受欢迎功能和设计的补充，您一直在寻找的功能。 （修改版，不检查MSX）。",
+          "available_lampa": 1
+        },
+        {
+          "name": "关闭Websocket",
+          "author": "@rootu",
+          "link": "http://plugin.rootu.top/wsoff.js",
+          "descr": "该插件关闭WebSocket协议，在某些设备上有助于解决错误。",
+          "available_lampa": 1
+        }
+      ],
+      "hpu": "other"
+    }
+  ]
+}
