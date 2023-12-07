@@ -132,47 +132,6 @@
             "hpu": "interface"
         },
         {
-            "title": "管理",
-            "results": [
-                {
-                    "name": "控制类型",
-                    "author": "@nemiroff",
-                    "link": "https://nemiroff.github.io/lampa/select_weapon.js",
-                    "descr": "允许选择控制类型（无鼠标遥控、带鼠标的遥控、触摸屏），并重新设置先前选择的控制类型。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "老式风格（书签、喜欢、稍后）",
-                    "author": "@VitalikPVA",
-                    "link": "http://github.freebie.tom.ru/want.js",
-                    "descr": "在主菜单中还原项目的旧式显示样式（书签、喜欢、稍后）。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "重置字幕设置",
-                    "author": "@t_anton",
-                    "link": "https://nb557.github.io/plugins/reset_subs.js",
-                    "descr": "将字幕设置重置为默认值。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "退出",
-                    "author": "@AndreyURL54",
-                    "link": "http://95.215.8.180/plugins/mult.js",
-                    "descr": "该插件在左侧菜单底部中增加了一个退出项。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "关闭触摸",
-                    "author": "@t_anton",
-                    "link": "https://nb557.github.io/plugins/not_mobile.js",
-                    "descr": "如果错误地启用了触摸控制，可以关闭它。",
-                    "available_lampa": 1
-                }
-            ],
-            "hpu": "control"
-        },
-        {
             "title": "种子",
             "results": [
                 {
@@ -272,6 +231,47 @@
                 }
             ],
             "hpu": "radio"
+        },
+        {
+            "title": "管理",
+            "results": [
+                {
+                    "name": "控制类型",
+                    "author": "@nemiroff",
+                    "link": "https://nemiroff.github.io/lampa/select_weapon.js",
+                    "descr": "允许选择控制类型（无鼠标遥控、带鼠标的遥控、触摸屏），并重新设置先前选择的控制类型。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "老式风格（书签、喜欢、稍后）",
+                    "author": "@VitalikPVA",
+                    "link": "http://github.freebie.tom.ru/want.js",
+                    "descr": "在主菜单中还原项目的旧式显示样式（书签、喜欢、稍后）。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "重置字幕设置",
+                    "author": "@t_anton",
+                    "link": "https://nb557.github.io/plugins/reset_subs.js",
+                    "descr": "将字幕设置重置为默认值。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "退出",
+                    "author": "@AndreyURL54",
+                    "link": "http://95.215.8.180/plugins/mult.js",
+                    "descr": "该插件在左侧菜单底部中增加了一个退出项。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "关闭触摸",
+                    "author": "@t_anton",
+                    "link": "https://nb557.github.io/plugins/not_mobile.js",
+                    "descr": "如果错误地启用了触摸控制，可以关闭它。",
+                    "available_lampa": 1
+                }
+            ],
+            "hpu": "control"
         }
     ]
 }
