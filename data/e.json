@@ -53,6 +53,27 @@
                     "available_lampa": 1
                 },
                 {
+                    "name": "阿里云盘",
+                    "author": "@abe",
+                    "link": "https://qu.ax/wqho.js",
+                    "descr": "您能够观看阿里云盘内容。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "Alist",
+                    "author": "@abe",
+                    "link": "https://qu.ax/rPw.js",
+                    "descr": "您能够观看Alist内容。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "PikPak",
+                    "author": "@abe",
+                    "link": "https://qu.ax/DacD.js",
+                    "descr": "您能够观看PikPak内容，该插件使用第三方接口，如担心数据风险，请勿使用。",
+                    "available_lampa": 1
+                },
+                {
                     "name": "低端视频",
                     "author": "@abe",
                     "link": "https://qu.ax/hoq.js",
@@ -78,27 +99,6 @@
                     "author": "@abe",
                     "link": "https://qu.ax/Drae.js",
                     "descr": "您能够在线观看体育直播赛事。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "阿里云盘",
-                    "author": "@abe",
-                    "link": "https://qu.ax/wqho.js",
-                    "descr": "您能够观看阿里云盘内容。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "Alist",
-                    "author": "@abe",
-                    "link": "https://qu.ax/rPw.js",
-                    "descr": "您能够观看Alist内容。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "PikPak",
-                    "author": "@abe",
-                    "link": "https://qu.ax/DacD.js",
-                    "descr": "您能够观看PikPak内容，该插件使用第三方接口，如担心数据风险，请勿使用。",
                     "available_lampa": 1
                 },
                 {
