@@ -7,15 +7,15 @@
                 {
                     "name": "网站",
                     "author": "@abe",
-                    "link": "http://skaztv.online/tv.js",
+                    "link": "https://qu.ax/gKhl.js",
                     "descr": "可以通过导入自定义规则查看视频网站内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "在线观看",
                     "author": "@abe",
-                    "link": "http://cdn.kulik.uz/cors",
-                    "descr": "提供了便利的功能，在线观看电影和连续剧。请确保遵守适用法律和使用平台的使用条款，以确保您的观影体验合法和符合相关规定。",
+                    "link": "https://qu.ax/yWJg.js",
+                    "descr": "提供了便利的功能，使您能够在线观看电影和连续剧。请确保遵守适用法律和使用平台的使用条款，以确保您的观影体验合法和符合相关规定。",
                     "available_lampa": 1
                 },
                 {
@@ -33,78 +33,71 @@
             "results": [
                 {
                     "name": "网站",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/gKhl.js",
                     "descr": "可以通过导入自定义规则查看视频网站内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "在线观看",
-                    "author": "@SawamuraRen",
-                    "link": "http://cdn.kulik.uz/cors",
+                    "author": "@abe",
+                    "link": "https://qu.ax/yWJg.js",
                     "descr": "提供了便利的功能，使您能够在线观看电影和连续剧。请确保遵守适用法律和使用平台的使用条款，以确保您的观影体验合法和符合相关规定。",
                     "available_lampa": 1
                 },
                 {
                     "name": "低端视频",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/hoq.js",
                     "descr": "您能够在线观看低端视频网上的电影和连续剧。",
                     "available_lampa": 1
                 },
                 {
                     "name": "DYD",
-                    "author": "@sisi",
-                    "link": "https://sisi.am/nyam.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/iRd.js",
                     "descr": "您能够查看DYD网站上的内容（云盘）。",
                     "available_lampa": 1
                 },
                 {
                     "name": "频道",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/NUBz.js",
                     "descr": "您能够查看电报上相关频道的内容（云盘）。",
                     "available_lampa": 1
                 },
                 {
                     "name": "体育",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/Drae.js",
                     "descr": "您能够在线观看体育直播赛事。",
                     "available_lampa": 1
                 },
                 {
                     "name": "阿里云盘",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/wqho.js",
                     "descr": "您能够观看阿里云盘内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "Alist",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
-                    "descr": "您能够观看Alist内容。",
-                    "available_lampa": 1
-                },
-                {
-                    "name": "Alist",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/rPw.js",
                     "descr": "您能够观看Alist内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "PikPak",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/DacD.js",
                     "descr": "您能够观看PikPak内容，该插件使用第三方接口，如担心数据风险，请勿使用。",
                     "available_lampa": 1
                 },
                 {
                     "name": "豆瓣",
-                    "author": "@helpiptv",
-                    "link": "http://skaztv.online/tv2.js",
+                    "author": "@abe",
+                    "link": "https://qu.ax/UagC.js",
                     "descr": "您能够查看豆瓣上的电影和电视剧内容，清晰的分类方便您观影。",
                     "available_lampa": 1
                 }
@@ -131,7 +124,7 @@
                 {
                     "name": "影评",
                     "author": "@abe",
-                    "link": "https://bwa.to/plugins/prestige.js",
+                    "link": "https://qu.ax/xNA.js",
                     "descr": "在影片详情卡片上添加一个查看影评的按钮，使用户能够方便地查看关电影或连续剧的评论。",
                     "available_lampa": 1
                 }
@@ -185,14 +178,14 @@
                 {
                     "name": "磁力搜索",
                     "author": "@abe",
-                    "link": "https://skaztv.online/js/tricks.js",
+                    "link": "https://qu.ax/EiTb.js",
                     "descr": "支持流行的种子网站，你可以在这些网站上搜索你想要的内容：1337x、Piratebay、Nyaasi、Torlock、Torrent Galaxy、Zooqle、Kickass、Bitsearch、MagnetDL、Libgen、YTS、Limetorrent、TorrentFunk、Glodls、TorrentProject 和 YourBittorrent。请注意，访问这些网站和下载种子文件可能受到法律限制，具体取决于你所在的地区和当地的法律规定。确保你在符合法律的前提下使用这些网站。",
                     "available_lampa": 1
                 },
                 {
                     "name": "1337x",
                     "author": "@abe",
-                    "link": "http://plugin.rootu.top/wsoff.js",
+                    "link": "https://qu.ax/YXbx.js",
                     "descr": "查看1377x.to网站上电影栏目内容。",
                     "available_lampa": 1
                 },
@@ -204,10 +197,10 @@
                     "available_lampa": 1
                 },
                 {
-                    "name": "1337x",
+                    "name": "1337x热门电影",
                     "author": "@abe",
-                    "link": "http://plugin.rootu.top/wsoff.js",
-                    "descr": "查看1377x.to网站上电影栏目内容。",
+                    "link": "https://qu.ax/WgyV.js",
+                    "descr": "1377x.to热门电影分类。",
                     "available_lampa": 1
                 },
                 {
@@ -253,7 +246,7 @@
                 {
                     "name": "听歌",
                     "author": "@abe",
-                    "link": "https://plugin.rootu.top/tv.js",
+                    "link": "https://qu.ax/PhO.js",
                     "descr": "听音乐",
                     "available_lampa": 1
                 }
@@ -266,14 +259,14 @@
                 {
                     "name": "电台",
                     "author": "@abe",
-                    "link": "https://plugin.rootu.top/tv.js",
+                    "link": "https://qu.ax/Buzs.js",
                     "descr": "持国内大部分广播频道，带你感受声音的故事。",
                     "available_lampa": 1
                 },
                 {
                     "name": "World Radio",
                     "author": "@abe",
-                    "link": "http://cub.red/plugin/iptv",
+                    "link": "https://qu.ax/LedX.js",
                     "descr": "支持新加坡、马来西亚电台",
                     "available_lampa": 1
                 }
