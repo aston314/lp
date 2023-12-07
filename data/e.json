@@ -156,17 +156,17 @@
                     "available_lampa": 1
                 },
                 {
-                    "name": "Tracks",
-                    "author": "@lampa",
-                    "link": "http://cub.red/plugin/tracks",
-                    "descr": "这是一个官方插件，它能够让内置播放器显示种子文件中的音轨和字幕的名称。该插件仅适用于播放种子文件中的内容。",
-                    "available_lampa": 1
-                },
-                {
                     "name": "1337x热门电影",
                     "author": "@abe",
                     "link": "https://qu.ax/WgyV.js",
                     "descr": "1377x.to热门电影分类。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "Tracks",
+                    "author": "@lampa",
+                    "link": "http://cub.red/plugin/tracks",
+                    "descr": "这是一个官方插件，它能够让内置播放器显示种子文件中的音轨和字幕的名称。该插件仅适用于播放种子文件中的内容。",
                     "available_lampa": 1
                 },
                 {
@@ -213,7 +213,7 @@
                     "name": "听歌",
                     "author": "@abe",
                     "link": "https://qu.ax/PhO.js",
-                    "descr": "听热门音乐",
+                    "descr": "听热门音乐，精选最新歌曲，分类齐全，歌曲数量丰富。",
                     "available_lampa": 1
                 }
             ],
