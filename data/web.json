@@ -233,6 +233,87 @@
       }
    },
    {
+      "title": "独播库",
+      "link": "https://w.duboku.io",
+      "available": true,
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_proxy": true,
+      "use_referer": false,
+      "browser": "PC_UA",
+      "category": [
+         {
+            "title": "首页",
+            "url": "https://w.duboku.io",
+            "quantity": ":gt(7)"
+         },
+         {
+            "title": "连续剧",
+            "url": "https://w.duboku.io/vodtype/2.html",
+            "quantity": ""
+         },
+         {
+            "title": "国产剧",
+            "url": "https://w.duboku.io/vodtype/13.html",
+            "quantity": ""
+         },
+         {
+            "title": "日韩剧",
+            "url": "https://w.duboku.io/vodtype/15.html",
+            "quantity": ""
+         },
+         {
+            "title": "港剧",
+            "url": "https://w.duboku.io/vodtype/20.html",
+            "quantity": ""
+         },
+         {
+            "title": "台泰剧",
+            "url": "https://w.duboku.io/vodtype/14.html",
+            "quantity": ""
+         },
+         {
+            "title": "动漫",
+            "url": "https://w.duboku.io/vodtype/4.html",
+            "quantity": ""
+         },
+         {
+            "title": "综艺",
+            "url": "https://w.duboku.io/vodtype/3.html",
+            "quantity": ""
+         }
+      ],
+      "list": {
+         "page": {
+            "selector": "ul.myui-page"
+         },
+         "videoscontainer": {
+            "selector": "ul.myui-vodlist",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "a.myui-vodlist__thumb",
+            "attrName": "title",
+            "filter": ""
+         },
+         "thumb": {
+            "selector": "a.myui-vodlist__thumb",
+            "attrName": "data-original",
+            "filter": ""
+         },
+         "link": {
+            "selector": "a.myui-vodlist__thumb",
+            "attrName": "href",
+            "filter": ""
+         }
+      },
+      "search": {
+         "url": "https://w.duboku.io/vodsearch/-------------.html?wd=#msearchword&submit="
+      }
+   },
+   {
       "title": "厂长资源",
       "link": "https://cz01.cc",
       "available": true,
