@@ -289,7 +289,7 @@
             "selector": "ul.myui-page"
          },
          "videoscontainer": {
-            "selector": "ul.myui-vodlist",
+            "selector": ".myui-vodlist__box",
             "attrName": "",
             "filter": ""
          },
