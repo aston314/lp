@@ -244,11 +244,6 @@
       "browser": "PC_UA",
       "category": [
          {
-            "title": "首页",
-            "url": "https://w.duboku.io",
-            "quantity": ":gt(7)"
-         },
-         {
             "title": "连续剧",
             "url": "https://w.duboku.io/vodtype/2.html",
             "quantity": ""
