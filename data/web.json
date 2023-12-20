@@ -963,7 +963,7 @@
    },
    {
       "title": "Auete影视",
-      "link": "https://auete.org",
+      "link": "https://haozhansou.com",
       "available": false,
       "show": "portrait",
       "next": "search",
@@ -974,27 +974,27 @@
       "category": [
          {
             "title": "电影",
-            "url": "https://auete.org/Movie/index.html",
+            "url": "https://haozhansou.com/Movie/index.html",
             "quantity": ""
          },
          {
             "title": "电视剧",
-            "url": "https://auete.org/Tv/index.html",
+            "url": "https://haozhansou.com/Tv/index.html",
             "quantity": ""
          },
          {
             "title": "综艺",
-            "url": "https://auete.org/Zy/index.html",
+            "url": "https://haozhansou.com/Zy/index.html",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://auete.org/Dm/index.html",
+            "url": "https://haozhansou.com/Dm/index.html",
             "quantity": ""
          },
          {
             "title": "其他",
-            "url": "https://auete.org/qita/index.html",
+            "url": "https://haozhansou.com/qita/index.html",
             "quantity": ""
          }
       ],
@@ -1024,7 +1024,7 @@
          }
       },
       "search": {
-         "url": "https://auete.org/search.php?searchword=#msearchword"
+         "url": "https://haozhansou.com/search.php?searchword=#msearchword"
       }
    },
    {
