@@ -320,7 +320,7 @@
    },
    {
       "title": "厂长资源",
-      "link": "https://cz01.cc",
+      "link": "https://www.czzy33.com",
       "available": true,
       "show": "portrait",
       "next": "search",
@@ -331,47 +331,47 @@
       "category": [
          {
             "title": "最近更新",
-            "url": "https://cz01.cc",
+            "url": "https://www.czzy33.com",
             "quantity": ":gt(5):lt(9)"
          },
          {
             "title": "电影",
-            "url": "https://cz01.cc/zuixindianying",
+            "url": "https://www.czzy33.com/zuixindianying",
             "quantity": ""
          },
          {
             "title": "电视剧",
-            "url": "https://cz01.cc/dsj",
+            "url": "https://www.czzy33.com/dsj",
             "quantity": ""
          },
          {
             "title": "美剧",
-            "url": "https://cz01.cc/meijutt",
+            "url": "https://www.czzy33.com/meijutt",
             "quantity": ""
          },
          {
             "title": "韩剧",
-            "url": "https://cz01.cc/hanjutv",
+            "url": "https://www.czzy33.com/hanjutv",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://cz01.cc/gcj",
+            "url": "https://www.czzy33.com/gcj",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://cz01.cc/dm",
+            "url": "https://www.czzy33.com/dm",
             "quantity": ""
          },
          {
             "title": "番剧",
-            "url": "https://cz01.cc/fanju",
+            "url": "https://www.czzy33.com/fanju",
             "quantity": ""
          },
          {
             "title": "豆瓣电影Top250",
-            "url": "https://cz01.cc/gaofenyingshi",
+            "url": "https://www.czzy33.com/gaofenyingshi",
             "quantity": ""
          }
       ],
@@ -401,7 +401,7 @@
          }
       },
       "search": {
-         "url": "https://cz01.cc/xssearch?q=#msearchword"
+         "url": "https://www.czzy33.com/xssearch?q=#msearchword"
       }
    },
    {
