@@ -6,21 +6,21 @@
             "results": [
                 {
                     "name": "网站",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/gKhl.js",
                     "descr": "可以通过导入自定义规则查看视频网站内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "在线观看",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/yWJg.js",
                     "descr": "提供了便利的功能，使在线观看电影和连续剧。请确保遵守适用法律和使用平台的使用条款，以确保您的观影体验合法和符合相关规定。",
                     "available_lampa": 1
                 },
                 {
                     "name": "阿里云盘",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/wqho.js",
                     "descr": "观看阿里云盘内容。",
                     "available_lampa": 1
@@ -40,77 +40,84 @@
             "results": [
                 {
                     "name": "网站",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/gKhl.js",
                     "descr": "可以通过导入自定义规则查看视频网站内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "在线观看",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/yWJg.js",
                     "descr": "提供了便利的功能，使在线观看电影和连续剧。请确保遵守适用法律和使用平台的使用条款，以确保您的观影体验合法和符合相关规定。",
                     "available_lampa": 1
                 },
                 {
                     "name": "阿里云盘",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/wqho.js",
                     "descr": "观看阿里云盘内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "Alist",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/rPw.js",
                     "descr": "观看Alist内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "PikPak",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/DacD.js",
                     "descr": "观看PikPak内容，该插件使用第三方接口，如担心数据风险，请勿使用。",
                     "available_lampa": 1
                 },
                 {
                     "name": "低端视频",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/hoq.js",
                     "descr": "在线观看低端视频网上的电影和连续剧。",
                     "available_lampa": 1
                 },
                 {
                     "name": "DYD",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/iRd.js",
                     "descr": "查看DYD网站上的内容（云盘）。",
                     "available_lampa": 1
                 },
                 {
                     "name": "频道",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/NUBz.js",
                     "descr": "查看电报上相关频道的内容（云盘）。",
                     "available_lampa": 1
                 },
                 {
                     "name": "体育",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/Drae.js",
                     "descr": "在线观看体育直播赛事。",
                     "available_lampa": 1
                 },
                 {
                     "name": "豆瓣",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/UagC.js",
                     "descr": "查看豆瓣上的电影和电视剧内容，清晰的分类方便您观影。",
                     "available_lampa": 1
                 },
                 {
+                    "name": "影荐",
+                    "author": "@aston",
+                    "link": "https://qu.ax/xaPx.js",
+                    "descr": "agoodmovietowatch.com 这是一个国外的电影推荐引擎。专门为你推荐小众高评分的电影。尤其适合对影视评论感兴趣的朋友来寻找那些同行未曾解说过的电影。",
+                    "available_lampa": 1
+                },
+                {
                     "name": "小雅Alist",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/lmnZ.js",
                     "descr": "查看小雅整理的影视列表，需要配合Alist插件使用。",
                     "available_lampa": 1
@@ -137,7 +144,7 @@
                 },
                 {
                     "name": "影评",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/xNA.js",
                     "descr": "在影片详情卡片上添加一个查看影评的按钮，使用户能够方便地查看关电影或连续剧的评论。",
                     "available_lampa": 1
@@ -150,21 +157,21 @@
             "results": [
                 {
                     "name": "磁力搜索",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/EiTb.js",
                     "descr": "支持流行的种子网站，你可以在这些网站上搜索你想要的内容：1337x、Piratebay、Nyaasi、Torlock、Torrent Galaxy、Zooqle、Kickass、Bitsearch、MagnetDL、Libgen、YTS、Limetorrent、TorrentFunk、Glodls、TorrentProject 和 YourBittorrent。请注意，访问这些网站和下载种子文件可能受到法律限制，具体取决于你所在的地区和当地的法律规定。确保你在符合法律的前提下使用这些网站。",
                     "available_lampa": 1
                 },
                 {
                     "name": "1337x",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/YXbx.js",
                     "descr": "查看1377x.to网站上电影栏目内容。",
                     "available_lampa": 1
                 },
                 {
                     "name": "1337x热门电影",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/WgyV.js",
                     "descr": "1377x.to热门电影分类，查看今日趋势、今日热门和本周热门电影。",
                     "available_lampa": 1
@@ -218,7 +225,7 @@
             "results": [
                 {
                     "name": "听歌",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/PhO.js",
                     "descr": "听热门音乐，精选最新歌曲，分类齐全，歌曲数量丰富。",
                     "available_lampa": 1
@@ -231,14 +238,14 @@
             "results": [
                 {
                     "name": "电台",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/aGed.js",
                     "descr": "支持国内大部分广播频道，带你感受声音的故事。",
                     "available_lampa": 1
                 },
                 {
                     "name": "World Radio",
-                    "author": "@abe",
+                    "author": "@aston",
                     "link": "https://qu.ax/LedX.js",
                     "descr": "可在线收听新加坡、马来西亚电台",
                     "available_lampa": 1
