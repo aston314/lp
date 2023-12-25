@@ -64,22 +64,13 @@
       "release_date": "2023-11-15"
     },
     {
-      "tmdbrate": 6.493,
+      "tmdbrate": 6.5,
       "picture": "http://image.tmdb.org/t/p/w200/k5XkPlci4EG0Gu75wMez6i04om1.jpg",
       "name": "Aquaman and the Lost Kingdom",
       "video": "magnet:?xt=urn:btih:8EE08CB015B019CBACBA5E277A3340B9DE1DD8DB&dn=Aquaman+and+the+Lost+Kingdom+%282023%29+NEW+1080p+HDTS+x264+AAC+-+HushRips&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
       "oname": "Aquaman and the Lost Kingdom (2023) NEW 1080p HDTS x264 AAC - Hus...",
       "cname": "海王2：失落的王国 ",
       "release_date": "2023-12-20"
-    },
-    {
-      "tmdbrate": 7.729,
-      "picture": "http://image.tmdb.org/t/p/w200/lAM29tdEK0k0q8zAeLzXhf9LmgQ.jpg",
-      "name": "Anatomy of a Fall",
-      "video": "magnet:?xt=urn:btih:02CCC39D642C6D8910BFF1E5D7FEFD3396251B35&dn=Anatomy+of+a+Fall+%282023%29+%281080p+BluRay+x265+HEVC+10bit+EAC3+5.1+French+Silence%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Anatomy of a Fall (2023) (1080p BluRay x265 HEVC 10bit EAC3 5.1 F...",
-      "cname": "坠落的审判 ",
-      "release_date": "2023-08-23"
     },
     {
       "tmdbrate": 7.2,
@@ -89,6 +80,15 @@
       "oname": "Saltburn.2023.1080p.AMZN.WEBRip.1600MB.DD5.1.x264-GalaxyRG",
       "cname": "萨特本 ",
       "release_date": "2023-11-16"
+    },
+    {
+      "tmdbrate": 7.729,
+      "picture": "http://image.tmdb.org/t/p/w200/lAM29tdEK0k0q8zAeLzXhf9LmgQ.jpg",
+      "name": "Anatomy of a Fall",
+      "video": "magnet:?xt=urn:btih:02CCC39D642C6D8910BFF1E5D7FEFD3396251B35&dn=Anatomy+of+a+Fall+%282023%29+%281080p+BluRay+x265+HEVC+10bit+EAC3+5.1+French+Silence%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Anatomy of a Fall (2023) (1080p BluRay x265 HEVC 10bit EAC3 5.1 F...",
+      "cname": "坠落的审判 ",
+      "release_date": "2023-08-23"
     },
     {
       "tmdbrate": 7.25,
@@ -136,24 +136,6 @@
       "release_date": "2023-12-19"
     },
     {
-      "tmdbrate": 6.722,
-      "picture": "http://image.tmdb.org/t/p/w200/podqE3J249RY9V5bwjSjxovoYob.jpg",
-      "name": "Escape Plan",
-      "video": "magnet:?xt=urn:btih:A40F966627E20A041E58DBDA7CB8624F57AA9258&dn=Escape+Plan+%282013%29+%281080p+BluRay+x265+HEVC+10bit+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Escape Plan (2013) (1080p BluRay x265 HEVC 10bit AAC 7.1 Tigole) ...",
-      "cname": "金蝉脱壳 ",
-      "release_date": "2013-10-09"
-    },
-    {
-      "tmdbrate": 6.301,
-      "picture": "http://image.tmdb.org/t/p/w200/pcZiGQA6zZJRqlCjw2uBkRjostI.jpg",
-      "name": "Triple Frontier",
-      "video": "magnet:?xt=urn:btih:D1E46DCE4066A94673AC846B71B19B05C8345A19&dn=Triple+Frontier+%282019%29+%281080p+NF+WEB-DL+WEB+x265+HEVC+10bit+EAC3+Atmos+5.1+Ghost%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2810%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Triple Frontier (2019) (1080p NF WEB-DL WEB x265 HEVC 10bit EAC3 ...",
-      "cname": "三方国界 ",
-      "release_date": "2019-03-06"
-    },
-    {
       "tmdbrate": 6.314,
       "picture": "http://image.tmdb.org/t/p/w200/tKcOxhaBpLdvo8lExbz5AgpuGwc.jpg",
       "name": "Three Amigos!",
@@ -163,22 +145,22 @@
       "release_date": "1986-12-12"
     },
     {
-      "tmdbrate": 5.364,
-      "picture": "http://image.tmdb.org/t/p/w200/dP3oxMkoYiFXZ1EOzDzyw8xFJTp.jpg",
-      "name": "Escape Plan - The Extractors",
-      "video": "magnet:?xt=urn:btih:62E84E407E0A474CB6955847DE95FD3F8E24ECA1&dn=Escape+Plan+-+The+Extractors+%282019%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Escape Plan - The Extractors (2019) (1080p BluRay x265 HEVC 10bit...",
-      "cname": "金蝉脱壳3：恶魔车站 ",
-      "release_date": "2019-06-20"
+      "tmdbrate": 6.398,
+      "picture": "http://image.tmdb.org/t/p/w200/pNh3U6PhbXIEZunkMYaNhWd8l8K.jpg",
+      "name": "Mars Attacks!",
+      "video": "magnet:?xt=urn:btih:6F776C57B9FA418F6C0B71041F5C752FA61A57E9&dn=Mars+Attacks%21+%281996%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Mars Attacks! (1996) (1080p BluRay x265 HEVC 10bit AAC 5.1 Tigole...",
+      "cname": "火星人玩转地球 ",
+      "release_date": "1996-12-13"
     },
     {
-      "tmdbrate": 5.2,
-      "picture": "http://image.tmdb.org/t/p/w200/orD4KAgltcFMICKwzh2tscsGag1.jpg",
-      "name": "Escape Plan 2 - Hades",
-      "video": "magnet:?xt=urn:btih:7D68B8657C3787F36ACA836C566A12838CCDDC0A&dn=Escape+Plan+2+-+Hades+%282018%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Escape Plan 2 - Hades (2018) (1080p BluRay x265 HEVC 10bit AAC 5....",
-      "cname": "金蝉脱壳2：冥府 ",
-      "release_date": "2018-06-05"
+      "tmdbrate": 6.2,
+      "picture": "http://image.tmdb.org/t/p/w200/jffVOSdNae2sjUAgCksWuevsOvj.jpg",
+      "name": "Bad Behaviour",
+      "video": "magnet:?xt=urn:btih:AEF5585EC2FC538AC0DA359AB5A8FEB700CD180F&dn=Bad.Behaviour.2023.1080p.AMZN.WEBRip.DDP5.1.x265.10bit-GalaxyRG265&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Bad.Behaviour.2023.1080p.AMZN.WEBRip.DDP5.1.x265.10bit-GalaxyRG26...",
+      "cname": "不良行为 ",
+      "release_date": "2023-11-02"
     }
   ]
 }
