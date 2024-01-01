@@ -46,6 +46,15 @@
       "release_date": "2003-03-28"
     },
     {
+      "tmdbrate": 7.875,
+      "picture": "http://image.tmdb.org/t/p/w200/gbrQhmzh3jLLrh7XdB8ZRclgcAA.jpg",
+      "name": "DAVE CHAPPELLE THE DREAMER",
+      "video": "magnet:?xt=urn:btih:5B85DE4548642B3C31898F160265B763E92BA392&dn=DAVE+CHAPPELLE+THE+DREAMER+2023+1080P+WEB+HEVC+X265-RMTEAM&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "DAVE CHAPPELLE THE DREAMER 2023 1080P WEB HEVC X265-RMTEAM",
+      "cname": "Dave Chappelle: The Dreamer ",
+      "release_date": "2023-12-31"
+    },
+    {
       "tmdbrate": 7.586,
       "picture": "http://image.tmdb.org/t/p/w200/p2c1Tzg41ztn7pWJdZZ4fZxVbb8.jpg",
       "name": "Mad Max Fury Road",
@@ -53,6 +62,15 @@
       "oname": "Mad Max Fury Road (2015) Black and Chrome Edition 1080p H264 AC-3...",
       "cname": "疯狂的麦克斯4：狂暴之路 ",
       "release_date": "2015-05-13"
+    },
+    {
+      "tmdbrate": 7.363,
+      "picture": "http://image.tmdb.org/t/p/w200/hChifeEkHfg3fRJgYVniqgeFOPj.jpg",
+      "name": "Chicken Run: Dawn of the Nugget",
+      "video": "magnet:?xt=urn:btih:C0B4597BD32B679014508FEA0D9714673717D6B7&dn=Chicken+Run%3A+Dawn+of+the+Nugget+%282023%29+%281080p+NF+WEB-DL+x265+HEVC+10bit+EAC3+Atmos+5.1+Ghost%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2810%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Chicken Run: Dawn of the Nugget (2023) (1080p NF WEB-DL x265 HEVC...",
+      "cname": "小鸡快跑2：逃出鸡块工厂 ",
+      "release_date": "2023-12-08"
     },
     {
       "tmdbrate": 8.346,
@@ -82,6 +100,15 @@
       "release_date": "2015-08-07"
     },
     {
+      "tmdbrate": 6.2,
+      "picture": "http://image.tmdb.org/t/p/w200/cBh8FRognblyhDkTTYQous25BCT.jpg",
+      "name": "Knight and Day",
+      "video": "magnet:?xt=urn:btih:76A95416A2D4AF6DA588DBD2FA552BA8086EF30D&dn=Knight+and+Day+%282010%29+Extended+%5BHDR+ReGrade%5D+1080p+Ai+4K-BDRip+%5BHin-Eng%5D+DDP+5.1+%26mdash%3B+PeruGuy&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Knight and Day (2010) Extended [HDR ReGrade] 1080p Ai 4K-BDRip [H...",
+      "cname": "危情谍战 ",
+      "release_date": "2010-06-15"
+    },
+    {
       "tmdbrate": 6.684,
       "picture": "http://image.tmdb.org/t/p/w200/edBEPUqnfKFzVQdWpvHGUR1fXO6.jpg",
       "name": "Jurassic Park 1",
@@ -98,15 +125,6 @@
       "oname": "Fast.Times.at.Ridgemont.High.1982.Uncut.Repack.1080p.Blu-ray.Remu...",
       "cname": "开放的美国学府 ",
       "release_date": "1982-08-13"
-    },
-    {
-      "tmdbrate": 7.875,
-      "picture": "http://image.tmdb.org/t/p/w200/gbrQhmzh3jLLrh7XdB8ZRclgcAA.jpg",
-      "name": "Dave Chappelle The Dreamer",
-      "video": "magnet:?xt=urn:btih:78552127A8268A91B3895638B89BD97BD5EB3B50&dn=Dave.Chappelle.The.Dreamer.2023.1080p.WEB.h264-ETHEL.&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Dave.Chappelle.The.Dreamer.2023.1080p.WEB.h264-ETHEL.",
-      "cname": "Dave Chappelle: The Dreamer ",
-      "release_date": "2023-12-31"
     },
     {
       "tmdbrate": 6.5,
