@@ -91,6 +91,15 @@
       "release_date": "2023-09-29"
     },
     {
+      "tmdbrate": 6.391,
+      "picture": "http://image.tmdb.org/t/p/w200/ik1uZyiMSxF9HqrgRKUNfMCfr3z.jpg",
+      "name": "Hardcore Henry",
+      "video": "magnet:?xt=urn:btih:FB3C7E005FBBBB2223626860945AB46E9F859144&dn=Hardcore.Henry.2015.1080p.10bit.BluRay.6CH.x265.HEVC-PSA&tr=http%3A%2F%2Fmgtracker.org%3A2710%2Fannounce&tr=udp%3A%2F%2Fzer0day.ch%3A1337%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftorrent.gresille.org%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.piratepublic.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.sktorrent.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Hardcore.Henry.2015.1080p.10bit.BluRay.6CH.x265.HEVC-PSA",
+      "cname": "硬核亨利 ",
+      "release_date": "2015-09-12"
+    },
+    {
       "tmdbrate": 7.4,
       "picture": "http://image.tmdb.org/t/p/w200/mHBnYPjuW5aEWVK0XpH40um45mQ.jpg",
       "name": "Meet Me Under the Mistletoe",
@@ -172,6 +181,15 @@
       "release_date": "2023-12-15"
     },
     {
+      "tmdbrate": 4.6,
+      "picture": "http://image.tmdb.org/t/p/w200/359JRjSSr3t1l6ObcmZFbJwvKI8.jpg",
+      "name": "Brightwood",
+      "video": "magnet:?xt=urn:btih:294777D21FA6FB15D28E79BB7D86052DE06601E3&dn=Brightwood+2022+720p+WEB+h264-DiRT&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2970%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2980%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2940%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Brightwood 2022 720p WEB h264-DiRT",
+      "cname": "Brightwood ",
+      "release_date": "2022-12-05"
+    },
+    {
       "tmdbrate": 7.083,
       "picture": "http://image.tmdb.org/t/p/w200/pVfhNEkRwuR7QBMIWdowthlmmto.jpg",
       "name": "Dream Scenario",
@@ -179,6 +197,15 @@
       "oname": "Dream.Scenario.2023.1080p.10bit.WEBRip.6CH.x265.HEVC-PSA",
       "cname": "梦想情景 ",
       "release_date": "2023-11-10"
+    },
+    {
+      "tmdbrate": 6.4,
+      "picture": "http://image.tmdb.org/t/p/w200/nkUl1D1KbqW5ux9cAbSxU5f7hOy.jpg",
+      "name": "Upstream Color",
+      "video": "magnet:?xt=urn:btih:C3B696B62522C9A127949DD044480E81C7EF7EC7&dn=Upstream+Color+%282013%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Upstream Color (2013) (1080p BluRay x265 HEVC 10bit AAC 5.1 Tigol...",
+      "cname": "逆流的色彩 ",
+      "release_date": "2013-04-05"
     },
     {
       "tmdbrate": 6.553,
@@ -196,6 +223,15 @@
       "video": "magnet:?xt=urn:btih:171FA0EF40CFF9DF2071E4F5E7514FDF82E850AD&dn=Flashpoint.1984.1080p.MAX.WEB-DL.DDP.2.0.H.265-PiRaTeS%5BTGx%5D&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
       "oname": "Flashpoint.1984.1080p.MAX.WEB-DL.DDP.2.0.H.265-PiRaTeS[TGx]",
       "cname": " "
+    },
+    {
+      "tmdbrate": 5.1,
+      "picture": "http://image.tmdb.org/t/p/w200/5W8jG9kt2UfEq8Tn0rb3BRaOPqe.jpg",
+      "name": "Straightheads",
+      "video": "magnet:?xt=urn:btih:B4F47E37DA70262C2969BF24FBA56EA4D5943868&dn=Straightheads+%282007%29+%281080p+BluRay+x265+HEVC+10bit+AAC+2.0+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Straightheads (2007) (1080p BluRay x265 HEVC 10bit AAC 2.0 Tigole...",
+      "cname": "迷夜惨遇 ",
+      "release_date": "2007-04-27"
     },
     {
       "tmdbrate": 7.45,
