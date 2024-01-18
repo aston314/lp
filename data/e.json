@@ -9,7 +9,7 @@
                     "author": "@aston",
                     "link": "https://qu.ax/VtFq.js",
                     "descr": "可以通过导入自定义规则查看视频网站内容。",
-                    "image": "https://cub.red/img/plugins/iptv.jpg",
+                    "image": "",
                     "available_lampa": 1
                 },
                 {
@@ -30,7 +30,7 @@
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/tmdb-proxy",
-                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。",
+                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。请打开设置、TMDB 选项卡，启用 TMDB 代理。",
                     "available_lampa": 1
                 }
             ],
@@ -126,7 +126,7 @@
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/tmdb-proxy",
-                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。要激活，请打开设置、TMDB 选项卡，启用 TMDB 代理。",
+                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。请打开设置、TMDB 选项卡，启用 TMDB 代理。",
                     "available_lampa": 1
                 },
                 {
