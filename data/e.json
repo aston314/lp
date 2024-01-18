@@ -29,7 +29,7 @@
                     "name": "TMDB代理",
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/tmdb-proxy",
-                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。这样的功能可能会为您提供方便，使浏览和收集喜欢的电影海报。",
+                    "descr": "官方插件，该插件通过代理访问TMDB网站，使查看和获取TMDB网站上的电影海报。",
                     "available_lampa": 1
                 }
             ],
