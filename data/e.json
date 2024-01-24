@@ -237,6 +237,13 @@
                     "link": "https://qu.ax/PhO.js",
                     "descr": "听热门音乐，精选最新歌曲，分类齐全，歌曲数量丰富。",
                     "available_lampa": 1
+                },
+                {
+                    "name": "MTV",
+                    "author": "@aston",
+                    "link": "https://qu.ax/BPcT.js",
+                    "descr": "看MV，听歌。",
+                    "available_lampa": 1
                 }
             ],
             "hpu": "music"
