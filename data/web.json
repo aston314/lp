@@ -1,7 +1,7 @@
 [
    {
       "title": "LIBVIO",
-      "link": "https://www.libvio.pro",
+      "link": "https://www.libvio.pw",
       "available": true,
       "show": "portrait",
       "next": "search",
@@ -12,42 +12,42 @@
       "category": [
          {
             "title": "最近更新",
-            "url": "https://www.libvio.pro",
+            "url": "https://www.libvio.pw",
             "quantity": ":lt(12)"
          },
          {
             "title": "电影",
-            "url": "https://www.libvio.pro/type/1.html",
+            "url": "https://www.libvio.pw/type/1.html",
             "quantity": ""
          },
          {
             "title": "剧集",
-            "url": "https://www.libvio.pro/type/2.html",
+            "url": "https://www.libvio.pw/type/2.html",
             "quantity": ""
          },
          {
             "title": "日韩剧",
-            "url": "https://www.libvio.pro/type/15.html",
+            "url": "https://www.libvio.pw/type/15.html",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://www.libvio.pro/type/13.html",
+            "url": "https://www.libvio.pw/type/13.html",
             "quantity": ""
          },
          {
             "title": "欧美剧",
-            "url": "https://www.libvio.pro/type/16.html",
+            "url": "https://www.libvio.pw/type/16.html",
             "quantity": ""
          },
          {
             "title": "港台剧",
-            "url": "https://www.libvio.pro/type/14.html",
+            "url": "https://www.libvio.pw/type/14.html",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://www.libvio.pro/type/4.html",
+            "url": "https://www.libvio.pw/type/4.html",
             "quantity": ""
          }
       ],
@@ -77,7 +77,7 @@
          }
       },
       "search": {
-         "url": "https://www.libvio.pro/search/-------------.html?wd=#msearchword&submit="
+         "url": "https://www.libvio.pw/search/-------------.html?wd=#msearchword&submit="
       }
    },
    {
