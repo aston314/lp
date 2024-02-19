@@ -320,7 +320,7 @@
    },
    {
       "title": "厂长资源",
-      "link": "https://www.czzy33.com",
+      "link": "https://www.czzy55.com",
       "available": true,
       "show": "portrait",
       "next": "search",
@@ -331,47 +331,47 @@
       "category": [
          {
             "title": "最近更新",
-            "url": "https://www.czzy33.com",
+            "url": "https://www.czzy55.com",
             "quantity": ":gt(5):lt(9)"
          },
          {
             "title": "电影",
-            "url": "https://www.czzy33.com/zuixindianying",
+            "url": "https://www.czzy55.com/zuixindianying",
             "quantity": ""
          },
          {
             "title": "电视剧",
-            "url": "https://www.czzy33.com/dsj",
+            "url": "https://www.czzy55.com/dsj",
             "quantity": ""
          },
          {
             "title": "美剧",
-            "url": "https://www.czzy33.com/meijutt",
+            "url": "https://www.czzy55.com/meijutt",
             "quantity": ""
          },
          {
             "title": "韩剧",
-            "url": "https://www.czzy33.com/hanjutv",
+            "url": "https://www.czzy55.com/hanjutv",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://www.czzy33.com/gcj",
+            "url": "https://www.czzy55.com/gcj",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://www.czzy33.com/dm",
+            "url": "https://www.czzy55.com/dm",
             "quantity": ""
          },
          {
             "title": "番剧",
-            "url": "https://www.czzy33.com/fanju",
+            "url": "https://www.czzy55.com/fanju",
             "quantity": ""
          },
          {
             "title": "豆瓣电影Top250",
-            "url": "https://www.czzy33.com/gaofenyingshi",
+            "url": "https://www.czzy55.com/gaofenyingshi",
             "quantity": ""
          }
       ],
@@ -401,7 +401,7 @@
          }
       },
       "search": {
-         "url": "https://www.czzy33.com/xssearch?q=#msearchword"
+         "url": "https://www.czzy55.com/xssearch?q=#msearchword"
       }
    },
    {
