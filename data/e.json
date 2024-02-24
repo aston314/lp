@@ -142,6 +142,13 @@
                     "link": "https://qu.ax/xNA.js",
                     "descr": "在影片详情卡片上添加一个查看影评的按钮，使用户能够方便地查看关电影或连续剧的评论。",
                     "available_lampa": 1
+                },
+                {
+                    "name": "公共解析器服务",
+                    "author": "@lme",
+                    "link": "https://lampame.github.io/main/nc/nc.js",
+                    "descr": "将新类别添加到左侧导航菜单中，如Netflix高分剧和高分电影等。",
+                    "available_lampa": 1
                 }
             ],
             "hpu": "interface"
@@ -151,7 +158,7 @@
             "results": [
                 {
                     "name": "磁力下载",
-                    "author": "@aston",
+                    "author": "@lme",
                     "link": "https://lampame.github.io/td/td/td.js",
                     "descr": "可以使用qBittorrent/Transmission/Aria2直接下载种子。",
                     "available_lampa": 1
@@ -196,6 +203,13 @@
                     "author": "@lampa",
                     "link": "http://cub.red/plugin/etor",
                     "descr": "用于通过Apple TV或官方LG Store和Tizen App Store安装的Lampa电视插件。在设置中显示包括解析器和Torrserver项。",
+                    "available_lampa": 1
+                },
+                {
+                    "name": "公共解析器服务",
+                    "author": "@lme",
+                    "link": "https://lampame.github.io/main/pubtorr/pubtorr.js",
+                    "descr": "提供公共的磁力解析器服务，可以进行种子搜索，但不保证可用性。",
                     "available_lampa": 1
                 }
             ],
