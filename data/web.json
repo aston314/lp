@@ -249,6 +249,11 @@
             "quantity": ":gt(7)"
          },
          {
+            "title": "电影",
+            "url": "https://w.duboku.io/vodtype/1.html",
+            "quantity": ""
+         },
+         {
             "title": "连续剧",
             "url": "https://w.duboku.io/vodtype/2.html",
             "quantity": ""
