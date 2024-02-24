@@ -235,7 +235,7 @@
                 {
                     "name": "体育",
                     "author": "@aston",
-                    "link": "https://qu.ax/mgeg.js",
+                    "link": "https://qu.ax/bgs.js",
                     "descr": "在线观看体育直播赛事，支持88看球和jrkan。（Apple TV上不会自动播放视频）",
                     "available_lampa": 1
                 }
@@ -268,15 +268,15 @@
                 {
                     "name": "电台",
                     "author": "@aston",
-                    "link": "https://qu.ax/aGed.js",
+                    "link": "https://qu.ax/Cssw.js",
                     "descr": "支持国内大部分广播频道，带你感受声音的故事。",
                     "available_lampa": 1
                 },
                 {
-                    "name": "World Radio",
+                    "name": "Radio",
                     "author": "@aston",
-                    "link": "https://qu.ax/LedX.js",
-                    "descr": "可在线收听新加坡、马来西亚电台",
+                    "link": "https://qu.ax/FTmc.js",
+                    "descr": "可在线收听多个国家/地区电台，作者主要用来收听新加坡和马来西亚音乐台。",
                     "available_lampa": 1
                 }
             ],
