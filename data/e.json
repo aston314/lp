@@ -144,7 +144,7 @@
                     "available_lampa": 1
                 },
                 {
-                    "name": "公共解析器服务",
+                    "name": "新类别",
                     "author": "@lme",
                     "link": "https://lampame.github.io/main/nc/nc.js",
                     "descr": "将新类别添加到左侧导航菜单中，如Netflix高分剧和高分电影等。",
@@ -160,7 +160,7 @@
                     "name": "磁力下载",
                     "author": "@lme",
                     "link": "https://lampame.github.io/td/td/td.js",
-                    "descr": "可以使用qBittorrent/Transmission/Aria2直接下载种子。",
+                    "descr": "可以使用qBittorrent/Transmission/Aria2/群晖直接下载种子。",
                     "available_lampa": 1
                 },
                 {
