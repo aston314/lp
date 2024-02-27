@@ -1363,7 +1363,7 @@
             "selector": ".myui-page"
          },
          "videoscontainer": {
-            "selector": ".myui-panel_bd > ul > li,div.img > ul > li",
+            "selector": "div.myui-panel_bd > ul > li,div.img > ul > li",
             "attrName": "",
             "filter": ""
          },
