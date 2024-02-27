@@ -1297,7 +1297,7 @@
             "selector": ".pages"
          },
          "videoscontainer": {
-            "selector": "div.lpic > ul > li,div.img > ul > li",
+            "selector": "ul.myui-vodlist:first > li,div.img > ul > li",
             "attrName": "",
             "filter": ""
          },
