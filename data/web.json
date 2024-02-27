@@ -1335,7 +1335,7 @@
          {
             "title": "首页",
             "url": "https://www.vdm4.com",
-            "quantity": ""
+            "quantity": ":lt(11)"
          },
          {
             "title": "日本动漫",
