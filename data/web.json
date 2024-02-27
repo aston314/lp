@@ -1321,6 +1321,72 @@
          "url": "http://www.yinghuavideo.com/search/#msearchword/"
       }
    },
+      {
+      "title": "动漫 - 樱花动漫2",
+      "link": "https://www.vdm4.com",
+      "available": true,
+      "show": "portrait",
+      "next": "search",
+      "datasort": "",
+      "use_proxy": false,
+      "use_referer": false,
+      "browser": "MOBILE_UA",
+      "category": [
+         {
+            "title": "首页",
+            "url": "https://www.vdm4.com",
+            "quantity": ""
+         },
+         {
+            "title": "日本动漫",
+            "url": "https://www.vdm4.com/type/ribendongman.html",
+            "quantity": ""
+         },
+         {
+            "title": "国产动漫",
+            "url": "https://www.vdm4.com/type/guochandongman.html",
+            "quantity": ""
+         },
+         {
+            "title": "欧美动漫",
+            "url": "https://www.vdm4.com/type/oumeidongman.html",
+            "quantity": ""
+         },
+         {
+            "title": "动漫电影",
+            "url": "https://www.vdm4.com/type/dongmandianying.html",
+            "quantity": ""
+         }
+      ],
+      "list": {
+         "page": {
+            "selector": ".myui-page"
+         },
+         "videoscontainer": {
+            "selector": "div.myui-panel_bd > ul > li,div.img > ul > li",
+            "attrName": "",
+            "filter": ""
+         },
+         "title": {
+            "selector": "a",
+            "attrName": "title",
+            "filter": ""
+         },
+         "thumb": {
+            "selector": "a",
+            "attrName": "data-original",
+            "filter": ""
+         },
+         "link": {
+            "selector": "a",
+            "attrName": "href",
+            "filter": ""
+         }
+      },
+      "search": {
+         "url": "https://www.vdm4.com/search/#msearchword----------1---.html"
+      }
+   },
    {
       "title": "JableTV",
       "link": "https://jable.tv",
