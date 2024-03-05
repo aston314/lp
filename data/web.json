@@ -1997,52 +1997,6 @@
       }
    },
    {
-      "title": "肯德基电影院",
-      "link": "https://cors.eu.org/https://tx.me/s/XiangxiuNB",
-      "available": true,
-      "show": "portrait",
-      "next": "aliyundrive",
-      "datasort": "reverse",
-      "use_proxy": false,
-      "use_referer": false,
-      "browser": "MOBILE_UA",
-      "category": [
-         {
-            "title": "频道首页",
-            "url": "https://cors.eu.org/https://tx.me/s/XiangxiuNB",
-            "quantity": ""
-         }
-      ],
-      "list": {
-         "page": {
-            "selector": "a.tme_messages_more.js-messages_more"
-         },
-         "videoscontainer": {
-            "selector": "div.tgme_widget_message_wrap.js-widget_message_wrap",
-            "attrName": "",
-            "filter": ""
-         },
-         "title": {
-            "selector": "div.tgme_widget_message_text.js-message_text",
-            "attrName": "html",
-            "filter": "(.+?)<br>"
-         },
-         "thumb": {
-            "selector": "div.tgme_widget_message_bubble > a.tgme_widget_message_photo_wrap",
-            "attrName": "style",
-            "filter": "url\\('(.+?)'\\)"
-         },
-         "link": {
-            "selector": "div.tgme_widget_message_bubble",
-            "attrName": "text",
-            "filter": "(https:\\/\\/www\\.alipan\\.com\\/s\\/([a-zA-Z\\d]+))"
-         }
-      },
-      "search": {
-         "url": "https://cors.eu.org/https://tx.me/s/XiangxiuNB?q=#msearchword"
-      }
-   },
-   {
       "title": "tvbox - 软件下载",
       "link": "https://www.tvbox.one/",
       "available": true,
