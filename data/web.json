@@ -760,7 +760,7 @@
    {
       "title": "霸王龙压制组",
       "link": "https://t-rex.tzfile.com",
-      "available": true,
+      "available": false,
       "show": "portrait",
       "next": "search",
       "datasort": "",
