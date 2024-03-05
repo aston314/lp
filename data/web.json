@@ -1897,7 +1897,7 @@
          "link": {
             "selector": "div.tgme_widget_message_bubble",
             "attrName": "text",
-            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+            "filter": "(https:\\/\\/www\\.alipan\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
       "search": {
@@ -1943,7 +1943,7 @@
          "link": {
             "selector": "div.tgme_widget_message_bubble",
             "attrName": "text",
-            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+            "filter": "(https:\\/\\/www\\.alipan\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
       "search": {
@@ -1989,7 +1989,7 @@
          "link": {
             "selector": "div.tgme_widget_message_bubble",
             "attrName": "text",
-            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+            "filter": "(https:\\/\\/www\\.alipan\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
       "search": {
@@ -2035,7 +2035,7 @@
          "link": {
             "selector": "div.tgme_widget_message_bubble",
             "attrName": "text",
-            "filter": "(https:\\/\\/www\\.aliyundrive\\.com\\/s\\/([a-zA-Z\\d]+))"
+            "filter": "(https:\\/\\/www\\.alipan\\.com\\/s\\/([a-zA-Z\\d]+))"
          }
       },
       "search": {
@@ -2214,7 +2214,7 @@
       },
       "detail": {
          "videoscontainer": {
-            "selector": "a[href*=\"www.aliyundrive.com\"],a[href*=\"magnet:?xt=urn:btih:\"]",
+            "selector": "a[href*=\"www.alipan.com\"],a[href*=\"magnet:?xt=urn:btih:\"]",
             "attrName": "",
             "filter": ""
          },
