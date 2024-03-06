@@ -2154,7 +2154,7 @@
          },
          "thumb": {
             "selector": ".thumbnail-wrap img",
-            "attrName": "src",
+            "attrName": "data-src",
             "filter": ""
          },
          "link": {
