@@ -1363,7 +1363,7 @@
             "selector": ".myui-page"
          },
          "videoscontainer": {
-            "selector": ".myui-vodlist .myui-vodlist__box",
+            "selector": ".myui-vodlist .myui-vodlist__box:eq(0)",
             "attrName": "",
             "filter": ""
          },
