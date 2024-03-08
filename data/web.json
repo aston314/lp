@@ -234,7 +234,7 @@
    },
    {
       "title": "独播库",
-      "link": "https://w.duboku.io",
+      "link": "https://www.duboku.tv",
       "available": true,
       "show": "portrait",
       "next": "search",
@@ -245,52 +245,52 @@
       "category": [
          {
             "title": "首页",
-            "url": "https://w.duboku.io",
+            "url": "https://www.duboku.tv",
             "quantity": ":gt(7)"
          },
          {
             "title": "电影",
-            "url": "https://w.duboku.io/vodtype/1.html",
+            "url": "https://www.duboku.tv/vodtype/1.html",
             "quantity": ""
          },
          {
             "title": "连续剧",
-            "url": "https://w.duboku.io/vodtype/2.html",
+            "url": "https://www.duboku.tv/vodtype/2.html",
             "quantity": ""
          },
          {
             "title": "国产剧",
-            "url": "https://w.duboku.io/vodtype/13.html",
+            "url": "https://www.duboku.tv/vodtype/13.html",
             "quantity": ""
          },
          {
             "title": "日韩剧",
-            "url": "https://w.duboku.io/vodtype/15.html",
+            "url": "https://www.duboku.tv/vodtype/15.html",
             "quantity": ""
          },
          {
             "title": "港剧",
-            "url": "https://w.duboku.io/vodtype/20.html",
+            "url": "https://www.duboku.tv/vodtype/20.html",
             "quantity": ""
          },
          {
             "title": "台泰剧",
-            "url": "https://w.duboku.io/vodtype/14.html",
+            "url": "https://www.duboku.tv/vodtype/14.html",
             "quantity": ""
          },
          {
             "title": "短剧",
-            "url": "https://w.duboku.io/vodtype/21.html",
+            "url": "https://www.duboku.tv/vodtype/21.html",
             "quantity": ""
          },
          {
             "title": "动漫",
-            "url": "https://w.duboku.io/vodtype/4.html",
+            "url": "https://www.duboku.tv/vodtype/4.html",
             "quantity": ""
          },
          {
             "title": "综艺",
-            "url": "https://w.duboku.io/vodtype/3.html",
+            "url": "https://www.duboku.tv/vodtype/3.html",
             "quantity": ""
          }
       ],
@@ -320,7 +320,7 @@
          }
       },
       "search": {
-         "url": "https://w.duboku.io/vodsearch/-------------.html?wd=#msearchword&submit="
+         "url": "https://www.duboku.tv/vodsearch/-------------.html?wd=#msearchword&submit="
       }
    },
    {
