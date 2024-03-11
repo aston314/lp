@@ -89,7 +89,7 @@
       "datasort": "",
       "use_proxy": false,
       "use_referer": false,
-      "browser": "MOBILE_UA",
+      "browser": "PC_UA",
       "category": [
          {
             "title": "首页",
