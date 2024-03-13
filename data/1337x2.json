@@ -37,7 +37,7 @@
       "release_date": "2023-12-14"
     },
     {
-      "tmdbrate": 7.901,
+      "tmdbrate": 7.905,
       "picture": "http://image.tmdb.org/t/p/w200/5XJRtk8C0jB5eLXM9Nubz8M8uCN.jpg",
       "name": "Poor Things",
       "video": "magnet:?xt=urn:btih:65E763AB3D4D81CC0F20C7881B56369D52BA929C&dn=Poor+Things+%282023%29+%281080p+BluRay+x265+HEVC+10bit+AAC+5.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
@@ -55,15 +55,6 @@
       "release_date": "2024-03-08"
     },
     {
-      "tmdbrate": 6.83,
-      "picture": "http://image.tmdb.org/t/p/w200/k5XkPlci4EG0Gu75wMez6i04om1.jpg",
-      "name": "Aquaman and the Lost Kingdom",
-      "video": "magnet:?xt=urn:btih:7BACAA3E41C40C12440CE99DDED4A71635DAF127&dn=Aquaman+and+the+Lost+Kingdom+%282023%29+%281080p+BluRay+x265+HEVC+10bit+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Aquaman and the Lost Kingdom (2023) (1080p BluRay x265 HEVC 10bit...",
-      "cname": "海王2：失落的王国 ",
-      "release_date": "2023-12-20"
-    },
-    {
       "tmdbrate": 5.7,
       "picture": "http://image.tmdb.org/t/p/w200/gavGnAMTXPkpoFgG0stwgIgKb64.jpg",
       "name": "Drive-Away Dolls",
@@ -71,6 +62,15 @@
       "oname": "Drive-Away.Dolls.2024.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG",
       "cname": "出走俏娇娃 ",
       "release_date": "2024-02-22"
+    },
+    {
+      "tmdbrate": 6.8,
+      "picture": "http://image.tmdb.org/t/p/w200/k5XkPlci4EG0Gu75wMez6i04om1.jpg",
+      "name": "Aquaman and the Lost Kingdom",
+      "video": "magnet:?xt=urn:btih:7BACAA3E41C40C12440CE99DDED4A71635DAF127&dn=Aquaman+and+the+Lost+Kingdom+%282023%29+%281080p+BluRay+x265+HEVC+10bit+AAC+7.1+Tigole%29+%5BQxR%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Aquaman and the Lost Kingdom (2023) (1080p BluRay x265 HEVC 10bit...",
+      "cname": "海王2：失落的王国 ",
+      "release_date": "2023-12-20"
     },
     {
       "tmdbrate": 6.124,
@@ -154,6 +154,15 @@
       "release_date": "2023-08-19"
     },
     {
+      "tmdbrate": 5.8,
+      "picture": "http://image.tmdb.org/t/p/w200/qy3ebryFg9QOX6F77iv5pG3gfwr.jpg",
+      "name": "Sometimes I Think About Dying",
+      "video": "magnet:?xt=urn:btih:17E555B64A80AA8105E937328EC6671FD148C2E3&dn=Sometimes.I.Think.About.Dying.2024.720p.AMZN.WEBRip.800MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Sometimes.I.Think.About.Dying.2024.720p.AMZN.WEBRip.800MB.x264-Ga...",
+      "cname": "有时我会思索死亡 ",
+      "release_date": "2024-01-10"
+    },
+    {
       "tmdbrate": 6.124,
       "picture": "http://image.tmdb.org/t/p/w200/A6hlmdQzqz1JHLhhfoBnGjJnexA.jpg",
       "name": "Argylle",
@@ -187,6 +196,14 @@
       "release_date": "2023-08-18"
     },
     {
+      "tmdbrate": 7.193,
+      "picture": "http://image.tmdb.org/t/p/w200/h01iyro5u51wr2e6bXadHjmQ5Dd.jpg",
+      "name": "Origin",
+      "video": "magnet:?xt=urn:btih:6C0AC79F8D52962237692B7CBCD706B635320E75&dn=Origin.2023.720p.AMZN.WEBRip.900MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+      "oname": "Origin.2023.720p.AMZN.WEBRip.900MB.x264-GalaxyRG",
+      "cname": " "
+    },
+    {
       "tmdbrate": 5.571,
       "picture": "http://image.tmdb.org/t/p/w200/sMHvmhKlyyyCWLc3sCxY9wQ0Gai.jpg",
       "name": "The Seeding",
@@ -205,15 +222,6 @@
       "release_date": "1982-04-02"
     },
     {
-      "tmdbrate": 5.8,
-      "picture": "http://image.tmdb.org/t/p/w200/qy3ebryFg9QOX6F77iv5pG3gfwr.jpg",
-      "name": "Sometimes I Think About Dying",
-      "video": "magnet:?xt=urn:btih:17E555B64A80AA8105E937328EC6671FD148C2E3&dn=Sometimes.I.Think.About.Dying.2024.720p.AMZN.WEBRip.800MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Sometimes.I.Think.About.Dying.2024.720p.AMZN.WEBRip.800MB.x264-Ga...",
-      "cname": "有时我会思索死亡 ",
-      "release_date": "2024-01-10"
-    },
-    {
       "tmdbrate": 8.2,
       "picture": "http://image.tmdb.org/t/p/w200/ne3aPYNq6OD22jr4E43Q3hUoltO.jpg",
       "name": "Werner Herzog - Radical Dreamer",
@@ -221,14 +229,6 @@
       "oname": "Werner Herzog - Radical Dreamer (2022) (1080p BluRay x265 HEVC 10...",
       "cname": "沃纳·赫尔佐格：激进梦想家 ",
       "release_date": "2022-10-27"
-    },
-    {
-      "tmdbrate": 7.193,
-      "picture": "http://image.tmdb.org/t/p/w200/h01iyro5u51wr2e6bXadHjmQ5Dd.jpg",
-      "name": "Origin",
-      "video": "magnet:?xt=urn:btih:6C0AC79F8D52962237692B7CBCD706B635320E75&dn=Origin.2023.720p.AMZN.WEBRip.900MB.x264-GalaxyRG&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.foreverpirates.co%3A443%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
-      "oname": "Origin.2023.720p.AMZN.WEBRip.900MB.x264-GalaxyRG",
-      "cname": " "
     }
   ]
 }
